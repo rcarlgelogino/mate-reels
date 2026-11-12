@@ -1,0 +1,39 @@
+{
+  "language": "Spanish narration (castellano rioplatense, voseo), English topic notes",
+  "note": "Facts marked verify must be checked with a web search on the day of production. Never make health claims.",
+  "topics": [
+    { "id": "t01", "title": "How to prepare mate like an Argentine (step by step)", "angle": "yerba 2/3 full, cover and shake, tilt into a slope, warm water on the low side, bombilla in, never stir", "templates": ["prep", "gourd"], "verify": [] },
+    { "id": "t02", "title": "Why you should never use boiling water", "angle": "about 70 to 80 degrees C; boiling water burns the yerba and makes it bitter; the termo pico", "templates": ["prep", "object"], "verify": ["recommended water temperature range"] },
+    { "id": "t03", "title": "The cebador: the one person who serves", "angle": "one person fills and passes, always back to the cebador, order goes around the circle", "templates": ["ronda"], "verify": [] },
+    { "id": "t04", "title": "Saying 'gracias' means you are done", "angle": "thanking ends your turn in the ronda; tourists say it too early", "templates": ["ronda", "places"], "verify": [] },
+    { "id": "t05", "title": "Never move the bombilla", "angle": "stirring clogs the filter and is a small insult to the cebador", "templates": ["prep", "ronda"], "verify": [] },
+    { "id": "t06", "title": "Curing a new gourd (curar el mate)", "angle": "new calabaza needs curing with used yerba for a day or two; wood too; steel and glass do not", "templates": ["prep", "gourd"], "verify": ["common curing method"] },
+    { "id": "t07", "title": "Calabaza, wood, steel, imperial: which gourd is which", "angle": "materials and what they change in taste and care", "templates": ["gourd", "compare"], "verify": [] },
+    { "id": "t08", "title": "The bombilla is a filter, not a straw", "angle": "paleta, spring and other filters; metal alpaca or steel", "templates": ["object"], "verify": [] },
+    { "id": "t09", "title": "Why Argentines carry a thermos everywhere", "angle": "termo under the arm in parks, offices, road trips", "templates": ["places", "object"], "verify": [] },
+    { "id": "t10", "title": "Con palo or sin palo: stems in your yerba", "angle": "with stems is milder and the standard in Argentina; without stems is stronger", "templates": ["object", "compare"], "verify": ["stem share in yerba con palo"] },
+    { "id": "t11", "title": "The harvest: how yerba leaves are picked", "angle": "the zafra season, mostly in the cooler months, Misiones and Corrientes", "templates": ["plantation"], "verify": ["main harvest months in Argentina"] },
+    { "id": "t12", "title": "Fire first: sapecado and drying", "angle": "fresh leaves get a quick blast of heat within hours, then are dried", "templates": ["factory"], "verify": ["sapecado time window after harvest"] },
+    { "id": "t13", "title": "Yerba ages like wine (estacionamiento)", "angle": "natural aging for months before milling", "templates": ["factory"], "verify": ["typical natural aging duration"] },
+    { "id": "t14", "title": "From leaf to package in 5 steps", "angle": "harvest, sapecado, drying, aging, milling and packing", "templates": ["plantation", "factory"], "verify": [] },
+    { "id": "t15", "title": "Where yerba mate grows in Argentina", "angle": "red earth of Misiones and northeast Corrientes, the only producing region", "templates": ["plantation", "jungle"], "verify": ["producing provinces"] },
+    { "id": "t16", "title": "The Guarani origin of mate", "angle": "Guarani people drank yerba long before Europeans; the Jesuits later cultivated it", "templates": ["jungle"], "verify": ["Jesuit cultivation in missions"] },
+    { "id": "t17", "title": "Argentina vs Uruguay", "angle": "Uruguay drinks the most per person, bigger gourds and the thermos culture; Uruguay imports most of its yerba", "templates": ["compare", "places"], "verify": ["per capita consumption Uruguay and Argentina", "Uruguay imports from Brazil"] },
+    { "id": "t18", "title": "Brazil's chimarrao", "angle": "the big cuia, very fine bright green yerba, south of Brazil", "templates": ["gourd", "compare"], "verify": ["chimarrao region"] },
+    { "id": "t19", "title": "Paraguay's terere: mate with ice water", "angle": "cold water, guampa, herbs; UNESCO heritage", "templates": ["gourd", "compare"], "verify": ["terere UNESCO listing year"] },
+    { "id": "t20", "title": "Four countries, four ways to drink mate", "angle": "Argentina, Uruguay, Brazil, Paraguay side by side", "templates": ["compare"], "verify": [] },
+    { "id": "t21", "title": "Mate cocido: mate in a tea bag", "angle": "breakfast and school snack, with milk too", "templates": ["object", "places"], "verify": [] },
+    { "id": "t22", "title": "Sweet or bitter? The great mate debate", "angle": "amargo vs dulce, sugar or sweetener, regional habits", "templates": ["ronda", "prep"], "verify": [] },
+    { "id": "t23", "title": "Yuyos: herbs Argentines add to mate", "angle": "peperina, cedron, burro, citrus peel", "templates": ["prep", "object"], "verify": [] },
+    { "id": "t24", "title": "Mateine is just caffeine", "angle": "myth check without health claims: the stimulant in yerba is caffeine", "templates": ["object"], "verify": ["mateine equals caffeine"] },
+    { "id": "t25", "title": "National Mate Day on 30 November", "angle": "why the date, Andresito Guacurari", "templates": ["ronda", "jungle"], "verify": ["Dia Nacional del Mate date and reason"] },
+    { "id": "t26", "title": "Mate at work", "angle": "offices share a gourd, the desk thermos, rules at work", "templates": ["places"], "verify": [] },
+    { "id": "t27", "title": "Mate at the beach and on road trips", "angle": "the thermos refill stations at gas stations and the beach kit", "templates": ["places"], "verify": ["hot water at gas stations"] },
+    { "id": "t28", "title": "Mate by the numbers", "angle": "kilos per person, share of households, green leaf processed", "templates": ["compare", "plantation"], "verify": ["per capita kg", "share of households", "green leaf volume"] },
+    { "id": "t29", "title": "Who buys Argentina's yerba?", "angle": "export destinations, a surprising number one", "templates": ["compare"], "verify": ["top export destinations latest year"] },
+    { "id": "t30", "title": "5 mate mistakes tourists make", "angle": "saying thanks too early, stirring, boiling water, wiping the bombilla, hogging the gourd", "templates": ["ronda", "prep", "places"], "verify": [] }
+  ],
+  "week1": [
+    ["t01", "t17"], ["t04", "t19"], ["t02", "t11"], ["t30", "t18"], ["t03", "t28"], ["t08", "t13"], ["t09", "t16"]
+  ]
+}

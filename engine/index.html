@@ -1,0 +1,27 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>Reel Engine</title>
+<style>
+@font-face { font-family:'Montserrat'; font-weight:800; src:url('/tools/node_modules/@fontsource/montserrat/files/montserrat-latin-800-normal.woff2') format('woff2'); }
+@font-face { font-family:'Montserrat'; font-weight:900; src:url('/tools/node_modules/@fontsource/montserrat/files/montserrat-latin-900-normal.woff2') format('woff2'); }
+@font-face { font-family:'Cormorant Garamond'; font-weight:500; font-style:normal; src:url('/tools/node_modules/@fontsource/cormorant-garamond/files/cormorant-garamond-latin-500-normal.woff2') format('woff2'); }
+@font-face { font-family:'Cormorant Garamond'; font-weight:600; font-style:normal; src:url('/tools/node_modules/@fontsource/cormorant-garamond/files/cormorant-garamond-latin-600-normal.woff2') format('woff2'); }
+@font-face { font-family:'Cormorant Garamond'; font-weight:500; font-style:italic; src:url('/tools/node_modules/@fontsource/cormorant-garamond/files/cormorant-garamond-latin-500-italic.woff2') format('woff2'); }
+@font-face { font-family:'Cormorant Garamond'; font-weight:600; font-style:italic; src:url('/tools/node_modules/@fontsource/cormorant-garamond/files/cormorant-garamond-latin-600-italic.woff2') format('woff2'); }
+html,body{margin:0;background:#111;color:#eee;font:14px system-ui}
+canvas{display:block;height:90vh;width:auto}
+</style>
+<script type="importmap">
+{ "imports": {
+  "three": "/tools/node_modules/three/build/three.module.js",
+  "three/addons/": "/tools/node_modules/three/examples/jsm/"
+} }
+</script>
+</head>
+<body>
+<canvas id="c"></canvas>
+<script type="module" src="./engine.js"></script>
+</body>
+</html>

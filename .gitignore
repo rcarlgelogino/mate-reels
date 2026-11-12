@@ -1,0 +1,23 @@
+# secrets
+.env
+*.env
+# dependencies and caches
+node_modules/
+tools/kokoro_voices/
+# local output (videos live in GitHub releases, not in git)
+out/
+work/
+outbox/
+fertig/
+runs/
+voicetest/
+audio/
+shots/
+*.mp4
+*.wav
+*.mp3
+*.f32
+/timeline.json
+/index.html
+/serve.js
+tools/kokoro_es.mjs

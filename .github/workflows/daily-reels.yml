@@ -1,0 +1,71 @@
+name: daily-reels
+
+on:
+  schedule:
+    - cron: '0 3 * * *'   # every day 03:00 UTC (04:00 German winter time)
+  workflow_dispatch:
+    inputs:
+      count:
+        description: 'How many reels to build'
+        default: '3'
+      test:
+        description: 'Build only samples/test_reel.json (does not touch the queue)'
+        type: boolean
+        default: false
+
+permissions:
+  contents: write
+
+concurrency:
+  group: daily-reels
+  cancel-in-progress: false
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    timeout-minutes: 240
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+          cache: npm
+          cache-dependency-path: tools/package-lock.json
+
+      - name: Install tools
+        run: |
+          npm ci --prefix tools
+          npx --prefix tools puppeteer browsers install chrome
+          sudo apt-get update -qq && sudo apt-get install -y -qq libgbm1 libnss3 libasound2t64 fonts-dejavu-core > /dev/null || true
+
+      - name: Cache Whisper model
+        uses: actions/cache@v4
+        with:
+          path: tools/node_modules/@huggingface/transformers/.cache
+          key: whisper-small-timestamped-v1
+
+      - name: Build reels
+        env:
+          GEMINI_API_KEY: ${{ secrets.GEMINI_API_KEY }}
+          REELS_PER_DAY: ${{ inputs.count || '3' }}
+        run: node scripts/daily.js --count "${REELS_PER_DAY}" ${{ inputs.test && '--test' || '' }}
+
+      - name: Commit queue progress
+        if: ${{ !inputs.test }}
+        run: |
+          git config user.name "reels-bot"
+          git config user.email "reels-bot@users.noreply.github.com"
+          git add -A queue done
+          git diff --cached --quiet || (git commit -m "Built reels $(date -u +%F)" && git push)
+
+      - name: Publish release with the videos
+        if: ${{ always() }}
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          DAY=$(date -u +%F)
+          DIR="out/$DAY"
+          ls "$DIR"/*.mp4 >/dev/null 2>&1 || { echo "no videos to publish"; cat "$DIR/SUMMARY.md" 2>/dev/null; exit 0; }
+          TAG="reels-$DAY-${{ github.run_number }}"
+          gh release create "$TAG" "$DIR"/*.mp4 "$DIR"/*.txt --title "Reels $DAY" --notes-file "$DIR/SUMMARY.md"

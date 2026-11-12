@@ -1,0 +1,629 @@
+{
+ "id": "test_reel",
+ "topic": "t03",
+ "variant": "STYLE-FLAT2D",
+ "ab": "Automation test reel (2D cebador, voice Charon)",
+ "voice": "es-AR-TomasNeural",
+ "rate": "+14%",
+ "style": {
+  "accent": "#3fd0c9",
+  "mood": "latin",
+  "bpm": 108,
+  "look": "explainer",
+  "render": "flat"
+ },
+ "followText": "SEGUINOS PARA MÁS",
+ "followSub": "COSTUMBRES DEL MATE",
+ "followY": 1500,
+ "segments": [
+  {
+   "text": "Una sola persona manda en la ronda de mate.",
+   "emo": "surprised",
+   "shots": [
+    {
+     "tpl": "flat",
+     "p": {
+      "scene": "kitchen",
+      "people": [
+       {
+        "who": 0,
+        "x": 0.22,
+        "y": 0.74,
+        "s": 540,
+        "hold": "mate",
+        "steam": true
+       },
+       {
+        "who": 1,
+        "x": 0.5,
+        "y": 0.72,
+        "s": 520
+       },
+       {
+        "who": 4,
+        "x": 0.78,
+        "y": 0.74,
+        "s": 540
+       }
+      ],
+      "labels": [
+       {
+        "text": "EL QUE MANDA",
+        "x": 0.22,
+        "y": 0.43,
+        "ty": 0.34
+       }
+      ]
+     }
+    }
+   ],
+   "callouts": [
+    {
+     "type": "big",
+     "text": "MANDA UNO",
+     "at": "sola",
+     "y": 1560,
+     "impact": true
+    }
+   ]
+  },
+  {
+   "text": "Y casi todos rompen su regla sin saberlo.",
+   "emo": "tense",
+   "shots": [
+    {
+     "tpl": "flat",
+     "p": {
+      "scene": "solid",
+      "bg": "#e5483a",
+      "people": [
+       {
+        "who": 1,
+        "x": 0.5,
+        "y": 1.34,
+        "s": 1500,
+        "act": "shock",
+        "face": "surprised"
+       }
+      ]
+     }
+    }
+   ],
+   "callouts": [
+    {
+     "type": "big",
+     "text": "SU REGLA",
+     "at": "regla",
+     "y": 1560
+    }
+   ]
+  },
+  {
+   "text": "Se llama cebador, y es el que sirve el mate.",
+   "emo": "warm",
+   "shots": [
+    {
+     "tpl": "flat",
+     "p": {
+      "scene": "patio",
+      "people": [
+       {
+        "who": 0,
+        "x": 0.5,
+        "y": 0.86,
+        "s": 700,
+        "hold": "both",
+        "steam": true
+       }
+      ],
+      "labels": [
+       {
+        "text": "CEBADOR",
+        "x": 0.5,
+        "y": 0.5,
+        "tx": 0.72,
+        "ty": 0.36
+       }
+      ]
+     }
+    }
+   ],
+   "callouts": [
+    {
+     "type": "big",
+     "text": "EL CEBADOR",
+     "at": "ceba",
+     "y": 1560
+    }
+   ]
+  },
+  {
+   "text": "El primer mate se lo toma él, y está amargo.",
+   "emo": "neutral",
+   "shots": [
+    {
+     "tpl": "flat",
+     "p": {
+      "scene": "kitchen",
+      "tableY": 0.7,
+      "people": [
+       {
+        "who": 0,
+        "x": 0.5,
+        "y": 0.9,
+        "s": 900,
+        "act": "drink",
+        "face": "sad"
+       }
+      ]
+     }
+    }
+   ],
+   "callouts": [
+    {
+     "type": "big",
+     "text": "EL PRIMERO ES SUYO",
+     "at": "primer",
+     "y": 1560,
+     "impact": true
+    }
+   ]
+  },
+  {
+   "text": "Así el mejor mate te llega a vos.",
+   "emo": "funny",
+   "shots": [
+    {
+     "tpl": "flat",
+     "p": {
+      "scene": "navygrid",
+      "bg": "#132033",
+      "objs": [
+       {
+        "type": "calabaza",
+        "x": 0.5,
+        "y": 0.66,
+        "s": 620,
+        "face": "happy",
+        "steam": true,
+        "bob": true
+       }
+      ]
+     }
+    }
+   ],
+   "callouts": [
+    {
+     "type": "big",
+     "text": "EL MEJOR, PARA VOS",
+     "at": "mejor",
+     "y": 1560
+    }
+   ]
+  },
+  {
+   "text": "Después lo llena y te lo pasa.",
+   "emo": "warm",
+   "shots": [
+    {
+     "tpl": "flat",
+     "p": {
+      "scene": "park",
+      "people": [
+       {
+        "who": 0,
+        "x": 0.28,
+        "y": 0.78,
+        "s": 560,
+        "act": "pass"
+       },
+       {
+        "who": 3,
+        "x": 0.74,
+        "y": 0.78,
+        "s": 560,
+        "flip": true,
+        "face": "happy"
+       }
+      ],
+      "pass": {
+       "from": 0,
+       "to": 1
+      }
+     }
+    }
+   ],
+   "callouts": [
+    {
+     "type": "big",
+     "text": "TE LO PASA",
+     "at": "pasa",
+     "y": 1560
+    }
+   ]
+  },
+  {
+   "text": "Pero esperá, acá viene el error más común.",
+   "emo": "excited",
+   "shots": [
+    {
+     "tpl": "flat",
+     "p": {
+      "scene": "solid",
+      "bg": "#7c3aed",
+      "people": [
+       {
+        "who": 2,
+        "x": 0.5,
+        "y": 1.34,
+        "s": 1500,
+        "act": "jump",
+        "face": "surprised"
+       }
+      ]
+     }
+    }
+   ],
+   "callouts": [
+    {
+     "type": "big",
+     "text": "EL ERROR",
+     "at": "esper",
+     "y": 1560,
+     "impact": true,
+     "color": "#ff6b5b"
+    }
+   ]
+  },
+  {
+   "text": "No digas gracias si querés seguir tomando.",
+   "emo": "tense",
+   "shots": [
+    {
+     "tpl": "flat",
+     "p": {
+      "scene": "kitchen",
+      "people": [
+       {
+        "who": 0,
+        "x": 0.3,
+        "y": 0.74,
+        "s": 560,
+        "hold": "termo"
+       },
+       {
+        "who": 5,
+        "x": 0.72,
+        "y": 0.74,
+        "s": 560,
+        "act": "no",
+        "face": "surprised",
+        "hold": "mate"
+       }
+      ]
+     }
+    }
+   ],
+   "callouts": [
+    {
+     "type": "xmark",
+     "text": "GRACIAS",
+     "at": "graci",
+     "y": 760,
+     "size": 300
+    }
+   ]
+  },
+  {
+   "text": "Decir gracias significa: ya está, no quiero más.",
+   "emo": "surprised",
+   "shots": [
+    {
+     "tpl": "board",
+     "p": {
+      "kind": "title",
+      "text": "GRACIAS",
+      "sub": "= YA NO QUIERO MÁS",
+      "bg": "#132033"
+     }
+    }
+   ]
+  },
+  {
+   "text": "Y nunca muevas la bombilla, eso es del cebador.",
+   "emo": "funny",
+   "shots": [
+    {
+     "tpl": "flat",
+     "p": {
+      "scene": "navygrid",
+      "bg": "#132033",
+      "objs": [
+       {
+        "type": "calabaza",
+        "x": 0.5,
+        "y": 0.7,
+        "s": 640,
+        "steam": true
+       }
+      ],
+      "labels": [
+       {
+        "text": "BOMBILLA",
+        "x": 0.58,
+        "y": 0.38,
+        "tx": 0.74,
+        "ty": 0.29
+       }
+      ]
+     }
+    }
+   ],
+   "callouts": [
+    {
+     "type": "cross",
+     "text": "NO LA MUEVAS",
+     "at": "muevas",
+     "y": 1560
+    }
+   ]
+  },
+  {
+   "text": "Cada mate vuelve siempre a sus manos.",
+   "emo": "nostalgic",
+   "shots": [
+    {
+     "tpl": "flat",
+     "p": {
+      "scene": "plaza",
+      "people": [
+       {
+        "who": 1,
+        "x": 0.16,
+        "y": 0.78,
+        "s": 440
+       },
+       {
+        "who": 0,
+        "x": 0.5,
+        "y": 0.84,
+        "s": 520,
+        "hold": "both",
+        "face": "happy"
+       },
+       {
+        "who": 3,
+        "x": 0.84,
+        "y": 0.78,
+        "s": 440
+       },
+       {
+        "who": 5,
+        "x": 0.33,
+        "y": 0.74,
+        "s": 400,
+        "back": true
+       },
+       {
+        "who": 2,
+        "x": 0.67,
+        "y": 0.74,
+        "s": 400,
+        "back": true
+       }
+      ],
+      "labels": [
+       {
+        "text": "CEBADOR",
+        "x": 0.5,
+        "y": 0.6,
+        "ty": 0.5
+       }
+      ]
+     }
+    }
+   ],
+   "callouts": [
+    {
+     "type": "big",
+     "text": "SIEMPRE VUELVE",
+     "at": "vuelve",
+     "y": 1560,
+     "impact": true
+    }
+   ]
+  },
+  {
+   "text": "Y gira uno por uno, sin saltear a nadie.",
+   "emo": "proud",
+   "shots": [
+    {
+     "tpl": "board",
+     "p": {
+      "kind": "cards",
+      "bg": "#132033",
+      "items": [
+       {
+        "n": 1,
+        "title": "CEBADOR",
+        "sub": "LLENA"
+       },
+       {
+        "n": 2,
+        "title": "VOS",
+        "sub": "TOMÁS TODO"
+       },
+       {
+        "n": 3,
+        "title": "EL OTRO",
+        "sub": "Y VUELVE"
+       }
+      ]
+     }
+    }
+   ]
+  },
+  {
+   "text": "Y ahora, lo más lindo de todo esto.",
+   "emo": "excited",
+   "shots": [
+    {
+     "tpl": "flat",
+     "p": {
+      "scene": "solid",
+      "bg": "#10b981",
+      "objs": [
+       {
+        "type": "calabaza",
+        "x": 0.5,
+        "y": 0.7,
+        "s": 680,
+        "face": "happy",
+        "bob": true,
+        "steam": true
+       },
+       {
+        "type": "heart",
+        "x": 0.74,
+        "y": 0.36,
+        "s": 160,
+        "delay": 0.4
+       }
+      ]
+     }
+    }
+   ],
+   "callouts": [
+    {
+     "type": "big",
+     "text": "LO MÁS LINDO",
+     "at": "lindo",
+     "y": 1560,
+     "impact": true
+    }
+   ]
+  },
+  {
+   "text": "En la plaza, hasta un desconocido te convida.",
+   "emo": "warm",
+   "shots": [
+    {
+     "tpl": "flat",
+     "p": {
+      "scene": "plaza",
+      "people": [
+       {
+        "who": 4,
+        "x": 0.28,
+        "y": 0.8,
+        "s": 560,
+        "act": "pass",
+        "face": "happy"
+       },
+       {
+        "who": 2,
+        "x": 0.74,
+        "y": 0.8,
+        "s": 560,
+        "flip": true,
+        "face": "surprised"
+       }
+      ],
+      "pass": {
+       "from": 0,
+       "to": 1
+      }
+     }
+    }
+   ],
+   "callouts": [
+    {
+     "type": "big",
+     "text": "TE CONVIDA",
+     "at": "convida",
+     "y": 1560
+    }
+   ]
+  },
+  {
+   "text": "Porque el cebador no sirve mate: sirve compañía.",
+   "emo": "love",
+   "shots": [
+    {
+     "tpl": "flat",
+     "p": {
+      "scene": "patio",
+      "people": [
+       {
+        "who": 1,
+        "x": 0.22,
+        "y": 0.86,
+        "s": 520,
+        "act": "hug",
+        "face": "love"
+       },
+       {
+        "who": 0,
+        "x": 0.5,
+        "y": 0.88,
+        "s": 560,
+        "hold": "mate",
+        "face": "happy"
+       },
+       {
+        "who": 3,
+        "x": 0.78,
+        "y": 0.86,
+        "s": 520,
+        "act": "hug",
+        "face": "love"
+       }
+      ]
+     }
+    }
+   ],
+   "callouts": [
+    {
+     "type": "big",
+     "text": "COMPAÑÍA",
+     "at": "compa",
+     "y": 1560,
+     "impact": true
+    }
+   ]
+  },
+  {
+   "text": "¿Vos cebás o esperás? Seguinos para más.",
+   "emo": "funny",
+   "shots": [
+    {
+     "tpl": "board",
+     "p": {
+      "kind": "poll",
+      "bg": "#132033",
+      "question": "¿Vos qué sos?",
+      "options": [
+       "CEBADOR",
+       "ESPERO MI MATE",
+       "DIGO GRACIAS"
+      ],
+      "top": 500,
+      "cta": false
+     }
+    }
+   ]
+  }
+ ],
+ "caption": "En toda ronda de mate manda una sola persona 🧉 El cebador, el primer mate y el error de decir \"gracias\".\nGuardalo para tu próxima ronda. ¿Vos cebás o esperás? Contalo en los comentarios 👇",
+ "hashtags": [
+  "#mate",
+  "#yerbamate",
+  "#argentina",
+  "#cebador",
+  "#matero",
+  "#costumbresargentinas",
+  "#rondademate"
+ ],
+ "geminiVoice": "Charon",
+ "tts": "gemini"
+}

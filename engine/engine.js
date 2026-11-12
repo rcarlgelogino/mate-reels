@@ -513,7 +513,7 @@ T.board=(p={})=>{
   const n=k==='cards'?(p.items||[]).length:k==='checklist'?(p.rows||[]).length:k==='poll'?(p.options||[]).length:k==='timeline'?(p.items||[]).length:0;
   for(let i=0;i<n;i++) cues.push({u:0.1+i*(0.75/Math.max(1,n)),type:k==='checklist'?((p.rows[i].ok)?'ding':'buzz'):'pop'});
   if(k==='dots') cues.push({u:0.1,type:'tick'},{u:0.55,type:'ding'});
-  return { scene:s, camera:cam, aperture:0, maxblur:0, cues, update(){ return 5; }, overlay:(c,u,t)=>drawBoard(c,p,u,t) };
+  return { scene:s, camera:cam, aperture:0, maxblur:0, no3d:true, cues, update(){ return 5; }, overlay:(c,u,t)=>{ c.fillStyle=bg; c.fillRect(0,0,W,H); drawBoard(c,p,u,t); } };
 };
 function rr(c,x,y,w,h,r,fill){ c.beginPath(); c.roundRect(x,y,w,h,r); c.fillStyle=fill; c.fill(); }
 function drawBoard(c,p,u,t){
@@ -709,7 +709,7 @@ const easeInOut=x=>x<0.5?4*x*x*x:1-Math.pow(-2*x+2,3)/2;
 T.flat=(p={})=>{ const s=new THREE.Scene(); s.background=new THREE.Color('#000'); const cam=newCam(40); const cues=[];
   (p.people||[]).forEach((q,i)=>{ cues.push({u:0.04+i*0.03,type:'pop'}); if(q.act==='jump'||q.act==='cheer') cues.push({u:0.2,type:'popBig'}); });
   if(p.pass) cues.push({u:0.3,type:'swish'}); if(p.objs?.length) cues.push({u:0.06,type:'pop'}); (p.labels||[]).forEach((l,i)=>cues.push({u:l.u??(0.15+i*0.12),type:'blip'}));
-  return { scene:s, camera:cam, aperture:0, maxblur:0, cues, update(){ return 5; }, overlay:(c,u,t,sh)=>drawFlat(c,p,u,t,sh) }; };
+  return { scene:s, camera:cam, aperture:0, maxblur:0, no3d:true, cues, update(){ return 5; }, overlay:(c,u,t,sh)=>drawFlat(c,p,u,t,sh) }; };
 
 // ---------------- low-poly kit (reference styles "24h", "diorama", "POV") ----------------
 const fm=(c,o={})=>new THREE.MeshStandardMaterial({color:c,roughness:o.r??0.85,metalness:o.m??0,flatShading:o.flat??true,emissive:o.e||'#000000',emissiveIntensity:o.ei??1,transparent:o.op!=null,opacity:o.op??1});
@@ -1014,7 +1014,8 @@ T.meadow=(p={})=>{ const s=newScene('#dfe6e2',p.shot==='lead'?9:17,p.shot==='lea
 const canvas=document.getElementById('c'); canvas.width=W; canvas.height=H;
 const renderer=new THREE.WebGLRenderer({canvas,antialias:true,preserveDrawingBuffer:true}); renderer.setPixelRatio(1); renderer.setSize(W,H,false);
 renderer.shadowMap.enabled=true; renderer.shadowMap.type=THREE.PCFSoftShadowMap; renderer.toneMapping=THREE.ACESFilmicToneMapping;
-const composer=new EffectComposer(renderer,new THREE.WebGLRenderTarget(W,H,{type:THREE.HalfFloatType,samples:4}));
+const SOFT=(()=>{ try{ const gl=renderer.getContext(); const ext=gl.getExtension('WEBGL_debug_renderer_info'); return /SwiftShader|llvmpipe|Software/i.test(gl.getParameter(ext?ext.UNMASKED_RENDERER_WEBGL:gl.RENDERER)); }catch(e){ return false; } })();
+const composer=new EffectComposer(renderer,new THREE.WebGLRenderTarget(W,H,{type:THREE.HalfFloatType,samples:SOFT?2:4}));
 const dummyS=new THREE.Scene(), dummyC=newCam(40);
 const renderPass=new RenderPass(dummyS,dummyC), bokeh=new BokehPass(dummyS,dummyC,{focus:3,aperture:0.002,maxblur:0.008});
 const bloom=new UnrealBloomPass(new THREE.Vector2(W/2,H/2),0,0.45,0.97); bloom.enabled=false;
@@ -1032,7 +1033,7 @@ function applyEmo(inst,sh,u,t){ if(!sh) return; const emo={...(inst.emo||{}),...
   const who=emo.who; (inst.people||[]).forEach((pp,i)=>{ const hit=who==null||who==='all'||who===i||(Array.isArray(who)&&who.includes(i));
     if(face&&hit) pp.face.set(face); applyAct(pp,hit?emo.act:null,t,u); });
   (inst.mates||[]).forEach(M=>{ if(M.face&&(emo.mateFace||face)) M.face.set(emo.mateFace||face); }); }
-function render3D(inst,u,t){ renderPass.scene=bokeh.scene=inst.scene; renderPass.camera=bokeh.camera=inst.camera; bokeh.uniforms.aperture.value=inst.aperture; bokeh.uniforms.maxblur.value=inst.maxblur;
+function render3D(inst,u,t){ if(inst.no3d){ inst.update(u,t); return; } bokeh.enabled=inst.aperture>0&&inst.maxblur>0; renderPass.scene=bokeh.scene=inst.scene; renderPass.camera=bokeh.camera=inst.camera; bokeh.uniforms.aperture.value=inst.aperture; bokeh.uniforms.maxblur.value=inst.maxblur;
   const f=inst.update(u,t); applyEmo(inst,E.curShot,u,t); bokeh.uniforms.focus.value=f; const hq=!!E.tl?.style?.hq; let bs=inst.scene.userData.bloom||0; bloom.threshold=0.97; if(hq){ bs=Math.max(bs,0.32); bloom.threshold=Math.min(bloom.threshold,inst.scene.userData.bloom?0.97:0.8); } bloom.enabled=bs>0; bloom.strength=bs;
   gtao.enabled=hq&&inst.scene.userData.ao!==false; if(gtao.enabled){ gtao.scene=inst.scene; gtao.camera=inst.camera; } grade.enabled=hq; grade.uniforms.time.value=(t*37.13)%100; renderer.toneMappingExposure=1; composer.render(); }
 

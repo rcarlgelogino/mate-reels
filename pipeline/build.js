@@ -109,7 +109,7 @@ function serve() { return new Promise(res => { const types = { '.html': 'text/ht
   srv.listen(0, '127.0.0.1', () => res(srv)); }); }
 async function render(tl) {
   const srv = await serve(); const port = srv.address().port;
-  const browser = await puppeteer.launch({ headless: true, protocolTimeout: 600000, args: (process.platform === 'win32' ? ['--use-angle=d3d11', '--enable-gpu'] : ['--use-angle=swiftshader', '--use-gl=angle', '--no-sandbox', '--disable-dev-shm-usage']).concat(['--ignore-gpu-blocklist', '--enable-unsafe-swiftshader', '--window-size=1200,2000']) });
+  const browser = await puppeteer.launch({ headless: true, protocolTimeout: 600000, args: (process.platform === 'win32' && !process.env.SWIFTSHADER ? ['--use-angle=d3d11', '--enable-gpu'] : ['--use-angle=swiftshader', '--use-gl=angle', '--no-sandbox', '--disable-dev-shm-usage', '--disable-accelerated-2d-canvas']).concat(['--ignore-gpu-blocklist', '--enable-unsafe-swiftshader', '--window-size=1200,2000']) });
   try {
     const page = await browser.newPage(); page.on('pageerror', e => log('pageerror', e.message)); page.on('console', m => { if (m.type() === 'error') log('console', m.text()); });
     await page.goto(`http://127.0.0.1:${port}/engine/index.html`, { waitUntil: 'load' }); await page.waitForFunction('window.__engineReady===true', { timeout: 60000 });

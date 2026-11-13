@@ -53,6 +53,7 @@ jobs:
         env:
           IG_USER_ID: ${{ secrets.IG_USER_ID || vars.IG_USER_ID }}
           META_PAGE_TOKEN: ${{ secrets.META_PAGE_TOKEN }}
+          META_USER_TOKEN: ${{ secrets.META_USER_TOKEN }}
           IG_TOKEN: ${{ secrets.IG_TOKEN }}
         run: |
           F="dl/${{ steps.pick.outputs.file }}"

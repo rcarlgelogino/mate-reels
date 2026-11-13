@@ -1,0 +1,206 @@
+{
+ "id": "0009_tu_yerba_espero_un_ano",
+ "topic": "T14",
+ "title": "Tu yerba esperó un año",
+ "caption": "Tu yerba esperó casi un año antes de llegar a tu mate ⏳🧉\nNatural o acelerada: el atajo que cambia el sabor.\n¿Con palo o sin palo? Contalo en los comentarios 👇",
+ "hashtags": [
+  "#mate",
+  "#yerbamate",
+  "#argentina",
+  "#matero",
+  "#costumbresargentinas",
+  "#estacionamiento"
+ ],
+ "segments": [
+  {
+   "text": "Tu yerba esperó casi un año antes de llegar a tu mate.",
+   "emo": "surprised",
+   "beat": "hook",
+   "visual": {
+    "type": "scene",
+    "place": "kitchen",
+    "people": [
+     {
+      "role": "you",
+      "does": "hold_mate",
+      "mood": "surprised"
+     }
+    ]
+   },
+   "headline": "ESPERÓ UN AÑO",
+   "headlineAt": "esper",
+   "impact": true
+  },
+  {
+   "text": "Y hay un atajo que cambia todo el sabor.",
+   "emo": "tense",
+   "beat": "loop",
+   "visual": {
+    "type": "reaction",
+    "emotion": "surprised",
+    "act": "shock",
+    "color": "purple",
+    "who": 2
+   },
+   "headline": "UN ATAJO",
+   "headlineAt": "atajo"
+  },
+  {
+   "text": "Primero se cosecha, y después se seca con calor.",
+   "emo": "warm",
+   "beat": "body",
+   "visual": {
+    "type": "timeline",
+    "items": [
+     {
+      "label": "1",
+      "text": "Cosecha"
+     },
+     {
+      "label": "2",
+      "text": "Secado"
+     },
+     {
+      "label": "3",
+      "text": "Estacionamiento"
+     }
+    ]
+   }
+  },
+  {
+   "text": "Después descansa en bolsas, en depósitos, sin apuro.",
+   "emo": "nostalgic",
+   "beat": "body",
+   "visual": {
+    "type": "object",
+    "item": "yerba"
+   },
+   "headline": "SIN APURO",
+   "headlineAt": "apuro"
+  },
+  {
+   "text": "Entre nueve meses y un año, de forma natural.",
+   "emo": "proud",
+   "beat": "body",
+   "visual": {
+    "type": "number",
+    "value": "9-12 MESES",
+    "sub": "ESTACIONAMIENTO NATURAL"
+   }
+  },
+  {
+   "text": "Algunas marcas la dejan hasta dos años.",
+   "emo": "surprised",
+   "beat": "body",
+   "visual": {
+    "type": "number",
+    "value": "24 MESES",
+    "sub": "ALGUNAS MARCAS"
+   }
+  },
+  {
+   "text": "Pero esperá: el atajo se llama estacionamiento acelerado.",
+   "emo": "excited",
+   "beat": "rehook",
+   "visual": {
+    "type": "reaction",
+    "emotion": "surprised",
+    "act": "jump",
+    "color": "orange",
+    "who": 4
+   },
+   "headline": "ACELERADO",
+   "headlineAt": "aceler",
+   "impact": true
+  },
+  {
+   "text": "Cámaras de calor que lo hacen en pocas semanas.",
+   "emo": "neutral",
+   "beat": "body",
+   "visual": {
+    "type": "title",
+    "text": "POCAS SEMANAS",
+    "sub": "CÁMARAS DE CALOR"
+   }
+  },
+  {
+   "text": "Es más rápido, pero el sabor suele salir más ácido.",
+   "emo": "sad",
+   "beat": "body",
+   "visual": {
+    "type": "checklist",
+    "rows": [
+     {
+      "text": "Natural: más suave",
+      "ok": true
+     },
+     {
+      "text": "Acelerado: más ácido",
+      "ok": false
+     }
+    ]
+   }
+  },
+  {
+   "text": "Mirá el paquete: si dice natural, esperó por vos.",
+   "emo": "warm",
+   "beat": "body",
+   "visual": {
+    "type": "object",
+    "item": "yerba",
+    "labels": [
+     "NATURAL"
+    ]
+   },
+   "headline": "NATURAL",
+   "headlineAt": "natural",
+   "headlineType": "check"
+  },
+  {
+   "text": "Lo bueno, como la ronda, se toma su tiempo.",
+   "emo": "love",
+   "beat": "payoff",
+   "visual": {
+    "type": "scene",
+    "place": "plaza",
+    "people": [
+     {
+      "role": "friend",
+      "does": "hold_mate",
+      "mood": "happy"
+     },
+     {
+      "role": "cebador",
+      "does": "hold_both",
+      "mood": "happy"
+     },
+     {
+      "role": "grandma",
+      "mood": "happy"
+     }
+    ]
+   },
+   "headline": "SU TIEMPO",
+   "headlineAt": "tiempo",
+   "impact": true
+  },
+  {
+   "text": "¿Vos la querés con palo o sin palo? Comentalo y seguinos.",
+   "emo": "funny",
+   "beat": "cta",
+   "visual": {
+    "type": "title",
+    "text": "",
+    "sub": ""
+   }
+  }
+ ],
+ "poll": {
+  "question": "¿Cómo la querés?",
+  "options": [
+   "CON PALO",
+   "SIN PALO",
+   "ME DA IGUAL"
+  ]
+ }
+}

@@ -3,7 +3,7 @@
 Builds Spanish (rioplatense) Instagram reels about mate: 3D/2D scenes rendered with Three.js in headless Chrome, voice by Gemini TTS (voice Charon, Edge TTS fallback), captions from local Whisper word timings, music and SFX mixed with ffmpeg.
 
 ## Daily automation (GitHub Actions)
-- `.github/workflows/daily-reels.yml` runs every day at 03:00 UTC and builds the next 3 specs from `queue/`.
+- `.github/workflows/daily-reels.yml` runs every day at 08:30 UTC (after the Gemini quota reset) and builds the next 3 specs from `queue/`.
 - Finished videos + captions are published as a **GitHub release** ("Reels YYYY-MM-DD"); built specs move to `done/<date>/`.
 - Manual run: Actions → daily-reels → *Run workflow* (option `test` builds `samples/test_reel.json` only).
 

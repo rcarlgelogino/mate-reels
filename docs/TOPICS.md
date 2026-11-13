@@ -1,4 +1,4 @@
-# Topics (content layer, style-independent)
+| 14 |undefined| ✍️ || 10 |undefined| ✍️ || 9 |undefined| ✍️ || 4 |undefined| ✍️ || 5 |undefined| ✍️ || 11 |undefined| ✍️ || 30 |undefined| ✍️ || 1 |undefined| ✍️ || 2 |undefined| ✍️ |# Topics (content layer, style-independent)
 
 Rewritten 2026-11-13 after the hit-vs-flop analysis (`docs/WATCHTIME.md`). Every hook is about the viewer's own life (vos, tu mate, tu abuela), with a reframe, an emotion or a side to pick. The hook sentence is also the first line of the post caption.
 Status: ⬜ open · ✍️ script written · ✅ built. Facts marked 🔎 are checked with a web search before the script is written (numbers, history, word origins); no health claims.

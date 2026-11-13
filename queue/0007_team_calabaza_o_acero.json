@@ -1,0 +1,213 @@
+{
+ "id": "0007_team_calabaza_o_acero",
+ "topic": "T09",
+ "title": "Team calabaza o team acero",
+ "caption": "¿Team calabaza o team acero? Tu mate dice mucho de vos 🧉\nCalabaza, madera, acero o vidrio: cuál se cura y cuál divide al país.\n¿Vos de qué team sos? 👇",
+ "hashtags": [
+  "#mate",
+  "#yerbamate",
+  "#argentina",
+  "#matero",
+  "#costumbresargentinas",
+  "#calabaza"
+ ],
+ "segments": [
+  {
+   "text": "¿Team calabaza o team acero? Tu mate dice mucho de vos.",
+   "emo": "surprised",
+   "beat": "hook",
+   "visual": {
+    "type": "scene",
+    "place": "kitchen",
+    "people": [
+     {
+      "role": "grandma",
+      "does": "hold_mate",
+      "mood": "proud"
+     },
+     {
+      "role": "friend",
+      "does": "hold_mate",
+      "mood": "happy",
+      "mate": "acero"
+     }
+    ]
+   },
+   "headline": "¿CALABAZA O ACERO?",
+   "headlineAt": "calab",
+   "impact": true
+  },
+  {
+   "text": "Y uno de ellos divide a todo el país.",
+   "emo": "tense",
+   "beat": "loop",
+   "visual": {
+    "type": "reaction",
+    "emotion": "surprised",
+    "act": "shock",
+    "color": "purple",
+    "who": 2
+   },
+   "headline": "DIVIDE AL PAÍS",
+   "headlineAt": "divide"
+  },
+  {
+   "text": "La calabaza es la clásica: hay que curarla y cuidarla.",
+   "emo": "warm",
+   "beat": "body",
+   "visual": {
+    "type": "object",
+    "item": "mate",
+    "labels": [
+     "CALABAZA"
+    ]
+   },
+   "headline": "LA CLÁSICA",
+   "headlineAt": "sica"
+  },
+  {
+   "text": "Si la cuidás, te dura años y toma tu sabor.",
+   "emo": "love",
+   "beat": "body",
+   "visual": {
+    "type": "scene",
+    "place": "patio",
+    "people": [
+     {
+      "role": "grandma",
+      "does": "hold_mate",
+      "mood": "love"
+     }
+    ]
+   },
+   "headline": "TOMA TU SABOR",
+   "headlineAt": "sabor"
+  },
+  {
+   "text": "La de madera es la de los tradicionales del campo.",
+   "emo": "nostalgic",
+   "beat": "body",
+   "visual": {
+    "type": "object",
+    "item": "mate_madera"
+   },
+   "headline": "LA DE MADERA",
+   "headlineAt": "madera"
+  },
+  {
+   "text": "Pero esperá, acá viene la grieta.",
+   "emo": "excited",
+   "beat": "rehook",
+   "visual": {
+    "type": "reaction",
+    "emotion": "surprised",
+    "act": "jump",
+    "color": "red",
+    "who": 1
+   },
+   "headline": "LA GRIETA",
+   "headlineAt": "grieta",
+   "impact": true
+  },
+  {
+   "text": "El de acero: práctico, no se rompe y no se cura.",
+   "emo": "funny",
+   "beat": "body",
+   "visual": {
+    "type": "object",
+    "item": "acero",
+    "labels": [
+     "ACERO"
+    ]
+   },
+   "headline": "NO SE ROMPE",
+   "headlineAt": "rompe"
+  },
+  {
+   "text": "Los puristas dicen que no es un mate de verdad.",
+   "emo": "tense",
+   "beat": "body",
+   "visual": {
+    "type": "scene",
+    "place": "plaza",
+    "people": [
+     {
+      "role": "grandpa",
+      "does": "no",
+      "mood": "angry"
+     },
+     {
+      "role": "friend",
+      "does": "hold_mate",
+      "mood": "surprised",
+      "mate": "acero"
+     }
+    ]
+   },
+   "headline": "¿NO ES MATE?",
+   "headlineAt": "puris"
+  },
+  {
+   "text": "Y el de vidrio, para ver la yerba por dentro.",
+   "emo": "surprised",
+   "beat": "body",
+   "visual": {
+    "type": "list",
+    "items": [
+     {
+      "title": "CALABAZA"
+     },
+     {
+      "title": "MADERA"
+     },
+     {
+      "title": "ACERO"
+     },
+     {
+      "title": "VIDRIO"
+     }
+    ]
+   },
+   "headline": "EL DE VIDRIO",
+   "headlineAt": "vidrio"
+  },
+  {
+   "text": "Pero el que más cuidás dice más de vos que cualquier tipo.",
+   "emo": "love",
+   "beat": "payoff",
+   "visual": {
+    "type": "scene",
+    "place": "kitchen",
+    "people": [
+     {
+      "role": "cebador",
+      "does": "hold_mate",
+      "mood": "love"
+     }
+    ]
+   },
+   "headline": "EL QUE CUIDÁS",
+   "headlineAt": "cuid",
+   "impact": true
+  },
+  {
+   "text": "¿Vos de qué team sos? Comentalo y seguinos para más.",
+   "emo": "funny",
+   "beat": "cta",
+   "visual": {
+    "type": "title",
+    "text": "",
+    "sub": ""
+   }
+  }
+ ],
+ "poll": {
+  "question": "¿Cuál es tu mate?",
+  "options": [
+   "CALABAZA",
+   "MADERA",
+   "ACERO",
+   "VIDRIO"
+  ]
+ }
+}

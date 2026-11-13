@@ -1,0 +1,215 @@
+{
+ "id": "0008_no_muevas_la_bombilla",
+ "topic": "T10",
+ "title": "Mover la bombilla",
+ "caption": "Mover la bombilla en una ronda no es un detalle: para el cebador es casi una ofensa 🧉\nPor qué se tapa el mate y cómo respetar al que te ceba.\nEtiquetá al que siempre la mueve 👇",
+ "hashtags": [
+  "#mate",
+  "#yerbamate",
+  "#argentina",
+  "#matero",
+  "#costumbresargentinas",
+  "#bombilla"
+ ],
+ "segments": [
+  {
+   "text": "Mover la bombilla en una ronda no es un detalle.",
+   "emo": "surprised",
+   "beat": "hook",
+   "visual": {
+    "type": "object",
+    "item": "mate",
+    "labels": [
+     "BOMBILLA"
+    ]
+   },
+   "headline": "¡NO LA MUEVAS!",
+   "headlineAt": "bombi",
+   "impact": true,
+   "headlineType": "cross"
+  },
+  {
+   "text": "Y hay una razón que casi nadie conoce.",
+   "emo": "tense",
+   "beat": "loop",
+   "visual": {
+    "type": "reaction",
+    "emotion": "surprised",
+    "act": "nod",
+    "color": "purple",
+    "who": 3
+   },
+   "headline": "UNA RAZÓN",
+   "headlineAt": "raz"
+  },
+  {
+   "text": "El cebador arma el mate con la yerba inclinada.",
+   "emo": "warm",
+   "beat": "body",
+   "visual": {
+    "type": "scene",
+    "place": "kitchen",
+    "people": [
+     {
+      "role": "cebador",
+      "does": "hold_mate",
+      "mood": "proud"
+     }
+    ],
+    "label": {
+     "text": "CEBADOR",
+     "on": 0
+    }
+   },
+   "headline": "YERBA INCLINADA",
+   "headlineAt": "inclin"
+  },
+  {
+   "text": "Y clava la bombilla en un lugar exacto.",
+   "emo": "proud",
+   "beat": "body",
+   "visual": {
+    "type": "object",
+    "item": "mate",
+    "labels": [
+     "LUGAR EXACTO"
+    ]
+   },
+   "headline": "LUGAR EXACTO",
+   "headlineAt": "exacto"
+  },
+  {
+   "text": "Ahí la yerba filtra bien y el mate no se tapa.",
+   "emo": "neutral",
+   "beat": "body",
+   "visual": {
+    "type": "title",
+    "text": "NO SE TAPA",
+    "sub": "LA BOMBILLA FILTRA"
+   }
+  },
+  {
+   "text": "Pero esperá, mirá lo que pasa si la movés.",
+   "emo": "excited",
+   "beat": "rehook",
+   "visual": {
+    "type": "reaction",
+    "emotion": "surprised",
+    "act": "shock",
+    "color": "orange",
+    "who": 2
+   },
+   "headline": "¿SI LA MOVÉS?",
+   "headlineAt": "esper",
+   "impact": true
+  },
+  {
+   "text": "Se tapa, entra yerba en la boca y se lava rápido.",
+   "emo": "funny",
+   "beat": "body",
+   "visual": {
+    "type": "scene",
+    "place": "kitchen",
+    "people": [
+     {
+      "role": "stranger",
+      "does": "drink",
+      "mood": "sad"
+     }
+    ]
+   },
+   "headline": "SE TAPA",
+   "headlineAt": "tapa"
+  },
+  {
+   "text": "Y el cebador tiene que armar todo de nuevo.",
+   "emo": "sad",
+   "beat": "body",
+   "visual": {
+    "type": "mistake",
+    "text": "NO",
+    "at": "armar",
+    "over": {
+     "type": "scene",
+     "place": "kitchen",
+     "people": [
+      {
+       "role": "cebador",
+       "does": "no",
+       "mood": "angry"
+      },
+      {
+       "role": "stranger",
+       "does": "hold_mate",
+       "mood": "surprised"
+      }
+     ]
+    }
+   }
+  },
+  {
+   "text": "Por eso mover la bombilla es meterse en su trabajo.",
+   "emo": "proud",
+   "beat": "body",
+   "visual": {
+    "type": "scene",
+    "place": "plaza",
+    "people": [
+     {
+      "role": "friend"
+     },
+     {
+      "role": "cebador",
+      "does": "hold_both",
+      "mood": "proud"
+     },
+     {
+      "role": "grandma"
+     }
+    ],
+    "label": {
+     "text": "SU TRABAJO",
+     "on": 1
+    }
+   },
+   "headline": "SU TRABAJO",
+   "headlineAt": "trabajo"
+  },
+  {
+   "text": "Respetar la bombilla es respetar al que te ceba.",
+   "emo": "love",
+   "beat": "payoff",
+   "visual": {
+    "type": "scene",
+    "place": "patio",
+    "people": [
+     {
+      "role": "cebador",
+      "mood": "happy"
+     },
+     {
+      "role": "you",
+      "mood": "love"
+     }
+    ],
+    "pass": [
+     0,
+     1
+    ]
+   },
+   "headline": "RESPETO",
+   "headlineAt": "respetar",
+   "impact": true
+  },
+  {
+   "text": "Etiquetá al que siempre la mueve. Seguinos para más.",
+   "emo": "funny",
+   "beat": "cta",
+   "visual": {
+    "type": "title",
+    "text": "ETIQUETÁ",
+    "sub": "AL QUE SIEMPRE MUEVE LA BOMBILLA"
+   }
+  }
+ ]
+}

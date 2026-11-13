@@ -1,0 +1,230 @@
+{
+ "id": "0005_sos_argentino_de_verdad",
+ "topic": "T05",
+ "title": "Cinco cosas: sos argentino de verdad",
+ "caption": "Si hacés estas cinco cosas con el mate, sos argentino de verdad 🧉🇦🇷\nLa quinta la hace todo el país.\nEtiquetá al más argentino que conozcas 👇",
+ "hashtags": [
+  "#mate",
+  "#yerbamate",
+  "#argentina",
+  "#matero",
+  "#costumbresargentinas",
+  "#argentinos"
+ ],
+ "segments": [
+  {
+   "text": "Si hacés estas cinco cosas con el mate, sos argentino de verdad.",
+   "emo": "surprised",
+   "beat": "hook",
+   "visual": {
+    "type": "scene",
+    "place": "kitchen",
+    "people": [
+     {
+      "role": "cebador",
+      "does": "hold_mate",
+      "mood": "proud"
+     },
+     {
+      "role": "friend",
+      "mood": "surprised"
+     }
+    ]
+   },
+   "headline": "¿SOS ARGENTINO?",
+   "headlineAt": "argent",
+   "impact": true
+  },
+  {
+   "text": "Y la última la hace todo el país, sin excepción.",
+   "emo": "tense",
+   "beat": "loop",
+   "visual": {
+    "type": "reaction",
+    "emotion": "surprised",
+    "act": "nod",
+    "color": "blue",
+    "who": 1
+   },
+   "headline": "LA ÚLTIMA",
+   "headlineAt": "ltima"
+  },
+  {
+   "text": "Uno: llevás el termo bajo el brazo a todos lados.",
+   "emo": "funny",
+   "beat": "body",
+   "visual": {
+    "type": "scene",
+    "place": "park",
+    "people": [
+     {
+      "role": "you",
+      "does": "hold_termo",
+      "mood": "proud"
+     }
+    ]
+   },
+   "headline": "1. EL TERMO",
+   "headlineAt": "termo"
+  },
+  {
+   "text": "Dos: tenés un mate favorito, y nadie lo toca.",
+   "emo": "proud",
+   "beat": "body",
+   "visual": {
+    "type": "object",
+    "item": "mate",
+    "mascot": "happy"
+   },
+   "headline": "2. TU MATE",
+   "headlineAt": "favorito"
+  },
+  {
+   "text": "Tres: sabés que gracias significa no quiero más.",
+   "emo": "warm",
+   "beat": "body",
+   "visual": {
+    "type": "title",
+    "text": "3. GRACIAS",
+    "sub": "= NO QUIERO MÁS"
+   }
+  },
+  {
+   "text": "Pero esperá, las dos últimas son las más difíciles.",
+   "emo": "excited",
+   "beat": "rehook",
+   "visual": {
+    "type": "reaction",
+    "emotion": "happy",
+    "act": "jump",
+    "color": "purple",
+    "who": 4
+   },
+   "headline": "LAS DIFÍCILES",
+   "headlineAt": "esper",
+   "impact": true
+  },
+  {
+   "text": "Cuatro: te enojás si alguien mueve la bombilla.",
+   "emo": "angry",
+   "beat": "body",
+   "visual": {
+    "type": "scene",
+    "place": "kitchen",
+    "people": [
+     {
+      "role": "you",
+      "does": "no",
+      "mood": "angry"
+     },
+     {
+      "role": "stranger",
+      "does": "hold_mate",
+      "mood": "surprised"
+     }
+    ]
+   },
+   "headline": "4. LA BOMBILLA",
+   "headlineAt": "bombi"
+  },
+  {
+   "text": "Y cinco: le convidás mate hasta a un desconocido.",
+   "emo": "love",
+   "beat": "body",
+   "visual": {
+    "type": "scene",
+    "place": "plaza",
+    "people": [
+     {
+      "role": "you",
+      "mood": "happy"
+     },
+     {
+      "role": "stranger",
+      "mood": "surprised"
+     }
+    ],
+    "pass": [
+     0,
+     1
+    ]
+   },
+   "headline": "5. CONVIDÁS",
+   "headlineAt": "convid"
+  },
+  {
+   "text": "Esa es la que hace todo el país.",
+   "emo": "proud",
+   "beat": "body",
+   "visual": {
+    "type": "scene",
+    "place": "plaza",
+    "people": [
+     {
+      "role": "friend",
+      "does": "hold_mate",
+      "mood": "happy"
+     },
+     {
+      "role": "cebador",
+      "does": "hold_both",
+      "mood": "happy"
+     },
+     {
+      "role": "grandma",
+      "mood": "happy"
+     },
+     {
+      "role": "stranger",
+      "mood": "happy"
+     },
+     {
+      "role": "kid",
+      "mood": "happy"
+     }
+    ]
+   },
+   "headline": "TODO EL PAÍS",
+   "headlineAt": "todo"
+  },
+  {
+   "text": "Porque acá el mate no se toma: se comparte.",
+   "emo": "love",
+   "beat": "payoff",
+   "visual": {
+    "type": "scene",
+    "place": "patio",
+    "people": [
+     {
+      "role": "friend",
+      "does": "hug",
+      "mood": "love"
+     },
+     {
+      "role": "cebador",
+      "does": "hold_mate",
+      "mood": "happy"
+     },
+     {
+      "role": "grandma",
+      "does": "hug",
+      "mood": "love"
+     }
+    ]
+   },
+   "headline": "SE COMPARTE",
+   "headlineAt": "compart",
+   "impact": true
+  },
+  {
+   "text": "Etiquetá al más argentino que conozcas. Seguinos para más.",
+   "emo": "funny",
+   "beat": "cta",
+   "visual": {
+    "type": "title",
+    "text": "ETIQUETÁ",
+    "sub": "AL MÁS ARGENTINO QUE CONOZCAS"
+   }
+  }
+ ]
+}

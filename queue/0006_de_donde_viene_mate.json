@@ -1,0 +1,215 @@
+{
+ "id": "0006_de_donde_viene_mate",
+ "topic": "T04",
+ "title": "¿De dónde viene la palabra mate?",
+ "caption": "¿De dónde viene la palabra \"mate\"? No es español… y tampoco guaraní 🧉\nUna palabra quechua que hoy está en todo el país.\n¿Qué palabra sigue: bombilla o cebar? 👇",
+ "hashtags": [
+  "#mate",
+  "#yerbamate",
+  "#argentina",
+  "#matero",
+  "#costumbresargentinas",
+  "#palabras",
+  "#quechua"
+ ],
+ "segments": [
+  {
+   "text": "¿De dónde viene la palabra mate? No es español.",
+   "emo": "surprised",
+   "beat": "hook",
+   "visual": {
+    "type": "object",
+    "item": "mate",
+    "mascot": "surprised"
+   },
+   "headline": "¿MATE?",
+   "headlineAt": "palabra",
+   "impact": true
+  },
+  {
+   "text": "Y tampoco es guaraní, aunque casi todos lo piensen.",
+   "emo": "tense",
+   "beat": "loop",
+   "visual": {
+    "type": "reaction",
+    "emotion": "surprised",
+    "act": "shock",
+    "color": "red",
+    "who": 2
+   },
+   "headline": "¿NI GUARANÍ?",
+   "headlineAt": "guaran"
+  },
+  {
+   "text": "Viene del quechua, la lengua de los incas.",
+   "emo": "warm",
+   "beat": "body",
+   "visual": {
+    "type": "title",
+    "text": "QUECHUA",
+    "sub": "LA LENGUA DE LOS INCAS"
+   }
+  },
+  {
+   "text": "En quechua, mati significa calabaza.",
+   "emo": "proud",
+   "beat": "body",
+   "visual": {
+    "type": "object",
+    "item": "mate",
+    "labels": [
+     "MATI"
+    ]
+   },
+   "headline": "MATI = CALABAZA",
+   "headlineAt": "mati"
+  },
+  {
+   "text": "O sea: el mate era el recipiente, no la bebida.",
+   "emo": "surprised",
+   "beat": "body",
+   "visual": {
+    "type": "scene",
+    "place": "kitchen",
+    "people": [
+     {
+      "role": "grandma",
+      "does": "hold_mate",
+      "mood": "smile"
+     }
+    ],
+    "label": {
+     "text": "EL RECIPIENTE",
+     "on": 0
+    }
+   },
+   "headline": "EL RECIPIENTE",
+   "headlineAt": "recipiente"
+  },
+  {
+   "text": "Pero esperá, ¿y la yerba cómo se llamaba?",
+   "emo": "excited",
+   "beat": "rehook",
+   "visual": {
+    "type": "reaction",
+    "emotion": "surprised",
+    "act": "jump",
+    "color": "orange",
+    "who": 3
+   },
+   "headline": "¿Y LA YERBA?",
+   "headlineAt": "esper",
+   "impact": true
+  },
+  {
+   "text": "Los guaraníes le decían caá: yerba, planta y monte.",
+   "emo": "nostalgic",
+   "beat": "body",
+   "visual": {
+    "type": "title",
+    "text": "KA'A",
+    "sub": "YERBA · PLANTA · MONTE"
+   }
+  },
+  {
+   "text": "En mil seiscientos ocho, un diccionario ya decía: mate, calabazo.",
+   "emo": "neutral",
+   "beat": "body",
+   "visual": {
+    "type": "number",
+    "value": "1608",
+    "sub": "MATE = CALABAZO"
+   }
+  },
+  {
+   "text": "Con los años, el nombre pasó del recipiente a la bebida.",
+   "emo": "warm",
+   "beat": "body",
+   "visual": {
+    "type": "timeline",
+    "items": [
+     {
+      "label": "ANTES",
+      "text": "mate = calabaza"
+     },
+     {
+      "label": "HOY",
+      "text": "mate = la bebida"
+     }
+    ]
+   }
+  },
+  {
+   "text": "Por eso decimos mate, aunque sea de acero o vidrio.",
+   "emo": "funny",
+   "beat": "body",
+   "visual": {
+    "type": "scene",
+    "place": "plaza",
+    "people": [
+     {
+      "role": "friend",
+      "does": "hold_mate",
+      "mood": "happy",
+      "mate": "acero"
+     },
+     {
+      "role": "stranger",
+      "does": "hold_mate",
+      "mood": "laugh",
+      "mate": "imperial"
+     }
+    ]
+   },
+   "headline": "ACERO O VIDRIO",
+   "headlineAt": "acero"
+  },
+  {
+   "text": "Una palabra de los Andes, en la ronda de todo el país.",
+   "emo": "love",
+   "beat": "payoff",
+   "visual": {
+    "type": "scene",
+    "place": "patio",
+    "people": [
+     {
+      "role": "friend",
+      "does": "hug",
+      "mood": "love"
+     },
+     {
+      "role": "cebador",
+      "does": "hold_mate",
+      "mood": "happy"
+     },
+     {
+      "role": "grandma",
+      "does": "hug",
+      "mood": "love"
+     }
+    ]
+   },
+   "headline": "DE LOS ANDES",
+   "headlineAt": "andes",
+   "impact": true
+  },
+  {
+   "text": "¿Qué palabra sigue: bombilla o cebar? Comentalo y seguinos.",
+   "emo": "funny",
+   "beat": "cta",
+   "visual": {
+    "type": "title",
+    "text": "",
+    "sub": ""
+   }
+  }
+ ],
+ "poll": {
+  "question": "¿Qué palabra sigue?",
+  "options": [
+   "BOMBILLA",
+   "CEBAR",
+   "YERBA"
+  ]
+ }
+}

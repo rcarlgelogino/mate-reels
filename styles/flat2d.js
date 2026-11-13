@@ -21,7 +21,7 @@ function sceneShot(v, si) {
   const place = PLACE[v.place] || 'kitchen'; const ppl = v.people || []; const L = layout(ppl.length, place);
   const people = ppl.map((pp, i) => { const r = { ...(ROLE[pp.role] || { who: i }) }; const sc = r.scale || 1; delete r.scale; const d = DOES[pp.does] || {};
     const pos = L[i]; const o = { ...r, ...d, x: pos.x, y: pos.y, s: Math.round(pos.s * sc), back: pos.back };
-    if (pp.mood) o.face = pp.mood; if (pos.x > 0.55 && ppl.length === 2) o.flip = true; if (d.hold === 'mate' || d.hold === 'both' || pp.does === 'drink') o.steam = true; return o; });
+    if (pp.mood) o.face = pp.mood; if (pp.mate) o.mate = { mate_madera: 'madera' }[pp.mate] || pp.mate; if (pos.x > 0.55 && ppl.length === 2) o.flip = true; if (d.hold === 'mate' || d.hold === 'both' || pp.does === 'drink') o.steam = true; return o; });
   if (ppl.length === 1 && ppl[0].does === 'drink') { people[0].s = 900; people[0].y = place === 'kitchen' ? 0.92 : 0.95; }
   const p = { scene: place, people };
   if (place === 'kitchen') { const f0 = people.filter(q => !q.back)[0] || people[0]; p.tableY = f0 ? +(f0.y - 0.34 * f0.s / 1920).toFixed(3) : 0.62; } // counter at hip height (the figures have short cartoon legs: hip at ~1/3 of the height)

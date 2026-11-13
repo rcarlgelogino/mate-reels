@@ -1,0 +1,235 @@
+{
+ "id": "0003_nadie_ceba_como_la_abuela",
+ "topic": "T30",
+ "title": "Nadie ceba como la abuela",
+ "caption": "Nadie ceba como la abuela. Y no es nostalgia 🧉❤️\nTres cosas que hace distinto (la tercera emociona).\nEtiquetá a la abuela que mejor ceba 👇",
+ "hashtags": [
+  "#mate",
+  "#yerbamate",
+  "#argentina",
+  "#matero",
+  "#costumbresargentinas",
+  "#abuela"
+ ],
+ "segments": [
+  {
+   "text": "Nadie ceba como la abuela. Y no es nostalgia.",
+   "emo": "surprised",
+   "beat": "hook",
+   "visual": {
+    "type": "scene",
+    "place": "patio",
+    "people": [
+     {
+      "role": "grandma",
+      "does": "hold_both",
+      "mood": "happy"
+     }
+    ],
+    "label": {
+     "text": "LA ABUELA",
+     "on": 0
+    }
+   },
+   "headline": "NADIE CEBA ASÍ",
+   "headlineAt": "nadie",
+   "impact": true
+  },
+  {
+   "text": "Hace tres cosas distinto, y la tercera emociona.",
+   "emo": "tense",
+   "beat": "loop",
+   "visual": {
+    "type": "list",
+    "items": [
+     {
+      "n": 1,
+      "title": "?"
+     },
+     {
+      "n": 2,
+      "title": "?"
+     },
+     {
+      "n": 3,
+      "title": "?"
+     }
+    ]
+   }
+  },
+  {
+   "text": "Primero: calienta el agua y nunca la deja hervir.",
+   "emo": "warm",
+   "beat": "body",
+   "visual": {
+    "type": "scene",
+    "place": "kitchen",
+    "people": [
+     {
+      "role": "grandma",
+      "does": "hold_termo",
+      "mood": "smile"
+     }
+    ]
+   },
+   "headline": "NUNCA HIERVE",
+   "headlineAt": "hervir"
+  },
+  {
+   "text": "Así la yerba no se quema y dura más.",
+   "emo": "proud",
+   "beat": "body",
+   "visual": {
+    "type": "object",
+    "item": "yerba"
+   },
+   "headline": "DURA MÁS",
+   "headlineAt": "dura"
+  },
+  {
+   "text": "Segundo: ceba despacio, sin apuro, mate por mate.",
+   "emo": "nostalgic",
+   "beat": "body",
+   "visual": {
+    "type": "scene",
+    "place": "patio",
+    "people": [
+     {
+      "role": "grandma",
+      "mood": "smile"
+     },
+     {
+      "role": "kid",
+      "mood": "happy"
+     }
+    ],
+    "pass": [
+     0,
+     1
+    ]
+   },
+   "headline": "SIN APURO",
+   "headlineAt": "apuro"
+  },
+  {
+   "text": "Pero esperá, lo más importante viene ahora.",
+   "emo": "excited",
+   "beat": "rehook",
+   "visual": {
+    "type": "reaction",
+    "emotion": "happy",
+    "act": "jump",
+    "color": "green",
+    "who": 4
+   },
+   "headline": "LO MÁS IMPORTANTE",
+   "headlineAt": "esper",
+   "impact": true
+  },
+  {
+   "text": "Tercero: se acuerda de cómo le gusta a cada uno.",
+   "emo": "warm",
+   "beat": "body",
+   "visual": {
+    "type": "scene",
+    "place": "kitchen",
+    "people": [
+     {
+      "role": "friend",
+      "mood": "happy"
+     },
+     {
+      "role": "grandma",
+      "does": "hold_mate",
+      "mood": "love"
+     },
+     {
+      "role": "kid",
+      "mood": "happy"
+     }
+    ],
+    "label": {
+     "text": "LA ABUELA",
+     "on": 1
+    }
+   },
+   "headline": "A CADA UNO",
+   "headlineAt": "acuerda"
+  },
+  {
+   "text": "Más dulce para vos, amargo para el abuelo.",
+   "emo": "funny",
+   "beat": "body",
+   "visual": {
+    "type": "scene",
+    "place": "patio",
+    "people": [
+     {
+      "role": "you",
+      "does": "hold_mate",
+      "mood": "happy"
+     },
+     {
+      "role": "grandpa",
+      "does": "hold_mate",
+      "mood": "laugh"
+     }
+    ]
+   },
+   "headline": "DULCE Y AMARGO",
+   "headlineAt": "dulce"
+  },
+  {
+   "text": "Nunca lo anota en ningún lado. Simplemente lo sabe.",
+   "emo": "surprised",
+   "beat": "body",
+   "visual": {
+    "type": "object",
+    "item": "mate",
+    "mascot": "love",
+    "heart": true
+   },
+   "headline": "LO SABE",
+   "headlineAt": "sabe"
+  },
+  {
+   "text": "Por eso su mate sabe distinto: tiene memoria.",
+   "emo": "love",
+   "beat": "payoff",
+   "visual": {
+    "type": "scene",
+    "place": "patio",
+    "people": [
+     {
+      "role": "kid",
+      "does": "hug",
+      "mood": "love"
+     },
+     {
+      "role": "grandma",
+      "does": "hold_mate",
+      "mood": "love"
+     },
+     {
+      "role": "you",
+      "does": "hug",
+      "mood": "love"
+     }
+    ]
+   },
+   "headline": "TIENE MEMORIA",
+   "headlineAt": "memoria",
+   "impact": true
+  },
+  {
+   "text": "Etiquetá a la abuela que mejor ceba. Seguinos para más.",
+   "emo": "funny",
+   "beat": "cta",
+   "visual": {
+    "type": "title",
+    "text": "ETIQUETÁ",
+    "sub": "A LA ABUELA QUE MEJOR CEBA"
+   }
+  }
+ ]
+}

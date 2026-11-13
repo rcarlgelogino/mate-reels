@@ -1,0 +1,250 @@
+{
+ "id": "0001_team_dulce_amargo",
+ "topic": "T02",
+ "title": "Team dulce o team amargo",
+ "caption": "¿Team dulce o team amargo? La pelea más vieja de Argentina 🧉\nAl final te digo cuál es el más argentino de verdad.\n¿Vos de qué team sos? Contalo en los comentarios 👇",
+ "hashtags": [
+  "#mate",
+  "#yerbamate",
+  "#argentina",
+  "#matero",
+  "#costumbresargentinas",
+  "#dulceoamargo"
+ ],
+ "segments": [
+  {
+   "text": "¿Team dulce o team amargo? La pelea más vieja de Argentina.",
+   "emo": "surprised",
+   "beat": "hook",
+   "visual": {
+    "type": "scene",
+    "place": "kitchen",
+    "people": [
+     {
+      "role": "friend",
+      "does": "hold_mate",
+      "mood": "happy"
+     },
+     {
+      "role": "grandpa",
+      "does": "hold_mate",
+      "mood": "angry"
+     }
+    ]
+   },
+   "headline": "¿DULCE O AMARGO?",
+   "headlineAt": "dulce",
+   "impact": true
+  },
+  {
+   "text": "Y al final te digo cuál es el más argentino.",
+   "emo": "tense",
+   "beat": "loop",
+   "visual": {
+    "type": "reaction",
+    "emotion": "surprised",
+    "act": "shock",
+    "color": "purple",
+    "who": 2
+   },
+   "headline": "EL MÁS ARGENTINO",
+   "headlineAt": "argent"
+  },
+  {
+   "text": "El amargo es el de siempre: el del campo y la abuela.",
+   "emo": "nostalgic",
+   "beat": "body",
+   "visual": {
+    "type": "scene",
+    "place": "patio",
+    "people": [
+     {
+      "role": "grandpa"
+     },
+     {
+      "role": "grandma",
+      "does": "hold_mate",
+      "mood": "happy"
+     },
+     {
+      "role": "friend"
+     }
+    ]
+   },
+   "headline": "EL DE SIEMPRE",
+   "headlineAt": "campo"
+  },
+  {
+   "text": "Pero esperá: el dulce también tiene su historia.",
+   "emo": "excited",
+   "beat": "rehook",
+   "visual": {
+    "type": "reaction",
+    "emotion": "happy",
+    "act": "jump",
+    "color": "orange",
+    "who": 3
+   },
+   "headline": "¿Y EL DULCE?",
+   "headlineAt": "esper",
+   "impact": true
+  },
+  {
+   "text": "Con azúcar, con miel o con cáscara de naranja.",
+   "emo": "funny",
+   "beat": "body",
+   "visual": {
+    "type": "list",
+    "items": [
+     {
+      "title": "AZÚCAR"
+     },
+     {
+      "title": "MIEL"
+     },
+     {
+      "title": "NARANJA"
+     }
+    ]
+   }
+  },
+  {
+   "text": "Muchos aprendimos a tomar mate así, de chicos.",
+   "emo": "love",
+   "beat": "body",
+   "visual": {
+    "type": "scene",
+    "place": "kitchen",
+    "people": [
+     {
+      "role": "grandma",
+      "does": "hold_termo",
+      "mood": "smile"
+     },
+     {
+      "role": "kid",
+      "does": "drink",
+      "mood": "happy"
+     }
+    ]
+   },
+   "headline": "DE CHICOS",
+   "headlineAt": "chicos"
+  },
+  {
+   "text": "Los amargos dicen que el dulce no es mate.",
+   "emo": "funny",
+   "beat": "body",
+   "visual": {
+    "type": "scene",
+    "place": "plaza",
+    "people": [
+     {
+      "role": "grandpa",
+      "does": "no",
+      "mood": "angry"
+     },
+     {
+      "role": "friend",
+      "does": "hold_mate",
+      "mood": "surprised"
+     }
+    ]
+   },
+   "headline": "¿NO ES MATE?",
+   "headlineAt": "dulce"
+  },
+  {
+   "text": "Y los dulces dicen que el amargo es un castigo.",
+   "emo": "excited",
+   "beat": "body",
+   "visual": {
+    "type": "scene",
+    "place": "plaza",
+    "people": [
+     {
+      "role": "stranger",
+      "does": "laugh",
+      "mood": "laugh"
+     },
+     {
+      "role": "you",
+      "does": "hold_mate",
+      "mood": "laugh"
+     }
+    ]
+   },
+   "headline": "UN CASTIGO",
+   "headlineAt": "castigo"
+  },
+  {
+   "text": "Pero acá viene lo que nadie te dice.",
+   "emo": "tense",
+   "beat": "rehook",
+   "visual": {
+    "type": "reaction",
+    "emotion": "surprised",
+    "act": "shock",
+    "color": "red",
+    "who": 1
+   },
+   "headline": "NADIE LO DICE",
+   "headlineAt": "nadie",
+   "impact": true
+  },
+  {
+   "text": "El más argentino no es el dulce ni el amargo.",
+   "emo": "surprised",
+   "beat": "body",
+   "visual": {
+    "type": "title",
+    "text": "NI DULCE",
+    "sub": "NI AMARGO"
+   }
+  },
+  {
+   "text": "Es el que se comparte, aunque no sea a tu gusto.",
+   "emo": "love",
+   "beat": "payoff",
+   "visual": {
+    "type": "scene",
+    "place": "park",
+    "people": [
+     {
+      "role": "cebador",
+      "mood": "happy"
+     },
+     {
+      "role": "you",
+      "mood": "love"
+     }
+    ],
+    "pass": [
+     0,
+     1
+    ]
+   },
+   "headline": "SE COMPARTE",
+   "headlineAt": "compart",
+   "impact": true
+  },
+  {
+   "text": "¿Vos de qué team sos? Comentalo y seguinos para más.",
+   "emo": "funny",
+   "beat": "cta",
+   "visual": {
+    "type": "title",
+    "text": "",
+    "sub": ""
+   }
+  }
+ ],
+ "poll": {
+  "question": "¿De qué team sos?",
+  "options": [
+   "DULCE",
+   "AMARGO",
+   "DEPENDE"
+  ]
+ }
+}

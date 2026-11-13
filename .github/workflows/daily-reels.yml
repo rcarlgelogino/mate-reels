@@ -2,7 +2,7 @@ name: daily-reels
 
 on:
   schedule:
-    - cron: '0 3 * * *'   # every day 03:00 UTC (04:00 German winter time)
+    - cron: '30 8 * * *'   # every day 08:30 UTC = 09:30 German time, right after the Gemini free quota resets (midnight Pacific)
   workflow_dispatch:
     inputs:
       count:

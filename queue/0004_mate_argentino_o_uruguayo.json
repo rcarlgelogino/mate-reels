@@ -1,0 +1,236 @@
+{
+ "id": "0004_mate_argentino_o_uruguayo",
+ "topic": "T11",
+ "title": "¿El mate es argentino o uruguayo?",
+ "caption": "¿El mate es argentino o uruguayo? La respuesta no le va a gustar a nadie 🧉🇦🇷🇺🇾\nEs más viejo que los dos países: guaraníes, quechua y jesuitas.\n¿Vos qué decís? Contalo en los comentarios 👇",
+ "hashtags": [
+  "#mate",
+  "#yerbamate",
+  "#argentina",
+  "#matero",
+  "#costumbresargentinas",
+  "#uruguay",
+  "#historia"
+ ],
+ "segments": [
+  {
+   "text": "¿El mate es argentino o uruguayo? La respuesta no gusta.",
+   "emo": "surprised",
+   "beat": "hook",
+   "visual": {
+    "type": "scene",
+    "place": "plaza",
+    "people": [
+     {
+      "role": "friend",
+      "does": "hold_mate",
+      "mood": "angry"
+     },
+     {
+      "role": "stranger",
+      "does": "hold_mate",
+      "mood": "angry"
+     }
+    ]
+   },
+   "headline": "¿ARGENTINO O URUGUAYO?",
+   "headlineAt": "argent",
+   "impact": true
+  },
+  {
+   "text": "Porque el mate es más viejo que los dos países.",
+   "emo": "tense",
+   "beat": "loop",
+   "visual": {
+    "type": "title",
+    "text": "MÁS VIEJO",
+    "sub": "QUE ARGENTINA Y URUGUAY"
+   }
+  },
+  {
+   "text": "Antes de las fronteras, ya lo tomaban los guaraníes.",
+   "emo": "warm",
+   "beat": "body",
+   "visual": {
+    "type": "timeline",
+    "items": [
+     {
+      "label": "ANTES",
+      "text": "Guaraníes"
+     },
+     {
+      "label": "1537",
+      "text": "Asunción"
+     },
+     {
+      "label": "HOY",
+      "text": "Cuatro países"
+     }
+    ]
+   },
+   "headline": "LOS GUARANÍES",
+   "headlineAt": "guaran"
+  },
+  {
+   "text": "Ellos llamaban a la planta caá, que significa yerba.",
+   "emo": "proud",
+   "beat": "body",
+   "visual": {
+    "type": "title",
+    "text": "KA'A",
+    "sub": "= YERBA EN GUARANÍ"
+   }
+  },
+  {
+   "text": "Pero esperá: la palabra mate tampoco es guaraní.",
+   "emo": "excited",
+   "beat": "rehook",
+   "visual": {
+    "type": "reaction",
+    "emotion": "surprised",
+    "act": "shock",
+    "color": "purple",
+    "who": 2
+   },
+   "headline": "¿TAMPOCO?",
+   "headlineAt": "esper",
+   "impact": true
+  },
+  {
+   "text": "Viene del quechua mati, que quiere decir calabaza.",
+   "emo": "surprised",
+   "beat": "body",
+   "visual": {
+    "type": "object",
+    "item": "mate",
+    "labels": [
+     "MATI"
+    ]
+   },
+   "headline": "MATI = CALABAZA",
+   "headlineAt": "quechua"
+  },
+  {
+   "text": "Después, los jesuitas la plantaron en sus misiones.",
+   "emo": "neutral",
+   "beat": "body",
+   "visual": {
+    "type": "title",
+    "text": "JESUITAS",
+    "sub": "PLANTACIONES EN LAS MISIONES"
+   }
+  },
+  {
+   "text": "Y el mate cruzó todo el sur del continente.",
+   "emo": "proud",
+   "beat": "body",
+   "visual": {
+    "type": "scene",
+    "place": "plaza",
+    "people": [
+     {
+      "role": "friend",
+      "does": "hold_mate"
+     },
+     {
+      "role": "cebador",
+      "does": "hold_both",
+      "mood": "happy"
+     },
+     {
+      "role": "grandma"
+     },
+     {
+      "role": "stranger"
+     },
+     {
+      "role": "you"
+     }
+    ]
+   },
+   "headline": "TODO EL SUR",
+   "headlineAt": "cruz"
+  },
+  {
+   "text": "Hoy lo toman Argentina, Uruguay, Paraguay y el sur de Brasil.",
+   "emo": "warm",
+   "beat": "body",
+   "visual": {
+    "type": "list",
+    "items": [
+     {
+      "title": "ARGENTINA"
+     },
+     {
+      "title": "URUGUAY"
+     },
+     {
+      "title": "PARAGUAY"
+     },
+     {
+      "title": "BRASIL"
+     }
+    ]
+   }
+  },
+  {
+   "text": "Así que no es de uno ni del otro.",
+   "emo": "funny",
+   "beat": "body",
+   "visual": {
+    "type": "reaction",
+    "emotion": "laugh",
+    "act": "laugh",
+    "color": "orange",
+    "who": 0
+   },
+   "headline": "NI DE UNO",
+   "headlineAt": "otro"
+  },
+  {
+   "text": "Es de todos los que lo comparten.",
+   "emo": "love",
+   "beat": "payoff",
+   "visual": {
+    "type": "scene",
+    "place": "park",
+    "people": [
+     {
+      "role": "cebador",
+      "mood": "happy"
+     },
+     {
+      "role": "stranger",
+      "mood": "happy"
+     }
+    ],
+    "pass": [
+     0,
+     1
+    ]
+   },
+   "headline": "DE TODOS",
+   "headlineAt": "todos",
+   "impact": true
+  },
+  {
+   "text": "¿Vos qué decís? Comentalo y seguinos para más.",
+   "emo": "funny",
+   "beat": "cta",
+   "visual": {
+    "type": "title",
+    "text": "",
+    "sub": ""
+   }
+  }
+ ],
+ "poll": {
+  "question": "¿De quién es el mate?",
+  "options": [
+   "ARGENTINO",
+   "URUGUAYO",
+   "GUARANÍ",
+   "DE TODOS"
+  ]
+ }
+}

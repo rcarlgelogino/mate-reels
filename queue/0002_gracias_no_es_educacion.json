@@ -1,0 +1,223 @@
+{
+ "id": "0002_gracias_no_es_educacion",
+ "topic": "T01",
+ "title": "Decir gracias en la ronda",
+ "caption": "En la ronda, decir \"gracias\" no es educación: significa que ya no querés más 🧉\nCómo agradecer sin quedarte sin mate.\nEtiquetá a tu amigo que siempre dice gracias 👇",
+ "hashtags": [
+  "#mate",
+  "#yerbamate",
+  "#argentina",
+  "#matero",
+  "#costumbresargentinas",
+  "#rondademate"
+ ],
+ "segments": [
+  {
+   "text": "En la ronda, decir gracias no es educación.",
+   "emo": "surprised",
+   "beat": "hook",
+   "visual": {
+    "type": "scene",
+    "place": "kitchen",
+    "people": [
+     {
+      "role": "cebador",
+      "does": "hold_termo",
+      "mood": "smile"
+     },
+     {
+      "role": "you",
+      "does": "hold_mate",
+      "mood": "happy"
+     }
+    ]
+   },
+   "headline": "¡NO ES EDUCACIÓN!",
+   "headlineAt": "gracias",
+   "impact": true
+  },
+  {
+   "text": "Y casi todos lo descubren tarde, sin mate.",
+   "emo": "funny",
+   "beat": "loop",
+   "visual": {
+    "type": "reaction",
+    "emotion": "sad",
+    "act": "sigh",
+    "color": "purple",
+    "who": 3
+   },
+   "headline": "SIN MATE",
+   "headlineAt": "tarde"
+  },
+  {
+   "text": "Decir gracias significa una sola cosa: ya no quiero más.",
+   "emo": "neutral",
+   "beat": "body",
+   "visual": {
+    "type": "title",
+    "text": "GRACIAS",
+    "sub": "= YA NO QUIERO MÁS"
+   }
+  },
+  {
+   "text": "El cebador lo escucha y te saltea en la ronda.",
+   "emo": "tense",
+   "beat": "body",
+   "visual": {
+    "type": "scene",
+    "place": "plaza",
+    "people": [
+     {
+      "role": "cebador"
+     },
+     {
+      "role": "you",
+      "mood": "sad"
+     },
+     {
+      "role": "friend",
+      "mood": "happy"
+     }
+    ],
+    "pass": [
+     0,
+     2
+    ]
+   },
+   "headline": "TE SALTEA",
+   "headlineAt": "saltea"
+  },
+  {
+   "text": "Pero esperá, ¿y cómo agradecés entonces?",
+   "emo": "excited",
+   "beat": "rehook",
+   "visual": {
+    "type": "reaction",
+    "emotion": "surprised",
+    "act": "jump",
+    "color": "orange",
+    "who": 2
+   },
+   "headline": "¿Y ENTONCES?",
+   "headlineAt": "esper",
+   "impact": true
+  },
+  {
+   "text": "Simple: tomás todo, hasta que suene la bombilla.",
+   "emo": "warm",
+   "beat": "body",
+   "visual": {
+    "type": "scene",
+    "place": "kitchen",
+    "people": [
+     {
+      "role": "you",
+      "does": "drink"
+     }
+    ]
+   },
+   "headline": "HASTA QUE SUENE",
+   "headlineAt": "suene"
+  },
+  {
+   "text": "Ese ruidito final es la señal de que terminaste.",
+   "emo": "nostalgic",
+   "beat": "body",
+   "visual": {
+    "type": "object",
+    "item": "mate",
+    "labels": [
+     "BOMBILLA"
+    ]
+   },
+   "headline": "LA SEÑAL",
+   "headlineAt": "ruidi"
+  },
+  {
+   "text": "Y se lo devolvés al cebador, sin decir nada.",
+   "emo": "warm",
+   "beat": "body",
+   "visual": {
+    "type": "scene",
+    "place": "patio",
+    "people": [
+     {
+      "role": "you"
+     },
+     {
+      "role": "cebador",
+      "mood": "happy"
+     }
+    ],
+    "pass": [
+     0,
+     1
+    ]
+   },
+   "headline": "SIN DECIR NADA",
+   "headlineAt": "devolv"
+  },
+  {
+   "text": "El gracias guardalo para el último mate.",
+   "emo": "proud",
+   "beat": "body",
+   "visual": {
+    "type": "checklist",
+    "rows": [
+     {
+      "text": "Tomás todo",
+      "ok": true
+     },
+     {
+      "text": "Devolvés sin hablar",
+      "ok": true
+     },
+     {
+      "text": "Gracias = último mate",
+      "ok": true
+     }
+    ]
+   }
+  },
+  {
+   "text": "Porque en la ronda, el gracias es una despedida.",
+   "emo": "love",
+   "beat": "payoff",
+   "visual": {
+    "type": "scene",
+    "place": "plaza",
+    "people": [
+     {
+      "role": "friend",
+      "does": "hug",
+      "mood": "love"
+     },
+     {
+      "role": "cebador",
+      "does": "hold_mate",
+      "mood": "happy"
+     },
+     {
+      "role": "grandma",
+      "does": "hug",
+      "mood": "love"
+     }
+    ]
+   },
+   "headline": "DESPEDIDA",
+   "headlineAt": "despedida",
+   "impact": true
+  },
+  {
+   "text": "Etiquetá a tu amigo que siempre dice gracias. Seguinos para más.",
+   "emo": "funny",
+   "beat": "cta",
+   "visual": {
+    "type": "title",
+    "text": "ETIQUETÁ",
+    "sub": "AL QUE SIEMPRE DICE GRACIAS"
+   }
+  }
+ ]
+}

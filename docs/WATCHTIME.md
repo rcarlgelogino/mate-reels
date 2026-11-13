@@ -2,6 +2,29 @@
 
 Apply to every script in `queue/`, whatever style is active. Based on our own reels and a frame-by-frame analysis (2026-11-13) of 11 narrator reference reels: bombilla (culturargentiina), football hen, fox photography, path to pope, cup noodles, football shirts, lobizón legend, Qatar final, horno de barro, "¿Qué hacés?" POV story, 24 h counter. Reference links: project memory `reference-reels`.
 
+## 0. What makes a reel go viral (hit vs flop on the SAME channel)
+Second analysis (2026-11-13): 7 high-view reels the user sent. Each Instagram page also showed the same channel's other reels, which gives a natural A/B test (same style, same voice, different topic and hook):
+
+| Channel | Hit (likes / comments) | Flops on the same channel |
+|---|---|---|
+| prexa.ar (dogs, 2D painted) | "Si tu beagle te roba la comida, no es mala educación: es su trabajo" 181k / 2.5k · "Nace todo blanco y las manchas llegan después" 71k / 1.5k | "¿Por qué tantos perros grandes terminan con problemas de cadera?" 1k / 6 |
+| nuncateloexplicaron | "Tu perro te ve borroso y sin colores, y aún así no te confunde con nadie" 149k / 524 | "Así calienta realmente el microondas" 397 · "¿La gente tose más en el cine?" 149 · Mercedes headlights 2k |
+| dudasbajolupa (3D) | "¿Qué pasaría si te pusieras a trabajar?" 127k / 548 | "¿Sueñas con tu trabajo?" 55 · "¿Sabías esto de tu Apple Pencil?" 53 |
+| laperritopedia | "TU CELULAR PODRÍA ESTAR MÁS SUCIO…" 107k / 1k | "Su sudor no lo salva del calor" 93 · tick pill 982 |
+| miravosarg (Argentina, 3D) | "Por qué Maradona es tan grande si hubo jugadores con muchos más goles" 67k · "Si te pasaron las siete, sos argentino de verdad" 40k | "¿El mate es argentino o uruguayo? La respuesta no le va a gustar a ninguno de los dos" 7k likes but 468 comments |
+| viralcuriosidades26 | "¿Qué fue primero, el huevo o la gallina? La ciencia ya tiene la respuesta" 56k | car chain, left-hand traffic 279–6k |
+| framelab (3D vikings) | "Vikings slept next to their cows… on purpose" 5.3k + keyword comments "VIKING" | – |
+
+**Rules that follow (most important first):**
+1. **The topic must be about the viewer's own everyday life** – "tu perro", "tu celular", "tu beagle", "si te pusieras a trabajar", "si te pasaron las siete". Abstract, technical or "¿sabías esto de…?" topics flop (microwave, headlights, cinema coughing) even with the same look. For us: *tu mate, tu yerba, tu termo, tu abuela, tu ronda, vos*.
+2. **Reframe something everybody does or sees** – "no es mala educación: es su trabajo", "lo hace a propósito". Take a familiar habit and reveal the hidden reason.
+3. **Fact + emotional twist in one sentence** – "te ve borroso… y aún así no te confunde con nadie". The second half hits a feeling (love, pride, disgust, laughter).
+4. **Strong feelings beat information:** affection (pets, abuela), disgust ("más sucio que…"), humour/provocation ("si te pusieras a trabajar"), national pride (Maradona), identity.
+5. **Identity tests get shared:** "Si te pasaron las siete, sos argentino de verdad" → for us "Si hacés esto con el mate, sos argentino de verdad".
+6. **Big debates everyone has an opinion on** ("huevo o gallina", Maradona vs goles, mate argentino o uruguayo, dulce o amargo) → many comments; promise an answer "que no le va a gustar a nadie".
+7. **The hook sentence is also the first line of the post caption**, written as a full statement (+1–2 emojis), not a title.
+8. **Series + "¿qué … sigue?"** at the end (prexa.ar "¿Qué raza sigue?") turns viewers into commenters and returning followers. A keyword comment ("Comentá MATE…") also works.
+
 ## 1. The hook (0–2 s) decides everything
 - **One strong image + one claim, from frame 0.** Every reference opens on a single, instantly readable picture that already carries the headline (frame 0 = thumbnail): crossed-out bombilla "SIN BOMBILLA", a hen in a football shirt, the finished prize photo, the Pope next to the flag, a cup labelled "FIDEOS", a wall of 30 shirts, a scoreboard at minute 6'.
 - **Hook types that worked:**
@@ -47,6 +70,7 @@ Apply to every script in `queue/`, whatever style is active. Based on our own re
 - Vary `emo`, never the same three times in a row.
 
 ## Checklist for every script
+0. Is the topic about the viewer's own everyday life (tu mate, tu abuela, vos), with a reframe or an emotional twist? If not, rewrite the angle.
 1. Hook: one picture + one claim, frame 0 has the headline? Which hook type?
 2. Open loop or visual counter by 5–10 s?
 3. Points ordered by surprise, one idea per segment?

@@ -36,7 +36,8 @@ jobs:
         env:
           GH_TOKEN: ${{ github.token }}
         run: |
-          if gh release list --limit 20 --json tagName --jq '.[].tagName' | grep -q "^reels-$(date -u +%F)"; then echo 'already built today'; echo 'skip=true' >> "$GITHUB_OUTPUT"; else echo 'skip=false' >> "$GITHUB_OUTPUT"; fi
+          FOUND=false; for t in $(gh release list --limit 20 --json tagName --jq '.[].tagName' | grep "^reels-$(date -u +%F)"); do gh release view "$t" --json assets --jq '.assets[].name' | grep '\.mp4$' | grep -vq 'test_reel' && FOUND=true; done
+          if [ "$FOUND" = true ]; then echo 'already built today'; echo 'skip=true' >> "$GITHUB_OUTPUT"; else echo 'skip=false' >> "$GITHUB_OUTPUT"; fi
 
       - uses: actions/setup-node@v4
         if: ${{ steps.guard.outputs.skip != 'true' }}

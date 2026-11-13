@@ -65,7 +65,11 @@ jobs:
         env:
           GEMINI_API_KEY: ${{ secrets.GEMINI_API_KEY }}
           REELS_PER_DAY: ${{ inputs.count || '3' }}
-        run: node scripts/daily.js --count "${REELS_PER_DAY}" ${{ inputs.test && '--test' || '' }}
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          N="$REELS_PER_DAY"
+          if [ "${{ inputs.test }}" != "true" ]; then BACK=$(bash scripts/backlog.sh posted/posted.txt | wc -l); N=$(( N - BACK )); [ "$N" -lt 0 ] && N=0; echo "unposted from earlier days: $BACK -> building $N"; fi
+          node scripts/daily.js --count "$N" ${{ inputs.test && '--test' || '' }}
 
       - name: Commit queue progress
         if: ${{ !inputs.test && steps.guard.outputs.skip != 'true' }}

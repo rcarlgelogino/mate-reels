@@ -41,14 +41,9 @@ jobs:
         run: |
           mkdir -p posted dl
           touch posted/posted.txt
-          DAY=$(date -u +%F)
-          TAG=$(gh release list --limit 30 --json tagName,createdAt --jq 'sort_by(.createdAt) | reverse | .[].tagName' | grep "^reels-$DAY" | head -n 1 || true)
-          [ -z "$TAG" ] && { echo "no release built today ($DAY): nothing to post"; echo "file=" >> "$GITHUB_OUTPUT"; exit 0; }
-          NEXT=""
-          for a in $(gh release view "$TAG" --json assets --jq '.assets[].name' | grep '\.mp4$' | grep -v 'test_reel' | sort); do
-            if ! grep -qx "$TAG/$a" posted/posted.txt; then NEXT="$a"; break; fi
-          done
-          [ -z "$NEXT" ] && { echo "everything from $TAG is already posted"; echo "file=" >> "$GITHUB_OUTPUT"; exit 0; }
+          ITEM=$(bash scripts/backlog.sh posted/posted.txt | head -n 1 || true)
+          [ -z "$ITEM" ] && { echo "nothing left to post"; echo "file=" >> "$GITHUB_OUTPUT"; exit 0; }
+          TAG="${ITEM%%/*}"; NEXT="${ITEM#*/}"
           gh release download "$TAG" --pattern "$NEXT" --pattern "${NEXT%.mp4}.txt" --dir dl
           echo "tag=$TAG" >> "$GITHUB_OUTPUT"; echo "file=$NEXT" >> "$GITHUB_OUTPUT"
           echo "next: $TAG / $NEXT"

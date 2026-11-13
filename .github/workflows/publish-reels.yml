@@ -2,15 +2,12 @@ name: publish-reels
 
 # Posts the next not-yet-posted reel from the newest "Reels YYYY-MM-DD" release to Instagram.
 # Four slots per day for an Argentine audience (UTC-3): 08:00, 13:00, 17:00 and 20:00 in Buenos Aires (the 4th reel is the daily 3D A/B version, posted last).
-# Scheduled posting only runs when the repository variable IG_AUTOPUBLISH is "true" (Settings -> Variables).
-# Scheduled runs belong to the account that last changed the cron lines: keep that a real account (not a bot address), or they never start.
+# Started by a Claude cloud routine at each slot: it writes a timestamp to trigger/post.txt and pushes (GitHub's own cron never started here).
+# Automatic posting only runs when the repository variable IG_AUTOPUBLISH is "true" (Settings -> Variables).
 on:
-  schedule:
-    - cron: '12 17 13 11 *'   # one-off test of the schedule (2026-11-13 18:12 German time), remove afterwards
-    - cron: '13 11 * * *'
-    - cron: '13 16 * * *'
-    - cron: '13 20 * * *'
-    - cron: '13 23 * * *'
+  push:
+    branches: [main]
+    paths: ['trigger/post.txt']
   workflow_dispatch:
     inputs:
       dry_run:

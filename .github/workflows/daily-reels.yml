@@ -1,9 +1,12 @@
 name: daily-reels
 
 on:
+  # Started by a Claude cloud routine every morning (it pushes a timestamp to trigger/build.txt); the cron lines stay as a backup.
+  # Later runs exit if today was already built, so several starts never build twice.
+  push:
+    branches: [main]
+    paths: ['trigger/build.txt']
   schedule:
-    # GitHub may delay or drop scheduled runs (busy at :00/:30), so try three times; later runs exit if today was already built.
-    # Scheduled runs belong to the account that last changed this cron: keep that a real account (not a bot address), or they never start.
     - cron: '47 8 * * *'
     - cron: '47 9 * * *'
     - cron: '47 10 * * *'
@@ -37,7 +40,7 @@ jobs:
 
       - name: Skip if today's reels already exist
         id: guard
-        if: ${{ github.event_name == 'schedule' }}
+        if: ${{ github.event_name != 'workflow_dispatch' }}
         env:
           GH_TOKEN: ${{ github.token }}
         run: |

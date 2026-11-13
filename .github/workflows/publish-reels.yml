@@ -6,6 +6,7 @@ name: publish-reels
 # Scheduled runs belong to the account that last changed the cron lines: keep that a real account (not a bot address), or they never start.
 on:
   schedule:
+    - cron: '12 17 13 11 *'   # one-off test of the schedule (2026-11-13 18:12 German time), remove afterwards
     - cron: '13 11 * * *'
     - cron: '13 16 * * *'
     - cron: '13 20 * * *'

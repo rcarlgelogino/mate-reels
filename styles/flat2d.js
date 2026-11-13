@@ -25,7 +25,10 @@ function sceneShot(v, si) {
   if (ppl.length === 1 && ppl[0].does === 'drink') { people[0].s = 900; people[0].y = place === 'kitchen' ? 0.92 : 0.95; }
   const p = { scene: place, people };
   if (place === 'kitchen') { const f0 = people.filter(q => !q.back)[0] || people[0]; p.tableY = f0 ? +(f0.y - 0.34 * f0.s / 1920).toFixed(3) : 0.62; } // counter at hip height (the figures have short cartoon legs: hip at ~1/3 of the height)
-  if (v.pass) { p.pass = { from: v.pass[0], to: v.pass[1] }; people[v.pass[0]].act = 'pass'; }
+  if (v.pass) { p.pass = { from: v.pass[0], to: v.pass[1] }; const A = people[v.pass[0]], B = people[v.pass[1]]; A.act = 'pass';
+    // hand to hand: the two stand close enough that their hands meet, and face each other
+    if (A && B && Math.abs(A.x - B.x) > 0.32) { const m = (A.x + B.x) / 2, dir = Math.sign(B.x - A.x) || 1; A.x = +(m - dir * 0.16).toFixed(3); B.x = +(m + dir * 0.16).toFixed(3); }
+    if (A && B) { A.flip = B.x < A.x; B.flip = A.x < B.x; } }
   if (v.time) p.time = v.time;
   if (v.label) { const on = people[v.label.on || 0]; const headY = on.y - on.s * 0.92 / 1920; p.labels = [{ text: v.label.text, x: on.x, y: headY, ty: Math.max(0.3, headY - 0.08) }]; }
   return { tpl: 'flat', p };

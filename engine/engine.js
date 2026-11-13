@@ -769,7 +769,8 @@ function drawFlat(c,p,u,t,sh){ c.save(); const z=(sh?.zoom||1)*(1+0.05*u)*(1+0.0
   const hands=[]; ppl.filter(q=>!q.back).sort((a,b)=>a.y-b.y).forEach(q=>{ hands[q.i]=f2person(c,q,t,u); });
   f2fore(c,p.scene,t,p); (p.objs||[]).filter(o=>!o.back).forEach((o,i)=>f2obj(c,o,u,t,dur,i));
   if(p.pass&&hands[p.pass.from]&&hands[p.pass.to]){ const m=passM(u); if(m>0.001&&m<0.999){ const ha=hands[p.pass.from].R, hb=hands[p.pass.to].R, kk=hands[p.pass.from].k;
-    const x=ha[0]+(hb[0]-ha[0])*m, y=ha[1]+(hb[1]-ha[1])*m-Math.sin(m*Math.PI)*90*kk; f2mate(c,x+5*kk,y+24*kk,76*kk,p.mate||'calabaza',t,{steam:true,rot:Math.sin(m*Math.PI)*0.25}); } }
+    const fa=ppl[p.pass.from].flip?-1:1, fb=ppl[p.pass.to].flip?-1:1, ms=76*kk; // same spot in the hand as when held, short hand-to-hand move
+    const ax=ha[0]-fa*0.3*ms, bx2=hb[0]-fb*0.3*ms, x=ax+(bx2-ax)*m, y=ha[1]+(hb[1]-ha[1])*m-Math.sin(m*Math.PI)*12*kk; f2mate(c,x,y+0.36*ms,ms,p.mate||'calabaza',t,{steam:true}); } }
   (p.labels||[]).forEach((l,i)=>f2label(c,l,u,i,E.accent)); c.restore(); }
 function f2obj(c,o,u,t,dur,i){ const a=easeOutBack(clamp((u*dur-(o.delay??0.05+i*0.1))/0.3)); if(a<=0.001) return; const x=(o.x??0.5)*W, y=(o.y??0.7)*H, s=o.s||500, bob=o.bob?Math.sin(t*2.2)*12:0;
   c.save(); c.translate(x,y+bob); c.scale(a,a); if(o.spin) c.rotate(Math.sin(t*1.6)*0.06);

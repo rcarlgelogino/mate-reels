@@ -17,7 +17,7 @@ Figures and props
 - **Grip:** the whole hand grasps the *side* of the gourd from the front: arm → hand → fingers in one piece, the fingers curl over the front edge. Never a hand hidden behind the mate with loose fingers pasted on its front (fixed 2026-11-13, `f2grip`), never a hand disc in the middle of the mate.
 - **Drinking:** the bombilla tip ends exactly in the mouth (hand target solved from the tip position), the mouth turns into a small round "o" while sipping, the hand stays visible on the side of the gourd.
 - **Figures:** light skin only, one hair colour (dark brown; grandma/grandpa grey). Hair sits above a soft forehead line inside the head outline, nothing sticking out.
-- **Pass:** giver stretches the arm, receiver reaches out before the mate arrives, the mate ends in the receiver's hand – never floating in front of a chest.
+- **Pass:** the two stand close and face each other, both stretch out, the hands meet and the mate moves the last few centimetres from hand to hand (same spot in the hand as when held) – never flying in an arc across the gap or floating in front of a chest (fixed 2026-11-13 after the first visual analysis).
 - **Arms** always ease into a pose (no popping); raised arms are drawn in front of the head; "no" = head shake with relaxed arms.
 - **Entrance:** figures fade in with a slight grow; no tiny figure that "pops" out of nothing.
 - **Mate seams/grain** stay inside the gourd outline.

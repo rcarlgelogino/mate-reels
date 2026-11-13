@@ -17,9 +17,12 @@ function layoutBase(n, ky) {
   if (n === 2) return [{ x: 0.28, y: ky, s: 580 }, { x: 0.74, y: ky, s: 580 }];
   if (n === 3) return [{ x: 0.2, y: ky, s: 520 }, { x: 0.5, y: ky + 0.01, s: 540 }, { x: 0.8, y: ky, s: 520 }];
   return Array.from({ length: n }, (_, i) => i < 3 ? { x: [0.18, 0.5, 0.82][i], y: ky + 0.02, s: 480 } : { x: [0.34, 0.66, 0.5][i - 3], y: ky - 0.04, s: 400, back: true }); }
+const hashN = (s, n) => { let h = 0; for (const ch of String(s)) h = (h * 31 + ch.charCodeAt(0)) >>> 0; return h % n; };
+const INDOOR = /casa|cocina|home|living|oficina|office|bar|caf|escuela|school|aula|cuarto|room|mesa|colectivo|bus|tren|auto/i;
 function sceneShot(v, si) {
-  const place = PLACE[v.place] || 'kitchen'; const ppl = v.people || []; const L = layout(ppl.length, place);
-  const people = ppl.map((pp, i) => { const r = { ...(ROLE[pp.role] || { who: i }) }; const sc = r.scale || 1; delete r.scale; const d = DOES[pp.does] || {};
+  // new places get the closest existing look, new roles a stable look of their own
+  const place = PLACE[v.place] || (v.place && !INDOOR.test(v.place) ? 'park' : 'kitchen'); const ppl = v.people || []; const L = layout(ppl.length, place);
+  const people = ppl.map((pp, i) => { const r = { ...(ROLE[pp.role] || { who: pp.role ? hashN(pp.role, 6) : i }) }; const sc = r.scale || 1; delete r.scale; const d = DOES[pp.does] || {};
     const pos = L[i]; const o = { ...r, ...d, x: pos.x, y: pos.y, s: Math.round(pos.s * sc), back: pos.back };
     if (pp.mood) o.face = pp.mood; if (pp.mate) o.mate = { mate_madera: 'madera' }[pp.mate] || pp.mate; if (pos.x > 0.55 && ppl.length === 2) o.flip = true; if (d.hold === 'mate' || d.hold === 'both' || pp.does === 'drink') o.steam = true; return o; });
   if (ppl.length === 1 && ppl[0].does === 'drink') { people[0].s = 900; people[0].y = place === 'kitchen' ? 0.92 : 0.95; }
@@ -34,9 +37,10 @@ function sceneShot(v, si) {
   return { tpl: 'flat', p };
 }
 function objectShot(v, si) {
-  const item = v.item || 'mate'; const type = { mate: 'calabaza', mate_madera: 'madera', imperial: 'imperial', acero: 'acero', termo: 'termo', yerba: 'yerba', bombilla: 'bombilla' }[item] || 'calabaza';
+  const item = v.item || 'mate'; const known = { mate: 'calabaza', mate_madera: 'madera', imperial: 'imperial', acero: 'acero', termo: 'termo', yerba: 'yerba', bombilla: 'bombilla', pava: 'pava', kettle: 'pava' }; const type = known[item] || 'calabaza';
+  if (!known[item]) return boardShot({ type: 'title', text: String(item).replace(/_/g, ' ').toUpperCase(), sub: v.labels && v.labels[0] }); // a new object is named on a card until it has its own drawing (never a mate in disguise)
   const objs = []; const solo = !(v.with && v.with.length);
-  const main = { type, x: solo ? 0.5 : 0.62, y: 0.7, s: type === 'termo' ? 680 : type === 'yerba' ? 520 : type === 'bombilla' ? 760 : (solo ? 640 : 480), steam: ['calabaza', 'madera', 'imperial', 'acero'].includes(type), bob: !!v.mascot };
+  const main = { type, x: solo ? 0.5 : 0.62, y: 0.7, s: type === 'termo' ? 680 : type === 'pava' ? 620 : type === 'yerba' ? 520 : type === 'bombilla' ? 760 : (solo ? 640 : 480), steam: ['calabaza', 'madera', 'imperial', 'acero'].includes(type), bob: !!v.mascot };
   if (v.mascot) main.face = v.mascot; objs.push(main);
   (v.with || []).forEach((w, i) => objs.push({ type: w === 'termo' ? 'termo' : w === 'yerba' ? 'yerba' : 'calabaza', x: 0.22, y: 0.78, s: w === 'termo' ? 560 : 400, delay: 0.15 + i * 0.1 }));
   const p = { scene: v.bg ? 'solid' : 'navygrid', bg: BG[v.bg] || v.bg || NAVY, objs };

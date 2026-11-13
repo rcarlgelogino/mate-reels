@@ -774,7 +774,7 @@ function drawFlat(c,p,u,t,sh){ c.save(); const z=(sh?.zoom||1)*(1+0.05*u)*(1+0.0
   (p.labels||[]).forEach((l,i)=>f2label(c,l,u,i,E.accent)); c.restore(); }
 function f2obj(c,o,u,t,dur,i){ const a=easeOutBack(clamp((u*dur-(o.delay??0.05+i*0.1))/0.3)); if(a<=0.001) return; const x=(o.x??0.5)*W, y=(o.y??0.7)*H, s=o.s||500, bob=o.bob?Math.sin(t*2.2)*12:0;
   c.save(); c.translate(x,y+bob); c.scale(a,a); if(o.spin) c.rotate(Math.sin(t*1.6)*0.06);
-  if(o.type==='termo') f2termo(c,0,0,s,o.color); else if(o.type==='yerba') f2yerba(c,0,0,s,o.color); else if(o.type==='heart') f2heart(c,0,-s/2,s*(1+0.08*Math.sin(t*7)),o.color);
+  if(o.type==='termo') f2termo(c,0,0,s,o.color); else if(o.type==='pava') f2kettle(c,0,0,s*0.62); else if(o.type==='yerba') f2yerba(c,0,0,s,o.color); else if(o.type==='heart') f2heart(c,0,-s/2,s*(1+0.08*Math.sin(t*7)),o.color);
   else if(o.type==='bombilla'){ c.strokeStyle='#c9d1d9'; c.lineCap='round'; c.lineWidth=s*0.05; c.beginPath(); c.moveTo(0,-s*0.15); c.lineTo(0,-s); c.stroke(); c.strokeStyle='#eef2f5'; c.lineWidth=s*0.015; c.beginPath(); c.moveTo(-s*0.01,-s*0.2); c.lineTo(-s*0.01,-s*0.95); c.stroke(); const g=c.createLinearGradient(-s*0.1,0,s*0.1,0); g.addColorStop(0,'#eef2f5'); g.addColorStop(1,'#8f99a3'); c.fillStyle=g; c.beginPath(); c.ellipse(0,-s*0.1,s*0.09,s*0.14,0,0,Math.PI*2); c.fill(); c.fillStyle='#2a2f36'; for(let k=-2;k<=2;k++) c.fillRect(-s*0.07,-s*0.1+k*s*0.04,s*0.14,s*0.012); rr(c,-s*0.04,-s*1.03,s*0.08,s*0.06,s*0.02,'#b98a2e'); }
   else f2mate(c,0,0,s,o.type||'calabaza',t,{steam:o.steam,face:o.face,color:o.color});
   c.restore(); }
@@ -1125,6 +1125,7 @@ function makeBall(o={}){ const g=new THREE.Group(); const i=o.i||0; const skinC=
       if(kind==='mate'){ const pr=makeMate(type||'calabaza').g; pr.scale.setScalar(0.36); const tip=put(pr.userData.bombilla,new THREE.Object3D(),0,0.76*0.65+0.42+0.035,0); pr.updateMatrixWorld(true); const tipLocal=pr.worldToLocal(tip.getWorldPosition(V(0,0,0)));
         if(api.act==='drink'&&sx>0) pr.rotation.y=Math.PI; A.rest=V(sx*0.3,0.42,0.3); const off=V(-sx*0.12,-0.085,0.09); put(A.holder,pr,off.x,off.y,off.z); api.mate={arm:A,pr,off,tipLocal};
         for(let k=0;k<3;k++){ const sp=put(pr,mesh(new THREE.SphereGeometry(0.08,10,8),new THREE.MeshStandardMaterial({color:'#ffffff',transparent:true,opacity:0.5,roughness:1,depthWrite:false}),false,false),0,0.9,0); sp.userData={k}; steam.push(sp); } }
+      if(kind==='pava'){ const pr=lpPava(0.42); A.rest=V(sx*0.34,0.3,0.3); const off=V(-sx*0.15,-0.1,0.09); put(A.holder,pr,off.x,off.y,off.z); api.pava={arm:A,pr,off}; }
       if(kind==='termo'){ const pr=makeTermo(type||'#2c6e9e'); pr.scale.setScalar(0.4); A.rest=V(sx*0.33,0.36,0.27); const off=V(-sx*0.125,-0.25,0.09); put(A.holder,pr,off.x,off.y,off.z); api.termo={arm:A,pr,off}; }
       if(kind==='yerba'){ const pr=ballYerba(); pr.scale.setScalar(0.56); arms.forEach(a=>{ a.rest=V(a.sx*0.215,0.4,0.36); a.idle=false; }); api.pack=put(g,pr,0,0.2,0.44); }
       return api; },
@@ -1180,7 +1181,7 @@ T.prado=(p={})=>{ const s=new THREE.Scene(); s.background=new THREE.Color('#cfe9
   const motes=new THREE.Points(new THREE.BufferGeometry().setAttribute('position',new THREE.Float32BufferAttribute(Array.from({length:400},()=>[(R()-0.5)*16,0.3+R()*3.5,(R()-0.5)*12]).flat(),3)),new THREE.PointsMaterial({color:'#fffbe6',size:0.03,transparent:true,opacity:0.6,depthWrite:false})); s.add(motes);
   // people in a gentle arc, turned a little towards the middle
   const defs=p.people&&p.people.length?p.people:[{hold:'mate'}]; const n=defs.length, sp=n>4?1.05:1.2; const ppl=defs.map((o,i)=>{ const a=makeBall({...o,i:o.who??i}); const off=i-(n-1)/2; a.g.position.set(off*sp,0,-Math.abs(off)*0.12); a.g.rotation.y=-off*0.13+(o.turn||0); a.g.userData.y0=0; s.add(a.g);
-    if(o.hold==='mate'||o.hold==='both') a.give('mate','R',o.mate); if(o.hold==='termo') a.give('termo','R',o.color); if(o.hold==='both') a.give('termo','L',o.color); if(o.hold==='yerba') a.give('yerba'); return a; });
+    if(o.hold==='mate'||o.hold==='both') a.give('mate','R',o.mate); if(o.hold==='termo') a.give('termo','R',o.color); if(o.hold==='both') a.give('termo','L',o.color); if(o.hold==='yerba') a.give('yerba'); if(o.hold==='pava') a.give('pava'); return a; });
   const fi=clamp(p.focus??Math.floor((n-1)/2),0,n-1), fp=ppl[fi].g.position, fs=ppl[fi].g.scale.y; const dist=5.3+Math.max(0,n-2)*1.1;
   const wideA=V(-1.1,1.6,dist+0.55), wideB=V(-0.3,1.5,dist), wideL=V(0,0.82,0), closeA=V(fp.x+0.7,1.2*fs,fp.z+4.9), closeB=V(fp.x+0.32,1.12*fs,fp.z+4.2), closeL=V(fp.x,0.88*fs,fp.z);
   const shot=p.shot||'wide'; const cues=[{u:0.04,type:'birds'}];

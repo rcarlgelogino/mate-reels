@@ -36,9 +36,9 @@ Layers:
 ### Visual types
 | type | fields | meaning |
 |---|---|---|
-| scene | place: kitchen, park, plaza, patio, beach, home · people: [{role, does, mood}] · pass: [from, to] · label: {text, on} | people in a place |
+| scene | place: any (e.g. kitchen, park, plaza, patio, beach, home, oficina, colectivo ...) · people: [{role, does, mood}] · pass: [from, to] · label: {text, on} | people in a place |
 | reaction | emotion, act, color | close-up of one person reacting |
-| object | item: mate, mate_madera, imperial, termo, yerba, bombilla · mascot: emotion (mate gets a face) · with: [items] · labels: [text] | hero object |
+| object | item: any (e.g. mate, mate_madera, imperial, termo, yerba, bombilla, pava, facturas ...) · mascot: emotion (mate gets a face) · with: [items] · labels: [text] | hero object |
 | title | text, sub | big text card |
 | list | items: [{title, sub}] | numbered cards |
 | checklist | rows: [{text, ok}] | do / don't |
@@ -47,6 +47,7 @@ Layers:
 | timeline | items: [{label, text}] | steps in time |
 | mistake | text, over: (a scene visual) | big red X over a scene |
 
-Roles: cebador, friend, grandma, grandpa, stranger, kid, worker, you. `does`: idle, hold_mate, hold_termo, hold_both, drink, pass, receive, wave, point, hug, cheer, jump, no, nod, shock, laugh, sigh. `mood`: happy, smile, surprised, sad, angry, love, laugh, proud, neutral.
+**No limits:** characters, places, objects and actions are open. Use whatever the story needs (a gaucho, a teacher, a bus, a pava, a stadium ...). The lists below are what the styles already draw well; anything new is drawn with the closest existing look, and Claude builds a proper look for it in the styles when it shows up.
+Roles known so far: cebador, friend, grandma, grandpa, stranger, kid, worker, you. `does`: idle, hold_mate, hold_termo, hold_both, hold_yerba, drink, pour, pass, receive, wave, point, hug, cheer, jump, no, nod, shock, laugh, sigh. `mood`: happy, smile, surprised, sad, angry, love, laugh, proud, neutral.
 
 The last segment gets the comment poll automatically when `poll` is set.

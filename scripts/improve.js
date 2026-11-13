@@ -8,11 +8,7 @@ const fs = require('fs'), path = require('path'); const G = require('./gemini_te
 const ROOT = path.join(__dirname, '..'); const [src, dst] = process.argv.slice(2).map(p => p && path.resolve(p));
 const log = (...a) => console.log('[improve]', ...a);
 const VIS = { scene: 1, reaction: 1, object: 1, title: 1, list: 1, checklist: 1, number: 1, dots: 1, timeline: 1, mistake: 1 };
-const ROLES = 'cebador friend grandma grandpa stranger kid worker you'.split(' ');
-const DOES = 'idle hold_mate hold_termo hold_both drink pass receive wave point hug cheer jump no nod shock laugh sigh'.split(' ');
-const MOODS = 'happy smile surprised sad angry love laugh proud neutral'.split(' ');
-const PLACES = 'kitchen park plaza patio beach home'.split(' ');
-const ITEMS = 'mate mate_madera imperial termo yerba bombilla'.split(' ');
+// roles, places, objects, actions and moods are open: new ones are allowed, the styles draw unknown ones with the closest look
 const vis = g => g.visuals || (g.visual ? [g.visual] : []);
 const rest = g => { const o = { ...g }; delete o.visual; delete o.visuals; return JSON.stringify(o); };
 const texts = v => JSON.stringify([v.text, v.sub, v.value, v.items, v.rows, v.label, v.labels]);
@@ -23,10 +19,9 @@ function validate(orig, s) {
     if (rest(g) !== rest(orig.segments[i])) e.push(`seg ${i}: non-visual fields changed`);
     const vs = vis(g), ov = vis(orig.segments[i]); if (!vs.length || vs.length > 2) e.push(`seg ${i}: ${vs.length} visuals`);
     const check = (v, tag) => { if (!v || !VIS[v.type]) return e.push(`${tag}: visual type ${v && v.type}`);
-      if (v.type === 'scene') { if (v.place && !PLACES.includes(v.place)) e.push(`${tag}: place ${v.place}`); const pp = v.people || [];
-        if (pp.length > 6) e.push(`${tag}: ${pp.length} people`); pp.forEach(p => { if (!ROLES.includes(p.role)) e.push(`${tag}: role ${p.role}`); if (p.does && !DOES.includes(p.does)) e.push(`${tag}: does ${p.does}`); if (p.mood && !MOODS.includes(p.mood)) e.push(`${tag}: mood ${p.mood}`); });
+      if (v.type === 'scene') { const pp = v.people || [];
+        if (pp.length > 6) e.push(`${tag}: ${pp.length} people`); pp.forEach(p => { if (!p || typeof p.role !== 'string' || !p.role) e.push(`${tag}: person without role`); });
         if (v.pass && (!Array.isArray(v.pass) || v.pass.length !== 2 || v.pass.some(k => !(k >= 0 && k < pp.length)))) e.push(`${tag}: pass index`); }
-      if (v.type === 'object' && v.item && !ITEMS.includes(v.item)) e.push(`${tag}: item ${v.item}`);
       if (v.type === 'mistake' && v.over) check(v.over, tag + ' over'); };
     vs.forEach((v, k) => check(v, `seg ${i}.${k}`));
     // text cards (title, list, number, timeline...) carry facts: their words must stay as they were

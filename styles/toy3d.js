@@ -4,12 +4,15 @@ const flat2d = require('./flat2d');
 const ROLE = { cebador: { who: 0, shirt: '#e5483a', hair: 'short' }, friend: { who: 1, shirt: '#2f6fd0', hair: 'side' }, stranger: { who: 2, shirt: '#f2a922', hair: 'bob' }, you: { who: 3, shirt: '#2f9e6e', hair: 'short' },
   grandma: { who: 4, shirt: '#8a4fd0', hair: 'bun', hairColor: '#c9c2b8', glasses: true }, grandpa: { who: 5, shirt: '#2f6b8a', hair: 'short', hairColor: '#c9c2b8', glasses: true },
   kid: { who: 2, scale: 0.72, shirt: '#ef7a3a', hair: 'side' }, worker: { who: 1, shirt: '#2f6fd0', hair: 'short' } };
-const DOES = { idle: {}, hold_mate: { hold: 'mate' }, hold_termo: { hold: 'termo' }, hold_both: { hold: 'both' }, hold_yerba: { hold: 'yerba' }, drink: { hold: 'mate', act: 'drink' }, pour: { hold: 'both', act: 'pour' },
+const DOES = { idle: {}, hold_mate: { hold: 'mate' }, hold_termo: { hold: 'termo' }, hold_both: { hold: 'both' }, hold_yerba: { hold: 'yerba' }, hold_pava: { hold: 'pava' }, drink: { hold: 'mate', act: 'drink' }, pour: { hold: 'both', act: 'pour' },
   pass: { hold: 'mate' }, receive: {} };
 const ACTS = ['wave', 'cheer', 'jump', 'no', 'nod', 'shock', 'laugh', 'sigh', 'hug']; // whole-body actions, played by the engine on top of the pose
 const FACE = { neutral: 'neutral', smile: 'smile', happy: 'happy', surprised: 'surprised', sad: 'sad', angry: 'angry', proud: 'proud', love: 'love', laugh: 'laugh', excited: 'happy', worried: 'sad', confused: 'surprised' };
-const ITEM = { mate: 'mate', mate_madera: 'mate', imperial: 'mate', acero: 'mate', bombilla: 'mate', termo: 'termo', yerba: 'yerba' };
-function person(pp, i) { const o = { ...(ROLE[pp.role] || { who: i }), ...(DOES[pp.does] || {}) }; if (pp.mood) o.face = FACE[pp.mood] || 'smile';
+const ITEM = { mate: 'mate', mate_madera: 'mate', imperial: 'mate', acero: 'mate', bombilla: 'mate', termo: 'termo', yerba: 'yerba', pava: 'pava', kettle: 'pava' };
+const hashN = (s, n) => { let h = 0; for (const ch of String(s)) h = (h * 31 + ch.charCodeAt(0)) >>> 0; return h % n; };
+const SHIRTS = ['#e5483a', '#2f6fd0', '#f2a922', '#2f9e6e', '#8a4fd0', '#ef7a3a', '#2f6b8a', '#d94f8a'];
+// new roles (any character the story needs) get a stable look of their own; new places and objects use the closest existing look
+function person(pp, i) { const o = { ...(ROLE[pp.role] || (pp.role ? { who: hashN(pp.role, 6), shirt: SHIRTS[hashN(pp.role + '#', SHIRTS.length)], hair: ['short', 'side', 'bob', 'bun'][hashN(pp.role + '~', 4)] } : { who: i })), ...(DOES[pp.does] || {}) }; if (pp.mood) o.face = FACE[pp.mood] || 'smile';
   if (pp.mate && ['madera', 'mate_madera', 'imperial', 'acero'].includes(pp.mate)) o.mate = { mate_madera: 'madera' }[pp.mate] || pp.mate; return o; }
 function sceneShot(v, si) {
   const ppl = (v.people || []).slice(0, 5); const people = ppl.map(person); const acts = ppl.map(pp => ACTS.includes(pp.does) ? pp.does : null);
@@ -21,14 +24,14 @@ function sceneShot(v, si) {
 }
 function reactionShot(v, si) { const who = v.who ?? (si % 6); const pp = { ...(Object.values(ROLE).find(r => r.who === who) || { who }), face: FACE[v.emotion] || 'surprised' }; delete pp.scale;
   const sh = { tpl: 'prado', p: { people: [pp], shot: 'close', focus: 0 } }; const act = v.act || (v.emotion === 'surprised' ? 'shock' : null); if (act) sh.emo = { act, face: pp.face }; return sh; }
-function objectShot(v) { const hold = ITEM[v.item] || 'mate'; const pp = { ...ROLE.cebador, hold, face: v.mascot ? 'happy' : 'smile' }; if (['madera', 'mate_madera', 'imperial', 'acero'].includes(v.item)) pp.mate = { mate_madera: 'madera' }[v.item] || v.item;
+function objectShot(v) { if (v.item && !ITEM[v.item]) return null; const hold = ITEM[v.item] || 'mate'; const pp = { ...ROLE.cebador, hold, face: v.mascot ? 'happy' : 'smile' }; if (['madera', 'mate_madera', 'imperial', 'acero'].includes(v.item)) pp.mate = { mate_madera: 'madera' }[v.item] || v.item;
   return { tpl: 'prado', p: { people: [pp], shot: 'close', focus: 0 } }; }
 function toSpec(script) {
   const base = flat2d.toSpec(script);
   base.segments.forEach((seg, si) => { const sg = script.segments[si]; const vis = sg.visuals || [sg.visual];
     if (script.poll && si === script.segments.length - 1) return; // poll board stays
     seg.shots = seg.shots.map((s, k) => { const v = vis[k]; if (!v) return s;
-      if (v.type === 'scene') return sceneShot(v, si); if (v.type === 'reaction') return reactionShot(v, si); if (v.type === 'object') return objectShot(v);
+      if (v.type === 'scene') return sceneShot(v, si); if (v.type === 'reaction') return reactionShot(v, si); if (v.type === 'object') return objectShot(v) || s;
       if (v.type === 'mistake') { const sh = sceneShot(v.over || { type: 'scene', people: [{ role: 'friend', does: 'no' }] }, si); sh.emo = { act: 'no' }; return sh; }
       return s; }); });
   return { ...base, preset: 'toy3d', ab: script.ab || 'style toy3d' };

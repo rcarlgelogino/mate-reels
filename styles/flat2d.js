@@ -11,7 +11,8 @@ const BG = { red: '#e5483a', purple: '#7c3aed', blue: '#3b82f6', green: '#10b981
 const REACT_COLORS = ['#7c3aed', '#e5483a', '#3b82f6', '#10b981', '#f59e0b'];
 const NAVY = '#132033';
 // x positions / sizes by number of people (feet y in 0..1 of the frame)
-function layout(n, place) { const ky = place === 'kitchen' ? 0.74 : place === 'patio' || place === 'beach' ? 0.86 : 0.8;
+function layout(n, place) { if (place === 'kitchen') return layoutBase(n, 0.9).map(p => ({ ...p, s: Math.round(p.s * 1.28) })); return layoutBase(n, place === 'patio' || place === 'beach' ? 0.86 : 0.8); }
+function layoutBase(n, ky) {
   if (n === 1) return [{ x: 0.5, y: ky + 0.06, s: 720 }];
   if (n === 2) return [{ x: 0.28, y: ky, s: 580 }, { x: 0.74, y: ky, s: 580 }];
   if (n === 3) return [{ x: 0.2, y: ky, s: 520 }, { x: 0.5, y: ky + 0.01, s: 540 }, { x: 0.8, y: ky, s: 520 }];
@@ -23,7 +24,7 @@ function sceneShot(v, si) {
     if (pp.mood) o.face = pp.mood; if (pos.x > 0.55 && ppl.length === 2) o.flip = true; if (d.hold === 'mate' || d.hold === 'both' || pp.does === 'drink') o.steam = true; return o; });
   if (ppl.length === 1 && ppl[0].does === 'drink') { people[0].s = 900; people[0].y = place === 'kitchen' ? 0.92 : 0.95; }
   const p = { scene: place, people };
-  if (place === 'kitchen' && ppl.length === 1 && ppl[0].does === 'drink') p.tableY = 0.72;
+  if (place === 'kitchen') { const f0 = people.filter(q => !q.back)[0] || people[0]; p.tableY = f0 ? +(f0.y - 0.34 * f0.s / 1920).toFixed(3) : 0.62; } // counter at hip height (the figures have short cartoon legs: hip at ~1/3 of the height)
   if (v.pass) { p.pass = { from: v.pass[0], to: v.pass[1] }; people[v.pass[0]].act = 'pass'; }
   if (v.time) p.time = v.time;
   if (v.label) { const on = people[v.label.on || 0]; const headY = on.y - on.s * 0.92 / 1920; p.labels = [{ text: v.label.text, x: on.x, y: headY, ty: Math.max(0.3, headY - 0.08) }]; }

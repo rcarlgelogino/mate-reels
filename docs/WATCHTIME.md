@@ -25,6 +25,28 @@ Second analysis (2026-11-13): 7 high-view reels the user sent. Each Instagram pa
 7. **The hook sentence is also the first line of the post caption**, written as a full statement (+1–2 emojis), not a title.
 8. **Series + "¿qué … sigue?"** at the end (prexa.ar "¿Qué raza sigue?") turns viewers into commenters and returning followers. A keyword comment ("Comentá MATE…") also works.
 
+### 0b. Third batch (11 more viral reels, same-channel comparison)
+| Channel | Hit (likes / comments) | Flops on the same channel |
+|---|---|---|
+| y.por.que (2D) | "¿Team carne o Team sangre? Estas dos escaleras te lo explican…" 651k / 3.9k | "Apagar el GPS no te hace invisible" 83 |
+| agrimporta (low-poly 3D) | "Una vaca hace 50 kilos de bosta por día. Con 300 vacas son 15 toneladas… esa bosta puede dar luz para más de cien casas" 550k / 2.1k – ends "Etiquetá a tu amigo más bostero que una vaca" | "A 21 °C tus vacas ya sufren estrés térmico…" 3.4k |
+| quecurioso02 | "¿De dónde viene la palabra ojalá? Del árabe" 406k / 1.1k | "¿Sabías que en Colombia hay un pájaro…?" 188 · "¿Sabías que…muralla?" 1.5k |
+| club_dinero_joven | "Ganar el Balón de Oro es casi imposible." 181k / 2.1k | "La regla de 4.000 años que te puede hacer millonario" 110 |
+| dominautaa | "Si ves esta araña en tu techo… NO la mates" 81k | "Di el abecedario sin respirar" 80 · "¿Qué ves primero…?" 145 |
+| explicamelo.futbol | "'Bostero' nació como un insulto de River… y hay tres versiones" 67k | Gimnasia/Estudiantes stats 410 |
+| laperritopedia | "¿Es suficiente sacar a pasear a tu perro diez minutos?" 64k | tick pill 989 |
+| detras_del_dato51 | UFC scandal 101k · "¿Por qué el whisky te da peor resaca que el vodka?" 45k | – |
+| aluvia.avisa | "¿Qué es el Súper Niño y por qué puede inundar Argentina?" 29k | "Esa maceta del balcón…" 5 |
+| elporquepasaesto | "Por qué tu madre te saca de quicio (y NO es falta de cariño)" 28k | "Parte 2: divorcio del sueño" 49 |
+
+**New rules from this batch:**
+9. **"Team A o Team B" in the hook** (651k, and the same channel's "team melón o durazno" 5k): a two-sided choice with a wink makes everybody comment their side. For us: "¿Team dulce o team amargo?", "¿Team calabaza o team acero?".
+10. **Number chain → surprising transformation** (bosta → 15 toneladas → luz para cien casas): start with a small everyday number, multiply it, end on an unexpected result. For us: "Un argentino toma X mates por día → en un año → en una vida…".
+11. **Origin of an everyday word** (ojalá 406k vs "¿sabías que…?" 188): every viewer uses the word daily. For us: "mate", "bombilla", "cebar", "che", "yerba".
+12. **"Si ves esto… NO lo hagas"** – a warning about something in your own home that goes against instinct.
+13. **Local rivalry and identity** (bostero, Maradona, "sos argentino de verdad") and a **tag-a-friend ending** ("Etiquetá a tu amigo más … que …") – shares spread the reel.
+14. **Avoid:** "¿Sabías que…?" trivia openers, do-this-test challenges, niche/technical how-tos, "Parte 2" without a strong hook of its own, duplicated news. They flop on every channel.
+
 ## 1. The hook (0–2 s) decides everything
 - **One strong image + one claim, from frame 0.** Every reference opens on a single, instantly readable picture that already carries the headline (frame 0 = thumbnail): crossed-out bombilla "SIN BOMBILLA", a hen in a football shirt, the finished prize photo, the Pope next to the flag, a cup labelled "FIDEOS", a wall of 30 shirts, a scoreboard at minute 6'.
 - **Hook types that worked:**

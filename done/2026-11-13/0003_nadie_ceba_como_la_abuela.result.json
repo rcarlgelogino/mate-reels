@@ -1,0 +1,14 @@
+{
+ "id": "0003_nadie_ceba_como_la_abuela",
+ "file": "work/0003_nadie_ceba_como_la_abuela/final.mp4",
+ "voice": "gemini",
+ "duration": 35.667,
+ "inTarget": true,
+ "target": [
+  35,
+  45
+ ],
+ "loudness": "-12.2 LUFS, peak -0.9 dBFS",
+ "shots": 11,
+ "minutes": 1.9
+}

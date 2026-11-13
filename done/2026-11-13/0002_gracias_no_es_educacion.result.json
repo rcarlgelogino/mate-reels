@@ -1,0 +1,14 @@
+{
+ "id": "0002_gracias_no_es_educacion",
+ "file": "work/0002_gracias_no_es_educacion/final.mp4",
+ "voice": "gemini",
+ "duration": 34.367,
+ "inTarget": false,
+ "target": [
+  35,
+  45
+ ],
+ "loudness": "-12.4 LUFS, peak -0.8 dBFS",
+ "shots": 11,
+ "minutes": 1.8
+}

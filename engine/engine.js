@@ -513,7 +513,7 @@ T.board=(p={})=>{
   const n=k==='cards'?(p.items||[]).length:k==='checklist'?(p.rows||[]).length:k==='poll'?(p.options||[]).length:k==='timeline'?(p.items||[]).length:0;
   for(let i=0;i<n;i++) cues.push({u:0.1+i*(0.75/Math.max(1,n)),type:k==='checklist'?((p.rows[i].ok)?'ding':'buzz'):'pop'});
   if(k==='dots') cues.push({u:0.1,type:'tick'},{u:0.55,type:'ding'});
-  return { scene:s, camera:cam, aperture:0, maxblur:0, no3d:true, cues, update(){ return 5; }, overlay:(c,u,t)=>{ c.fillStyle=bg; c.fillRect(0,0,W,H); drawBoard(c,p,u,t); } };
+  return { scene:s, camera:cam, aperture:0, maxblur:0, no3d:true, cues, update(){ return 5; }, overlay:(c,u,t)=>{ c.fillStyle=bg; c.fillRect(0,0,W,H); const bs0=p.scale??E.tl?.style?.boardScale??1, bs=p.kind==='cards'?Math.min(bs0,1.18):bs0; c.save(); c.translate(W/2,H*0.5); c.scale(bs,bs); c.translate(-W/2,-H*0.5); drawBoard(c,p,u,t); c.restore(); } };
 };
 function rr(c,x,y,w,h,r,fill){ c.beginPath(); c.roundRect(x,y,w,h,r); c.fillStyle=fill; c.fill(); }
 function drawBoard(c,p,u,t){
@@ -630,28 +630,42 @@ function f2face(c,face,k,t,hx,hy){ const ex=24*k, ey=hy-6*k, ink='#1b120e'; c.fi
   else if(face==='neutral'){ c.moveTo(hx-9*k,my+2*k); c.lineTo(hx+9*k,my+2*k); c.stroke(); }
   else { c.arc(hx,my-6*k,15*k,0.2*Math.PI,0.8*Math.PI); c.stroke(); }
   f2ell(c,hx-40*k,hy+14*k,11*k,7*k,'rgba(240,110,100,0.35)'); f2ell(c,hx+40*k,hy+14*k,11*k,7*k,'rgba(240,110,100,0.35)'); }
-function f2pose(act,t,hold){ // [upper, fore] per arm, angles from straight down, + = outward
-  const w=Math.sin(t*10); let L=[0.14,0.06], R=[0.14,0.06];
-  if(hold==='mate'||hold==='both') R=[0.12,-1.75]; if(hold==='termo'||hold==='both') L=[0.1,0.05];
-  if(act==='wave') R=[2.2,2.9+0.35*w]; if(act==='cheer'||act==='jump'){ L=[2.5,2.9+0.15*w]; R=[2.5,2.9-0.15*w]; }
-  if(act==='shock'){ L=[1.7,2.8]; R=[1.7,2.8]; } if(act==='no'){ L=[0.8,1.6]; R=[0.8,1.6]; } if(act==='hug'){ L=[0.35,-1.6]; R=[0.35,-1.6]; }
-  if(act==='pass') R=[1.15,1.5]; if(act==='drink') R=[0.35,-2.75]; if(act==='point') R=[1.5,1.55]; if(act==='sigh'){ L=[0.05,0]; R=[0.05,0]; }
-  return {L,R}; }
+// 2-bone IK: shoulder S, hand target T -> elbow; the elbow bends outwards (side = -1 left, +1 right)
+function f2ik(Sx,Sy,Tx,Ty,L1,L2,side){ const dx=Tx-Sx, dy=Ty-Sy; let d=Math.hypot(dx,dy)||1e-3; const maxD=(L1+L2)*0.995; const k=Math.min(1,maxD/d); d=Math.min(d,maxD); const tx=Sx+dx*k, ty=Sy+dy*k;
+  const a=Math.atan2(dy,dx), cb=clamp((L1*L1+d*d-L2*L2)/(2*L1*d),-1,1), bb=Math.acos(cb); const e1=[Sx+Math.cos(a+bb)*L1,Sy+Math.sin(a+bb)*L1], e2=[Sx+Math.cos(a-bb)*L1,Sy+Math.sin(a-bb)*L1];
+  const pick=(e1[0]*side+e1[1]*0.35)>(e2[0]*side+e2[1]*0.35)?e1:e2; return {e:pick,h:[tx,ty]}; }
+// hand targets per act (local units of a 520 px figure; y up is negative). Returns {L:[x,y],R:[x,y], sipK}
+function f2targets(o,act,t,u,HX,HY){ const sw=Math.sin(t*2.1+(o.i||0)), rest=side=>[side*74+side*3*sw,-150+2*Math.cos(t*2.1)];
+  const T={L:rest(-1),R:rest(1)}; const hold=o.hold;
+  const chest=[22,-212], hip=[-74,-178];
+  if(hold==='mate'||hold==='both'||o.carry) T.R=chest; if(hold==='termo'||hold==='both') T.L=hip;
+  let sipK=0;
+  if(act==='drink'){ const cyc=(t*0.55+0.15)%1; sipK=cyc<0.15?easeInOut(cyc/0.15):cyc<0.6?1:cyc<0.75?1-easeInOut((cyc-0.6)/0.15):0; const mouth=[HX-31,HY+121]; T.R=[chest[0]+(mouth[0]-chest[0])*sipK,chest[1]+(mouth[1]-chest[1])*sipK]; }
+  if(act==='pass'||act==='offer'){ const r=easeOut(clamp(u/0.25)); T.R=[chest[0]+(168-chest[0])*r,chest[1]+(-300-chest[1])*r]; }
+  if(act==='receive'){ const r=easeOut(clamp((u-0.3)/0.3)); T.R=[74+(168-74)*r,-150+(-300+150)*r]; }
+  if(act==='point') T.R=[176,-338];
+  if(act==='wave') T.R=[118+26*Math.sin(t*10),-540];
+  if(act==='cheer'||act==='jump'){ T.L=[-96,-565+14*Math.sin(t*10)]; T.R=[96,-565-14*Math.sin(t*10)]; }
+  if(act==='shock'){ T.L=[-92,-440]; T.R=[92,-440]; }
+  if(act==='hug'){ const fl=6*Math.sin(t*6); T.L=[-158,-292+fl]; T.R=[158,-292-fl]; }
+  if(act==='laugh'){ T.L=[-40,-215]; T.R=[40,-215]; }
+  if(act==='sigh'){ T.L=[-70,-140]; T.R=[70,-140]; }
+  // ease in from the rest pose at the start of the shot so arms never pop
+  const bl=easeOut(clamp(t/0.35)); for(const nm of ['L','R']){ const r=rest(nm==='L'?-1:1); if(T[nm]!==r) T[nm]=[r[0]+(T[nm][0]-r[0])*bl,r[1]+(T[nm][1]-r[1])*bl]; }
+  return {...T,sipK}; }
+function f2hand(c,x,y,k,skin,side){ f2ell(c,x,y,15*k,15*k,skin); f2ell(c,x-side*9*k,y-7*k,7*k,9*k,f2shade(skin,-0.08)); }
 function f2person(c,o,t,u){ const S=o.s||520, k=S/520; const act=o.act||null, face=o.face||'smile';
   let by=Math.sin(t*2.6+o.x*0.01)*2*k, hx=0, hy=0;
   if(act==='jump') by=-Math.abs(Math.sin(t*6))*70*k; if(act==='laugh'||act==='cheer') by=-Math.abs(Math.sin(t*12))*12*k;
   if(act==='nod') hy=Math.max(0,Math.sin(t*9))*8*k; if(act==='no') hx=Math.sin(t*11)*10*k; if(act==='shock') hx=Math.sin(t*40)*2*k; if(act==='sigh') hy=6*k;
   const app=easeOutBack(clamp((u*(o.dur||3)-(o.delay||0))/0.25)); if(app<=0.001) return;
-  c.save(); c.translate(o.x,o.y); c.scale(app*(o.flip?-1:1),app); c.translate(0,by);
-  const skin=o.skin, shirt=o.shirt, pants=o.pants||'#2b3a55', hair=o.hair;
+  c.save(); c.translate(o.x,o.y); const fx=o.flip?-1:1; c.scale(app*fx,app); c.translate(0,by);
+  const skin=o.skin, shirt=o.shirt, pants=o.pants||'#2b3a55', hair=o.hair, sleeve=f2shade(shirt,-0.08);
   c.fillStyle='rgba(0,0,0,0.18)'; c.beginPath(); c.ellipse(0,-by,70*k,12*k,0,0,Math.PI*2); c.fill();
-  // legs + shoes
   const legTop=-150*k; c.fillStyle=o.shorts?skin:pants; c.fillRect(-36*k,legTop,26*k,140*k); c.fillRect(10*k,legTop,26*k,140*k);
   if(o.shorts){ c.fillStyle=pants; c.fillRect(-40*k,legTop-6*k,80*k,60*k); if(o.socks){ c.fillStyle=o.socks; c.fillRect(-36*k,-62*k,26*k,52*k); c.fillRect(10*k,-62*k,26*k,52*k); } }
   f2ell(c,-26*k,-8*k,26*k,12*k,'#1d1d22'); f2ell(c,26*k,-8*k,26*k,12*k,'#1d1d22');
-  // back hair (long)
   const HY=-420*k+hy, HX=hx; if(o.hairStyle==='long'){ rr(c,HX-66*k,HY-30*k,132*k,150*k,50*k,hair); }
-  // arms behind torso? draw torso first then arms on top
   c.fillStyle=pants; rr(c,-58*k,-185*k,116*k,50*k,14*k,pants);
   const g=c.createLinearGradient(-60*k,-330*k,60*k,-150*k); g.addColorStop(0,f2shade(shirt,0.12)); g.addColorStop(1,f2shade(shirt,-0.12)); rr(c,-62*k,-335*k,124*k,175*k,34*k,g);
   c.save(); c.beginPath(); c.roundRect(-62*k,-335*k,124*k,175*k,34*k); c.clip();
@@ -661,11 +675,12 @@ function f2person(c,o,t,u){ const S=o.s||520, k=S/520; const act=o.act||null, fa
   if(o.scarf){ c.fillStyle=o.scarf; c.fillRect(-62*k,-335*k,124*k,26*k); c.fillRect(18*k,-320*k,22*k,80*k); }
   c.restore();
   c.fillStyle=skin; c.fillRect(-14*k+HX*0.5,-352*k,28*k,24*k);
-  // arms
-  const pose=f2pose(act,t,o.hold); const L1=95*k, L2=88*k; const hands={};
-  [['L',-1],['R',1]].forEach(([nm,side])=>{ const [a1,a2]=pose[nm]; const sx=side*56*k, sy=-318*k; const ex=sx+side*Math.sin(a1)*L1, ey=sy+Math.cos(a1)*L1; const hx2=ex+side*Math.sin(a2)*L2, hy2=ey+Math.cos(a2)*L2;
-    c.strokeStyle=f2shade(shirt,-0.08); c.lineCap='round'; c.lineJoin='round'; c.lineWidth=30*k; c.beginPath(); c.moveTo(sx,sy); c.lineTo(ex,ey); c.stroke(); c.strokeStyle=skin; c.lineWidth=24*k; c.beginPath(); c.moveTo(ex,ey); c.lineTo(hx2,hy2); c.stroke(); c.strokeStyle=f2shade(shirt,-0.08); c.lineWidth=30*k; c.beginPath(); c.moveTo(sx,sy); c.lineTo(sx+(ex-sx)*0.98,sy+(ey-sy)*0.98); c.stroke();
-    f2ell(c,hx2,hy2,15*k,15*k,skin); hands[nm]=[hx2,hy2]; });
+  // arms via IK (sleeve = upper arm, skin = forearm); hands are drawn last, over the props
+  const T=f2targets(o,act,t,u,HX/k,HY/k); const L1=95*k, L2=88*k; const hands={}, arms={};
+  [['L',-1],['R',1]].forEach(([nm,side])=>{ const sx=side*56*k, sy=-318*k; const r=f2ik(sx,sy,T[nm][0]*k,T[nm][1]*k,L1,L2,side); arms[nm]={s:[sx,sy],e:r.e,h:r.h,side}; hands[nm]=r.h; });
+  const drawArm=(A)=>{ c.lineCap='round'; c.lineJoin='round'; c.strokeStyle=skin; c.lineWidth=24*k; c.beginPath(); c.moveTo(A.e[0],A.e[1]); c.lineTo(A.h[0],A.h[1]); c.stroke(); c.strokeStyle=sleeve; c.lineWidth=31*k; c.beginPath(); c.moveTo(A.s[0],A.s[1]); c.lineTo(A.e[0],A.e[1]); c.stroke(); };
+  const raised=nm=>T[nm][1]<-380;  // arms above the shoulders go in front of the head
+  ['L','R'].forEach(nm=>{ if(!raised(nm)) drawArm(arms[nm]); });
   // head
   f2ell(c,HX-62*k,HY+6*k,12*k,16*k,f2shade(skin,-0.06)); f2ell(c,HX+62*k,HY+6*k,12*k,16*k,f2shade(skin,-0.06)); f2ell(c,HX,HY,64*k,72*k,skin);
   const hs=o.hairStyle||'short';
@@ -676,28 +691,32 @@ function f2person(c,o,t,u){ const S=o.s||520, k=S/520; const act=o.act||null, fa
     if(hs==='cap'){ rr(c,HX-66*k,HY-76*k,132*k,46*k,22*k,o.capColor||'#e5483a'); rr(c,HX-10*k,HY-44*k,94*k,16*k,8*k,f2shade(o.capColor||'#e5483a',-0.25)); } }
   if(o.beard){ c.fillStyle=hair; c.beginPath(); c.ellipse(HX,HY+38*k,48*k,32*k,0,0,Math.PI); c.fill(); }
   if(o.glasses){ c.strokeStyle='#1b120e'; c.lineWidth=4*k; c.beginPath(); c.arc(HX-24*k,HY-4*k,16*k,0,Math.PI*2); c.moveTo(HX+40*k,HY-4*k); c.arc(HX+24*k,HY-4*k,16*k,0,Math.PI*2); c.moveTo(HX-8*k,HY-4*k); c.lineTo(HX+8*k,HY-4*k); c.stroke(); }
-  f2face(c,face,k,t,HX,HY);
-  // held props in front
-  if(!o.passing&&(o.hold==='mate'||o.hold==='both'||act==='pass'||act==='drink')){ const [x,y]=hands.R; f2mate(c,x+(act==='pass'?20*k:0),y+30*k,88*k,o.mate||'calabaza',t,{steam:o.steam}); }
-  if(o.hold==='termo'||o.hold==='both'){ const [x,y]=hands.L; f2termo(c,x,y+60*k,190*k,o.termo); }
+  f2face(c,act==='drink'&&T.sipK>0.6?'neutral':face,k,t,HX,HY);
+  ['L','R'].forEach(nm=>{ if(raised(nm)) drawArm(arms[nm]); });
+  // props sit in the hand: drawn after the arm, before the hand, so the fingers wrap around them
+  const holdsMate=o.carry!==false&&(o.carry||o.hold==='mate'||o.hold==='both'||act==='drink'||((act==='pass'||act==='offer')&&!o.passing));
+  if(holdsMate){ const [x,y]=hands.R; f2mate(c,x+6*k,y+28*k,88*k,o.mate||'calabaza',t,{steam:o.steam,rot:act==='drink'?-0.25*T.sipK:0}); }
+  if(o.hold==='termo'||o.hold==='both'){ const [x,y]=hands.L; f2termo(c,x+2*k,y+118*k,190*k,o.termo); }
+  f2hand(c,hands.L[0],hands.L[1],k,skin,-1); f2hand(c,hands.R[0],hands.R[1],k,skin,1);
   if(act==='hug'){ const b=1+0.12*Math.sin(t*8); f2heart(c,0,-470*k-90*k*b,70*k*b,'#e5483a'); }
-  c.restore(); return hands; }
+  c.restore();
+  const W2=(p)=>[o.x+fx*app*p[0],o.y+app*(by+p[1])]; return {L:W2(hands.L),R:W2(hands.R),k:k*app}; }
 function f2label(c,l,u,i,acc){ const a=easeOutBack(clamp((u-(l.u??(0.15+i*0.12)))/0.12)); if(a<=0.001) return; const x=l.x*W, y=l.y*H, tx=(l.tx??l.x)*W, ty=(l.ty??(l.y-0.08))*H;
   c.save(); c.strokeStyle='rgba(255,255,255,0.85)'; c.lineWidth=4; c.setLineDash([10,8]); c.beginPath(); c.moveTo(x,y); c.lineTo(x+(tx-x)*a,y+(ty-y)*a); c.stroke(); c.setLineDash([]); f2ell(c,x,y,9,9,'#fff');
   c.translate(tx,ty); c.scale(a,a); c.font='900 40px Montserrat'; const w=c.measureText(l.text).width+56; c.fillStyle='rgba(16,24,36,0.88)'; c.beginPath(); c.roundRect(-w/2,-34,w,68,34); c.fill(); c.lineWidth=4; c.strokeStyle=l.color||acc; c.stroke(); c.fillStyle=l.color||acc; c.textAlign='center'; c.textBaseline='middle'; c.fillText(l.text,0,2); c.restore(); }
 function drawFlat(c,p,u,t,sh){ c.save(); const z=(sh?.zoom||1)*(1+0.05*u)*(1+0.08*Math.pow(1-clamp(t/0.3),3)); const fc=sh?.c||[0.5,0.55];
-  c.translate(fc[0]*W,fc[1]*H); c.scale(z,z); c.translate(-fc[0]*W,-fc[1]*H);
-  f2scene(c,p.scene||'solid',t,p); const dur=sh?.dur||3;
+  const drift=p.drift??E.tl?.style?.drift??0; const zz=z*(drift?1.05:1); c.translate(fc[0]*W,fc[1]*H); c.scale(zz,zz); c.translate(-fc[0]*W,-fc[1]*H);
+  const dir=(Math.round((sh?.start||0)*3)%2)?1:-1, dx=drift*dir*(ease(u)-0.5)*56;
+  c.save(); c.translate(dx*0.35,0); f2scene(c,p.scene||'solid',t,p); c.restore(); c.translate(dx,0); const dur=sh?.dur||3;
   const defFace=SEGFACE[sh?.segEmo]||'smile'; const emo=sh?.emo||{};
   const ppl=(p.people||[]).map((q,i)=>{ const hit=emo.who==null||emo.who==='all'||emo.who===i||(Array.isArray(emo.who)&&emo.who.includes(i));
-    return { skin:F2.skins[(q.who??i)%6], hair:F2.hairs[(q.who??i)%6], hairStyle:F2.styles[(q.who??i)%6], shirt:F2.shirts[(q.who??i)%8], ...q, x:(q.x??0.5)*W, y:(q.y??0.8)*H, face:q.face||(hit&&emo.face)||defFace, passing:p.pass&&(p.pass.from===i||p.pass.to===i), act:q.act||(hit?emo.act:null), dur, delay:q.delay??i*0.08, i }; });
+    return { skin:F2.skins[(q.who??i)%6], hair:F2.hairs[(q.who??i)%6], hairStyle:F2.styles[(q.who??i)%6], shirt:F2.shirts[(q.who??i)%8], ...q, x:(q.x??0.5)*W, y:(q.y??0.8)*H, face:q.face||(hit&&emo.face)||defFace, carry:p.pass?(p.pass.from===i?(passM(u)<=0.001?true:false):p.pass.to===i?(passM(u)>=0.999?true:false):undefined):undefined, act:p.pass&&p.pass.to===i&&!q.act?'receive':(q.act||(hit?emo.act:null)), dur, delay:q.delay??i*0.08, i }; });
   ppl.filter(q=>q.back).forEach(q=>f2person(c,q,t,u));
   (p.objs||[]).filter(o=>o.back).forEach((o,i)=>f2obj(c,o,u,t,dur,i));
   const hands=[]; ppl.filter(q=>!q.back).sort((a,b)=>a.y-b.y).forEach(q=>{ hands[q.i]=f2person(c,q,t,u); });
   f2fore(c,p.scene,t,p); (p.objs||[]).filter(o=>!o.back).forEach((o,i)=>f2obj(c,o,u,t,dur,i));
-  if(p.pass&&hands[p.pass.from]&&hands[p.pass.to]){ const A=ppl[p.pass.from], B=ppl[p.pass.to]; const ha=hands[p.pass.from].R, hb=hands[p.pass.to].R; const kA=(A.s||520)/520;
-    const m=easeInOut(clamp((u-0.25)/0.45)); const x=A.x+(A.flip?-1:1)*ha[0]*1+(B.x+(B.flip?-1:1)*hb[0]-A.x-(A.flip?-1:1)*ha[0])*m, y=A.y+ha[1]+((B.y+hb[1])-(A.y+ha[1]))*m-Math.sin(m*Math.PI)*120;
-    f2mate(c,x,y+30*kA,88*kA,p.mate||'calabaza',t,{steam:true}); }
+  if(p.pass&&hands[p.pass.from]&&hands[p.pass.to]){ const m=passM(u); if(m>0.001&&m<0.999){ const ha=hands[p.pass.from].R, hb=hands[p.pass.to].R, kk=hands[p.pass.from].k;
+    const x=ha[0]+(hb[0]-ha[0])*m, y=ha[1]+(hb[1]-ha[1])*m-Math.sin(m*Math.PI)*90*kk; f2mate(c,x+6*kk,y+28*kk,88*kk,p.mate||'calabaza',t,{steam:true,rot:Math.sin(m*Math.PI)*0.25}); } }
   (p.labels||[]).forEach((l,i)=>f2label(c,l,u,i,E.accent)); c.restore(); }
 function f2obj(c,o,u,t,dur,i){ const a=easeOutBack(clamp((u*dur-(o.delay??0.05+i*0.1))/0.3)); if(a<=0.001) return; const x=(o.x??0.5)*W, y=(o.y??0.7)*H, s=o.s||500, bob=o.bob?Math.sin(t*2.2)*12:0;
   c.save(); c.translate(x,y+bob); c.scale(a,a); if(o.spin) c.rotate(Math.sin(t*1.6)*0.06);
@@ -705,7 +724,7 @@ function f2obj(c,o,u,t,dur,i){ const a=easeOutBack(clamp((u*dur-(o.delay??0.05+i
   else if(o.type==='bombilla'){ c.strokeStyle='#c9d1d9'; c.lineCap='round'; c.lineWidth=s*0.05; c.beginPath(); c.moveTo(0,-s*0.15); c.lineTo(0,-s); c.stroke(); c.strokeStyle='#eef2f5'; c.lineWidth=s*0.015; c.beginPath(); c.moveTo(-s*0.01,-s*0.2); c.lineTo(-s*0.01,-s*0.95); c.stroke(); const g=c.createLinearGradient(-s*0.1,0,s*0.1,0); g.addColorStop(0,'#eef2f5'); g.addColorStop(1,'#8f99a3'); c.fillStyle=g; c.beginPath(); c.ellipse(0,-s*0.1,s*0.09,s*0.14,0,0,Math.PI*2); c.fill(); c.fillStyle='#2a2f36'; for(let k=-2;k<=2;k++) c.fillRect(-s*0.07,-s*0.1+k*s*0.04,s*0.14,s*0.012); rr(c,-s*0.04,-s*1.03,s*0.08,s*0.06,s*0.02,'#b98a2e'); }
   else f2mate(c,0,0,s,o.type||'calabaza',t,{steam:o.steam,face:o.face,color:o.color});
   c.restore(); }
-const easeInOut=x=>x<0.5?4*x*x*x:1-Math.pow(-2*x+2,3)/2;
+const easeInOut=x=>x<0.5?4*x*x*x:1-Math.pow(-2*x+2,3)/2; const passM=u=>easeInOut(clamp((u-0.5)/0.3));
 T.flat=(p={})=>{ const s=new THREE.Scene(); s.background=new THREE.Color('#000'); const cam=newCam(40); const cues=[];
   (p.people||[]).forEach((q,i)=>{ cues.push({u:0.04+i*0.03,type:'pop'}); if(q.act==='jump'||q.act==='cheer') cues.push({u:0.2,type:'popBig'}); });
   if(p.pass) cues.push({u:0.3,type:'swish'}); if(p.objs?.length) cues.push({u:0.06,type:'pop'}); (p.labels||[]).forEach((l,i)=>cues.push({u:l.u??(0.15+i*0.12),type:'blip'}));
@@ -1074,6 +1093,7 @@ function drawCaptionExplainer(T_,ch){
   const words=ch.words.map(w=>w.w.replace(/[.,!?:;]$/,'')); const sp=22; let widths=words.map(w=>ctx.measureText(w).width), tw=widths.reduce((a,b)=>a+b,0)+sp*(words.length-1);
   if(tw>900){ size=Math.floor(size*900/tw); ctx.font=`800 ${size}px Montserrat`; widths=words.map(w=>ctx.measureText(w).width); tw=widths.reduce((a,b)=>a+b,0)+sp*(words.length-1); }
   ctx.save(); ctx.translate(W/2,E.tl.style?.captionY||(E.tl.style?.viewfinder?420:300)); ctx.scale(0.9+0.1*pop,0.9+0.1*pop); ctx.textBaseline='middle'; ctx.textAlign='center'; let x=-tw/2;
+  if(E.tl.style?.captionBox){ ctx.fillStyle=E.tl.style.captionBox===true?'rgba(14,20,30,0.62)':E.tl.style.captionBox; ctx.beginPath(); ctx.roundRect(-tw/2-34,-size*0.86,tw+68,size*1.72,size*0.5); ctx.fill(); }
   ch.words.forEach((w,i)=>{ const active=T_>=w.t-0.02&&(i===ch.words.length-1||T_<ch.words[i+1].t-0.02); const cx=x+widths[i]/2;
     if(active){ const st=E.tl.style||{}; ctx.fillStyle=st.hiBg||E.accent; ctx.beginPath(); ctx.roundRect(cx-widths[i]/2-14,-size*0.62,widths[i]+28,size*1.24,14); ctx.fill(); if(st.hiBorder){ ctx.lineWidth=4; ctx.strokeStyle=st.hiBorder; ctx.stroke(); } ctx.fillStyle=st.hiFg||'#10161f'; ctx.font=`900 ${size}px Montserrat`; }
     else { ctx.shadowColor='rgba(0,0,0,0.6)'; ctx.shadowBlur=12; ctx.fillStyle='rgba(255,255,255,0.92)'; ctx.font=`800 ${size}px Montserrat`; }
@@ -1100,7 +1120,7 @@ function drawCaption(T_){
 function drawCallouts(T_){
   for(const c of E.tl.callouts){ if(T_<c.t0||T_>=c.t1) continue;
     const a=clamp((T_-c.t0)/0.22), out=clamp((c.t1-T_)/0.1), sc=Math.max(0.01,easeOutBack(a))*out;
-    ctx.save(); ctx.translate(W/2,c.y||(E.tl.style?.look==='explainer'?(c.type==='pill'?1320:1250):(c.type==='pill'?560:440))); ctx.rotate((c.rot||0)*Math.PI/180*(1-0.3*a)); ctx.scale(sc,sc);
+    ctx.save(); ctx.translate(W/2,c.y||(c.type!=='pill'&&E.tl.style?.calloutY)||(E.tl.style?.look==='explainer'?(c.type==='pill'?1320:1250):(c.type==='pill'?560:440))); ctx.rotate((c.rot||0)*Math.PI/180*(1-0.3*a)); ctx.scale(sc,sc);
     ctx.textAlign='center'; ctx.textBaseline='middle'; ctx.shadowColor='rgba(0,0,0,0.4)'; ctx.shadowBlur=24; ctx.shadowOffsetY=8;
     const col=c.color||E.accent;
     const cleanC=(E.tl.style?.look||'clean')==='clean';
@@ -1109,7 +1129,7 @@ function drawCallouts(T_){
       ctx.fillStyle=col; ctx.beginPath(); ctx.roundRect(-w/2+40,h/2-16,w-80,8,4); ctx.fill();
       const y0=-h/2+35+ms*0.52; ctx.font=`900 ${ms}px Montserrat`; ctx.shadowBlur=0; ctx.fillStyle=mainCol||'#1b120e'; ctx.fillText(main,0,y0);
       if(sub){ ctx.font=`800 ${ss}px Montserrat`; ctx.fillStyle='#8a6a55'; ctx.fillText(sub,0,y0+ms*0.55+ss*0.75); } };
-    if(c.type==='big'){ if(cleanC) card(c.text,c.sub,c.color&&c.color!==E.accent?c.color:'#1b120e'); else { fitFont(900,170,c.text,940); strokeText(c.text,0,0,col,'#1b120e',22); if(c.sub){ fitFont(800,54,c.sub,940); strokeText(c.sub,0,118,'#ffffff','#1b120e',12); } } }
+    if(c.type==='big'){ if(cleanC) card(c.text,c.sub,c.color&&c.color!==E.accent?c.color:'#1b120e'); else { const cs=E.tl.style?.calloutSize||170; fitFont(900,cs,c.text,940); strokeText(c.text,0,0,col,'#1b120e',Math.round(22*cs/170)); if(c.sub){ fitFont(800,54,c.sub,940); strokeText(c.sub,0,118,'#ffffff','#1b120e',12); } } }
     if(c.type==='counter'){ const k=clamp((T_-c.count[0])/Math.max(0.1,c.count[1]-c.count[0])); const v=c.from+(c.to-c.from)*(1-Math.pow(1-k,3)); const dec=c.decimals||0;
       const final=(c.prefix||'')+(dec?c.to.toFixed(dec):fmtNum(c.to))+(c.suffix||''); const s=fitFont(900,130,final,880); ctx.font=`900 ${s}px Montserrat`;
       if(cleanC){ card((c.prefix||'')+(dec?v.toFixed(dec):fmtNum(v))+(c.suffix||''),c.sub); } else { strokeText((c.prefix||'')+(dec?v.toFixed(dec):fmtNum(v))+(c.suffix||''),0,0,col,'#1b120e',20); if(c.sub){ fitFont(800,54,c.sub,940); strokeText(c.sub,0,110,'#ffffff','#1b120e',12); } } }

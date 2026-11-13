@@ -14,6 +14,9 @@ const EL = require('./eleven'); const GEM = require('./gemini');
 const specPath = path.resolve(process.argv[2] || ''); if (!fs.existsSync(specPath)) { console.error('usage: node pipeline/build.js <spec.json>'); process.exit(2); }
 const SHEET_ONLY = process.argv.includes('--sheet-only');
 const spec = JSON.parse(fs.readFileSync(specPath, 'utf8')); const OUT = path.dirname(specPath);
+// style presets: spec.preset = 'flat2d' loads styles/flat2d.json; the spec's own values win
+if (spec.preset) { const pf = path.join(ROOT, 'styles', spec.preset + '.json'); if (!fs.existsSync(pf)) { console.error('unknown preset ' + spec.preset); process.exit(2); }
+  const pr = JSON.parse(fs.readFileSync(pf, 'utf8')); spec.style = { ...(pr.style || {}), ...(spec.style || {}) }; for (const [k, v] of Object.entries(pr.spec || {})) if (spec[k] === undefined) spec[k] = v; }
 const log = (...a) => { const l = `[${new Date().toISOString().slice(11, 19)}] ${a.join(' ')}`; console.log(l); fs.appendFileSync(path.join(OUT, 'build.log'), l + '\n'); };
 const sleep = ms => new Promise(r => setTimeout(r, ms));
 

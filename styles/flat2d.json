@@ -1,0 +1,27 @@
+{
+  "name": "flat2d",
+  "version": 2,
+  "description": "2D vector explainer like the reference reels: flat characters with big heads, layered flat scenes (kitchen, park, plaza, patio, beach), navy object shots, solid-colour close-ups, top karaoke captions in a dark box, headline callouts under the captions, infographic boards, comment poll at the end. Fast to render in the cloud.",
+  "style": {
+    "accent": "#3fd0c9",
+    "mood": "latin",
+    "bpm": 108,
+    "look": "explainer",
+    "render": "flat",
+    "captionBox": true,
+    "captionY": 300,
+    "captionSize": 62,
+    "calloutY": 470,
+    "calloutSize": 120,
+    "boardScale": 1.35,
+    "drift": 1
+  },
+  "spec": {
+    "voice": "es-AR-TomasNeural",
+    "rate": "+14%",
+    "geminiVoice": "Charon",
+    "followText": "SEGUINOS PARA MÁS",
+    "followSub": "COSTUMBRES DEL MATE",
+    "followY": 1640
+  }
+}

@@ -5,7 +5,7 @@
 //   out/<date>/    final MP4 + caption per reel (uploaded as a GitHub release, not committed)
 // --test builds samples/test_reel.json instead of the queue (nothing is moved).
 const fs = require('fs'), path = require('path'); const { spawnSync } = require('child_process');
-const ROOT = path.join(__dirname, '..'); const arg = (k, d) => { const i = process.argv.indexOf(k); return i > 0 ? process.argv[i + 1] : d; };
+const ROOT = path.join(__dirname, '..'); const MK = require('./make'); const arg = (k, d) => { const i = process.argv.indexOf(k); return i > 0 ? process.argv[i + 1] : d; };
 const COUNT = +arg('--count', process.env.REELS_PER_DAY || 3); const TEST = process.argv.includes('--test');
 const day = new Date().toISOString().slice(0, 10); const OUT = path.join(ROOT, 'out', day); fs.mkdirSync(OUT, { recursive: true });
 const log = (...a) => console.log(`[${new Date().toISOString().slice(11, 19)}]`, ...a);
@@ -17,7 +17,7 @@ if (!jobs.length) { sum('Queue is empty: no reels to build today. Add specs to q
 let ok = 0;
 jobs.forEach((specFile, i) => {
   const name = path.basename(specFile, '.json'); const work = path.join(ROOT, 'work', name); fs.mkdirSync(work, { recursive: true });
-  const spec = JSON.parse(fs.readFileSync(specFile, 'utf8')); fs.writeFileSync(path.join(work, 'spec.json'), JSON.stringify(spec, null, 1));
+  const style = MK.activeStyle(); const spec = MK.toSpec(JSON.parse(fs.readFileSync(specFile, 'utf8')), style); fs.writeFileSync(path.join(work, 'spec.json'), JSON.stringify(spec, null, 1));
   log(`building ${i + 1}/${jobs.length}: ${name}`);
   let r; for (let a = 1; a <= 2; a++) { r = spawnSync(process.execPath, [path.join(ROOT, 'pipeline', 'build.js'), path.join(work, 'spec.json')], { stdio: 'inherit', timeout: 75 * 60 * 1000 }); if (r.status === 0) break; log(`build failed (attempt ${a}), exit ${r.status}`); }
   const mp4 = path.join(work, 'final.mp4');
@@ -26,7 +26,7 @@ jobs.forEach((specFile, i) => {
   fs.copyFileSync(mp4, path.join(OUT, `${String(i + 1).padStart(2, '0')}_${name}.mp4`));
   if (fs.existsSync(path.join(work, 'caption.txt'))) fs.copyFileSync(path.join(work, 'caption.txt'), path.join(OUT, `${String(i + 1).padStart(2, '0')}_${name}.txt`));
   if (!TEST) { const dd = path.join(ROOT, 'done', day); fs.mkdirSync(dd, { recursive: true }); fs.renameSync(specFile, path.join(dd, path.basename(specFile))); fs.writeFileSync(path.join(dd, name + '.result.json'), JSON.stringify(res, null, 1)); }
-  ok++; sum(`- ✅ ${name}: ${res.duration} s, voice ${res.voice}, ${res.loudness}${res.inTarget ? '' : ' (outside 35-45 s!)'}`);
+  ok++; sum(`- ✅ ${name} (style ${spec.style_used || spec.preset || 'custom'}): ${res.duration} s, voice ${res.voice}, ${res.loudness}${res.inTarget ? '' : ' (outside 35-45 s!)'}`);
 });
 const left = fs.existsSync(path.join(ROOT, 'queue')) ? fs.readdirSync(path.join(ROOT, 'queue')).filter(f => f.endsWith('.json')).length : 0;
 sum(`\n${ok}/${jobs.length} reels built. Specs left in queue: ${left}${left < COUNT * 3 ? ' (running low, add more)' : ''}.`);

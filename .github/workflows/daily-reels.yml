@@ -2,7 +2,8 @@ name: daily-reels
 
 on:
   schedule:
-    # GitHub may delay or drop scheduled runs (busy at :00/:30), so try three times; later runs exit if today was already built
+    # GitHub may delay or drop scheduled runs (busy at :00/:30), so try three times; later runs exit if today was already built.
+    # Scheduled runs belong to the account that last changed this cron: keep that a real account (not a bot address), or they never start.
     - cron: '47 8 * * *'
     - cron: '47 9 * * *'
     - cron: '47 10 * * *'

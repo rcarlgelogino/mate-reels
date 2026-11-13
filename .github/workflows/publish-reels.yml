@@ -1,0 +1,72 @@
+name: publish-reels
+
+# Posts the next not-yet-posted reel from the newest "Reels YYYY-MM-DD" release to Instagram.
+# Three slots per day for an Argentine audience (UTC-3): 08:00, 13:00 and 20:00 in Buenos Aires.
+# Scheduled posting only runs when the repository variable IG_AUTOPUBLISH is "true" (Settings -> Variables).
+on:
+  schedule:
+    - cron: '0 11 * * *'
+    - cron: '0 16 * * *'
+    - cron: '0 23 * * *'
+  workflow_dispatch:
+    inputs:
+      dry_run:
+        description: 'Only check the connection, post nothing'
+        type: boolean
+        default: true
+
+permissions:
+  contents: write
+
+concurrency:
+  group: publish-reels
+  cancel-in-progress: false
+
+jobs:
+  publish:
+    runs-on: ubuntu-latest
+    timeout-minutes: 30
+    if: ${{ github.event_name == 'workflow_dispatch' || vars.IG_AUTOPUBLISH == 'true' }}
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+
+      - name: Pick the next reel
+        id: pick
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          mkdir -p posted dl
+          touch posted/posted.txt
+          TAG=$(gh release list --limit 30 --json tagName,createdAt --jq 'sort_by(.createdAt) | reverse | .[].tagName' | grep '^reels-' | head -n 1 || true)
+          [ -z "$TAG" ] && { echo "no release yet"; echo "file=" >> "$GITHUB_OUTPUT"; exit 0; }
+          NEXT=""
+          for a in $(gh release view "$TAG" --json assets --jq '.assets[].name' | grep '\.mp4$' | sort); do
+            if ! grep -qx "$TAG/$a" posted/posted.txt; then NEXT="$a"; break; fi
+          done
+          [ -z "$NEXT" ] && { echo "everything from $TAG is already posted"; echo "file=" >> "$GITHUB_OUTPUT"; exit 0; }
+          gh release download "$TAG" --pattern "$NEXT" --pattern "${NEXT%.mp4}.txt" --dir dl
+          echo "tag=$TAG" >> "$GITHUB_OUTPUT"; echo "file=$NEXT" >> "$GITHUB_OUTPUT"
+          echo "next: $TAG / $NEXT"
+
+      - name: Publish to Instagram
+        if: ${{ steps.pick.outputs.file != '' }}
+        env:
+          IG_USER_ID: ${{ secrets.IG_USER_ID }}
+          META_PAGE_TOKEN: ${{ secrets.META_PAGE_TOKEN }}
+          IG_TOKEN: ${{ secrets.IG_TOKEN }}
+        run: |
+          F="dl/${{ steps.pick.outputs.file }}"
+          node scripts/publish.js "$F" "${F%.mp4}.txt" ${{ (github.event_name == 'workflow_dispatch' && inputs.dry_run) && '--dry-run' || '' }}
+
+      - name: Remember what was posted
+        if: ${{ steps.pick.outputs.file != '' && !(github.event_name == 'workflow_dispatch' && inputs.dry_run) }}
+        run: |
+          echo "${{ steps.pick.outputs.tag }}/${{ steps.pick.outputs.file }}" >> posted/posted.txt
+          git config user.name "reels-bot"
+          git config user.email "reels-bot@users.noreply.github.com"
+          git add posted/posted.txt
+          git commit -m "Posted ${{ steps.pick.outputs.file }}" && git pull --rebase -q && git push

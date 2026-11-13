@@ -55,7 +55,7 @@ jobs:
       - name: Publish to Instagram
         if: ${{ steps.pick.outputs.file != '' }}
         env:
-          IG_USER_ID: ${{ secrets.IG_USER_ID }}
+          IG_USER_ID: ${{ secrets.IG_USER_ID || vars.IG_USER_ID }}
           META_PAGE_TOKEN: ${{ secrets.META_PAGE_TOKEN }}
           IG_TOKEN: ${{ secrets.IG_TOKEN }}
         run: |

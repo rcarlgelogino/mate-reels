@@ -12,7 +12,7 @@ async function api(method, url, body, headers = {}) {
   if (!r.ok || j.error) { const e = new Error(scrub(`${r.status} ${JSON.stringify(j.error || j).slice(0, 400)}`)); e.status = r.status; throw e; } return j; }
 (async () => {
   if (!video || !fs.existsSync(video)) { console.error('usage: node scripts/publish.js <video.mp4> [caption.txt] [--dry-run]'); process.exit(2); }
-  if (!IG || !TOKEN) { console.error('IG_USER_ID and META_PAGE_TOKEN (or IG_TOKEN) must be set'); process.exit(2); }
+  if (!IG || !TOKEN) { console.error('missing:', [!IG && 'IG_USER_ID', !TOKEN && 'META_PAGE_TOKEN (or IG_TOKEN)'].filter(Boolean).join(', '), '- add them under Settings > Secrets and variables > Actions > Secrets (repository secrets)'); process.exit(2); }
   const caption = capFile && fs.existsSync(capFile) ? fs.readFileSync(capFile, 'utf8').trim().slice(0, 2200) : '';
   const size = fs.statSync(video).size; log('video', path.basename(video), (size / 1e6).toFixed(1) + ' MB', '| caption', caption.length, 'chars');
   const G = `https://graph.facebook.com/${V}`;

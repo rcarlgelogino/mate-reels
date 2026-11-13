@@ -1,12 +1,13 @@
 name: publish-reels
 
 # Posts the next not-yet-posted reel from the newest "Reels YYYY-MM-DD" release to Instagram.
-# Three slots per day for an Argentine audience (UTC-3): 08:00, 13:00 and 20:00 in Buenos Aires.
+# Four slots per day for an Argentine audience (UTC-3): 08:00, 13:00, 17:00 and 20:00 in Buenos Aires (the 4th reel is the daily 3D A/B version, posted last).
 # Scheduled posting only runs when the repository variable IG_AUTOPUBLISH is "true" (Settings -> Variables).
 on:
   schedule:
     - cron: '13 11 * * *'
     - cron: '13 16 * * *'
+    - cron: '13 20 * * *'
     - cron: '13 23 * * *'
   workflow_dispatch:
     inputs:

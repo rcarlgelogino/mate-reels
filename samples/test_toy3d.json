@@ -1,0 +1,75 @@
+{
+ "id": "test_toy3d",
+ "topic": "style test 3D",
+ "follow": false,
+ "caption": "Prueba de estilo 3D",
+ "hashtags": [
+  "mate"
+ ],
+ "segments": [
+  {
+   "text": "Así se ceba un buen mate, paso a paso.",
+   "visual": {
+    "type": "scene",
+    "place": "park",
+    "camera": "flow",
+    "focus": 0,
+    "people": [
+     {
+      "role": "cebador",
+      "does": "hold_both",
+      "mood": "smile"
+     },
+     {
+      "role": "friend",
+      "does": "hold_yerba",
+      "mood": "happy"
+     }
+    ]
+   }
+  },
+  {
+   "text": "El agua va despacito, al lado de la bombilla.",
+   "visual": {
+    "type": "scene",
+    "place": "park",
+    "camera": "close",
+    "focus": 0,
+    "people": [
+     {
+      "role": "cebador",
+      "does": "pour",
+      "mood": "smile"
+     },
+     {
+      "role": "friend",
+      "does": "hold_yerba",
+      "mood": "smile"
+     }
+    ]
+   }
+  },
+  {
+   "text": "Y el primero siempre es para el cebador.",
+   "visual": {
+    "type": "scene",
+    "place": "park",
+    "camera": "close",
+    "focus": 0,
+    "people": [
+     {
+      "role": "cebador",
+      "does": "drink",
+      "termo": true,
+      "mood": "happy"
+     },
+     {
+      "role": "friend",
+      "does": "hold_yerba",
+      "mood": "happy"
+     }
+    ]
+   }
+  }
+ ]
+}

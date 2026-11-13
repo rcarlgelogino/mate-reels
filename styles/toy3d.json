@@ -1,0 +1,24 @@
+{
+  "name": "toy3d",
+  "version": 1,
+  "description": "Sunny 3D meadow with toy figures: round head with face, soft body, floating ball hands (no arms), props held in the hand. Bright sunlight, soft shadows, flowers, bloom and ambient occlusion.",
+  "style": {
+    "accent": "#ffd84a",
+    "mood": "latin",
+    "bpm": 108,
+    "look": "clean",
+    "hq": true,
+    "captionY": 330,
+    "captionSize": 84,
+    "boardScale": 1.35,
+    "calloutY": 560
+  },
+  "spec": {
+    "voice": "es-AR-TomasNeural",
+    "rate": "+14%",
+    "geminiVoice": "Charon",
+    "followText": "SEGUINOS PARA MÁS",
+    "followSub": "COSTUMBRES DEL MATE",
+    "followY": 1640
+  }
+}

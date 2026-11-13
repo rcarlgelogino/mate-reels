@@ -14,7 +14,7 @@ let jobs;
 if (TEST) jobs = [path.join(ROOT, 'samples', 'test_reel.json')];
 else { const q = path.join(ROOT, 'queue'); jobs = fs.existsSync(q) ? fs.readdirSync(q).filter(f => f.endsWith('.json')).sort().slice(0, COUNT).map(f => path.join(q, f)) : []; }
 if (!jobs.length) { sum('Queue is empty: no reels to build today. Add specs to queue/.'); fs.writeFileSync(path.join(OUT, 'SUMMARY.md'), summary.join('\n') + '\n'); process.exit(0); }
-let ok = 0;
+let ok = 0; const doy = Math.floor((Date.parse(day) - Date.parse(day.slice(0, 4) + '-01-01')) / 864e5); const abIndex = doy % jobs.length; // this day's A/B script (rotates), built again in 3D by scripts/ab3d.js
 jobs.forEach((specFile, i) => {
   const name = path.basename(specFile, '.json'); const work = path.join(ROOT, 'work', name); fs.mkdirSync(work, { recursive: true });
   // visual learnings of earlier reels pick better pictures for this script (text locked; falls back to the original)
@@ -38,6 +38,7 @@ jobs.forEach((specFile, i) => {
   fs.copyFileSync(mp4, path.join(OUT, `${String(i + 1).padStart(2, '0')}_${name}.mp4`));
   if (fs.existsSync(path.join(work, 'caption.txt'))) fs.copyFileSync(path.join(work, 'caption.txt'), path.join(OUT, `${String(i + 1).padStart(2, '0')}_${name}.txt`));
   if (!TEST) { const dd = path.join(ROOT, 'done', day); fs.mkdirSync(dd, { recursive: true }); fs.renameSync(specFile, path.join(dd, path.basename(specFile))); fs.writeFileSync(path.join(dd, name + '.result.json'), JSON.stringify(res, null, 1)); }
+  if (i === abIndex) fs.writeFileSync(path.join(OUT, 'ab3d.json'), JSON.stringify({ name, n: jobs.length + 1, test: TEST, script: JSON.parse(fs.readFileSync(scriptFile, 'utf8')) }, null, 1));
   ok++; sum(`- ✅ ${name} (style ${spec.style_used || spec.preset || 'custom'}): ${res.duration} s, voice ${res.voice}, ${res.loudness}${res.inTarget ? '' : ' (outside 35-45 s!)'}${qaNote}${impNote}`);
 });
 const left = fs.existsSync(path.join(ROOT, 'queue')) ? fs.readdirSync(path.join(ROOT, 'queue')).filter(f => f.endsWith('.json')).length : 0;

@@ -15,6 +15,10 @@ on:
         description: 'Build only samples/test_reel.json (does not touch the queue)'
         type: boolean
         default: false
+      ab3d:
+        description: 'Also build the daily A/B version in 3D (style toy3d)'
+        type: boolean
+        default: true
 
 permissions:
   contents: write
@@ -80,6 +84,7 @@ jobs:
           git diff --cached --quiet || (git commit -m "Built reels $(date -u +%F)" && git pull --rebase -q && git push)
 
       - name: Publish release with the videos
+        id: release
         if: ${{ always() && steps.guard.outputs.skip != 'true' }}
         env:
           GH_TOKEN: ${{ github.token }}
@@ -89,3 +94,19 @@ jobs:
           ls "$DIR"/*.mp4 >/dev/null 2>&1 || { echo "no videos to publish"; cat "$DIR/SUMMARY.md" 2>/dev/null; exit 0; }
           TAG="${{ inputs.test && 'test' || 'reels' }}-$DAY-${{ github.run_number }}"   # test runs never get the reels- prefix, so they are never posted
           gh release create "$TAG" "$DIR"/*.mp4 "$DIR"/*.txt --title "${{ inputs.test && 'TEST ' || '' }}Reels $DAY" --notes-file "$DIR/SUMMARY.md"
+          echo "tag=$TAG" >> "$GITHUB_OUTPUT"; echo "day=$DAY" >> "$GITHUB_OUTPUT"
+
+      # A/B test: one of today's scripts again in the 3D style (same text and voice). Built after the 2D release so the first post slot is never late.
+      - name: Build the 3D A/B version and add it to today's release
+        if: ${{ always() && steps.release.outputs.tag != '' && inputs.ab3d != false }}
+        env:
+          GEMINI_API_KEY: ${{ secrets.GEMINI_API_KEY }}
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          DAY="${{ steps.release.outputs.day }}"; TAG="${{ steps.release.outputs.tag }}"
+          [ -f "out/$DAY/ab3d.json" ] || { echo 'no A/B script today'; exit 0; }
+          node scripts/ab3d.js --day "$DAY" || { echo '3D build failed, the 2D reels are not affected'; exit 0; }
+          OUT="$(cat "out/$DAY/ab3d.out")"
+          gh release upload "$TAG" "out/$DAY/$OUT.mp4" "out/$DAY/$OUT.txt"
+          gh release edit "$TAG" --notes-file "out/$DAY/SUMMARY.md" || true
+          if [ "${{ inputs.test }}" != "true" ]; then git config user.name 'reels-bot'; git config user.email 'reels-bot@users.noreply.github.com'; git add -A qa; git diff --cached --quiet || (git commit -m "A/B 3D reel $DAY" && git pull --rebase -q && git push); fi

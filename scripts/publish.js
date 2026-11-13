@@ -21,15 +21,16 @@ async function api(method, url, body, headers = {}) {
   if (DRY) { log('dry run: nothing uploaded'); return; }
   // 1. create a resumable REELS container
   const params = new URLSearchParams({ media_type: 'REELS', upload_type: 'resumable', caption, share_to_feed: 'true', access_token: TOKEN });
-  const c = await api('POST', `${G}/${IG}/media`, params); log('container', c.id);
   // 2. upload the bytes (rupload wants the app USER token per Meta's docs; try the user token first, then the page token)
   const upTokens = [[process.env.META_USER_TOKEN, 'user token'], [TOKEN, 'page token']].filter(t => t[0]);
-  const upUrl = c.uri || `https://rupload.facebook.com/ig-api-upload/${V}/${c.id}`; const bytes = fs.readFileSync(video); let up = null, lastErr = null;
+  const bytes = fs.readFileSync(video); let up = null, lastErr = null, c = null;
   for (const [tok, kind] of upTokens) {
+    // a failed upload spoils its container, so every attempt gets a fresh one
+    c = await api('POST', `${G}/${IG}/media`, params); log('container', c.id); const upUrl = c.uri || `https://rupload.facebook.com/ig-api-upload/${V}/${c.id}`;
     try { up = await api('POST', upUrl, bytes, { Authorization: `OAuth ${tok}`, offset: '0', file_size: String(size), 'Content-Type': 'application/octet-stream' }); log('upload ok with', kind); break; }
     catch (e) { lastErr = e; log('upload with', kind, 'failed:', e.message.slice(0, 300)); }
   }
-  if (!up) { if (!process.env.META_USER_TOKEN) log('hint: add the long-lived USER token as secret META_USER_TOKEN (rupload accepts only user tokens)'); throw lastErr; }
+  if (!up) { log(process.env.META_USER_TOKEN ? 'hint: the USER token (secret META_USER_TOKEN) is probably expired or invalid - create a new long-lived user token and replace the secret' : 'hint: add the long-lived USER token as secret META_USER_TOKEN (rupload accepts only user tokens)'); throw lastErr; }
   // 3. wait until Instagram has processed the video
   let st = ''; for (let i = 0; i < 60; i++) { await new Promise(r => setTimeout(r, 10000)); const s = await api('GET', `${G}/${c.id}?fields=status_code,status&access_token=${encodeURIComponent(TOKEN)}`); st = s.status_code; log('status', st); if (st === 'FINISHED') break; if (st === 'ERROR' || st === 'EXPIRED') throw new Error('processing failed: ' + scrub(s.status || st)); }
   if (st !== 'FINISHED') throw new Error('processing timed out');

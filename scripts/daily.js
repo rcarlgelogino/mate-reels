@@ -23,12 +23,20 @@ jobs.forEach((specFile, i) => {
   const mp4 = path.join(work, 'final.mp4');
   if (r.status !== 0 || !fs.existsSync(mp4)) { sum(`- ❌ ${name}: build failed, spec stays in the queue`); return; }
   const res = JSON.parse(fs.readFileSync(path.join(work, 'result.json'), 'utf8'));
+  // quality check: metrics + Gemini vision review; findings are kept in qa/<day>/ for the next session
+  spawnSync(process.execPath, [path.join(ROOT, 'scripts', 'qa.js'), work], { stdio: 'inherit', timeout: 10 * 60 * 1000 });
+  let qa = null; try { qa = JSON.parse(fs.readFileSync(path.join(work, 'qa.json'), 'utf8')); const qd = path.join(ROOT, 'qa', day); fs.mkdirSync(qd, { recursive: true }); fs.writeFileSync(path.join(qd, (TEST ? 'TEST_' : '') + name + '.json'), JSON.stringify(qa, null, 1)); } catch {}
+  const highs = qa ? qa.issues.filter(x => x.severity === 'high') : [];
+  const qaNote = qa ? ' · QA: ' + qa.issues.length + ' issue(s)' + (highs.length ? ', ' + highs.length + ' high' : '') : '';
+  if (qa && qa.hold) { if (!TEST) { const dd = path.join(ROOT, 'done', day); fs.mkdirSync(dd, { recursive: true }); fs.renameSync(specFile, path.join(dd, path.basename(specFile))); }
+    sum('- ⛔ ' + name + ': HELD, not released or posted (' + highs.map(x => x.problem).join('; ') + ')'); return; }
   fs.copyFileSync(mp4, path.join(OUT, `${String(i + 1).padStart(2, '0')}_${name}.mp4`));
   if (fs.existsSync(path.join(work, 'caption.txt'))) fs.copyFileSync(path.join(work, 'caption.txt'), path.join(OUT, `${String(i + 1).padStart(2, '0')}_${name}.txt`));
   if (!TEST) { const dd = path.join(ROOT, 'done', day); fs.mkdirSync(dd, { recursive: true }); fs.renameSync(specFile, path.join(dd, path.basename(specFile))); fs.writeFileSync(path.join(dd, name + '.result.json'), JSON.stringify(res, null, 1)); }
-  ok++; sum(`- ✅ ${name} (style ${spec.style_used || spec.preset || 'custom'}): ${res.duration} s, voice ${res.voice}, ${res.loudness}${res.inTarget ? '' : ' (outside 35-45 s!)'}`);
+  ok++; sum(`- ✅ ${name} (style ${spec.style_used || spec.preset || 'custom'}): ${res.duration} s, voice ${res.voice}, ${res.loudness}${res.inTarget ? '' : ' (outside 35-45 s!)'}${qaNote}`);
 });
 const left = fs.existsSync(path.join(ROOT, 'queue')) ? fs.readdirSync(path.join(ROOT, 'queue')).filter(f => f.endsWith('.json')).length : 0;
 sum(`\n${ok}/${jobs.length} reels built. Specs left in queue: ${left}${left < COUNT * 3 ? ' (running low, add more)' : ''}.`);
+spawnSync(process.execPath, [path.join(ROOT, 'scripts', 'qa_summary.js')], { stdio: 'inherit' });
 fs.writeFileSync(path.join(OUT, 'SUMMARY.md'), `# Reels ${day}\n\n` + summary.join('\n') + '\n');
 process.exit(ok ? 0 : 1);

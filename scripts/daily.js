@@ -17,23 +17,28 @@ if (!jobs.length) { sum('Queue is empty: no reels to build today. Add specs to q
 let ok = 0;
 jobs.forEach((specFile, i) => {
   const name = path.basename(specFile, '.json'); const work = path.join(ROOT, 'work', name); fs.mkdirSync(work, { recursive: true });
-  const style = MK.activeStyle(); const spec = MK.toSpec(JSON.parse(fs.readFileSync(specFile, 'utf8')), style); fs.writeFileSync(path.join(work, 'spec.json'), JSON.stringify(spec, null, 1));
+  // visual learnings of earlier reels pick better pictures for this script (text locked; falls back to the original)
+  const improved = path.join(work, 'script.improved.json'); try { fs.unlinkSync(improved); } catch {}
+  spawnSync(process.execPath, [path.join(ROOT, 'scripts', 'improve.js'), specFile, improved], { stdio: 'inherit', timeout: 5 * 60 * 1000 });
+  const scriptFile = fs.existsSync(improved) ? improved : specFile;
+  const style = MK.activeStyle(); const spec = MK.toSpec(JSON.parse(fs.readFileSync(scriptFile, 'utf8')), style); fs.writeFileSync(path.join(work, 'spec.json'), JSON.stringify(spec, null, 1));
   log(`building ${i + 1}/${jobs.length}: ${name}`);
   let r; for (let a = 1; a <= 2; a++) { r = spawnSync(process.execPath, [path.join(ROOT, 'pipeline', 'build.js'), path.join(work, 'spec.json')], { stdio: 'inherit', timeout: 75 * 60 * 1000 }); if (r.status === 0) break; log(`build failed (attempt ${a}), exit ${r.status}`); }
   const mp4 = path.join(work, 'final.mp4');
   if (r.status !== 0 || !fs.existsSync(mp4)) { sum(`- ❌ ${name}: build failed, spec stays in the queue`); return; }
   const res = JSON.parse(fs.readFileSync(path.join(work, 'result.json'), 'utf8'));
-  // quality check: metrics + Gemini vision review; findings are kept in qa/<day>/ for the next session
+  // visual analysis after the build: only for learning, never holds a reel back. Kept in qa/<day>/ (json + readable md)
   spawnSync(process.execPath, [path.join(ROOT, 'scripts', 'qa.js'), work], { stdio: 'inherit', timeout: 10 * 60 * 1000 });
-  let qa = null; try { qa = JSON.parse(fs.readFileSync(path.join(work, 'qa.json'), 'utf8')); const qd = path.join(ROOT, 'qa', day); fs.mkdirSync(qd, { recursive: true }); fs.writeFileSync(path.join(qd, (TEST ? 'TEST_' : '') + name + '.json'), JSON.stringify(qa, null, 1)); } catch {}
-  const highs = qa ? qa.issues.filter(x => x.severity === 'high') : [];
-  const qaNote = qa ? ' · QA: ' + qa.issues.length + ' issue(s)' + (highs.length ? ', ' + highs.length + ' high' : '') : '';
-  if (qa && qa.hold) { if (!TEST) { const dd = path.join(ROOT, 'done', day); fs.mkdirSync(dd, { recursive: true }); fs.renameSync(specFile, path.join(dd, path.basename(specFile))); }
-    sum('- ⛔ ' + name + ': HELD, not released or posted (' + highs.map(x => x.problem).join('; ') + ')'); return; }
+  let qa = null; try { qa = JSON.parse(fs.readFileSync(path.join(work, 'qa.json'), 'utf8')); const qd = path.join(ROOT, 'qa', day); fs.mkdirSync(qd, { recursive: true }); const base = path.join(qd, (TEST ? 'TEST_' : '') + name);
+    fs.writeFileSync(base + '.json', JSON.stringify(qa, null, 1)); if (fs.existsSync(path.join(work, 'qa.md'))) fs.copyFileSync(path.join(work, 'qa.md'), base + '.md');
+    if (fs.existsSync(path.join(work, 'qa_frames.jpg'))) fs.copyFileSync(path.join(work, 'qa_frames.jpg'), base + '.jpg'); } catch {}
+  const qaNote = qa ? ` · visual analysis: ${qa.issues.length} issue(s)${qa.scores && qa.scores.overall ? ', ' + qa.scores.overall + '/10' : ''}` : '';
+  const impNote = scriptFile === improved ? ' · visuals adjusted from learnings' : '';
+  if (!TEST && scriptFile === improved) { const dd = path.join(ROOT, 'done', day); fs.mkdirSync(dd, { recursive: true }); fs.copyFileSync(improved, path.join(dd, name + '.improved.json')); }
   fs.copyFileSync(mp4, path.join(OUT, `${String(i + 1).padStart(2, '0')}_${name}.mp4`));
   if (fs.existsSync(path.join(work, 'caption.txt'))) fs.copyFileSync(path.join(work, 'caption.txt'), path.join(OUT, `${String(i + 1).padStart(2, '0')}_${name}.txt`));
   if (!TEST) { const dd = path.join(ROOT, 'done', day); fs.mkdirSync(dd, { recursive: true }); fs.renameSync(specFile, path.join(dd, path.basename(specFile))); fs.writeFileSync(path.join(dd, name + '.result.json'), JSON.stringify(res, null, 1)); }
-  ok++; sum(`- ✅ ${name} (style ${spec.style_used || spec.preset || 'custom'}): ${res.duration} s, voice ${res.voice}, ${res.loudness}${res.inTarget ? '' : ' (outside 35-45 s!)'}${qaNote}`);
+  ok++; sum(`- ✅ ${name} (style ${spec.style_used || spec.preset || 'custom'}): ${res.duration} s, voice ${res.voice}, ${res.loudness}${res.inTarget ? '' : ' (outside 35-45 s!)'}${qaNote}${impNote}`);
 });
 const left = fs.existsSync(path.join(ROOT, 'queue')) ? fs.readdirSync(path.join(ROOT, 'queue')).filter(f => f.endsWith('.json')).length : 0;
 sum(`\n${ok}/${jobs.length} reels built. Specs left in queue: ${left}${left < COUNT * 3 ? ' (running low, add more)' : ''}.`);

@@ -14,8 +14,9 @@ To switch styles: change `styles/active.json`. A new style needs `<name>.json` +
 
 ## QA checklist (check on every new reel; found in real test reels)
 Figures and props
-- **Grip:** a held object sits *in* the hand: palm behind the object, fingers in front over its edge. Never a hand disc pasted on the middle of the mate (fixed 2026-11-13).
-- **Drinking:** the bombilla tip touches the lips, the gourd covers the chin, the hand stays visible on the side of the gourd.
+- **Grip:** the whole hand grasps the *side* of the gourd from the front: arm → hand → fingers in one piece, the fingers curl over the front edge. Never a hand hidden behind the mate with loose fingers pasted on its front (fixed 2026-11-13, `f2grip`), never a hand disc in the middle of the mate.
+- **Drinking:** the bombilla tip ends exactly in the mouth (hand target solved from the tip position), the mouth turns into a small round "o" while sipping, the hand stays visible on the side of the gourd.
+- **Figures:** light skin only, one hair colour (dark brown; grandma/grandpa grey). Hair sits above a soft forehead line inside the head outline, nothing sticking out.
 - **Pass:** giver stretches the arm, receiver reaches out before the mate arrives, the mate ends in the receiver's hand – never floating in front of a chest.
 - **Arms** always ease into a pose (no popping); raised arms are drawn in front of the head; "no" = head shake with relaxed arms.
 - **Entrance:** figures fade in with a slight grow; no tiny figure that "pops" out of nothing.

@@ -5,9 +5,9 @@ name: publish-reels
 # Scheduled posting only runs when the repository variable IG_AUTOPUBLISH is "true" (Settings -> Variables).
 on:
   schedule:
-    - cron: '0 11 * * *'
-    - cron: '0 16 * * *'
-    - cron: '0 23 * * *'
+    - cron: '13 11 * * *'
+    - cron: '13 16 * * *'
+    - cron: '13 23 * * *'
   workflow_dispatch:
     inputs:
       dry_run:

@@ -2,7 +2,10 @@ name: daily-reels
 
 on:
   schedule:
-    - cron: '30 8 * * *'   # every day 08:30 UTC = 09:30 German time, right after the Gemini free quota resets (midnight Pacific)
+    # GitHub may delay or drop scheduled runs (busy at :00/:30), so try three times; later runs exit if today was already built
+    - cron: '47 8 * * *'
+    - cron: '47 9 * * *'
+    - cron: '47 10 * * *'
   workflow_dispatch:
     inputs:
       count:
@@ -27,32 +30,44 @@ jobs:
     steps:
       - uses: actions/checkout@v4
 
+      - name: Skip if today's reels already exist
+        id: guard
+        if: ${{ github.event_name == 'schedule' }}
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          if gh release list --limit 20 --json tagName --jq '.[].tagName' | grep -q "^reels-$(date -u +%F)"; then echo 'already built today'; echo 'skip=true' >> "$GITHUB_OUTPUT"; else echo 'skip=false' >> "$GITHUB_OUTPUT"; fi
+
       - uses: actions/setup-node@v4
+        if: ${{ steps.guard.outputs.skip != 'true' }}
         with:
           node-version: 22
           cache: npm
           cache-dependency-path: tools/package-lock.json
 
       - name: Install tools
+        if: ${{ steps.guard.outputs.skip != 'true' }}
         run: |
           npm ci --prefix tools
           npx --prefix tools puppeteer browsers install chrome
           sudo apt-get update -qq && sudo apt-get install -y -qq libgbm1 libnss3 libasound2t64 fonts-dejavu-core > /dev/null || true
 
       - name: Cache Whisper model
+        if: ${{ steps.guard.outputs.skip != 'true' }}
         uses: actions/cache@v4
         with:
           path: tools/node_modules/@huggingface/transformers/.cache
           key: whisper-small-timestamped-v1
 
       - name: Build reels
+        if: ${{ steps.guard.outputs.skip != 'true' }}
         env:
           GEMINI_API_KEY: ${{ secrets.GEMINI_API_KEY }}
           REELS_PER_DAY: ${{ inputs.count || '3' }}
         run: node scripts/daily.js --count "${REELS_PER_DAY}" ${{ inputs.test && '--test' || '' }}
 
       - name: Commit queue progress
-        if: ${{ !inputs.test }}
+        if: ${{ !inputs.test && steps.guard.outputs.skip != 'true' }}
         run: |
           git config user.name "reels-bot"
           git config user.email "reels-bot@users.noreply.github.com"
@@ -60,12 +75,12 @@ jobs:
           git diff --cached --quiet || (git commit -m "Built reels $(date -u +%F)" && git pull --rebase -q && git push)
 
       - name: Publish release with the videos
-        if: ${{ always() }}
+        if: ${{ always() && steps.guard.outputs.skip != 'true' }}
         env:
           GH_TOKEN: ${{ github.token }}
         run: |
           DAY=$(date -u +%F)
           DIR="out/$DAY"
           ls "$DIR"/*.mp4 >/dev/null 2>&1 || { echo "no videos to publish"; cat "$DIR/SUMMARY.md" 2>/dev/null; exit 0; }
-          TAG="reels-$DAY-${{ github.run_number }}"
-          gh release create "$TAG" "$DIR"/*.mp4 "$DIR"/*.txt --title "Reels $DAY" --notes-file "$DIR/SUMMARY.md"
+          TAG="${{ inputs.test && 'test' || 'reels' }}-$DAY-${{ github.run_number }}"   # test runs never get the reels- prefix, so they are never posted
+          gh release create "$TAG" "$DIR"/*.mp4 "$DIR"/*.txt --title "${{ inputs.test && 'TEST ' || '' }}Reels $DAY" --notes-file "$DIR/SUMMARY.md"

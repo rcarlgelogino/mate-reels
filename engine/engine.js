@@ -627,8 +627,10 @@ function f2mate(c,x,y,s,type,t,o={}){ // bottom-center at (x,y), s = height
   rr(c,bx+s*0.13,by-s*0.62,s*0.1,s*0.1,s*0.03,'#b98a2e');
   let base=o.color||(type==='madera'?'#a0673a':type==='acero'?'#9aa6b2':type==='imperial'?'#5a3622':'#c07438');
   const g=c.createRadialGradient(-w*0.18,cy-h*0.15,s*0.05,0,cy,w*0.6); g.addColorStop(0,f2shade(base,0.28)); g.addColorStop(1,f2shade(base,-0.32)); c.fillStyle=g; c.beginPath(); c.ellipse(0,cy,w/2,h/2,0,0,Math.PI*2); c.fill();
+  c.save(); c.beginPath(); c.ellipse(0,cy,w/2,h/2,0,0,Math.PI*2); c.clip();
   if(type==='madera'){ c.strokeStyle='rgba(60,30,10,0.25)'; c.lineWidth=Math.max(1.5,s*0.012); for(let i=-2;i<=2;i++){ c.beginPath(); c.ellipse(i*w*0.1,cy,w*0.06+Math.abs(i)*w*0.06,h*0.42,0,0,Math.PI*2); c.stroke(); } }
   else { c.setLineDash([s*0.05,s*0.035]); c.strokeStyle='rgba(60,25,8,0.55)'; c.lineWidth=Math.max(1.5,s*0.016); [0.05,0.28].forEach(k=>{ c.beginPath(); c.ellipse(0,cy+h*k,w*0.47,h*0.1,0,0,Math.PI); c.stroke(); }); c.setLineDash([]); }
+  c.restore();
   c.strokeStyle='rgba(255,255,255,0.35)'; c.lineWidth=Math.max(2,s*0.035); c.beginPath(); c.ellipse(0,cy,w*0.36,h*0.36,0,Math.PI*1.08,Math.PI*1.38); c.stroke();
   // rim + yerba
   if(type==='imperial'){ rr(c,-w*0.36,-h*1.02,w*0.72,h*0.16,s*0.04,'#d6dde3'); }
@@ -673,7 +675,7 @@ function f2targets(o,act,t,u,HX,HY){ const sw=Math.sin(t*2.1+(o.i||0)), rest=sid
   const chest=[22,-212], hip=[-74,-178];
   if(hold==='mate'||hold==='both'||o.carry) T.R=chest; if(hold==='termo'||hold==='both') T.L=hip;
   let sipK=0;
-  if(act==='drink'){ const cyc=(t*0.55+0.15)%1; sipK=cyc<0.15?easeInOut(cyc/0.15):cyc<0.6?1:cyc<0.75?1-easeInOut((cyc-0.6)/0.15):0; const mouth=[HX-26,HY+112]; T.R=[chest[0]+(mouth[0]-chest[0])*sipK,chest[1]+(mouth[1]-chest[1])*sipK]; }
+  if(act==='drink'){ const cyc=(t*0.55+0.15)%1; sipK=cyc<0.15?easeInOut(cyc/0.15):cyc<0.6?1:cyc<0.75?1-easeInOut((cyc-0.6)/0.15):0; const mouth=[HX+25,HY+99]; T.R=[chest[0]+(mouth[0]-chest[0])*sipK,chest[1]+(mouth[1]-chest[1])*sipK]; }
   if(act==='pass'||act==='offer'){ const r=easeOut(clamp(u/0.25)); T.R=[chest[0]+(168-chest[0])*r,chest[1]+(-300-chest[1])*r]; }
   if(act==='receive'){ const r=easeOut(clamp((u-0.3)/0.3)); T.R=[74+(168-74)*r,-150+(-300+150)*r]; }
   if(act==='point') T.R=[176,-338];
@@ -686,13 +688,19 @@ function f2targets(o,act,t,u,HX,HY){ const sw=Math.sin(t*2.1+(o.i||0)), rest=sid
   // ease in from the rest pose at the start of the shot so arms never pop
   const bl=easeOut(clamp(t/0.35)); for(const nm of ['L','R']){ const r=rest(nm==='L'?-1:1); if(T[nm]!==r) T[nm]=[r[0]+(T[nm][0]-r[0])*bl,r[1]+(T[nm][1]-r[1])*bl]; }
   return {...T,sipK}; }
+function f2palm(c,x,y,k,skin){ f2ell(c,x,y+2*k,15*k,16*k,f2shade(skin,-0.06)); }
+// fingers wrapping the front of a held object (side +1 right hand: fingers point to the body centre)
+function f2fingers(c,x,y,k,skin,side,band){ c.save(); const sh=f2shade(skin,-0.12);
+  if(band){ rr(c,x-15*k,y-9*k,30*k,20*k,9*k,skin); c.fillStyle=sh; for(let i=-1;i<=1;i++) c.fillRect(x-1*k+i*9*k,y-7*k,1.6*k,16*k); f2ell(c,x+side*15*k,y-4*k,6*k,8*k,skin); c.restore(); return; }
+  for(let i=0;i<3;i++){ const fy=y-7*k+i*8.5*k, fx=x-side*(9*k+i*1.5*k); f2ell(c,fx,fy,9*k,4.6*k,skin); c.strokeStyle=sh; c.lineWidth=1.3*k; c.beginPath(); c.ellipse(fx,fy,9*k,4.6*k,0,0,Math.PI*2); c.stroke(); }
+  f2ell(c,x+side*3*k,y-12*k,6*k,8*k,skin); c.restore(); }
 function f2hand(c,x,y,k,skin,side){ f2ell(c,x,y,15*k,15*k,skin); f2ell(c,x-side*9*k,y-7*k,7*k,9*k,f2shade(skin,-0.08)); }
 function f2person(c,o,t,u){ const S=o.s||520, k=S/520; const act=o.act||null, face=o.face||'smile';
   let by=Math.sin(t*2.6+o.x*0.01)*2*k, hx=0, hy=0;
   if(act==='jump') by=-Math.abs(Math.sin(t*6))*70*k; if(act==='laugh'||act==='cheer') by=-Math.abs(Math.sin(t*12))*12*k;
   if(act==='nod') hy=Math.max(0,Math.sin(t*9))*8*k; if(act==='no') hx=Math.sin(t*11)*10*k; if(act==='shock') hx=Math.sin(t*40)*2*k; if(act==='sigh') hy=6*k;
-  const app=easeOutBack(clamp((u*(o.dur||3)-(o.delay||0))/0.25)); if(app<=0.001) return;
-  c.save(); c.translate(o.x,o.y); const fx=o.flip?-1:1; c.scale(app*fx,app); c.translate(0,by);
+  const a0=clamp((u*(o.dur||3)-(o.delay||0))/0.3); if(a0<=0.001) return; const app=0.86+0.14*easeOutBack(a0);
+  c.save(); c.globalAlpha=Math.min(1,a0*1.8); c.translate(o.x,o.y); const fx=o.flip?-1:1; c.scale(app*fx,app); c.translate(0,by);
   const skin=o.skin, shirt=o.shirt, pants=o.pants||'#2b3a55', hair=o.hair, sleeve=f2shade(shirt,-0.08);
   c.fillStyle='rgba(0,0,0,0.18)'; c.beginPath(); c.ellipse(0,-by,70*k,12*k,0,0,Math.PI*2); c.fill();
   const legTop=-150*k; c.fillStyle=o.shorts?skin:pants; c.fillRect(-36*k,legTop,26*k,140*k); c.fillRect(10*k,legTop,26*k,140*k);
@@ -733,9 +741,13 @@ function f2person(c,o,t,u){ const S=o.s||520, k=S/520; const act=o.act||null, fa
   ['L','R'].forEach(nm=>{ if(raised(nm)) drawArm(arms[nm]); });
   // props sit in the hand: drawn after the arm, before the hand, so the fingers wrap around them
   const holdsMate=o.carry!==false&&(o.carry||o.hold==='mate'||o.hold==='both'||act==='drink'||((act==='pass'||act==='offer')&&!o.passing));
-  if(holdsMate){ const [x,y]=hands.R; f2mate(c,x+5*k,y+24*k,76*k,o.mate||'calabaza',t,{steam:o.steam,rot:act==='drink'?-0.25*T.sipK:0}); }
-  if(o.hold==='termo'||o.hold==='both'){ const [x,y]=hands.L; f2termo(c,x+2*k,y+80*k,128*k,o.termo); }
-  f2hand(c,hands.L[0],hands.L[1],k,skin,-1); f2hand(c,hands.R[0],hands.R[1],k,skin,1);
+  const holdsTermo=o.hold==='termo'||o.hold==='both';
+  // palms first (behind the props)
+  if(holdsMate) f2palm(c,hands.R[0],hands.R[1],k,skin); else f2hand(c,hands.R[0],hands.R[1],k,skin,1);
+  if(holdsTermo) f2palm(c,hands.L[0],hands.L[1],k,skin); else f2hand(c,hands.L[0],hands.L[1],k,skin,-1);
+  // the prop sits in the hand: the gourd's outer lower side rests on the palm
+  if(holdsMate){ const [x,y]=hands.R; const ms=76*k; f2mate(c,x-ms*0.3,y+ms*0.36,ms,o.mate||'calabaza',t,{steam:o.steam,rot:act==='drink'?-0.25*T.sipK:0}); f2fingers(c,x,y,k,skin,1); }
+  if(holdsTermo){ const [x,y]=hands.L; const ts=128*k; f2termo(c,x+2*k,y+ts*0.55,ts,o.termo); f2fingers(c,x+2*k,y,k,skin,-1,true); }
   if(act==='hug'){ const b=1+0.12*Math.sin(t*8); f2heart(c,0,-470*k-90*k*b,70*k*b,'#e5483a'); }
   c.restore();
   const W2=(p)=>[o.x+fx*app*p[0],o.y+app*(by+p[1])]; return {L:W2(hands.L),R:W2(hands.R),k:k*app}; }

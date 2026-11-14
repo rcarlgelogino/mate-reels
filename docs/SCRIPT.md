@@ -48,6 +48,6 @@ Layers:
 | mistake | text, over: (a scene visual) | big red X over a scene |
 
 **No limits:** characters, places, objects and actions are open. Use whatever the story needs (a gaucho, a teacher, a bus, a pava, a stadium ...). The lists below are what the styles already draw well; anything new is drawn with the closest existing look, and Claude builds a proper look for it in the styles when it shows up.
-Roles known so far: cebador, friend, grandma, grandpa, stranger, kid, worker, you. `does`: idle, hold_mate, hold_termo, hold_both, hold_yerba, drink, pour, pass, receive, wave, point, hug, cheer, jump, no, nod, shock, laugh, sigh. `mood`: happy, smile, surprised, sad, angry, love, laugh, proud, neutral.
+Roles known so far: cebador, friend, grandma, grandpa, stranger, kid, worker, you, gaucho, oficinista, estudiante, turista, argentino, uruguayo, paraguayo, brasileno, chileno, aleman (nations wear their flag on the shirt). Objects known so far: see `styles/toy3d.md`. Optional per scene: `camera` (forces a camera plan), `props` (auto, camioneta, colectivo, mesa, banco). `does`: idle, hold_mate, hold_termo, hold_both, hold_yerba, drink, pour, pass, receive, wave, point, hug, cheer, jump, no, nod, shock, laugh, sigh. `mood`: happy, smile, surprised, sad, angry, outraged, bored, love, laugh, proud, neutral (the sip mouth comes by itself while drinking).
 
 The last segment gets the comment poll automatically when `poll` is set.

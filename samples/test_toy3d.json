@@ -1,5 +1,5 @@
 {
- "id": "test_toy3d",
+ "id": "demo_toy3d_v2",
  "topic": "style test 3D",
  "follow": false,
  "caption": "Prueba de estilo 3D",
@@ -8,42 +8,133 @@
  ],
  "segments": [
   {
-   "text": "Así se ceba un buen mate, paso a paso.",
+   "text": "¿Quién toma más mate: Argentina, Uruguay o Paraguay?",
+   "emo": "excited",
    "visual": {
     "type": "scene",
     "place": "park",
-    "camera": "flow",
-    "focus": 0,
     "people": [
      {
-      "role": "cebador",
+      "role": "argentino",
+      "does": "hold_mate",
+      "mood": "happy"
+     },
+     {
+      "role": "uruguayo",
       "does": "hold_both",
       "mood": "smile"
      },
      {
-      "role": "friend",
-      "does": "hold_yerba",
+      "role": "paraguayo",
+      "does": "hold_mate",
       "mood": "happy"
      }
     ]
    }
   },
   {
-   "text": "El agua va despacito, al lado de la bombilla.",
+   "text": "El uruguayo no suelta el termo ni para cruzar la calle.",
+   "visual": {
+    "type": "scene",
+    "place": "calle",
+    "people": [
+     {
+      "role": "uruguayo",
+      "does": "hold_both",
+      "mood": "proud"
+     }
+    ]
+   }
+  },
+  {
+   "text": "El brasileño lo toma en una cuia enorme y el chileno no lo puede creer.",
+   "visual": {
+    "type": "scene",
+    "place": "plaza",
+    "people": [
+     {
+      "role": "brasileno",
+      "does": "hold_mate",
+      "mood": "happy"
+     },
+     {
+      "role": "chileno",
+      "does": "shock",
+      "mood": "surprised"
+     }
+    ]
+   }
+  },
+  {
+   "text": "Y el alemán pregunta si eso es té.",
    "visual": {
     "type": "scene",
     "place": "park",
-    "camera": "close",
-    "focus": 0,
     "people": [
      {
-      "role": "cebador",
-      "does": "pour",
-      "mood": "smile"
+      "role": "aleman",
+      "does": "idle",
+      "mood": "surprised"
      },
      {
+      "role": "argentino",
+      "does": "no",
+      "mood": "outraged"
+     }
+    ]
+   }
+  },
+  {
+   "text": "Uno se enoja, otro se aburre y otro se pone triste.",
+   "visual": {
+    "type": "scene",
+    "place": "park",
+    "camera": "wide",
+    "people": [
+     {
       "role": "friend",
-      "does": "hold_yerba",
+      "does": "idle",
+      "mood": "angry"
+     },
+     {
+      "role": "stranger",
+      "does": "idle",
+      "mood": "bored"
+     },
+     {
+      "role": "you",
+      "does": "idle",
+      "mood": "sad"
+     },
+     {
+      "role": "cebador",
+      "does": "idle",
+      "mood": "neutral"
+     },
+     {
+      "role": "kid",
+      "does": "idle",
+      "mood": "outraged"
+     }
+    ]
+   }
+  },
+  {
+   "text": "La bombilla también cambia: recta, curva, pico de loro o de resorte.",
+   "visual": {
+    "type": "object",
+    "item": "bombillas"
+   }
+  },
+  {
+   "text": "El gaucho ceba despacito, al lado de la bombilla.",
+   "visual": {
+    "type": "scene",
+    "place": "campo",
+    "people": [
+     {
+      "role": "gaucho",
+      "does": "pour",
       "mood": "smile"
      }
     ]
@@ -53,19 +144,75 @@
    "text": "Y el primero siempre es para el cebador.",
    "visual": {
     "type": "scene",
-    "place": "park",
-    "camera": "close",
-    "focus": 0,
+    "place": "campo",
     "people": [
      {
-      "role": "cebador",
+      "role": "gaucho",
       "does": "drink",
       "termo": true,
       "mood": "happy"
+     }
+    ]
+   }
+  },
+  {
+   "text": "Mientras tanto pasa el colectivo y nadie se sube.",
+   "visual": {
+    "type": "scene",
+    "place": "parada colectivo",
+    "people": [
+     {
+      "role": "estudiante",
+      "does": "hold_facturas",
+      "mood": "happy"
      },
      {
-      "role": "friend",
-      "does": "hold_yerba",
+      "role": "oficinista",
+      "does": "hold_celular",
+      "mood": "bored"
+     },
+     {
+      "role": "turista",
+      "does": "wave",
+      "mood": "happy"
+     }
+    ]
+   }
+  },
+  {
+   "text": "¿Vos de qué equipo sos?",
+   "visual": {
+    "type": "scene",
+    "place": "park",
+    "people": [
+     {
+      "role": "argentino",
+      "does": "cheer",
+      "mood": "happy"
+     },
+     {
+      "role": "uruguayo",
+      "does": "cheer",
+      "mood": "happy"
+     },
+     {
+      "role": "paraguayo",
+      "does": "cheer",
+      "mood": "happy"
+     },
+     {
+      "role": "brasileno",
+      "does": "cheer",
+      "mood": "happy"
+     },
+     {
+      "role": "chileno",
+      "does": "cheer",
+      "mood": "happy"
+     },
+     {
+      "role": "aleman",
+      "does": "cheer",
       "mood": "happy"
      }
     ]

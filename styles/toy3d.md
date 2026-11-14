@@ -4,8 +4,15 @@ Look settings: `toy3d.json` (clean karaoke captions at the top, headline cards u
 Translator: `toy3d.js` takes text, headlines, callouts, boards and the poll 1:1 from `flat2d` and only swaps the pictures, so a 2D/3D pair is a clean A/B test:
 - scene / reaction / object / mistake → template `prado` (engine `T.prado`, figure `makeBall`): sunny meadow with flowers, trees, white fence, little house, clouds.
 - title / number / list / checklist / dots / timeline / poll → the same navy infographic boards as flat2d.
-Camera: `flow` (wide, then push in on the focus person), `wide`, `close`. One person or someone doing something → close.
-Actions: hold mate / termo / both / yerba pack, `drink`, `pour`, plus body actions (wave, cheer, no, nod, shock, laugh ...).
+Camera (chosen by the translator, never the same twice in a row, long sentences get a second angle; a script may force one with `camera`):
+- set-ups: wide, far, widelow, close, face, sideL, sideR, low, high, top, hands, dutch, duo (two people facing each other), ots (over the shoulder)
+- moves: flow, pushin, pullout, crash, dollyL, dollyR, craneUp, craneDown, tiltUp, tiltDown, pan, lowpush, orbitL, orbitR, arcTop
+Characters: cebador, friend, stranger, you, grandma, grandpa, kid, worker, gaucho, oficinista, estudiante, turista and the nations with their flag on the shirt: argentino, uruguayo, paraguayo, brasileno, chileno, aleman. Unknown roles get a stable look of their own.
+Faces: smile, happy, neutral, angry, outraged, bored, sad, surprised, proud, love, laugh; the sip mouth (small dot) comes by itself while drinking.
+Actions: hold mate / termo / both / yerba pack / pava / bombilla / celular / facturas / azucarera / bizcochitos / matera / termometro, `drink`, `pour`, plus body actions (wave, cheer, no, nod, shock, laugh ...).
+Objects (type object): shown big on a small table, turning slowly: mate kinds (with face when `mascot`), termo, yerba, pava, bombillas (all kinds in a rack) or one kind (recta, curva, pico_loro, resorte, paleta, cana, alpaca), the small things above, auto, camioneta, colectivo.
+Props in a scene (`props` or from the place name): auto, camioneta, colectivo (can drive past), mesa, banco.
+Still missing: more places than the meadow (kitchen, plaza, patio, beach, office).
 
 Daily A/B: `scripts/daily.js` picks one of the day's scripts (rotates by day of year), `scripts/ab3d.js` builds it again in this style after the 2D release (same voice take). It is posted as the 4th reel of the day.
 

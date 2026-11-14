@@ -33,19 +33,23 @@ function person(pp, i) { const d = norm(pp.does); let does = DOES[d] || {}; if (
 // ---- camera choice ----
 const SOLO = ['close', 'sideL', 'orbitL', 'face', 'low', 'dollyR', 'pushin', 'sideR', 'high', 'craneUp', 'dutch', 'orbitR', 'dollyL', 'lowpush', 'pullout'];
 const SOLO_HOLD = ['close', 'hands', 'sideL', 'tiltUp', 'orbitL', 'low', 'top', 'pushin', 'sideR', 'dollyR', 'tiltDown', 'high', 'craneUp', 'orbitR', 'face', 'dutch', 'dollyL', 'lowpush'];
-const GROUP = ['wide', 'flow', 'pan', 'widelow', 'dollyL', 'craneDown', 'far', 'arcTop', 'pullout', 'dollyR'];
+const GROUP = ['wide', 'flow', 'pan', 'widelow', 'far', 'arcTop', 'pullout']; // only plans that keep the whole group in the picture
 const REACT = ['face', 'crash', 'pushin', 'low', 'dutch', 'sideL', 'sideR', 'lowpush'];
 const HERO = ['orbitL', 'pushin', 'high', 'tiltUp', 'orbitR', 'sideL', 'arcTop', 'low', 'close', 'craneUp', 'hands', 'dollyR'];
 const DRINK = ['pushin', 'close', 'sideR', 'low', 'orbitL', 'face']; const POUR = ['hands', 'close', 'top', 'sideL', 'craneDown', 'high'];
 function chooser(seed) { const used = {}; let last = null, k = hashN(seed, 97);
   return (pool, avoid) => { let best = null, bs = 1e9; pool.forEach((c, i) => { if (c === last || c === avoid) return; const sc = (used[c] || 0) * 100 + ((i + k) % pool.length); if (sc < bs) { bs = sc; best = c; } });
     best = best || pool[0]; used[best] = (used[best] || 0) + 1; last = best; k += 7; return best; }; }
+// place names (any language, any wording) -> one of the built 3D places; unknown outdoor places stay on the meadow
+const PLACES = [[/cocina|kitchen|casa|home|hogar|living|comedor|mesa_de|desayuno/, 'cocina'], [/oficina|office|trabajo|laburo|escritorio|reunion/, 'oficina'], [/plaza|ciudad|city|calle|street|centro|barrio|parada|colectivo|vereda|kiosco|mercado/, 'plaza'],
+  [/patio|asado|parrilla|quincho|jardin|fondo|terraza|balcon/, 'patio'], [/playa|beach|costa|mar|rio|costanera|rambla|verano|vacaciones/, 'playa']];
+const placeOf = name => { const k = norm(name); const hit = PLACES.find(([re]) => re.test(k)); return hit ? hit[1] : 'prado'; }; const INDOOR = ['cocina', 'oficina'];
 const PROPS = [[/calle|ruta|auto|viaje|estacion|carretera/, ['auto']], [/colectivo|bus|parada|bondi/, [{ type: 'colectivo', drive: true }]], [/patio|picnic|mesa|asado/, ['mesa']], [/plaza|park|parque|banco/, ['banco']], [/camioneta|campo|estancia/, ['camioneta']]];
-function sceneShots(v, si, pick, words) {
+function sceneShots(v, si, pick, words, st) {
   const src = (v.people || []).slice(0, 6); const people = src.map(person); if (!people.length) people.push({ who: 0, hold: 'mate' });
   const acts = src.map(pp => ACTS.includes(norm(pp.does)) ? norm(pp.does) : null); const n = people.length; const busy = people.findIndex(p => p.act); const focus = v.focus ?? (busy >= 0 ? busy : v.pass ? v.pass[0] : 0);
-  const props = (v.props || []).concat(...PROPS.filter(([re]) => re.test(norm(v.place))).map(q => q[1]));
-  const base = { people, focus }; if (props.length) base.props = props;
+  const place = placeOf(v.place); st.place = place; const props = INDOOR.includes(place) ? [] : (v.props || []).concat(...PROPS.filter(([re]) => re.test(norm(v.place))).map(q => q[1])).filter(q => place === 'prado' || place === 'plaza' || !['mesa', 'banco'].includes(q.type || q));
+  const base = { people, focus, place }; if (props.length) base.props = props;
   const emo = acts.some(Boolean) ? { act: acts.find(Boolean), who: acts.map((a, k) => a ? k : -1).filter(k => k >= 0) } : null;
   const act = busy >= 0 ? people[busy].act : null; const holds = !!people[focus].hold;
   const solo = act === 'drink' ? DRINK : act === 'pour' ? POUR : holds ? SOLO_HOLD : SOLO; const group = n === 2 ? GROUP.concat(['duo', 'ots']) : GROUP;
@@ -56,23 +60,23 @@ function sceneShots(v, si, pick, words) {
   if (words >= 9 && !act) return [mk(first), mk(pick(n <= 1 ? solo : (holds ? SOLO_HOLD : SOLO).filter(c => !['top', 'hands', 'tiltUp', 'tiltDown'].includes(c) || holds), first))];
   return [mk(first)];
 }
-function reactionShot(v, si, pick) { const who = v.who ?? (si % 6); const base = Object.values(ROLE).find(r => r && r.who === who && !r.flag && !r.hat) || { who }; const pp = { ...base, face: FACE[norm(v.emotion)] || 'surprised' }; delete pp.scale;
-  const sh = { tpl: 'prado', p: { people: [pp], shot: v.camera || pick(REACT), focus: 0 } }; const act = v.act || (v.emotion === 'surprised' ? 'shock' : null); if (act) sh.emo = { act, face: pp.face }; return sh; }
+function reactionShot(v, si, pick, st) { const who = v.who ?? (si % 6); const base = Object.values(ROLE).find(r => r && r.who === who && !r.flag && !r.hat) || { who }; const pp = { ...base, face: FACE[norm(v.emotion)] || 'surprised' }; delete pp.scale;
+  const sh = { tpl: 'prado', p: { people: [pp], shot: v.camera || pick(REACT), focus: 0, place: st.place } }; const act = v.act || (v.emotion === 'surprised' ? 'shock' : null); if (act) sh.emo = { act, face: pp.face }; return sh; }
 // object visuals: the thing itself, big on a small table (unknown things fall back to the name card of flat2d)
-function objectShot(v, pick) { const it = norm(v.item || 'mate'); let hero = null;
+function objectShot(v, pick, st) { const it = norm(v.item || 'mate'); let hero = null;
   if (it === 'mate' || MATES[it]) hero = { item: 'mate', type: MATES[it] || 'calabaza', face: v.mascot ? 'smile' : null };
   else if (['termo', 'yerba', 'pava'].includes(it)) hero = { item: it }; else if (it === 'kettle') hero = { item: 'pava' };
   else if (it === 'bombilla' || it === 'bombillas') hero = v.kind && BOMB.includes(norm(v.kind)) ? { item: 'bombilla', kind: norm(v.kind) } : { item: 'bombillas', kinds: v.kinds };
   else if (BOMB.includes(it) || BOMB.includes(it.replace(/^bombilla_/, ''))) hero = { item: 'bombilla', kind: it.replace(/^bombilla_/, '') };
   else if (ITEMS.includes(it) || CARS.includes(it)) hero = { item: it };
-  return hero ? { tpl: 'prado', p: { hero, shot: v.camera || pick(HERO) } } : null; }
+  return hero ? { tpl: 'prado', p: { hero, shot: v.camera || pick(HERO), place: st.place } } : null; }
 function toSpec(script) {
-  const base = flat2d.toSpec(script); const pick = chooser(script.id || 'reel');
+  const base = flat2d.toSpec(script); const pick = chooser(script.id || 'reel'); const st = { place: placeOf((script.segments.map(g => (g.visuals || [g.visual])).flat().find(v => v && v.type === 'scene') || {}).place) }; // reactions and objects stay in the place of the scene before them
   base.segments.forEach((seg, si) => { const sg = script.segments[si]; const vis = sg.visuals || [sg.visual]; const words = String(sg.text || '').split(/\s+/).filter(Boolean).length;
     if (script.poll && si === script.segments.length - 1) return; // poll board stays
     const out = []; seg.shots.forEach((s, k) => { const v = vis[k]; if (!v) return out.push(s);
-      if (v.type === 'scene') return out.push(...sceneShots(v, si, pick, vis.length > 1 ? 0 : words)); if (v.type === 'reaction') return out.push(reactionShot(v, si, pick)); if (v.type === 'object') return out.push(objectShot(v, pick) || s);
-      if (v.type === 'mistake') { const sh = sceneShots(v.over || { type: 'scene', people: [{ role: 'friend', does: 'no' }] }, si, pick, 0)[0]; sh.emo = { act: 'no' }; return out.push(sh); }
+      if (v.type === 'scene') return out.push(...sceneShots(v, si, pick, vis.length > 1 ? 0 : words, st)); if (v.type === 'reaction') return out.push(reactionShot(v, si, pick, st)); if (v.type === 'object') return out.push(objectShot(v, pick, st) || s);
+      if (v.type === 'mistake') { const sh = sceneShots(v.over || { type: 'scene', people: [{ role: 'friend', does: 'no' }] }, si, pick, 0, st)[0]; sh.emo = { act: 'no' }; return out.push(sh); }
       out.push(s); }); seg.shots = out; });
   return { ...base, preset: 'toy3d', ab: script.ab || 'style toy3d', ...(script.follow === false ? { follow: false } : {}) };
 }

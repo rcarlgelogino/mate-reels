@@ -2,7 +2,7 @@
 
 Look settings: `toy3d.json` (clean karaoke captions at the top, headline cards under them, bloom + ambient occlusion + colour grade, Charon voice).
 Translator: `toy3d.js` takes text, headlines, callouts, boards and the poll 1:1 from `flat2d` and only swaps the pictures, so a 2D/3D pair is a clean A/B test:
-- scene / reaction / object / mistake → template `prado` (engine `T.prado`, figure `makeBall`): sunny meadow with flowers, trees, white fence, little house, clouds.
+- scene / reaction / object / mistake → template `prado` (engine `T.prado`, figure `makeBall`) in one of six places.
 - title / number / list / checklist / dots / timeline / poll → the same navy infographic boards as flat2d.
 Camera (chosen by the translator, never the same twice in a row, long sentences get a second angle; a script may force one with `camera`):
 - set-ups: wide, far, widelow, close, face, sideL, sideR, low, high, top, hands, dutch, duo (two people facing each other), ots (over the shoulder)
@@ -12,7 +12,7 @@ Faces: smile, happy, neutral, angry, outraged, bored, sad, surprised, proud, lov
 Actions: hold mate / termo / both / yerba pack / pava / bombilla / celular / facturas / azucarera / bizcochitos / matera / termometro, `drink`, `pour`, plus body actions (wave, cheer, no, nod, shock, laugh ...).
 Objects (type object): shown big on a small table, turning slowly: mate kinds (with face when `mascot`), termo, yerba, pava, bombillas (all kinds in a rack) or one kind (recta, curva, pico_loro, resorte, paleta, cana, alpaca), the small things above, auto, camioneta, colectivo.
 Props in a scene (`props` or from the place name): auto, camioneta, colectivo (can drive past), mesa, banco.
-Still missing: more places than the meadow (kitchen, plaza, patio, beach, office).
+Places (from the script's place name, any wording): prado (meadow, default), cocina (also home), oficina, plaza (also street, city, bus stop), patio (parrilla, asado), playa (beach, coast). Indoor places are open sets: back wall and side walls, no front wall, no ceiling. Reactions and objects stay in the place of the scene before them.
 
 Daily A/B: `scripts/daily.js` picks one of the day's scripts (rotates by day of year), `scripts/ab3d.js` builds it again in this style after the 2D release (same voice take). It is posted as the 4th reel of the day.
 

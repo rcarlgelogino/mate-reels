@@ -12,7 +12,7 @@
    "emo": "excited",
    "visual": {
     "type": "scene",
-    "place": "park",
+    "place": "plaza",
     "people": [
      {
       "role": "argentino",
@@ -50,7 +50,7 @@
    "text": "El brasileño lo toma en una cuia enorme y el chileno no lo puede creer.",
    "visual": {
     "type": "scene",
-    "place": "plaza",
+    "place": "playa",
     "people": [
      {
       "role": "brasileno",
@@ -69,7 +69,7 @@
    "text": "Y el alemán pregunta si eso es té.",
    "visual": {
     "type": "scene",
-    "place": "park",
+    "place": "oficina",
     "people": [
      {
       "role": "aleman",
@@ -89,7 +89,6 @@
    "visual": {
     "type": "scene",
     "place": "park",
-    "camera": "wide",
     "people": [
      {
       "role": "friend",
@@ -130,7 +129,7 @@
    "text": "El gaucho ceba despacito, al lado de la bombilla.",
    "visual": {
     "type": "scene",
-    "place": "campo",
+    "place": "patio",
     "people": [
      {
       "role": "gaucho",
@@ -144,7 +143,7 @@
    "text": "Y el primero siempre es para el cebador.",
    "visual": {
     "type": "scene",
-    "place": "campo",
+    "place": "patio",
     "people": [
      {
       "role": "gaucho",
@@ -183,7 +182,7 @@
    "text": "¿Vos de qué equipo sos?",
    "visual": {
     "type": "scene",
-    "place": "park",
+    "place": "plaza",
     "people": [
      {
       "role": "argentino",

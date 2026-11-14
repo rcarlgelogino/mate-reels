@@ -104,7 +104,7 @@ jobs:
 
       # A/B test: one of today's scripts again in the 3D style (same text and voice). Built after the 2D release so the first post slot is never late.
       - name: Build the 3D A/B version and add it to today's release
-        if: ${{ always() && steps.release.outputs.tag != '' && inputs.ab3d != false }}
+        if: ${{ always() && steps.release.outputs.tag != '' && (github.event_name != 'workflow_dispatch' || inputs.ab3d) }}   # without inputs (push/schedule) inputs.ab3d is null, and null != false is false in GitHub expressions
         env:
           GEMINI_API_KEY: ${{ secrets.GEMINI_API_KEY }}
           REQUIRE_GEMINI: '1'

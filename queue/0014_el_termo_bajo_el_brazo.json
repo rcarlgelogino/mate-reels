@@ -1,0 +1,264 @@
+{
+ "id": "0014_el_termo_bajo_el_brazo",
+ "topic": "T16",
+ "title": "El termo bajo el brazo",
+ "caption": "El termo bajo el brazo no es costumbre: es casi un documento 🧉\nPor qué hay gente que no lo suelta ni para sacarse una foto.\nEtiquetá a quien lleva el termo a todos lados 👇",
+ "hashtags": [
+  "#mate",
+  "#yerbamate",
+  "#argentina",
+  "#matero",
+  "#costumbresargentinas",
+  "#termo",
+  "#uruguay"
+ ],
+ "segments": [
+  {
+   "text": "El termo bajo el brazo no es costumbre: es casi un documento.",
+   "emo": "surprised",
+   "beat": "hook",
+   "visual": {
+    "type": "scene",
+    "place": "calle",
+    "people": [
+     {
+      "role": "uruguayo",
+      "does": "carry_termo_brazo",
+      "mood": "proud"
+     }
+    ]
+   },
+   "headline": "CASI UN DOCUMENTO",
+   "headlineAt": "documento",
+   "impact": true
+  },
+  {
+   "text": "Y hay un lugar donde es imposible verlo separado.",
+   "emo": "tense",
+   "beat": "loop",
+   "visual": {
+    "type": "map",
+    "countries": [
+     "uy"
+    ],
+    "text": "¿DÓNDE?",
+    "sub": "UN PAÍS ENTERO"
+   },
+   "headline": "¿DÓNDE?",
+   "headlineAt": "lugar"
+  },
+  {
+   "text": "En el colectivo, en la cancha, en el banco.",
+   "emo": "funny",
+   "beat": "body",
+   "visual": {
+    "type": "scene",
+    "place": "colectivo",
+    "people": [
+     {
+      "role": "uruguayo",
+      "does": "carry_termo_brazo",
+      "mood": "neutral"
+     },
+     {
+      "role": "oficinista",
+      "does": "idle",
+      "mood": "surprised"
+     }
+    ]
+   },
+   "headline": "EN TODOS LADOS",
+   "headlineAt": "colectivo"
+  },
+  {
+   "text": "Manejando, paseando al perro, empujando el cochecito.",
+   "emo": "funny",
+   "beat": "body",
+   "visual": {
+    "type": "scene",
+    "place": "calle",
+    "people": [
+     {
+      "role": "uruguayo",
+      "does": "carry_termo_brazo",
+      "mood": "happy"
+     }
+    ],
+    "props": [
+     "perro",
+     "cochecito"
+    ]
+   },
+   "headline": "SIEMPRE",
+   "headlineAt": "perro"
+  },
+  {
+   "text": "Con un brazo sostiene el termo y con la mano el mate.",
+   "emo": "proud",
+   "beat": "body",
+   "visual": {
+    "type": "object",
+    "item": "termo",
+    "labels": [
+     "BRAZO",
+     "MANO"
+    ],
+    "with": [
+     "mate"
+    ]
+   },
+   "headline": "UN SOLO BRAZO",
+   "headlineAt": "brazo"
+  },
+  {
+   "text": "Pero esperá: ¿por qué no lo deja en casa?",
+   "emo": "excited",
+   "beat": "rehook",
+   "visual": {
+    "type": "reaction",
+    "emotion": "surprised",
+    "act": "think",
+    "who": 2
+   },
+   "headline": "¿POR QUÉ?",
+   "headlineAt": "esper",
+   "impact": true
+  },
+  {
+   "text": "Porque no sabe cuándo va a aparecer una ronda.",
+   "emo": "warm",
+   "beat": "body",
+   "visual": {
+    "type": "scene",
+    "place": "plaza",
+    "people": [
+     {
+      "role": "uruguayo",
+      "does": "hold_both",
+      "mood": "happy"
+     },
+     {
+      "role": "friend",
+      "does": "wave",
+      "mood": "happy"
+     },
+     {
+      "role": "stranger",
+      "does": "wave",
+      "mood": "happy"
+     }
+    ]
+   },
+   "headline": "UNA RONDA",
+   "headlineAt": "ronda"
+  },
+  {
+   "text": "El que lleva el termo es el dueño del momento.",
+   "emo": "proud",
+   "beat": "body",
+   "visual": {
+    "type": "scene",
+    "place": "playa",
+    "people": [
+     {
+      "role": "uruguayo",
+      "does": "pour",
+      "mood": "proud"
+     },
+     {
+      "role": "friend",
+      "does": "idle",
+      "mood": "happy"
+     },
+     {
+      "role": "you",
+      "does": "idle",
+      "mood": "happy"
+     }
+    ]
+   },
+   "headline": "DUEÑO DEL MOMENTO",
+   "headlineAt": "due"
+  },
+  {
+   "text": "Sin termo no hay mate, y sin mate no hay charla.",
+   "emo": "neutral",
+   "beat": "body",
+   "visual": {
+    "type": "checklist",
+    "rows": [
+     {
+      "text": "Termo",
+      "ok": true
+     },
+     {
+      "text": "Mate",
+      "ok": true
+     },
+     {
+      "text": "Charla",
+      "ok": true
+     }
+    ]
+   }
+  },
+  {
+   "text": "Por eso lo cuida más que al celular.",
+   "emo": "funny",
+   "beat": "body",
+   "visual": {
+    "type": "compare",
+    "left": {
+     "item": "termo",
+     "label": "SE CUIDA"
+    },
+    "right": {
+     "item": "celular",
+     "label": "SE REEMPLAZA"
+    },
+    "text": "TERMO > CELULAR",
+    "sub": ""
+   },
+   "headline": "TERMO > CELULAR",
+   "headlineAt": "celular"
+  },
+  {
+   "text": "No lleva un termo: lleva la excusa para juntarse.",
+   "emo": "love",
+   "beat": "payoff",
+   "visual": {
+    "type": "scene",
+    "place": "plaza",
+    "people": [
+     {
+      "role": "uruguayo",
+      "does": "pass",
+      "mood": "happy"
+     },
+     {
+      "role": "argentino",
+      "does": "receive",
+      "mood": "happy"
+     }
+    ],
+    "pass": [
+     0,
+     1
+    ]
+   },
+   "headline": "LA EXCUSA",
+   "headlineAt": "excusa",
+   "impact": true
+  },
+  {
+   "text": "Etiquetá a quien lleva el termo a todos lados. Seguinos para más.",
+   "emo": "funny",
+   "beat": "cta",
+   "visual": {
+    "type": "title",
+    "text": "ETIQUETÁ",
+    "sub": "A QUIEN NUNCA SUELTA EL TERMO"
+   }
+  }
+ ]
+}

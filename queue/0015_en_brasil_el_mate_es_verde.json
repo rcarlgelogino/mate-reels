@@ -1,0 +1,251 @@
+{
+ "id": "0015_en_brasil_el_mate_es_verde",
+ "topic": "T17",
+ "title": "El chimarrão",
+ "caption": "En Brasil el mate es verde flúor. Y no es colorante 🧉\nMisma planta, otro mundo: así se toma el chimarrão.\n¿Qué país sigue? 👇",
+ "hashtags": [
+  "#mate",
+  "#yerbamate",
+  "#argentina",
+  "#matero",
+  "#costumbresargentinas",
+  "#chimarrao",
+  "#brasil"
+ ],
+ "segments": [
+  {
+   "text": "En Brasil el mate es verde flúor. Y no es colorante.",
+   "emo": "surprised",
+   "beat": "hook",
+   "visual": {
+    "type": "compare",
+    "left": {
+     "item": "mate",
+     "label": "ARGENTINA"
+    },
+    "right": {
+     "item": "cuia",
+     "label": "BRASIL"
+    },
+    "text": "VERDE FLÚOR",
+    "sub": "Y NO ES COLORANTE"
+   },
+   "headline": "VERDE FLÚOR",
+   "headlineAt": "verde",
+   "impact": true
+  },
+  {
+   "text": "Es la misma planta que la tuya, pero no la reconocerías.",
+   "emo": "tense",
+   "beat": "loop",
+   "visual": {
+    "type": "reaction",
+    "emotion": "surprised",
+    "act": "shock",
+    "who": 1
+   },
+   "headline": "LA MISMA PLANTA",
+   "headlineAt": "planta"
+  },
+  {
+   "text": "Allá se llama chimarrão y se toma en el sur.",
+   "emo": "neutral",
+   "beat": "body",
+   "visual": {
+    "type": "map",
+    "countries": [
+     "br"
+    ],
+    "text": "CHIMARRÃO",
+    "sub": "SUR DE BRASIL"
+   },
+   "headline": "CHIMARRÃO",
+   "headlineAt": "chimarr"
+  },
+  {
+   "text": "La yerba no se estaciona: se usa casi recién cosechada.",
+   "emo": "surprised",
+   "beat": "body",
+   "visual": {
+    "type": "timeline",
+    "items": [
+     {
+      "label": "COSECHA",
+      "text": "Hoy"
+     },
+     {
+      "label": "SECADO",
+      "text": "Rápido"
+     },
+     {
+      "label": "A TU MATE",
+      "text": "Sin esperar"
+     }
+    ]
+   },
+   "headline": "SIN ESPERAR",
+   "headlineAt": "estaciona"
+  },
+  {
+   "text": "Por eso queda tan verde y con gusto a pasto fresco.",
+   "emo": "funny",
+   "beat": "body",
+   "visual": {
+    "type": "object",
+    "item": "yerba_brasil",
+    "labels": [
+     "VERDE",
+     "FRESCA"
+    ]
+   },
+   "headline": "COMO PASTO",
+   "headlineAt": "pasto"
+  },
+  {
+   "text": "Y se muele tan fina que parece polvo.",
+   "emo": "neutral",
+   "beat": "body",
+   "visual": {
+    "type": "compare",
+    "left": {
+     "item": "yerba",
+     "label": "CON PALO"
+    },
+    "right": {
+     "item": "yerba_brasil",
+     "label": "CASI POLVO"
+    },
+    "text": "CASI POLVO",
+    "sub": ""
+   },
+   "headline": "CASI POLVO",
+   "headlineAt": "polvo"
+  },
+  {
+   "text": "Pero esperá a ver el tamaño del mate.",
+   "emo": "excited",
+   "beat": "rehook",
+   "visual": {
+    "type": "reaction",
+    "emotion": "surprised",
+    "act": "point",
+    "who": 3
+   },
+   "headline": "MIRÁ ESTO",
+   "headlineAt": "esper",
+   "impact": true
+  },
+  {
+   "text": "La cuia es enorme: entra medio paquete de yerba.",
+   "emo": "funny",
+   "beat": "body",
+   "visual": {
+    "type": "scene",
+    "place": "plaza",
+    "people": [
+     {
+      "role": "brasileno",
+      "does": "hold_cuia",
+      "mood": "happy"
+     },
+     {
+      "role": "argentino",
+      "does": "hold_mate",
+      "mood": "surprised"
+     }
+    ]
+   },
+   "headline": "ENORME",
+   "headlineAt": "enorme"
+  },
+  {
+   "text": "Y la bombilla tiene un filtro grande como una cuchara.",
+   "emo": "surprised",
+   "beat": "body",
+   "visual": {
+    "type": "object",
+    "item": "bombilla",
+    "kind": "paleta",
+    "labels": [
+     "BOMBA"
+    ]
+   },
+   "headline": "LA BOMBA",
+   "headlineAt": "cuchara"
+  },
+  {
+   "text": "El argentino lo prueba y pone esta cara.",
+   "emo": "funny",
+   "beat": "body",
+   "visual": {
+    "type": "scene",
+    "place": "plaza",
+    "people": [
+     {
+      "role": "argentino",
+      "does": "drink",
+      "mood": "disgusted"
+     },
+     {
+      "role": "brasileno",
+      "does": "laugh",
+      "mood": "laugh"
+     }
+    ]
+   },
+   "headline": "ESTA CARA",
+   "headlineAt": "cara"
+  },
+  {
+   "text": "Pero la ronda es igual: uno ceba y todos comparten.",
+   "emo": "love",
+   "beat": "payoff",
+   "visual": {
+    "type": "scene",
+    "place": "plaza",
+    "people": [
+     {
+      "role": "brasileno",
+      "does": "pass",
+      "mood": "happy"
+     },
+     {
+      "role": "argentino",
+      "does": "receive",
+      "mood": "happy"
+     },
+     {
+      "role": "uruguayo",
+      "does": "idle",
+      "mood": "happy"
+     }
+    ],
+    "pass": [
+     0,
+     1
+    ]
+   },
+   "headline": "MISMA RONDA",
+   "headlineAt": "ronda",
+   "impact": true
+  },
+  {
+   "text": "¿Qué país sigue: Paraguay o Uruguay? Comentalo y seguinos para más.",
+   "emo": "funny",
+   "beat": "cta",
+   "visual": {
+    "type": "title",
+    "text": "",
+    "sub": ""
+   }
+  }
+ ],
+ "poll": {
+  "question": "¿Qué país sigue?",
+  "options": [
+   "PARAGUAY",
+   "URUGUAY",
+   "CHILE"
+  ]
+ }
+}

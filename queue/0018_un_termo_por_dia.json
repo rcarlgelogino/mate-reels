@@ -1,0 +1,248 @@
+{
+ "id": "0018_un_termo_por_dia",
+ "topic": "T07",
+ "title": "Una pileta de mate",
+ "caption": "Si tomás un termo de mate por día, en diez años llenás una pileta 🧉\nHacé la cuenta con tu termo.\n¿Cuántos tomás por día? 👇",
+ "hashtags": [
+  "#mate",
+  "#yerbamate",
+  "#argentina",
+  "#matero",
+  "#costumbresargentinas",
+  "#termo",
+  "#datos"
+ ],
+ "segments": [
+  {
+   "text": "Si tomás un termo por día, en diez años llenás una pileta.",
+   "emo": "surprised",
+   "beat": "hook",
+   "visual": {
+    "type": "scene",
+    "place": "patio",
+    "people": [
+     {
+      "role": "you",
+      "does": "hold_both",
+      "mood": "surprised"
+     }
+    ],
+    "props": [
+     "pileta_lona_llena_de_mate"
+    ]
+   },
+   "headline": "UNA PILETA",
+   "headlineAt": "pileta",
+   "impact": true
+  },
+  {
+   "text": "Hacé la cuenta conmigo, que se pone peor.",
+   "emo": "tense",
+   "beat": "loop",
+   "visual": {
+    "type": "reaction",
+    "emotion": "surprised",
+    "act": "think",
+    "who": 0
+   },
+   "headline": "HACÉ LA CUENTA",
+   "headlineAt": "cuenta"
+  },
+  {
+   "text": "Un termo es un litro de agua.",
+   "emo": "neutral",
+   "beat": "body",
+   "visual": {
+    "type": "object",
+    "item": "termo",
+    "labels": [
+     "1 LITRO"
+    ]
+   },
+   "headline": "UN LITRO",
+   "headlineAt": "litro"
+  },
+  {
+   "text": "En un mes son treinta litros: un bidón grande.",
+   "emo": "neutral",
+   "beat": "body",
+   "visual": {
+    "type": "number",
+    "value": "30 L",
+    "sub": "UN MES · UN BIDÓN"
+   }
+  },
+  {
+   "text": "En un año, trescientos sesenta y cinco: dos bañeras llenas.",
+   "emo": "funny",
+   "beat": "body",
+   "visual": {
+    "type": "scene",
+    "place": "bano",
+    "people": [
+     {
+      "role": "you",
+      "does": "idle",
+      "mood": "surprised"
+     }
+    ],
+    "props": [
+     "banera_llena_de_mate",
+     "banera_llena_de_mate"
+    ]
+   },
+   "headline": "DOS BAÑERAS",
+   "headlineAt": "ba"
+  },
+  {
+   "text": "Pero esperá, que recién es un año.",
+   "emo": "excited",
+   "beat": "rehook",
+   "visual": {
+    "type": "reaction",
+    "emotion": "surprised",
+    "act": "shock",
+    "who": 3
+   },
+   "headline": "RECIÉN UN AÑO",
+   "headlineAt": "esper",
+   "impact": true
+  },
+  {
+   "text": "En diez años son más de tres mil seiscientos litros.",
+   "emo": "surprised",
+   "beat": "body",
+   "visual": {
+    "type": "number",
+    "value": "3.650 L",
+    "sub": "DIEZ AÑOS"
+   }
+  },
+  {
+   "text": "Eso es una pileta de lona entera.",
+   "emo": "funny",
+   "beat": "body",
+   "visual": {
+    "type": "scene",
+    "place": "patio",
+    "people": [
+     {
+      "role": "kid",
+      "does": "jump",
+      "mood": "happy"
+     },
+     {
+      "role": "you",
+      "does": "hold_both",
+      "mood": "laugh"
+     }
+    ],
+    "props": [
+     "pileta_lona_llena_de_mate"
+    ]
+   },
+   "headline": "PILETA ENTERA",
+   "headlineAt": "lona"
+  },
+  {
+   "text": "Y en cincuenta años, cinco piletas.",
+   "emo": "surprised",
+   "beat": "body",
+   "visual": {
+    "type": "dots",
+    "on": 5,
+    "total": 5,
+    "cols": 5,
+    "label": "5 PILETAS",
+    "sub": "EN 50 AÑOS"
+   }
+  },
+  {
+   "text": "Y casi nunca lo tomaste solo.",
+   "emo": "warm",
+   "beat": "body",
+   "visual": {
+    "type": "scene",
+    "place": "plaza",
+    "people": [
+     {
+      "role": "you",
+      "does": "pass",
+      "mood": "happy"
+     },
+     {
+      "role": "friend",
+      "does": "receive",
+      "mood": "happy"
+     },
+     {
+      "role": "grandma",
+      "does": "idle",
+      "mood": "happy"
+     },
+     {
+      "role": "grandpa",
+      "does": "idle",
+      "mood": "happy"
+     }
+    ],
+    "pass": [
+     0,
+     1
+    ]
+   },
+   "headline": "NUNCA SOLO",
+   "headlineAt": "solo"
+  },
+  {
+   "text": "No tomaste una pileta de mate: la compartiste.",
+   "emo": "love",
+   "beat": "payoff",
+   "visual": {
+    "type": "scene",
+    "place": "patio",
+    "people": [
+     {
+      "role": "you",
+      "does": "cheer",
+      "mood": "happy"
+     },
+     {
+      "role": "friend",
+      "does": "cheer",
+      "mood": "happy"
+     },
+     {
+      "role": "grandma",
+      "does": "cheer",
+      "mood": "happy"
+     }
+    ],
+    "props": [
+     "pileta_lona_llena_de_mate"
+    ]
+   },
+   "headline": "LA COMPARTISTE",
+   "headlineAt": "compart",
+   "impact": true
+  },
+  {
+   "text": "¿Cuántos termos tomás por día? Comentalo y seguinos para más.",
+   "emo": "funny",
+   "beat": "cta",
+   "visual": {
+    "type": "title",
+    "text": "",
+    "sub": ""
+   }
+  }
+ ],
+ "poll": {
+  "question": "¿Cuántos termos por día?",
+  "options": [
+   "MEDIO",
+   "UNO",
+   "DOS O MÁS"
+  ]
+ }
+}

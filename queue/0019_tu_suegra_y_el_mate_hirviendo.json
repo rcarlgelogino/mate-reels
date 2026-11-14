@@ -1,0 +1,289 @@
+{
+ "id": "0019_tu_suegra_y_el_mate_hirviendo",
+ "topic": "T15",
+ "title": "El mate de la suegra (parte 1)",
+ "caption": "¿Qué hacés si tu suegra te pasa el mate hirviendo? 🧉\nPrimera visita, todos mirando.\nComentá 1 o 2 y hacemos la parte 2 👇",
+ "hashtags": [
+  "#mate",
+  "#yerbamate",
+  "#argentina",
+  "#matero",
+  "#costumbresargentinas",
+  "#suegra",
+  "#historias"
+ ],
+ "segments": [
+  {
+   "text": "¿Qué hacés si tu suegra te pasa el mate hirviendo?",
+   "emo": "surprised",
+   "beat": "hook",
+   "visual": {
+    "type": "scene",
+    "place": "living",
+    "people": [
+     {
+      "role": "suegra",
+      "does": "offer",
+      "mood": "happy"
+     },
+     {
+      "role": "you",
+      "does": "idle",
+      "mood": "worried"
+     }
+    ],
+    "pass": [
+     0,
+     1
+    ],
+    "props": [
+     "mate_humeante"
+    ]
+   },
+   "headline": "¿QUÉ HACÉS?",
+   "headlineAt": "hirviendo",
+   "impact": true
+  },
+  {
+   "text": "Es tu primera visita y toda la familia te mira.",
+   "emo": "tense",
+   "beat": "loop",
+   "visual": {
+    "type": "scene",
+    "place": "living",
+    "people": [
+     {
+      "role": "suegro",
+      "does": "sit",
+      "mood": "neutral"
+     },
+     {
+      "role": "novia",
+      "does": "sit",
+      "mood": "worried"
+     },
+     {
+      "role": "cunado",
+      "does": "sit",
+      "mood": "laugh"
+     },
+     {
+      "role": "suegra",
+      "does": "sit",
+      "mood": "happy"
+     }
+    ],
+    "props": [
+     "sillon",
+     "mesa_ratona"
+    ]
+   },
+   "headline": "TODOS TE MIRAN",
+   "headlineAt": "mira"
+  },
+  {
+   "text": "Ella ceba con el agua recién sacada del fuego.",
+   "emo": "neutral",
+   "beat": "body",
+   "visual": {
+    "type": "scene",
+    "place": "living",
+    "people": [
+     {
+      "role": "suegra",
+      "does": "pour",
+      "mood": "proud"
+     }
+    ],
+    "props": [
+     "pava_humeante"
+    ]
+   },
+   "headline": "RECIÉN DEL FUEGO",
+   "headlineAt": "fuego"
+  },
+  {
+   "text": "El mate echa humo como una locomotora.",
+   "emo": "funny",
+   "beat": "body",
+   "visual": {
+    "type": "object",
+    "item": "mate",
+    "animate": "humo_fuerte",
+    "labels": [
+     "PELIGRO"
+    ]
+   },
+   "headline": "COMO LOCOMOTORA",
+   "headlineAt": "locomotora"
+  },
+  {
+   "text": "Y te lo pasa a vos primero, con una sonrisa.",
+   "emo": "warm",
+   "beat": "body",
+   "visual": {
+    "type": "scene",
+    "place": "living",
+    "people": [
+     {
+      "role": "suegra",
+      "does": "pass",
+      "mood": "happy"
+     },
+     {
+      "role": "you",
+      "does": "receive",
+      "mood": "worried"
+     }
+    ],
+    "pass": [
+     0,
+     1
+    ]
+   },
+   "headline": "A VOS PRIMERO",
+   "headlineAt": "primero"
+  },
+  {
+   "text": "Pero esperá: tenés tres segundos para decidir.",
+   "emo": "excited",
+   "beat": "rehook",
+   "visual": {
+    "type": "number",
+    "value": "3",
+    "sub": "SEGUNDOS"
+   },
+   "headline": "DECIDÍ",
+   "headlineAt": "esper",
+   "impact": true
+  },
+  {
+   "text": "Opción uno: lo tomás igual y sonreís con la lengua quemada.",
+   "emo": "funny",
+   "beat": "body",
+   "visual": {
+    "type": "scene",
+    "place": "living",
+    "people": [
+     {
+      "role": "you",
+      "does": "drink",
+      "mood": "pain"
+     },
+     {
+      "role": "suegra",
+      "does": "idle",
+      "mood": "happy"
+     }
+    ]
+   },
+   "headline": "OPCIÓN 1",
+   "headlineAt": "uno"
+  },
+  {
+   "text": "Opción dos: soplás, esperás y todos se dan cuenta.",
+   "emo": "tense",
+   "beat": "body",
+   "visual": {
+    "type": "scene",
+    "place": "living",
+    "people": [
+     {
+      "role": "you",
+      "does": "blow_mate",
+      "mood": "worried"
+     },
+     {
+      "role": "cunado",
+      "does": "laugh",
+      "mood": "laugh"
+     },
+     {
+      "role": "suegra",
+      "does": "idle",
+      "mood": "angry"
+     }
+    ]
+   },
+   "headline": "OPCIÓN 2",
+   "headlineAt": "dos"
+  },
+  {
+   "text": "Tu novia te mira y no te ayuda.",
+   "emo": "funny",
+   "beat": "body",
+   "visual": {
+    "type": "reaction",
+    "emotion": "worried",
+    "act": "shrug",
+    "who": 2
+   },
+   "headline": "SIN AYUDA",
+   "headlineAt": "novia"
+  },
+  {
+   "text": "Tu cuñado ya está filmando con el celular.",
+   "emo": "excited",
+   "beat": "body",
+   "visual": {
+    "type": "scene",
+    "place": "living",
+    "people": [
+     {
+      "role": "cunado",
+      "does": "film_phone",
+      "mood": "laugh"
+     }
+    ]
+   },
+   "headline": "FILMANDO",
+   "headlineAt": "filmando"
+  },
+  {
+   "text": "De este mate depende tu lugar en la familia.",
+   "emo": "tense",
+   "beat": "payoff",
+   "visual": {
+    "type": "scene",
+    "place": "living",
+    "people": [
+     {
+      "role": "you",
+      "does": "hold_mate",
+      "mood": "worried"
+     },
+     {
+      "role": "suegra",
+      "does": "idle",
+      "mood": "neutral"
+     },
+     {
+      "role": "suegro",
+      "does": "idle",
+      "mood": "neutral"
+     }
+    ]
+   },
+   "headline": "TODO DEPENDE",
+   "headlineAt": "depende",
+   "impact": true
+  },
+  {
+   "text": "¿Uno o dos? Comentalo y hacemos la parte dos. Seguinos para más.",
+   "emo": "funny",
+   "beat": "cta",
+   "visual": {
+    "type": "title",
+    "text": "",
+    "sub": ""
+   }
+  }
+ ],
+ "poll": {
+  "question": "¿Qué hacés?",
+  "options": [
+   "1 · LO TOMO IGUAL",
+   "2 · SOPLO Y ESPERO"
+  ]
+ }
+}

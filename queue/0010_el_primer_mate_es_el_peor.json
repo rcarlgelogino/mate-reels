@@ -1,0 +1,250 @@
+{
+ "id": "0010_el_primer_mate_es_el_peor",
+ "topic": "T03",
+ "title": "El primer mate",
+ "caption": "El primer mate es el peor de la ronda… y el cebador se lo toma a propósito 🧉\nPor qué le dicen el mate del zonzo y qué gesto hay atrás.\n¿Vos lo tomás o lo tirás? 👇",
+ "hashtags": [
+  "#mate",
+  "#yerbamate",
+  "#argentina",
+  "#matero",
+  "#costumbresargentinas",
+  "#cebador"
+ ],
+ "segments": [
+  {
+   "text": "El primer mate es el peor de toda la ronda.",
+   "emo": "surprised",
+   "beat": "hook",
+   "visual": {
+    "type": "scene",
+    "place": "cocina",
+    "people": [
+     {
+      "role": "cebador",
+      "does": "drink",
+      "mood": "disgusted"
+     }
+    ]
+   },
+   "headline": "EL PEOR",
+   "headlineAt": "peor",
+   "impact": true
+  },
+  {
+   "text": "Y el cebador se lo toma a propósito.",
+   "emo": "tense",
+   "beat": "loop",
+   "visual": {
+    "type": "reaction",
+    "emotion": "surprised",
+    "act": "shock",
+    "who": 2
+   },
+   "headline": "¿A PROPÓSITO?",
+   "headlineAt": "prop"
+  },
+  {
+   "text": "Sale frío, amargo y lleno de polvo de yerba.",
+   "emo": "funny",
+   "beat": "body",
+   "visual": {
+    "type": "list",
+    "items": [
+     {
+      "title": "FRÍO"
+     },
+     {
+      "title": "AMARGO"
+     },
+     {
+      "title": "CON POLVO"
+     }
+    ]
+   }
+  },
+  {
+   "text": "Por eso le dicen el mate del zonzo.",
+   "emo": "funny",
+   "beat": "body",
+   "visual": {
+    "type": "object",
+    "item": "mate",
+    "mascot": "dizzy",
+    "labels": [
+     "MATE DEL ZONZO"
+    ]
+   },
+   "headline": "MATE DEL ZONZO",
+   "headlineAt": "zonzo"
+  },
+  {
+   "text": "Nadie lo quiere, pero alguien se lo tiene que tomar.",
+   "emo": "warm",
+   "beat": "body",
+   "visual": {
+    "type": "scene",
+    "place": "patio",
+    "people": [
+     {
+      "role": "friend",
+      "does": "no",
+      "mood": "disgusted"
+     },
+     {
+      "role": "cebador",
+      "does": "hold_mate",
+      "mood": "neutral"
+     },
+     {
+      "role": "stranger",
+      "does": "no",
+      "mood": "disgusted"
+     }
+    ]
+   },
+   "headline": "NADIE LO QUIERE",
+   "headlineAt": "nadie"
+  },
+  {
+   "text": "Pero esperá: acá está el gesto que nadie ve.",
+   "emo": "excited",
+   "beat": "rehook",
+   "visual": {
+    "type": "reaction",
+    "emotion": "surprised",
+    "act": "point",
+    "who": 3
+   },
+   "headline": "¿QUÉ GESTO?",
+   "headlineAt": "esper",
+   "impact": true
+  },
+  {
+   "text": "El cebador lo toma él, para que vos no lo sufras.",
+   "emo": "love",
+   "beat": "body",
+   "visual": {
+    "type": "scene",
+    "place": "patio",
+    "people": [
+     {
+      "role": "cebador",
+      "does": "drink",
+      "mood": "neutral"
+     },
+     {
+      "role": "you",
+      "does": "idle",
+      "mood": "happy"
+     }
+    ]
+   },
+   "headline": "POR VOS",
+   "headlineAt": "sufras"
+  },
+  {
+   "text": "Algunos lo escupen o lo tiran en la pileta.",
+   "emo": "funny",
+   "beat": "body",
+   "visual": {
+    "type": "mistake",
+    "text": "NO",
+    "at": "tiran",
+    "over": {
+     "type": "scene",
+     "place": "cocina",
+     "people": [
+      {
+       "role": "cebador",
+       "does": "spit",
+       "mood": "disgusted"
+      }
+     ],
+     "props": [
+      "pileta_cocina"
+     ]
+    }
+   }
+  },
+  {
+   "text": "Otros lo tragan sin decir una sola palabra.",
+   "emo": "proud",
+   "beat": "body",
+   "visual": {
+    "type": "scene",
+    "place": "cocina",
+    "people": [
+     {
+      "role": "cebador",
+      "does": "drink",
+      "mood": "proud"
+     }
+    ]
+   },
+   "headline": "SIN QUEJARSE",
+   "headlineAt": "tragan"
+  },
+  {
+   "text": "Recién el segundo mate es el primero de verdad.",
+   "emo": "surprised",
+   "beat": "body",
+   "visual": {
+    "type": "number",
+    "value": "2°",
+    "sub": "EL PRIMERO DE VERDAD"
+   }
+  },
+  {
+   "text": "Cebar es eso: quedarte con lo peor y dar lo mejor.",
+   "emo": "love",
+   "beat": "payoff",
+   "visual": {
+    "type": "scene",
+    "place": "plaza",
+    "people": [
+     {
+      "role": "cebador",
+      "does": "pass",
+      "mood": "happy"
+     },
+     {
+      "role": "grandma",
+      "does": "receive",
+      "mood": "love"
+     },
+     {
+      "role": "friend",
+      "does": "idle",
+      "mood": "happy"
+     }
+    ],
+    "pass": [
+     0,
+     1
+    ]
+   },
+   "headline": "DAR LO MEJOR",
+   "headlineAt": "mejor",
+   "impact": true
+  },
+  {
+   "text": "¿Vos lo tomás o lo tirás? Comentalo y seguinos para más.",
+   "emo": "funny",
+   "beat": "cta",
+   "visual": {
+    "type": "title",
+    "text": "",
+    "sub": ""
+   }
+  }
+ ],
+ "poll": {
+  "question": "¿Qué hacés con el primero?",
+  "options": [
+   "LO TOMO",
+   "LO TIRO",
+   "SE LO DOY A OTRO"
+  ]
+ }
+}

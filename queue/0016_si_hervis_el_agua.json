@@ -1,0 +1,215 @@
+{
+ "id": "0016_si_hervis_el_agua",
+ "topic": "T12",
+ "title": "El agua hervida",
+ "caption": "Si hervís el agua del mate, estás quemando la yerba que pagaste 🧉\nLa temperatura justa y el truco para salvarla.\n¿Pava o microondas? 👇",
+ "hashtags": [
+  "#mate",
+  "#yerbamate",
+  "#argentina",
+  "#matero",
+  "#costumbresargentinas",
+  "#agua",
+  "#pava"
+ ],
+ "segments": [
+  {
+   "text": "Si hervís el agua, quemás la yerba que pagaste.",
+   "emo": "surprised",
+   "beat": "hook",
+   "visual": {
+    "type": "object",
+    "item": "pava",
+    "animate": "hierve",
+    "labels": [
+     "100 GRADOS"
+    ]
+   },
+   "headline": "¡NO LA HIERVAS!",
+   "headlineAt": "herv",
+   "impact": true,
+   "headlineType": "cross"
+  },
+  {
+   "text": "Y hay un truco para salvarla si ya hirvió.",
+   "emo": "tense",
+   "beat": "loop",
+   "visual": {
+    "type": "reaction",
+    "emotion": "surprised",
+    "act": "think",
+    "who": 0
+   },
+   "headline": "HAY UN TRUCO",
+   "headlineAt": "truco"
+  },
+  {
+   "text": "Ponés la pava, te distraés y empieza a silbar.",
+   "emo": "funny",
+   "beat": "body",
+   "visual": {
+    "type": "scene",
+    "place": "cocina",
+    "people": [
+     {
+      "role": "you",
+      "does": "sit_phone",
+      "mood": "happy"
+     }
+    ],
+    "props": [
+     "pava_silbando"
+    ]
+   },
+   "headline": "TE DISTRAÉS",
+   "headlineAt": "silbar"
+  },
+  {
+   "text": "A cien grados, la yerba se quema de golpe.",
+   "emo": "tense",
+   "beat": "body",
+   "visual": {
+    "type": "number",
+    "value": "100°",
+    "sub": "LA YERBA SE QUEMA"
+   }
+  },
+  {
+   "text": "El mate sale amargo y se lava en tres cebadas.",
+   "emo": "sad",
+   "beat": "body",
+   "visual": {
+    "type": "scene",
+    "place": "cocina",
+    "people": [
+     {
+      "role": "you",
+      "does": "drink",
+      "mood": "disgusted"
+     }
+    ]
+   },
+   "headline": "AMARGO Y LAVADO",
+   "headlineAt": "amargo"
+  },
+  {
+   "text": "Y encima te quemás la lengua.",
+   "emo": "funny",
+   "beat": "body",
+   "visual": {
+    "type": "reaction",
+    "emotion": "pain",
+    "act": "burn_tongue",
+    "who": 3
+   },
+   "headline": "¡AY!",
+   "headlineAt": "lengua"
+  },
+  {
+   "text": "Pero esperá: la temperatura justa es más baja.",
+   "emo": "excited",
+   "beat": "rehook",
+   "visual": {
+    "type": "object",
+    "item": "termometro",
+    "labels": [
+     "?"
+    ]
+   },
+   "headline": "¿CUÁNTO?",
+   "headlineAt": "esper",
+   "impact": true
+  },
+  {
+   "text": "Entre setenta y ochenta grados.",
+   "emo": "proud",
+   "beat": "body",
+   "visual": {
+    "type": "number",
+    "value": "70–80°",
+    "sub": "LA TEMPERATURA JUSTA"
+   }
+  },
+  {
+   "text": "Sacá la pava cuando aparecen las primeras burbujitas.",
+   "emo": "neutral",
+   "beat": "body",
+   "visual": {
+    "type": "object",
+    "item": "pava",
+    "animate": "burbujas",
+    "labels": [
+     "BURBUJITAS"
+    ]
+   },
+   "headline": "BURBUJITAS",
+   "headlineAt": "burbuj",
+   "headlineType": "check"
+  },
+  {
+   "text": "Y si ya hirvió, agregale un chorrito de agua fría.",
+   "emo": "warm",
+   "beat": "body",
+   "visual": {
+    "type": "scene",
+    "place": "cocina",
+    "people": [
+     {
+      "role": "you",
+      "does": "pour_cold_water",
+      "mood": "smile"
+     }
+    ],
+    "props": [
+     "canilla",
+     "pava"
+    ]
+   },
+   "headline": "EL TRUCO",
+   "headlineAt": "chorrito",
+   "headlineType": "check"
+  },
+  {
+   "text": "Tu yerba dura el doble y vos también.",
+   "emo": "funny",
+   "beat": "payoff",
+   "visual": {
+    "type": "scene",
+    "place": "patio",
+    "people": [
+     {
+      "role": "you",
+      "does": "drink",
+      "mood": "happy"
+     },
+     {
+      "role": "friend",
+      "does": "idle",
+      "mood": "happy"
+     }
+    ]
+   },
+   "headline": "DURA EL DOBLE",
+   "headlineAt": "doble",
+   "impact": true
+  },
+  {
+   "text": "¿Pava o microondas? Comentalo y seguinos para más.",
+   "emo": "funny",
+   "beat": "cta",
+   "visual": {
+    "type": "title",
+    "text": "",
+    "sub": ""
+   }
+  }
+ ],
+ "poll": {
+  "question": "¿Cómo calentás el agua?",
+  "options": [
+   "PAVA",
+   "PAVA ELÉCTRICA",
+   "MICROONDAS"
+  ]
+ }
+}

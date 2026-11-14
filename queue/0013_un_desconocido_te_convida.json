@@ -1,0 +1,277 @@
+{
+ "id": "0013_un_desconocido_te_convida",
+ "topic": "T19",
+ "title": "El mate del desconocido",
+ "caption": "Un desconocido te convida un mate en la plaza. ¿Lo aceptás? 🧉\nLa respuesta divide a todos.\nComentá: SÍ, NI LOCO o DEPENDE 👇",
+ "hashtags": [
+  "#mate",
+  "#yerbamate",
+  "#argentina",
+  "#matero",
+  "#costumbresargentinas",
+  "#plaza",
+  "#rondademate"
+ ],
+ "segments": [
+  {
+   "text": "Un desconocido te convida un mate en la plaza. ¿Lo aceptás?",
+   "emo": "surprised",
+   "beat": "hook",
+   "visual": {
+    "type": "scene",
+    "place": "plaza",
+    "people": [
+     {
+      "role": "stranger",
+      "does": "offer",
+      "mood": "happy"
+     },
+     {
+      "role": "you",
+      "does": "idle",
+      "mood": "surprised"
+     }
+    ],
+    "pass": [
+     0,
+     1
+    ]
+   },
+   "headline": "¿LO ACEPTÁS?",
+   "headlineAt": "acept",
+   "impact": true
+  },
+  {
+   "text": "Lo que hagas dice de dónde sos.",
+   "emo": "tense",
+   "beat": "loop",
+   "visual": {
+    "type": "reaction",
+    "emotion": "surprised",
+    "act": "think",
+    "who": 3
+   },
+   "headline": "¿DE DÓNDE SOS?",
+   "headlineAt": "sos"
+  },
+  {
+   "text": "Estás sentado en un banco, tranquilo, mirando el celular.",
+   "emo": "neutral",
+   "beat": "body",
+   "visual": {
+    "type": "scene",
+    "place": "plaza",
+    "people": [
+     {
+      "role": "you",
+      "does": "sit_phone",
+      "mood": "neutral"
+     }
+    ],
+    "props": [
+     "banco",
+     "palomas"
+    ]
+   },
+   "headline": "VOS, TRANQUILO",
+   "headlineAt": "tranquilo"
+  },
+  {
+   "text": "Al lado se sienta un señor con termo y mate.",
+   "emo": "warm",
+   "beat": "body",
+   "visual": {
+    "type": "scene",
+    "place": "plaza",
+    "people": [
+     {
+      "role": "you",
+      "does": "sit",
+      "mood": "neutral"
+     },
+     {
+      "role": "grandpa",
+      "does": "sit_hold_both",
+      "mood": "happy"
+     }
+    ],
+    "props": [
+     "banco"
+    ]
+   },
+   "headline": "UN SEÑOR",
+   "headlineAt": "termo"
+  },
+  {
+   "text": "Te mira, sonríe y te lo ofrece sin decir nada.",
+   "emo": "warm",
+   "beat": "body",
+   "visual": {
+    "type": "scene",
+    "place": "plaza",
+    "people": [
+     {
+      "role": "you",
+      "does": "sit",
+      "mood": "surprised"
+     },
+     {
+      "role": "grandpa",
+      "does": "offer",
+      "mood": "happy"
+     }
+    ],
+    "props": [
+     "banco"
+    ],
+    "pass": [
+     1,
+     0
+    ]
+   },
+   "headline": "¿UN MATE?",
+   "headlineAt": "ofrece"
+  },
+  {
+   "text": "Pero esperá: tu cabeza empieza a hacer cuentas.",
+   "emo": "excited",
+   "beat": "rehook",
+   "visual": {
+    "type": "reaction",
+    "emotion": "worried",
+    "act": "think",
+    "who": 3
+   },
+   "headline": "¿Y AHORA?",
+   "headlineAt": "esper",
+   "impact": true
+  },
+  {
+   "text": "La misma bombilla, un extraño, cero confianza.",
+   "emo": "funny",
+   "beat": "body",
+   "visual": {
+    "type": "list",
+    "items": [
+     {
+      "title": "MISMA BOMBILLA"
+     },
+     {
+      "title": "UN EXTRAÑO"
+     },
+     {
+      "title": "CERO CONFIANZA"
+     }
+    ]
+   }
+  },
+  {
+   "text": "Si decís que no, quedás como un antipático.",
+   "emo": "sad",
+   "beat": "body",
+   "visual": {
+    "type": "scene",
+    "place": "plaza",
+    "people": [
+     {
+      "role": "you",
+      "does": "no",
+      "mood": "worried"
+     },
+     {
+      "role": "grandpa",
+      "does": "idle",
+      "mood": "sad"
+     }
+    ],
+    "props": [
+     "banco"
+    ]
+   },
+   "headline": "ANTIPÁTICO",
+   "headlineAt": "antip"
+  },
+  {
+   "text": "Si decís que sí, quizás ganás una charla de una hora.",
+   "emo": "funny",
+   "beat": "body",
+   "visual": {
+    "type": "scene",
+    "place": "plaza",
+    "people": [
+     {
+      "role": "you",
+      "does": "drink",
+      "mood": "happy"
+     },
+     {
+      "role": "grandpa",
+      "does": "talk",
+      "mood": "laugh"
+     }
+    ],
+    "props": [
+     "banco",
+     "reloj"
+    ]
+   },
+   "headline": "UNA HORA",
+   "headlineAt": "hora"
+  },
+  {
+   "text": "Porque acá el mate nunca fue una bebida.",
+   "emo": "proud",
+   "beat": "body",
+   "visual": {
+    "type": "title",
+    "text": "NO ES UNA BEBIDA",
+    "sub": "ES UNA INVITACIÓN"
+   }
+  },
+  {
+   "text": "Es la forma más corta de dejar de ser extraños.",
+   "emo": "love",
+   "beat": "payoff",
+   "visual": {
+    "type": "scene",
+    "place": "plaza",
+    "people": [
+     {
+      "role": "you",
+      "does": "laugh",
+      "mood": "happy"
+     },
+     {
+      "role": "grandpa",
+      "does": "laugh",
+      "mood": "happy"
+     }
+    ],
+    "props": [
+     "banco"
+    ]
+   },
+   "headline": "YA NO EXTRAÑOS",
+   "headlineAt": "extra",
+   "impact": true
+  },
+  {
+   "text": "¿Vos lo aceptás? Comentalo y seguinos para más.",
+   "emo": "funny",
+   "beat": "cta",
+   "visual": {
+    "type": "title",
+    "text": "",
+    "sub": ""
+   }
+  }
+ ],
+ "poll": {
+  "question": "¿Lo aceptás?",
+  "options": [
+   "SÍ, OBVIO",
+   "NI LOCO",
+   "DEPENDE"
+  ]
+ }
+}

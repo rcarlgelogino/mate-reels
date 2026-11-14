@@ -1,0 +1,272 @@
+{
+ "id": "0017_el_mate_en_la_oficina",
+ "topic": "T22",
+ "title": "El mate en la oficina",
+ "caption": "El mate en la oficina tiene una regla que nadie escribió 🧉\nY todos saben quién la rompe.\nEtiquetá al compañero que nunca convida 👇",
+ "hashtags": [
+  "#mate",
+  "#yerbamate",
+  "#argentina",
+  "#matero",
+  "#costumbresargentinas",
+  "#oficina",
+  "#trabajo"
+ ],
+ "segments": [
+  {
+   "text": "El mate en la oficina tiene una regla que nadie escribió.",
+   "emo": "surprised",
+   "beat": "hook",
+   "visual": {
+    "type": "scene",
+    "place": "oficina",
+    "people": [
+     {
+      "role": "oficinista",
+      "does": "hold_both",
+      "mood": "proud"
+     },
+     {
+      "role": "companera",
+      "does": "idle",
+      "mood": "happy"
+     },
+     {
+      "role": "jefe",
+      "does": "idle",
+      "mood": "neutral"
+     }
+    ]
+   },
+   "headline": "LA REGLA",
+   "headlineAt": "regla",
+   "impact": true
+  },
+  {
+   "text": "Y en toda oficina hay uno que la rompe.",
+   "emo": "tense",
+   "beat": "loop",
+   "visual": {
+    "type": "reaction",
+    "emotion": "angry",
+    "act": "point",
+    "who": 1
+   },
+   "headline": "HAY UNO",
+   "headlineAt": "rompe"
+  },
+  {
+   "text": "A las nueve alguien pone la pava eléctrica.",
+   "emo": "neutral",
+   "beat": "body",
+   "visual": {
+    "type": "scene",
+    "place": "oficina",
+    "people": [
+     {
+      "role": "companera",
+      "does": "use_pava_electrica",
+      "mood": "smile"
+     }
+    ],
+    "props": [
+     "pava_electrica",
+     "reloj_nueve"
+    ]
+   },
+   "headline": "NUEVE EN PUNTO",
+   "headlineAt": "nueve"
+  },
+  {
+   "text": "El mate empieza a dar vueltas por los escritorios.",
+   "emo": "warm",
+   "beat": "body",
+   "visual": {
+    "type": "scene",
+    "place": "oficina",
+    "people": [
+     {
+      "role": "oficinista",
+      "does": "pass",
+      "mood": "happy"
+     },
+     {
+      "role": "companera",
+      "does": "receive",
+      "mood": "happy"
+     },
+     {
+      "role": "jefe",
+      "does": "type",
+      "mood": "neutral"
+     }
+    ],
+    "pass": [
+     0,
+     1
+    ]
+   },
+   "headline": "DA VUELTAS",
+   "headlineAt": "vueltas"
+  },
+  {
+   "text": "Nadie pide permiso y nadie pregunta de quién es.",
+   "emo": "funny",
+   "beat": "body",
+   "visual": {
+    "type": "checklist",
+    "rows": [
+     {
+      "text": "Pedir permiso",
+      "ok": false
+     },
+     {
+      "text": "Preguntar de quién es",
+      "ok": false
+     }
+    ]
+   }
+  },
+  {
+   "text": "Pero esperá, que acá viene la regla.",
+   "emo": "excited",
+   "beat": "rehook",
+   "visual": {
+    "type": "reaction",
+    "emotion": "surprised",
+    "act": "shock",
+    "who": 2
+   },
+   "headline": "LA REGLA ES…",
+   "headlineAt": "esper",
+   "impact": true
+  },
+  {
+   "text": "Si tomás todos los días, algún día traés la yerba.",
+   "emo": "proud",
+   "beat": "body",
+   "visual": {
+    "type": "title",
+    "text": "SI TOMÁS",
+    "sub": "ALGÚN DÍA TRAÉS LA YERBA"
+   }
+  },
+  {
+   "text": "Y siempre hay uno que toma y nunca trajo un paquete.",
+   "emo": "funny",
+   "beat": "body",
+   "visual": {
+    "type": "scene",
+    "place": "oficina",
+    "people": [
+     {
+      "role": "companero_vivo",
+      "does": "drink",
+      "mood": "happy"
+     },
+     {
+      "role": "oficinista",
+      "does": "idle",
+      "mood": "angry"
+     },
+     {
+      "role": "companera",
+      "does": "idle",
+      "mood": "angry"
+     }
+    ]
+   },
+   "headline": "NUNCA TRAJO",
+   "headlineAt": "nunca"
+  },
+  {
+   "text": "Todos lo saben, y nadie se lo dice en la cara.",
+   "emo": "funny",
+   "beat": "body",
+   "visual": {
+    "type": "scene",
+    "place": "oficina",
+    "people": [
+     {
+      "role": "oficinista",
+      "does": "whisper",
+      "mood": "angry"
+     },
+     {
+      "role": "companera",
+      "does": "whisper",
+      "mood": "laugh"
+     }
+    ]
+   },
+   "headline": "TODOS LO SABEN",
+   "headlineAt": "saben"
+  },
+  {
+   "text": "Hasta que un lunes aparece con dos kilos de yerba.",
+   "emo": "surprised",
+   "beat": "body",
+   "visual": {
+    "type": "scene",
+    "place": "oficina",
+    "people": [
+     {
+      "role": "companero_vivo",
+      "does": "hold_yerba",
+      "mood": "proud"
+     },
+     {
+      "role": "oficinista",
+      "does": "shock",
+      "mood": "surprised"
+     }
+    ]
+   },
+   "headline": "DOS KILOS",
+   "headlineAt": "kilos"
+  },
+  {
+   "text": "Porque el mate de la oficina no se paga: se devuelve.",
+   "emo": "love",
+   "beat": "payoff",
+   "visual": {
+    "type": "scene",
+    "place": "oficina",
+    "people": [
+     {
+      "role": "companero_vivo",
+      "does": "pour",
+      "mood": "happy"
+     },
+     {
+      "role": "oficinista",
+      "does": "receive",
+      "mood": "happy"
+     },
+     {
+      "role": "companera",
+      "does": "cheer",
+      "mood": "happy"
+     }
+    ],
+    "pass": [
+     0,
+     1
+    ]
+   },
+   "headline": "SE DEVUELVE",
+   "headlineAt": "devuelve",
+   "impact": true
+  },
+  {
+   "text": "Etiquetá al compañero que nunca convida. Seguinos para más.",
+   "emo": "funny",
+   "beat": "cta",
+   "visual": {
+    "type": "title",
+    "text": "ETIQUETÁ",
+    "sub": "AL QUE NUNCA TRAE LA YERBA"
+   }
+  }
+ ]
+}

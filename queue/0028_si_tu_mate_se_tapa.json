@@ -1,0 +1,231 @@
+{
+ "id": "0028_si_tu_mate_se_tapa",
+ "topic": "T27",
+ "title": "El mate tapado",
+ "caption": "Si tu mate se tapa, no es la bombilla: es cómo lo armaste 🧉\nTres pasos y no se tapa nunca más.\n¿Te pasa seguido? 👇",
+ "hashtags": [
+  "#mate",
+  "#yerbamate",
+  "#argentina",
+  "#matero",
+  "#costumbresargentinas",
+  "#bombilla",
+  "#tips"
+ ],
+ "segments": [
+  {
+   "text": "Si tu mate se tapa, no es la bombilla: es cómo lo armaste.",
+   "emo": "surprised",
+   "beat": "hook",
+   "visual": {
+    "type": "scene",
+    "place": "cocina",
+    "people": [
+     {
+      "role": "you",
+      "does": "drink_tapado",
+      "mood": "pain"
+     }
+    ]
+   },
+   "headline": "SE TAPA",
+   "headlineAt": "tapa",
+   "impact": true
+  },
+  {
+   "text": "Y se arregla antes de echar el agua.",
+   "emo": "tense",
+   "beat": "loop",
+   "visual": {
+    "type": "reaction",
+    "emotion": "surprised",
+    "act": "think",
+    "who": 1
+   },
+   "headline": "ANTES DEL AGUA",
+   "headlineAt": "agua"
+  },
+  {
+   "text": "Chupás, chupás, y no sube nada.",
+   "emo": "funny",
+   "beat": "body",
+   "visual": {
+    "type": "scene",
+    "place": "cocina",
+    "people": [
+     {
+      "role": "you",
+      "does": "drink_tapado",
+      "mood": "angry"
+     }
+    ]
+   },
+   "headline": "NO SUBE NADA",
+   "headlineAt": "nada"
+  },
+  {
+   "text": "Le echás la culpa a la bombilla y la sacudís.",
+   "emo": "funny",
+   "beat": "body",
+   "visual": {
+    "type": "mistake",
+    "text": "NO",
+    "at": "culpa",
+    "over": {
+     "type": "scene",
+     "place": "cocina",
+     "people": [
+      {
+       "role": "you",
+       "does": "shake_bombilla",
+       "mood": "angry"
+      }
+     ]
+    }
+   },
+   "headline": "NO ES ELLA",
+   "headlineAt": "culpa"
+  },
+  {
+   "text": "El problema es el polvo de la yerba.",
+   "emo": "neutral",
+   "beat": "body",
+   "visual": {
+    "type": "object",
+    "item": "mate",
+    "animate": "corte_polvo_abajo",
+    "labels": [
+     "POLVO"
+    ]
+   },
+   "headline": "EL POLVO",
+   "headlineAt": "polvo"
+  },
+  {
+   "text": "Pero esperá: en tres pasos se soluciona.",
+   "emo": "excited",
+   "beat": "rehook",
+   "visual": {
+    "type": "dots",
+    "on": 0,
+    "total": 3,
+    "cols": 3,
+    "label": "3 PASOS",
+    "sub": "Y NO SE TAPA MÁS"
+   },
+   "headline": "TRES PASOS",
+   "headlineAt": "esper",
+   "impact": true
+  },
+  {
+   "text": "Uno: tapás el mate, lo das vuelta y lo sacudís.",
+   "emo": "neutral",
+   "beat": "body",
+   "visual": {
+    "type": "scene",
+    "place": "cocina",
+    "people": [
+     {
+      "role": "you",
+      "does": "shake_mate",
+      "mood": "smile"
+     }
+    ]
+   },
+   "headline": "UNO · SACUDIR",
+   "headlineAt": "sacud",
+   "headlineType": "check"
+  },
+  {
+   "text": "El polvo se te queda pegado en la mano.",
+   "emo": "funny",
+   "beat": "body",
+   "visual": {
+    "type": "object",
+    "item": "mano_con_polvo",
+    "labels": [
+     "EL POLVO"
+    ]
+   },
+   "headline": "EN LA MANO",
+   "headlineAt": "mano"
+  },
+  {
+   "text": "Dos: mojás un costado con agua tibia y esperás.",
+   "emo": "warm",
+   "beat": "body",
+   "visual": {
+    "type": "scene",
+    "place": "cocina",
+    "people": [
+     {
+      "role": "you",
+      "does": "pour_lukewarm",
+      "mood": "smile"
+     }
+    ]
+   },
+   "headline": "DOS · AGUA TIBIA",
+   "headlineAt": "tibia",
+   "headlineType": "check"
+  },
+  {
+   "text": "Tres: clavás la bombilla tapándola con el pulgar.",
+   "emo": "proud",
+   "beat": "body",
+   "visual": {
+    "type": "object",
+    "item": "mate",
+    "animate": "clavar_bombilla_pulgar",
+    "labels": [
+     "PULGAR"
+    ]
+   },
+   "headline": "TRES · EL PULGAR",
+   "headlineAt": "pulgar",
+   "headlineType": "check"
+  },
+  {
+   "text": "Y después no la tocás más, por nada del mundo.",
+   "emo": "funny",
+   "beat": "payoff",
+   "visual": {
+    "type": "scene",
+    "place": "patio",
+    "people": [
+     {
+      "role": "cebador",
+      "does": "no",
+      "mood": "angry"
+     },
+     {
+      "role": "friend",
+      "does": "reach_bombilla",
+      "mood": "surprised"
+     }
+    ]
+   },
+   "headline": "NO SE TOCA",
+   "headlineAt": "toc",
+   "impact": true
+  },
+  {
+   "text": "¿Te pasa seguido? Comentalo y seguinos para más.",
+   "emo": "funny",
+   "beat": "cta",
+   "visual": {
+    "type": "title",
+    "text": "",
+    "sub": ""
+   }
+  }
+ ],
+ "poll": {
+  "question": "¿Se te tapa?",
+  "options": [
+   "SIEMPRE",
+   "A VECES",
+   "NUNCA"
+  ]
+ }
+}

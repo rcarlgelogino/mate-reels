@@ -1,0 +1,266 @@
+{
+ "id": "0011_con_palo_o_sin_palo",
+ "topic": "T25",
+ "title": "Con palo o sin palo",
+ "caption": "¿Yerba con palo o sin palo? Tu elección dice algo de vos 🧉\nY hay un tercer grupo del que nadie habla.\n¿Vos de cuál sos? 👇",
+ "hashtags": [
+  "#mate",
+  "#yerbamate",
+  "#argentina",
+  "#matero",
+  "#costumbresargentinas",
+  "#conpalo",
+  "#sinpalo"
+ ],
+ "segments": [
+  {
+   "text": "¿Yerba con palo o sin palo? Tu elección dice algo de vos.",
+   "emo": "surprised",
+   "beat": "hook",
+   "visual": {
+    "type": "compare",
+    "left": {
+     "item": "yerba_con_palo",
+     "label": "CON PALO"
+    },
+    "right": {
+     "item": "yerba_sin_palo",
+     "label": "SIN PALO"
+    },
+    "text": "¿CON O SIN PALO?",
+    "sub": "TU ELECCIÓN DICE ALGO"
+   },
+   "headline": "¿CON PALO?",
+   "headlineAt": "palo",
+   "impact": true
+  },
+  {
+   "text": "Y hay un tercer grupo del que nadie habla.",
+   "emo": "tense",
+   "beat": "loop",
+   "visual": {
+    "type": "reaction",
+    "emotion": "surprised",
+    "act": "think",
+    "who": 4
+   },
+   "headline": "UN TERCER GRUPO",
+   "headlineAt": "tercer"
+  },
+  {
+   "text": "El palo es el tallito de la planta, molido.",
+   "emo": "neutral",
+   "beat": "body",
+   "visual": {
+    "type": "object",
+    "item": "rama_yerba",
+    "labels": [
+     "HOJA",
+     "PALO"
+    ]
+   },
+   "headline": "EL TALLITO",
+   "headlineAt": "tallito"
+  },
+  {
+   "text": "Con palo, el mate sale más suave y dura más.",
+   "emo": "warm",
+   "beat": "body",
+   "visual": {
+    "type": "checklist",
+    "rows": [
+     {
+      "text": "Más suave",
+      "ok": true
+     },
+     {
+      "text": "Dura más",
+      "ok": true
+     }
+    ]
+   }
+  },
+  {
+   "text": "Si lo elegís, sos de los que cuidan la ronda.",
+   "emo": "proud",
+   "beat": "body",
+   "visual": {
+    "type": "scene",
+    "place": "patio",
+    "people": [
+     {
+      "role": "friend",
+      "does": "idle",
+      "mood": "happy"
+     },
+     {
+      "role": "cebador",
+      "does": "pour",
+      "mood": "proud"
+     },
+     {
+      "role": "grandpa",
+      "does": "idle",
+      "mood": "happy"
+     }
+    ]
+   },
+   "headline": "CUIDÁS LA RONDA",
+   "headlineAt": "cuidan"
+  },
+  {
+   "text": "Sin palo es pura hoja: fuerte, intensa y sin vueltas.",
+   "emo": "excited",
+   "beat": "body",
+   "visual": {
+    "type": "object",
+    "item": "yerba_sin_palo",
+    "labels": [
+     "PURA HOJA"
+    ]
+   },
+   "headline": "PURA HOJA",
+   "headlineAt": "hoja"
+  },
+  {
+   "text": "Si lo elegís, querés que el mate te despierte.",
+   "emo": "funny",
+   "beat": "body",
+   "visual": {
+    "type": "scene",
+    "place": "oficina",
+    "people": [
+     {
+      "role": "oficinista",
+      "does": "drink",
+      "mood": "surprised"
+     }
+    ],
+    "props": [
+     "despertador"
+    ]
+   },
+   "headline": "QUE TE DESPIERTE",
+   "headlineAt": "despierte"
+  },
+  {
+   "text": "Pero esperá, que falta el tercer grupo.",
+   "emo": "excited",
+   "beat": "rehook",
+   "visual": {
+    "type": "reaction",
+    "emotion": "surprised",
+    "act": "shock",
+    "who": 1
+   },
+   "headline": "¿Y EL TERCERO?",
+   "headlineAt": "esper",
+   "impact": true
+  },
+  {
+   "text": "Los que compran la que está en oferta.",
+   "emo": "funny",
+   "beat": "body",
+   "visual": {
+    "type": "scene",
+    "place": "supermercado",
+    "people": [
+     {
+      "role": "stranger",
+      "does": "hold_yerba",
+      "mood": "happy"
+     }
+    ],
+    "props": [
+     "gondola",
+     "cartel_oferta",
+     "changuito"
+    ]
+   },
+   "headline": "LA DE OFERTA",
+   "headlineAt": "oferta"
+  },
+  {
+   "text": "Y son muchos más de los que lo confiesan.",
+   "emo": "funny",
+   "beat": "body",
+   "visual": {
+    "type": "scene",
+    "place": "supermercado",
+    "people": [
+     {
+      "role": "friend",
+      "does": "hold_yerba",
+      "mood": "laugh"
+     },
+     {
+      "role": "grandma",
+      "does": "hold_yerba",
+      "mood": "laugh"
+     },
+     {
+      "role": "oficinista",
+      "does": "hold_yerba",
+      "mood": "laugh"
+     }
+    ],
+    "props": [
+     "gondola"
+    ]
+   },
+   "headline": "SON MUCHOS",
+   "headlineAt": "muchos"
+  },
+  {
+   "text": "Con palo o sin palo, lo que importa es con quién.",
+   "emo": "love",
+   "beat": "payoff",
+   "visual": {
+    "type": "scene",
+    "place": "plaza",
+    "people": [
+     {
+      "role": "friend",
+      "does": "receive",
+      "mood": "happy"
+     },
+     {
+      "role": "cebador",
+      "does": "pass",
+      "mood": "happy"
+     },
+     {
+      "role": "grandma",
+      "does": "idle",
+      "mood": "love"
+     }
+    ],
+    "pass": [
+     1,
+     0
+    ]
+   },
+   "headline": "CON QUIÉN",
+   "headlineAt": "qui",
+   "impact": true
+  },
+  {
+   "text": "¿Vos de cuál sos? Comentalo y seguinos para más.",
+   "emo": "funny",
+   "beat": "cta",
+   "visual": {
+    "type": "title",
+    "text": "",
+    "sub": ""
+   }
+  }
+ ],
+ "poll": {
+  "question": "¿Cuál es la tuya?",
+  "options": [
+   "CON PALO",
+   "SIN PALO",
+   "LA DE OFERTA"
+  ]
+ }
+}

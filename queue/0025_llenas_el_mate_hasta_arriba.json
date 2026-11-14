@@ -1,0 +1,246 @@
+{
+ "id": "0025_llenas_el_mate_hasta_arriba",
+ "topic": "T21",
+ "title": "Hasta dónde se llena",
+ "caption": "Cebás mal si llenás el mate de yerba hasta arriba. Y casi todos lo hacen 🧉\nLa medida justa y por qué cambia todo.\n¿Hasta dónde lo llenás? 👇",
+ "hashtags": [
+  "#mate",
+  "#yerbamate",
+  "#argentina",
+  "#matero",
+  "#costumbresargentinas",
+  "#cebar",
+  "#tips"
+ ],
+ "segments": [
+  {
+   "text": "Si llenás el mate de yerba hasta arriba, cebás mal.",
+   "emo": "surprised",
+   "beat": "hook",
+   "visual": {
+    "type": "object",
+    "item": "mate",
+    "variant": "lleno_hasta_arriba",
+    "labels": [
+     "HASTA ARRIBA"
+    ]
+   },
+   "headline": "CEBÁS MAL",
+   "headlineAt": "arriba",
+   "impact": true,
+   "headlineType": "cross"
+  },
+  {
+   "text": "Y casi todos lo hacen sin darse cuenta.",
+   "emo": "tense",
+   "beat": "loop",
+   "visual": {
+    "type": "scene",
+    "place": "plaza",
+    "people": [
+     {
+      "role": "friend",
+      "does": "hold_mate",
+      "mood": "happy"
+     },
+     {
+      "role": "stranger",
+      "does": "hold_mate",
+      "mood": "happy"
+     },
+     {
+      "role": "oficinista",
+      "does": "hold_mate",
+      "mood": "happy"
+     }
+    ]
+   },
+   "headline": "CASI TODOS",
+   "headlineAt": "todos"
+  },
+  {
+   "text": "Parece generoso: más yerba, más mate.",
+   "emo": "funny",
+   "beat": "body",
+   "visual": {
+    "type": "scene",
+    "place": "cocina",
+    "people": [
+     {
+      "role": "you",
+      "does": "fill_yerba",
+      "mood": "proud"
+     }
+    ],
+    "props": [
+     "paquete_yerba"
+    ]
+   },
+   "headline": "¿MÁS ES MEJOR?",
+   "headlineAt": "generoso"
+  },
+  {
+   "text": "Pero la yerba se hincha cuando se moja.",
+   "emo": "surprised",
+   "beat": "body",
+   "visual": {
+    "type": "object",
+    "item": "mate",
+    "animate": "yerba_se_hincha",
+    "labels": [
+     "SE HINCHA"
+    ]
+   },
+   "headline": "SE HINCHA",
+   "headlineAt": "hincha"
+  },
+  {
+   "text": "No entra el agua y se rebalsa en el primer mate.",
+   "emo": "funny",
+   "beat": "body",
+   "visual": {
+    "type": "scene",
+    "place": "cocina",
+    "people": [
+     {
+      "role": "you",
+      "does": "pour",
+      "mood": "worried"
+     }
+    ],
+    "props": [
+     "mate_rebalsado",
+     "charco"
+    ]
+   },
+   "headline": "SE REBALSA",
+   "headlineAt": "rebalsa"
+  },
+  {
+   "text": "Pero esperá: la medida justa es otra.",
+   "emo": "excited",
+   "beat": "rehook",
+   "visual": {
+    "type": "reaction",
+    "emotion": "surprised",
+    "act": "point",
+    "who": 0
+   },
+   "headline": "¿CUÁNTO?",
+   "headlineAt": "esper",
+   "impact": true
+  },
+  {
+   "text": "Tres cuartos del mate, ni un poquito más.",
+   "emo": "proud",
+   "beat": "body",
+   "visual": {
+    "type": "object",
+    "item": "mate",
+    "animate": "nivel_tres_cuartos",
+    "labels": [
+     "TRES CUARTOS"
+    ]
+   },
+   "headline": "TRES CUARTOS",
+   "headlineAt": "cuartos",
+   "headlineType": "check"
+  },
+  {
+   "text": "Lo tapás con la mano, lo das vuelta y lo sacudís.",
+   "emo": "neutral",
+   "beat": "body",
+   "visual": {
+    "type": "scene",
+    "place": "cocina",
+    "people": [
+     {
+      "role": "you",
+      "does": "shake_mate",
+      "mood": "smile"
+     }
+    ]
+   },
+   "headline": "SACUDILO",
+   "headlineAt": "sacud",
+   "headlineType": "check"
+  },
+  {
+   "text": "Así el polvo queda arriba y no tapa la bombilla.",
+   "emo": "neutral",
+   "beat": "body",
+   "visual": {
+    "type": "object",
+    "item": "mate",
+    "animate": "corte_polvo_arriba",
+    "labels": [
+     "POLVO ARRIBA"
+    ]
+   },
+   "headline": "POLVO ARRIBA",
+   "headlineAt": "polvo"
+  },
+  {
+   "text": "Lo inclinás y te queda la montañita.",
+   "emo": "warm",
+   "beat": "body",
+   "visual": {
+    "type": "object",
+    "item": "mate",
+    "variant": "con_montanita",
+    "labels": [
+     "MONTAÑITA"
+    ]
+   },
+   "headline": "LA MONTAÑITA",
+   "headlineAt": "monta"
+  },
+  {
+   "text": "Con menos yerba, el mate te dura el doble.",
+   "emo": "love",
+   "beat": "payoff",
+   "visual": {
+    "type": "scene",
+    "place": "patio",
+    "people": [
+     {
+      "role": "you",
+      "does": "pour",
+      "mood": "happy"
+     },
+     {
+      "role": "friend",
+      "does": "idle",
+      "mood": "happy"
+     },
+     {
+      "role": "grandma",
+      "does": "idle",
+      "mood": "happy"
+     }
+    ]
+   },
+   "headline": "DURA EL DOBLE",
+   "headlineAt": "doble",
+   "impact": true
+  },
+  {
+   "text": "¿Hasta dónde lo llenás vos? Comentalo y seguinos para más.",
+   "emo": "funny",
+   "beat": "cta",
+   "visual": {
+    "type": "title",
+    "text": "",
+    "sub": ""
+   }
+  }
+ ],
+ "poll": {
+  "question": "¿Hasta dónde lo llenás?",
+  "options": [
+   "HASTA ARRIBA",
+   "TRES CUARTOS",
+   "LA MITAD"
+  ]
+ }
+}

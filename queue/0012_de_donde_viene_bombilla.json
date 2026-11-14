@@ -1,0 +1,227 @@
+{
+ "id": "0012_de_donde_viene_bombilla",
+ "topic": "T13",
+ "title": "La palabra bombilla",
+ "caption": "¿De dónde viene la palabra \"bombilla\"? Antes, el filtro eran los dientes 🧉\nDe la caña guaraní a la que tenés en tu mate.\n¿Qué palabra sigue? 👇",
+ "hashtags": [
+  "#mate",
+  "#yerbamate",
+  "#argentina",
+  "#matero",
+  "#costumbresargentinas",
+  "#bombilla",
+  "#guarani"
+ ],
+ "segments": [
+  {
+   "text": "Antes de la bombilla, el filtro eran tus dientes.",
+   "emo": "surprised",
+   "beat": "hook",
+   "visual": {
+    "type": "scene",
+    "place": "selva",
+    "people": [
+     {
+      "role": "guarani",
+      "does": "drink_sin_bombilla",
+      "mood": "neutral"
+     }
+    ],
+    "props": [
+     "calabaza_grande"
+    ]
+   },
+   "headline": "SIN BOMBILLA",
+   "headlineAt": "dientes",
+   "impact": true,
+   "headlineType": "cross"
+  },
+  {
+   "text": "Y la palabra bombilla esconde algo que usás todos los días.",
+   "emo": "tense",
+   "beat": "loop",
+   "visual": {
+    "type": "object",
+    "item": "bombilla",
+    "labels": [
+     "¿BOMBILLA?"
+    ]
+   },
+   "headline": "¿POR QUÉ BOMBILLA?",
+   "headlineAt": "bombilla"
+  },
+  {
+   "text": "Los guaraníes tomaban la yerba directo de la calabaza.",
+   "emo": "warm",
+   "beat": "body",
+   "visual": {
+    "type": "scene",
+    "place": "selva",
+    "people": [
+     {
+      "role": "guarani",
+      "does": "hold_mate",
+      "mood": "happy"
+     },
+     {
+      "role": "guarani",
+      "does": "idle",
+      "mood": "happy"
+     }
+    ],
+    "props": [
+     "fogata"
+    ]
+   },
+   "headline": "LOS GUARANÍES",
+   "headlineAt": "guaran"
+  },
+  {
+   "text": "Apretaban los dientes para no tragarse las hojas.",
+   "emo": "funny",
+   "beat": "body",
+   "visual": {
+    "type": "reaction",
+    "emotion": "disgusted",
+    "act": "teeth",
+    "who": 0
+   },
+   "headline": "CON LOS DIENTES",
+   "headlineAt": "dientes"
+  },
+  {
+   "text": "Después inventaron el tacuapí: una cañita con filtro.",
+   "emo": "proud",
+   "beat": "body",
+   "visual": {
+    "type": "object",
+    "item": "tacuapi",
+    "labels": [
+     "CAÑA",
+     "FILTRO"
+    ]
+   },
+   "headline": "TACUAPÍ",
+   "headlineAt": "tacuap"
+  },
+  {
+   "text": "Pero esperá: ¿y de dónde sale bombilla?",
+   "emo": "excited",
+   "beat": "rehook",
+   "visual": {
+    "type": "reaction",
+    "emotion": "surprised",
+    "act": "think",
+    "who": 3
+   },
+   "headline": "¿Y EL NOMBRE?",
+   "headlineAt": "esper",
+   "impact": true
+  },
+  {
+   "text": "Viene de bomba, porque sube el agua hasta tu boca.",
+   "emo": "surprised",
+   "beat": "body",
+   "visual": {
+    "type": "object",
+    "item": "bombilla",
+    "animate": "bombea",
+    "labels": [
+     "BOMBA"
+    ]
+   },
+   "headline": "BOMBA → BOMBILLA",
+   "headlineAt": "bomba"
+  },
+  {
+   "text": "Una bomba chiquita que funciona con vos.",
+   "emo": "funny",
+   "beat": "body",
+   "visual": {
+    "type": "scene",
+    "place": "cocina",
+    "people": [
+     {
+      "role": "you",
+      "does": "drink",
+      "mood": "happy"
+     }
+    ]
+   },
+   "headline": "UNA BOMBITA",
+   "headlineAt": "chiquita"
+  },
+  {
+   "text": "En Brasil hasta hoy le dicen así: bomba.",
+   "emo": "neutral",
+   "beat": "body",
+   "visual": {
+    "type": "map",
+    "countries": [
+     "br"
+    ],
+    "text": "BOMBA",
+    "sub": "ASÍ LE DICEN EN BRASIL"
+   }
+  },
+  {
+   "text": "Hoy es de acero o de alpaca, pero hace lo mismo.",
+   "emo": "warm",
+   "beat": "body",
+   "visual": {
+    "type": "object",
+    "item": "bombillas",
+    "kinds": [
+     "cana",
+     "recta",
+     "pico_loro",
+     "alpaca"
+    ]
+   },
+   "headline": "LO MISMO",
+   "headlineAt": "mismo"
+  },
+  {
+   "text": "Cada vez que tomás, repetís un invento guaraní.",
+   "emo": "proud",
+   "beat": "payoff",
+   "visual": {
+    "type": "scene",
+    "place": "patio",
+    "people": [
+     {
+      "role": "you",
+      "does": "drink",
+      "mood": "proud"
+     },
+     {
+      "role": "guarani",
+      "does": "idle",
+      "mood": "proud"
+     }
+    ]
+   },
+   "headline": "INVENTO GUARANÍ",
+   "headlineAt": "invento",
+   "impact": true
+  },
+  {
+   "text": "¿Qué palabra sigue: cebar o yerba? Comentalo y seguinos para más.",
+   "emo": "funny",
+   "beat": "cta",
+   "visual": {
+    "type": "title",
+    "text": "",
+    "sub": ""
+   }
+  }
+ ],
+ "poll": {
+  "question": "¿Qué palabra sigue?",
+  "options": [
+   "CEBAR",
+   "YERBA",
+   "CHE"
+  ]
+ }
+}

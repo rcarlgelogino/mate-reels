@@ -63,7 +63,7 @@ function shotFor(v, si) {
   if (!v) return boardShot({ type: 'title', text: '' });
   if (v.type === 'scene') return sceneShot(v, si); if (v.type === 'object') return objectShot(v, si); if (v.type === 'reaction') return reactionShot(v, si);
   if (v.type === 'mistake') return sceneShot(v.over || { type: 'scene', place: 'kitchen', people: [{ role: 'friend', does: 'no' }] }, si);
-  return boardShot(v) || boardShot({ type: 'title', text: v.text || '' }); }
+  return boardShot(v) || boardShot({ type: 'title', text: v.text || '', sub: v.sub }); } // visual kinds no style draws yet (compare, map ...) show their text as a card
 const AT = text => { const w = text.replace(/[¿¡]/g, '').split(/\s+/).map(x => x.replace(/[^\p{L}]/gu, '')).filter(x => x.length > 3 && !/^\d/.test(x)); const pick = (w[1] || w[0] || '').toLowerCase(); const cut = pick.search(/[^a-zñ]/); return (cut > 1 ? pick.slice(0, cut) : pick).slice(0, 5); };
 function toSpec(script) {
   const segs = script.segments.map((sg, si) => {

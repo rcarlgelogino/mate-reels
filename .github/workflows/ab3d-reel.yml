@@ -1,0 +1,79 @@
+name: ab3d-reel
+
+# Builds the 3D A/B version of one of today's scripts afterwards and adds it to today's release
+# (normally daily-reels does this right after the 2D reels; this is for days where that step did not run).
+# Started by pushing a timestamp to trigger/ab3d.txt.
+on:
+  push:
+    branches: [main]
+    paths: ['trigger/ab3d.txt']
+
+permissions:
+  contents: write
+
+concurrency:
+  group: daily-reels
+  cancel-in-progress: false
+
+jobs:
+  ab3d:
+    runs-on: ubuntu-latest
+    timeout-minutes: 200
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Find today's release and A/B script
+        id: find
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          DAY=$(date -u +%F)
+          TAG=$(gh release list --limit 20 --json tagName,createdAt --jq 'sort_by(.createdAt) | reverse | .[].tagName' | grep "^reels-$DAY" | head -n 1 || true)
+          [ -z "$TAG" ] && { echo "no release today"; exit 0; }
+          gh release view "$TAG" --json assets --jq '.assets[].name' | grep -q '_3d\.mp4$' && { echo "today's release already has a 3D reel"; exit 0; }
+          mkdir -p "out/$DAY"
+          # same pick as daily.js: today's scripts sorted by name, index = day of year modulo their count
+          node -e "
+            const fs=require('fs'),path=require('path'); const day='$DAY'; const dir=path.join('done',day);
+            const jobs=fs.readdirSync(dir).filter(f=>f.endsWith('.json')&&!/\.(result|improved)\.json$/.test(f)).sort();
+            if(!jobs.length){ console.log('no scripts built today'); process.exit(0); }
+            const doy=Math.floor((Date.parse(day)-Date.parse(day.slice(0,4)+'-01-01'))/864e5); const f=jobs[doy%jobs.length]; const name=f.replace(/\.json$/,'');
+            const imp=path.join(dir,name+'.improved.json'); const script=JSON.parse(fs.readFileSync(fs.existsSync(imp)?imp:path.join(dir,f),'utf8'));
+            fs.writeFileSync(path.join('out',day,'ab3d.json'),JSON.stringify({name,n:jobs.length+1,test:false,script},null,1)); console.log('A/B script:',name);"
+          [ -f "out/$DAY/ab3d.json" ] || exit 0
+          echo "tag=$TAG" >> "$GITHUB_OUTPUT"; echo "day=$DAY" >> "$GITHUB_OUTPUT"
+
+      - uses: actions/setup-node@v4
+        if: ${{ steps.find.outputs.tag != '' }}
+        with:
+          node-version: 22
+          cache: npm
+          cache-dependency-path: tools/package-lock.json
+
+      - name: Install tools
+        if: ${{ steps.find.outputs.tag != '' }}
+        run: |
+          npm ci --prefix tools
+          npx --prefix tools puppeteer browsers install chrome
+          sudo apt-get update -qq && sudo apt-get install -y -qq libgbm1 libnss3 libasound2t64 fonts-dejavu-core > /dev/null || true
+
+      - name: Cache Whisper model
+        if: ${{ steps.find.outputs.tag != '' }}
+        uses: actions/cache@v4
+        with:
+          path: tools/node_modules/@huggingface/transformers/.cache
+          key: whisper-small-timestamped-v1
+
+      - name: Build the 3D version and add it to today's release
+        if: ${{ steps.find.outputs.tag != '' }}
+        env:
+          GEMINI_API_KEY: ${{ secrets.GEMINI_API_KEY }}
+          GH_TOKEN: ${{ github.token }}
+          REQUIRE_GEMINI: '1'
+        run: |
+          DAY="${{ steps.find.outputs.day }}"; TAG="${{ steps.find.outputs.tag }}"
+          node scripts/ab3d.js --day "$DAY"
+          OUT="$(cat "out/$DAY/ab3d.out")"
+          gh release upload "$TAG" "out/$DAY/$OUT.mp4" "out/$DAY/$OUT.txt"
+          git config user.name 'reels-bot'; git config user.email 'reels-bot@users.noreply.github.com'
+          git add -A qa; git diff --cached --quiet || (git commit -m "A/B 3D reel $DAY" && git pull --rebase -q && git push)

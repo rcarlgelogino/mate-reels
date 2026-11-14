@@ -1,0 +1,70 @@
+{
+ "reel": "0006_de_donde_viene_mate",
+ "style": "toy3d",
+ "technical": [
+  "duration 45.334s",
+  "loudness -12.4 LUFS, peak -0.1 dBFS",
+  "voice gemini"
+ ],
+ "vision": {
+  "ran": true,
+  "model": "gemini-3.5-flash"
+ },
+ "summary": " The 3D render quality is consistent with clean character modeling and pleasant outdoor environments. Text cards and board templates are clear, though some text layouts feel slightly misaligned across shots.",
+ "scores": {
+  "visual_logic": 6,
+  "graphics": 6,
+  "overall": 6
+ },
+ "logic": {
+  "clean": [
+   "Character shapes, floating hands, and props maintain consistent aesthetic rules throughout.",
+   "Gourd props align properly with character hands during holding poses."
+  ],
+  "unclean": [
+   "Shot 5: Green shirt figure has floating hands positioned wide without holding any props, creating an awkward stance."
+  ]
+ },
+ "graphics": {
+  "clean": [
+   "Text cards match frame contrast well and use readable typography.",
+   "Lighting and environment colors remain vibrant and bright."
+  ],
+  "unclean": [
+   "Shot 8: Text elements on the board slide are placed too low and small near the bottom corner."
+  ]
+ },
+ "issues": [
+  {
+   "severity": "medium",
+   "category": "labels",
+   "problem": "Board text is tiny and placed near bottom margin.",
+   "fix": "Center and enlarge lower graphic text for better legibility.",
+   "shot": 8,
+   "time": 29.1,
+   "template": "board"
+  },
+  {
+   "severity": "low",
+   "category": "hands",
+   "problem": "Hands float passively in the air without clear context.",
+   "fix": "Add a pose or gesture to make hand placement look intentional.",
+   "shot": 5,
+   "time": 16.5,
+   "template": "prado"
+  }
+ ],
+ "learnings": [
+  {
+   "type": "do",
+   "area": "labels",
+   "rule": "Keep graphic text centered and safely within vertical UI margins."
+  },
+  {
+   "type": "avoid",
+   "area": "hands",
+   "rule": "Avoid T-pose or wide floating hand placements when characters hold no props."
+  }
+ ],
+ "checked": "2026-11-14T15:19:29.221Z"
+}

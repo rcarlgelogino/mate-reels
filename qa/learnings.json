@@ -1,0 +1,30 @@
+{
+ "updated": "2026-11-14T12:29:08.707Z",
+ "reels": 3,
+ "do": [
+  {
+   "n": 1,
+   "area": "scale",
+   "rule": "Keep all props such as gourds, bombillas, and thermoses correctly proportioned relative to the figures holding them."
+  }
+ ],
+ "avoid": [
+  {
+   "n": 1,
+   "area": "labels",
+   "rule": "Avoid reusing the exact same static close-up frame multiple times consecutively without a change in expression, angle, or action."
+  },
+  {
+   "n": 1,
+   "area": "labels",
+   "rule": "Avoid using board templates that display only plain text without any visual icons, props, or characters."
+  }
+ ],
+ "recentBad": [
+  "shot 1: The phrase 'LA ÚLTIMA' repeats across multiple consecutive frames without new visual content",
+  "Shot 1, 2, 3: Board templates display text only with no visual graphic elements corresponding to the spoken words.",
+  "Shot 6: Board template relies entirely on plain typography without supporting illustrations.",
+  "Shot 0: Captions at the top overlap slightly with the upper screen border elements.",
+  "Shot 5: The highlight lines on the text labels feel visually detached from the design."
+ ]
+}

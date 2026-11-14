@@ -1,0 +1,20 @@
+{
+ "reel": "0006_de_donde_viene_mate",
+ "style": "flat2d",
+ "technical": [
+  "duration 43.834s",
+  "loudness -12.0 LUFS, peak -0.8 dBFS",
+  "voice gemini"
+ ],
+ "vision": {
+  "ran": false,
+  "model": null
+ },
+ "summary": "",
+ "scores": {},
+ "logic": {},
+ "graphics": {},
+ "issues": [],
+ "learnings": [],
+ "checked": "2026-11-14T12:29:08.668Z"
+}

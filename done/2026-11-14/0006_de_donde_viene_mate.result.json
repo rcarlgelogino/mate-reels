@@ -1,0 +1,14 @@
+{
+ "id": "0006_de_donde_viene_mate",
+ "file": "work/0006_de_donde_viene_mate/final.mp4",
+ "voice": "gemini",
+ "duration": 43.834,
+ "inTarget": true,
+ "target": [
+  35,
+  45
+ ],
+ "loudness": "-12.0 LUFS, peak -0.8 dBFS",
+ "shots": 12,
+ "minutes": 2.5
+}

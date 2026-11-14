@@ -1,0 +1,14 @@
+{
+ "id": "0004_mate_argentino_o_uruguayo",
+ "file": "work/0004_mate_argentino_o_uruguayo/final.mp4",
+ "voice": "gemini",
+ "duration": 37.434,
+ "inTarget": true,
+ "target": [
+  35,
+  45
+ ],
+ "loudness": "-12.1 LUFS, peak -0.9 dBFS",
+ "shots": 12,
+ "minutes": 2.2
+}

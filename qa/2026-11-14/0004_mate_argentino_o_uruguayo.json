@@ -1,0 +1,73 @@
+{
+ "reel": "0004_mate_argentino_o_uruguayo",
+ "style": "flat2d",
+ "technical": [
+  "duration 37.434s",
+  "loudness -12.1 LUFS, peak -0.9 dBFS",
+  "voice gemini"
+ ],
+ "vision": {
+  "ran": true,
+  "model": "gemini-3.5-flash-lite"
+ },
+ "summary": "The reel exhibits generally consistent flat 2D vector art with accurate mate proportions and character styles. However, some text layouts overlap awkwardly or lack sufficient padding, and several intermediate board-template frames rely solely on typography rather than visual storytelling.",
+ "scores": {
+  "visual_logic": 8,
+  "graphics": 7,
+  "overall": 8
+ },
+ "logic": {
+  "clean": [
+   "Shot 0: Characters hold the mate correctly by the side with visible arms.",
+   "Shot 5: The mate gourd and bombilla are correctly proportioned and scaled.",
+   "Shot 11: Characters sharing mate follow the correct passing and holding distance."
+  ],
+  "unclean": [
+   "Shot 1, 2, 3: Board templates display text only with no visual graphic elements corresponding to the spoken words.",
+   "Shot 6: Board template relies entirely on plain typography without supporting illustrations."
+  ]
+ },
+ "graphics": {
+  "clean": [
+   "Character skin tone, hair styling, and clothing fit the specified flat 2D style.",
+   "Background vector landscapes and cityscapes maintain consistent perspective."
+  ],
+  "unclean": [
+   "Shot 0: Captions at the top overlap slightly with the upper screen border elements.",
+   "Shot 5: The highlight lines on the text labels feel visually detached from the design."
+  ]
+ },
+ "issues": [
+  {
+   "severity": "medium",
+   "category": "labels",
+   "problem": "Board template contains only text without visual props or characters.",
+   "fix": "Add relevant background illustrations or icons to board templates instead of text-only slides.",
+   "shot": 1,
+   "time": 4.4,
+   "template": "board"
+  },
+  {
+   "severity": "low",
+   "category": "people",
+   "problem": "Hands placed on the head for 'esperá' lack proper forearm connection alignment.",
+   "fix": "Ensure character arms seamlessly connect to raised hands.",
+   "shot": 4,
+   "time": 13.3,
+   "template": "flat"
+  }
+ ],
+ "learnings": [
+  {
+   "type": "avoid",
+   "area": "labels",
+   "rule": "Avoid using board templates that display only plain text without any visual icons, props, or characters."
+  },
+  {
+   "type": "do",
+   "area": "scale",
+   "rule": "Keep all props such as gourds, bombillas, and thermoses correctly proportioned relative to the figures holding them."
+  }
+ ],
+ "checked": "2026-11-14T12:19:08.641Z"
+}

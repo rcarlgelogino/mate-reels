@@ -1,0 +1,14 @@
+{
+ "id": "0005_sos_argentino_de_verdad",
+ "file": "work/0005_sos_argentino_de_verdad/final.mp4",
+ "voice": "edge",
+ "duration": 32.134,
+ "inTarget": false,
+ "target": [
+  35,
+  45
+ ],
+ "loudness": "-12.9 LUFS, peak -0.9 dBFS",
+ "shots": 11,
+ "minutes": 2.1
+}

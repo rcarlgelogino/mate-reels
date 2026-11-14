@@ -1,0 +1,58 @@
+{
+ "reel": "0005_sos_argentino_de_verdad",
+ "style": "flat2d",
+ "technical": [
+  "duration 32.134s",
+  "loudness -12.9 LUFS, peak -0.9 dBFS",
+  "voice edge",
+  "voice fell back from Charon (Gemini quota or key)"
+ ],
+ "vision": {
+  "ran": true,
+  "model": "gemini-3.5-flash-lite"
+ },
+ "summary": "The reel maintains a consistent flat 2D vector style with well-executed character poses, proper grip mechanics on mates, and clear typography. Minor inconsistencies appear in text overlaps across frames, but overall visual storytelling effectively matches the narration.",
+ "scores": {
+  "visual_logic": 9,
+  "graphics": 9,
+  "overall": 9
+ },
+ "logic": {
+  "clean": [
+   "shot 0: Kitchen counter background with multiple characters holding mates correctly with proper hand-to-gourd wrapping",
+   "shot 2: Character walking outdoors holding a thermos correctly by its side",
+   "shot 6: Characters behind the counter showing clear angry expressions matching the line about moving the bombilla",
+   "shot 7: Two characters passing and sharing a mate with hands meeting correctly",
+   "shot 8: Group of diverse characters standing together outdoors"
+  ],
+  "unclean": []
+ },
+ "graphics": {
+  "clean": [
+   "Consistent color palette and flat vector art style throughout all shots",
+   "Clear layout with headlines and captions placed appropriately in the dark boxes at the top"
+  ],
+  "unclean": [
+   "shot 1: The phrase 'LA ÚLTIMA' repeats across multiple consecutive frames without new visual content"
+  ]
+ },
+ "issues": [
+  {
+   "severity": "low",
+   "category": "labels",
+   "problem": "Repeating the exact same text and face close-up across three consecutive frames without variation.",
+   "fix": "Vary the zoom or introduce a new prop to maintain visual interest when repeating phrases.",
+   "shot": 1,
+   "time": 3.3,
+   "template": "flat"
+  }
+ ],
+ "learnings": [
+  {
+   "type": "avoid",
+   "area": "labels",
+   "rule": "Avoid reusing the exact same static close-up frame multiple times consecutively without a change in expression, angle, or action."
+  }
+ ],
+ "checked": "2026-11-14T12:21:33.262Z"
+}

@@ -13,7 +13,9 @@ function lev(a, b) { const m = a.length, n = b.length; if (!m || !n) return Math
 const sim = (a, b) => { a = norm(a); b = norm(b); if (!a || !b) return 0; return 1 - lev(a, b) / Math.max(a.length, b.length); };
 function wav(pcm, sr) { const h = Buffer.alloc(44); h.write('RIFF', 0); h.writeUInt32LE(36 + pcm.length, 4); h.write('WAVEfmt ', 8); h.writeUInt32LE(16, 16); h.writeUInt16LE(1, 20); h.writeUInt16LE(1, 22); h.writeUInt32LE(sr, 24); h.writeUInt32LE(sr * 2, 28); h.writeUInt16LE(2, 32); h.writeUInt16LE(16, 34); h.write('data', 36); h.writeUInt32LE(pcm.length, 40); return Buffer.concat([h, pcm]); }
 async function speak(text, voice, file, log) {
-  let last;
+  // Gemini TTS (preview) often fails for a few minutes: several rounds over all models with growing pauses (about 7 minutes in total)
+  let last; const waits = [0, 45000, 90000, 150000, 150000];
+  for (let round = 0; round < waits.length; round++) { if (waits[round]) { log('gemini: all models failed, next round in', waits[round] / 1000, 's'); await new Promise(q => setTimeout(q, waits[round])); }
   for (const model of MODELS()) for (let a = 1; a <= 3; a++) {
     const r = await fetch(`https://generativelanguage.googleapis.com/v1beta/models/${model}:generateContent`, { method: 'POST', headers: { 'Content-Type': 'application/json', 'x-goog-api-key': KEY() },
       body: JSON.stringify({ contents: [{ parts: [{ text: STYLE + '\n\n' + text }] }], generationConfig: { responseModalities: ['AUDIO'], speechConfig: { voiceConfig: { prebuiltVoiceConfig: { voiceName: voice } } } } }) });
@@ -21,6 +23,7 @@ async function speak(text, voice, file, log) {
       if (r.status === 429 || r.status >= 500) { await new Promise(q => setTimeout(q, (r.status === 429 ? 25000 : 4000) * a)); continue; } break; }
     const part = j.candidates?.[0]?.content?.parts?.find(p => p.inlineData); if (!part) { last = 'no audio'; continue; }
     const sr = +((part.inlineData.mimeType || '').match(/rate=(\d+)/)?.[1] || 24000); fs.writeFileSync(file, wav(Buffer.from(part.inlineData.data, 'base64'), sr)); return model; }
+  if (/per.?day|PerDay|daily/i.test(last || '') || /^HTTP 4(0[0-9]|1[0-9])/.test(last || '')) break; } // daily quota used up or a permanent error (bad key, bad request): waiting does not help
   throw new Error('Gemini TTS failed: ' + last); }
 function align(file, log) { const f32 = file.replace(/\.wav$/, '.f32'); execFileSync(FF, ['-y', '-v', 'error', '-i', file, '-ac', '1', '-ar', '16000', '-f', 'f32le', f32]);
   const r = spawnSync(process.execPath, [path.join(ROOT, 'tools', 'align.mjs'), f32, 'spanish'], { cwd: path.join(ROOT, 'tools'), encoding: 'utf8', maxBuffer: 1 << 26, timeout: 15 * 60 * 1000 });

@@ -73,6 +73,7 @@ jobs:
         env:
           GEMINI_API_KEY: ${{ secrets.GEMINI_API_KEY }}
           REELS_PER_DAY: ${{ inputs.count || '3' }}
+          REQUIRE_GEMINI: '1'   # never the old Edge voice: a reel without the Charon voice stays in the queue
           GH_TOKEN: ${{ github.token }}
         run: |
           N="$REELS_PER_DAY"
@@ -106,6 +107,7 @@ jobs:
         if: ${{ always() && steps.release.outputs.tag != '' && inputs.ab3d != false }}
         env:
           GEMINI_API_KEY: ${{ secrets.GEMINI_API_KEY }}
+          REQUIRE_GEMINI: '1'
           GH_TOKEN: ${{ github.token }}
         run: |
           DAY="${{ steps.release.outputs.day }}"; TAG="${{ steps.release.outputs.tag }}"

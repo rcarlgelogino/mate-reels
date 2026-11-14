@@ -44,7 +44,7 @@ let PROVIDER = spec.tts === 'edge' ? 'edge' : (GEM.available() && spec.tts !== '
 async function narration() {
   const voice = spec.voice || 'en-US-AndrewNeural', rate = spec.rate || '+14%'; const dir = path.join(OUT, 'vo'); fs.mkdirSync(dir, { recursive: true });
   log('tts provider', PROVIDER);
-  if (PROVIDER === 'gemini') { try { return await GEM.narrate(spec, dir, log); } catch (e) { log('WARN Gemini unavailable (' + e.message.slice(0, 160) + '), falling back to Edge TTS'); PROVIDER = 'edge'; log('tts provider', PROVIDER); } }
+  if (PROVIDER === 'gemini') { try { return await GEM.narrate(spec, dir, log); } catch (e) { if (process.env.REQUIRE_GEMINI === '1') throw new Error('Gemini voice unavailable and REQUIRE_GEMINI=1 (never the old Edge voice in the automation): ' + e.message.slice(0, 160)); log('WARN Gemini unavailable (' + e.message.slice(0, 160) + '), falling back to Edge TTS'); PROVIDER = 'edge'; log('tts provider', PROVIDER); } }
   const res = [];
   for (let i = 0; i < spec.segments.length; i++) {
     const sg = spec.segments[i]; const text = sg.say || sg.text; const pr = prosody(sg, rate);

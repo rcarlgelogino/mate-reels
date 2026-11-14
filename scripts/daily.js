@@ -15,13 +15,13 @@ if (TEST) jobs = [path.join(ROOT, 'samples', 'test_reel.json')];
 else { const q = path.join(ROOT, 'queue'); jobs = fs.existsSync(q) ? fs.readdirSync(q).filter(f => f.endsWith('.json')).sort().slice(0, COUNT).map(f => path.join(q, f)) : []; }
 if (!jobs.length) { sum('Queue is empty: no reels to build today. Add specs to queue/.'); fs.writeFileSync(path.join(OUT, 'SUMMARY.md'), summary.join('\n') + '\n'); process.exit(0); }
 let ok = 0; const doy = Math.floor((Date.parse(day) - Date.parse(day.slice(0, 4) + '-01-01')) / 864e5); const abIndex = doy % jobs.length; // this day's A/B script (rotates), built again in 3D by scripts/ab3d.js
-jobs.forEach((specFile, i) => {
+jobs.forEach((specFile, i) => { try {
   const name = path.basename(specFile, '.json'); const work = path.join(ROOT, 'work', name); fs.mkdirSync(work, { recursive: true });
   // visual learnings of earlier reels pick better pictures for this script (text locked; falls back to the original)
   const improved = path.join(work, 'script.improved.json'); try { fs.unlinkSync(improved); } catch {}
   spawnSync(process.execPath, [path.join(ROOT, 'scripts', 'improve.js'), specFile, improved], { stdio: 'inherit', timeout: 5 * 60 * 1000 });
   const scriptFile = fs.existsSync(improved) ? improved : specFile;
-  const style = MK.activeStyle(); const spec = MK.toSpec(JSON.parse(fs.readFileSync(scriptFile, 'utf8')), style); fs.writeFileSync(path.join(work, 'spec.json'), JSON.stringify(spec, null, 1));
+  const scriptJson = JSON.parse(fs.readFileSync(scriptFile, 'utf8')); const style = MK.activeStyle(); const spec = MK.toSpec(scriptJson, style); fs.writeFileSync(path.join(work, 'spec.json'), JSON.stringify(spec, null, 1));
   log(`building ${i + 1}/${jobs.length}: ${name}`);
   let r; for (let a = 1; a <= 2; a++) { r = spawnSync(process.execPath, [path.join(ROOT, 'pipeline', 'build.js'), path.join(work, 'spec.json')], { stdio: 'inherit', timeout: 75 * 60 * 1000 }); if (r.status === 0) break; log(`build failed (attempt ${a}), exit ${r.status}`); }
   const mp4 = path.join(work, 'final.mp4');
@@ -38,8 +38,9 @@ jobs.forEach((specFile, i) => {
   fs.copyFileSync(mp4, path.join(OUT, `${String(i + 1).padStart(2, '0')}_${name}.mp4`));
   if (fs.existsSync(path.join(work, 'caption.txt'))) fs.copyFileSync(path.join(work, 'caption.txt'), path.join(OUT, `${String(i + 1).padStart(2, '0')}_${name}.txt`));
   if (!TEST) { const dd = path.join(ROOT, 'done', day); fs.mkdirSync(dd, { recursive: true }); fs.renameSync(specFile, path.join(dd, path.basename(specFile))); fs.writeFileSync(path.join(dd, name + '.result.json'), JSON.stringify(res, null, 1)); }
-  if (i === abIndex) fs.writeFileSync(path.join(OUT, 'ab3d.json'), JSON.stringify({ name, n: jobs.length + 1, test: TEST, script: JSON.parse(fs.readFileSync(scriptFile, 'utf8')) }, null, 1));
+  if (i === abIndex) fs.writeFileSync(path.join(OUT, 'ab3d.json'), JSON.stringify({ name, n: jobs.length + 1, test: TEST, script: scriptJson }, null, 1));
   ok++; sum(`- ✅ ${name} (style ${spec.style_used || spec.preset || 'custom'}): ${res.duration} s, voice ${res.voice}, ${res.loudness}${res.inTarget ? '' : ' (outside 35-45 s!)'}${qaNote}${impNote}`);
+  } catch (e) { sum(`- ❌ ${path.basename(specFile, '.json')}: ${String(e && e.message || e).slice(0, 200)}`); }
 });
 const left = fs.existsSync(path.join(ROOT, 'queue')) ? fs.readdirSync(path.join(ROOT, 'queue')).filter(f => f.endsWith('.json')).length : 0;
 sum(`\n${ok}/${jobs.length} reels built. Specs left in queue: ${left}${left < COUNT * 3 ? ' (running low, add more)' : ''}.`);

@@ -80,7 +80,7 @@ jobs:
           node scripts/daily.js --count "$N" ${{ inputs.test && '--test' || '' }}
 
       - name: Commit queue progress
-        if: ${{ !inputs.test && steps.guard.outputs.skip != 'true' }}
+        if: ${{ always() && !inputs.test && steps.guard.outputs.skip != 'true' }}   # also after a partial failure, so built reels leave the queue
         run: |
           git config user.name "reels-bot"
           git config user.email "reels-bot@users.noreply.github.com"
@@ -96,6 +96,7 @@ jobs:
           DAY=$(date -u +%F)
           DIR="out/$DAY"
           ls "$DIR"/*.mp4 >/dev/null 2>&1 || { echo "no videos to publish"; cat "$DIR/SUMMARY.md" 2>/dev/null; exit 0; }
+          [ -f "$DIR/SUMMARY.md" ] || echo "# Reels $DAY" > "$DIR/SUMMARY.md"
           TAG="${{ inputs.test && 'test' || 'reels' }}-$DAY-${{ github.run_number }}"   # test runs never get the reels- prefix, so they are never posted
           gh release create "$TAG" "$DIR"/*.mp4 "$DIR"/*.txt --title "${{ inputs.test && 'TEST ' || '' }}Reels $DAY" --notes-file "$DIR/SUMMARY.md"
           echo "tag=$TAG" >> "$GITHUB_OUTPUT"; echo "day=$DAY" >> "$GITHUB_OUTPUT"

@@ -19,21 +19,30 @@ async function api(method, url, body, headers = {}) {
   // 0. sanity check: the token can see the Instagram account
   const me = await api('GET', `${G}/${IG}?fields=username&access_token=${encodeURIComponent(TOKEN)}`); log('instagram account:', '@' + me.username);
   if (DRY) { log('dry run: nothing uploaded'); return; }
-  // 1. create a resumable REELS container
+  // waits until Instagram has processed a container; returns null when processing failed
+  const waitReady = async id => { for (let i = 0; i < 60; i++) { await new Promise(r => setTimeout(r, 10000)); const s = await api('GET', `${G}/${id}?fields=status_code,status&access_token=${encodeURIComponent(TOKEN)}`); log('status', s.status_code);
+      if (s.status_code === 'FINISHED') return true; if (s.status_code === 'ERROR' || s.status_code === 'EXPIRED') { log('processing failed:', scrub(s.status || s.status_code)); return null; } } log('processing timed out'); return null; };
+  let c = null;
+  // 1. preferred: Instagram fetches the video itself from its public address (the GitHub release), no byte upload needed
+  if (process.env.VIDEO_URL) { try { let url = process.env.VIDEO_URL; const h = await fetch(url, { method: 'HEAD', redirect: 'manual' }); if (h.status >= 300 && h.status < 400 && h.headers.get('location')) url = h.headers.get('location');
+      const v = await api('POST', `${G}/${IG}/media`, new URLSearchParams({ media_type: 'REELS', video_url: url, caption, share_to_feed: 'true', access_token: TOKEN })); log('container (video url)', v.id);
+      if (await waitReady(v.id)) c = v; } catch (e) { log('video url way failed:', e.message.slice(0, 300)); } }
+  if (!c) {
+  // 2. fallback: resumable upload of the bytes
   const params = new URLSearchParams({ media_type: 'REELS', upload_type: 'resumable', caption, share_to_feed: 'true', access_token: TOKEN });
   // 2. upload the bytes (rupload wants the app USER token per Meta's docs; try the user token first, then the page token)
   const upTokens = [[process.env.META_USER_TOKEN, 'user token'], [TOKEN, 'page token']].filter(t => t[0]);
-  const bytes = fs.readFileSync(video); let up = null, lastErr = null, c = null;
+  const bytes = fs.readFileSync(video); let up = null, lastErr = null;
   for (const [tok, kind] of upTokens) {
     // a failed upload spoils its container, so every attempt gets a fresh one
     c = await api('POST', `${G}/${IG}/media`, params); log('container', c.id); const upUrl = c.uri || `https://rupload.facebook.com/ig-api-upload/${V}/${c.id}`;
     try { up = await api('POST', upUrl, bytes, { Authorization: `OAuth ${tok}`, offset: '0', file_size: String(size), 'Content-Type': 'application/octet-stream' }); log('upload ok with', kind); break; }
     catch (e) { lastErr = e; log('upload with', kind, 'failed:', e.message.slice(0, 300)); }
   }
-  if (!up) { log(process.env.META_USER_TOKEN ? 'hint: the USER token (secret META_USER_TOKEN) is probably expired or invalid - create a new long-lived user token and replace the secret' : 'hint: add the long-lived USER token as secret META_USER_TOKEN (rupload accepts only user tokens)'); throw lastErr; }
+  if (!up) { log(process.env.META_USER_TOKEN ? 'hint: the byte upload (rupload) was rejected; if the video url way failed too, check the app dashboard on developers.facebook.com for restrictions' : 'hint: add the long-lived USER token as secret META_USER_TOKEN (rupload accepts only user tokens)'); throw lastErr; }
   // 3. wait until Instagram has processed the video
-  let st = ''; for (let i = 0; i < 60; i++) { await new Promise(r => setTimeout(r, 10000)); const s = await api('GET', `${G}/${c.id}?fields=status_code,status&access_token=${encodeURIComponent(TOKEN)}`); st = s.status_code; log('status', st); if (st === 'FINISHED') break; if (st === 'ERROR' || st === 'EXPIRED') throw new Error('processing failed: ' + scrub(s.status || st)); }
-  if (st !== 'FINISHED') throw new Error('processing timed out');
+  if (!(await waitReady(c.id))) throw new Error('processing of the uploaded video failed');
+  }
   // 4. publish
   const pub = await api('POST', `${G}/${IG}/media_publish`, new URLSearchParams({ creation_id: c.id, access_token: TOKEN }));
   let link = ''; try { link = (await api('GET', `${G}/${pub.id}?fields=permalink&access_token=${encodeURIComponent(TOKEN)}`)).permalink; } catch {}

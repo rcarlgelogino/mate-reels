@@ -55,6 +55,8 @@ jobs:
           META_PAGE_TOKEN: ${{ secrets.META_PAGE_TOKEN }}
           META_USER_TOKEN: ${{ secrets.META_USER_TOKEN }}
           IG_TOKEN: ${{ secrets.IG_TOKEN }}
+          # public address of the video in the release (the repo is public): Instagram fetches it from there
+          VIDEO_URL: https://github.com/${{ github.repository }}/releases/download/${{ steps.pick.outputs.tag }}/${{ steps.pick.outputs.file }}
         run: |
           F="dl/${{ steps.pick.outputs.file }}"
           node scripts/publish.js "$F" "${F%.mp4}.txt" ${{ (github.event_name == 'workflow_dispatch' && inputs.dry_run) && '--dry-run' || '' }}

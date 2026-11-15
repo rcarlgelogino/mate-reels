@@ -1,0 +1,14 @@
+{
+ "id": "0008_no_muevas_la_bombilla",
+ "file": "work/0008_no_muevas_la_bombilla/final.mp4",
+ "voice": "gemini",
+ "duration": 34.1,
+ "inTarget": false,
+ "target": [
+  35,
+  45
+ ],
+ "loudness": "-12.4 LUFS, peak -0.9 dBFS",
+ "shots": 11,
+ "minutes": 1.4
+}

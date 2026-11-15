@@ -3,22 +3,48 @@
 Every reel is analysed after it is built (scripts/qa.js), for its VISUAL representation only. Pacing, hook, wording and sound are not learned here; they come from the reference reels (docs/WATCHTIME.md).
 The rules below are collected from all analyses, most frequent first. scripts/improve.js uses them to choose the visuals of the next script; recurring drawing problems get fixed in the style (styles/*.js, engine). Nothing here blocks a release.
 
-Reels analysed: 3 · average scores: visual logic 8.5 · graphics 8.0 · overall 8.5 · updated 2026-11-14
+Reels analysed: 7 · average scores: visual logic 7.0 · graphics 6.8 · overall 7.0 · updated 2026-11-15
 
 ## Do more of
 
 | times | area | rule | last seen |
 |---|---|---|---|
+| 1 | hands | Ensure character hands clearly clasp the gourd contour rather than floating as simple discs. | 2026-11-15 |
+| 1 | match | Ensure featured material types are directly depicted rather than abstracted as numbered cards. | 2026-11-15 |
+| 1 | labels | Keep graphic text centered and safely within vertical UI margins. | 2026-11-14 |
 | 1 | scale | Keep all props such as gourds, bombillas, and thermoses correctly proportioned relative to the figures holding them. | 2026-11-14 |
 
 ## Avoid
 
 | times | area | rule | last seen |
 |---|---|---|---|
+| 1 | scene | Avoid duplicating large focal props like parrillas or hearths within the same backdrop. | 2026-11-15 |
+| 1 | scale | Avoid placing isolated, shrunken full-body figures in oversized empty rooms. | 2026-11-15 |
+| 1 | hands | Avoid T-pose or wide floating hand placements when characters hold no props. | 2026-11-14 |
 | 1 | labels | Avoid reusing the exact same static close-up frame multiple times consecutively without a change in expression, angle, or action. | 2026-11-14 |
 | 1 | labels | Avoid using board templates that display only plain text without any visual icons, props, or characters. | 2026-11-14 |
 
 ## Latest reels
+
+### 0009_tu_yerba_espero_un_ano (2026-11-15)
+
+- clean: –
+- unclean: –
+
+### 0008_no_muevas_la_bombilla (2026-11-15)
+The reel maintains a coherent flat 2D vector aesthetic with bold typography and clear thematic visuals. Some scenes suffer from duplicated background props, stiff character stamping, and inconsistent hand grips on the mate.
+- clean: The mate diagrams clearly illustrate bombilla placement and movement.; Character reactions match the narrative tone between cebador and drinker.; Consistent color palette and clean typography across title cards and callouts.; Clear diagrammatic overlays with dashed arcs and locator tags.
+- unclean: Shot 8: Five characters are identically lined up across a balcony edge without depth.; Shot 9: Two identical brick parrillas sit unnaturally side-by-side in the same room.; Shot 1: Stark, empty purple backdrop contrasts with detailed interior scenes elsewhere.; Shot 8: 'SU TRABAJO' label tag is duplicated redundantly across two figures.
+
+### 0007_team_calabaza_o_acero (2026-11-15)
+The flat 2D vector visuals are consistent, colorful, and clean across all scenes. However, some character scale inconsistencies and a visual mismatch on the glass mate shot weaken the presentation.
+- clean: Mate close-ups accurately represent calabaza, madera, and acero textures.; Counter and background alignment in kitchen shots is stable.; Consistent typography, banners, and color palette throughout.; Clear iconography and well-rendered isolated prop shots.
+- unclean: Shot 3: Figure is disproportionately tiny compared to the large room and background elements.; Shot 8: Visual shows numbered flashcards instead of illustrating a glass mate as narrated.; Shot 7: Stray visual artifacts or debris scattered on the ground around figures.
+
+### 0006_de_donde_viene_mate (2026-11-14)
+ The 3D render quality is consistent with clean character modeling and pleasant outdoor environments. Text cards and board templates are clear, though some text layouts feel slightly misaligned across shots.
+- clean: Character shapes, floating hands, and props maintain consistent aesthetic rules throughout.; Gourd props align properly with character hands during holding poses.; Text cards match frame contrast well and use readable typography.; Lighting and environment colors remain vibrant and bright.
+- unclean: Shot 5: Green shirt figure has floating hands positioned wide without holding any props, creating an awkward stance.; Shot 8: Text elements on the board slide are placed too low and small near the bottom corner.
 
 ### 0006_de_donde_viene_mate (2026-11-14)
 
@@ -29,9 +55,4 @@ Reels analysed: 3 · average scores: visual logic 8.5 · graphics 8.0 · overall
 The reel maintains a consistent flat 2D vector style with well-executed character poses, proper grip mechanics on mates, and clear typography. Minor inconsistencies appear in text overlaps across frames, but overall visual storytelling effectively matches the narration.
 - clean: shot 0: Kitchen counter background with multiple characters holding mates correctly with proper hand-to-gourd wrapping; shot 2: Character walking outdoors holding a thermos correctly by its side; shot 6: Characters behind the counter showing clear angry expressions matching the line about moving the bombilla; shot 7: Two characters passing and sharing a mate with hands meeting correctly; shot 8: Group of diverse characters standing together outdoors
 - unclean: shot 1: The phrase 'LA ÚLTIMA' repeats across multiple consecutive frames without new visual content
-
-### 0004_mate_argentino_o_uruguayo (2026-11-14)
-The reel exhibits generally consistent flat 2D vector art with accurate mate proportions and character styles. However, some text layouts overlap awkwardly or lack sufficient padding, and several intermediate board-template frames rely solely on typography rather than visual storytelling.
-- clean: Shot 0: Characters hold the mate correctly by the side with visible arms.; Shot 5: The mate gourd and bombilla are correctly proportioned and scaled.; Shot 11: Characters sharing mate follow the correct passing and holding distance.; Character skin tone, hair styling, and clothing fit the specified flat 2D style.; Background vector landscapes and cityscapes maintain consistent perspective.
-- unclean: Shot 1, 2, 3: Board templates display text only with no visual graphic elements corresponding to the spoken words.; Shot 6: Board template relies entirely on plain typography without supporting illustrations.; Shot 0: Captions at the top overlap slightly with the upper screen border elements.; Shot 5: The highlight lines on the text labels feel visually detached from the design.
 

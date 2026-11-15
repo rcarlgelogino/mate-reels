@@ -1,0 +1,80 @@
+{
+ "reel": "0007_team_calabaza_o_acero",
+ "style": "flat2d",
+ "technical": [
+  "duration 35.167s",
+  "loudness -12.5 LUFS, peak -0.8 dBFS",
+  "voice gemini"
+ ],
+ "vision": {
+  "ran": true,
+  "model": "gemini-3.8-flash"
+ },
+ "summary": "The flat 2D vector visuals are consistent, colorful, and clean across all scenes. However, some character scale inconsistencies and a visual mismatch on the glass mate shot weaken the presentation.",
+ "scores": {
+  "visual_logic": 6,
+  "graphics": 6,
+  "overall": 6
+ },
+ "logic": {
+  "clean": [
+   "Mate close-ups accurately represent calabaza, madera, and acero textures.",
+   "Counter and background alignment in kitchen shots is stable."
+  ],
+  "unclean": [
+   "Shot 3: Figure is disproportionately tiny compared to the large room and background elements.",
+   "Shot 8: Visual shows numbered flashcards instead of illustrating a glass mate as narrated."
+  ]
+ },
+ "graphics": {
+  "clean": [
+   "Consistent typography, banners, and color palette throughout.",
+   "Clear iconography and well-rendered isolated prop shots."
+  ],
+  "unclean": [
+   "Shot 7: Stray visual artifacts or debris scattered on the ground around figures."
+  ]
+ },
+ "issues": [
+  {
+   "severity": "medium",
+   "category": "scale",
+   "problem": "Grandma character appears undersized in a vast interior.",
+   "fix": "Scale character up to occupy roughly one-half to two-thirds of frame height.",
+   "shot": 3,
+   "time": 10.4,
+   "template": "flat"
+  },
+  {
+   "severity": "medium",
+   "category": "match",
+   "problem": "Shows numbered cards instead of showing the glass mate described.",
+   "fix": "Display an illustrated glass mate prop showing yerba through transparency.",
+   "shot": 8,
+   "time": 25,
+   "template": "board"
+  },
+  {
+   "severity": "low",
+   "category": "scene",
+   "problem": "Unintended floating gray specks on the street ground layer.",
+   "fix": "Clean up stray vector particles from the background layer.",
+   "shot": 7,
+   "time": 22.7,
+   "template": "flat"
+  }
+ ],
+ "learnings": [
+  {
+   "type": "avoid",
+   "area": "scale",
+   "rule": "Avoid placing isolated, shrunken full-body figures in oversized empty rooms."
+  },
+  {
+   "type": "do",
+   "area": "match",
+   "rule": "Ensure featured material types are directly depicted rather than abstracted as numbered cards."
+  }
+ ],
+ "checked": "2026-11-15T08:54:42.249Z"
+}

@@ -2,10 +2,19 @@
 
 Found by the analysis after every build. Nothing is blocked; fix the most frequent ones in the style (styles/*.js, engine) or the script rules.
 
-Reels analysed: 2 · issues: 3 · updated 2026-11-14
+Reels analysed: 5 · issues: 12 · updated 2026-11-15
 
 | times | severity | category | problem (latest example) | suggested fix | last seen |
 |---|---|---|---|---|---|
 | 1 | medium | labels | Board template contains only text without visual props or characters. (0004_mate_argentino_o_uruguayo, shot 1) | Add relevant background illustrations or icons to board templates instead of text-only slides. | 2026-11-14 |
+| 1 | medium | labels | Board text is tiny and placed near bottom margin. (0006_de_donde_viene_mate, shot 8) | Center and enlarge lower graphic text for better legibility. | 2026-11-14 |
+| 1 | medium | scale | Grandma character appears undersized in a vast interior. (0007_team_calabaza_o_acero, shot 3) | Scale character up to occupy roughly one-half to two-thirds of frame height. | 2026-11-15 |
+| 1 | medium | match | Shows numbered cards instead of showing the glass mate described. (0007_team_calabaza_o_acero, shot 8) | Display an illustrated glass mate prop showing yerba through transparency. | 2026-11-15 |
+| 1 | medium | hands | Hands clutching the mate appear as generic round stubs rather than fingers wrapping the side. (0008_no_muevas_la_bombilla, shot 2) | Use the standardized side-grip asset with fingers clearly curled around the gourd body. | 2026-11-15 |
+| 1 | medium | people | Stiff line-up of five repetitive figures stamped flatly along the fence line. (0008_no_muevas_la_bombilla, shot 8) | Stagger characters naturally in depth and vary poses rather than a straight lineup. | 2026-11-15 |
+| 1 | medium | scene | Two identical brick parrillas are placed side-by-side indoors. (0008_no_muevas_la_bombilla, shot 9) | Replace the duplicate parrilla with a standard dining table or patio sideboard. | 2026-11-15 |
 | 1 | low | people | Hands placed on the head for 'esperá' lack proper forearm connection alignment. (0004_mate_argentino_o_uruguayo, shot 4) | Ensure character arms seamlessly connect to raised hands. | 2026-11-14 |
 | 1 | low | labels | Repeating the exact same text and face close-up across three consecutive frames without variation. (0005_sos_argentino_de_verdad, shot 1) | Vary the zoom or introduce a new prop to maintain visual interest when repeating phrases. | 2026-11-14 |
+| 1 | low | hands | Hands float passively in the air without clear context. (0006_de_donde_viene_mate, shot 5) | Add a pose or gesture to make hand placement look intentional. | 2026-11-14 |
+| 1 | low | scene | Unintended floating gray specks on the street ground layer. (0007_team_calabaza_o_acero, shot 7) | Clean up stray vector particles from the background layer. | 2026-11-15 |
+| 1 | low | labels | Dual 'SU TRABAJO' pill labels create visual clutter. (0008_no_muevas_la_bombilla, shot 8) | Display a single centered tag or remove the redundant clone. | 2026-11-15 |

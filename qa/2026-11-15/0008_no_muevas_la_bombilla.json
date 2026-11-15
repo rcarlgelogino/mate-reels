@@ -1,0 +1,90 @@
+{
+ "reel": "0008_no_muevas_la_bombilla",
+ "style": "flat2d",
+ "technical": [
+  "duration 34.1s",
+  "loudness -12.4 LUFS, peak -0.9 dBFS",
+  "voice gemini"
+ ],
+ "vision": {
+  "ran": true,
+  "model": "gemini-3.8-flash"
+ },
+ "summary": "The reel maintains a coherent flat 2D vector aesthetic with bold typography and clear thematic visuals. Some scenes suffer from duplicated background props, stiff character stamping, and inconsistent hand grips on the mate.",
+ "scores": {
+  "visual_logic": 6,
+  "graphics": 6,
+  "overall": 6
+ },
+ "logic": {
+  "clean": [
+   "The mate diagrams clearly illustrate bombilla placement and movement.",
+   "Character reactions match the narrative tone between cebador and drinker."
+  ],
+  "unclean": [
+   "Shot 8: Five characters are identically lined up across a balcony edge without depth.",
+   "Shot 9: Two identical brick parrillas sit unnaturally side-by-side in the same room."
+  ]
+ },
+ "graphics": {
+  "clean": [
+   "Consistent color palette and clean typography across title cards and callouts.",
+   "Clear diagrammatic overlays with dashed arcs and locator tags."
+  ],
+  "unclean": [
+   "Shot 1: Stark, empty purple backdrop contrasts with detailed interior scenes elsewhere.",
+   "Shot 8: 'SU TRABAJO' label tag is duplicated redundantly across two figures."
+  ]
+ },
+ "issues": [
+  {
+   "severity": "medium",
+   "category": "hands",
+   "problem": "Hands clutching the mate appear as generic round stubs rather than fingers wrapping the side.",
+   "fix": "Use the standardized side-grip asset with fingers clearly curled around the gourd body.",
+   "shot": 2,
+   "time": 6.1,
+   "template": "flat"
+  },
+  {
+   "severity": "medium",
+   "category": "people",
+   "problem": "Stiff line-up of five repetitive figures stamped flatly along the fence line.",
+   "fix": "Stagger characters naturally in depth and vary poses rather than a straight lineup.",
+   "shot": 8,
+   "time": 23.4,
+   "template": "flat"
+  },
+  {
+   "severity": "medium",
+   "category": "scene",
+   "problem": "Two identical brick parrillas are placed side-by-side indoors.",
+   "fix": "Replace the duplicate parrilla with a standard dining table or patio sideboard.",
+   "shot": 9,
+   "time": 27,
+   "template": "flat"
+  },
+  {
+   "severity": "low",
+   "category": "labels",
+   "problem": "Dual 'SU TRABAJO' pill labels create visual clutter.",
+   "fix": "Display a single centered tag or remove the redundant clone.",
+   "shot": 8,
+   "time": 23.4,
+   "template": "flat"
+  }
+ ],
+ "learnings": [
+  {
+   "type": "avoid",
+   "area": "scene",
+   "rule": "Avoid duplicating large focal props like parrillas or hearths within the same backdrop."
+  },
+  {
+   "type": "do",
+   "area": "hands",
+   "rule": "Ensure character hands clearly clasp the gourd contour rather than floating as simple discs."
+  }
+ ],
+ "checked": "2026-11-15T09:02:30.336Z"
+}

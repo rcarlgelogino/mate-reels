@@ -1,0 +1,90 @@
+{
+ "reel": "0007_team_calabaza_o_acero",
+ "style": "toy3d",
+ "technical": [
+  "duration 35.167s",
+  "loudness -12.5 LUFS, peak -1.0 dBFS",
+  "voice gemini"
+ ],
+ "vision": {
+  "ran": true,
+  "model": "gemini-3.7-flash"
+ },
+ "summary": "The toy3d aesthetic remains largely consistent with bright lighting and uniform character designs throughout the reel. However, text card positioning obscures facial features during close-ups, and a few standalone prop assets appear overly primitive.",
+ "scores": {
+  "visual_logic": 6,
+  "graphics": 6,
+  "overall": 6
+ },
+ "logic": {
+  "clean": [
+   "Floating ball hands and limbless character geometry adhere consistently to the style rules.",
+   "Shadows, outdoor park lighting, and interior kitchen environments maintain visual continuity."
+  ],
+  "unclean": [
+   "Shot 3: Cell 7 retains the yellow character and text from the previous topic rather than introducing the calabaza mate.",
+   "Shot 8: The stainless steel mate model resembles an unstyled flat metal can rather than drinkware."
+  ]
+ },
+ "graphics": {
+  "clean": [
+   "Consistent soft clay materials and vibrant, well-lit environments.",
+   "Font styling and lower-third headline cards maintain coherent branding."
+  ],
+  "unclean": [
+   "Shot 6: Headline box in cell 14 directly covers the character's eyes and glasses.",
+   "Shot 4: Unidentified metallic tool clips into the top edge of cell 9."
+  ]
+ },
+ "issues": [
+  {
+   "severity": "high",
+   "category": "labels",
+   "problem": "Headline graphic covers character eyes and glasses in cell 14.",
+   "fix": "Shift the headline card upward or adjust camera framing.",
+   "shot": 6,
+   "time": 13.3,
+   "template": "prado"
+  },
+  {
+   "severity": "medium",
+   "category": "objects",
+   "problem": "Stray metal rod element clips through upper edge in cell 9.",
+   "fix": "Clear extraneous rig objects outside the visible camera frame.",
+   "shot": 4,
+   "time": 10.4,
+   "template": "prado"
+  },
+  {
+   "severity": "medium",
+   "category": "objects",
+   "problem": "Steel mate model is a generic grey cylinder.",
+   "fix": "Add contoured rim and proper mate cup geometry.",
+   "shot": 8,
+   "time": 19,
+   "template": "prado"
+  },
+  {
+   "severity": "medium",
+   "category": "match",
+   "problem": "Cell 7 visuals misalign with narration introducing the calabaza mate.",
+   "fix": "Sync shot transition so prop view begins with the audio cue.",
+   "shot": 3,
+   "time": 6.8,
+   "template": "prado"
+  }
+ ],
+ "learnings": [
+  {
+   "type": "avoid",
+   "area": "labels",
+   "rule": "Avoid placing headline text boxes across character eye lines in close-ups."
+  },
+  {
+   "type": "do",
+   "area": "objects",
+   "rule": "Model featured prop assets with recognizable silhouettes instead of basic geometric primitives."
+  }
+ ],
+ "checked": "2026-11-15T10:07:49.152Z"
+}

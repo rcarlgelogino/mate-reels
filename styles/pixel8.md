@@ -11,4 +11,4 @@ Reference: the reels of science_in_8bit (user, 2026-11-16). Own figures and plac
 - Daily: `scripts/daily.js` builds one reel per day in this style (file name ends in `_px`), a different script than the 3D A/B one. `PIXEL_DAILY=0` switches it off.
 - `scripts/oldpx.js <name>` rebuilds a posted reel in this style with the sound of the posted reel (voice Charon), no new Gemini call.
 
-Ideas from the second batch of examples (not built yet): warm light halos around windows and lamps, fireflies, depth layers that move at different speeds when the camera moves.
+Effects: mosaic blend at every cut, white flash with pixel speed lines on punch-ins, short shake on shock, sparkles around heroes, fireflies at night, dust in rooms, falling leaves outdoors, warm light halos around windows and street lamps, far layers (buildings, skyline, bushes) move slower than the camera. Titles stand on their own night backdrop; lists, checklists, timelines, dots and the poll are pixel panels; buttons and headline banners have stepped pixel corners; all figures have a one-pixel dark outline.

@@ -1,0 +1,81 @@
+{
+ "reel": "0011_con_palo_o_sin_palo",
+ "style": "toy3d",
+ "technical": [
+  "duration 35.8s",
+  "loudness -12.7 LUFS, peak -0.8 dBFS",
+  "voice gemini"
+ ],
+ "vision": {
+  "ran": true,
+  "model": "gemini-3.7-flash"
+ },
+ "summary": "The toy 3D aesthetic remains consistent with smooth rendering and readable typography throughout. Minor hand-object alignment and framing crop issues occur in close-up shots.",
+ "scores": {
+  "visual_logic": 6,
+  "graphics": 7,
+  "overall": 6
+ },
+ "logic": {
+  "clean": [
+   "Consistent toy3d character anatomy with floating sphere hands",
+   "Props like the yerba packages and mate gourds scale plausibly with characters"
+  ],
+  "unclean": [
+   "shot 4: The pour stream from the thermos does not clearly align with the gourd opening",
+   "shot 10: Character head is aggressively cropped behind graphic cards"
+  ]
+ },
+ "graphics": {
+  "clean": [
+   "Text cards and captions remain legible and centered",
+   "Lighting and palette maintain a clean, sunny toy-like environment"
+  ],
+  "unclean": [
+   "shot 10: UI header overlays tightly against facial features",
+   "shot 12: Large empty dark space beneath the interactive poll elements"
+  ]
+ },
+ "issues": [
+  {
+   "severity": "medium",
+   "category": "objects",
+   "problem": "Thermos pour trajectory misses gourd center slightly",
+   "fix": "Re-aim the spout directly above the gourd opening",
+   "shot": 4,
+   "time": 12.7,
+   "template": "prado"
+  },
+  {
+   "severity": "medium",
+   "category": "layering",
+   "problem": "Text banners crowd and overlap top of the head",
+   "fix": "Pull camera back slightly to preserve head silhouette",
+   "shot": 10,
+   "time": 28,
+   "template": "prado"
+  },
+  {
+   "severity": "low",
+   "category": "hands",
+   "problem": "Floating ball hands hover unnaturally wide without props",
+   "fix": "Bring idle hands closer to torso rest position",
+   "shot": 7,
+   "time": 22.4,
+   "template": "prado"
+  }
+ ],
+ "learnings": [
+  {
+   "type": "avoid",
+   "area": "layering",
+   "rule": "Avoid cropping character foreheads directly beneath multi-line text cards."
+  },
+  {
+   "type": "do",
+   "area": "objects",
+   "rule": "Align pouring spouts vertically above liquid targets for convincing flow physics."
+  }
+ ],
+ "checked": "2026-11-16T11:03:18.191Z"
+}

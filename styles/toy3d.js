@@ -98,17 +98,20 @@ function objectShot(v, pick, st) { const hero = heroOf(v); return hero ? { tpl: 
 function compareShot(v, pick, st) { const a = heroOf(v.left || {}), b = heroOf(v.right || {}); if (!a || !b) return null; a.label = (v.left || {}).label; b.label = (v.right || {}).label; return { tpl: 'prado', p: { compare: [a, b], shot: v.camera || pick(COMPARE), place: st.place, ...(st.night ? { night: true } : {}) } }; }
 // text cards and maps stand as a sign inside the 3D world instead of a dark 2D card
 function signShot(sign, pick, st, v) { return { tpl: 'prado', p: { sign, shot: (v && v.camera) || pick(SIGN), place: st.place, ...(st.night ? { night: true } : {}) } }; }
+// lists, checklists, dots, timelines and the poll: the same graphics as flat2d, as a card over the 3D scene
+const BOARD = ['wide', 'far', 'widelow', 'pan'];
+function boardShot3(s, pick, st) { if (!s || s.tpl !== 'board' || !s.p || (s.p.kind === 'title' && !s.p.text)) return s; const { bg, ...board } = s.p; return { tpl: 'prado', p: { board, shot: pick(BOARD), place: st.place, ...(st.night ? { night: true } : {}) } }; }
 function toSpec(script) {
   const base = flat2d.toSpec(script); const pick = chooser(script.id || 'reel'); const st = { place: placeOf((script.segments.map(g => (g.visuals || [g.visual])).flat().find(v => v && v.type === 'scene') || {}).place) }; // reactions and objects stay in the place of the scene before them
   base.segments.forEach((seg, si) => { const sg = script.segments[si]; const vis = sg.visuals || [sg.visual]; const words = String(sg.text || '').split(/\s+/).filter(Boolean).length;
-    if (script.poll && si === script.segments.length - 1) return; // poll board stays
+    if (script.poll && si === script.segments.length - 1) { seg.shots = seg.shots.map(s => boardShot3(s, pick, st)); return; }
     const out = []; seg.shots.forEach((s, k) => { const v = vis[k]; if (!v) return out.push(s);
-      if (v.type === 'scene') return out.push(...sceneShots(v, si, pick, vis.length > 1 ? 0 : words, st)); if (v.type === 'reaction') return out.push(reactionShot(v, si, pick, st)); if (v.type === 'object') return out.push(objectShot(v, pick, st) || s);
+      if (v.type === 'scene') return out.push(...sceneShots(v, si, pick, vis.length > 1 ? 0 : words, st)); if (v.type === 'reaction') return out.push(reactionShot(v, si, pick, st)); if (v.type === 'object') return out.push(objectShot(v, pick, st) || (s.tpl === 'board' && s.p.text ? signShot({ kind: 'text', text: s.p.text, sub: s.p.sub }, pick, st, v) : s));
       if (v.type === 'compare') return out.push(compareShot(v, pick, st) || (v.text ? signShot({ kind: 'text', text: v.text, sub: v.sub }, pick, st, v) : s));
       if (v.type === 'map') return out.push(signShot({ kind: 'map', countries: v.countries, text: v.text, sub: v.sub }, pick, st, v));
       if (v.type === 'title' && v.text) return out.push(signShot({ kind: 'text', text: v.text, sub: v.sub }, pick, st, v)); if (v.type === 'number' && v.value) return out.push(signShot({ kind: 'text', text: String(v.value), sub: v.sub }, pick, st, v));
       if (v.type === 'mistake') { const sh = sceneShots(v.over || { type: 'scene', people: [{ role: 'friend', does: 'no' }] }, si, pick, 0, st)[0]; sh.emo = { act: 'no' }; return out.push(sh); }
-      out.push(s); }); seg.shots = out; });
+      out.push(boardShot3(s, pick, st)); }); seg.shots = out; });
   return { ...base, preset: 'toy3d', ab: script.ab || 'style toy3d', ...(script.follow === false ? { follow: false } : {}) };
 }
 module.exports = { name: 'toy3d', toSpec };

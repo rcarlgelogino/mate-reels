@@ -548,9 +548,10 @@ function drawBoard(c,p,u,t){
     op.forEach((o,i)=>{ const d=u-(0.12+i*0.6/op.length); if(d<0) return; const a=pop(d); const y=top+150+i*150; c.save(); c.translate(W2,y); c.scale(a,a); c.font='900 60px Montserrat'; const w=c.measureText(o).width+120;
       rr(c,-w/2,-55,w,110,55,i===0?acc:'rgba(255,255,255,0.12)'); c.lineWidth=4; c.strokeStyle='rgba(255,255,255,0.5)'; c.stroke(); c.fillStyle=i===0?'#1b120e':'#fff'; c.fillText(o,0,4); c.restore(); });
     const hint=clamp((u-0.75)/0.1); if(hint>0&&p.cta!==false){ c.globalAlpha=hint; c.font='800 44px Montserrat'; c.fillStyle=acc; c.fillText('👇 '+(p.cta||'CONTALO EN LOS COMENTARIOS'),W2,top+150+op.length*150+30); c.globalAlpha=1; } }
-  if(k==='timeline'){ const it=p.items||[], m=it.length, y=top+260; const prog=clamp((u-0.05)/0.8); c.strokeStyle='rgba(255,255,255,0.35)'; c.lineWidth=8; c.beginPath(); c.moveTo(140,y); c.lineTo(140+(W-280)*prog,y); c.stroke();
-    it.forEach((q,i)=>{ const x=140+(W-280)*(m===1?0.5:i/(m-1)); const d=prog-(m===1?0.5:i/(m-1)); if(d<0) return; const a=pop(d*2); c.save(); c.translate(x,y); c.scale(a,a); c.beginPath(); c.arc(0,0,26,0,Math.PI*2); c.fillStyle=acc; c.fill();
-      c.font='900 64px Montserrat'; c.fillStyle='#fff'; c.fillText(q.label,0,i%2?110:-100); c.font='800 38px Montserrat'; c.fillStyle=acc; const lines=String(q.text||'').split('\n'); lines.forEach((l,j)=>c.fillText(l,0,(i%2?170:-170)+j*44*(i%2?1:-1))); c.restore(); }); }
+  if(k==='timeline'){ const it=p.items||[], m=it.length, y=top+260, x0=200, x1=W-200; const prog=clamp((u-0.02)/0.45); c.strokeStyle='rgba(255,255,255,0.35)'; c.lineWidth=10; c.lineCap='round'; c.beginPath(); c.moveTo(x0,y); c.lineTo(x0+(x1-x0)*Math.max(0.02,prog),y); c.stroke();
+    it.forEach((q,i)=>{ const fr=m===1?0.5:i/(m-1), x=x0+(x1-x0)*fr; const d=prog-fr*0.92; if(d<0) return; const a=pop(d*1.6); const up=i%2===0; c.save(); c.translate(x,y); c.scale(a,a); c.beginPath(); c.arc(0,0,30,0,Math.PI*2); c.fillStyle=acc; c.fill();
+      const fit=(txt,font,size)=>{ c.font=`${font} ${size}px Montserrat`; let w=c.measureText(txt).width; if(w>430){ size=Math.floor(size*430/w); c.font=`${font} ${size}px Montserrat`; w=c.measureText(txt).width; } return Math.max(50-(x-w/2),Math.min(0,(W-50)-(x+w/2))); };
+      let dx=fit(String(q.label||''),'900',72); c.fillStyle='#fff'; c.fillText(q.label||'',dx,up?-112:118); const lines=String(q.text||'').split('\n'); lines.forEach((l,j)=>{ dx=fit(l,'800',44); c.fillStyle=acc; c.fillText(l,dx,(up?-190:194)+j*50*(up?-1:1)); }); c.restore(); }); }
   c.restore();
 }
 
@@ -1637,6 +1638,7 @@ T.prado=(p={})=>{ const s=new THREE.Scene(); s.background=new THREE.Color('#cfe9
   if(p.compare){ hero=put(s,new THREE.Group(),0,0,0); p.compare.slice(0,2).forEach((h,i)=>{ const sx=i?1:-1; const tb=put(hero,ballTable(),sx*0.68,0,0); tb.scale.setScalar(0.62); const H=ballHero({...h,animate:null}); H.o.scale.multiplyScalar(0.62); put(hero,H.o,sx*0.68,0.31,0); H.o.rotation.y=-0.3;
       if(h.label){ const pl=put(hero,mesh(new THREE.PlaneGeometry(0.66,0.165),new THREE.MeshStandardMaterial({map:plaqueTex(h.label),roughness:0.8}),false,true),sx*0.68,0.13,0.43); pl.rotation.x=-0.22; } }); }
   if(p.sign){ hero=put(s,new THREE.Group(),0,0,-0.2); hero.add(ballSign(p.sign)); }
+  if(p.board){ hero=put(s,new THREE.Group(),0,0,0); }
   // people in a gentle arc, turned a little towards the middle
   const defs=hero?[]:(p.people&&p.people.length?p.people:((p.props||[]).length?[]:[{hold:'mate'}])); const n=defs.length, sp=n>4?1.05:1.2; const ppl=defs.map((o,i)=>{ const a=makeBall({...o,i:o.who??i}); const off=i-(n-1)/2; a.g.position.set(off*sp,0,-Math.abs(off)*0.12); a.g.rotation.y=-off*0.13+(o.turn||0); a.g.userData.y0=0; s.add(a.g);
     if(o.hold==='mate'||o.hold==='both') a.give('mate','R',o.mate); if(o.hold==='termo') a.give('termo','R',o.color); if(o.hold==='both') a.give('termo','L',o.color); if(o.hold==='yerba') a.give('yerba'); if(o.hold==='pava') a.give('pava'); if(o.hold==='item') a.give('item','R',o.item); if(o.hold==='bombilla') a.give('bombilla','R',o.item); if(o.hold==='termo_brazo'){ a.give('termo_brazo','L',o.color); if(o.mate!==false) a.give('mate','R',typeof o.mate==='string'?o.mate:null); } return a; });
@@ -1660,7 +1662,7 @@ T.prado=(p={})=>{ const s=new THREE.Scene(); s.background=new THREE.Color('#cfe9
   const pq=p.pair||p.pass, pr2=pq&&ppl[pq[0]]&&ppl[pq[1]]?[ppl[pq[0]].g.position,ppl[pq[1]].g.position]:null, pm=pr2?pr2[0].clone().add(pr2[1]).multiplyScalar(0.5):F.clone();
   const plans={
     // set-ups
-    wide:()=>mv(V(-1.1,1.6,dist+0.55),WL,40,V(-0.3,1.5,dist),WL,40), far:()=>st(V(-3.2,3.0,dist+5.5),V(0,0.7,-1.5),36,V(0.6,-0.15,-0.6)), widelow:()=>st(V(-0.8,0.3,dist-1.3),V(0,0.7,0),38,V(0.5,0,-0.25)),
+    wide:()=>mv(V(-1.1,1.6,dist+0.55),WL,40,V(-0.3,1.5,dist),WL,40), far:()=>st(V(-3.2,3.0,dist+5.5),V(0,0.7,-1.5),36,V(0.6,-0.15,-0.6)), widelow:()=>st(V(-0.8,0.3,dist-1.3+Math.max(0,n-2)*1.0),V(0,0.7,0),38,V(0.5,0,-0.25)),
     close:()=>mv(P(0.7,1.2,4.9),LK,30,P(0.32,1.12,4.2),LK,30), face:()=>st(P(0.3,1.02,2.75),LF,28,V(-0.12,0,-0.25)), sideL:()=>st(P(-2.5,1.12,3.3),LK,30,V(0.3,0,0.1)), sideR:()=>st(P(2.5,1.12,3.3),LK,30,V(-0.3,0,0.1)),
     low:()=>st(P(0.55,0.24,3.1),P(0,0.9,0),36,V(-0.2,0,-0.25)), high:()=>st(P(0.7,3.1,3.5),P(0,0.6,0),30,V(-0.25,-0.1,-0.2)), top:()=>st(P(hx+0.05,3.7,oz+1.7),LH,26,V(0,-0.25,0)), hands:()=>st(P(hx+0.9,oy+0.4,oz+2.5),LH,26,V(-0.3,0,-0.2)),
     dutch:()=>st(P(0.55,1.0,3.6),LK,30,V(-0.2,0,-0.3),0.13),
@@ -1674,6 +1676,7 @@ T.prado=(p={})=>{ const s=new THREE.Scene(); s.background=new THREE.Color('#cfe9
     pan:()=>mv(V(0,1.15,dist-0.9),V(x0,0.85,0),27,V(0,1.15,dist-0.9),V(x1,0.85,0),27), lowpush:()=>mv(P(0.9,0.28,4.6),P(0,0.85,0),36,P(0.3,0.34,2.5),P(0,0.92,0),34),
     orbitL:()=>orb(4.0,-0.95,0.45,1.12,LK,30), orbitR:()=>orb(4.0,0.95,-0.45,1.12,LK,30), arcTop:()=>orb(3.4,-0.7,0.7,2.7,P(0,0.65,0),30) };
   const shot=p.shot||'wide'; const pl=shot==='flow'?null:(plans[shot]||plans.wide)(); const cues=[{u:0.04,type:'birds'}];
+  if(p.board){ const bk=p.board.kind||'title', bn=bk==='cards'?(p.board.items||[]).length:bk==='checklist'?(p.board.rows||[]).length:bk==='poll'?(p.board.options||[]).length:bk==='timeline'?(p.board.items||[]).length:0; for(let i=0;i<bn;i++) cues.push({u:0.1+i*(0.75/Math.max(1,bn)),type:bk==='checklist'?((p.board.rows[i].ok)?'ding':'buzz'):'pop'}); if(bk==='dots') cues.push({u:0.1,type:'tick'},{u:0.55,type:'ding'}); }
   const wideA=V(-1.1,1.6,dist+0.55), wideB=V(-0.3,1.5,dist), closeA=P(0.7,1.2,4.9), closeB=P(0.32,1.12,4.2);
   return { scene:s, camera:cam, aperture:0.0011, maxblur:0.008, exposure:1.12, keepFaces:true, people:ppl, cues, update(u,t){ let l, pos, roll=0;
       if(!pl){ const sw=p.switchU??0.42; const k1=clamp(u/sw), k2=ease(clamp((u-sw+0.06)/0.34)); pos=wideA.clone().lerp(wideB,ease(k1)).lerp(closeA.clone().lerp(closeB,clamp((u-sw)/(1-sw))),k2); l=WL.clone().lerp(LK,k2); cam.fov=40-10*k2; }
@@ -1687,7 +1690,9 @@ T.prado=(p={})=>{ const s=new THREE.Scene(); s.background=new THREE.Color('#cfe9
       if(hero&&hero.userData.obj){ const sp=hero.userData.spin; if(sp==='sway') hero.userData.obj.rotation.y=Math.sin(t*0.9)*0.22; else if(sp) hero.userData.obj.rotation.y=-0.35+t*0.22; } heroTicks.forEach(fn=>fn(t,u)); cars.forEach((c,i)=>{ const dir=i%2?-1:1; c.position.x=dir*(-9+18*((u*0.9+i*0.37)%1)); c.rotation.y=dir>0?0:Math.PI; c.userData.wheels.forEach(w=>w.rotation.z=-t*9); });
       flies.forEach((b,i)=>{ const a=t*0.5+i*1.7; b.position.set(Math.sin(a)*2.4+(i-1.5)*2.2,0.75+Math.sin(a*2.3)*0.3,-2.6+Math.cos(a*0.8)*0.9); b.rotation.y=-a; b.children.forEach(w=>w.rotation.y=w.userData.sd*(0.3+0.9*Math.abs(Math.sin(t*18+i)))); });
       clouds.forEach((c,i)=>c.position.x=c.userData.x0+t*0.12*(1+i*0.2)); if(motes) motes.rotation.y=t*0.02; ticks.forEach(fn=>fn(t));
-      return cam.position.distanceTo(l); } }; };
+      return cam.position.distanceTo(l); },
+    overlay:(c,u,t)=>{ if(!p.board) return; const b=p.board, a=easeOut(clamp(u*12)); c.save(); c.globalAlpha=a; const y0=b.kind==='poll'?470:b.kind==='dots'?500:520, h=b.kind==='poll'?760:b.kind==='cards'?880:b.kind==='timeline'?900:980; rr(c,44,y0,W-88,h,56,'rgba(17,29,48,0.84)'); c.strokeStyle='rgba(255,255,255,0.16)'; c.lineWidth=4; c.stroke();
+      const bs0=b.scale??E.tl?.style?.boardScale??1, bs=b.kind==='cards'?Math.min(bs0,1.12):b.kind==='timeline'?1:b.kind==='checklist'?Math.min(bs0,1.08):Math.min(bs0,1.2); c.translate(W/2,H*0.5); c.scale(bs,bs); c.translate(-W/2,-H*0.5); drawBoard(c,b,u,t); c.restore(); } }; };
 
 // ---------------- renderer ----------------
 const canvas=document.getElementById('c'); canvas.width=W; canvas.height=H;

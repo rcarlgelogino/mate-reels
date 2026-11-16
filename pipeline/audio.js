@@ -52,12 +52,13 @@ function make(totalSec) {
     const kick = gen(0.35, t => Math.sin(2 * Math.PI * (45 + 90 * Math.exp(-t * 30)) * t) * Math.exp(-t * 9) * 0.9);
     const shaker = hp(gen(0.06, (t, p) => noise() * Math.pow(1 - p, 2)), 5000).map(x => x * 0.18);
     const mar = f => gen(0.5, t => (Math.sin(2 * Math.PI * f * t) + 0.25 * Math.sin(2 * Math.PI * 4 * f * t) * Math.exp(-t * 30)) * Math.exp(-t * 7) * 0.22);
+    const sq = f => gen(0.2, t => (Math.sin(2 * Math.PI * f * t) > 0 ? 1 : -1) * Math.exp(-t * 10) * 0.06); const lead = style.chip ? sq : mar;
     const progs = { minor: [[57, 60, 64, 69], [53, 57, 60, 65], [48, 52, 55, 60], [55, 59, 62, 67]], major: [[60, 64, 67, 72], [55, 59, 62, 67], [57, 60, 64, 69], [53, 57, 60, 65]], latin: [[50, 53, 57, 62], [55, 59, 62, 67], [48, 52, 55, 60], [57, 61, 64, 69]] };
     const chords = progs[style.mood || 'minor'] || progs.minor; const hz = m => 440 * Math.pow(2, (m - 69) / 12);
     for (let b = 0; b * beat < totalSec + 1; b++) { const t = b * beat, ch = chords[Math.floor(b / 4) % 4];
       if (t > 0.1) add(M, t, kick, b % 4 === 0 ? 1 : 0.75);
       add(M, t + beat / 2, shaker, 1, 0.3); add(M, t + beat / 4, shaker, 0.5, -0.3); add(M, t + 3 * beat / 4, shaker, 0.5, -0.3);
-      for (let k = 0; k < 2; k++) add(M, t + k * beat / 2, mar(hz(ch[(b * 2 + k) % 4] + 12)), 0.8, k ? 0.25 : -0.25);
+      for (let k = 0; k < 2; k++) add(M, t + k * beat / 2, lead(hz(ch[(b * 2 + k) % 4] + 12)), 0.8, k ? 0.25 : -0.25);
       if (b % 4 === 0) add(M, t, gen(beat * 3.5, tt => Math.sin(2 * Math.PI * hz(ch[0] - 12) * tt) * Math.exp(-tt * 1.2) * 0.35)); }
     for (let i = 0; i < LEN; i++) { const f = Math.min(1, Math.max(0, (totalSec + 0.4 - i / SR) / 0.8)); M[0][i] *= f; M[1][i] *= f; }
     return M;

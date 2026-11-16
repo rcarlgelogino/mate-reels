@@ -39,9 +39,10 @@ module.exports = {
   available: () => !!KEY(),
   async narrate(spec, dir, log) {
     const voice = spec.geminiVoice || 'Charon'; const lines = spec.segments.map(sg => (sg.say || sg.text).trim()); const full = lines.join('\n');
-    const h = crypto.createHash('md5').update(voice + STYLE + full).digest('hex').slice(0, 10); const take = path.join(dir, `gem_${h}.wav`), mf = path.join(dir, `gem_${h}.json`);
+    const h = crypto.createHash('md5').update(voice + STYLE + full).digest('hex').slice(0, 10); // spec.takeFile: an existing Charon take (e.g. the sound of an already posted reel) is aligned again instead of asking Gemini
+    const take = spec.takeFile ? path.resolve(spec.takeFile) : path.join(dir, `gem_${h}.wav`), mf = spec.takeFile ? take + '.json' : path.join(dir, `gem_${h}.json`);
     let meta = fs.existsSync(mf) ? JSON.parse(fs.readFileSync(mf, 'utf8')) : null;
-    if (!meta) { const model = await speak(full, voice, take, log); log('gemini take', model, voice); const heard = align(take, log); log('whisper words', heard.length);
+    if (!meta) { const model = spec.takeFile && fs.existsSync(take) ? 'reused take' : await speak(full, voice, take, log); log('gemini take', model, voice); const heard = align(take, log); log('whisper words', heard.length);
       const script = []; spec.segments.forEach((sg, si) => sg.text.split(/\s+/).filter(Boolean).forEach(w => script.push({ w, si })));
       const mapped = mapWords(script.map(x => x.w), heard).map((m, k) => ({ ...m, si: script[k].si })); meta = { model, voice, words: mapped }; fs.writeFileSync(mf, JSON.stringify(meta)); }
     const total = +execFileSync(require(path.join(TOOLS, 'ffprobe-static')).path, ['-v', 'error', '-show_entries', 'format=duration', '-of', 'csv=p=0', take]).toString().trim();

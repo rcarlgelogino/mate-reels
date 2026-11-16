@@ -40,7 +40,7 @@ function prosody(sg, base) { if (sg.voice && (sg.voice.rate || sg.voice.pitch)) 
   const e = EMO[sg.emo]; if (!e) return { rate: base, pitch: null }; return { rate: pct(base, e[0]), pitch: (e[1] >= 0 ? '+' : '') + e[1] + 'Hz' }; }
 // provider: ElevenLabs when .env has ELEVENLABS_API_KEY + ELEVENLABS_VOICE_ID (unless spec.tts === 'edge'); Edge stays as automatic fallback
 // Gemini (voice Charon) whenever GEMINI_API_KEY is set, unless spec.tts says otherwise; ElevenLabs next; Edge as the fallback
-let PROVIDER = spec.tts === 'edge' ? 'edge' : (GEM.available() && spec.tts !== 'elevenlabs') ? 'gemini' : EL.available() ? 'elevenlabs' : 'edge';
+let PROVIDER = spec.tts === 'edge' ? 'edge' : ((GEM.available() || spec.takeFile) && spec.tts !== 'elevenlabs') ? 'gemini' : EL.available() ? 'elevenlabs' : 'edge';
 async function narration() {
   const voice = spec.voice || 'en-US-AndrewNeural', rate = spec.rate || '+14%'; const dir = path.join(OUT, 'vo'); fs.mkdirSync(dir, { recursive: true });
   log('tts provider', PROVIDER);

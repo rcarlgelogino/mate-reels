@@ -114,4 +114,4 @@ function toSpec(script) {
       out.push(boardShot3(s, pick, st)); }); seg.shots = out; });
   return { ...base, preset: 'toy3d', ab: script.ab || 'style toy3d', ...(script.follow === false ? { follow: false } : {}) };
 }
-module.exports = { name: 'toy3d', toSpec };
+module.exports = { name: 'toy3d', toSpec, helpers: { norm, look, person, FACE, ACTS, GEST, ROLE, hashN, heroOf, placeOf, MATES } };

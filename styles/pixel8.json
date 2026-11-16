@@ -1,0 +1,28 @@
+{
+  "name": "pixel8",
+  "version": 1,
+  "description": "Pixel-art world drawn at low resolution: cute mate objects with faces (mate, termo, yerba pack, pava), night skies, kitchen, sunset yerbal and macro leaf cells; camera pushes, pulls and punch-ins over the pixels; pixel font captions with the spoken word in yellow.",
+  "style": {
+    "accent": "#ffd84a",
+    "mood": "latin",
+    "chip": true,
+    "bpm": 100,
+    "look": "pixel",
+    "font": "Pixelify Sans",
+    "captionY": 330,
+    "captionSize": 72,
+    "wordsPerCaption": 5,
+    "calloutY": 1500,
+    "calloutSize": 140,
+    "barColor": "#ffd84a",
+    "cut": "hard"
+  },
+  "spec": {
+    "voice": "es-AR-TomasNeural",
+    "rate": "+14%",
+    "geminiVoice": "Charon",
+    "followText": "SEGUINOS PARA MÁS",
+    "followSub": "COSTUMBRES DEL MATE",
+    "followY": 1640
+  }
+}

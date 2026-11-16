@@ -15,13 +15,15 @@ if (TEST) jobs = [path.join(ROOT, 'samples', 'test_reel.json')];
 else { const q = path.join(ROOT, 'queue'); jobs = fs.existsSync(q) ? fs.readdirSync(q).filter(f => f.endsWith('.json')).sort().slice(0, COUNT).map(f => path.join(q, f)) : []; }
 if (!jobs.length) { sum('Queue is empty: no reels to build today. Add specs to queue/.'); fs.writeFileSync(path.join(OUT, 'SUMMARY.md'), summary.join('\n') + '\n'); process.exit(0); }
 let ok = 0; const doy = Math.floor((Date.parse(day) - Date.parse(day.slice(0, 4) + '-01-01')) / 864e5); const abIndex = doy % jobs.length; // this day's A/B script (rotates), built again in 3D by scripts/ab3d.js
+// at least one reel a day in the pixel style (styles/pixel8): a different script than the 3D one when there are two or more (PIXEL_DAILY=0 switches it off)
+const pixIndex = process.env.PIXEL_DAILY === '0' ? -1 : jobs.length > 1 ? (abIndex + 1) % jobs.length : 0;
 jobs.forEach((specFile, i) => { try {
   const name = path.basename(specFile, '.json'); const work = path.join(ROOT, 'work', name); fs.mkdirSync(work, { recursive: true });
   // visual learnings of earlier reels pick better pictures for this script (text locked; falls back to the original)
   const improved = path.join(work, 'script.improved.json'); try { fs.unlinkSync(improved); } catch {}
   spawnSync(process.execPath, [path.join(ROOT, 'scripts', 'improve.js'), specFile, improved], { stdio: 'inherit', timeout: 5 * 60 * 1000 });
   const scriptFile = fs.existsSync(improved) ? improved : specFile;
-  const scriptJson = JSON.parse(fs.readFileSync(scriptFile, 'utf8')); const style = MK.activeStyle(); const spec = MK.toSpec(scriptJson, style); fs.writeFileSync(path.join(work, 'spec.json'), JSON.stringify(spec, null, 1));
+  const scriptJson = JSON.parse(fs.readFileSync(scriptFile, 'utf8')); const style = i === pixIndex && !TEST ? 'pixel8' : MK.activeStyle(); const outName = style === 'pixel8' ? name + '_px' : name; const spec = MK.toSpec(scriptJson, style); fs.writeFileSync(path.join(work, 'spec.json'), JSON.stringify(spec, null, 1));
   log(`building ${i + 1}/${jobs.length}: ${name}`);
   let r; for (let a = 1; a <= 2; a++) { r = spawnSync(process.execPath, [path.join(ROOT, 'pipeline', 'build.js'), path.join(work, 'spec.json')], { stdio: 'inherit', timeout: 75 * 60 * 1000 }); if (r.status === 0) break; log(`build failed (attempt ${a}), exit ${r.status}`); if (a === 1) spawnSync(process.execPath, ['-e', 'setTimeout(()=>{},120000)']); }
   const mp4 = path.join(work, 'final.mp4');
@@ -35,9 +37,9 @@ jobs.forEach((specFile, i) => { try {
   const qaNote = qa ? ` · visual analysis: ${qa.issues.length} issue(s)${qa.scores && qa.scores.overall ? ', ' + qa.scores.overall + '/10' : ''}` : '';
   const impNote = scriptFile === improved ? ' · visuals adjusted from learnings' : '';
   if (!TEST && scriptFile === improved) { const dd = path.join(ROOT, 'done', day); fs.mkdirSync(dd, { recursive: true }); fs.copyFileSync(improved, path.join(dd, name + '.improved.json')); }
-  fs.copyFileSync(mp4, path.join(OUT, `${String(i + 1).padStart(2, '0')}_${name}.mp4`));
-  if (fs.existsSync(path.join(work, 'caption.txt'))) fs.copyFileSync(path.join(work, 'caption.txt'), path.join(OUT, `${String(i + 1).padStart(2, '0')}_${name}.txt`));
-  if (fs.existsSync(path.join(work, 'cover.jpg'))) fs.copyFileSync(path.join(work, 'cover.jpg'), path.join(OUT, `${String(i + 1).padStart(2, '0')}_${name}.jpg`));
+  fs.copyFileSync(mp4, path.join(OUT, `${String(i + 1).padStart(2, '0')}_${outName}.mp4`));
+  if (fs.existsSync(path.join(work, 'caption.txt'))) fs.copyFileSync(path.join(work, 'caption.txt'), path.join(OUT, `${String(i + 1).padStart(2, '0')}_${outName}.txt`));
+  if (fs.existsSync(path.join(work, 'cover.jpg'))) fs.copyFileSync(path.join(work, 'cover.jpg'), path.join(OUT, `${String(i + 1).padStart(2, '0')}_${outName}.jpg`));
   if (!TEST) { const dd = path.join(ROOT, 'done', day); fs.mkdirSync(dd, { recursive: true }); fs.renameSync(specFile, path.join(dd, path.basename(specFile))); fs.writeFileSync(path.join(dd, name + '.result.json'), JSON.stringify(res, null, 1)); }
   if (i === abIndex) fs.writeFileSync(path.join(OUT, 'ab3d.json'), JSON.stringify({ name, n: jobs.length + 1, test: TEST, script: scriptJson }, null, 1));
   ok++; sum(`- ✅ ${name} (style ${spec.style_used || spec.preset || 'custom'}): ${res.duration} s, voice ${res.voice}, ${res.loudness}${res.inTarget ? '' : ' (outside 35-45 s!)'}${qaNote}${impNote}`);

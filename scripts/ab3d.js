@@ -22,6 +22,7 @@ try { const qd = path.join(ROOT, 'qa', day); fs.mkdirSync(qd, { recursive: true 
   for (const [src, ext] of [['qa.json', '.json'], ['qa.md', '.md'], ['qa_frames.jpg', '.jpg']]) if (fs.existsSync(path.join(work, src))) fs.copyFileSync(path.join(work, src), base + ext); } catch {}
 const out = `${String(ab.n).padStart(2, '0')}_${tag}`; fs.copyFileSync(mp4, path.join(OUT, out + '.mp4'));
 if (fs.existsSync(path.join(work, 'caption.txt'))) fs.copyFileSync(path.join(work, 'caption.txt'), path.join(OUT, out + '.txt'));
+if (fs.existsSync(path.join(work, 'cover.jpg'))) fs.copyFileSync(path.join(work, 'cover.jpg'), path.join(OUT, out + '.jpg'));
 fs.writeFileSync(path.join(OUT, 'ab3d.out'), out + '\n');
 line(`- 🅱️ A/B ${STYLE} version of ${name}: ${res.duration} s, voice ${res.voice}, ${res.loudness} (${res.minutes} min render)`);
 log('done', out);

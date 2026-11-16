@@ -99,7 +99,7 @@ jobs:
           ls "$DIR"/*.mp4 >/dev/null 2>&1 || { echo "no videos to publish"; cat "$DIR/SUMMARY.md" 2>/dev/null; exit 0; }
           [ -f "$DIR/SUMMARY.md" ] || echo "# Reels $DAY" > "$DIR/SUMMARY.md"
           TAG="${{ inputs.test && 'test' || 'reels' }}-$DAY-${{ github.run_number }}"   # test runs never get the reels- prefix, so they are never posted
-          gh release create "$TAG" "$DIR"/*.mp4 "$DIR"/*.txt --title "${{ inputs.test && 'TEST ' || '' }}Reels $DAY" --notes-file "$DIR/SUMMARY.md"
+          gh release create "$TAG" "$DIR"/*.mp4 "$DIR"/*.txt $(ls "$DIR"/*.jpg 2>/dev/null) --title "${{ inputs.test && 'TEST ' || '' }}Reels $DAY" --notes-file "$DIR/SUMMARY.md"
           echo "tag=$TAG" >> "$GITHUB_OUTPUT"; echo "day=$DAY" >> "$GITHUB_OUTPUT"
 
       # A/B test: one of today's scripts again in the 3D style (same text and voice). Built after the 2D release so the first post slot is never late.
@@ -114,6 +114,6 @@ jobs:
           [ -f "out/$DAY/ab3d.json" ] || { echo 'no A/B script today'; exit 0; }
           node scripts/ab3d.js --day "$DAY" || { echo '3D build failed, the 2D reels are not affected'; exit 0; }
           OUT="$(cat "out/$DAY/ab3d.out")"
-          gh release upload "$TAG" "out/$DAY/$OUT.mp4" "out/$DAY/$OUT.txt"
+          gh release upload "$TAG" "out/$DAY/$OUT.mp4" "out/$DAY/$OUT.txt" $(ls "out/$DAY/$OUT.jpg" 2>/dev/null)
           gh release edit "$TAG" --notes-file "out/$DAY/SUMMARY.md" || true
           if [ "${{ inputs.test }}" != "true" ]; then git config user.name 'reels-bot'; git config user.email 'reels-bot@users.noreply.github.com'; git add -A qa; git diff --cached --quiet || (git commit -m "A/B 3D reel $DAY" && git pull --rebase -q && git push); fi

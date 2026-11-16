@@ -157,6 +157,9 @@ function mix(tl, cues) {
   const info = await render(tl); if (SHEET_ONLY) { log('sheet only'); process.exit(0); }
   const r = mix(tl, info.cues);
   const cap = [spec.caption || '', '', (spec.hashtags || []).join(' ')].join('\n').trim(); fs.writeFileSync(path.join(OUT, 'caption.txt'), cap + '\n');
+  // cover picture for Instagram: a still where the hook picture and its headline are fully visible
+  const hk = tl.callouts.find(c => c.type === 'big' && c.t0 < 6 && c.text), s0 = tl.shots[0] || { dur: 2 }; const coverAt = +(hk ? Math.max(hk.t0 + 0.3, Math.min(hk.t0 + 0.7, hk.t1 - 0.15)) : Math.min(1.5, 0.6 * s0.dur)).toFixed(2);
+  try { execFileSync(FF, ['-y', '-v', 'error', '-ss', String(coverAt), '-i', r.out, '-frames:v', '1', '-q:v', '2', path.join(OUT, 'cover.jpg')]); log('cover at', coverAt + 's'); } catch (e) { log('cover failed', e.message.slice(0, 120)); }
   fs.rmSync(path.join(OUT, 'video.mp4'), { force: true });
   const tgt = spec.target || [35, 45];
   const result = { id: spec.id, file: path.relative(ROOT, r.out), voice: tl.voiceProvider, duration: +r.dur, inTarget: +r.dur >= tgt[0] && +r.dur <= tgt[1], target: tgt, loudness: r.ebur, shots: tl.shots.length, minutes: +((Date.now() - t0) / 60000).toFixed(1) };

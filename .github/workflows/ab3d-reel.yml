@@ -74,6 +74,6 @@ jobs:
           DAY="${{ steps.find.outputs.day }}"; TAG="${{ steps.find.outputs.tag }}"
           node scripts/ab3d.js --day "$DAY"
           OUT="$(cat "out/$DAY/ab3d.out")"
-          gh release upload "$TAG" "out/$DAY/$OUT.mp4" "out/$DAY/$OUT.txt"
+          gh release upload "$TAG" "out/$DAY/$OUT.mp4" "out/$DAY/$OUT.txt" $(ls "out/$DAY/$OUT.jpg" 2>/dev/null)
           git config user.name 'reels-bot'; git config user.email 'reels-bot@users.noreply.github.com'
           git add -A qa; git diff --cached --quiet || (git commit -m "A/B 3D reel $DAY" && git pull --rebase -q && git push)

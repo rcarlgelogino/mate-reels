@@ -45,6 +45,8 @@ jobs:
           [ -z "$ITEM" ] && { echo "nothing left to post"; echo "file=" >> "$GITHUB_OUTPUT"; exit 0; }
           TAG="${ITEM%%/*}"; NEXT="${ITEM#*/}"
           gh release download "$TAG" --pattern "$NEXT" --pattern "${NEXT%.mp4}.txt" --dir dl
+          # cover picture (reels built before 2026-11-16 have none: then a frame of the video is used)
+          COVER="${NEXT%.mp4}.jpg"; gh release view "$TAG" --json assets --jq '.assets[].name' | grep -qxF "$COVER" && echo "cover=$COVER" >> "$GITHUB_OUTPUT" || echo "cover=" >> "$GITHUB_OUTPUT"
           echo "tag=$TAG" >> "$GITHUB_OUTPUT"; echo "file=$NEXT" >> "$GITHUB_OUTPUT"
           echo "next: $TAG / $NEXT"
 
@@ -57,6 +59,7 @@ jobs:
           IG_TOKEN: ${{ secrets.IG_TOKEN }}
           # public address of the video in the release (the repo is public): Instagram fetches it from there
           VIDEO_URL: https://github.com/${{ github.repository }}/releases/download/${{ steps.pick.outputs.tag }}/${{ steps.pick.outputs.file }}
+          COVER_URL: ${{ steps.pick.outputs.cover != '' && format('https://github.com/{0}/releases/download/{1}/{2}', github.repository, steps.pick.outputs.tag, steps.pick.outputs.cover) || '' }}
         run: |
           F="dl/${{ steps.pick.outputs.file }}"
           node scripts/publish.js "$F" "${F%.mp4}.txt" ${{ (github.event_name == 'workflow_dispatch' && inputs.dry_run) && '--dry-run' || '' }}

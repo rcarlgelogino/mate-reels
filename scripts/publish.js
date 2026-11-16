@@ -23,13 +23,15 @@ async function api(method, url, body, headers = {}) {
   const waitReady = async id => { for (let i = 0; i < 60; i++) { await new Promise(r => setTimeout(r, 10000)); const s = await api('GET', `${G}/${id}?fields=status_code,status&access_token=${encodeURIComponent(TOKEN)}`); log('status', s.status_code);
       if (s.status_code === 'FINISHED') return true; if (s.status_code === 'ERROR' || s.status_code === 'EXPIRED') { log('processing failed:', scrub(s.status || s.status_code)); return null; } } log('processing timed out'); return null; };
   let c = null;
+  const resolve = async u => { try { const h = await fetch(u, { method: 'HEAD', redirect: 'manual' }); if (h.status >= 300 && h.status < 400 && h.headers.get('location')) return h.headers.get('location'); return h.ok ? u : null; } catch { return null; } };
+  const coverUrl = process.env.COVER_URL ? await resolve(process.env.COVER_URL) : null; const cover = coverUrl ? { cover_url: coverUrl } : { thumb_offset: process.env.THUMB_OFFSET_MS || '1200' }; log('cover:', coverUrl ? 'picture from the release' : 'frame of the video at ' + cover.thumb_offset + ' ms');
   // 1. preferred: Instagram fetches the video itself from its public address (the GitHub release), no byte upload needed
   if (process.env.VIDEO_URL) { try { let url = process.env.VIDEO_URL; const h = await fetch(url, { method: 'HEAD', redirect: 'manual' }); if (h.status >= 300 && h.status < 400 && h.headers.get('location')) url = h.headers.get('location');
-      const v = await api('POST', `${G}/${IG}/media`, new URLSearchParams({ media_type: 'REELS', video_url: url, caption, share_to_feed: 'true', access_token: TOKEN })); log('container (video url)', v.id);
-      if (await waitReady(v.id)) c = v; } catch (e) { log('video url way failed:', e.message.slice(0, 300)); } }
+      for (const cv of coverUrl ? [cover, { thumb_offset: '1200' }] : [cover]) { try { const v = await api('POST', `${G}/${IG}/media`, new URLSearchParams({ media_type: 'REELS', video_url: url, caption, share_to_feed: 'true', ...cv, access_token: TOKEN })); log('container (video url)', v.id, cv.cover_url ? 'with cover picture' : 'with video frame as cover');
+          if (await waitReady(v.id)) { c = v; break; } } catch (e) { log('attempt failed:', e.message.slice(0, 300)); } } } catch (e) { log('video url way failed:', e.message.slice(0, 300)); } }
   if (!c) {
   // 2. fallback: resumable upload of the bytes
-  const params = new URLSearchParams({ media_type: 'REELS', upload_type: 'resumable', caption, share_to_feed: 'true', access_token: TOKEN });
+  const params = new URLSearchParams({ media_type: 'REELS', upload_type: 'resumable', caption, share_to_feed: 'true', thumb_offset: process.env.THUMB_OFFSET_MS || '1200', access_token: TOKEN });
   // 2. upload the bytes (rupload wants the app USER token per Meta's docs; try the user token first, then the page token)
   const upTokens = [[process.env.META_USER_TOKEN, 'user token'], [TOKEN, 'page token']].filter(t => t[0]);
   const bytes = fs.readFileSync(video); let up = null, lastErr = null;

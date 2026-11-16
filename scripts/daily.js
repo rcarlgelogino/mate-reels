@@ -37,6 +37,7 @@ jobs.forEach((specFile, i) => { try {
   if (!TEST && scriptFile === improved) { const dd = path.join(ROOT, 'done', day); fs.mkdirSync(dd, { recursive: true }); fs.copyFileSync(improved, path.join(dd, name + '.improved.json')); }
   fs.copyFileSync(mp4, path.join(OUT, `${String(i + 1).padStart(2, '0')}_${name}.mp4`));
   if (fs.existsSync(path.join(work, 'caption.txt'))) fs.copyFileSync(path.join(work, 'caption.txt'), path.join(OUT, `${String(i + 1).padStart(2, '0')}_${name}.txt`));
+  if (fs.existsSync(path.join(work, 'cover.jpg'))) fs.copyFileSync(path.join(work, 'cover.jpg'), path.join(OUT, `${String(i + 1).padStart(2, '0')}_${name}.jpg`));
   if (!TEST) { const dd = path.join(ROOT, 'done', day); fs.mkdirSync(dd, { recursive: true }); fs.renameSync(specFile, path.join(dd, path.basename(specFile))); fs.writeFileSync(path.join(dd, name + '.result.json'), JSON.stringify(res, null, 1)); }
   if (i === abIndex) fs.writeFileSync(path.join(OUT, 'ab3d.json'), JSON.stringify({ name, n: jobs.length + 1, test: TEST, script: scriptJson }, null, 1));
   ok++; sum(`- ✅ ${name} (style ${spec.style_used || spec.preset || 'custom'}): ${res.duration} s, voice ${res.voice}, ${res.loudness}${res.inTarget ? '' : ' (outside 35-45 s!)'}${qaNote}${impNote}`);

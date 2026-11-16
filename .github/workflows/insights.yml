@@ -1,0 +1,35 @@
+name: insights
+
+# Reads the numbers of the posted reels only (posts nothing). Started by pushing a timestamp to trigger/insights.txt.
+on:
+  push:
+    branches: [main]
+    paths: ['trigger/insights.txt']
+
+permissions:
+  contents: write
+
+concurrency:
+  group: publish-reels
+  cancel-in-progress: false
+
+jobs:
+  insights:
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+      - name: Read the numbers of the posted reels
+        env:
+          IG_USER_ID: ${{ secrets.IG_USER_ID || vars.IG_USER_ID }}
+          META_PAGE_TOKEN: ${{ secrets.META_PAGE_TOKEN }}
+          IG_TOKEN: ${{ secrets.IG_TOKEN }}
+        run: |
+          node scripts/insights.js
+          git config user.name "reels-bot"
+          git config user.email "reels-bot@users.noreply.github.com"
+          git add insights 2>/dev/null || true
+          git diff --cached --quiet || (git commit -m "Reel numbers $(date -u +%F)" && git pull --rebase -q && git push) || true

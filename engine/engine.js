@@ -1156,7 +1156,7 @@ function pfigure(g,q,i,u,t,ctx){ const s=q.s||110, x=q.x+(q.dx||0), y=q.y; const
   if(act==='laugh') jump=-Math.round(Math.abs(Math.sin(t*10))*3); if(act==='no') shake=Math.round(Math.sin(t*14)*3); if(act==='nod') jump=Math.round(Math.abs(Math.sin(t*6))*2);
   if(act==='shock') face='surprised'; if(act==='laugh') face='laugh'; if(act==='cheer') face='happy'; if(act==='no') face=q.face==='happy'?'neutral':q.face||'neutral';
   const drink=q.act==='drink', pour=q.act==='pour';
-  if(drink) face=u>0.18&&u<0.8?'sip':face;
+  const dk=drink?ease(clamp((u-0.08)/0.14))*(1-ease(clamp((u-0.8)/0.14))):0; if(drink) face=dk>0.85?'sip':face;
   const P=pperson(g,x,y+jump,s,q,t,seed,{hx:shake,face}); const hr=Math.max(4,Math.round(s*0.075)); const bx=P.body[0], byc=P.body[1], bw=P.bw;
   let L=[bx-bw*0.62,byc+4], R=[bx+bw*0.62,byc+4]; const g0=q.gest, wob=Math.sin(t*5)*3;
   if(g0==='think') L=[P.head[0]-P.rh*0.5,P.head[1]+P.rh*1.05]; if(g0==='point') R=[bx+bw*1.0,byc-s*0.32]; if(g0==='shrug'){ L=[bx-bw*0.85,byc-s*0.12]; R=[bx+bw*0.85,byc-s*0.12]; }
@@ -1166,7 +1166,10 @@ function pfigure(g,q,i,u,t,ctx){ const s=q.s||110, x=q.x+(q.dx||0), y=q.y; const
   const hold=q.hold, ms=Math.round(s*0.3); let mateRef=null;
   const drawMateAt=(hx,hy,o2={})=>pmate(g,hx,hy,ms,{type:q.mate,face:'none',bombilla:true,steam:q.steam,...o2},t,seed);
   if(q.passing){ const pk=q.passing; const from=pk.from, to=pk.to; const k=ease(clamp((u-0.22)/0.4)); const mx=lerp(from[0],to[0],k), my=lerp(from[1],to[1],k)-Math.sin(k*Math.PI)*12; if(i===pk.giver){ R=[bx+bw*0.9*pk.dir,byc-6]; } }
-  if(drink){ const k=clamp((u-0.08)/0.12)*(1-clamp((u-0.82)/0.12)); const M=P.mouth; const rest=[bx+bw*0.55,byc+8]; const want=[M[0]-Math.round(ms*0.42*0.5)+4,M[1]+Math.round(ms*0.39*2+ms*0.48)-1]; const mx=lerp(rest[0],want[0],ease(k)), my=lerp(rest[1]+ms*0.4,want[1],ease(k)); R=[mx+ms*0.28,my-ms*0.35]; mateRef=drawMateAt(mx,my); }
+  if(drink){ // the mate stays beside the face, only the bombilla goes from the yerba to the mouth
+    const M=P.mouth; const rest=[bx+bw*0.55,byc+ms*0.4+8], up=[M[0]-Math.round(ms*0.42*0.25),M[1]+Math.round(P.rh*0.55)+2*Math.round(ms*0.39)+12]; const mx=Math.round(lerp(rest[0],up[0],dk)), my=Math.round(lerp(rest[1],up[1],dk)); mateRef=drawMateAt(mx,my,{bombilla:false});
+    const rxm=Math.round(ms*0.42), top=my-2*Math.round(ms*0.39), base=[mx+Math.round(rxm*0.1),top-5], nat=[mx+Math.round(rxm*0.5)-3,top-Math.round(ms*0.48)], tip=[Math.round(lerp(nat[0],M[0]+2,dk)),Math.round(lerp(nat[1],M[1],dk))];
+    pline(g,base[0],base[1],tip[0],tip[1],PXP.metalD,2); pline(g,base[0]-1,base[1],tip[0]-1,tip[1],PXP.metalL,1); pr(g,tip[0]-2,tip[1]-1,4,3,PXP.metal); pr(g,tip[0]-2,tip[1]-1,4,1,PXP.metalL); R=[mx+ms*0.3,my-ms*0.3]; }
   else if(pour){ const mx=bx-bw*0.55, my=byc+ms*0.55; L=[mx-ms*0.3,my-ms*0.35]; mateRef=drawMateAt(mx,my); }
   else if(hold==='mate'||hold==='both'){ if(!(q.passing&&i===q.passing.giver&&u>0.25)) { const hx0=(g0==='offer'||g0==='receive')?R[0]:bx+bw*0.6, hy0=(g0==='offer'||g0==='receive')?R[1]+ms*0.5:byc+ms*0.6; mateRef=drawMateAt(hx0,hy0); R=[hx0+ms*0.3,hy0-ms*0.35]; } }
   if(hold==='both'&&!pour){ ptermoDraw(g,bx-bw*0.62,byc+s*0.24,Math.round(s*0.5),{face:'none'},t,seed); L=[bx-bw*0.62+s*0.08,byc+2]; }
@@ -2175,7 +2178,7 @@ function drawCaptionPixel(T_,ch){ const st=E.tl.style||{}; const size=st.caption
   ctx.restore(); }
 function drawCaption(T_){
   if(E.tl.style?.noCaptions) return; const ch=E.chunks.find(c=>T_>=c.t0&&T_<c.t1); if(!ch) return; if(E.tl.style?.look==='word') return drawCaptionWord(T_,ch);
-  if(E.tl.style?.look==='explainer') return drawCaptionExplainer(T_,ch); if(E.tl.style?.look==='pixel') return drawCaptionPixel(T_,ch);
+  if(E.tl.style?.look==='explainer') return drawCaptionExplainer(T_,ch); if(E.tl.style?.look==='pixel'){ const sp=E.curShot&&E.curShot.p; if(sp&&(sp.big||sp.board||sp.map)) return; return drawCaptionPixel(T_,ch); }
   const pop=easeOutBack(clamp((T_-ch.t0)/0.12)); let size=E.tl.style?.captionSize||96; ctx.font=`900 ${size}px Montserrat`;
   const words=ch.words.map(w=>{ const x=w.w.replace(/[.,!?]$/,''); return E.capCase==='upper'?x.toUpperCase():x; }); const sp=46;
   let widths=words.map(w=>ctx.measureText(w).width), tw=widths.reduce((a,b)=>a+b,0)+sp*(words.length-1);

@@ -67,6 +67,7 @@ function toSpec(script) {
       if (v.type === 'title' && v.text) return out.push(bigShot(v.text, v.sub, pick, st)); if (v.type === 'number' && v.value != null) return out.push(bigShot(v.value, v.sub, pick, st));
       if (v.type === 'mistake') { const sh = sceneShots(v.over || { type: 'scene', people: [{ role: 'friend', does: 'no' }] }, si, pick, 0, st)[0]; sh.p.cast.forEach(q => { if (q.kind === 'person') { q.emoAct = 'no'; q.face = q.face === 'happy' ? 'worried' : q.face; } }); return out.push(sh); }
       out.push(boardShot(s, st)); }); seg.shots = out; });
+  base.segments.forEach(seg => { const textual = seg.shots.length && seg.shots.every(s => s.p && (s.p.big || s.p.board || s.p.map)); seg.callouts = (seg.callouts || []).filter(c => !(textual && c.type === 'big')).map(c => { if (c.early) { const { sub, ...rest } = c; return rest; } return c; }); });
   return { ...base, preset: 'pixel8', ab: script.ab || 'style pixel8', ...(script.follow === false ? { follow: false } : {}) };
 }
 module.exports = { name: 'pixel8', toSpec };

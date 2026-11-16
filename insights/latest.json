@@ -1,11 +1,11 @@
 {
- "read": "2026-11-16T20:15:45.565Z",
+ "read": "2026-11-16T23:15:31.602Z",
  "insights": true,
  "reels": [
   {
-   "id": "18130747579844259",
-   "posted": "2026-11-16T20:15:17+0000",
-   "link": "https://www.instagram.com/reel/Df0MIWKgq--/",
+   "id": "18169120354491757",
+   "posted": "2026-11-16T23:14:55+0000",
+   "link": "https://www.instagram.com/reel/Df0gtHCD4-t/",
    "title": "¿Yerba con palo o sin palo? Tu elección dice algo de vos 🧉",
    "likes": 0,
    "comments": 0,
@@ -18,19 +18,34 @@
    "ig_reels_video_view_total_time": 0
   },
   {
+   "id": "18130747579844259",
+   "posted": "2026-11-16T20:15:17+0000",
+   "link": "https://www.instagram.com/reel/Df0MIWKgq--/",
+   "title": "¿Yerba con palo o sin palo? Tu elección dice algo de vos 🧉",
+   "likes": 38,
+   "comments": 1,
+   "reach": 1141,
+   "views": 1345,
+   "saved": 1,
+   "shares": 0,
+   "total_interactions": 40,
+   "ig_reels_avg_watch_time": 15747,
+   "ig_reels_video_view_total_time": 18109390
+  },
+  {
    "id": "18387264883230971",
    "posted": "2026-11-16T16:18:18+0000",
    "link": "https://www.instagram.com/reel/DfzxB2WDw-e/",
    "title": "El primer mate es el peor de la ronda… y el cebador se lo toma a propósito 🧉",
-   "likes": 268,
-   "comments": 6,
-   "reach": 3938,
-   "views": 5017,
-   "saved": 8,
-   "shares": 15,
-   "total_interactions": 306,
-   "ig_reels_avg_watch_time": 20035,
-   "ig_reels_video_view_total_time": 78599561
+   "likes": 339,
+   "comments": 7,
+   "reach": 5241,
+   "views": 6391,
+   "saved": 13,
+   "shares": 22,
+   "total_interactions": 392,
+   "ig_reels_avg_watch_time": 20100,
+   "ig_reels_video_view_total_time": 104020638
   },
   {
    "id": "18650638792011863",
@@ -39,13 +54,13 @@
    "title": "¿Team calabaza o team acero? Tu mate dice mucho de vos 🧉",
    "likes": 38,
    "comments": 0,
-   "reach": 1122,
-   "views": 1300,
+   "reach": 1147,
+   "views": 1328,
    "saved": 1,
    "shares": 0,
    "total_interactions": 40,
-   "ig_reels_avg_watch_time": 16887,
-   "ig_reels_video_view_total_time": 18982075
+   "ig_reels_avg_watch_time": 16826,
+   "ig_reels_video_view_total_time": 19266370
   },
   {
    "id": "18136927855731858",
@@ -54,13 +69,13 @@
    "title": "Tu yerba esperó casi un año antes de llegar a tu mate ⏳🧉",
    "likes": 23,
    "comments": 1,
-   "reach": 1079,
-   "views": 1235,
+   "reach": 1081,
+   "views": 1237,
    "saved": 1,
    "shares": 0,
    "total_interactions": 25,
    "ig_reels_avg_watch_time": 11852,
-   "ig_reels_video_view_total_time": 12788769
+   "ig_reels_video_view_total_time": 12812759
   },
   {
    "id": "18051924839821500",
@@ -69,13 +84,13 @@
    "title": "Mover la bombilla en una ronda no es un detalle: para el cebador es casi una ofensa 🧉",
    "likes": 34,
    "comments": 0,
-   "reach": 1280,
-   "views": 1450,
+   "reach": 1281,
+   "views": 1451,
    "saved": 4,
    "shares": 2,
    "total_interactions": 41,
-   "ig_reels_avg_watch_time": 11975,
-   "ig_reels_video_view_total_time": 15160868
+   "ig_reels_avg_watch_time": 11967,
+   "ig_reels_video_view_total_time": 15162878
   },
   {
    "id": "17951230014084455",
@@ -84,13 +99,13 @@
    "title": "¿Team calabaza o team acero? Tu mate dice mucho de vos 🧉",
    "likes": 37,
    "comments": 1,
-   "reach": 1258,
-   "views": 1479,
+   "reach": 1259,
+   "views": 1480,
    "saved": 0,
    "shares": 0,
    "total_interactions": 38,
-   "ig_reels_avg_watch_time": 21287,
-   "ig_reels_video_view_total_time": 26928776
+   "ig_reels_avg_watch_time": 21272,
+   "ig_reels_video_view_total_time": 26930949
   },
   {
    "id": "18233419840328947",
@@ -130,12 +145,12 @@
    "likes": 79,
    "comments": 3,
    "reach": 1171,
-   "views": 1410,
+   "views": 1413,
    "saved": 5,
    "shares": 1,
    "total_interactions": 90,
-   "ig_reels_avg_watch_time": 17331,
-   "ig_reels_video_view_total_time": 20606713
+   "ig_reels_avg_watch_time": 17318,
+   "ig_reels_video_view_total_time": 20609455
   },
   {
    "id": "18135798544775299",
@@ -145,12 +160,12 @@
    "likes": 69,
    "comments": 0,
    "reach": 1271,
-   "views": 1488,
+   "views": 1489,
    "saved": 7,
    "shares": 0,
    "total_interactions": 77,
-   "ig_reels_avg_watch_time": 17887,
-   "ig_reels_video_view_total_time": 22592127
+   "ig_reels_avg_watch_time": 17874,
+   "ig_reels_video_view_total_time": 22593700
   },
   {
    "id": "17871561285661280",

@@ -127,7 +127,7 @@ function toSpec(script, opt = {}) { // opt.plain: one shot per visual and no 2D 
     if (sg.headline) { const at = sg.headlineAt || AT(sg.text); const t = sg.headlineType || 'big'; callouts.push({ type: t, text: sg.headline, at, ...(sg.impact ? { impact: true } : {}), ...(sg.headlineSub ? { sub: sg.headlineSub } : {}) }); }
     if (sg.visual && sg.visual.type === 'mistake') callouts.push({ type: 'xmark', text: sg.visual.text, at: sg.visual.at || AT(sg.text), y: 820, size: 300 });
     // comments: the question of the poll is already asked early (second sentence), not only at the end
-    if (script.poll && si === 1 && (script.poll.options || []).length) callouts.push({ type: 'pill', text: '¿VOS QUÉ DECÍS?', sub: script.poll.options.slice(0, 3).join(' · ').slice(0, 44), y: 1500, early: true });
+    if (script.poll && si === 1 && (script.poll.options || []).length) callouts.push({ type: 'pill', text: '¿VOS QUÉ DECÍS?', sub: script.poll.options.slice(0, 3).join(' · ').slice(0, 44), y: 1300, early: true });
     return { text: sg.text, say: sg.say, emo: sg.emo || 'neutral', shots, callouts };
   });
   if (script.poll) { const last = segs[segs.length - 1]; last.shots = [{ tpl: 'board', p: { kind: 'poll', bg: NAVY, question: script.poll.question, options: script.poll.options, top: 600, cta: false, ...(!opt.plain && st.scene ? { scene: st.scene, time: st.time, tableY: st.tableY } : {}) } }]; last.callouts = []; }

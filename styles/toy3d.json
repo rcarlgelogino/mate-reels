@@ -11,7 +11,7 @@
     "captionY": 330,
     "captionSize": 84,
     "boardScale": 1.35,
-    "calloutY": 1470
+    "calloutY": 1340
   },
   "spec": {
     "voice": "es-AR-TomasNeural",
@@ -19,6 +19,6 @@
     "geminiVoice": "Charon",
     "followText": "SEGUINOS PARA MÁS",
     "followSub": "COSTUMBRES DEL MATE",
-    "followY": 1640
+    "followY": 1400
   }
 }

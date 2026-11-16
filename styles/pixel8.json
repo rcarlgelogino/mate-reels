@@ -12,7 +12,7 @@
     "captionY": 330,
     "captionSize": 78,
     "wordsPerCaption": 3,
-    "calloutY": 1500,
+    "calloutY": 1300,
     "calloutSize": 140,
     "barColor": "#ffd84a",
     "cut": "hard"
@@ -23,6 +23,6 @@
     "geminiVoice": "Charon",
     "followText": "SEGUINOS PARA MÁS",
     "followSub": "COSTUMBRES DEL MATE",
-    "followY": 1640
+    "followY": 1400
   }
 }

@@ -1,11 +1,26 @@
 {
- "updated": "2026-11-15T09:11:32.084Z",
- "reels": 7,
+ "updated": "2026-11-16T09:08:08.489Z",
+ "reels": 10,
  "do": [
+  {
+   "n": 1,
+   "area": "scale",
+   "rule": "Keep human characters sized to roughly half the vertical 9:16 frame height in indoor/patio scenes rather than shrinking them to fit oversized background furniture."
+  },
+  {
+   "n": 1,
+   "area": "match",
+   "rule": "When the script specifically mentions an action and prop like dumping into a sink ('pileta'), render the sink and pouring motion rather than placing an abstract red X over a generic pose."
+  },
   {
    "n": 1,
    "area": "hands",
    "rule": "Ensure character hands clearly clasp the gourd contour rather than floating as simple discs."
+  },
+  {
+   "n": 1,
+   "area": "objects",
+   "rule": "Model featured prop assets with recognizable silhouettes instead of basic geometric primitives."
   },
   {
    "n": 1,
@@ -26,8 +41,23 @@
  "avoid": [
   {
    "n": 1,
+   "area": "hands",
+   "rule": "Never render handheld props (mate, flasks, cups) without attaching an arm and curling hand explicitly grasping them."
+  },
+  {
+   "n": 1,
+   "area": "labels",
+   "rule": "Do not render callout pill badges pointing to a prop when the main headline already states the exact same phrase."
+  },
+  {
+   "n": 1,
    "area": "scene",
    "rule": "Avoid duplicating large focal props like parrillas or hearths within the same backdrop."
+  },
+  {
+   "n": 1,
+   "area": "labels",
+   "rule": "Avoid placing headline text boxes across character eye lines in close-ups."
   },
   {
    "n": 1,
@@ -51,15 +81,17 @@
   }
  ],
  "recentBad": [
+  "Shot 4: Characters are scaled down to miniature proportions (occupying less than a quarter of the frame height) while the brick fireplace and quincho background are gigantic.",
+  "Shot 6: The mate gourd and bombilla float completely unsupported in mid-air in front of the office worker's chest; both of her arms are hanging straight down at her sides.",
+  "Shot 8: The shopping cart lacks a basket body, leaving the yerba packages floating in white space above wheels.",
+  "Shot 0: Four bowls are displayed in a row repeating 'con palo' and 'sin palo' twice instead of showing a clear 2-item comparison.",
+  "Shot 4: Background shows two duplicate brick ovens/parrillas and dining chairs duplicated side-by-side like a repeated wallpaper tile rather than a coherent room layout.",
+  "Shot 7: Script mentions spitting or dumping the mate into a sink ('pileta'), but the visual only shows the figure standing at the counter with a giant red 'X' graphic overlay.",
+  "Shot 10: Characters face forward toward the camera while passing the mate sideways rather than turning slightly toward each other.",
+  "Shot 3: Redundant text duplicate where large teal headline 'MATE DEL ZONZO' sits directly above an identical pill badge 'MATE DEL ZONZO'.",
   "Shot 8: Five characters are identically lined up across a balcony edge without depth.",
   "Shot 9: Two identical brick parrillas sit unnaturally side-by-side in the same room.",
   "Shot 1: Stark, empty purple backdrop contrasts with detailed interior scenes elsewhere.",
-  "Shot 8: 'SU TRABAJO' label tag is duplicated redundantly across two figures.",
-  "Shot 3: Figure is disproportionately tiny compared to the large room and background elements.",
-  "Shot 8: Visual shows numbered flashcards instead of illustrating a glass mate as narrated.",
-  "Shot 7: Stray visual artifacts or debris scattered on the ground around figures.",
-  "Shot 5: Green shirt figure has floating hands positioned wide without holding any props, creating an awkward stance.",
-  "Shot 8: Text elements on the board slide are placed too low and small near the bottom corner.",
-  "shot 1: The phrase 'LA ÚLTIMA' repeats across multiple consecutive frames without new visual content"
+  "Shot 8: 'SU TRABAJO' label tag is duplicated redundantly across two figures."
  ]
 }

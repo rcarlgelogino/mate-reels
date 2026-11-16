@@ -3,13 +3,16 @@
 Every reel is analysed after it is built (scripts/qa.js), for its VISUAL representation only. Pacing, hook, wording and sound are not learned here; they come from the reference reels (docs/WATCHTIME.md).
 The rules below are collected from all analyses, most frequent first. scripts/improve.js uses them to choose the visuals of the next script; recurring drawing problems get fixed in the style (styles/*.js, engine). Nothing here blocks a release.
 
-Reels analysed: 7 · average scores: visual logic 7.0 · graphics 6.8 · overall 7.0 · updated 2026-11-15
+Reels analysed: 10 · average scores: visual logic 6.5 · graphics 6.6 · overall 6.6 · updated 2026-11-16
 
 ## Do more of
 
 | times | area | rule | last seen |
 |---|---|---|---|
+| 1 | scale | Keep human characters sized to roughly half the vertical 9:16 frame height in indoor/patio scenes rather than shrinking them to fit oversized background furniture. | 2026-11-16 |
+| 1 | match | When the script specifically mentions an action and prop like dumping into a sink ('pileta'), render the sink and pouring motion rather than placing an abstract red X over a generic pose. | 2026-11-16 |
 | 1 | hands | Ensure character hands clearly clasp the gourd contour rather than floating as simple discs. | 2026-11-15 |
+| 1 | objects | Model featured prop assets with recognizable silhouettes instead of basic geometric primitives. | 2026-11-15 |
 | 1 | match | Ensure featured material types are directly depicted rather than abstracted as numbered cards. | 2026-11-15 |
 | 1 | labels | Keep graphic text centered and safely within vertical UI margins. | 2026-11-14 |
 | 1 | scale | Keep all props such as gourds, bombillas, and thermoses correctly proportioned relative to the figures holding them. | 2026-11-14 |
@@ -18,13 +21,26 @@ Reels analysed: 7 · average scores: visual logic 7.0 · graphics 6.8 · overall
 
 | times | area | rule | last seen |
 |---|---|---|---|
+| 1 | hands | Never render handheld props (mate, flasks, cups) without attaching an arm and curling hand explicitly grasping them. | 2026-11-16 |
+| 1 | labels | Do not render callout pill badges pointing to a prop when the main headline already states the exact same phrase. | 2026-11-16 |
 | 1 | scene | Avoid duplicating large focal props like parrillas or hearths within the same backdrop. | 2026-11-15 |
+| 1 | labels | Avoid placing headline text boxes across character eye lines in close-ups. | 2026-11-15 |
 | 1 | scale | Avoid placing isolated, shrunken full-body figures in oversized empty rooms. | 2026-11-15 |
 | 1 | hands | Avoid T-pose or wide floating hand placements when characters hold no props. | 2026-11-14 |
 | 1 | labels | Avoid reusing the exact same static close-up frame multiple times consecutively without a change in expression, angle, or action. | 2026-11-14 |
 | 1 | labels | Avoid using board templates that display only plain text without any visual icons, props, or characters. | 2026-11-14 |
 
 ## Latest reels
+
+### 0011_con_palo_o_sin_palo (2026-11-16)
+The reel features clean typography and good visual clarity in the infographic and diagram shots (stem anatomy and board summaries). However, severe physical logic issues occur with character interactions, most notably a mate floating mid-air on a chest with no hands holding it, miniature character scaling in the quincho scene, and an unfinished shopping cart prop.
+- clean: Shot 2 leaf/stem diagram clearly shows the difference between leaf and stick with accurate pointers.; Shot 3 and shot 11 boards are cleanly laid out and readable.; Clear color contrasts between yerba con palo and sin palo bowls.; Text labels and captions stay well inside the safe margins.
+- unclean: Shot 4: Characters are scaled down to miniature proportions (occupying less than a quarter of the frame height) while the brick fireplace and quincho background are gigantic.; Shot 6: The mate gourd and bombilla float completely unsupported in mid-air in front of the office worker's chest; both of her arms are hanging straight down at her sides.; Shot 8: The shopping cart lacks a basket body, leaving the yerba packages floating in white space above wheels.; Shot 0: Four bowls are displayed in a row repeating 'con palo' and 'sin palo' twice instead of showing a clear 2-item comparison.; Shot 1: The character's raised arm is an awkward straight diagonal polygon with no elbow bend.; Shot 9: The orange '¡OFERTA!' badge from the previous scene persists above the captions, creating visual clutter over 'SON MUCHOS'.
+
+### 0010_el_primer_mate_es_el_peor (2026-11-16)
+The flat 2D vector aesthetic is clean with cohesive character design, clear typography, and well-executed facial expressions. However, shots 7 and 8 repeat the kitchen scene back-to-back without variety, shot 7 misses depicting an actual sink or dumping action, and shots 3 and 4 over-sampled into 3 frames each, omitting shot 11 from the sheet.
+- clean: Shot 0: Hand grip on the mate gourd rests naturally against the side with fingers curled over the edge.; Shot 1: Arms raise smoothly to touch the head in shock without unnatural limb distortion.; Shot 6 & 8: Drinking gestures correctly bring the bombilla to the mouth.; Shot 10: Mate hand-off connects hand-to-hand without the gourd floating in mid-air.; Shots 2 and 9: Board templates have crisp typography, balanced card hierarchy, and high contrast against dark backgrounds.
+- unclean: Shot 4: Background shows two duplicate brick ovens/parrillas and dining chairs duplicated side-by-side like a repeated wallpaper tile rather than a coherent room layout.; Shot 7: Script mentions spitting or dumping the mate into a sink ('pileta'), but the visual only shows the figure standing at the counter with a giant red 'X' graphic overlay.; Shot 10: Characters face forward toward the camera while passing the mate sideways rather than turning slightly toward each other.; Shot 3: Redundant text duplicate where large teal headline 'MATE DEL ZONZO' sits directly above an identical pill badge 'MATE DEL ZONZO'.; Shots 7 and 8: Consecutive shots reuse the identical kitchen counter framing and red-shirt character without zoom, camera angle shift, or background variation.; Grid sampling: Shots 3 and 4 each took 3 grid cells instead of 2, pushing the final call-to-action shot 11 out of the 24-frame contact sheet.
 
 ### 0009_tu_yerba_espero_un_ano (2026-11-15)
 
@@ -37,22 +53,12 @@ The reel maintains a coherent flat 2D vector aesthetic with bold typography and 
 - unclean: Shot 8: Five characters are identically lined up across a balcony edge without depth.; Shot 9: Two identical brick parrillas sit unnaturally side-by-side in the same room.; Shot 1: Stark, empty purple backdrop contrasts with detailed interior scenes elsewhere.; Shot 8: 'SU TRABAJO' label tag is duplicated redundantly across two figures.
 
 ### 0007_team_calabaza_o_acero (2026-11-15)
+The toy3d aesthetic remains largely consistent with bright lighting and uniform character designs throughout the reel. However, text card positioning obscures facial features during close-ups, and a few standalone prop assets appear overly primitive.
+- clean: Floating ball hands and limbless character geometry adhere consistently to the style rules.; Shadows, outdoor park lighting, and interior kitchen environments maintain visual continuity.; Consistent soft clay materials and vibrant, well-lit environments.; Font styling and lower-third headline cards maintain coherent branding.
+- unclean: Shot 3: Cell 7 retains the yellow character and text from the previous topic rather than introducing the calabaza mate.; Shot 8: The stainless steel mate model resembles an unstyled flat metal can rather than drinkware.; Shot 6: Headline box in cell 14 directly covers the character's eyes and glasses.; Shot 4: Unidentified metallic tool clips into the top edge of cell 9.
+
+### 0007_team_calabaza_o_acero (2026-11-15)
 The flat 2D vector visuals are consistent, colorful, and clean across all scenes. However, some character scale inconsistencies and a visual mismatch on the glass mate shot weaken the presentation.
 - clean: Mate close-ups accurately represent calabaza, madera, and acero textures.; Counter and background alignment in kitchen shots is stable.; Consistent typography, banners, and color palette throughout.; Clear iconography and well-rendered isolated prop shots.
 - unclean: Shot 3: Figure is disproportionately tiny compared to the large room and background elements.; Shot 8: Visual shows numbered flashcards instead of illustrating a glass mate as narrated.; Shot 7: Stray visual artifacts or debris scattered on the ground around figures.
-
-### 0006_de_donde_viene_mate (2026-11-14)
- The 3D render quality is consistent with clean character modeling and pleasant outdoor environments. Text cards and board templates are clear, though some text layouts feel slightly misaligned across shots.
-- clean: Character shapes, floating hands, and props maintain consistent aesthetic rules throughout.; Gourd props align properly with character hands during holding poses.; Text cards match frame contrast well and use readable typography.; Lighting and environment colors remain vibrant and bright.
-- unclean: Shot 5: Green shirt figure has floating hands positioned wide without holding any props, creating an awkward stance.; Shot 8: Text elements on the board slide are placed too low and small near the bottom corner.
-
-### 0006_de_donde_viene_mate (2026-11-14)
-
-- clean: –
-- unclean: –
-
-### 0005_sos_argentino_de_verdad (2026-11-14)
-The reel maintains a consistent flat 2D vector style with well-executed character poses, proper grip mechanics on mates, and clear typography. Minor inconsistencies appear in text overlaps across frames, but overall visual storytelling effectively matches the narration.
-- clean: shot 0: Kitchen counter background with multiple characters holding mates correctly with proper hand-to-gourd wrapping; shot 2: Character walking outdoors holding a thermos correctly by its side; shot 6: Characters behind the counter showing clear angry expressions matching the line about moving the bombilla; shot 7: Two characters passing and sharing a mate with hands meeting correctly; shot 8: Group of diverse characters standing together outdoors
-- unclean: shot 1: The phrase 'LA ÚLTIMA' repeats across multiple consecutive frames without new visual content
 

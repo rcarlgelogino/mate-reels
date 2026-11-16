@@ -1,0 +1,14 @@
+{
+ "id": "0010_el_primer_mate_es_el_peor",
+ "file": "work/0010_el_primer_mate_es_el_peor/final.mp4",
+ "voice": "gemini",
+ "duration": 35.434,
+ "inTarget": true,
+ "target": [
+  35,
+  45
+ ],
+ "loudness": "-11.9 LUFS, peak -0.9 dBFS",
+ "shots": 12,
+ "minutes": 2.3
+}

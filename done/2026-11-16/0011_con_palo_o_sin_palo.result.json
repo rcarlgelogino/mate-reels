@@ -1,0 +1,14 @@
+{
+ "id": "0011_con_palo_o_sin_palo",
+ "file": "work/0011_con_palo_o_sin_palo/final.mp4",
+ "voice": "gemini",
+ "duration": 35.8,
+ "inTarget": true,
+ "target": [
+  35,
+  45
+ ],
+ "loudness": "-12.7 LUFS, peak -0.8 dBFS",
+ "shots": 12,
+ "minutes": 2.3
+}

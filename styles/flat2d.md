@@ -29,3 +29,11 @@ Layout and text
 - Captions in the dark box at the top, headline under it, nothing important in the bottom 15 % (Instagram UI).
 - Headlines never cover faces or hands.
 - One idea per shot; same scene may not repeat twice in a row without a change (new people, zoom, action).
+
+## Added 2026-11-16 (same content as toy3d, so A/B pairs match)
+- Scenes: kitchen, park, plaza, patio, beach, living, selva (night with `noche` in the place name), super, mercado, yerbal, galpon, office, ruta, bano. Place names in any wording are mapped (`PLACES2` in `flat2d.js`).
+- Characters: nations with the flag on the shirt (argentino, uruguayo, paraguayo, brasileno, chileno, aleman), gaucho, oficinista, estudiante, turista, suegra, suegro, novia, cunado, companera, companero_vivo, jefe, guarani, anciano_guarani, yasy_luna, tarefero, yuyera.
+- Faces: smile, happy, neutral, angry, outraged, bored, worried, disgusted, pain, confused, sad, surprised, proud, love, laugh, sip.
+- Actions: pour (flask tilted, spout right above the opening of the gourd, water falls in), think, shrug, talk, whisper, phone, blow, shake, sit (bench or the sofa of the living room), things in the hand (yerba, pava, celular, facturas, bolsa ...), cuia and guampa.
+- Objects: yerba heaps (con palo, sin palo, brasil), rama, hoja, planta, calabaza plant, tacuapi, cuia, guampa, jarra con hielo, bolsa de nylon, heladera, termo with stickers / dented, mano con polvo, small things, auto, camion, colectivo, cut-open mate (dust top/bottom, wet side, pores, level 3/4, swelling), `compare` (two things with names), `map` (South America with highlighted countries).
+- Props behind the figures: fogata, pileta, banera, changuito, yaguarete, perro, bolsas, vehicles.

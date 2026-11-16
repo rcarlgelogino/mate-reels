@@ -99,3 +99,11 @@ Second analysis (2026-11-13): 7 high-view reels the user sent. Each Instagram pa
 4. Re-hook every 8–12 s?
 5. Payoff lands on emotion or a joke?
 6. Ending: choice with options (or "parte 2" question) + "Seguinos para más", last picture echoes the first?
+
+## 9. First numbers of our own reels (2026-11-16, 10 reels, public counts)
+- Every reel got 1,200-1,800 views (the test audience of a new account); none broke out yet. Like rate 5 % on the first two days, 2-3 % on the third.
+- Comments came almost only on the two debates ("dulce o amargo" 4, "argentino o uruguayo" 3; 9 in total). Consequences for scripts:
+  1. Prefer debate / team / identity topics; at least one of the three reels of a day is a debate.
+  2. Ask the comment question early: the styles show "¿VOS QUÉ DECÍS?" with the poll options in the second sentence. Every script that can carry a choice gets a `poll`.
+  3. At most three text-only boards per reel; a sentence that can be shown is shown (scene, object, compare, map).
+- 2D vs 3D: no visible difference in two pairs (both 3D reels were the old one-camera look). Compare again with the numbers of `insights/REPORT.md` (written by `scripts/insights.js` after every post slot; watch time needs the permission instagram_manage_insights).

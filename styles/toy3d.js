@@ -102,7 +102,7 @@ function signShot(sign, pick, st, v) { return { tpl: 'prado', p: { sign, shot: (
 const BOARD = ['wide', 'far', 'widelow', 'pan'];
 function boardShot3(s, pick, st) { if (!s || s.tpl !== 'board' || !s.p || (s.p.kind === 'title' && !s.p.text)) return s; const { bg, ...board } = s.p; return { tpl: 'prado', p: { board, shot: pick(BOARD), place: st.place, ...(st.night ? { night: true } : {}) } }; }
 function toSpec(script) {
-  const base = flat2d.toSpec(script); const pick = chooser(script.id || 'reel'); const st = { place: placeOf((script.segments.map(g => (g.visuals || [g.visual])).flat().find(v => v && v.type === 'scene') || {}).place) }; // reactions and objects stay in the place of the scene before them
+  const base = flat2d.toSpec(script, { plain: true }); base.segments.forEach(g => (g.callouts || []).forEach(c => { if (c.early) c.y = 1270; })); const pick = chooser(script.id || 'reel'); const st = { place: placeOf((script.segments.map(g => (g.visuals || [g.visual])).flat().find(v => v && v.type === 'scene') || {}).place) }; // reactions and objects stay in the place of the scene before them
   base.segments.forEach((seg, si) => { const sg = script.segments[si]; const vis = sg.visuals || [sg.visual]; const words = String(sg.text || '').split(/\s+/).filter(Boolean).length;
     if (script.poll && si === script.segments.length - 1) { seg.shots = seg.shots.map(s => boardShot3(s, pick, st)); return; }
     const out = []; seg.shots.forEach((s, k) => { const v = vis[k]; if (!v) return out.push(s);

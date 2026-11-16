@@ -29,12 +29,12 @@ const BG = { red: '#e5483a', purple: '#7c3aed', blue: '#3b82f6', green: '#10b981
 const REACT_COLORS = ['#7c3aed', '#e5483a', '#3b82f6', '#10b981', '#f59e0b'];
 const NAVY = '#132033';
 // x positions / sizes by number of people (feet y in 0..1 of the frame)
-function layout(n, place) { if (place === 'kitchen') return layoutBase(n, 0.9).map(p => ({ ...p, s: Math.round(p.s * 1.28) })); return layoutBase(n, place === 'patio' || place === 'beach' || INSIDE.includes(place) ? 0.86 : 0.8); }
+function layout(n, place) { if (place === 'kitchen') return layoutBase(n, 0.9).map(p => ({ ...p, s: Math.round(p.s * 1.12) })); return layoutBase(n, place === 'patio' || place === 'beach' || INSIDE.includes(place) ? 0.86 : 0.8); }
 function layoutBase(n, ky) {
-  if (n === 1) return [{ x: 0.5, y: ky + 0.06, s: 720 }];
-  if (n === 2) return [{ x: 0.28, y: ky, s: 580 }, { x: 0.74, y: ky, s: 580 }];
-  if (n === 3) return [{ x: 0.2, y: ky, s: 520 }, { x: 0.5, y: ky + 0.01, s: 540 }, { x: 0.8, y: ky, s: 520 }];
-  return Array.from({ length: n }, (_, i) => i < 3 ? { x: [0.18, 0.5, 0.82][i], y: ky + 0.02, s: 480 } : { x: [0.34, 0.66, 0.5][i - 3], y: ky - 0.04, s: 400, back: true }); }
+  if (n === 1) return [{ x: 0.5, y: ky + 0.06, s: 820 }];
+  if (n === 2) return [{ x: 0.28, y: ky + 0.03, s: 700 }, { x: 0.74, y: ky + 0.03, s: 700 }];
+  if (n === 3) return [{ x: 0.19, y: ky + 0.03, s: 620 }, { x: 0.5, y: ky + 0.04, s: 640 }, { x: 0.81, y: ky + 0.03, s: 620 }];
+  return Array.from({ length: n }, (_, i) => i < 3 ? { x: [0.18, 0.5, 0.82][i], y: ky + 0.05, s: 580 } : { x: [0.34, 0.66, 0.5][i - 3], y: ky - 0.03, s: 500, back: true }); }
 // place names (any wording) -> drawn 2D scenes
 const PLACES2 = [[/supermercado|^super|gondola|almacen/, 'super'], [/mercado|feria|puesto/, 'mercado'], [/living|sala|sillon|suegr/, 'living'], [/selva|monte|jungla|choza|aldea/, 'selva'], [/yerbal|plantacion|cosecha|misiones|tarefa/, 'yerbal'], [/galpon|secadero|fabrica|molino|deposito/, 'galpon'],
   [/bano|ducha/, 'bano'], [/ruta|carretera|viaje|camino/, 'ruta'], [/cocina|kitchen|casa|home|hogar|comedor|desayuno/, 'kitchen'], [/oficina|office|trabajo|laburo|escritorio|reunion/, 'office'], [/plaza|ciudad|city|calle|street|centro|barrio|parada|colectivo|vereda|kiosco/, 'plaza'],
@@ -95,7 +95,7 @@ function compareShot(v) { const a = thing2(v.left || {}), b = thing2(v.right || 
 function mapShot(v) { return { tpl: 'flat', p: { scene: 'navygrid', bg: NAVY, objs: [{ type: 'map', x: 0.5, y: 0.86, s: 980, countries: v.countries, text: v.text, sub: v.sub }] } }; }
 function reactionShot(v, si) { const bg = BG[v.color] || v.color || REACT_COLORS[si % REACT_COLORS.length];
   return { tpl: 'flat', p: { scene: 'solid', bg, people: [{ who: v.who ?? (si % 6), x: 0.5, y: 1.34, s: 1500, act: { teeth: null, burn_tongue: 'shock' }[v.act] !== undefined ? { teeth: null, burn_tongue: 'shock' }[v.act] : (v.act || (v.emotion === 'surprised' ? 'shock' : null)), face: v.act === 'teeth' ? 'disgusted' : v.act === 'burn_tongue' ? 'pain' : (FACE2[norm(v.emotion)] || v.emotion || 'surprised') }] } }; }
-function boardShot(v) { const b = { bg: NAVY };
+function boardShot(v, st) { const b = { bg: NAVY }; if (st && st.scene) { b.scene = st.scene; if (st.time) b.time = st.time; if (st.tableY) b.tableY = st.tableY; }
   if (v.type === 'title') return { tpl: 'board', p: { ...b, kind: 'title', text: v.text, sub: v.sub } };
   if (v.type === 'number') return { tpl: 'board', p: { ...b, kind: 'title', text: v.value, sub: v.sub } };
   if (v.type === 'list') return { tpl: 'board', p: { ...b, kind: 'cards', items: v.items.map((it, i) => ({ n: it.n ?? i + 1, title: it.title, sub: it.sub, ok: it.ok })) } };
@@ -103,22 +103,34 @@ function boardShot(v) { const b = { bg: NAVY };
   if (v.type === 'dots') return { tpl: 'board', p: { ...b, kind: 'dots', total: v.total || 100, on: v.on, cols: v.cols || 10, label: v.label, sub: v.sub } };
   if (v.type === 'timeline') return { tpl: 'board', p: { ...b, kind: 'timeline', items: v.items } };
   return null; }
-function shotFor(v, si) {
-  if (!v) return boardShot({ type: 'title', text: '' });
-  if (v.type === 'scene') return sceneShot(v, si); if (v.type === 'object') return objectShot(v, si); if (v.type === 'reaction') return reactionShot(v, si);
+// 2D camera plans: push in, pull out, pan, sudden punch-in, tight second angle (centre = the head of the focus figure)
+const CAMS2 = ['push', 'panR', 'pull', 'snap', 'panL', 'still'];
+function cam2(kind, fp) { const c = fp ? [fp.x, fp.y - 0.62 * fp.s / 1920] : [0.5, 0.55]; const mid = [0.5, 0.55];
+  if (kind === 'push') return { z0: 1.06, z1: 1.3, c0: mid, c1: c }; if (kind === 'pull') return { z0: 1.38, z1: 1.08, c0: c, c1: mid }; if (kind === 'panR') return { z0: 1.22, z1: 1.22, c0: [0.36, 0.56], c1: [0.64, 0.56] }; if (kind === 'panL') return { z0: 1.22, z1: 1.22, c0: [0.64, 0.56], c1: [0.36, 0.56] };
+  if (kind === 'snap') return { z0: 1.06, z1: 1.5, c0: mid, c1: c, snap: 0.42 }; if (kind === 'tight') return { z0: 1.55, z1: 1.68, c0: c, c1: c }; return null; }
+function shotFor(v, si, st) {
+  if (!v) return boardShot({ type: 'title', text: '' }, st);
+  if (v.type === 'scene') { const sh = sceneShot(v, si); if (st) { st.scene = sh.p.scene; st.time = sh.p.time; st.tableY = sh.p.tableY; } return sh; } if (v.type === 'object') return objectShot(v, si); if (v.type === 'reaction') return reactionShot(v, si);
   if (v.type === 'compare') { const c = compareShot(v); if (c) return c; } if (v.type === 'map') return mapShot(v);
-  if (v.type === 'mistake') return sceneShot(v.over || { type: 'scene', place: 'kitchen', people: [{ role: 'friend', does: 'no' }] }, si);
-  return boardShot(v) || boardShot({ type: 'title', text: v.text || '', sub: v.sub }); } // visual kinds no style draws yet (compare, map ...) show their text as a card
+  if (v.type === 'mistake') { const sh = sceneShot(v.over || { type: 'scene', place: 'kitchen', people: [{ role: 'friend', does: 'no' }] }, si); if (st) { st.scene = sh.p.scene; st.time = sh.p.time; st.tableY = sh.p.tableY; } return sh; }
+  return boardShot(v, st) || boardShot({ type: 'title', text: v.text || '', sub: v.sub }, st); } // visual kinds no style draws yet (compare, map ...) show their text as a card
 const AT = text => { const w = text.replace(/[¿¡]/g, '').split(/\s+/).map(x => x.replace(/[^\p{L}]/gu, '')).filter(x => x.length > 3 && !/^\d/.test(x)); const pick = (w[1] || w[0] || '').toLowerCase(); const cut = pick.search(/[^a-zñ]/); return (cut > 1 ? pick.slice(0, cut) : pick).slice(0, 5); };
-function toSpec(script) {
+function toSpec(script, opt = {}) { // opt.plain: one shot per visual and no 2D camera (toy3d builds on this and swaps the pictures)
+  const st = {}; let lastCam = null, ck = hashN(script.id || 'reel', 97); const nextCam = () => { let c; do { c = CAMS2[ck++ % CAMS2.length]; } while (c === lastCam); lastCam = c; return c; };
+  const firstScene = script.segments.map(g => g.visuals || [g.visual]).flat().find(v => v && v.type === 'scene'); if (firstScene) { const s0 = sceneShot(firstScene, 0); st.scene = s0.p.scene; st.time = s0.p.time; st.tableY = s0.p.tableY; }
   const segs = script.segments.map((sg, si) => {
-    const vis = sg.visuals || [sg.visual]; const shots = vis.map((v, k) => { const s = shotFor(v, si); if (k % 2 === 1) s.zoom = 1.12; return s; });
+    const vis = sg.visuals || [sg.visual]; let shots = vis.map((v, k) => { const s = shotFor(v, si, opt.plain ? null : st); if (k % 2 === 1) s.zoom = 1.12; return s; });
+    if (!opt.plain) { const out = []; shots.forEach((s, k) => { const v = vis[k]; const isScene = v && (v.type === 'scene' || v.type === 'mistake') && s.tpl === 'flat' && (s.p.people || []).length; if (!isScene) return out.push(s);
+        const ppl = s.p.people, busy = ppl.findIndex(q => q.act === 'pour' || q.act === 'drink'), fi = busy >= 0 ? busy : s.p.pass ? s.p.pass.from : 0, fp = ppl[fi]; const words = String(sg.text || '').split(/\s+/).length; const kind = si === 0 ? 'push' : nextCam(); const cam = cam2(kind, fp); if (cam) s.p.cam = cam; out.push(s);
+        if (vis.length === 1 && words >= 10 && !s.p.pass && ppl.length > 1 && !(v.type === 'mistake')) { const t2 = JSON.parse(JSON.stringify(s)); t2.p.cam = cam2('tight', fp); t2.p.people.forEach(q => { q.delay = 0; }); out.push(t2); } }); shots = out; }
     const callouts = [];
     if (sg.headline) { const at = sg.headlineAt || AT(sg.text); const t = sg.headlineType || 'big'; callouts.push({ type: t, text: sg.headline, at, ...(sg.impact ? { impact: true } : {}), ...(sg.headlineSub ? { sub: sg.headlineSub } : {}) }); }
     if (sg.visual && sg.visual.type === 'mistake') callouts.push({ type: 'xmark', text: sg.visual.text, at: sg.visual.at || AT(sg.text), y: 820, size: 300 });
+    // comments: the question of the poll is already asked early (second sentence), not only at the end
+    if (script.poll && si === 1 && (script.poll.options || []).length) callouts.push({ type: 'pill', text: '¿VOS QUÉ DECÍS?', sub: script.poll.options.slice(0, 3).join(' · ').slice(0, 44), y: 1500, early: true });
     return { text: sg.text, say: sg.say, emo: sg.emo || 'neutral', shots, callouts };
   });
-  if (script.poll) { const last = segs[segs.length - 1]; last.shots = [{ tpl: 'board', p: { kind: 'poll', bg: NAVY, question: script.poll.question, options: script.poll.options, top: 600, cta: false } }]; last.callouts = []; }
+  if (script.poll) { const last = segs[segs.length - 1]; last.shots = [{ tpl: 'board', p: { kind: 'poll', bg: NAVY, question: script.poll.question, options: script.poll.options, top: 600, cta: false, ...(!opt.plain && st.scene ? { scene: st.scene, time: st.time, tableY: st.tableY } : {}) } }]; last.callouts = []; }
   return { id: script.id, topic: script.topic, preset: 'flat2d', ab: script.ab || 'style flat2d', segments: segs, caption: script.caption, hashtags: script.hashtags,
     ...(script.followSub ? { followSub: script.followSub } : {}) };
 }

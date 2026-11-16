@@ -1,21 +1,36 @@
 {
- "read": "2026-11-16T17:45:42.093Z",
+ "read": "2026-11-16T20:15:45.565Z",
  "insights": true,
  "reels": [
+  {
+   "id": "18130747579844259",
+   "posted": "2026-11-16T20:15:17+0000",
+   "link": "https://www.instagram.com/reel/Df0MIWKgq--/",
+   "title": "¿Yerba con palo o sin palo? Tu elección dice algo de vos 🧉",
+   "likes": 0,
+   "comments": 0,
+   "reach": 0,
+   "views": 0,
+   "saved": 0,
+   "shares": 0,
+   "total_interactions": 0,
+   "ig_reels_avg_watch_time": 0,
+   "ig_reels_video_view_total_time": 0
+  },
   {
    "id": "18387264883230971",
    "posted": "2026-11-16T16:18:18+0000",
    "link": "https://www.instagram.com/reel/DfzxB2WDw-e/",
    "title": "El primer mate es el peor de la ronda… y el cebador se lo toma a propósito 🧉",
-   "likes": 103,
-   "comments": 4,
-   "reach": 1211,
-   "views": 1774,
-   "saved": 5,
-   "shares": 0,
-   "total_interactions": 115,
-   "ig_reels_avg_watch_time": 21512,
-   "ig_reels_video_view_total_time": 26589354
+   "likes": 268,
+   "comments": 6,
+   "reach": 3938,
+   "views": 5017,
+   "saved": 8,
+   "shares": 15,
+   "total_interactions": 306,
+   "ig_reels_avg_watch_time": 20035,
+   "ig_reels_video_view_total_time": 78599561
   },
   {
    "id": "18650638792011863",
@@ -24,13 +39,13 @@
    "title": "¿Team calabaza o team acero? Tu mate dice mucho de vos 🧉",
    "likes": 38,
    "comments": 0,
-   "reach": 1110,
-   "views": 1290,
+   "reach": 1122,
+   "views": 1300,
    "saved": 1,
    "shares": 0,
    "total_interactions": 40,
-   "ig_reels_avg_watch_time": 16833,
-   "ig_reels_video_view_total_time": 18752019
+   "ig_reels_avg_watch_time": 16887,
+   "ig_reels_video_view_total_time": 18982075
   },
   {
    "id": "18136927855731858",
@@ -44,8 +59,8 @@
    "saved": 1,
    "shares": 0,
    "total_interactions": 25,
-   "ig_reels_avg_watch_time": 11860,
-   "ig_reels_video_view_total_time": 12785957
+   "ig_reels_avg_watch_time": 11852,
+   "ig_reels_video_view_total_time": 12788769
   },
   {
    "id": "18051924839821500",
@@ -54,13 +69,13 @@
    "title": "Mover la bombilla en una ronda no es un detalle: para el cebador es casi una ofensa 🧉",
    "likes": 34,
    "comments": 0,
-   "reach": 1279,
+   "reach": 1280,
    "views": 1450,
    "saved": 4,
    "shares": 2,
    "total_interactions": 41,
-   "ig_reels_avg_watch_time": 11983,
-   "ig_reels_video_view_total_time": 15159387
+   "ig_reels_avg_watch_time": 11975,
+   "ig_reels_video_view_total_time": 15160868
   },
   {
    "id": "17951230014084455",
@@ -74,8 +89,8 @@
    "saved": 0,
    "shares": 0,
    "total_interactions": 38,
-   "ig_reels_avg_watch_time": 21298,
-   "ig_reels_video_view_total_time": 26920704
+   "ig_reels_avg_watch_time": 21287,
+   "ig_reels_video_view_total_time": 26928776
   },
   {
    "id": "18233419840328947",
@@ -129,7 +144,7 @@
    "title": "Nadie ceba como la abuela. Y no es nostalgia 🧉❤️",
    "likes": 69,
    "comments": 0,
-   "reach": 1269,
+   "reach": 1271,
    "views": 1488,
    "saved": 7,
    "shares": 0,
@@ -160,12 +175,12 @@
    "likes": 105,
    "comments": 4,
    "reach": 1478,
-   "views": 1825,
+   "views": 1828,
    "saved": 3,
    "shares": 2,
    "total_interactions": 116,
-   "ig_reels_avg_watch_time": 17118,
-   "ig_reels_video_view_total_time": 26362106
+   "ig_reels_avg_watch_time": 17112,
+   "ig_reels_video_view_total_time": 26370964
   }
  ]
 }

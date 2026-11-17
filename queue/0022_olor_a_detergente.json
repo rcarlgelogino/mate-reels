@@ -214,7 +214,7 @@
    "impact": true
   },
   {
-   "text": "¿Vos cómo lo lavás? Comentalo y seguinos para más.",
+   "text": "¿Vos cómo lo lavás? Mandáselo al que usa detergente.",
    "emo": "funny",
    "beat": "cta",
    "visual": {
@@ -231,5 +231,6 @@
    "CON DETERGENTE",
    "NO LO LAVO"
   ]
- }
+ },
+ "rewrite": "top-reel pattern 2026-11-17"
 }

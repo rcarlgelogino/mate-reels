@@ -2,7 +2,7 @@
  "id": "0026_el_mate_nunca_se_toma_solo",
  "topic": "T23",
  "title": "Por qué se comparte",
- "caption": "¿Por qué el mate casi nunca se toma solo? La razón es más vieja que el país 🧉\nUna leyenda guaraní lo explica mejor que nadie.\n¿Con quién tomás vos? 👇",
+ "caption": "¿Por qué el mate casi nunca se toma solo? La razón es más vieja que el país 🧉\nUna leyenda guaraní lo explica mejor que nadie.\n¿Vos con quién tomás? 👇",
  "hashtags": [
   "#mate",
   "#yerbamate",
@@ -294,7 +294,7 @@
    "impact": true
   },
   {
-   "text": "¿Con quién tomás vos? Comentalo y seguinos para más.",
+   "text": "¿Vos con quién tomás? Mandáselo a tu compañero de mate.",
    "emo": "funny",
    "beat": "cta",
    "visual": {
@@ -311,5 +311,6 @@
    "AMIGOS",
    "SOLO, Y QUÉ"
   ]
- }
+ },
+ "rewrite": "top-reel pattern 2026-11-17"
 }

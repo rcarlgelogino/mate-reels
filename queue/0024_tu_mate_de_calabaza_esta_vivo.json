@@ -2,7 +2,7 @@
  "id": "0024_tu_mate_de_calabaza_esta_vivo",
  "topic": "T20",
  "title": "Curar el mate",
- "caption": "Tu mate de calabaza fue una planta. Por eso hay que curarlo 🧉\nQué pasa si no lo hacés y cómo se cura en un día.\n¿Vos lo curaste bien? 👇",
+ "caption": "Tu mate de calabaza fue una planta. Por eso hay que curarlo 🧉\nQué pasa si no lo hacés y cómo se cura en un día.\n¿Vos lo curaste o lo estrenaste así? 👇",
  "hashtags": [
   "#mate",
   "#yerbamate",
@@ -217,7 +217,7 @@
    "impact": true
   },
   {
-   "text": "¿Vos lo curaste bien? Comentalo y seguinos para más.",
+   "text": "¿Vos lo curaste o lo estrenaste así? Mandáselo al que tiene mate nuevo.",
    "emo": "funny",
    "beat": "cta",
    "visual": {
@@ -234,5 +234,6 @@
    "MÁS O MENOS",
    "¿HABÍA QUE CURARLO?"
   ]
- }
+ },
+ "rewrite": "top-reel pattern 2026-11-17"
 }

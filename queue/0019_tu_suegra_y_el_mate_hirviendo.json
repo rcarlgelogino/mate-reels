@@ -2,7 +2,7 @@
  "id": "0019_tu_suegra_y_el_mate_hirviendo",
  "topic": "T15",
  "title": "El mate de la suegra (parte 1)",
- "caption": "¿Qué hacés si tu suegra te pasa el mate hirviendo? 🧉\nPrimera visita, todos mirando.\nComentá 1 o 2 y hacemos la parte 2 👇",
+ "caption": "¿Qué hacés si tu suegra te pasa el mate hirviendo? 🧉\nPrimera visita, todos mirando.\n¿Vos lo tomás igual o soplás? 👇",
  "hashtags": [
   "#mate",
   "#yerbamate",
@@ -269,7 +269,7 @@
    "impact": true
   },
   {
-   "text": "¿Uno o dos? Comentalo y hacemos la parte dos. Seguinos para más.",
+   "text": "¿Vos lo tomás igual o soplás? Mandáselo al que tiene suegra.",
    "emo": "funny",
    "beat": "cta",
    "visual": {
@@ -282,8 +282,10 @@
  "poll": {
   "question": "¿Qué hacés?",
   "options": [
-   "1 · LO TOMO IGUAL",
-   "2 · SOPLO Y ESPERO"
+   "LO TOMO IGUAL",
+   "SOPLO Y ESPERO",
+   "SE LO PASO A MI NOVIA"
   ]
- }
+ },
+ "rewrite": "top-reel pattern 2026-11-17"
 }

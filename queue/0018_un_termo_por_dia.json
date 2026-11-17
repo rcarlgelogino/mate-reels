@@ -2,7 +2,7 @@
  "id": "0018_un_termo_por_dia",
  "topic": "T07",
  "title": "Una pileta de mate",
- "caption": "Si tomás un termo de mate por día, en diez años llenás una pileta 🧉\nHacé la cuenta con tu termo.\n¿Cuántos tomás por día? 👇",
+ "caption": "Si tomás un termo de mate por día, en diez años llenás una pileta 🧉\nHacé la cuenta con tu termo.\n¿Cuántos termos tomás por día? 👇",
  "hashtags": [
   "#mate",
   "#yerbamate",
@@ -227,7 +227,7 @@
    "impact": true
   },
   {
-   "text": "¿Cuántos termos tomás por día? Comentalo y seguinos para más.",
+   "text": "¿Cuántos termos tomás por día? Mandáselo al que toma más que vos.",
    "emo": "funny",
    "beat": "cta",
    "visual": {
@@ -244,5 +244,6 @@
    "UNO",
    "DOS O MÁS"
   ]
- }
+ },
+ "rewrite": "top-reel pattern 2026-11-17"
 }

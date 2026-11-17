@@ -2,7 +2,7 @@
  "id": "0020_la_yerba_en_bolsa_de_nylon",
  "topic": "T24",
  "title": "Sos de acá",
- "caption": "Si alguna vez te pasaron la yerba en una bolsa de nylon, sos de acá 🧉\nCinco señales de que tu mate es bien argentino.\nEtiquetá al que tiene el mate más feo 👇",
+ "caption": "Si alguna vez te pasaron la yerba en una bolsa de nylon, sos de acá 🧉\nCinco señales de que tu mate es bien argentino.\n¿Cuántas de las cinco tenés vos? 👇",
  "hashtags": [
   "#mate",
   "#yerbamate",
@@ -199,7 +199,7 @@
    "impact": true
   },
   {
-   "text": "Etiquetá al que tiene el mate más feo. Seguinos para más.",
+   "text": "¿Cuántas de las cinco tenés vos? Mandáselo al del mate más feo.",
    "emo": "funny",
    "beat": "cta",
    "visual": {
@@ -208,5 +208,14 @@
     "sub": "AL DEL MATE MÁS FEO"
    }
   }
- ]
+ ],
+ "poll": {
+  "question": "¿Cuántas tenés?",
+  "options": [
+   "TODAS",
+   "DOS O TRES",
+   "NINGUNA"
+  ]
+ },
+ "rewrite": "top-reel pattern 2026-11-17"
 }

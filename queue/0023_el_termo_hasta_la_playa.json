@@ -2,7 +2,7 @@
  "id": "0023_el_termo_hasta_la_playa",
  "topic": "T29",
  "title": "Mate en la playa",
- "caption": "Hay argentinos que llevan el termo hasta la playa. Y tienen razón 🧉\nTreinta y cinco grados, arena y mate caliente.\nEtiquetá al que lleva el termo a la playa 👇",
+ "caption": "Hay argentinos que llevan el termo a la playa, y lo hacen a propósito 🧉\nTreinta y cinco grados, arena y mate caliente.\n¿Vos llevás el termo a la playa? 👇",
  "hashtags": [
   "#mate",
   "#yerbamate",
@@ -14,7 +14,7 @@
  ],
  "segments": [
   {
-   "text": "Hay argentinos que llevan el termo hasta la playa.",
+   "text": "Hay argentinos que llevan el termo a la playa, y lo hacen a propósito.",
    "emo": "surprised",
    "beat": "hook",
    "visual": {
@@ -267,7 +267,7 @@
    "impact": true
   },
   {
-   "text": "Etiquetá al que lleva el termo a la playa. Seguinos para más.",
+   "text": "¿Vos llevás el termo a la playa? Mandáselo al que nunca lo deja.",
    "emo": "funny",
    "beat": "cta",
    "visual": {
@@ -276,5 +276,14 @@
     "sub": "AL QUE LLEVA EL TERMO A LA PLAYA"
    }
   }
- ]
+ ],
+ "poll": {
+  "question": "¿Termo a la playa?",
+  "options": [
+   "SIEMPRE",
+   "A VECES",
+   "NUNCA"
+  ]
+ },
+ "rewrite": "top-reel pattern 2026-11-17"
 }

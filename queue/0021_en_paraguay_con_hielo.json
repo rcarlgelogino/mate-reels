@@ -2,7 +2,7 @@
  "id": "0021_en_paraguay_con_hielo",
  "topic": "T18",
  "title": "El tereré",
- "caption": "En Paraguay el mate se toma con hielo… y les sobra razón 🧉\nEl tereré: agua helada, yuyos y cuarenta grados a la sombra.\n¿Qué país sigue? 👇",
+ "caption": "En Paraguay el mate se toma con hielo… y les sobra razón 🧉\nEl tereré: agua helada, yuyos y cuarenta grados a la sombra.\n¿Vos lo probarías con hielo? 👇",
  "hashtags": [
   "#mate",
   "#yerbamate",
@@ -232,7 +232,7 @@
    "impact": true
   },
   {
-   "text": "¿Qué país sigue: Uruguay o Chile? Comentalo y seguinos para más.",
+   "text": "¿Vos lo probarías con hielo? Mandáselo al que dice que no es mate.",
    "emo": "funny",
    "beat": "cta",
    "visual": {
@@ -243,11 +243,12 @@
   }
  ],
  "poll": {
-  "question": "¿Qué país sigue?",
+  "question": "¿Tereré?",
   "options": [
-   "URUGUAY",
-   "CHILE",
-   "SIRIA"
+   "LO AMO",
+   "NUNCA",
+   "EN VERANO SÍ"
   ]
- }
+ },
+ "rewrite": "top-reel pattern 2026-11-17"
 }

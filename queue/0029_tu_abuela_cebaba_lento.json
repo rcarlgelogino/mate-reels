@@ -2,7 +2,7 @@
  "id": "0029_tu_abuela_cebaba_lento",
  "topic": "T08",
  "title": "La abuela cebaba lento",
- "caption": "Tu abuela no cebaba lento por vieja: lo hacía a propósito 🧉\nEl chorrito fino tenía dos razones, y una no era el mate.\nEtiquetá a quien ceba como tu abuela 👇",
+ "caption": "Tu abuela no cebaba lento por vieja: lo hacía a propósito 🧉\nEl chorrito fino tenía dos razones, y una no era el mate.\n¿Tu abuela cebaba así? 👇",
  "hashtags": [
   "#mate",
   "#yerbamate",
@@ -240,7 +240,7 @@
    "impact": true
   },
   {
-   "text": "Etiquetá a quien ceba como tu abuela. Seguinos para más.",
+   "text": "¿Tu abuela cebaba así? Mandáselo a quien ceba como ella.",
    "emo": "funny",
    "beat": "cta",
    "visual": {
@@ -249,5 +249,14 @@
     "sub": "A QUIEN CEBA COMO TU ABUELA"
    }
   }
- ]
+ ],
+ "poll": {
+  "question": "¿Cómo cebaba tu abuela?",
+  "options": [
+   "LENTO",
+   "RÁPIDO",
+   "NO CEBABA"
+  ]
+ },
+ "rewrite": "top-reel pattern 2026-11-17"
 }

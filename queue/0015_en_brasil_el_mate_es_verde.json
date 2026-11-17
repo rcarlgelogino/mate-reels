@@ -2,7 +2,7 @@
  "id": "0015_en_brasil_el_mate_es_verde",
  "topic": "T17",
  "title": "El chimarrão",
- "caption": "En Brasil el mate es verde flúor. Y no es colorante 🧉\nMisma planta, otro mundo: así se toma el chimarrão.\n¿Qué país sigue? 👇",
+ "caption": "En Brasil el mate es verde flúor, y lo hacen a propósito 🧉\nMisma planta, otro mundo: así se toma el chimarrão.\n¿Vos lo probarías? 👇",
  "hashtags": [
   "#mate",
   "#yerbamate",
@@ -14,7 +14,7 @@
  ],
  "segments": [
   {
-   "text": "En Brasil el mate es verde flúor. Y no es colorante.",
+   "text": "En Brasil el mate es verde flúor, y lo hacen a propósito.",
    "emo": "surprised",
    "beat": "hook",
    "visual": {
@@ -35,7 +35,7 @@
    "impact": true
   },
   {
-   "text": "Es la misma planta que la tuya, pero no la reconocerías.",
+   "text": "El brasileño de la ronda te lo pasa y no lo reconocés.",
    "emo": "tense",
    "beat": "loop",
    "visual": {
@@ -44,8 +44,8 @@
     "act": "shock",
     "who": 1
    },
-   "headline": "LA MISMA PLANTA",
-   "headlineAt": "planta"
+   "headline": "¿ESTO ES MATE?",
+   "headlineAt": "reconoc"
   },
   {
    "text": "Allá se llama chimarrão y se toma en el sur.",
@@ -230,7 +230,7 @@
    "impact": true
   },
   {
-   "text": "¿Qué país sigue: Paraguay o Uruguay? Comentalo y seguinos para más.",
+   "text": "¿Vos lo probarías? Mandáselo al que viaja a Brasil.",
    "emo": "funny",
    "beat": "cta",
    "visual": {
@@ -241,11 +241,12 @@
   }
  ],
  "poll": {
-  "question": "¿Qué país sigue?",
+  "question": "¿Lo probarías?",
   "options": [
-   "PARAGUAY",
-   "URUGUAY",
-   "CHILE"
+   "LO PRUEBO",
+   "ME QUEDO CON EL MÍO",
+   "YA LO PROBÉ"
   ]
- }
+ },
+ "rewrite": "top-reel pattern 2026-11-17"
 }

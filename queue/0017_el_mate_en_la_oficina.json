@@ -2,7 +2,7 @@
  "id": "0017_el_mate_en_la_oficina",
  "topic": "T22",
  "title": "El mate en la oficina",
- "caption": "El mate en la oficina tiene una regla que nadie escribió 🧉\nY todos saben quién la rompe.\nEtiquetá al compañero que nunca convida 👇",
+ "caption": "Tomás mate en la oficina, y hay una regla que nadie escribió 🧉\nY todos saben quién la rompe.\n¿Vos traés la yerba o nunca traés? 👇",
  "hashtags": [
   "#mate",
   "#yerbamate",
@@ -14,7 +14,7 @@
  ],
  "segments": [
   {
-   "text": "El mate en la oficina tiene una regla que nadie escribió.",
+   "text": "Tomás mate en la oficina, y hay una regla que nadie escribió.",
    "emo": "surprised",
    "beat": "hook",
    "visual": {
@@ -43,7 +43,7 @@
    "impact": true
   },
   {
-   "text": "Y en toda oficina hay uno que la rompe.",
+   "text": "Y en toda ronda de oficina hay uno que la rompe a propósito.",
    "emo": "tense",
    "beat": "loop",
    "visual": {
@@ -259,7 +259,7 @@
    "impact": true
   },
   {
-   "text": "Etiquetá al compañero que nunca convida. Seguinos para más.",
+   "text": "¿Vos traés la yerba o nunca traés? Mandáselo a ese compañero.",
    "emo": "funny",
    "beat": "cta",
    "visual": {
@@ -268,5 +268,14 @@
     "sub": "AL QUE NUNCA TRAE LA YERBA"
    }
   }
- ]
+ ],
+ "poll": {
+  "question": "¿Quién sos en la oficina?",
+  "options": [
+   "TRAIGO YERBA",
+   "NUNCA TRAIGO",
+   "NO TOMO AHÍ"
+  ]
+ },
+ "rewrite": "top-reel pattern 2026-11-17"
 }

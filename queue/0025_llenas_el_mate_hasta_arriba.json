@@ -2,7 +2,7 @@
  "id": "0025_llenas_el_mate_hasta_arriba",
  "topic": "T21",
  "title": "Hasta dónde se llena",
- "caption": "Cebás mal si llenás el mate de yerba hasta arriba. Y casi todos lo hacen 🧉\nLa medida justa y por qué cambia todo.\n¿Hasta dónde lo llenás? 👇",
+ "caption": "Cebás mal si llenás el mate de yerba hasta arriba. Y casi todos lo hacen 🧉\nLa medida justa y por qué cambia todo.\n¿Hasta dónde lo llenás vos? 👇",
  "hashtags": [
   "#mate",
   "#yerbamate",
@@ -225,7 +225,7 @@
    "impact": true
   },
   {
-   "text": "¿Hasta dónde lo llenás vos? Comentalo y seguinos para más.",
+   "text": "¿Hasta dónde lo llenás vos? Mandáselo al que lo llena hasta el borde.",
    "emo": "funny",
    "beat": "cta",
    "visual": {
@@ -242,5 +242,6 @@
    "TRES CUARTOS",
    "LA MITAD"
   ]
- }
+ },
+ "rewrite": "top-reel pattern 2026-11-17"
 }

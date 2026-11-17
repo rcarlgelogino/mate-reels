@@ -2,7 +2,7 @@
  "id": "0016_si_hervis_el_agua",
  "topic": "T12",
  "title": "El agua hervida",
- "caption": "Si hervís el agua del mate, estás quemando la yerba que pagaste 🧉\nLa temperatura justa y el truco para salvarla.\n¿Pava o microondas? 👇",
+ "caption": "Hervís el agua todos los días, y así quemás la yerba 🧉\nLa temperatura justa y el truco para salvarla.\n¿Vos la hervís o la sacás antes? 👇",
  "hashtags": [
   "#mate",
   "#yerbamate",
@@ -14,7 +14,7 @@
  ],
  "segments": [
   {
-   "text": "Si hervís el agua, quemás la yerba que pagaste.",
+   "text": "Hervís el agua todos los días, y así quemás la yerba.",
    "emo": "surprised",
    "beat": "hook",
    "visual": {
@@ -31,7 +31,7 @@
    "headlineType": "cross"
   },
   {
-   "text": "Y hay un truco para salvarla si ya hirvió.",
+   "text": "El cebador de tu ronda lo sabe, y tiene un truco.",
    "emo": "tense",
    "beat": "loop",
    "visual": {
@@ -194,7 +194,7 @@
    "impact": true
   },
   {
-   "text": "¿Pava o microondas? Comentalo y seguinos para más.",
+   "text": "¿Vos la hervís o la sacás antes? Mandáselo al que siempre la hierve.",
    "emo": "funny",
    "beat": "cta",
    "visual": {
@@ -205,11 +205,12 @@
   }
  ],
  "poll": {
-  "question": "¿Cómo calentás el agua?",
+  "question": "¿Cómo la calentás?",
   "options": [
-   "PAVA",
-   "PAVA ELÉCTRICA",
-   "MICROONDAS"
+   "LA HIERVO",
+   "LA SACO ANTES",
+   "PAVA ELÉCTRICA"
   ]
- }
+ },
+ "rewrite": "top-reel pattern 2026-11-17"
 }

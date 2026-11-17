@@ -2,7 +2,7 @@
  "id": "0027_cinco_paradas_antes_de_tu_mate",
  "topic": "T26",
  "title": "El viaje de la yerba",
- "caption": "Tu paquete de yerba hizo cinco paradas antes de llegar a tu mate 🧉\nDe la selva misionera a tu cocina, paso a paso.\n¿De qué marca es la tuya? 👇",
+ "caption": "Tu paquete de yerba hizo cinco paradas antes de llegar a tu mate 🧉\nDe la selva misionera a tu cocina, paso a paso.\n¿Suave o fuerte, cuál es la tuya? 👇",
  "hashtags": [
   "#mate",
   "#yerbamate",
@@ -225,7 +225,7 @@
    "impact": true
   },
   {
-   "text": "¿De qué marca es la tuya? Comentalo y seguinos para más.",
+   "text": "¿Suave o fuerte, cuál es la tuya? Mandáselo al que dice que son iguales.",
    "emo": "funny",
    "beat": "cta",
    "visual": {
@@ -242,5 +242,6 @@
    "FUERTE",
    "LA QUE HAYA"
   ]
- }
+ },
+ "rewrite": "top-reel pattern 2026-11-17"
 }

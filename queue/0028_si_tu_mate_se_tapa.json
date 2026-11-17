@@ -2,7 +2,7 @@
  "id": "0028_si_tu_mate_se_tapa",
  "topic": "T27",
  "title": "El mate tapado",
- "caption": "Si tu mate se tapa, no es la bombilla: es cómo lo armaste 🧉\nTres pasos y no se tapa nunca más.\n¿Te pasa seguido? 👇",
+ "caption": "Si tu mate se tapa, no es la bombilla: es cómo lo armaste 🧉\nTres pasos y no se tapa nunca más.\n¿A vos se te tapa? 👇",
  "hashtags": [
   "#mate",
   "#yerbamate",
@@ -210,7 +210,7 @@
    "impact": true
   },
   {
-   "text": "¿Te pasa seguido? Comentalo y seguinos para más.",
+   "text": "¿A vos se te tapa? Mandáselo al que siempre sacude la bombilla.",
    "emo": "funny",
    "beat": "cta",
    "visual": {
@@ -227,5 +227,6 @@
    "A VECES",
    "NUNCA"
   ]
- }
+ },
+ "rewrite": "top-reel pattern 2026-11-17"
 }

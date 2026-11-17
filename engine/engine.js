@@ -2185,65 +2185,120 @@ function toonFaceTex(face,blink){ const key=face+'|'+(blink?1:0); if(FACETEX.has
   else if(face==='sip'){ g.fillStyle='#5a1414'; g.beginPath(); g.arc(mx,my,9,0,7); g.fill(); }
   else if(face==='disgusted'){ g.strokeStyle=ink; g.lineWidth=9; g.beginPath(); g.moveTo(mx-40,my); for(let i=1;i<=8;i++) g.lineTo(mx-40+i*10,my+(i%2?-8:8)); g.stroke(); }
   else { g.strokeStyle=ink; g.lineWidth=9; g.beginPath(); g.moveTo(mx-34,my); g.lineTo(mx+34,my+(face==='confused'?-8:0)); g.stroke(); } }); FACETEX.set(key,t); return t; }
-function makeToon(o={}){ const g=new THREE.Group(); const sc=o.scale||1; const skin=toy(o.skin||TOONSKIN[(o.i||0)%3],0.7), shirt=toy(o.shirt||'#e5483a',0.75), pants=toy(o.pants||'#2f4a7a',0.8), shoe=toy('#3a2a20',0.6), hair=toy(o.hairColor||'#4a2c1a',0.85), dark=toy('#1a1210',0.4);
+// cartoon person (model: the "how X becomes Y" reels): big head with a painted face (eyes with heavy lids, thick brows, blush with little strokes, a small mouth
+// under a big round 3D nose, painted moustache), soft body with collar and buttons, shoulders, elbows, wrists, hips and knees, mitten hands with a thumb.
+// The face is drawn live for each person: expression, blinking, where the eyes look, the mouth while talking.
+const TFACE={ // lid: 0 open .. 1 shut, slant: + angry (inner corners down), - sad; brow: lift, tilt; mouth shape
+  neutral:{lid:0.18,slant:0,brow:0,tilt:0,m:'flat'}, smile:{lid:0.22,slant:0,brow:0.05,tilt:0,m:'smile'}, happy:{lid:0,arc:true,brow:0.12,tilt:0,m:'grin'}, laugh:{lid:0,arc:true,brow:0.2,tilt:0,m:'laugh'},
+  proud:{lid:0.45,slant:0.1,brow:0.05,tilt:0.1,m:'smirk'}, sly:{lid:0.55,slant:0.15,brow:0,tilt:0.25,m:'smirk'}, surprised:{lid:0,slant:0,brow:0.35,tilt:0,m:'o',pupil:0.75}, shock:{lid:0,slant:0,brow:0.45,tilt:-0.1,m:'O',pupil:0.5},
+  scream:{lid:0,brow:0.45,tilt:-0.1,m:'O',pupil:0.45}, angry:{lid:0.3,slant:0.55,brow:-0.15,tilt:0.55,m:'frown'}, outraged:{lid:0.1,slant:0.6,brow:-0.1,tilt:0.6,m:'O'}, sad:{lid:0.35,slant:-0.45,brow:0.1,tilt:-0.5,m:'frown'},
+  worried:{lid:0.15,slant:-0.35,brow:0.2,tilt:-0.45,m:'wavy'}, bored:{lid:0.62,slant:0,brow:-0.05,tilt:0,m:'flat'}, sip:{lid:0.4,slant:0,brow:0.05,tilt:0,m:'dot'}, disgusted:{lid:0.4,slant:0.3,brow:-0.05,tilt:0.35,m:'tongue'},
+  pain:{lid:0,squeeze:true,brow:-0.05,tilt:0.4,m:'teeth'}, love:{lid:0.1,brow:0.15,tilt:-0.1,m:'grin',heart:true}, confused:{lid:0.2,brow:0.1,tilt:0,m:'wavy',oneUp:true}, wink:{lid:0,wink:true,brow:0.1,tilt:0,m:'grin'},
+  determined:{lid:0.3,slant:0.35,brow:-0.08,tilt:0.35,m:'flat'}, cry:{lid:0.3,slant:-0.5,brow:0.12,tilt:-0.55,m:'O',tears:true}, sleepy:{lid:0.8,brow:-0.05,tilt:0,m:'o'} };
+function drawToonFace(g,w,h,st){ const F=TFACE[st.face]||TFACE.neutral, ink='#2a1712', skin=st.skin; g.clearRect(0,0,w,h); g.lineCap='round'; g.lineJoin='round';
+  const ex=[w*0.335,w*0.665], ey=h*0.33, rx=33, ry=40; const lid=st.blink?1:F.lid;
+  // blush with little strokes
+  for(const x of ex){ const bx=x+(x<w/2?-22:22), by=h*0.6; g.fillStyle='rgba(240,110,110,0.32)'; g.beginPath(); g.ellipse(bx,by,30,15,0,0,7); g.fill(); g.strokeStyle='rgba(220,70,70,0.55)'; g.lineWidth=3; for(let k=-1;k<=1;k++){ g.beginPath(); g.moveTo(bx+k*10-4,by+5); g.lineTo(bx+k*10+4,by-5); g.stroke(); } }
+  ex.forEach((x,ii)=>{ const sd=ii?1:-1; const closed=F.arc||(F.wink&&ii===1)||F.squeeze;
+    if(closed){ g.strokeStyle=ink; g.lineWidth=9; g.beginPath(); if(F.squeeze){ g.moveTo(x-26,ey-12); g.lineTo(x+22*sd*-1+ (sd>0?44:0),ey+2); g.moveTo(x-26+(sd>0?0:0),ey+14); } if(F.squeeze){ g.beginPath(); g.moveTo(x-sd*24,ey-14); g.lineTo(x+sd*18,ey); g.lineTo(x-sd*24,ey+14); g.stroke(); } else { g.arc(x,ey+12,26,Math.PI*1.12,Math.PI*1.88); g.stroke(); } return; }
+    g.fillStyle='#ffffff'; g.beginPath(); g.ellipse(x,ey,rx,ry,0,0,7); g.fill();
+    const pr=14*(F.pupil||1), px=x+st.gx*12, py=ey+4+st.gy*10;
+    if(F.heart){ g.fillStyle='#e0304a'; g.beginPath(); g.moveTo(px,py+14); g.bezierCurveTo(px-26,py-4,px-12,py-22,px,py-8); g.bezierCurveTo(px+12,py-22,px+26,py-4,px,py+14); g.fill(); }
+    else { g.fillStyle='#5a3a26'; g.beginPath(); g.arc(px,py,pr+5,0,7); g.fill(); g.fillStyle='#120a08'; g.beginPath(); g.arc(px,py,pr,0,7); g.fill(); g.fillStyle='#fff'; g.beginPath(); g.arc(px+6,py-7,5,0,7); g.fill(); g.beginPath(); g.arc(px-5,py+6,2.5,0,7); g.fill(); }
+    // heavy upper lid (skin colour) with a dark lash line; slant for angry / sad
+    if(lid>0.02){ const sl=(F.slant||0)*sd*-1; g.fillStyle=skin; g.beginPath(); const ly=ey-ry+2*ry*lid; g.moveTo(x-rx-3,ey-ry-6); g.lineTo(x+rx+3,ey-ry-6); g.lineTo(x+rx+3,ly-sl*18*sd*-1); g.lineTo(x-rx-3,ly+sl*18*sd*-1); g.closePath(); g.save(); g.beginPath(); g.ellipse(x,ey,rx+2,ry+2,0,0,7); g.clip(); g.fillStyle=skin; g.fillRect(x-rx-4,ey-ry-6,2*rx+8,(ly-(ey-ry-6))); g.restore(); g.strokeStyle=ink; g.lineWidth=7; g.beginPath(); g.moveTo(x-rx+2,ly+sl*14*sd*-1); g.lineTo(x+rx-2,ly-sl*14*sd*-1); g.stroke(); }
+    g.strokeStyle=ink; g.lineWidth=5; g.beginPath(); g.ellipse(x,ey,rx,ry,0,0,7); g.stroke();
+    if(F.tears&&ii===0||F.tears&&ii===1){ g.fillStyle='rgba(120,200,255,0.85)'; g.beginPath(); g.ellipse(x+sd*20,ey+ry+20+((st.t||0)*80)%40,7,11,0,0,7); g.fill(); } });
+  // thick brows
+  ex.forEach((x,ii)=>{ const sd=ii?1:-1; const lift=(F.brow||0)*60+(F.oneUp&&ii===1?24:0); const tilt=(F.tilt||0)*sd; g.strokeStyle=st.brow||ink; g.lineWidth=15; g.beginPath(); g.moveTo(x-32,h*0.13-lift+tilt*16); g.quadraticCurveTo(x,h*0.1-lift-6,x+32,h*0.13-lift-tilt*16); g.stroke(); });
+  // painted moustache
+  if(st.mustache){ g.fillStyle=st.brow||'#3a2416'; for(const sd of [-1,1]){ g.beginPath(); g.ellipse(w/2+sd*38,h*0.8,40,15,sd*-0.3,0,7); g.fill(); } }
+  // mouth (talking opens it)
+  const mx=w/2, my=h*(st.mustache?0.92:0.86); const open=st.talk||0; let m=F.m; if(open>0.15&&!['O','laugh','dot'].includes(m)) m='talk';
+  g.strokeStyle=ink; g.lineWidth=7; g.fillStyle='#5a1a1a';
+  if(m==='flat'){ g.beginPath(); g.moveTo(mx-24,my); g.lineTo(mx+24,my); g.stroke(); }
+  else if(m==='smile'){ g.beginPath(); g.arc(mx,my-26,32,Math.PI*0.22,Math.PI*0.78); g.stroke(); }
+  else if(m==='smirk'){ g.beginPath(); g.moveTo(mx-22,my+2); g.quadraticCurveTo(mx+6,my+10,mx+26,my-8); g.stroke(); }
+  else if(m==='grin'||m==='laugh'){ const H2=m==='laugh'?40:26; g.beginPath(); g.moveTo(mx-36,my-6); g.quadraticCurveTo(mx,my+H2*1.6,mx+36,my-6); g.closePath(); g.fill(); g.stroke(); g.fillStyle='#fff'; g.fillRect(mx-26,my-5,52,8); g.fillStyle='#e06a6a'; g.beginPath(); g.ellipse(mx,my+H2*0.55,14,7,0,0,7); g.fill(); }
+  else if(m==='o'){ g.beginPath(); g.ellipse(mx,my+4,10,13,0,0,7); g.fill(); g.stroke(); }
+  else if(m==='O'){ g.beginPath(); g.ellipse(mx,my+8,22,30,0,0,7); g.fill(); g.stroke(); g.fillStyle='#e06a6a'; g.beginPath(); g.ellipse(mx,my+24,13,8,0,0,7); g.fill(); }
+  else if(m==='frown'){ g.beginPath(); g.arc(mx,my+30,28,Math.PI*1.22,Math.PI*1.78); g.stroke(); }
+  else if(m==='wavy'){ g.beginPath(); g.moveTo(mx-26,my); for(let i=1;i<=6;i++) g.lineTo(mx-26+i*9,my+(i%2?-6:6)); g.stroke(); }
+  else if(m==='dot'){ g.beginPath(); g.arc(mx,my,7,0,7); g.fill(); }
+  else if(m==='tongue'){ g.beginPath(); g.moveTo(mx-24,my); g.lineTo(mx+24,my-4); g.stroke(); g.fillStyle='#e06a6a'; g.beginPath(); g.ellipse(mx+8,my+10,10,12,0,0,7); g.fill(); }
+  else if(m==='teeth'){ g.fillStyle='#fff'; g.beginPath(); g.rect(mx-26,my-8,52,18); g.fill(); g.stroke(); g.beginPath(); g.moveTo(mx-26,my+1); g.lineTo(mx+26,my+1); g.stroke(); }
+  else if(m==='talk'){ g.beginPath(); g.ellipse(mx,my+4,18,4+open*16,0,0,7); g.fill(); g.stroke(); } }
+const TOONSKIN2=['#f6d4b4','#f2cba6','#f8dcc4'];
+function makeToon(o={}){ const g=new THREE.Group(); const sc=o.scale||1; const skinHex=o.skin||TOONSKIN2[(o.i||0)%3];
+  const skin=toy(skinHex,0.72), shirtHex=o.shirt||'#e5483a', shirt=toy(shirtHex,0.78), shirtL=toy(pmixHex(shirtHex,'#ffffff',0.22),0.78), pants=toy(o.pants||'#2f4a7a',0.82), shoe=toy('#3a2a20',0.55), hairHex=o.hairColor||'#4a2c1a', hair=toy(hairHex,0.85);
   const root=put(g,new THREE.Group(),0,0,0); root.scale.setScalar(sc);
   const pelvis=put(root,mesh(new THREE.CapsuleGeometry(0.15,0.12,6,14),pants),0,0.53,0); pelvis.rotation.z=Math.PI/2; pelvis.scale.set(0.95,1,0.85);
-  const legs=[-1,1].map(sd=>{ const p=put(root,new THREE.Group(),sd*0.1,0.52,0); put(p,mesh(new THREE.SphereGeometry(0.085,14,10),pants),0,0,0); put(p,mesh(new THREE.CapsuleGeometry(0.08,0.12,4,10),pants),0,-0.13,0); const knee=put(p,new THREE.Group(),0,-0.26,0); put(knee,mesh(new THREE.SphereGeometry(0.078,12,10),pants),0,0,0); put(knee,mesh(new THREE.CapsuleGeometry(0.072,0.1,4,10),pants),0,-0.11,0); put(knee,mesh(new THREE.BoxGeometry(0.15,0.08,0.25),shoe),0,-0.23,0.05); p.userData.knee=knee; return p; });
-  const torso=put(root,new THREE.Group(),0,0.48,0); const body=put(torso,mesh(new THREE.CapsuleGeometry(0.2,0.24,6,14),shirt),0,0.3,0); body.scale.set(1.05,1,0.82); put(torso,mesh(new THREE.CylinderGeometry(0.07,0.08,0.1,12),skin),0,0.62,0);
-  if(o.belly) body.scale.set(1.15,1,0.95); if(o.apron) put(torso,mesh(new THREE.BoxGeometry(0.3,0.36,0.02),toy(o.apron,0.8)),0,0.22,0.165);
-  if(o.scarf) put(torso,mesh(new THREE.TorusGeometry(0.14,0.04,8,20),toy(o.scarf,0.8)),0,0.6,0).rotation.x=Math.PI/2;
-  const arms=[-1,1].map(sd=>{ const p=put(torso,new THREE.Group(),sd*0.2,0.5,0); put(p,mesh(new THREE.SphereGeometry(0.07,14,10),shirt),0,0,0); put(p,mesh(new THREE.CapsuleGeometry(0.062,0.1,4,10),shirt),0,-0.1,0); const el=put(p,new THREE.Group(),0,-0.2,0); put(el,mesh(new THREE.SphereGeometry(0.06,12,10),shirt),0,0,0); put(el,mesh(new THREE.CapsuleGeometry(0.055,0.09,4,10),shirt),0,-0.09,0); const hand=put(el,new THREE.Group(),0,-0.2,0); put(hand,mesh(new THREE.SphereGeometry(0.072,14,10),skin),0,0,0); const th=put(hand,mesh(new THREE.SphereGeometry(0.03,8,6),skin),sd*-0.045,0.03,0.04); return {p,el,hand}; });
+  const legs=[-1,1].map(sd=>{ const p=put(root,new THREE.Group(),sd*0.1,0.52,0); put(p,mesh(new THREE.SphereGeometry(0.085,14,10),pants),0,0,0); put(p,mesh(new THREE.CapsuleGeometry(0.08,0.12,4,10),pants),0,-0.13,0); const knee=put(p,new THREE.Group(),0,-0.26,0); put(knee,mesh(new THREE.SphereGeometry(0.078,12,10),pants),0,0,0); put(knee,mesh(new THREE.CapsuleGeometry(0.072,0.1,4,10),pants),0,-0.11,0); const sh=put(knee,mesh(new THREE.SphereGeometry(0.1,16,10),shoe),0,-0.24,0.05); sh.scale.set(0.85,0.55,1.35); p.userData.knee=knee; return p; });
+  const torso=put(root,new THREE.Group(),0,0.48,0); const body=put(torso,mesh(new THREE.CapsuleGeometry(0.2,0.24,6,16),shirt),0,0.3,0); body.scale.set(1.05,1,0.82);
+  if(o.belly) body.scale.set(1.2,1,0.98); const collar=put(torso,mesh(new THREE.TorusGeometry(0.1,0.035,8,20),shirtL),0,0.6,0); collar.rotation.x=Math.PI/2; put(torso,mesh(new THREE.CylinderGeometry(0.07,0.08,0.1,12),skin),0,0.63,0);
+  for(let k=0;k<3;k++) put(torso,mesh(new THREE.SphereGeometry(0.016,8,6),toy('#f4f1ea',0.4)),0,0.5-k*0.11,0.165-(k===2?0.004:0));
+  if(o.apron) put(torso,mesh(new THREE.BoxGeometry(0.3,0.36,0.02),toy(o.apron,0.8)),0,0.22,0.165); if(o.scarf) put(torso,mesh(new THREE.TorusGeometry(0.13,0.045,8,20),toy(o.scarf,0.8)),0,0.6,0).rotation.x=Math.PI/2;
+  // arms: shoulder, upper arm, elbow, forearm, wrist, mitten hand (palm, thumb, curled fingers)
+  const arms=[-1,1].map(sd=>{ const p=put(torso,new THREE.Group(),sd*0.2,0.5,0); put(p,mesh(new THREE.SphereGeometry(0.07,14,10),shirt),0,0,0); put(p,mesh(new THREE.CapsuleGeometry(0.062,0.1,4,10),shirt),0,-0.1,0);
+    const el=put(p,new THREE.Group(),0,-0.2,0); put(el,mesh(new THREE.SphereGeometry(0.06,12,10),shirt),0,0,0); put(el,mesh(new THREE.CapsuleGeometry(0.055,0.09,4,10),shirt),0,-0.09,0); put(el,mesh(new THREE.TorusGeometry(0.052,0.016,8,16),shirtL),0,-0.17,0).rotation.x=Math.PI/2;
+    const wr=put(el,new THREE.Group(),0,-0.2,0); const hand=put(wr,new THREE.Group(),0,-0.035,0); const palm=put(hand,mesh(new THREE.SphereGeometry(0.07,16,12),skin),0,0,0); palm.scale.set(1,1.08,0.78);
+    const th=put(hand,new THREE.Group(),sd*-0.05,0.02,0.035); put(th,mesh(new THREE.CapsuleGeometry(0.024,0.04,4,8),skin),0,-0.02,0); th.rotation.z=sd*0.7;
+    const fing=put(hand,new THREE.Group(),0,-0.045,0.03); put(fing,mesh(new THREE.CapsuleGeometry(0.03,0.07,4,8),skin),0,-0.02,0).rotation.z=Math.PI/2; return {p,el,wr,hand,fing,th,sd}; });
   const neck=put(torso,new THREE.Group(),0,0.66,0); const head=put(neck,new THREE.Group(),0,0.3,0); const skull=put(head,mesh(new THREE.SphereGeometry(0.33,32,24),skin),0,0,0); skull.scale.set(1,1.02,0.95);
   for(const sd of [-1,1]) put(head,mesh(new THREE.SphereGeometry(0.07,12,8),skin),sd*0.32,-0.02,0).scale.set(0.5,1,0.8);
-  // hair and hats
   const hs=o.hair||'short'; if(hs!=='none'&&!o.hat){ const hm=put(head,mesh(new THREE.SphereGeometry(0.345,28,16,0,Math.PI*2,0,hs==='bun'||hs==='long'?1.35:1.15),hair),0,0.02,-0.02); hm.rotation.x=-0.25; if(hs==='bun') put(head,mesh(new THREE.SphereGeometry(0.12,16,12),hair),0,0.36,-0.12); if(hs==='long') put(head,mesh(new THREE.CapsuleGeometry(0.2,0.3,4,12),hair),0,-0.25,-0.18); }
   if(o.hat==='cap'){ put(head,mesh(new THREE.SphereGeometry(0.35,24,12,0,Math.PI*2,0,1.2),toy(o.hatColor||'#2f6fd0',0.7)),0,0.03,0); put(head,mesh(new THREE.CylinderGeometry(0.2,0.2,0.03,20,1,false,-1.3,2.6),toy(o.hatColor||'#2f6fd0',0.7)),0,0.17,0.22); }
-  if(o.hat==='boina'){ const b=put(head,mesh(new THREE.SphereGeometry(0.37,24,12),toy(o.hatColor||'#2b2b2b',0.85)),0,0.22,-0.02); b.scale.set(1,0.32,1); }
+  if(o.hat==='boina'){ const b=put(head,mesh(new THREE.SphereGeometry(0.37,24,12),toy(o.hatColor||'#2b2b2b',0.85)),0,0.22,-0.02); b.scale.set(1,0.32,1); put(head,mesh(new THREE.CylinderGeometry(0.015,0.015,0.05,6),toy(o.hatColor||'#2b2b2b',0.85)),0,0.33,-0.02); }
   if(o.hat==='sombrero'){ put(head,mesh(new THREE.CylinderGeometry(0.6,0.6,0.03,32),toy(o.hatColor||'#d9c08a',0.85)),0,0.2,0); put(head,mesh(new THREE.CylinderGeometry(0.28,0.32,0.22,24),toy(o.hatColor||'#d9c08a',0.85)),0,0.32,0); }
-  // face: painted on a thin shell over the front of the head
-  const faceMat=new THREE.MeshStandardMaterial({map:toonFaceTex('happy'),transparent:true,roughness:0.7,polygonOffset:true,polygonOffsetFactor:-2}); const plate=put(head,mesh(new THREE.SphereGeometry(0.334,40,30,Math.PI/2-0.95,1.9,0.72,1.45),faceMat,false,false),0,0,0); plate.scale.set(1,1.02,0.95);
-  const eyes=[-1,1].map(sd=>{ const e=put(head,new THREE.Group(),sd*0.12,0.06,0.27); const w=put(e,mesh(new THREE.SphereGeometry(0.085,18,14),toy('#ffffff',0.25)),0,0,0); w.scale.set(1,1.15,0.6); const pu=put(e,mesh(new THREE.SphereGeometry(0.042,12,10),dark),0,-0.005,0.045); const hl=put(e,mesh(new THREE.SphereGeometry(0.012,8,6),toy('#ffffff',0.1)),0.015,0.02,0.08);
-    const lid=put(e,mesh(new THREE.SphereGeometry(0.09,18,10,0,Math.PI*2,0,Math.PI/2),skin),0,0,0); lid.scale.set(1.05,1.2,0.7); const brow=put(head,mesh(new THREE.BoxGeometry(0.13,0.028,0.03),hair),sd*0.12,0.19,0.3); e.visible=false; brow.visible=false; return {e,pu,lid,brow,sd}; });
-  const nose=put(head,mesh(new THREE.SphereGeometry(o.bigNose?0.085:0.065,16,12),toy(pmixHex(o.skin||TOONSKIN[(o.i||0)%3],'#d98a6a',0.35),0.6)),0,-0.03,0.32); nose.scale.set(1,0.9,1.1);
-  if(o.mustache) for(const sd of [-1,1]){ const m=put(head,mesh(new THREE.CapsuleGeometry(0.035,0.09,4,8),toy(o.hairColor||'#3a2416',0.85)),sd*0.06,-0.1,0.3); m.rotation.z=sd*1.2; }
-  if(o.glasses) for(const sd of [-1,1]){ const r=put(head,mesh(new THREE.TorusGeometry(0.09,0.012,8,20),dark),sd*0.12,0.06,0.33); }
-  const mouth=put(head,new THREE.Group(),0,-0.17,0.29); const smile=put(mouth,mesh(new THREE.TorusGeometry(0.075,0.018,8,20,Math.PI),toy('#7a2222',0.5)),0,0.03,0); smile.rotation.z=Math.PI; const open=put(mouth,mesh(new THREE.SphereGeometry(0.07,16,12),toy('#5a1414',0.6)),0,0,0); open.scale.set(1,0.8,0.4); const tongue=put(open,mesh(new THREE.SphereGeometry(0.5,10,8),toy('#e06a6a',0.6)),0,-0.45,0.3); tongue.scale.set(0.7,0.4,0.5);
-  const flat=put(mouth,mesh(new THREE.BoxGeometry(0.1,0.018,0.02),toy('#7a2222',0.5)),0,0,0); const dot=put(mouth,mesh(new THREE.SphereGeometry(0.022,10,8),toy('#5a1414',0.5)),0,0,0); mouth.children.forEach(c=>c.visible=false);
-  const api={ g, head, neck, torso, arms, legs, root, sc, face:'happy', pose:'idle', hold:null, mouthAt:()=>mouth.getWorldPosition(new THREE.Vector3()) };
-  api.setFace=(f,blink)=>{ api.face=f; faceMat.map=toonFaceTex(f,blink); faceMat.needsUpdate=true; mouth.children.forEach(c=>c.visible=false); return; smile.visible=['happy','smile','proud','love','laugh'].includes(f); open.visible=['surprised','shock','laugh','outraged','scream'].includes(f); flat.visible=['neutral','angry','bored','sad','worried','confused','disgusted'].includes(f); dot.visible=f==='sip'||f==='pain';
-    smile.scale.setScalar(f==='laugh'?1.3:1); smile.rotation.z=Math.PI; if(f==='sad'||f==='worried'){ flat.visible=false; smile.visible=true; smile.rotation.z=0; smile.position.y=-0.03; } else smile.position.y=0.03; open.scale.set(f==='shock'||f==='scream'?1.25:1,f==='shock'||f==='scream'?1.25:0.8,0.4);
-    const brows={ happy:[0.19,0.15], smile:[0.19,0.1], proud:[0.2,0.2], surprised:[0.24,0], shock:[0.26,-0.05], angry:[0.16,-0.45], outraged:[0.17,-0.5], sad:[0.19,0.4], worried:[0.2,0.35], bored:[0.17,0], neutral:[0.19,0], sip:[0.19,0.1], laugh:[0.21,0.2], confused:[0.2,0.3], disgusted:[0.17,-0.3], pain:[0.17,-0.35], love:[0.2,0.25] }[f]||[0.19,0];
-    eyes.forEach(E2=>{ E2.brow.position.y=brows[0]; E2.brow.rotation.z=E2.sd*brows[1]*(f==='confused'?(E2.sd>0?1:-0.3):1); const lidOpen=f==='bored'?0.45:['happy','laugh','love','proud','sip'].includes(f)?0.25:f==='angry'||f==='outraged'?0.32:0; E2.lid.visible=lidOpen>0; E2.lid.rotation.x=-Math.PI/2+lidOpen*2.2; E2.pu.scale.setScalar(f==='shock'||f==='scream'?0.6:f==='love'?1.3:1); }); };
-  api.setFace(o.face||'happy');
-  // poses: arms (rotation of the shoulder pivots), legs, body bob; t = seconds in the shot, u = 0..1 of the shot
-  api.tick=(t,u)=>{ const P=api.pose, A=arms, Lg=legs; let bob=Math.sin(t*3.2+(o.i||0))*0.01, lean=0, jump=0;
-    A.forEach(a=>{ a.p.rotation.set(0,0,0); a.el.rotation.set(0,0,0); }); Lg.forEach(l=>{ l.rotation.set(0,0,0); l.userData.knee.rotation.set(0,0,0); }); head.rotation.set(0,0,0); neck.rotation.set(0,0,0); root.position.y=0; torso.rotation.set(0,0,0);
+  // the live face
+  const fc=document.createElement('canvas'); fc.width=512; fc.height=384; const fctx=fc.getContext('2d'); const ftex=new THREE.CanvasTexture(fc); ftex.colorSpace=THREE.SRGBColorSpace; ftex.anisotropy=8;
+  const faceMat=new THREE.MeshStandardMaterial({map:ftex,transparent:true,roughness:0.7,polygonOffset:true,polygonOffsetFactor:-2}); const plate=put(head,mesh(new THREE.SphereGeometry(0.334,40,30,Math.PI/2-0.95,1.9,0.72,1.45),faceMat,false,false),0,0,0); plate.scale.set(1,1.02,0.95);
+  const nose=put(head,mesh(new THREE.SphereGeometry(o.bigNose?0.095:0.08,18,14),toy(pmixHex(skinHex,'#d9826a',0.4),0.55)),0,-0.03,0.33); nose.scale.set(1,0.9,1.05);
+  if(o.glasses) for(const sd of [-1,1]) put(head,mesh(new THREE.TorusGeometry(0.085,0.012,8,20),toy('#1a1210',0.4)),sd*0.11,0.08,0.33);
+  const mouth=put(head,new THREE.Group(),0,o.mustache?-0.205:-0.19,0.3);
+  const api={ g, head, neck, torso, arms, legs, root, sc, face:o.face||'happy', pose:'idle', held:null, mouthAt:()=>mouth.getWorldPosition(new THREE.Vector3()) };
+  const fs0={face:api.face,blink:false,gx:0,gy:0,talk:0}; let lastKey='';
+  const redraw=(t)=>{ const key=[fs0.face,fs0.blink?1:0,Math.round(fs0.gx*4),Math.round(fs0.gy*4),Math.round(fs0.talk*3),TFACE[fs0.face]&&TFACE[fs0.face].tears?Math.floor(t*12):0].join('|'); if(key===lastKey) return; lastKey=key; drawToonFace(fctx,512,384,{...fs0,t,skin:skinHex,brow:pmixHex(hairHex,'#1a100c',0.4),mustache:!!o.mustache}); ftex.needsUpdate=true; };
+  api.setFace=(f)=>{ api.face=f; fs0.face=f; }; api.talk=!!o.talk;
+  // inverse kinematics for one arm: shoulder (x,z) and elbow (x) so that the hand reaches a point in the world
+  const ikTmp=new THREE.Vector3(); const reach=(ai,target,iters=18)=>{ const A=arms[ai]; const P=[A.p.rotation,'x',A.p.rotation,'z',A.el.rotation,'x']; const err=()=>{ g.updateMatrixWorld(true); return A.hand.getWorldPosition(ikTmp).distanceTo(target); }; let e=err(), step=0.25;
+    for(let it=0;it<iters;it++){ for(let j=0;j<3;j++){ const obj=P[j*2], ax=P[j*2+1]; const v0=obj[ax]; obj[ax]=v0+step; const e1=err(); if(e1<e){ e=e1; continue; } obj[ax]=v0-step; const e2=err(); if(e2<e){ e=e2; continue; } obj[ax]=v0; } step*=0.75; } A.el.rotation.x=Math.min(0.05,A.el.rotation.x); return e; };
+  api.tick=(t,u)=>{ const P=api.pose, A=arms, Lg=legs; const i0=o.i||0; let bob=0, lean=0, jump=0;
+    A.forEach(a=>{ a.p.rotation.set(0,0,0); a.el.rotation.set(0,0,0); a.wr.rotation.set(0,0,0); a.fing.rotation.set(0,0,0); }); Lg.forEach(l=>{ l.rotation.set(0,0,0); l.userData.knee.rotation.set(0,0,0); }); head.rotation.set(0,0,0); neck.rotation.set(0,0,0); root.position.set(0,0,0); root.rotation.set(0,0,0); torso.rotation.set(0,0,0);
     const SH=(i,x,y,z)=>A[i].p.rotation.set(x,y,z), EL=(i,x)=>{ A[i].el.rotation.x=x; };
-    // relaxed: arms hang a little away from the body, elbows slightly bent
-    SH(0,0,0,-0.18); SH(1,0,0,0.18); EL(0,-0.25); EL(1,-0.25);
-    if(P==='wave'){ SH(1,0,0,2.3); EL(1,-0.4-Math.abs(Math.sin(t*10))*0.6); A[1].el.rotation.z=Math.sin(t*10)*0.4; }
-    if(P==='point'){ SH(1,-1.45,0,0.2); EL(1,-0.05); head.rotation.y=0.2; }
-    if(P==='cheer'){ SH(0,0,0,-2.6+Math.sin(t*10)*0.12); SH(1,0,0,2.6-Math.sin(t*10)*0.12); EL(0,-0.3); EL(1,-0.3); jump=Math.abs(Math.sin(t*7))*0.12; const kb=jump>0.02?0:0.3; Lg.forEach(l=>{ l.rotation.x=-kb; l.userData.knee.rotation.x=kb*2; }); }
-    if(P==='shock'){ SH(0,-0.7,0,-0.55); SH(1,-0.7,0,0.55); EL(0,-2.1); EL(1,-2.1); jump=t<0.4?Math.sin(t/0.4*Math.PI)*0.18:0; lean=-0.08; }
-    if(P==='think'){ SH(1,-0.5,0,0.25); EL(1,-2.25); head.rotation.z=0.15; SH(0,-0.4,0,-0.1); EL(0,-1.4); }
-    if(P==='shrug'){ SH(0,-0.2,0,-0.75); SH(1,-0.2,0,0.75); EL(0,-1.5); EL(1,-1.5); A[0].el.rotation.z=-0.6; A[1].el.rotation.z=0.6; head.rotation.z=Math.sin(t*2)*0.08; }
+    // life: breathing, weight shift, small head turns, arms that never hang still
+    const br=Math.sin(t*2.3+i0); body.scale.y=1+br*0.018; root.position.x=Math.sin(t*0.9+i0)*0.012; root.rotation.z=Math.sin(t*0.9+i0)*0.02; head.rotation.y=Math.sin(t*0.55+i0*2)*0.12; head.rotation.x=Math.sin(t*1.3+i0)*0.04; head.rotation.z=Math.sin(t*0.8+i0)*0.04;
+    SH(0,Math.sin(t*1.1+i0)*0.06,0,-0.18); SH(1,-Math.sin(t*1.1+i0)*0.06,0,0.18); EL(0,-0.3); EL(1,-0.3);
+    if(P==='wave'){ SH(1,0,0,2.3); EL(1,-0.4-Math.abs(Math.sin(t*10))*0.6); A[1].el.rotation.z=Math.sin(t*10)*0.4; head.rotation.z=0.1; }
+    if(P==='point'){ SH(1,-1.45,0,0.2); EL(1,-0.05); head.rotation.y=0.35; A[1].fing.rotation.x=0.3; }
+    if(P==='cheer'){ SH(0,0,0,-2.6+Math.sin(t*10)*0.15); SH(1,0,0,2.6-Math.sin(t*10)*0.15); EL(0,-0.3); EL(1,-0.3); jump=Math.abs(Math.sin(t*7))*0.14; const kb=jump>0.03?0:0.35; Lg.forEach(l=>{ l.rotation.x=-kb; l.userData.knee.rotation.x=kb*2; }); head.rotation.x=-0.15; }
+    if(P==='shock'){ SH(0,-0.7,0,-0.55); SH(1,-0.7,0,0.55); EL(0,-2.1); EL(1,-2.1); jump=t<0.4?Math.sin(t/0.4*Math.PI)*0.18:0; lean=-0.12; head.rotation.x=-0.12; root.position.x+=Math.sin(t*40)*0.01*(t<0.6?1:0); }
+    if(P==='think'){ SH(1,-0.5,0,0.25); EL(1,-2.25); head.rotation.z=0.18; head.rotation.y=-0.25; SH(0,-0.4,0,-0.1); EL(0,-1.4); }
+    if(P==='shrug'){ SH(0,-0.2,0,-0.75); SH(1,-0.2,0,0.75); EL(0,-1.5); EL(1,-1.5); A[0].el.rotation.z=-0.6; A[1].el.rotation.z=0.6; head.rotation.z=Math.sin(t*2)*0.12; torso.rotation.z=Math.sin(t*2)*0.03; }
     if(P==='hold'){ SH(0,-0.55,0,0.1); SH(1,-0.55,0,-0.1); EL(0,-1.0); EL(1,-1.0); }
-    if(P==='present'){ SH(1,-0.9,0,-0.05); EL(1,-0.6); SH(0,-0.1,0,-0.2); EL(0,-0.4); }
-    if(P==='saw'){ SH(1,-0.6+Math.sin(t*14)*0.3,0,-0.1); EL(1,-1.1-Math.sin(t*14)*0.4); SH(0,-0.6,0,0.3); EL(0,-1.0); lean=0.12; }
-    if(P==='push'){ SH(0,-1.3,0,0.1); SH(1,-1.3,0,-0.1); EL(0,-0.3); EL(1,-0.3); lean=0.25; Lg[0].rotation.x=-0.5; Lg[0].userData.knee.rotation.x=0.6; Lg[1].rotation.x=0.35; }
-    if(P==='run'){ const k=Math.sin(t*15); Lg[0].rotation.x=k*0.9; Lg[1].rotation.x=-k*0.9; Lg[0].userData.knee.rotation.x=Math.max(0,-k)*1.4; Lg[1].userData.knee.rotation.x=Math.max(0,k)*1.4; SH(0,-k*0.9,0,-0.15); SH(1,k*0.9,0,0.15); EL(0,-1.4); EL(1,-1.4); bob=Math.abs(k)*0.06; lean=0.2; }
-    if(P==='walk'){ const k=Math.sin(t*9); Lg[0].rotation.x=k*0.55; Lg[1].rotation.x=-k*0.55; Lg[0].userData.knee.rotation.x=Math.max(0,-k)*0.9; Lg[1].userData.knee.rotation.x=Math.max(0,k)*0.9; SH(0,-k*0.45,0,-0.18); SH(1,k*0.45,0,0.18); EL(0,-0.4); EL(1,-0.4); bob=Math.abs(k)*0.03; }
-    if(P==='laugh'){ bob=Math.abs(Math.sin(t*12))*0.03; SH(0,-0.4,0,0.15); SH(1,-0.4,0,-0.15); EL(0,-1.3); EL(1,-1.3); head.rotation.x=-0.15; }
+    if(P==='present'){ SH(1,-0.95,0,-0.05); EL(1,-0.55); SH(0,-0.1,0,-0.2); EL(0,-0.4); head.rotation.y=0.25; }
+    if(P==='saw'){ const k=Math.sin(t*14); SH(1,-0.6+k*0.3,0,-0.1); EL(1,-1.1-k*0.4); SH(0,-0.6,0,0.3); EL(0,-1.0); lean=0.14; torso.rotation.y=k*0.08; head.rotation.x=0.15; }
+    if(P==='push'){ SH(0,-1.3,0,0.1); SH(1,-1.3,0,-0.1); EL(0,-0.3); EL(1,-0.3); lean=0.28; Lg[0].rotation.x=-0.55; Lg[0].userData.knee.rotation.x=0.65; Lg[1].rotation.x=0.4; }
+    if(P==='run'){ const k=Math.sin(t*15); Lg[0].rotation.x=k*0.9; Lg[1].rotation.x=-k*0.9; Lg[0].userData.knee.rotation.x=Math.max(0,-k)*1.4; Lg[1].userData.knee.rotation.x=Math.max(0,k)*1.4; SH(0,-k*0.9,0,-0.15); SH(1,k*0.9,0,0.15); EL(0,-1.4); EL(1,-1.4); bob=Math.abs(k)*0.06; lean=0.22; head.rotation.x=-0.1; }
+    if(P==='walk'){ const k=Math.sin(t*9); Lg[0].rotation.x=k*0.55; Lg[1].rotation.x=-k*0.55; Lg[0].userData.knee.rotation.x=Math.max(0,-k)*0.9; Lg[1].userData.knee.rotation.x=Math.max(0,k)*0.9; SH(0,-k*0.45,0,-0.18); SH(1,k*0.45,0,0.18); EL(0,-0.4); EL(1,-0.4); bob=Math.abs(k)*0.03; torso.rotation.y=k*0.06; }
+    if(P==='laugh'){ bob=Math.abs(Math.sin(t*12))*0.035; SH(0,-0.4,0,0.15); SH(1,-0.4,0,-0.15); EL(0,-1.3); EL(1,-1.3); head.rotation.x=-0.2; lean=-0.06; }
     if(P==='sit'){ Lg.forEach(l=>{ l.rotation.x=-1.5; l.userData.knee.rotation.x=1.5; }); root.position.y=-0.25; }
-    if(P==='drink'){ // the mate in the right hand rises to the chin; the bombilla ends in the mouth
-      const k=ease(clamp((u-0.06)/0.16))*(1-ease(clamp((u-0.84)/0.12))); SH(1,lerp(-0.3,-0.75,k),0,lerp(0.18,-0.25,k)); EL(1,lerp(-0.6,-1.85,k)); head.rotation.x=lerp(0,0.18,k); SH(0,-0.1,0,-0.2); api.setFace(k>0.8?'sip':api.baseFace||'happy'); }
-    { const bl=((t+(o.i||0)*1.3)%3.1)<0.11; if(bl!==api._bl&&!['shock','sip','laugh','happy'].includes(api.face)){ api._bl=bl; faceMat.map=toonFaceTex(api.face,bl); faceMat.needsUpdate=true; } }
+    if(P==='talk'){ SH(1,-0.6+Math.sin(t*3)*0.15,0,-0.05); EL(1,-1.1+Math.sin(t*5)*0.2); A[1].wr.rotation.z=Math.sin(t*4)*0.3; }
     torso.rotation.x=lean; root.position.y+=bob+jump;
-    // held things stay upright: undo the turn of shoulder, elbow and hand
-    if(api.held){ if(!api.held.userData.base) api.held.userData.base=api.held.position.clone(); api.held.position.copy(api.held.userData.base); g.updateMatrixWorld(true); const hq=A[1].hand.getWorldQuaternion(new THREE.Quaternion()), gq=g.getWorldQuaternion(new THREE.Quaternion()); api.held.quaternion.copy(hq.invert().multiply(gq)); }
-    if(P==='drink'&&api.held&&api.held.userData.tip){ const k=ease(clamp((u-0.06)/0.16))*(1-ease(clamp((u-0.84)/0.12))); if(k>0){ g.updateMatrixWorld(true); const tip=api.held.userData.tip.getWorldPosition(new THREE.Vector3()), m=mouth.getWorldPosition(new THREE.Vector3()); const d=m.sub(tip).multiplyScalar(k); const hand=arms[1].hand; const w0=api.held.getWorldPosition(new THREE.Vector3()).add(d); const inv=new THREE.Matrix4().copy(hand.matrixWorld).invert(); api.held.position.copy(w0.applyMatrix4(inv)); } } };
+    // hands close around what they hold
+    if(api.held) A[1].fing.rotation.x=0.9;
+    // drinking: the hand itself brings the mate up until the bombilla ends in the mouth
+    const dk=P==='drink'?ease(clamp((u-0.06)/0.16))*(1-ease(clamp((u-0.84)/0.12))):0;
+    if(P==='drink'){ SH(1,lerp(-0.45,-1.05,dk),0,lerp(0.05,-0.5,dk)); EL(1,lerp(-1.25,-2.05,dk)); A[1].wr.rotation.x=lerp(0,0.5,dk); SH(0,-0.1,0,-0.2); head.rotation.x=0.14*dk; }
+    if(api.held){ g.updateMatrixWorld(true); const hq=A[1].hand.getWorldQuaternion(new THREE.Quaternion()), gq=g.getWorldQuaternion(new THREE.Quaternion()); api.held.quaternion.copy(hq.invert().multiply(gq)); }
+    if(api.held){ if(!api.held.userData.base) api.held.userData.base=api.held.position.clone(); api.held.position.copy(api.held.userData.base); }
+    if(dk>0&&api.held&&api.held.userData.tip){ g.updateMatrixWorld(true); const tip=api.held.userData.tip.getWorldPosition(new THREE.Vector3()), m=mouth.getWorldPosition(new THREE.Vector3()); const d=m.sub(tip); const L=d.length(); if(L>0.14) d.multiplyScalar(0.14/L); d.multiplyScalar(dk); const hand=A[1].hand; const w0=api.held.getWorldPosition(new THREE.Vector3()).add(d); const inv=new THREE.Matrix4().copy(hand.matrixWorld).invert(); api.held.position.copy(w0.applyMatrix4(inv)); }
+    // the face: blinking, eyes that wander and follow the action, the mouth while talking
+    let f=api.face; if(P==='drink') f=dk>0.8?'sip':(api.baseFace||api.face); if(P==='shock'&&!['shock','scream','surprised','disgusted'].includes(f)) f='shock'; fs0.face=f;
+    fs0.blink=((t+i0*1.3)%3.3)<0.12&&!TFACE[f].arc; const gz=Math.floor(t/1.3+i0); fs0.gx=P==='point'?0.8:Math.sin(gz*2.7)*0.5; fs0.gy=Math.cos(gz*1.9)*0.3; fs0.talk=api.talk?Math.max(0,Math.sin(t*14)*0.5+Math.sin(t*9.3)*0.5):0; redraw(t); };
   api.attach=(obj,side=1)=>{ const h=arms[side>0?1:0].hand; if(api.held) api.held.parent.remove(api.held); h.add(obj); api.held=obj; return obj; };
   return api; }
+
 function pmixHex(a,b,k){ const A=new THREE.Color(a), B=new THREE.Color(b); return '#'+A.lerp(B,k).getHexString(); }
 // ---- the template ----
 // p.stage {obj:'calabaza', st:'entera'|...} the object of this step, on the table or on the cut block; p.people [{i,shirt,hair,hat,mustache,glasses,face,pose,holds}]
@@ -2266,11 +2321,11 @@ T.build=(p={})=>{ const s=new THREE.Scene(); s.background=new THREE.Color('#bfe0
   // the table and the object of this step
   const stageG=put(s,new THREE.Group(),0,0,0); let hero=null, heroTop=0.9;
   if(p.stage){ const onTable=p.stage.table!==false&&!cut; if(onTable){ const wood=new THREE.MeshStandardMaterial({map:bWood(),roughness:0.7}); put(stageG,mesh(new THREE.BoxGeometry(1.8,0.08,1.0),wood),0,0.82,0.3); for(const [x,z] of [[-0.8,-0.15],[0.8,-0.15],[-0.8,0.75],[0.8,0.75]]) put(stageG,mesh(new THREE.BoxGeometry(0.07,0.82,0.07),wood),x,0.41,z); }
-    const base=onTable?0.86:0; const o=p.stage.obj||'calabaza'; hero=o==='calabaza'||o==='mate'?bGourd(p.stage.st,{capOn:p.stage.capOn}):bTool(o); hero.scale.setScalar(p.stage.size||(o==='calabaza'||o==='mate'?0.9:1.4)); put(stageG,hero,0,base,0.3); heroTop=base+0.8;
+    const base=onTable?0.86:0; const o=p.stage.obj||'calabaza'; hero=o==='calabaza'||o==='mate'?bGourd(p.stage.st,{capOn:p.stage.capOn}):bTool(o); hero.scale.setScalar(p.stage.size||(o==='calabaza'||o==='mate'?0.62:1.15)); put(stageG,hero,0,base,0.3); heroTop=base+0.8;
     (p.stage.tools||[]).forEach((tl,i)=>{ const t2=put(stageG,bTool(tl),-0.55+i*1.1,base,0.35); t2.rotation.y=0.4; }); if(p.stage.vine) put(stageG,bGourd('planta'),0.9,0,0.2); }
   // people
   const ppl=(p.people||[]).map((q,i)=>{ const P=makeToon({...q,i}); const n=(p.people||[]).length; const x=q.x??(p.stage?(n===1?-0.78:-0.6+i*1.2/Math.max(1,n-1)):(n===1?0:(-1.4+i*2.8/Math.max(1,n-1)))); P.g.position.set(x,0,q.z??(p.stage&&p.stage.table!==false?-0.4:0.2)); P.g.rotation.y=q.ry??(p.stage?(x<0?0.3:-0.3):0); P.pose=q.pose||'idle'; P.baseFace=q.face||'happy'; P.setFace(P.baseFace); s.add(P.g);
-    if(q.holds){ const ob=q.holds==='calabaza'||q.holds==='mate'?bGourd(q.holds==='mate'?'mate':q.st||'entera'):bTool(q.holds); ob.scale.setScalar(q.holds==='mate'?0.32:0.35); if(q.holds==='mate'||q.holds==='calabaza') ob.position.set(0,-0.02,0.1); if(q.holds==='mate'){ ob.scale.setScalar(0.36); ob.position.set(0,-0.14,0.12); } P.attach(ob); } return P; });
+    if(q.holds){ const ob=q.holds==='calabaza'||q.holds==='mate'?bGourd(q.holds==='mate'?'mate':q.st||'entera'):bTool(q.holds); ob.scale.setScalar(q.holds==='mate'?0.32:0.35); if(q.holds==='mate'||q.holds==='calabaza') ob.position.set(0,-0.02,0.1); if(q.holds==='mate'){ ob.scale.setScalar(0.3); ob.position.set(0,-0.12,0.05); } P.attach(ob); } return P; });
   const acts=p.acts||[]; const fxs=[]; const heroBase=hero?hero.scale.x:1; const pm=(c,o=1,e)=>new THREE.MeshStandardMaterial({color:c,roughness:0.6,transparent:o<1,opacity:o,emissive:e||'#000000',emissiveIntensity:e?0.7:0});
   const PCOUNT={dust:16,seeds:18,spit:20,stars:10,hearts:6,leak:12,confetti:40,steam:12,shards:10,pour:1,splash:16};
   acts.forEach((a,ai)=>{ if(!a.fx) return; const n=PCOUNT[a.fx]||10, ms=[]; for(let k=0;k<n;k++){ let m;

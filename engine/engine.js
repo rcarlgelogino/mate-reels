@@ -2161,7 +2161,7 @@ function bGourd(stage,o={}){ // the gourd on its way to a mate: planta | entera 
     if(st==='cortada'){ const cap=put(g,mesh(new THREE.LatheGeometry(pts.filter(p=>p.y>=cutH-0.001).map(p=>new THREE.Vector2(p.x,p.y-cutH)),32),mat),o.capOn?0:0.45,o.capOn?cutH:cutH+0.15,0); if(!o.capOn) cap.rotation.z=-0.9; g.userData.cap=cap; }
     if(st==='curada'||st==='mate'){ const ring=put(g,mesh(new THREE.TorusGeometry(body[body.length-1].x*1.0,0.025,10,40),new THREE.MeshStandardMaterial({color:'#d9dde6',metalness:0.85,roughness:0.25})),0,cutH,0); ring.rotation.x=Math.PI/2; }
     if(st==='mate'){ const top=body[body.length-1].x*0.92; const y1=put(g,mesh(new THREE.SphereGeometry(top,24,12,0,Math.PI*2,0,Math.PI/2),toy('#6fae3a',0.95)),0,cutH-0.02,0); y1.scale.y=0.55; g.userData.yerba=y1; const bm=new THREE.MeshStandardMaterial({color:'#d4d8e0',metalness:0.9,roughness:0.2});
-      const bb=put(g,mesh(new THREE.CylinderGeometry(0.016,0.016,0.66,10),bm),0.045,cutH+0.27,0); bb.rotation.z=-0.13; const tip=put(g,mesh(new THREE.CylinderGeometry(0.022,0.022,0.05,10),bm),0.088,cutH+0.59,0); tip.rotation.z=-1.2; g.userData.tip=tip; g.userData.bomb=[bb,tip]; } }
+      const bb=put(g,mesh(new THREE.CylinderGeometry(0.016,0.016,0.5,10),bm),0.045,cutH+0.17,0); bb.rotation.z=-0.13; const tip=put(g,mesh(new THREE.CylinderGeometry(0.022,0.022,0.05,10),bm),0.078,cutH+0.42,0); tip.rotation.z=-1.2; g.userData.tip=tip; g.userData.bomb=[bb,tip]; } }
   if(st==='planta'){ const vine=new THREE.MeshStandardMaterial({color:'#4f8a2a',roughness:0.9}); const stem=put(g,mesh(new THREE.CylinderGeometry(0.02,0.02,0.4,8),vine),0,0.95,0); for(let i=0;i<5;i++){ const l=put(g,mesh(new THREE.SphereGeometry(0.16,12,8),toy('#5f9e34',0.9)),Math.cos(i*1.3)*0.3,1.05+Math.sin(i)*0.08,Math.sin(i*1.3)*0.3); l.scale.set(1,0.25,1); } }
   return g; }
 function bTool(kind){ const g=new THREE.Group(); const metal=new THREE.MeshStandardMaterial({color:'#c9ced8',metalness:0.85,roughness:0.3}), handle=toy('#3a6ad0',0.6);
@@ -2299,7 +2299,7 @@ function makeToon(o={}){ const g=new THREE.Group(); const sc=o.scale||1; const s
     if(P==='wave'){ SH(1,0,0,2.3); EL(1,-0.4-Math.abs(Math.sin(t*10))*0.6); A[1].el.rotation.z=Math.sin(t*10)*0.4; head.rotation.z=0.1; }
     if(P==='point'){ SH(1,-1.45,0,0.2); EL(1,-0.05); head.rotation.y=0.35; A[1].fing.rotation.x=0.3; }
     if(P==='cheer'){ SH(0,0,0,-2.6+Math.sin(t*10)*0.15); SH(1,0,0,2.6-Math.sin(t*10)*0.15); EL(0,-0.3); EL(1,-0.3); jump=Math.abs(Math.sin(t*7))*0.14; const kb=jump>0.03?0:0.35; Lg.forEach(l=>{ l.rotation.x=-kb; l.userData.knee.rotation.x=kb*2; }); head.rotation.x=-0.15; }
-    if(P==='shock'){ SH(0,-0.7,0,-0.55); SH(1,-0.7,0,0.55); EL(0,-2.1); EL(1,-2.1); jump=t<0.4?Math.sin(t/0.4*Math.PI)*0.18:0; lean=-0.12; head.rotation.x=-0.12; root.position.x+=Math.sin(t*40)*0.01*(t<0.6?1:0); }
+    if(P==='shock'){ SH(0,-0.7,0,-0.55); SH(1,-0.7,0,0.55); EL(0,-2.1); EL(1,-2.1); if(api.held){ SH(1,-0.45,0,0.6); EL(1,-0.95); } jump=t<0.4?Math.sin(t/0.4*Math.PI)*0.18:0; lean=-0.12; head.rotation.x=-0.12; root.position.x+=Math.sin(t*40)*0.01*(t<0.6?1:0); }
     if(P==='think'){ SH(1,-0.5,0,0.25); EL(1,-2.25); head.rotation.z=0.18; head.rotation.y=-0.25; SH(0,-0.4,0,-0.1); EL(0,-1.4); }
     if(P==='shrug'){ SH(0,-0.2,0,-0.75); SH(1,-0.2,0,0.75); EL(0,-1.5); EL(1,-1.5); A[0].el.rotation.z=-0.6; A[1].el.rotation.z=0.6; head.rotation.z=Math.sin(t*2)*0.12; torso.rotation.z=Math.sin(t*2)*0.03; }
     if(P==='hold'){ SH(0,-0.55,0,0.1); SH(1,-0.55,0,-0.1); EL(0,-1.0); EL(1,-1.0); }
@@ -2333,11 +2333,23 @@ function makeToon(o={}){ const g=new THREE.Group(); const sc=o.scale||1; const s
     if(P==='drink'){ SH(1,lerp(-0.45,-0.78,dk),0,lerp(0.05,-0.42,dk)); EL(1,lerp(-1.25,-1.95,dk)); A[1].wr.rotation.x=lerp(0,0.5,dk); SH(0,-0.1,0,-0.2); head.rotation.x=0.14*dk; }
     if(api.held){ g.updateMatrixWorld(true); const hq=A[1].hand.getWorldQuaternion(new THREE.Quaternion()), gq=g.getWorldQuaternion(new THREE.Quaternion()); api.held.quaternion.copy(hq.invert().multiply(gq)); }
     if(api.held){ if(!api.held.userData.base) api.held.userData.base=api.held.position.clone(); api.held.position.copy(api.held.userData.base); }
-    if(dk>0&&api.held&&api.held.userData.tip){ g.updateMatrixWorld(true); const tip=api.held.userData.tip.getWorldPosition(new THREE.Vector3()), m=mouth.getWorldPosition(new THREE.Vector3()); const d=m.sub(tip); const L=d.length(); if(L>0.25) d.multiplyScalar(0.25/L); d.multiplyScalar(dk); const hand=A[1].hand; const w0=api.held.getWorldPosition(new THREE.Vector3()).add(d); const inv=new THREE.Matrix4().copy(hand.matrixWorld).invert(); api.held.position.copy(w0.applyMatrix4(inv)); }
+    const keepUp=()=>{ g.updateMatrixWorld(true); const hq=A[1].hand.getWorldQuaternion(new THREE.Quaternion()), gq=g.getWorldQuaternion(new THREE.Quaternion()); api.held.quaternion.copy(hq.invert().multiply(gq)); api.held.updateMatrixWorld(true); };
+    if(dk>0&&api.held&&api.held.userData.tip){ const lips=mouth.localToWorld(new THREE.Vector3(0,0.005,0.04)); const rest=A[1].hand.getWorldPosition(new THREE.Vector3());
+      keepUp(); const tip0=api.held.userData.tip.getWorldPosition(new THREE.Vector3()), want=tip0.clone().lerp(lips,dk); const goal=rest.clone().add(want.clone().sub(tip0));
+      for(let it=0;it<8;it++){ api.ikArm(1,goal); keepUp(); const err=want.clone().sub(api.held.userData.tip.getWorldPosition(new THREE.Vector3())); if(err.length()<0.004) break; goal.add(err); } }
+    // hands on given points (carrying, pushing): set from outside every frame
+    api.ik.forEach((Tw,ai)=>{ if(Tw){ api.ikArm(ai,Tw); api.ik[ai]=null; } });
     // the face: blinking, eyes that wander and follow the action, the mouth while talking
     let f=api.face; if(P==='drink') f=dk>0.8?'sip':(api.baseFace||api.face); if(P==='shock'&&!['shock','scream','surprised','disgusted'].includes(f)) f='shock'; fs0.face=f;
     if(api._carryArms){ SH(0,-1.15,0,-0.42); SH(1,-1.15,0,0.42); EL(0,-0.55); EL(1,-0.55); api._carryArms=false; }
     fs0.blink=((t+i0*1.3)%3.3)<0.12&&!TFACE[f].arc; const gz=Math.floor(t/1.3+i0); fs0.gx=P==='point'?0.8:Math.sin(gz*2.7)*0.5; fs0.gy=Math.cos(gz*1.9)*0.3; fs0.talk=api.talk?Math.max(0,Math.sin(t*14)*0.5+Math.sin(t*9.3)*0.5):0; redraw(t); updateLimbs(); };
+  const ikQ=new THREE.Quaternion(), ikQ2=new THREE.Quaternion();
+  api.ikArm=(ai,Tw)=>{ const A=arms[ai]; g.updateMatrixWorld(true); const L1=0.2, L2=0.235; const T=torso.worldToLocal(Tw.clone()).sub(A.p.position);
+    const d=clamp(T.length(),0.1,L1+L2-0.004); const inner=Math.acos(clamp((L1*L1+L2*L2-d*d)/(2*L1*L2),-1,1)), b=-(Math.PI-inner);
+    const h0=new THREE.Vector3(0,-L1-L2*Math.cos(b),-L2*Math.sin(b)).normalize(), Tn=T.clone().normalize(); ikQ.setFromUnitVectors(h0,Tn);
+    let best=null, bs=1e9; for(let k=0;k<36;k++){ ikQ2.setFromAxisAngle(Tn,k/36*Math.PI*2).multiply(ikQ); const e=new THREE.Vector3(0,-L1,0).applyQuaternion(ikQ2); const sc2=e.y-0.6*A.sd*e.x+0.15*e.z; if(sc2<bs){ bs=sc2; best=ikQ2.clone(); } }
+    A.p.quaternion.copy(best); A.el.rotation.set(b,0,0); A.wr.rotation.set(0,0,0); g.updateMatrixWorld(true); };
+  api.ik=[null,null]; api.updateLimbs=()=>updateLimbs();
   api.attach=(obj,side=1)=>{ const h=arms[side>0?1:0].hand; if(api.held) api.held.parent.remove(api.held); h.add(obj); api.held=obj; return obj; };
   return api; }
 
@@ -2367,7 +2379,7 @@ T.build=(p={})=>{ const s=new THREE.Scene(); s.background=new THREE.Color('#bfe0
     (p.stage.tools||[]).forEach((tl,i)=>{ const t2=put(stageG,bTool(tl),-0.55+i*1.1,base,0.35); t2.rotation.y=0.4; }); if(p.stage.vine) put(stageG,bGourd('planta'),0.9,0,0.2); }
   // people
   const ppl=(p.people||[]).map((q,i)=>{ const P=makeToon({...q,i}); const n=(p.people||[]).length; const x=q.x??(p.stage?(n===1?-0.78:-0.6+i*1.2/Math.max(1,n-1)):(n===1?0:(-1.4+i*2.8/Math.max(1,n-1)))); P.g.position.set(x,0,q.z??(p.stage&&p.stage.table!==false?-0.4:0.2)); P.g.rotation.y=q.ry??(p.stage?(x<0?0.3:-0.3):0); P.pose=q.pose||'idle'; P.baseFace=q.face||'happy'; P.setFace(P.baseFace); s.add(P.g);
-    if(q.holds){ const ob=q.holds==='calabaza'||q.holds==='mate'?bGourd(q.holds==='mate'?'mate':q.st||'entera'):bTool(q.holds); ob.scale.setScalar(q.holds==='mate'?0.32:0.35); if(q.holds==='mate'||q.holds==='calabaza') ob.position.set(0,-0.02,0.1); if(q.holds==='mate'){ ob.scale.setScalar(0.3); ob.position.set(0,-0.12,0.05); } P.attach(ob); } return P; });
+    if(q.holds){ const ob=q.holds==='calabaza'||q.holds==='mate'?bGourd(q.holds==='mate'?'mate':q.st||'entera'):bTool(q.holds); ob.scale.setScalar(q.holds==='mate'?0.32:0.35); if(q.holds==='mate'||q.holds==='calabaza') ob.position.set(0,-0.02,0.1); if(q.holds==='mate'){ ob.scale.setScalar(0.37); ob.position.set(0,-0.14,0.06); } P.attach(ob); } return P; });
   const acts=p.acts||[]; const fxs=[]; const heroBase=hero?hero.scale.x:1; const pm=(c,o=1,e)=>new THREE.MeshStandardMaterial({color:c,roughness:0.6,transparent:o<1,opacity:o,emissive:e||'#000000',emissiveIntensity:e?0.7:0});
   const PCOUNT={dust:16,seeds:18,spit:36,stars:10,hearts:6,leak:12,confetti:40,steam:12,shards:10,pour:1,splash:16};
   acts.forEach((a,ai)=>{ if(!a.fx) return; const n=PCOUNT[a.fx]||10, ms=[]; for(let k=0;k<n;k++){ let m;
@@ -2394,9 +2406,10 @@ T.build=(p={})=>{ const s=new THREE.Scene(); s.background=new THREE.Color('#bfe0
         if(a.launch!=null&&t>=a.launch){ const d=t-a.launch, T1=a.dur||0.9, k=clamp(d/T1); const sx=hero&&a.ride?hero.position.x:B.x, sy=a.ride?(a.rideY??0.35)+(hero?hero.position.y:0):0, sz=hero&&a.ride?hero.position.z:B.z; const to=a.to||[sx+2.5,sz];
           if(a._s==null){ a._s=[sx,sy,sz]; } const S0=a._s; P.g.position.set(lerp(S0[0],to[0],k),lerp(S0[1],0.12,k)+Math.sin(k*Math.PI)*(a.h||1.8),lerp(S0[2],to[1],k)); P.g.rotation.x=-k*(Math.PI*2*(a.spins??1)+1.45); P.g.rotation.z=Math.sin(k*Math.PI)*0.4;
           if(k<1){ pose='fall'; face='scared'; } else { P.g.rotation.x=-1.45; P.g.position.y=0.12+Math.max(0,Math.sin((d-T1)*16)*0.08*Math.max(0,1-(d-T1)*3)); pose='shock'; face=a.land||'dizzy'; } }
-        if(a.carry&&hero&&t>=a.carry[0]&&t<a.carry[1]){ carrier=P; if(pose!=='walk'&&pose!=='run') pose='carry'; else P._carryArms=true; } });
+        if(a.carry&&hero&&t>=a.carry[0]&&t<a.carry[1]){ carrier=P; if(pose!=='walk'&&pose!=='run') pose='carry'; } });
       if(P.pose!==pose) P.pose=pose; if(P._face!==face){ P._face=face; P.baseFace=face; P.setFace(face); } });
-    if(hero&&carrier){ const ry=carrier.g.rotation.y, sc2=carrier.sc||1; hero.position.set(carrier.g.position.x+Math.sin(ry)*0.42*sc2,carrier.g.position.y+0.6*sc2,carrier.g.position.z+Math.cos(ry)*0.42*sc2); hero.rotation.y=ry; }
+    if(hero&&carrier){ const ry=carrier.g.rotation.y, sc2=carrier.sc||1; hero.position.set(carrier.g.position.x+Math.sin(ry)*0.4*sc2,carrier.g.position.y+0.62*sc2,carrier.g.position.z+Math.cos(ry)*0.4*sc2); hero.rotation.y=ry;
+      const hs=hero.scale.x, c=hero.position.clone().add(V(0,0.3*hs,0)), right=V(Math.cos(ry),0,-Math.sin(ry)), r=0.34*hs+0.05; carrier.ik[0]=c.clone().addScaledVector(right,-r); carrier.ik[1]=c.clone().addScaledVector(right,r); }
     if(hero){ let sc=heroBase; acts.forEach(a=>{ if(a.grow){ const k=clamp((t-a.grow[0])/(a.grow[1]-a.grow[0])); sc=heroBase*lerp(0.12,1,easeOutBack(k)); }
         if(a.color&&hero.userData.mat){ const k=clamp((t-a.color[2])/(a.color[3]-a.color[2])); hero.userData.mat.color.set(a.color[0]).lerp(new THREE.Color(a.color[1]),k); }
         if(a.shake&&t>=a.shake[0]&&t<a.shake[1]) hero.rotation.z=Math.sin(t*45)*0.09; else if(a.shake) hero.rotation.z=0;
@@ -2424,15 +2437,16 @@ T.build=(p={})=>{ const s=new THREE.Scene(); s.background=new THREE.Color('#bfe0
     const tl2=acts.find(a=>a.timelapse); if(tl2){ const k=clamp((t-tl2.timelapse[0])/(tl2.timelapse[1]-tl2.timelapse[0])); const an=-1.2+k*Math.PI*2*(tl2.turns||1); k2.position.set(Math.cos(an)*12,9+Math.sin(an*0.5)*2,Math.sin(an)*12); if(s.userData.dome) s.userData.dome.rotation.y=k*2.5; } };
   const k2=k;
   const pourAfter=(t)=>{ fxs.forEach(({a,ms,ai})=>{ if(a.fx!=='pour'||a.who==null||!ppl[a.who]||!hero) return; const m=ms[0]; const t0=a.t0??0, t1=a.t1??1; const P=ppl[a.who];
-      if(!P._termo){ const tm=bTool('termo'); tm.scale.setScalar(0.62); const grip=new THREE.Group(); tm.position.set(0,-0.3,0); grip.add(tm); P.attach(grip); P._termo=grip; P._tm=tm; }
+      if(!P._termo){ const tm=bTool('termo'); tm.scale.setScalar(0.8); const grip=new THREE.Group(); tm.position.set(0,-0.38,0); grip.add(tm); P.attach(grip); P._termo=grip; P._tm=tm; }
       const on=t>=t0-0.45&&t<t1+0.3; P._termo.visible=on; if(!on){ m.visible=false; return; } const kk=easeOut(clamp((t-t0+0.45)/0.45)); const side=Math.sign(P.g.position.x-hero.position.x)||1; const A=P.arms[1];
       // stand beside the mate, turned to it; the arm reaches forward, the termo tilts with the spout towards the mate
       P.g.position.set(lerp(P.g.position.x,hero.position.x+side*0.62,kk),0,lerp(P.g.position.z,hero.position.z-0.05,kk)); P.g.rotation.y=lerp(P.g.rotation.y,-side*1.3,kk);
-      A.p.rotation.set(lerp(-0.3,-1.75,kk),0,0); A.el.rotation.x=lerp(-0.3,-0.75,kk); A.fing.rotation.x=0.9;
+      // the hand holds the termo; the arm (IK) brings the hand so far that the spout sits just over the mate
       const top=heroTopW(); const want=top.clone().add(V(side*0.035,0.06,0)); const tilt=lerp(0,0.82,kk)*side;
-      P.g.updateMatrixWorld(true); const hq=A.hand.getWorldQuaternion(new THREE.Quaternion()), gq=new THREE.Quaternion(); const tq=new THREE.Quaternion().setFromAxisAngle(V(0,0,1),tilt); P._termo.quaternion.copy(hq.clone().invert().multiply(tq)); P._termo.position.set(0,0,0.04);
-      P.g.updateMatrixWorld(true); let sp=P._tm.localToWorld(V(0,0.82,0)); const d=want.clone().sub(sp); const L=d.length(); if(L>0.3) d.multiplyScalar(0.3/L); d.multiplyScalar(kk);
-      const gw=P._termo.getWorldPosition(new THREE.Vector3()).add(d); const inv=new THREE.Matrix4().copy(A.hand.matrixWorld).invert(); P._termo.position.copy(gw.applyMatrix4(inv)); P.g.updateMatrixWorld(true); sp=P._tm.localToWorld(V(0,0.82,0));
+      const orient=()=>{ P.g.updateMatrixWorld(true); const hq=A.hand.getWorldQuaternion(new THREE.Quaternion()); const tq=new THREE.Quaternion().setFromAxisAngle(V(0,0,1),tilt); P._termo.quaternion.copy(hq.invert().multiply(tq)); P._termo.position.set(0,0,0.04); P.g.updateMatrixWorld(true); };
+      A.p.rotation.set(-0.3,0,0); A.el.rotation.x=-0.3; orient(); const rest=A.hand.getWorldPosition(new THREE.Vector3()); const sp0=P._tm.localToWorld(V(0,0.82,0)); const wantK=sp0.clone().lerp(want,kk); const goal=rest.clone().add(wantK.clone().sub(sp0));
+      for(let it=0;it<8;it++){ P.ikArm(1,goal); orient(); const err=wantK.clone().sub(P._tm.localToWorld(V(0,0.82,0))); if(err.length()<0.004) break; goal.add(err); }
+      A.fing.rotation.x=0.9; P.updateLimbs(); let sp=P._tm.localToWorld(V(0,0.82,0));
       if(t>t0+0.1&&t<t1){ const len=Math.max(0.02,sp.y-top.y); m.visible=true; m.position.set((sp.x+top.x)/2,(sp.y+top.y)/2,(sp.z+top.z)/2); m.scale.set(1,len,1); } else m.visible=false;
     }); };
   const AP=ppl.map(()=>Array.from({length:14},()=>{ const m=mesh(new THREE.SphereGeometry(0.035,8,6),new THREE.MeshStandardMaterial({color:'#ffffff',roughness:0.6,transparent:true,opacity:0.9}),false,false); m.visible=false; s.add(m); return m; }));
@@ -2455,7 +2469,7 @@ T.build=(p={})=>{ const s=new THREE.Scene(); s.background=new THREE.Color('#bfe0
   const focusP=p.focus==='face'||p.cam==='face'?face(p.who||0):p.stage?tgtObj:ppl.length?V(0,1.2,0.2):V(0,1,0);
   const cues=[]; if(['drone','whip','crash','orbit'].includes(p.cam)) cues.push({u:0.02,type:'whoosh'}); if(p.cam==='crash') cues.push({u:0.6,type:'swish'}); const D=p.dur||3, cu=(tt,type)=>cues.push({u:clamp(tt/D),type});
   acts.forEach(a=>{ if(a.fall!=null){ cu(a.fall,'boomSoft'); } if(a.capoff!=null){ cu(a.capoff,'hit'); cu(a.capoff+0.02,'crackle'); } if(a.fx==='seeds') cu(a.t0||0,'rustle'); if(a.fx==='pour') cu((a.t0||0)+0.3,'pour'); if(a.obj==='ring') cu(a.drop[1],'clink'); if(a.shake) cu(a.shake[0],'shake'); if(a.fx==='stars') cu(a.at||0,'pop'); if(a.fx==='confetti') cu(a.t0||a.at||0,'popBig'); if(a.fx==='hearts') cu(a.at||0,'sparkle'); if(a.grow) cu(a.grow[0],'rise'); if(a.fx==='spit') cu(a.at||0,'hiss'); if(a.walk&&a.run) cu(a.t0||0,'swish'); if(a.fx==='dust') cu(a.at||0,'snap'); if(a.insert) cu(a.insert[1],'clank'); if(a.fill) cu(a.fill[0],'bag'); if(a.timelapse) cu(a.timelapse[0],'clock'); });
-  return { scene:s, camera:cam, aperture:0.0008, maxblur:0.006, exposure:1.08, keepFaces:true, people:[], cues, update(u,t){ const f=focusP; let pos, look=f.clone(); const e=ease(u), q=easeOut(u);
+  return { scene:s, camera:cam, aperture:0.0008, maxblur:0.006, exposure:1.08, keepFaces:true, people:[], _ppl:ppl, cues, update(u,t){ const f=focusP; let pos, look=f.clone(); const e=ease(u), q=easeOut(u);
       clouds.forEach((c,i)=>{ c.position.x+=0.004*(1+i%3); });
       applyActs(t,u); ppl.forEach(P=>P.tick(t,u)); pourAfter(t); autoFx(t); if(hero&&p.stage.spin) hero.rotation.y=t*0.8;
       if(hero&&hero.userData.cap&&p.stage.pop){ const k=easeOut(clamp(u/0.3)); hero.userData.cap.position.y=0.66+0.15+k*0.4; }

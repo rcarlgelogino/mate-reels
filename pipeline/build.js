@@ -123,9 +123,9 @@ async function render(tl) {
     const sheet = await page.evaluate(ts => window.__engine.sheet(ts, 5), mids); fs.writeFileSync(path.join(OUT, 'sheet.png'), Buffer.from(sheet.split(',')[1], 'base64'));
     if (SHEET_ONLY) return info;
     const n = Math.ceil(tl.total * tl.fps); const video = path.join(OUT, 'video.mp4');
-    const ff = spawn(FF, ['-y', '-v', 'error', '-f', 'image2pipe', '-c:v', 'mjpeg', '-framerate', String(tl.fps), '-i', '-', '-c:v', 'libx264', '-preset', 'slow', '-crf', '18', '-pix_fmt', 'yuv420p', video], { stdio: ['pipe', 'inherit', 'inherit'] });
+    const ff = spawn(FF, ['-y', '-v', 'error', '-f', 'image2pipe', '-c:v', 'mjpeg', '-framerate', String(tl.fps), '-i', '-', ...(tl.style && tl.style.hq ? ['-vf', 'noise=alls=3:allf=t', '-x264-params', 'aq-mode=3:aq-strength=1.1'] : []), '-c:v', 'libx264', '-preset', 'slow', '-crf', '18', '-pix_fmt', 'yuv420p', video], { stdio: ['pipe', 'inherit', 'inherit'] });
     const t0 = Date.now();
-    for (let f = 0; f < n; f++) { const d = await page.evaluate(t => window.__engine.jpeg(t, 0.93), f / tl.fps); const b = Buffer.from(d.split(',')[1], 'base64');
+    const hq = !!(tl.style && tl.style.hq); for (let f = 0; f < n; f++) { const d = await page.evaluate(([t, q]) => window.__engine.jpeg(t, q), [f / tl.fps, hq ? 0.98 : 0.93]); const b = Buffer.from(d.split(',')[1], 'base64');
       if (!ff.stdin.write(b)) await new Promise(r => ff.stdin.once('drain', r)); if (f % 90 === 0) log(`frame ${f}/${n} ${((Date.now() - t0) / 1000).toFixed(0)}s`); }
     ff.stdin.end(); await new Promise((r, j) => ff.on('close', c => c === 0 ? r() : j(new Error('ffmpeg video exit ' + c))));
     log(`render done ${n} frames in ${((Date.now() - t0) / 1000).toFixed(0)}s`); return info;

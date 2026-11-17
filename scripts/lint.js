@@ -37,6 +37,8 @@ function lint(j) {
   const boards = S.map((g, i) => !(j.poll && i === S.length - 1) && vis(g).some(v => BOARD.has(v.type) && (v.text || v.value || v.items || v.rows || v.label || v.on != null)));
   const nb = boards.filter(Boolean).length; if (nb > 3) W(`${nb} text boards (max 3; show it as a scene, object or compare)`);
   boards.forEach((b, i) => { if (b && boards[i - 1]) W(`seg ${i - 1}-${i}: two text boards in a row`); });
+  // humour: the reels may be silly; at least one funny sentence
+  if (!S.some(g => g.emo === 'funny')) W('no funny moment (one sentence with emo "funny": slapstick, exaggerated reaction, cheeky comparison)');
   // ending: question about the viewer's own habit + share line + poll
   const e = String(S[S.length - 1] && S[S.length - 1].text || '');
   if (!/\?/.test(e)) W('last sentence is no question to the viewer');

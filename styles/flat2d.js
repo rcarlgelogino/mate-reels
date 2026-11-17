@@ -128,7 +128,7 @@ function toSpec(script, opt = {}) { // opt.plain: one shot per visual and no 2D 
     if (sg.headline) { const at = sg.headlineAt || AT(sg.text); const t = sg.headlineType || 'big'; callouts.push({ type: t, text: sg.headline, at, ...(sg.impact ? { impact: true } : {}), ...(sg.headlineSub ? { sub: sg.headlineSub } : {}) }); }
     if (sg.visual && sg.visual.type === 'mistake') callouts.push({ type: 'xmark', text: sg.visual.text, at: sg.visual.at || AT(sg.text), y: 820, size: 300 });
     // comments: the question of the poll is already asked early (second sentence), not only at the end
-    if (script.poll && si === 1 && (script.poll.options || []).length) callouts.push({ type: 'pill', text: '¿VOS QUÉ DECÍS?', y: 540, early: true });
+    if (script.poll && si === 1 && (script.poll.options || []).length) callouts.push({ type: 'pill', text: '¿VOS QUÉ DECÍS?', y: 1400, early: true }); // low, so it never meets the headline or the caption line at the top
     if (!opt.plain) { const textual = shots.length && shots.every(sh => sh.tpl === 'board'); for (let i = callouts.length - 1; i >= 0; i--) if (textual && callouts[i].type === 'big') callouts.splice(i, 1); const heads = callouts.filter(c => c.type === 'big').map(c => norm(c.text)); shots.forEach(sh => { if (sh.p && sh.p.labels) sh.p.labels = sh.p.labels.filter(l => !heads.includes(norm(l.text))); }); }
     return { text: sg.text, say: sg.say, emo: sg.emo || 'neutral', shots, callouts };
   });

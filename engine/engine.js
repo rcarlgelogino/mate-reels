@@ -899,7 +899,7 @@ function drawFlat(c,p,u,t,sh){ c.save(); const z=(sh?.zoom||1)*(1+0.05*u)*(1+0.0
   if(p.cam){ const cm=p.cam, ck=cm.snap!=null?easeOut(clamp((u-cm.snap)/0.07)):ease(u); zz=Math.max(1.06,lerp(cm.z0,cm.z1,ck))*(1+0.06*Math.pow(1-clamp(t/0.3),3)); const fx=lerp(cm.c0[0],cm.c1[0],ck), fy=lerp(cm.c0[1],cm.c1[1],ck), cx=clamp(fx,0.5/zz+0.02,1-0.5/zz-0.02), cy=clamp(fy,0.5/zz,1-0.5/zz); c.translate(W/2,H/2); c.scale(zz,zz); c.translate(-cx*W,-cy*H); }
   else { c.translate(fc[0]*W,fc[1]*H); c.scale(zz,zz); c.translate(-fc[0]*W,-fc[1]*H); }
   const dir=(Math.round((sh?.start||0)*3)%2)?1:-1, dx=drift*dir*(ease(u)-0.5)*56;
-  c.save(); c.translate(dx*0.35,0); f2scene(c,p.scene||'solid',t,p); if(p.details!==false) f2detail(c,p.scene,t,p); c.restore(); c.translate(dx,0); const dur=sh?.dur||3;
+  c.save(); c.translate(dx*0.35,0); f2scene(c,p.scene||'solid',t,p); if(p.details!==false) f2detail(c,p.scene,t,p); c.restore(); if(p.veil){ c.save(); c.setTransform(1,0,0,1,0,0); c.fillStyle='rgba(13,22,38,'+p.veil+')'; c.fillRect(0,0,W,H); c.restore(); } c.translate(dx,0); const dur=sh?.dur||3;
   const defFace=SEGFACE[sh?.segEmo]||'smile'; const emo=sh?.emo||{};
   const ppl=(p.people||[]).map((q,i)=>{ const hit=emo.who==null||emo.who==='all'||emo.who===i||(Array.isArray(emo.who)&&emo.who.includes(i));
     return { skin:F2.skins[(q.who??i)%6], hair:F2.hairs[(q.who??i)%6], hairStyle:F2.styles[(q.who??i)%6], shirt:F2.shirts[(q.who??i)%8], ...q, x:(q.x??0.5)*W, y:(q.y??0.8)*H, face:q.face||(hit&&emo.face)||defFace, carry:p.pass?(p.pass.from===i?(passM(u)<=0.001?true:false):p.pass.to===i?(passM(u)>=0.999?true:false):undefined):undefined, act:p.pass&&p.pass.to===i&&!q.act?'receive':(q.act||(hit?emo.act:null)), dur, delay:q.delay??i*0.08, i }; });

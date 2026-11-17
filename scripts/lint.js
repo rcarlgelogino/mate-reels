@@ -2,6 +2,7 @@
 // usage: node scripts/lint.js [queue/xxxx.json ...]   (no args = every script in queue/)
 // Time is estimated from the words (narrator incl. pauses ~3 words/s, fitted on our posted reels).
 const fs = require('fs'), path = require('path');
+const norm = s => String(s || '').toLowerCase().normalize('NFD').replace(/[̀-ͯ]/g, '');
 const WPS = 3.0, PAUSE = 0; // fitted on posted reels 0001-0014 (107 words ≈ 37.5 s)
 const words = s => String(s || '').split(/\s+/).filter(Boolean).length;
 const vis = g => g.visuals || (g.visual ? [g.visual] : []);
@@ -37,6 +38,8 @@ function lint(j) {
   const boards = S.map((g, i) => !(j.poll && i === S.length - 1) && vis(g).some(v => BOARD.has(v.type) && (v.text || v.value || v.items || v.rows || v.label || v.on != null)));
   const nb = boards.filter(Boolean).length; if (nb > 3) W(`${nb} text boards (max 3; show it as a scene, object or compare)`);
   boards.forEach((b, i) => { if (b && boards[i - 1]) W(`seg ${i - 1}-${i}: two text boards in a row`); });
+  // variety: the same place three sentences in a row looks like one long shot
+  { let run = 1, pl = null; S.forEach((g, i) => { const v = vis(g)[0]; const p = v && v.type === 'scene' ? norm(v.place) : null; if (p && p === pl) { run++; if (run === 3) W('seg ' + (i - 2) + '-' + i + ': the same place (' + p + ') three times in a row'); } else { run = 1; pl = p; } }); }
   // humour: the reels may be silly; at least one funny sentence
   if (!S.some(g => g.emo === 'funny')) W('no funny moment (one sentence with emo "funny": slapstick, exaggerated reaction, cheeky comparison)');
   // thumbnail: big letters (two short lines)

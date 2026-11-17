@@ -111,16 +111,34 @@ function cam2(kind, fp) { const c = fp ? [fp.x, fp.y - 0.62 * fp.s / 1920] : [0.
   if (kind === 'snap') return { z0: 1.06, z1: 1.5, c0: mid, c1: c, snap: 0.42 }; if (kind === 'tight') return { z0: 1.55, z1: 1.68, c0: c, c1: c }; return null; }
 function shotFor(v, si, st) {
   if (!v) return boardShot({ type: 'title', text: '' }, st);
-  if (v.type === 'scene') { const sh = sceneShot(v, si); if (st) { st.scene = sh.p.scene; st.time = sh.p.time; st.tableY = sh.p.tableY; } return sh; } if (v.type === 'object') return objectShot(v, si); if (v.type === 'reaction') return reactionShot(v, si, st);
-  if (v.type === 'compare') { const c = compareShot(v); if (c) return c; } if (v.type === 'map') return mapShot(v);
+  if (v.type === 'scene') { const sh = sceneShot(v, si); if (st) { st.scene = sh.p.scene; st.time = sh.p.time; st.tableY = sh.p.tableY; } return sh; } if (v.type === 'object') return onScene(objectShot(v, si), st); if (v.type === 'reaction') return reactionShot(v, si, st);
+  if (v.type === 'compare') { const c = compareShot(v); if (c) return onScene(c, st); } if (v.type === 'map') return onScene(mapShot(v), st);
   if (v.type === 'mistake') { const sh = sceneShot(v.over || { type: 'scene', place: 'kitchen', people: [{ role: 'friend', does: 'no' }] }, si); if (st) { st.scene = sh.p.scene; st.time = sh.p.time; st.tableY = sh.p.tableY; } return sh; }
-  return boardShot(v, st) || boardShot({ type: 'title', text: v.text || '', sub: v.sub }, st); } // visual kinds no style draws yet (compare, map ...) show their text as a card
+  return boardShot(v, st) || boardShot({ type: 'title', text: v.text || '', sub: v.sub }, st); }
+const onScene = (s, st) => { if (s && s.tpl === 'flat' && s.p && s.p.scene === 'navygrid' && st && st.scene) { s.p.scene = st.scene; s.p.veil = 0.5; s.p.table = false; if (st.time) s.p.time = st.time; } return s; }; // visual kinds no style draws yet (compare, map ...) show their text as a card
 const AT = text => { const w = text.replace(/[¿¡]/g, '').split(/\s+/).map(x => x.replace(/[^\p{L}]/gu, '')).filter(x => x.length > 3 && !/^\d/.test(x)); const pick = (w[1] || w[0] || '').toLowerCase(); const cut = pick.search(/[^a-zñ]/); return (cut > 1 ? pick.slice(0, cut) : pick).slice(0, 5); };
-function toSpec(script, opt = {}) { // opt.plain: one shot per visual and no 2D camera (toy3d builds on this and swaps the pictures)
+// --- variety (2026-11-17, reel 0014 "termo bajo el brazo": 13 s of the same street, 14 s of dark text screens) ---
+const ITEM_HINTS = [[/colectivo|bondi|bus/, { place: 'ruta', props: ['colectivo'] }], [/cancha|futbol|partido/, { place: 'plaza', props: ['pelota'] }], [/banco/, { place: 'park', props: ['banco'] }],
+  [/manej|auto|ruta|viaje/, { place: 'ruta', does: 'drive' }], [/perro/, { place: 'park', props: ['perro'], does: 'walk' }], [/cochecito|bebe/, { place: 'plaza', props: ['cochecito'], does: 'walk' }],
+  [/oficina|trabajo/, { place: 'oficina' }], [/playa|mar|rio/, { place: 'playa' }], [/cocina|casa/, { place: 'cocina' }], [/super|almacen/, { place: 'supermercado' }], [/facultad|escuela|clase/, { place: 'oficina' }]];
+const sceneKey = v => v && v.type === 'scene' ? norm(v.place) + '|' + (v.people || []).map(q => q.role).join(',') : null;
+function vary(script) { const j = JSON.parse(JSON.stringify(script)); let prevKey = null, prevMain = null;
+  j.segments.forEach((sg, si) => { const vis = sg.visuals || (sg.visual ? [sg.visual] : []); if (vis.length !== 1) { prevKey = sceneKey(vis[vis.length - 1]); return; } const v = vis[0];
+    if (v.type === 'scene') { const items = String(sg.text).split(/,|\sy\s|:/).map(x => norm(x)).filter(x => x.length > 2); const hits = items.map(it => (ITEM_HINTS.find(([re]) => re.test(it)) || [])[1]).filter(Boolean);
+      const distinct = [...new Map(hits.map(h => [h.place + (h.props || []).join(), h])).values()];
+      if (distinct.length >= 2) { sg.visuals = distinct.slice(0, 3).map(h => ({ ...JSON.parse(JSON.stringify(v)), instant: true, place: h.place, props: [...(v.props || []).filter(p => !(h.props || []).includes(p)), ...(h.props || [])], people: (v.people || []).slice(0, 2).map((q, k) => k === 0 && h.does ? { ...q, does: h.does } : q) })); delete sg.visual; prevKey = sceneKey(sg.visuals[sg.visuals.length - 1]); return; }
+      const key = sceneKey(v); if (key && key === prevKey && String(sg.text).split(/\s+/).length >= 6 && (v.people || []).length) { sg.visuals = [v, { type: 'reaction', emotion: (v.people[0].mood || 'happy'), act: 'nod', who: 0 }]; delete sg.visual; }
+      prevKey = key; prevMain = v; return; }
+    prevKey = null; });
+  // the ending (no poll): the people of the reel instead of a dark title card, the title becomes a big headline
+  const last = j.segments[j.segments.length - 1], lv = last && (last.visuals || [last.visual])[0]; const lastScene = [...j.segments].reverse().map(g => (g.visuals || [g.visual]).find(v => v && v.type === 'scene')).find(Boolean);
+  if (!j.poll && lv && lv.type === 'title' && lastScene) { last.visual = { ...JSON.parse(JSON.stringify(lastScene)), people: (lastScene.people || []).map(q => ({ ...q, does: 'cheer', mood: 'happy' })) }; delete last.visuals; if (lv.text) { last.headline = last.headline || String(lv.text).toUpperCase(); last.headlineAt = last.headlineAt || AT(last.text); } }
+  return j; }
+function toSpec(script, opt = {}) { script = vary(script); // opt.plain: one shot per visual and no 2D camera (toy3d builds on this and swaps the pictures)
   const st = {}; let lastCam = null, ck = hashN(script.id || 'reel', 97); const nextCam = () => { let c; do { c = CAMS2[ck++ % CAMS2.length]; } while (c === lastCam); lastCam = c; return c; };
   const firstScene = script.segments.map(g => g.visuals || [g.visual]).flat().find(v => v && v.type === 'scene'); if (firstScene) { const s0 = sceneShot(firstScene, 0); st.scene = s0.p.scene; st.time = s0.p.time; st.tableY = s0.p.tableY; }
   const segs = script.segments.map((sg, si) => {
-    const vis = sg.visuals || [sg.visual]; let shots = vis.map((v, k) => { const s = shotFor(v, si, opt.plain ? null : st); if (k % 2 === 1) s.zoom = 1.12; return s; });
+    const vis = sg.visuals || [sg.visual]; let shots = vis.map((v, k) => { const s = shotFor(v, si, opt.plain ? null : st); if (k % 2 === 1) s.zoom = 1.12; if (v && v.instant && s.p && s.p.people) s.p.people.forEach(q => { q.delay = 0; }); return s; });
     if (!opt.plain) { const out = []; shots.forEach((s, k) => { const v = vis[k]; const isScene = v && (v.type === 'scene' || v.type === 'mistake') && s.tpl === 'flat' && (s.p.people || []).length; if (!isScene) return out.push(s);
         const ppl = s.p.people, busy = ppl.findIndex(q => q.act === 'pour' || q.act === 'drink'), fi = busy >= 0 ? busy : s.p.pass ? s.p.pass.from : 0, fp = ppl[fi]; const words = String(sg.text || '').split(/\s+/).length; const kind = si === 0 ? 'push' : nextCam(); const cam = cam2(kind, fp); if (cam) s.p.cam = cam; out.push(s);
         if (vis.length === 1 && words >= 10 && !s.p.pass && ppl.length > 1 && !(v.type === 'mistake')) { const t2 = JSON.parse(JSON.stringify(s)); t2.p.cam = cam2('tight', fp); t2.p.people.forEach(q => { q.delay = 0; }); out.push(t2); } }); shots = out; }

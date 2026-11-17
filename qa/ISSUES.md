@@ -2,12 +2,14 @@
 
 Found by the analysis after every build. Nothing is blocked; fix the most frequent ones in the style (styles/*.js, engine) or the script rules.
 
-Reels analysed: 7 · issues: 26 · updated 2026-11-16
+Reels analysed: 10 · issues: 35 · updated 2026-11-17
 
 | times | severity | category | problem (latest example) | suggested fix | last seen |
 |---|---|---|---|---|---|
 | 1 | high | labels | Headline graphic covers character eyes and glasses in cell 14. (0007_team_calabaza_o_acero, shot 6) | Shift the headline card upward or adjust camera framing. | 2026-11-15 |
 | 1 | high | hands | Mate gourd floats on the character's chest with bombilla while both arms hang down at her sides. (0011_con_palo_o_sin_palo, shot 6) | Attach character holding hand to mate gourd using the f2grip pose, curling fingers around the side. | 2026-11-16 |
+| 1 | high | match | Character drinks with a bombilla when narration says before the bombilla existed. (0012_de_donde_viene_bombilla, shot 0) | Remove the straw and depict the character sipping directly from the rim of the gourd. | 2026-11-17 |
+| 1 | high | match | Gourd has a straw inserted while the voiceover specifies drinking straight from the gourd. (0012_de_donde_viene_bombilla, shot 3) | Remove the bombilla sprite from the gourd asset for pre-bombilla Guarani scenes. | 2026-11-17 |
 | 1 | medium | labels | Board template contains only text without visual props or characters. (0004_mate_argentino_o_uruguayo, shot 1) | Add relevant background illustrations or icons to board templates instead of text-only slides. | 2026-11-14 |
 | 1 | medium | labels | Board text is tiny and placed near bottom margin. (0006_de_donde_viene_mate, shot 8) | Center and enlarge lower graphic text for better legibility. | 2026-11-14 |
 | 1 | medium | scale | Grandma character appears undersized in a vast interior. (0007_team_calabaza_o_acero, shot 3) | Scale character up to occupy roughly one-half to two-thirds of frame height. | 2026-11-15 |
@@ -22,6 +24,10 @@ Reels analysed: 7 · issues: 26 · updated 2026-11-16
 | 1 | medium | match | Narration describes spitting or dumping the mate into the sink ('pileta'), but visual is a static counter stance with an 'X'. (0010_el_primer_mate_es_el_peor, shot 7) | Show a pileta/sink asset with the gourd being tipped over or liquid pouring out. | 2026-11-16 |
 | 1 | medium | scale | Characters are tiny relative to the massive background fireplace and room height. (0011_con_palo_o_sin_palo, shot 4) | Scale character figures up so hip height aligns with counter level and figures occupy 50-60% of frame height. | 2026-11-16 |
 | 1 | medium | objects | Shopping cart basket is missing or invisible, leaving yerba packages floating above wheels. (0011_con_palo_o_sin_palo, shot 8) | Ensure shopping cart SVG includes a visible wire basket mesh containing the items. | 2026-11-16 |
+| 1 | medium | objects | Thermos pour trajectory misses gourd center slightly (0011_con_palo_o_sin_palo, shot 4) | Re-aim the spout directly above the gourd opening | 2026-11-16 |
+| 1 | medium | layering | Text banners crowd and overlap top of the head (0011_con_palo_o_sin_palo, shot 10) | Pull camera back slightly to preserve head silhouette | 2026-11-16 |
+| 1 | medium | people | Right character is cut off by the edge of the 9:16 frame. (0012_de_donde_viene_bombilla, shot 2) | Center the Guarani figures or cluster them closer together away from screen boundaries. | 2026-11-17 |
+| 1 | medium | match | Reused bombilla lineup shows no water movement or pump action to explain the etymology. (0012_de_donde_viene_bombilla, shot 7) | Animate water particles or an arrow rising up the tube into a mouth. | 2026-11-17 |
 | 1 | low | people | Hands placed on the head for 'esperá' lack proper forearm connection alignment. (0004_mate_argentino_o_uruguayo, shot 4) | Ensure character arms seamlessly connect to raised hands. | 2026-11-14 |
 | 1 | low | labels | Repeating the exact same text and face close-up across three consecutive frames without variation. (0005_sos_argentino_de_verdad, shot 1) | Vary the zoom or introduce a new prop to maintain visual interest when repeating phrases. | 2026-11-14 |
 | 1 | low | hands | Hands float passively in the air without clear context. (0006_de_donde_viene_mate, shot 5) | Add a pose or gesture to make hand placement look intentional. | 2026-11-14 |
@@ -32,3 +38,6 @@ Reels analysed: 7 · issues: 26 · updated 2026-11-16
 | 1 | low | people | Figures passing the mate stand flatly facing the viewer instead of turning towards each other. (0010_el_primer_mate_es_el_peor, shot 10) | Rotate figure bodies slightly inwards so the pass occurs chest-to-chest as specified in QA pass rules. | 2026-11-16 |
 | 1 | low | match | Four yerba bowls are drawn across the screen duplicating labels instead of a neat 2-bowl side-by-side comparison. (0011_con_palo_o_sin_palo, shot 0) | Limit compare view to 2 larger, detailed bowls (one con palo, one sin palo). | 2026-11-16 |
 | 1 | low | labels | Lingering '¡OFERTA!' sticker element crowds the top caption area over 'SON MUCHOS'. (0011_con_palo_o_sin_palo, shot 9) | Clear persistent sale badge overlays when transitioning into the crowd shot. | 2026-11-16 |
+| 1 | low | hands | Floating ball hands hover unnaturally wide without props (0011_con_palo_o_sin_palo, shot 7) | Bring idle hands closer to torso rest position | 2026-11-16 |
+| 1 | low | labels | Headlines and text elements sit too close to the upper character bounds. (0013_un_desconocido_te_convida, shot 6) | Keep text boxes strictly within the designated top caption area. | 2026-11-17 |
+| 1 | low | labels | Checklist comparison layout is very dry and static compared to the animated scenes. (0014_el_termo_bajo_el_brazo, shot 9) | Incorporate matching icons or subtle background elements for list items. | 2026-11-17 |

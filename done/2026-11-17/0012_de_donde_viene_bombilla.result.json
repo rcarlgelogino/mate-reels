@@ -1,0 +1,14 @@
+{
+ "id": "0012_de_donde_viene_bombilla",
+ "file": "work/0012_de_donde_viene_bombilla/final.mp4",
+ "voice": "gemini",
+ "duration": 40.9,
+ "inTarget": true,
+ "target": [
+  35,
+  45
+ ],
+ "loudness": "-12.0 LUFS, peak -0.8 dBFS",
+ "shots": 13,
+ "minutes": 2.1
+}

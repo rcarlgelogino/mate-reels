@@ -1,0 +1,14 @@
+{
+ "id": "0014_el_termo_bajo_el_brazo",
+ "file": "work/0014_el_termo_bajo_el_brazo/final.mp4",
+ "voice": "gemini",
+ "duration": 39.7,
+ "inTarget": true,
+ "target": [
+  35,
+  45
+ ],
+ "loudness": "-11.9 LUFS, peak -0.3 dBFS",
+ "shots": 13,
+ "minutes": 2.1
+}

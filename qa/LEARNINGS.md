@@ -3,12 +3,15 @@
 Every reel is analysed after it is built (scripts/qa.js), for its VISUAL representation only. Pacing, hook, wording and sound are not learned here; they come from the reference reels (docs/WATCHTIME.md).
 The rules below are collected from all analyses, most frequent first. scripts/improve.js uses them to choose the visuals of the next script; recurring drawing problems get fixed in the style (styles/*.js, engine). Nothing here blocks a release.
 
-Reels analysed: 10 · average scores: visual logic 6.5 · graphics 6.6 · overall 6.6 · updated 2026-11-16
+Reels analysed: 14 · average scores: visual logic 6.7 · graphics 7.2 · overall 6.8 · updated 2026-11-17
 
 ## Do more of
 
 | times | area | rule | last seen |
 |---|---|---|---|
+| 1 | objects | Maintain clear proportional scaling between thermos and gourds across close-up and wide shots. | 2026-11-17 |
+| 1 | people | Keep floating-hand characters within the inner safe zone to prevent edge cropping on narrow 9:16 vertical viewports. | 2026-11-17 |
+| 1 | objects | Align pouring spouts vertically above liquid targets for convincing flow physics. | 2026-11-16 |
 | 1 | scale | Keep human characters sized to roughly half the vertical 9:16 frame height in indoor/patio scenes rather than shrinking them to fit oversized background furniture. | 2026-11-16 |
 | 1 | match | When the script specifically mentions an action and prop like dumping into a sink ('pileta'), render the sink and pouring motion rather than placing an abstract red X over a generic pose. | 2026-11-16 |
 | 1 | hands | Ensure character hands clearly clasp the gourd contour rather than floating as simple discs. | 2026-11-15 |
@@ -21,6 +24,10 @@ Reels analysed: 10 · average scores: visual logic 6.5 · graphics 6.6 · overal
 
 | times | area | rule | last seen |
 |---|---|---|---|
+| 1 | labels | Avoid overly plain text lists without contextual illustrations in infographic frames. | 2026-11-17 |
+| 1 | scene | Do not repeat identical background asset clusters side by side without varying scale or spacing. | 2026-11-17 |
+| 1 | match | Avoid showing modern mate props (straws/bombillas) during historical origins scenes explaining life before them. | 2026-11-17 |
+| 1 | layering | Avoid cropping character foreheads directly beneath multi-line text cards. | 2026-11-16 |
 | 1 | hands | Never render handheld props (mate, flasks, cups) without attaching an arm and curling hand explicitly grasping them. | 2026-11-16 |
 | 1 | labels | Do not render callout pill badges pointing to a prop when the main headline already states the exact same phrase. | 2026-11-16 |
 | 1 | scene | Avoid duplicating large focal props like parrillas or hearths within the same backdrop. | 2026-11-15 |
@@ -32,6 +39,26 @@ Reels analysed: 10 · average scores: visual logic 6.5 · graphics 6.6 · overal
 
 ## Latest reels
 
+### 0014_el_termo_bajo_el_brazo (2026-11-17)
+The reel effectively utilizes the flat2d style with clear object scales and consistent character representations. Minor alignment issues appear in isolated infographic and comparative frames, but the core narrative props maintain strong physical logic.
+- clean: Shot 0: Character correctly holds the mate and thermos.; Shot 3: Dog and walking figure match the spoken context.; Shot 4: Close-up clearly separates hand, mate, and thermos with correct grip.; Text and headline layouts consistently avoid covering faces and hands.; Color palettes and backgrounds match the requested flat2d aesthetic.
+- unclean: Shot 9: The comparison list graphics appear rigid and lack contextual integration.; Shot 1: Map graphic overlay feels slightly misaligned with the dark theme.
+
+### 0013_un_desconocido_te_convida (2026-11-17)
+The flat2d explainer reel maintains a consistent visual style and clear character proportions throughout the plaza and board scenes. Minor improvements are needed in text placement and avoiding redundant background repetition.
+- clean: shot 0: character correctly passing the mate; shot 2: character sitting on a bench holding a phone; shot 5: character offering the mate naturally; shot 9: character contemplating with proper hand positioning; consistent flat 2D character designs and color palette
+- unclean: shot 3: identical bench layout repeats directly next to the characters without spatial variation; shot 6: text overlays partially overlap with the character's hair area
+
+### 0012_de_donde_viene_bombilla (2026-11-17)
+The pixel8 aesthetic is consistent, with clean pixel outlines, coherent character geometry, and fitting typography throughout. However, several shots contradict their narration by displaying bombillas when describing drinking without one, and characters suffer awkward edge cropping in shots 2 and 3.
+- clean: Drinking pose properly aligns the bombilla tip to the mouth opening in shots 8 and 11.; The red-shirt character in shot 4 visibly displays green yerba stuck in the teeth matching the spoken line.; Poll layout in shot 12 uses clean pixelated buttons aligned with the style guide.; Faithful pixel8 aesthetic with consistent dark outlines, floating hands, and round head geometry.; Appropriate background shifts across outdoor jungle, kitchen interior, and night settings.
+- unclean: shot 0: Character is drinking through a bombilla despite the narration stating 'Antes de la bombilla'.; shot 3: The gourd in frame 8 clearly has a straw sticking out, contradicting 'tomaban la yerba directo de la calabaza'.; shot 7: Static bombillas on ground fail to illustrate water rising or a pumping mechanism as narrated ('porque sube el agua hasta tu boca').; shot 2: Secondary character on the right edge is awkwardly halved by the frame border.; shot 3: Characters in frame 7 are pushed into the far left and right edges, partially cut off.; shot 1: The prompt banner '¿VOS QUÉ DECÍS?' appears too early in shot 1 instead of an interactive outro.
+
+### 0011_con_palo_o_sin_palo (2026-11-16)
+The toy 3D aesthetic remains consistent with smooth rendering and readable typography throughout. Minor hand-object alignment and framing crop issues occur in close-up shots.
+- clean: Consistent toy3d character anatomy with floating sphere hands; Props like the yerba packages and mate gourds scale plausibly with characters; Text cards and captions remain legible and centered; Lighting and palette maintain a clean, sunny toy-like environment
+- unclean: shot 4: The pour stream from the thermos does not clearly align with the gourd opening; shot 10: Character head is aggressively cropped behind graphic cards; shot 10: UI header overlays tightly against facial features; shot 12: Large empty dark space beneath the interactive poll elements
+
 ### 0011_con_palo_o_sin_palo (2026-11-16)
 The reel features clean typography and good visual clarity in the infographic and diagram shots (stem anatomy and board summaries). However, severe physical logic issues occur with character interactions, most notably a mate floating mid-air on a chest with no hands holding it, miniature character scaling in the quincho scene, and an unfinished shopping cart prop.
 - clean: Shot 2 leaf/stem diagram clearly shows the difference between leaf and stick with accurate pointers.; Shot 3 and shot 11 boards are cleanly laid out and readable.; Clear color contrasts between yerba con palo and sin palo bowls.; Text labels and captions stay well inside the safe margins.
@@ -41,24 +68,4 @@ The reel features clean typography and good visual clarity in the infographic an
 The flat 2D vector aesthetic is clean with cohesive character design, clear typography, and well-executed facial expressions. However, shots 7 and 8 repeat the kitchen scene back-to-back without variety, shot 7 misses depicting an actual sink or dumping action, and shots 3 and 4 over-sampled into 3 frames each, omitting shot 11 from the sheet.
 - clean: Shot 0: Hand grip on the mate gourd rests naturally against the side with fingers curled over the edge.; Shot 1: Arms raise smoothly to touch the head in shock without unnatural limb distortion.; Shot 6 & 8: Drinking gestures correctly bring the bombilla to the mouth.; Shot 10: Mate hand-off connects hand-to-hand without the gourd floating in mid-air.; Shots 2 and 9: Board templates have crisp typography, balanced card hierarchy, and high contrast against dark backgrounds.
 - unclean: Shot 4: Background shows two duplicate brick ovens/parrillas and dining chairs duplicated side-by-side like a repeated wallpaper tile rather than a coherent room layout.; Shot 7: Script mentions spitting or dumping the mate into a sink ('pileta'), but the visual only shows the figure standing at the counter with a giant red 'X' graphic overlay.; Shot 10: Characters face forward toward the camera while passing the mate sideways rather than turning slightly toward each other.; Shot 3: Redundant text duplicate where large teal headline 'MATE DEL ZONZO' sits directly above an identical pill badge 'MATE DEL ZONZO'.; Shots 7 and 8: Consecutive shots reuse the identical kitchen counter framing and red-shirt character without zoom, camera angle shift, or background variation.; Grid sampling: Shots 3 and 4 each took 3 grid cells instead of 2, pushing the final call-to-action shot 11 out of the 24-frame contact sheet.
-
-### 0009_tu_yerba_espero_un_ano (2026-11-15)
-
-- clean: –
-- unclean: –
-
-### 0008_no_muevas_la_bombilla (2026-11-15)
-The reel maintains a coherent flat 2D vector aesthetic with bold typography and clear thematic visuals. Some scenes suffer from duplicated background props, stiff character stamping, and inconsistent hand grips on the mate.
-- clean: The mate diagrams clearly illustrate bombilla placement and movement.; Character reactions match the narrative tone between cebador and drinker.; Consistent color palette and clean typography across title cards and callouts.; Clear diagrammatic overlays with dashed arcs and locator tags.
-- unclean: Shot 8: Five characters are identically lined up across a balcony edge without depth.; Shot 9: Two identical brick parrillas sit unnaturally side-by-side in the same room.; Shot 1: Stark, empty purple backdrop contrasts with detailed interior scenes elsewhere.; Shot 8: 'SU TRABAJO' label tag is duplicated redundantly across two figures.
-
-### 0007_team_calabaza_o_acero (2026-11-15)
-The toy3d aesthetic remains largely consistent with bright lighting and uniform character designs throughout the reel. However, text card positioning obscures facial features during close-ups, and a few standalone prop assets appear overly primitive.
-- clean: Floating ball hands and limbless character geometry adhere consistently to the style rules.; Shadows, outdoor park lighting, and interior kitchen environments maintain visual continuity.; Consistent soft clay materials and vibrant, well-lit environments.; Font styling and lower-third headline cards maintain coherent branding.
-- unclean: Shot 3: Cell 7 retains the yellow character and text from the previous topic rather than introducing the calabaza mate.; Shot 8: The stainless steel mate model resembles an unstyled flat metal can rather than drinkware.; Shot 6: Headline box in cell 14 directly covers the character's eyes and glasses.; Shot 4: Unidentified metallic tool clips into the top edge of cell 9.
-
-### 0007_team_calabaza_o_acero (2026-11-15)
-The flat 2D vector visuals are consistent, colorful, and clean across all scenes. However, some character scale inconsistencies and a visual mismatch on the glass mate shot weaken the presentation.
-- clean: Mate close-ups accurately represent calabaza, madera, and acero textures.; Counter and background alignment in kitchen shots is stable.; Consistent typography, banners, and color palette throughout.; Clear iconography and well-rendered isolated prop shots.
-- unclean: Shot 3: Figure is disproportionately tiny compared to the large room and background elements.; Shot 8: Visual shows numbered flashcards instead of illustrating a glass mate as narrated.; Shot 7: Stray visual artifacts or debris scattered on the ground around figures.
 

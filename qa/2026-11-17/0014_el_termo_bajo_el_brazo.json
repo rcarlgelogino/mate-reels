@@ -1,0 +1,62 @@
+{
+ "reel": "0014_el_termo_bajo_el_brazo",
+ "style": "flat2d",
+ "technical": [
+  "duration 39.7s",
+  "loudness -11.9 LUFS, peak -0.3 dBFS",
+  "voice gemini"
+ ],
+ "vision": {
+  "ran": true,
+  "model": "gemini-3.5-flash-lite"
+ },
+ "summary": "The reel effectively utilizes the flat2d style with clear object scales and consistent character representations. Minor alignment issues appear in isolated infographic and comparative frames, but the core narrative props maintain strong physical logic.",
+ "scores": {
+  "visual_logic": 8,
+  "graphics": 9,
+  "overall": 8
+ },
+ "logic": {
+  "clean": [
+   "Shot 0: Character correctly holds the mate and thermos.",
+   "Shot 3: Dog and walking figure match the spoken context.",
+   "Shot 4: Close-up clearly separates hand, mate, and thermos with correct grip."
+  ],
+  "unclean": [
+   "Shot 9: The comparison list graphics appear rigid and lack contextual integration."
+  ]
+ },
+ "graphics": {
+  "clean": [
+   "Text and headline layouts consistently avoid covering faces and hands.",
+   "Color palettes and backgrounds match the requested flat2d aesthetic."
+  ],
+  "unclean": [
+   "Shot 1: Map graphic overlay feels slightly misaligned with the dark theme."
+  ]
+ },
+ "issues": [
+  {
+   "severity": "low",
+   "category": "labels",
+   "problem": "Checklist comparison layout is very dry and static compared to the animated scenes.",
+   "fix": "Incorporate matching icons or subtle background elements for list items.",
+   "shot": 9,
+   "time": 26.2,
+   "template": "board"
+  }
+ ],
+ "learnings": [
+  {
+   "type": "do",
+   "area": "objects",
+   "rule": "Maintain clear proportional scaling between thermos and gourds across close-up and wide shots."
+  },
+  {
+   "type": "avoid",
+   "area": "labels",
+   "rule": "Avoid overly plain text lists without contextual illustrations in infographic frames."
+  }
+ ],
+ "checked": "2026-11-17T09:00:02.051Z"
+}

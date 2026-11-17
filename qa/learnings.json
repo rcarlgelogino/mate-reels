@@ -1,7 +1,22 @@
 {
- "updated": "2026-11-16T09:08:08.489Z",
- "reels": 10,
+ "updated": "2026-11-17T09:00:02.117Z",
+ "reels": 14,
  "do": [
+  {
+   "n": 1,
+   "area": "objects",
+   "rule": "Maintain clear proportional scaling between thermos and gourds across close-up and wide shots."
+  },
+  {
+   "n": 1,
+   "area": "people",
+   "rule": "Keep floating-hand characters within the inner safe zone to prevent edge cropping on narrow 9:16 vertical viewports."
+  },
+  {
+   "n": 1,
+   "area": "objects",
+   "rule": "Align pouring spouts vertically above liquid targets for convincing flow physics."
+  },
   {
    "n": 1,
    "area": "scale",
@@ -39,6 +54,26 @@
   }
  ],
  "avoid": [
+  {
+   "n": 1,
+   "area": "labels",
+   "rule": "Avoid overly plain text lists without contextual illustrations in infographic frames."
+  },
+  {
+   "n": 1,
+   "area": "scene",
+   "rule": "Do not repeat identical background asset clusters side by side without varying scale or spacing."
+  },
+  {
+   "n": 1,
+   "area": "match",
+   "rule": "Avoid showing modern mate props (straws/bombillas) during historical origins scenes explaining life before them."
+  },
+  {
+   "n": 1,
+   "area": "layering",
+   "rule": "Avoid cropping character foreheads directly beneath multi-line text cards."
+  },
   {
    "n": 1,
    "area": "hands",
@@ -81,17 +116,17 @@
   }
  ],
  "recentBad": [
-  "Shot 4: Characters are scaled down to miniature proportions (occupying less than a quarter of the frame height) while the brick fireplace and quincho background are gigantic.",
-  "Shot 6: The mate gourd and bombilla float completely unsupported in mid-air in front of the office worker's chest; both of her arms are hanging straight down at her sides.",
-  "Shot 8: The shopping cart lacks a basket body, leaving the yerba packages floating in white space above wheels.",
-  "Shot 0: Four bowls are displayed in a row repeating 'con palo' and 'sin palo' twice instead of showing a clear 2-item comparison.",
-  "Shot 4: Background shows two duplicate brick ovens/parrillas and dining chairs duplicated side-by-side like a repeated wallpaper tile rather than a coherent room layout.",
-  "Shot 7: Script mentions spitting or dumping the mate into a sink ('pileta'), but the visual only shows the figure standing at the counter with a giant red 'X' graphic overlay.",
-  "Shot 10: Characters face forward toward the camera while passing the mate sideways rather than turning slightly toward each other.",
-  "Shot 3: Redundant text duplicate where large teal headline 'MATE DEL ZONZO' sits directly above an identical pill badge 'MATE DEL ZONZO'.",
-  "Shot 8: Five characters are identically lined up across a balcony edge without depth.",
-  "Shot 9: Two identical brick parrillas sit unnaturally side-by-side in the same room.",
-  "Shot 1: Stark, empty purple backdrop contrasts with detailed interior scenes elsewhere.",
-  "Shot 8: 'SU TRABAJO' label tag is duplicated redundantly across two figures."
+  "Shot 9: The comparison list graphics appear rigid and lack contextual integration.",
+  "Shot 1: Map graphic overlay feels slightly misaligned with the dark theme.",
+  "shot 3: identical bench layout repeats directly next to the characters without spatial variation",
+  "shot 6: text overlays partially overlap with the character's hair area",
+  "shot 0: Character is drinking through a bombilla despite the narration stating 'Antes de la bombilla'.",
+  "shot 3: The gourd in frame 8 clearly has a straw sticking out, contradicting 'tomaban la yerba directo de la calabaza'.",
+  "shot 7: Static bombillas on ground fail to illustrate water rising or a pumping mechanism as narrated ('porque sube el agua hasta tu boca').",
+  "shot 2: Secondary character on the right edge is awkwardly halved by the frame border.",
+  "shot 4: The pour stream from the thermos does not clearly align with the gourd opening",
+  "shot 10: Character head is aggressively cropped behind graphic cards",
+  "shot 10: UI header overlays tightly against facial features",
+  "shot 12: Large empty dark space beneath the interactive poll elements"
  ]
 }

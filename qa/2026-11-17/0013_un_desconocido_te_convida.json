@@ -1,0 +1,58 @@
+{
+ "reel": "0013_un_desconocido_te_convida",
+ "style": "flat2d",
+ "technical": [
+  "duration 39.934s",
+  "loudness -12.3 LUFS, peak -0.7 dBFS",
+  "voice gemini"
+ ],
+ "vision": {
+  "ran": true,
+  "model": "gemini-3.5-flash-lite"
+ },
+ "summary": "The flat2d explainer reel maintains a consistent visual style and clear character proportions throughout the plaza and board scenes. Minor improvements are needed in text placement and avoiding redundant background repetition.",
+ "scores": {
+  "visual_logic": 8,
+  "graphics": 9,
+  "overall": 8
+ },
+ "logic": {
+  "clean": [
+   "shot 0: character correctly passing the mate",
+   "shot 2: character sitting on a bench holding a phone",
+   "shot 5: character offering the mate naturally",
+   "shot 9: character contemplating with proper hand positioning"
+  ],
+  "unclean": [
+   "shot 3: identical bench layout repeats directly next to the characters without spatial variation"
+  ]
+ },
+ "graphics": {
+  "clean": [
+   "consistent flat 2D character designs and color palette",
+   "good scaling of props like the thermos and mate gourd"
+  ],
+  "unclean": [
+   "shot 6: text overlays partially overlap with the character's hair area"
+  ]
+ },
+ "issues": [
+  {
+   "severity": "low",
+   "category": "labels",
+   "problem": "Headlines and text elements sit too close to the upper character bounds.",
+   "fix": "Keep text boxes strictly within the designated top caption area.",
+   "shot": 6,
+   "time": 15.9,
+   "template": "flat"
+  }
+ ],
+ "learnings": [
+  {
+   "type": "avoid",
+   "area": "scene",
+   "rule": "Do not repeat identical background asset clusters side by side without varying scale or spacing."
+  }
+ ],
+ "checked": "2026-11-17T08:56:24.263Z"
+}

@@ -1,0 +1,14 @@
+{
+ "id": "0013_un_desconocido_te_convida",
+ "file": "work/0013_un_desconocido_te_convida/final.mp4",
+ "voice": "gemini",
+ "duration": 39.934,
+ "inTarget": true,
+ "target": [
+  35,
+  45
+ ],
+ "loudness": "-12.3 LUFS, peak -0.7 dBFS",
+ "shots": 15,
+ "minutes": 2
+}

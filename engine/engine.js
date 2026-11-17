@@ -2151,7 +2151,7 @@ function bGourd(stage,o={}){ // the gourd on its way to a mate: planta | entera 
     if(st==='cortada'){ const cap=put(g,mesh(new THREE.LatheGeometry(pts.filter(p=>p.y>=cutH-0.001).map(p=>new THREE.Vector2(p.x,p.y-cutH)),32),mat),o.capOn?0:0.45,o.capOn?cutH:cutH+0.15,0); if(!o.capOn) cap.rotation.z=-0.9; g.userData.cap=cap; }
     if(st==='curada'||st==='mate'){ const ring=put(g,mesh(new THREE.TorusGeometry(body[body.length-1].x*1.0,0.025,10,40),new THREE.MeshStandardMaterial({color:'#d9dde6',metalness:0.85,roughness:0.25})),0,cutH,0); ring.rotation.x=Math.PI/2; }
     if(st==='mate'){ const top=body[body.length-1].x*0.92; const y1=put(g,mesh(new THREE.SphereGeometry(top,24,12,0,Math.PI*2,0,Math.PI/2),toy('#6fae3a',0.95)),0,cutH-0.02,0); y1.scale.y=0.55; g.userData.yerba=y1; const bm=new THREE.MeshStandardMaterial({color:'#d4d8e0',metalness:0.9,roughness:0.2});
-      const bb=put(g,mesh(new THREE.CylinderGeometry(0.014,0.014,0.5,10),bm),0.06,cutH+0.2,0); bb.rotation.z=-0.22; const tip=put(g,mesh(new THREE.CylinderGeometry(0.02,0.02,0.05,10),bm),0.115,cutH+0.44,0); tip.rotation.z=-1.2; g.userData.tip=tip; g.userData.bomb=[bb,tip]; } }
+      const bb=put(g,mesh(new THREE.CylinderGeometry(0.016,0.016,0.66,10),bm),0.045,cutH+0.27,0); bb.rotation.z=-0.13; const tip=put(g,mesh(new THREE.CylinderGeometry(0.022,0.022,0.05,10),bm),0.088,cutH+0.59,0); tip.rotation.z=-1.2; g.userData.tip=tip; g.userData.bomb=[bb,tip]; } }
   if(st==='planta'){ const vine=new THREE.MeshStandardMaterial({color:'#4f8a2a',roughness:0.9}); const stem=put(g,mesh(new THREE.CylinderGeometry(0.02,0.02,0.4,8),vine),0,0.95,0); for(let i=0;i<5;i++){ const l=put(g,mesh(new THREE.SphereGeometry(0.16,12,8),toy('#5f9e34',0.9)),Math.cos(i*1.3)*0.3,1.05+Math.sin(i)*0.08,Math.sin(i*1.3)*0.3); l.scale.set(1,0.25,1); } }
   return g; }
 function bTool(kind){ const g=new THREE.Group(); const metal=new THREE.MeshStandardMaterial({color:'#c9ced8',metalness:0.85,roughness:0.3}), handle=toy('#3a6ad0',0.6);
@@ -2305,7 +2305,7 @@ function makeToon(o={}){ const g=new THREE.Group(); const sc=o.scale||1; const s
     if(api.held) A[1].fing.rotation.x=0.9;
     // drinking: the hand itself brings the mate up until the bombilla ends in the mouth
     const dk=P==='drink'?ease(clamp((u-0.06)/0.16))*(1-ease(clamp((u-0.84)/0.12))):0;
-    if(P==='drink'){ SH(1,lerp(-0.45,-1.05,dk),0,lerp(0.05,-0.5,dk)); EL(1,lerp(-1.25,-2.05,dk)); A[1].wr.rotation.x=lerp(0,0.5,dk); SH(0,-0.1,0,-0.2); head.rotation.x=0.14*dk; }
+    if(P==='drink'){ SH(1,lerp(-0.45,-0.78,dk),0,lerp(0.05,-0.42,dk)); EL(1,lerp(-1.25,-1.95,dk)); A[1].wr.rotation.x=lerp(0,0.5,dk); SH(0,-0.1,0,-0.2); head.rotation.x=0.14*dk; }
     if(api.held){ g.updateMatrixWorld(true); const hq=A[1].hand.getWorldQuaternion(new THREE.Quaternion()), gq=g.getWorldQuaternion(new THREE.Quaternion()); api.held.quaternion.copy(hq.invert().multiply(gq)); }
     if(api.held){ if(!api.held.userData.base) api.held.userData.base=api.held.position.clone(); api.held.position.copy(api.held.userData.base); }
     if(dk>0&&api.held&&api.held.userData.tip){ g.updateMatrixWorld(true); const tip=api.held.userData.tip.getWorldPosition(new THREE.Vector3()), m=mouth.getWorldPosition(new THREE.Vector3()); const d=m.sub(tip); const L=d.length(); if(L>0.14) d.multiplyScalar(0.14/L); d.multiplyScalar(dk); const hand=A[1].hand; const w0=api.held.getWorldPosition(new THREE.Vector3()).add(d); const inv=new THREE.Matrix4().copy(hand.matrixWorld).invert(); api.held.position.copy(w0.applyMatrix4(inv)); }
@@ -2375,6 +2375,7 @@ T.build=(p={})=>{ const s=new THREE.Scene(); s.background=new THREE.Color('#bfe0
     fxs.forEach(({a,ms,ai})=>{ const n=ms.length; const t0=a.at??a.t0??0, t1=a.t1??(t0+0.01); let origin;
       if(a.pos) origin=V(...a.pos); else if(a.from==='mouth'&&ppl[a.who||0]) origin=ppl[a.who||0].mouthAt(); else if(a.from==='feet'&&ppl[a.who||0]) origin=ppl[a.who||0].g.position.clone().add(V(0,0.05,0)); else if(a.from==='head'&&ppl[a.who||0]) origin=ppl[a.who||0].g.position.clone().add(V(0,1.9*(ppl[a.who||0].sc||1),0)); else if(a.from==='bottom'&&hero) origin=V(hero.position.x,hero.position.y+0.05,hero.position.z+0.1); else origin=heroTopW();
       ms.forEach((m,k)=>{ const r1=rr(k,ai+1), r2=rr(k,ai+7), r3=rr(k,ai+13); let st=t0, life=0.8; if(['seeds','leak','confetti','steam'].includes(a.fx)) st=t0+(k/n)*Math.max(0.01,t1-t0); const d=t-st; m.visible=false;
+        if(a.fx==='pour'&&a.who!=null&&ppl[a.who]&&hero) return;
         if(a.fx==='pour'){ if(t>=t0&&t<t1&&termoP){ const top=heroTopW(); const spout=top.clone().add(V(0.05,0.32,0)); termoP.visible=true; termoP.position.copy(spout); termoP.rotation.z=lerp(0.2,1.05,easeOut(clamp((t-t0)/0.3))); const len=spout.y-top.y; m.visible=t>t0+0.3; m.position.set((spout.x+top.x)/2,(spout.y+top.y)/2,top.z); m.scale.set(1,len,1); } else if(termoP&&(t<t0||t>=t1)) termoP.visible=false; return; }
         if(d<0) return;
         if(a.fx==='dust'){ life=0.8; if(d>life) return; const an=k/n*Math.PI*2; m.visible=true; m.position.copy(origin).add(V(Math.cos(an)*d*0.9,0.05+d*0.5*r1,Math.sin(an)*d*0.9)); m.scale.setScalar(1+d*3); m.material.opacity=0.75*(1-d/life); }
@@ -2388,13 +2389,25 @@ T.build=(p={})=>{ const s=new THREE.Scene(); s.background=new THREE.Color('#bfe0
         if(a.fx==='splash'){ life=0.6; if(d>life) return; const an=k/n*Math.PI*2; m.visible=true; m.position.copy(origin).add(V(Math.cos(an)*d*0.7,(1.6+r1)*d-4.9*d*d,Math.sin(an)*d*0.7)); } }); });
     const tl2=acts.find(a=>a.timelapse); if(tl2){ const k=clamp((t-tl2.timelapse[0])/(tl2.timelapse[1]-tl2.timelapse[0])); const an=-1.2+k*Math.PI*2*(tl2.turns||1); k2.position.set(Math.cos(an)*12,9+Math.sin(an*0.5)*2,Math.sin(an)*12); if(s.userData.dome) s.userData.dome.rotation.y=k*2.5; } };
   const k2=k;
+  const pourAfter=(t)=>{ fxs.forEach(({a,ms,ai})=>{ if(a.fx!=='pour'||a.who==null||!ppl[a.who]||!hero) return; const m=ms[0]; const t0=a.t0??0, t1=a.t1??1; const P=ppl[a.who];
+      if(!P._termo){ const tm=bTool('termo'); tm.scale.setScalar(0.62); const grip=new THREE.Group(); tm.position.set(0,-0.3,0); grip.add(tm); P.attach(grip); P._termo=grip; P._tm=tm; }
+      const on=t>=t0-0.45&&t<t1+0.3; P._termo.visible=on; if(!on){ m.visible=false; return; } const kk=easeOut(clamp((t-t0+0.45)/0.45)); const side=Math.sign(P.g.position.x-hero.position.x)||1; const A=P.arms[1];
+      // stand beside the mate, turned to it; the arm reaches forward, the termo tilts with the spout towards the mate
+      P.g.position.set(lerp(P.g.position.x,hero.position.x+side*0.62,kk),0,lerp(P.g.position.z,hero.position.z-0.05,kk)); P.g.rotation.y=lerp(P.g.rotation.y,-side*1.3,kk);
+      A.p.rotation.set(lerp(-0.3,-1.75,kk),0,0); A.el.rotation.x=lerp(-0.3,-0.75,kk); A.fing.rotation.x=0.9;
+      const top=heroTopW(); const want=top.clone().add(V(side*0.035,0.06,0)); const tilt=lerp(0,0.82,kk)*side;
+      P.g.updateMatrixWorld(true); const hq=A.hand.getWorldQuaternion(new THREE.Quaternion()), gq=new THREE.Quaternion(); const tq=new THREE.Quaternion().setFromAxisAngle(V(0,0,1),tilt); P._termo.quaternion.copy(hq.clone().invert().multiply(tq)); P._termo.position.set(0,0,0.04);
+      P.g.updateMatrixWorld(true); let sp=P._tm.localToWorld(V(0,0.82,0)); const d=want.clone().sub(sp); const L=d.length(); if(L>0.3) d.multiplyScalar(0.3/L); d.multiplyScalar(kk);
+      const gw=P._termo.getWorldPosition(new THREE.Vector3()).add(d); const inv=new THREE.Matrix4().copy(A.hand.matrixWorld).invert(); P._termo.position.copy(gw.applyMatrix4(inv)); P.g.updateMatrixWorld(true); sp=P._tm.localToWorld(V(0,0.82,0));
+      if(t>t0+0.1&&t<t1){ const len=Math.max(0.02,sp.y-top.y); m.visible=true; m.position.set((sp.x+top.x)/2,(sp.y+top.y)/2,(sp.z+top.z)/2); m.scale.set(1,len,1); } else m.visible=false;
+    }); };
   const AP=ppl.map(()=>Array.from({length:14},()=>{ const m=mesh(new THREE.SphereGeometry(0.035,8,6),new THREE.MeshStandardMaterial({color:'#ffffff',roughness:0.6,transparent:true,opacity:0.9}),false,false); m.visible=false; s.add(m); return m; }));
   const amb=[]; for(let i=0;i<46;i++){ const m=mesh(new THREE.SphereGeometry(0.011,6,4),new THREE.MeshBasicMaterial({color:'#fff6c8',transparent:true,opacity:0.85}),false,false); s.add(m); amb.push(m); }
   const leaves=[]; for(let i=0;i<9;i++){ const m=mesh(new THREE.PlaneGeometry(0.09,0.05),new THREE.MeshStandardMaterial({color:i%2?'#7a915a':'#b8c070',side:THREE.DoubleSide}),false,false); s.add(m); leaves.push(m); }
   const flies=[]; for(let i=0;i<2;i++){ const b=new THREE.Group(); for(const sd of [-1,1]){ const w=mesh(new THREE.CircleGeometry(0.05,10),new THREE.MeshStandardMaterial({color:i?'#ffd84a':'#ff8a3a',side:THREE.DoubleSide}),false,false); w.position.x=sd*0.045; b.add(w); } s.add(b); flies.push(b); }
-  const autoFx=(t)=>{ const cp=cam.position; amb.forEach((m,i)=>{ const r1=rr(i,91),r2=rr(i,92),r3=rr(i,93); m.position.set(cp.x+(r1-0.5)*4+Math.sin(t*0.6+i)*0.3,0.3+r2*2.6+Math.sin(t*0.8+i*1.3)*0.15,cp.z-1.4-r3*4.5); m.material.opacity=0.5+0.4*Math.sin(t*3+i); });
-    leaves.forEach((m,i)=>{ const ph=((t*0.25+rr(i,61))%1); m.position.set(cp.x+(rr(i,62)-0.5)*4+Math.sin(ph*12+i)*0.4,3.2-ph*3.3,cp.z-1.8-rr(i,63)*3); m.rotation.set(ph*9+i,ph*7,ph*5); });
-    flies.forEach((b,i)=>{ const a=t*(0.9+i*0.3)+i*2; b.position.set(focusP.x+Math.cos(a)*(1.2+i*0.4),0.9+Math.sin(a*2.3)*0.25+i*0.3,focusP.z+Math.sin(a)*0.8-0.3); b.rotation.y=-a; b.children.forEach((w,j)=>{ w.rotation.y=(j?1:-1)*(0.3+Math.abs(Math.sin(t*28))*1.1); }); });
+  const autoFx=(t)=>{ const cp=cam.position; [...amb,...leaves].forEach(m=>m.visible=false); flies.forEach(b=>b.visible=false); if(false) amb.forEach((m,i)=>{ const r1=rr(i,91),r2=rr(i,92),r3=rr(i,93); m.position.set(cp.x+(r1-0.5)*4+Math.sin(t*0.6+i)*0.3,0.3+r2*2.6+Math.sin(t*0.8+i*1.3)*0.15,cp.z-1.4-r3*4.5); m.material.opacity=0.5+0.4*Math.sin(t*3+i); });
+    if(false) leaves.forEach((m,i)=>{ const ph=((t*0.25+rr(i,61))%1); m.position.set(cp.x+(rr(i,62)-0.5)*4+Math.sin(ph*12+i)*0.4,3.2-ph*3.3,cp.z-1.8-rr(i,63)*3); m.rotation.set(ph*9+i,ph*7,ph*5); });
+    if(false) flies.forEach((b,i)=>{ const a=t*(0.9+i*0.3)+i*2; b.position.set(focusP.x+Math.cos(a)*(1.2+i*0.4),0.9+Math.sin(a*2.3)*0.25+i*0.3,focusP.z+Math.sin(a)*0.8-0.3); b.rotation.y=-a; b.children.forEach((w,j)=>{ w.rotation.y=(j?1:-1)*(0.3+Math.abs(Math.sin(t*28))*1.1); }); });
     ppl.forEach((P,i)=>{ const ms=AP[i]; ms.forEach(m=>m.visible=false); const f=P.face, ps=P.pose; const hd=P.g.position.clone().add(V(0,1.95*(P.sc||1)+P.g.position.y,0)); const ft=P.g.position.clone().add(V(0,0.04,0.05)); let n=0; const put2=(pos,col,sc2,op)=>{ if(n>=ms.length) return; const m=ms[n++]; m.visible=true; m.position.copy(pos); m.scale.setScalar(sc2); m.material.color.set(col); m.material.opacity=op; };
       if(f==='angry'||f==='outraged') for(let k=0;k<4;k++){ const ph=(t*1.3+k/4)%1; put2(hd.clone().add(V((k%2?0.18:-0.18)+Math.sin(ph*6)*0.03,ph*0.45,0)),'#f4f4f4',1+ph*2.2,0.8*(1-ph)); }
       if((f==='shock'||f==='surprised'||f==='scream')&&t<0.9) for(let k=0;k<6;k++){ const an=k/6*Math.PI*2+t*4, r=0.3+t*0.5; put2(hd.clone().add(V(Math.cos(an)*r,Math.sin(an)*r*0.5-0.1,0.1)),'#ffd84a',0.9,1-t/0.9); }
@@ -2410,7 +2423,7 @@ T.build=(p={})=>{ const s=new THREE.Scene(); s.background=new THREE.Color('#bfe0
   acts.forEach(a=>{ if(a.fall!=null){ cu(a.fall,'boomSoft'); } if(a.capoff!=null){ cu(a.capoff,'hit'); cu(a.capoff+0.02,'crackle'); } if(a.fx==='seeds') cu(a.t0||0,'rustle'); if(a.fx==='pour') cu((a.t0||0)+0.3,'pour'); if(a.obj==='ring') cu(a.drop[1],'clink'); if(a.shake) cu(a.shake[0],'shake'); if(a.fx==='stars') cu(a.at||0,'pop'); if(a.fx==='confetti') cu(a.t0||a.at||0,'popBig'); if(a.fx==='hearts') cu(a.at||0,'sparkle'); if(a.grow) cu(a.grow[0],'rise'); if(a.fx==='spit') cu(a.at||0,'hiss'); if(a.walk&&a.run) cu(a.t0||0,'swish'); if(a.fx==='dust') cu(a.at||0,'snap'); if(a.insert) cu(a.insert[1],'clank'); if(a.fill) cu(a.fill[0],'bag'); if(a.timelapse) cu(a.timelapse[0],'clock'); });
   return { scene:s, camera:cam, aperture:0.0008, maxblur:0.006, exposure:1.08, keepFaces:true, people:[], cues, update(u,t){ const f=focusP; let pos, look=f.clone(); const e=ease(u), q=easeOut(u);
       clouds.forEach((c,i)=>{ c.position.x+=0.004*(1+i%3); });
-      applyActs(t,u); ppl.forEach(P=>P.tick(t,u)); autoFx(t); if(hero&&p.stage.spin) hero.rotation.y=t*0.8;
+      applyActs(t,u); ppl.forEach(P=>P.tick(t,u)); pourAfter(t); autoFx(t); if(hero&&p.stage.spin) hero.rotation.y=t*0.8;
       if(hero&&hero.userData.cap&&p.stage.pop){ const k=easeOut(clamp(u/0.3)); hero.userData.cap.position.y=0.66+0.15+k*0.4; }
       switch(p.cam){
         case 'drone': pos=V(lerp(-6,-1.5,e),lerp(9,3.2,e),lerp(11,5.2,e)); break;

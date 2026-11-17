@@ -30,7 +30,7 @@ const segments = [
     { cam: 'push', stage: T('curada'), people: [], acts: [{ obj: 'ring', drop: [0.6, 1.3] }, { fx: 'stars', at: 1.3 }] }],
     [{ type: 'big', text: 'VIROLA', at: 'Virola' }]),
   seg('Bombilla y agua a setenta y cinco grados', 4, [
-    { cam: 'diorama', stage: T('mate'), people: [{ ...F, pose: 'present', face: 'happy', x: 0.6, ry: -0.3 }], acts: [{ insert: [0.2, 0.8] }, { fx: 'pour', t0: 1.1, t1: 3.4 }, { fx: 'steam', t0: 2.0, t1: 3.9 }] }],
+    { cam: 'diorama', stage: T('mate'), people: [{ ...F, pose: 'idle', face: 'happy', x: 0.75, ry: -0.5 }], acts: [{ insert: [0.2, 0.8] }, { fx: 'pour', who: 0, t0: 1.1, t1: 3.4 }, { fx: 'steam', t0: 2.0, t1: 3.9 }] }],
     [{ type: 'big', text: '75°', at: 'setenta' }]),
   seg('¡Ahora sí: tu primer mate!', 5, [
     { cam: 'push', focus: 'face', who: 0, people: [{ ...G, pose: 'drink', holds: 'mate', x: 0, ry: 0 }], acts: [{ fx: 'hearts', at: 1.6, from: 'head', who: 0 }] },

@@ -1329,7 +1329,7 @@ function pxBoard(c,b,u,t){ const k=b.kind, acc=E.accent, ink='#140c1c', W2=W/2; 
   if(k==='poll'){ const op=b.options||[]; ptext(c,String(b.question||''),W2-10,480,70,'#fffaf0',800); op.forEach((o,i)=>{ const a=appear(i,op.length); if(a<=0) return; const y=580+i*138; const hot=i===0&&u>0.6; pxBox(c,140,y,W-310,112,hot?acc:'#fff6e0',ink,8); pxBox(c,176,y+20,72,72,'#2f7fd1',null,6); ptext(c,'ABCD'[i]||'',212,y+56,52,'#ffffff'); c.save(); c.font='700 60px "Pixelify Sans"'; c.textAlign='left'; c.textBaseline='middle'; let fs=60; while(c.measureText(o).width>W-300-170&&fs>28){ fs-=2; c.font='700 '+fs+'px "Pixelify Sans"'; } c.fillStyle=ink; c.fillText(o,280,y+58); c.restore(); }); return true; }
   return false; }
 function drawPix(c,p,u,t,sh){ const gA=pxWorld(); let g=gA; const place=p.place||'noche'; E._u=u; E._light=p.light||E.tl?.style?.light||null;
-  const cm=p.cam||{}; const ck=cm.snap!=null?easeOut(clamp((u-cm.snap)/0.08)):ease(u); E._par=0; const layered=!['titulo','macro','poros','mapa'].includes(place); const nightOn=p.night&&!['noche','selva','macro','poros','cocina','living','oficina','bano','super','galpon'].includes(place); const nightL=!!p.night||place==='noche';
+  const cm=p.cam||{}; const csp=cm.sp??0.55, cq=clamp(u/csp); const ck=cm.snap!=null?easeOut(clamp((u-cm.snap)/0.08)):(cq<0.5?4*cq*cq*cq:1-Math.pow(-2*cq+2,3)/2); E._par=0; const layered=!['titulo','macro','poros','mapa'].includes(place); const nightOn=p.night&&!['noche','selva','macro','poros','cocina','living','oficina','bano','super','galpon'].includes(place); const nightL=!!p.night||place==='noche';
   pxPlace(gA,place,t,p); if(nightOn) pNight(gA);
   if(layered){ if(!['titulo','macro','poros'].includes(place)) plight(gA,place,nightL,t);
     g=pxLayer('n'); E._pxNear=true; try{ pxPlace(g,place,t,p); } finally{ E._pxNear=false; } if(nightOn){ g.save(); g.globalCompositeOperation='source-atop'; pNight(g); g.restore(); }
@@ -1358,10 +1358,16 @@ function drawPix(c,p,u,t,sh){ const gA=pxWorld(); let g=gA; const place=p.place|
   const TR=Math.floor(((sh&&sh.start)||0)*7.31)%4, tk=clamp(t/0.2); const trS=TR===3&&tk<1?Math.round((1-easeOut(tk))*80/4)*4:0;
   cast.forEach((q,i)=>{ if(q.kind==='person'||!q.glow||t>0.45) return; const S=q.s||120, k=t/0.45; for(let a=0;a<16;a++){ const an=a/16*Math.PI*2, r=S*(0.35+k*0.9); if((a+Math.floor(t*20))%2) continue; pr(g,q.x+Math.cos(an)*r,q.y-S*0.5+Math.sin(an)*r,3,3,a%3?'#fff6c8':E.accent); } });
   cast.forEach((q,i)=>{ if(q.kind!=='person'||!(q.emoAct==='cheer'||q.emoAct==='jump')) return; for(let k=0;k<24;k++){ const ph=(t*0.6+prand(k+i*30))%1; pr(g,q.x-q.s*0.6+prand(k+i*31)*q.s*1.2+Math.sin(ph*9+k)*6,q.y-q.s*1.3+ph*q.s*1.1,3,2,['#ffd84a','#e5483a','#2f9e44','#2f7fd1','#ffffff'][k%5]); } });
-  const k=ck; const z=lerp(cm.z0??1,cm.z1??1.12,k); const c0=cm.c0||[270,560], c1=cm.c1||c0; let cx=lerp(c0[0],c1[0],k), cy=lerp(c0[1],c1[1],k);
+  const k=ck; const z=lerp(cm.z0??1,cm.z1??1.12,k)*(1+0.05*Math.max(0,u-csp)); const c0=cm.c0||[270,560], c1=cm.c1||c0; let cx=lerp(c0[0],c1[0],k), cy=lerp(c0[1],c1[1],k);
   const vw=Math.min(PXW,270/z), vh=Math.min(PXH,480/z); cx=clamp(cx,vw/2,PXW-vw/2); cy=clamp(cy,vh/2,PXH-vh/2); const pxs=W/vw; const shock=cast.some(q=>q.emoAct==='shock'||q.emoAct==='angry')&&t<0.5?Math.round(Math.sin(t*60)*2*(1-t/0.5)):0; const sx=Math.round((cx-vw/2)*4)/4+shock, sy=Math.round((cy-vh/2)*4)/4;
   // put the layers together: far moves and zooms about half as much, the front about one and a half times
-  const LT={}; const lay=(cv,f,zf,cl)=>{ const zz=Math.max(0.45,1+(z-1)*zf)*(f<1?1+(cm.dz||0)*ck:1); const lvw=Math.min(PXW,270/zz), lvh=Math.min(PXH,480/zz); let lx=270+(cx-270)*f, ly=560+(cy-560)*(f<1?Math.max(f,0.75):f); if(cl){ lx=clamp(lx,lvw/2,PXW-lvw/2); ly=clamp(ly,lvh/2,PXH-lvh/2); } const ox=Math.round((lx-lvw/2)*4)/4+shock-trS, oy=Math.round((ly-lvh/2)*4)/4; LT[f]={ox,oy,sc:W/lvw}; c.drawImage(cv,ox,oy,lvw,lvh,0,0,W,H); };
+  const LT={}; const HZ=place==='costa'||place==='ruta'?560:place==='playa'?470:PGY-80;
+  const nearT=(()=>{ const lvw=Math.min(PXW,270/z), lvh=Math.min(PXH,480/z); const lx=clamp(cx,lvw/2,PXW-lvw/2), ly=clamp(cy,lvh/2,PXH-lvh/2); return { ox:lx-lvw/2, oy:ly-lvh/2, lvw, lvh, sc:W/lvw }; })();
+  const lay=(cv,f,zf,cl)=>{ let T; if(f===1) T=nearT;
+    else if(f<1){ const zz=Math.max(0.45,1+(z-1)*zf)*(1+(cm.dz||0)*ck); const lvw=Math.min(PXW,270/zz), lvh=Math.min(PXH,480/zz), sc=W/lvw;
+      const ax=(cx-nearT.ox)*nearT.sc, fx=270+(cx-270)*f; const yS=(HZ-nearT.oy)*nearT.sc; T={ ox:clamp(fx-ax/sc,0,PXW-lvw), oy:clamp(HZ-yS/sc,0,PXH-lvh), lvw, lvh, sc }; }
+    else { const zz=Math.max(0.45,1+(z-1)*zf); const lvw=270/zz, lvh=480/zz; const ax=(cx-nearT.ox)*nearT.sc, ay=(cy-nearT.oy)*nearT.sc; T={ ox:270+(cx-270)*f-ax/(W/lvw), oy:560+(cy-560)*f-ay/(W/lvw), lvw, lvh, sc:W/lvw }; }
+    const ox=Math.round(T.ox*4)/4+shock-trS, oy=Math.round(T.oy*4)/4; LT[f]={ox,oy,sc:T.sc}; c.drawImage(cv,ox,oy,T.lvw,T.lvh,0,0,W,H); };
   c.save(); c.imageSmoothingEnabled=false; c.fillStyle='#1a1238'; c.fillRect(0,0,W,H);
   if(layered){ lay(E._pxf,0.45,0.4,true); lay(E._pxn,1,1,true); } else c.drawImage(E._pxw,sx-trS,sy,vw,vh,0,0,W,H); lay(E._pxg,1.5,1.45,false);
   if(p.fx&&layered){ const FX=p.fx; if(!E._pxL){ E._pxL=document.createElement('canvas'); E._pxL.width=270; E._pxL.height=480; } const lg=E._pxL.getContext('2d'); lg.setTransform(1,0,0,1,0,0); lg.clearRect(0,0,270,480); lg.imageSmoothingEnabled=false;

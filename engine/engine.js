@@ -2204,6 +2204,7 @@ const TFACE={ // lid: 0 open .. 1 shut, slant: + angry (inner corners down), - s
   scream:{lid:0,brow:0.45,tilt:-0.1,m:'O',pupil:0.45}, angry:{lid:0.3,slant:0.55,brow:-0.15,tilt:0.55,m:'frown'}, outraged:{lid:0.1,slant:0.6,brow:-0.1,tilt:0.6,m:'O'}, sad:{lid:0.35,slant:-0.45,brow:0.1,tilt:-0.5,m:'frown'},
   worried:{lid:0.15,slant:-0.35,brow:0.2,tilt:-0.45,m:'wavy'}, bored:{lid:0.62,slant:0,brow:-0.05,tilt:0,m:'flat'}, sip:{lid:0.4,slant:0,brow:0.05,tilt:0,m:'dot'}, disgusted:{lid:0.4,slant:0.3,brow:-0.05,tilt:0.35,m:'tongue'},
   pain:{lid:0,squeeze:true,brow:-0.05,tilt:0.4,m:'teeth'}, love:{lid:0.1,brow:0.15,tilt:-0.1,m:'grin',heart:true}, confused:{lid:0.2,brow:0.1,tilt:0,m:'wavy',oneUp:true}, wink:{lid:0,wink:true,brow:0.1,tilt:0,m:'grin'},
+  crazy:{lid:0,brow:0.3,tilt:-0.3,m:'tongue',oneBig:true,pupil:0.6}, dizzy:{lid:0,brow:0.15,tilt:-0.2,m:'wavy',spiral:true}, starstruck:{lid:0,brow:0.35,tilt:0,m:'laugh',starEyes:true}, derp:{lid:0.2,brow:0.1,tilt:0.2,m:'tongue',cross:true}, rage:{lid:0.2,slant:0.7,brow:-0.2,tilt:0.75,m:'teeth',pupil:0.45}, scared:{lid:0,slant:-0.3,brow:0.4,tilt:-0.5,m:'wavy',pupil:0.35}, crylaugh:{lid:0,arc:true,brow:0.2,tilt:-0.3,m:'laugh',tears:true}, mindblown:{lid:0,brow:0.5,tilt:0,m:'O',pupil:0.3},
   determined:{lid:0.3,slant:0.35,brow:-0.08,tilt:0.35,m:'flat'}, cry:{lid:0.3,slant:-0.5,brow:0.12,tilt:-0.55,m:'O',tears:true}, sleepy:{lid:0.8,brow:-0.05,tilt:0,m:'o'} };
 function drawToonFace(g,w,h,st){ const F=TFACE[st.face]||TFACE.neutral, ink='#2a1712', skin=st.skin; g.clearRect(0,0,w,h); g.lineCap='round'; g.lineJoin='round';
   const ex=[w*0.325,w*0.675], ey=h*0.34, rx=40, ry=48; const lid=st.blink?1:F.lid;
@@ -2211,13 +2212,16 @@ function drawToonFace(g,w,h,st){ const F=TFACE[st.face]||TFACE.neutral, ink='#2a
   for(const x of ex){ const bx=x+(x<w/2?-22:22), by=h*0.6; g.fillStyle='rgba(240,110,110,0.32)'; g.beginPath(); g.ellipse(bx,by,30,15,0,0,7); g.fill(); g.strokeStyle='rgba(220,70,70,0.55)'; g.lineWidth=3; for(let k=-1;k<=1;k++){ g.beginPath(); g.moveTo(bx+k*10-4,by+5); g.lineTo(bx+k*10+4,by-5); g.stroke(); } }
   ex.forEach((x,ii)=>{ const sd=ii?1:-1; const closed=F.arc||(F.wink&&ii===1)||F.squeeze;
     if(closed){ g.strokeStyle=ink; g.lineWidth=9; g.beginPath(); if(F.squeeze){ g.moveTo(x-26,ey-12); g.lineTo(x+22*sd*-1+ (sd>0?44:0),ey+2); g.moveTo(x-26+(sd>0?0:0),ey+14); } if(F.squeeze){ g.beginPath(); g.moveTo(x-sd*24,ey-14); g.lineTo(x+sd*18,ey); g.lineTo(x-sd*24,ey+14); g.stroke(); } else { g.arc(x,ey+12,26,Math.PI*1.12,Math.PI*1.88); g.stroke(); } return; }
+    const big=F.oneBig?(ii?1.35:0.75):1; g.save(); g.translate(x,ey); g.scale(big,big); g.translate(-x,-ey);
     g.fillStyle='#ffffff'; g.beginPath(); g.ellipse(x,ey,rx,ry,0,0,7); g.fill();
-    const pr=17*(F.pupil||1), px=x+st.gx*12, py=ey+4+st.gy*10;
+    if(F.spiral||F.starEyes){ if(F.spiral){ g.strokeStyle=ink; g.lineWidth=5; g.beginPath(); for(let a=0;a<6*Math.PI;a+=0.2){ const r=2+a*1.6, an=a+(st.t||0)*6*(ii?1:-1); g.lineTo(x+Math.cos(an)*r,ey+Math.sin(an)*r*1.1); } g.stroke(); } else { g.fillStyle='#ffc400'; g.beginPath(); for(let i=0;i<10;i++){ const r=i%2?12:30, an=-Math.PI/2+i*Math.PI/5; g.lineTo(x+Math.cos(an)*r,ey+Math.sin(an)*r); } g.closePath(); g.fill(); }
+      g.strokeStyle=ink; g.lineWidth=5; g.beginPath(); g.ellipse(x,ey,rx,ry,0,0,7); g.stroke(); g.restore(); return; }
+    const pr=17*(F.pupil||1), px=x+(F.cross?(ii?-14:14):st.gx*12), py=ey+4+st.gy*10;
     if(F.heart){ g.fillStyle='#e0304a'; g.beginPath(); g.moveTo(px,py+14); g.bezierCurveTo(px-26,py-4,px-12,py-22,px,py-8); g.bezierCurveTo(px+12,py-22,px+26,py-4,px,py+14); g.fill(); }
     else { g.fillStyle='#5a3a26'; g.beginPath(); g.arc(px,py,pr+5,0,7); g.fill(); g.fillStyle='#120a08'; g.beginPath(); g.arc(px,py,pr,0,7); g.fill(); g.fillStyle='#fff'; g.beginPath(); g.arc(px+6,py-7,5,0,7); g.fill(); g.beginPath(); g.arc(px-5,py+6,2.5,0,7); g.fill(); }
     // heavy upper lid (skin colour) with a dark lash line; slant for angry / sad
     if(lid>0.02){ const sl=(F.slant||0)*sd*-1; g.fillStyle=skin; g.beginPath(); const ly=ey-ry+2*ry*lid; g.moveTo(x-rx-3,ey-ry-6); g.lineTo(x+rx+3,ey-ry-6); g.lineTo(x+rx+3,ly-sl*18*sd*-1); g.lineTo(x-rx-3,ly+sl*18*sd*-1); g.closePath(); g.save(); g.beginPath(); g.ellipse(x,ey,rx+2,ry+2,0,0,7); g.clip(); g.fillStyle=skin; g.fillRect(x-rx-4,ey-ry-6,2*rx+8,(ly-(ey-ry-6))); g.restore(); g.strokeStyle=ink; g.lineWidth=7; g.beginPath(); g.moveTo(x-rx+2,ly+sl*14*sd*-1); g.lineTo(x+rx-2,ly-sl*14*sd*-1); g.stroke(); }
-    g.strokeStyle=ink; g.lineWidth=5; g.beginPath(); g.ellipse(x,ey,rx,ry,0,0,7); g.stroke();
+    g.strokeStyle=ink; g.lineWidth=5; g.beginPath(); g.ellipse(x,ey,rx,ry,0,0,7); g.stroke(); g.restore();
     if(F.tears&&ii===0||F.tears&&ii===1){ g.fillStyle='rgba(120,200,255,0.85)'; g.beginPath(); g.ellipse(x+sd*20,ey+ry+20+((st.t||0)*80)%40,7,11,0,0,7); g.fill(); } });
   // thick brows
   ex.forEach((x,ii)=>{ const sd=ii?1:-1; const lift=(F.brow||0)*60+(F.oneUp&&ii===1?24:0); const tilt=(F.tilt||0)*sd; g.strokeStyle=st.brow||ink; g.lineWidth=19; g.beginPath(); g.moveTo(x-38,h*0.12-lift*1.3+tilt*22); g.quadraticCurveTo(x,h*0.085-lift*1.3-8,x+38,h*0.12-lift*1.3-tilt*22); g.stroke(); });
@@ -2257,13 +2261,13 @@ function makeToon(o={}){ const g=new THREE.Group(); const sc=o.scale||1; const s
   // arms: shoulder, upper arm, elbow, forearm, wrist, mitten hand (palm, thumb, curled fingers)
   const arms=[-1,1].map(sd=>{ const p=put(torso,new THREE.Group(),sd*0.185,0.5,0); put(p,mesh(new THREE.SphereGeometry(0.06,16,12),shirt),0,0,0); put(p,mesh(new THREE.CapsuleGeometry(0.06,0.1,6,14),shirt),0,-0.1,0);
     const el=put(p,new THREE.Group(),0,-0.2,0); put(el,mesh(new THREE.SphereGeometry(0.058,16,12),shirt),0,0,0); put(el,mesh(new THREE.CapsuleGeometry(0.056,0.1,6,14),shirt),0,-0.09,0);
-    const wr=put(el,new THREE.Group(),0,-0.2,0); const hand=put(wr,new THREE.Group(),0,-0.035,0); const palm=put(hand,mesh(new THREE.SphereGeometry(0.07,16,12),skin),0,0,0); palm.scale.set(1,1.08,0.78);
-    const th=put(hand,new THREE.Group(),-sd*0.04,0.015,0.045); put(th,mesh(new THREE.CapsuleGeometry(0.025,0.045,6,10),skin),0,0.02,0); th.rotation.set(-0.5,0,-sd*0.55);
-    const fing=put(hand,new THREE.Group(),sd*0.005,-0.05,0.02); put(fing,mesh(new THREE.CapsuleGeometry(0.032,0.06,6,10),skin),0,-0.015,0).rotation.z=Math.PI/2; return {p,el,wr,hand,fing,th,sd}; });
+    const wr=put(el,new THREE.Group(),0,-0.2,0); const hand=put(wr,new THREE.Group(),0,-0.035,0); const palm=put(hand,mesh(new THREE.SphereGeometry(0.075,20,16),skin),0,0,0);
+    const th=put(hand,new THREE.Group(),-sd*0.04,0.015,0.045); th.visible=false;
+    const fing=put(hand,new THREE.Group(),sd*0.005,-0.05,0.02); fing.visible=false; return {p,el,wr,hand,fing,th,sd}; });
   arms.forEach(A=>{ A.p.children.forEach((c,j)=>{ if(c.isMesh) c.visible=j===0; }); A.el.children.forEach(c=>{ if(c.isMesh) c.visible=false; }); });
   legs.forEach(L=>{ L.children.forEach(c=>{ if(c.isMesh) c.visible=false; }); L.userData.knee.children.forEach((c,j)=>{ if(c.isMesh&&j<2) c.visible=false; }); L.userData.shoe=L.userData.knee.children[2]; });
   const tubes=[...arms.map(()=>({mat:shirt,r:0.058})),...legs.map(()=>({mat:pants,r:0.077}))]; tubes.forEach(T2=>{ T2.mesh=put(root,mesh(new THREE.BufferGeometry(),T2.mat),0,0,0); T2.mesh.frustumCulled=false; });
-  const V3=()=>new THREE.Vector3(); const limbTube=(T2,a,b,c)=>{ const ctl=b.clone().multiplyScalar(2).sub(a.clone().add(c).multiplyScalar(0.5)); const cv=new THREE.QuadraticBezierCurve3(a,ctl,c); const geo=new THREE.TubeGeometry(cv,14,T2.r,12,false); T2.mesh.geometry.dispose(); T2.mesh.geometry=geo; };
+  const V3=()=>new THREE.Vector3(); const limbTube=(T2,a,b,c)=>{ const f=Math.min(0.05,a.distanceTo(b)*0.4,b.distanceTo(c)*0.4); const p1=b.clone().add(a.clone().sub(b).normalize().multiplyScalar(f)), p2=b.clone().add(c.clone().sub(b).normalize().multiplyScalar(f)); const cv=new THREE.CurvePath(); cv.add(new THREE.LineCurve3(a,p1)); cv.add(new THREE.QuadraticBezierCurve3(p1,b,p2)); cv.add(new THREE.LineCurve3(p2,c)); const geo=new THREE.TubeGeometry(cv,24,T2.r,12,false); T2.mesh.geometry.dispose(); T2.mesh.geometry=geo; };
   const updateLimbs=()=>{ g.updateMatrixWorld(true); const L2=w=>root.worldToLocal(w);
     arms.forEach((A,i)=>{ const a=L2(A.p.getWorldPosition(V3())), b=L2(A.el.getWorldPosition(V3())), c=L2(A.wr.getWorldPosition(V3())); limbTube(tubes[i],a,b,c); });
     legs.forEach((Lg,i)=>{ const a=L2(Lg.getWorldPosition(V3())).add(new THREE.Vector3(0,0.03,0)), b=L2(Lg.userData.knee.getWorldPosition(V3())), c=L2(Lg.userData.shoe.getWorldPosition(V3())).add(new THREE.Vector3(0,0.03,-0.04)); limbTube(tubes[2+i],a,b,c); }); };
@@ -2281,7 +2285,7 @@ function makeToon(o={}){ const g=new THREE.Group(); const sc=o.scale||1; const s
   const mouth=put(head,new THREE.Group(),0,o.mustache?-0.15:-0.13,0.3);
   const api={ g, head, neck, torso, arms, legs, root, sc, face:o.face||'happy', pose:'idle', held:null, mouthAt:()=>mouth.getWorldPosition(new THREE.Vector3()) };
   const fs0={face:api.face,blink:false,gx:0,gy:0,talk:0}; let lastKey='';
-  const redraw=(t)=>{ const key=[fs0.face,fs0.blink?1:0,Math.round(fs0.gx*4),Math.round(fs0.gy*4),Math.round(fs0.talk*3),fs0.talk>0.15?Math.floor(t*7)%3:0,(TFACE[fs0.face]&&TFACE[fs0.face].tears)||['worried','shock','scream','pain','confused'].includes(fs0.face)?Math.floor(t*12):0].join('|'); if(key===lastKey) return; lastKey=key; drawToonFace(fctx,512,384,{...fs0,t,skin:skinHex,brow:pmixHex(hairHex,'#1a100c',0.4),mustache:!!o.mustache}); ftex.needsUpdate=true; };
+  const redraw=(t)=>{ const key=[fs0.face,fs0.blink?1:0,Math.round(fs0.gx*4),Math.round(fs0.gy*4),Math.round(fs0.talk*3),fs0.talk>0.15?Math.floor(t*7)%3:0,(TFACE[fs0.face]&&TFACE[fs0.face].tears)||['worried','shock','scream','pain','confused','dizzy','crylaugh'].includes(fs0.face)?Math.floor(t*12):0].join('|'); if(key===lastKey) return; lastKey=key; drawToonFace(fctx,512,384,{...fs0,t,skin:skinHex,brow:pmixHex(hairHex,'#1a100c',0.4),mustache:!!o.mustache}); ftex.needsUpdate=true; };
   api.setFace=(f)=>{ api.face=f; fs0.face=f; }; api.talk=!!o.talk;
   // inverse kinematics for one arm: shoulder (x,z) and elbow (x) so that the hand reaches a point in the world
   const ikTmp=new THREE.Vector3(); const reach=(ai,target,iters=18)=>{ const A=arms[ai]; const P=[A.p.rotation,'x',A.p.rotation,'z',A.el.rotation,'x']; const err=()=>{ g.updateMatrixWorld(true); return A.hand.getWorldPosition(ikTmp).distanceTo(target); }; let e=err(), step=0.25;
@@ -2291,7 +2295,7 @@ function makeToon(o={}){ const g=new THREE.Group(); const sc=o.scale||1; const s
     const SH=(i,x,y,z)=>A[i].p.rotation.set(x,y,z), EL=(i,x)=>{ A[i].el.rotation.x=x; };
     // life: breathing, weight shift, small head turns, arms that never hang still
     const br=Math.sin(t*2.3+i0); body.scale.y=1+br*0.018; root.position.x=Math.sin(t*0.9+i0)*0.012; root.rotation.z=Math.sin(t*0.9+i0)*0.02; head.rotation.y=Math.sin(t*0.55+i0*2)*0.12; head.rotation.x=Math.sin(t*1.3+i0)*0.04; head.rotation.z=Math.sin(t*0.8+i0)*0.04;
-    SH(0,Math.sin(t*1.1+i0)*0.06,0,-0.18); SH(1,-Math.sin(t*1.1+i0)*0.06,0,0.18); EL(0,-0.3); EL(1,-0.3);
+    SH(0,Math.sin(t*1.1+i0)*0.06+0.12,0,-0.2); SH(1,-Math.sin(t*1.1+i0)*0.06+0.12,0,0.2); EL(0,-0.55); EL(1,-0.55); Lg.forEach(l=>{ l.rotation.x=-0.08; l.userData.knee.rotation.x=0.16; }); root.position.y-=0.006;
     if(P==='wave'){ SH(1,0,0,2.3); EL(1,-0.4-Math.abs(Math.sin(t*10))*0.6); A[1].el.rotation.z=Math.sin(t*10)*0.4; head.rotation.z=0.1; }
     if(P==='point'){ SH(1,-1.45,0,0.2); EL(1,-0.05); head.rotation.y=0.35; A[1].fing.rotation.x=0.3; }
     if(P==='cheer'){ SH(0,0,0,-2.6+Math.sin(t*10)*0.15); SH(1,0,0,2.6-Math.sin(t*10)*0.15); EL(0,-0.3); EL(1,-0.3); jump=Math.abs(Math.sin(t*7))*0.14; const kb=jump>0.03?0:0.35; Lg.forEach(l=>{ l.rotation.x=-kb; l.userData.knee.rotation.x=kb*2; }); head.rotation.x=-0.15; }

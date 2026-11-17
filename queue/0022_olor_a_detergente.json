@@ -2,7 +2,7 @@
  "id": "0022_olor_a_detergente",
  "topic": "T06",
  "title": "No lo laves así",
- "caption": "Si tu mate tiene olor a detergente… no lo laves más así 🧉\nLa calabaza se toma todo lo que le ponés.\n¿Vos cómo lo lavás? 👇",
+ "caption": "Si tu mate tiene olor a detergente, no lo laves más así 🧉\nLa calabaza se toma todo lo que le ponés.\n¿Vos cómo lo lavás? 👇",
  "hashtags": [
   "#mate",
   "#yerbamate",
@@ -86,9 +86,9 @@
    "headlineAt": "poros"
   },
   {
-   "text": "Todo lo que le ponés, se lo queda.",
+   "text": "Y acá está el problema: todo lo que le ponés, se lo queda.",
    "emo": "tense",
-   "beat": "body",
+   "beat": "rehook",
    "visual": {
     "type": "title",
     "text": "SE LO QUEDA",
@@ -117,7 +117,7 @@
    "headlineAt": "tom"
   },
   {
-   "text": "Pero esperá: entonces, ¿cómo se limpia?",
+   "text": "¿Y entonces cómo se limpia?",
    "emo": "excited",
    "beat": "rehook",
    "visual": {
@@ -127,7 +127,7 @@
     "who": 0
    },
    "headline": "¿Y ENTONCES?",
-   "headlineAt": "esper",
+   "headlineAt": "entonces",
    "impact": true
   },
   {
@@ -232,5 +232,5 @@
    "NO LO LAVO"
   ]
  },
- "rewrite": "top-reel pattern 2026-11-17"
+ "rewrite": "top-reel pattern 2026-11-17 + rehooks"
 }

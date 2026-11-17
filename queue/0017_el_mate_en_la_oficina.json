@@ -78,9 +78,9 @@
    "headlineAt": "nueve"
   },
   {
-   "text": "El mate empieza a dar vueltas por los escritorios.",
+   "text": "Y no solo eso: el mate da vueltas por todos los escritorios.",
    "emo": "warm",
-   "beat": "body",
+   "beat": "rehook",
    "visual": {
     "type": "scene",
     "place": "oficina",
@@ -128,7 +128,7 @@
    }
   },
   {
-   "text": "Pero esperá, que acá viene la regla.",
+   "text": "Y acá viene la regla que nadie escribió.",
    "emo": "excited",
    "beat": "rehook",
    "visual": {
@@ -138,7 +138,7 @@
     "who": 2
    },
    "headline": "LA REGLA ES…",
-   "headlineAt": "esper",
+   "headlineAt": "regla",
    "impact": true
   },
   {
@@ -154,7 +154,7 @@
   {
    "text": "Y siempre hay uno que toma y nunca trajo un paquete.",
    "emo": "funny",
-   "beat": "body",
+   "beat": "rehook",
    "visual": {
     "type": "scene",
     "place": "oficina",
@@ -203,9 +203,9 @@
    "headlineAt": "saben"
   },
   {
-   "text": "Hasta que un lunes aparece con dos kilos de yerba.",
+   "text": "Hasta que un lunes, sorpresa: aparece con dos kilos de yerba.",
    "emo": "surprised",
-   "beat": "body",
+   "beat": "rehook",
    "visual": {
     "type": "scene",
     "place": "oficina",
@@ -277,5 +277,5 @@
    "NO TOMO AHÍ"
   ]
  },
- "rewrite": "top-reel pattern 2026-11-17"
+ "rewrite": "top-reel pattern 2026-11-17 + rehooks"
 }

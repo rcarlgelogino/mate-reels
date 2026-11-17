@@ -76,9 +76,9 @@
    "headlineAt": "golpe"
   },
   {
-   "text": "Ella dejaba caer un chorrito finito, al lado de la bombilla.",
+   "text": "Pero ella dejaba caer un chorrito finito, al lado de la bombilla.",
    "emo": "warm",
-   "beat": "body",
+   "beat": "rehook",
    "visual": {
     "type": "object",
     "item": "mate",
@@ -145,7 +145,7 @@
    "headlineAt": "tarde"
   },
   {
-   "text": "Pero esperá, que falta la segunda razón.",
+   "text": "Y ahora, la segunda razón.",
    "emo": "excited",
    "beat": "rehook",
    "visual": {
@@ -155,7 +155,7 @@
     "who": 0
    },
    "headline": "¿Y LA OTRA?",
-   "headlineAt": "esper",
+   "headlineAt": "segunda",
    "impact": true
   },
   {
@@ -258,5 +258,5 @@
    "NO CEBABA"
   ]
  },
- "rewrite": "top-reel pattern 2026-11-17"
+ "rewrite": "top-reel pattern 2026-11-17 + rehooks"
 }

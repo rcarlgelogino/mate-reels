@@ -25,6 +25,7 @@ jobs.forEach((specFile, i) => { try {
   const scriptFile = fs.existsSync(improved) ? improved : specFile;
   const scriptJson = JSON.parse(fs.readFileSync(scriptFile, 'utf8')); const style = i === pixIndex && !TEST ? 'pixel8' : MK.activeStyle(); const outName = style === 'pixel8' ? name + '_px' : name; const spec = MK.toSpec(scriptJson, style); fs.writeFileSync(path.join(work, 'spec.json'), JSON.stringify(spec, null, 1));
   log(`building ${i + 1}/${jobs.length}: ${name}`);
+  try { const L = require('./lint').lint(scriptJson); if (L.out.length) log('retention check (docs/WATCHTIME.md, does not block): ' + L.out.join(' | ')); } catch (e) { log('retention check skipped: ' + e.message); }
   let r; for (let a = 1; a <= 2; a++) { r = spawnSync(process.execPath, [path.join(ROOT, 'pipeline', 'build.js'), path.join(work, 'spec.json')], { stdio: 'inherit', timeout: 75 * 60 * 1000 }); if (r.status === 0) break; log(`build failed (attempt ${a}), exit ${r.status}`); if (a === 1) spawnSync(process.execPath, ['-e', 'setTimeout(()=>{},120000)']); }
   const mp4 = path.join(work, 'final.mp4');
   if (r.status !== 0 || !fs.existsSync(mp4)) { sum(`- ❌ ${name}: build failed (e.g. no Gemini voice), spec stays in the queue for the next run`); return; }

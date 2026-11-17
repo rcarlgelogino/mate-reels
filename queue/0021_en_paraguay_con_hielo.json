@@ -2,7 +2,7 @@
  "id": "0021_en_paraguay_con_hielo",
  "topic": "T18",
  "title": "El tereré",
- "caption": "En Paraguay el mate se toma con hielo… y les sobra razón 🧉\nEl tereré: agua helada, yuyos y cuarenta grados a la sombra.\n¿Vos lo probarías con hielo? 👇",
+ "caption": "Si tomás mate en Paraguay, te lo dan con hielo. Y les sobra razón 🧉\nEl tereré: agua helada, yuyos y cuarenta grados a la sombra.\n¿Vos lo probarías con hielo? 👇",
  "hashtags": [
   "#mate",
   "#yerbamate",
@@ -14,7 +14,7 @@
  ],
  "segments": [
   {
-   "text": "En Paraguay el mate se toma con hielo. Y les sobra razón.",
+   "text": "Si tomás mate en Paraguay, te lo dan con hielo. Y les sobra razón.",
    "emo": "surprised",
    "beat": "hook",
    "visual": {
@@ -37,7 +37,7 @@
    "impact": true
   },
   {
-   "text": "Para un argentino suena a pecado, hasta que hacen cuarenta grados.",
+   "text": "Para tu tío argentino suena a pecado, hasta que hacen cuarenta grados.",
    "emo": "funny",
    "beat": "loop",
    "visual": {
@@ -75,9 +75,9 @@
    "headlineAt": "terer"
   },
   {
-   "text": "Misma yerba, pero el agua sale de una jarra helada.",
+   "text": "Y no solo eso: el agua sale de una jarra helada.",
    "emo": "warm",
-   "beat": "body",
+   "beat": "rehook",
    "visual": {
     "type": "object",
     "item": "jarra_con_hielo",
@@ -103,7 +103,7 @@
    "headlineAt": "guampa"
   },
   {
-   "text": "Pero esperá, que falta el ingrediente secreto.",
+   "text": "Y ojo, que falta el ingrediente secreto.",
    "emo": "excited",
    "beat": "rehook",
    "visual": {
@@ -113,7 +113,7 @@
     "who": 2
    },
    "headline": "¿EL SECRETO?",
-   "headlineAt": "esper",
+   "headlineAt": "secreto",
    "impact": true
   },
   {
@@ -186,9 +186,9 @@
    "headlineAt": "calle"
   },
   {
-   "text": "En dos mil veinte lo declararon patrimonio de la humanidad.",
+   "text": "Y lo más loco: en dos mil veinte lo declararon patrimonio de la humanidad.",
    "emo": "proud",
-   "beat": "body",
+   "beat": "rehook",
    "visual": {
     "type": "number",
     "value": "2020",
@@ -250,5 +250,5 @@
    "EN VERANO SÍ"
   ]
  },
- "rewrite": "top-reel pattern 2026-11-17"
+ "rewrite": "top-reel pattern 2026-11-17 + rehooks"
 }

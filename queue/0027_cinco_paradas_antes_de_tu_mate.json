@@ -2,7 +2,7 @@
  "id": "0027_cinco_paradas_antes_de_tu_mate",
  "topic": "T26",
  "title": "El viaje de la yerba",
- "caption": "Tu paquete de yerba hizo cinco paradas antes de llegar a tu mate 🧉\nDe la selva misionera a tu cocina, paso a paso.\n¿Suave o fuerte, cuál es la tuya? 👇",
+ "caption": "Tu yerba hizo cinco paradas antes de llegar a tu mate 🧉\nDe la selva misionera a tu cocina, paso a paso.\n¿Suave o fuerte, cuál es la tuya? 👇",
  "hashtags": [
   "#mate",
   "#yerbamate",
@@ -30,7 +30,7 @@
    "impact": true
   },
   {
-   "text": "Y la tercera es la que le da el sabor.",
+   "text": "Y la tercera es la que el cebador siente en el sabor.",
    "emo": "tense",
    "beat": "loop",
    "visual": {
@@ -73,9 +73,9 @@
    "headlineAt": "mano"
   },
   {
-   "text": "Dos: pasa unos segundos por fuego vivo.",
+   "text": "Dos, la más loca: pasa unos segundos por fuego vivo.",
    "emo": "excited",
-   "beat": "body",
+   "beat": "rehook",
    "visual": {
     "type": "scene",
     "place": "secadero",
@@ -132,7 +132,7 @@
    "headlineAt": "seca"
   },
   {
-   "text": "Pero esperá, que falta la parada más larga.",
+   "text": "Ahora, la parada más larga.",
    "emo": "excited",
    "beat": "rehook",
    "visual": {
@@ -142,7 +142,7 @@
     "who": 0
    },
    "headline": "LA MÁS LARGA",
-   "headlineAt": "esper",
+   "headlineAt": "larga",
    "impact": true
   },
   {
@@ -184,9 +184,9 @@
    "headlineAt": "paquete"
   },
   {
-   "text": "Recién ahí sube al camión y viaja a tu ciudad.",
+   "text": "Y todavía no llegó: recién ahí sube al camión a tu ciudad.",
    "emo": "warm",
-   "beat": "body",
+   "beat": "rehook",
    "visual": {
     "type": "scene",
     "place": "ruta",
@@ -243,5 +243,5 @@
    "LA QUE HAYA"
   ]
  },
- "rewrite": "top-reel pattern 2026-11-17"
+ "rewrite": "top-reel pattern 2026-11-17 + rehooks"
 }

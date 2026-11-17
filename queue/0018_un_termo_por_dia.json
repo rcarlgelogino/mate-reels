@@ -2,7 +2,7 @@
  "id": "0018_un_termo_por_dia",
  "topic": "T07",
  "title": "Una pileta de mate",
- "caption": "Si tomás un termo de mate por día, en diez años llenás una pileta 🧉\nHacé la cuenta con tu termo.\n¿Cuántos termos tomás por día? 👇",
+ "caption": "Si tomás un termo por día, en diez años llenás una pileta 🧉\nHacé la cuenta con tu termo.\n¿Cuántos termos tomás por día? 👇",
  "hashtags": [
   "#mate",
   "#yerbamate",
@@ -36,7 +36,7 @@
    "impact": true
   },
   {
-   "text": "Hacé la cuenta conmigo, que se pone peor.",
+   "text": "Hacé la cuenta con tu compañero de ronda, que se pone peor.",
    "emo": "tense",
    "beat": "loop",
    "visual": {
@@ -95,7 +95,7 @@
    "headlineAt": "ba"
   },
   {
-   "text": "Pero esperá, que recién es un año.",
+   "text": "Y ojo, que recién es un año.",
    "emo": "excited",
    "beat": "rehook",
    "visual": {
@@ -105,7 +105,7 @@
     "who": 3
    },
    "headline": "RECIÉN UN AÑO",
-   "headlineAt": "esper",
+   "headlineAt": "recién",
    "impact": true
   },
   {
@@ -158,9 +158,9 @@
    }
   },
   {
-   "text": "Y casi nunca lo tomaste solo.",
+   "text": "Pero lo más loco no es el agua: casi nunca lo tomaste solo.",
    "emo": "warm",
-   "beat": "body",
+   "beat": "rehook",
    "visual": {
     "type": "scene",
     "place": "plaza",
@@ -245,5 +245,5 @@
    "DOS O MÁS"
   ]
  },
- "rewrite": "top-reel pattern 2026-11-17"
+ "rewrite": "top-reel pattern 2026-11-17 + rehooks"
 }

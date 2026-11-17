@@ -2,7 +2,7 @@
  "id": "0025_llenas_el_mate_hasta_arriba",
  "topic": "T21",
  "title": "Hasta dónde se llena",
- "caption": "Cebás mal si llenás el mate de yerba hasta arriba. Y casi todos lo hacen 🧉\nLa medida justa y por qué cambia todo.\n¿Hasta dónde lo llenás vos? 👇",
+ "caption": "Si llenás el mate de yerba hasta arriba, cebás mal 🧉\nLa medida justa y por qué cambia todo.\n¿Hasta dónde lo llenás vos? 👇",
  "hashtags": [
   "#mate",
   "#yerbamate",
@@ -31,7 +31,7 @@
    "headlineType": "cross"
   },
   {
-   "text": "Y casi todos lo hacen sin darse cuenta.",
+   "text": "Y el cebador de tu ronda lo hace sin darse cuenta.",
    "emo": "tense",
    "beat": "loop",
    "visual": {
@@ -55,8 +55,8 @@
      }
     ]
    },
-   "headline": "CASI TODOS",
-   "headlineAt": "todos"
+   "headline": "TU CEBADOR",
+   "headlineAt": "cebador"
   },
   {
    "text": "Parece generoso: más yerba, más mate.",
@@ -117,7 +117,7 @@
    "headlineAt": "rebalsa"
   },
   {
-   "text": "Pero esperá: la medida justa es otra.",
+   "text": "Ojo: la medida justa es otra.",
    "emo": "excited",
    "beat": "rehook",
    "visual": {
@@ -127,7 +127,7 @@
     "who": 0
    },
    "headline": "¿CUÁNTO?",
-   "headlineAt": "esper",
+   "headlineAt": "medida",
    "impact": true
   },
   {
@@ -147,9 +147,9 @@
    "headlineType": "check"
   },
   {
-   "text": "Lo tapás con la mano, lo das vuelta y lo sacudís.",
+   "text": "Y acá está el secreto: lo tapás, lo das vuelta y lo sacudís.",
    "emo": "neutral",
-   "beat": "body",
+   "beat": "rehook",
    "visual": {
     "type": "scene",
     "place": "cocina",
@@ -181,9 +181,9 @@
    "headlineAt": "polvo"
   },
   {
-   "text": "Lo inclinás y te queda la montañita.",
+   "text": "Y el toque final: lo inclinás y te queda la montañita.",
    "emo": "warm",
-   "beat": "body",
+   "beat": "rehook",
    "visual": {
     "type": "object",
     "item": "mate",
@@ -243,5 +243,5 @@
    "LA MITAD"
   ]
  },
- "rewrite": "top-reel pattern 2026-11-17"
+ "rewrite": "top-reel pattern 2026-11-17 + rehooks"
 }

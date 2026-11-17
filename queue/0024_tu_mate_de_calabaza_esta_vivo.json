@@ -30,7 +30,7 @@
    "impact": true
   },
   {
-   "text": "Y si no lo curás, te lo va a hacer saber.",
+   "text": "Tu abuela lo sabía: si no lo curás, te lo hace saber.",
    "emo": "tense",
    "beat": "loop",
    "visual": {
@@ -104,7 +104,7 @@
    "headlineAt": "dentro"
   },
   {
-   "text": "Pero esperá a ver lo que pasa si lo estrenás así.",
+   "text": "Y mirá lo que pasa si lo estrenás así.",
    "emo": "excited",
    "beat": "rehook",
    "visual": {
@@ -114,7 +114,7 @@
     "who": 1
    },
    "headline": "¿SIN CURAR?",
-   "headlineAt": "esper",
+   "headlineAt": "estrenás",
    "impact": true
   },
   {
@@ -152,9 +152,9 @@
    "headlineType": "cross"
   },
   {
-   "text": "Curarlo es fácil: yerba usada y agua tibia.",
+   "text": "Pero tranquilo: curarlo es fácil, yerba usada y agua tibia.",
    "emo": "warm",
-   "beat": "body",
+   "beat": "rehook",
    "visual": {
     "type": "scene",
     "place": "cocina",
@@ -235,5 +235,5 @@
    "¿HABÍA QUE CURARLO?"
   ]
  },
- "rewrite": "top-reel pattern 2026-11-17"
+ "rewrite": "top-reel pattern 2026-11-17 + rehooks"
 }

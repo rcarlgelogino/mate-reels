@@ -3,7 +3,8 @@
 // one word at a time in the middle, technical names as yellow labels, failures as red stamps.
 const flat2d = require('./flat2d');
 const { norm, person, FACE, ACTS, hashN } = require('./toy3d').helpers;
-const CAMS = ['drone', 'push', 'orbit', 'low', 'whip', 'crash'], FACECAMS = ['face', 'push'];
+// fewer hard cuts, more moving cameras on the person (wemakebuild: 6 cuts/min, follow/chase with a wide lens; WATCHTIME 11-12)
+const CAMS = ['drone', 'push', 'orbit', 'low', 'follow', 'crash'], FACECAMS = ['face', 'low'];
 function chooser(seed) { let k = hashN(seed, 97), last = null; return pool => { let c; let n = 0; do { c = pool[(k++) % pool.length]; n++; } while (c === last && n < 5); last = c; return c; }; }
 // toy3d look -> cartoon person
 function toon(pp, i) { const o = person(pp, i); const q = { shirt: o.shirt, hairColor: o.hairColor, glasses: !!o.glasses, mustache: !!o.mustache, hair: o.hair === 'bob' || o.hair === 'long' ? 'long' : o.hair === 'bun' ? 'bun' : 'short', face: o.face || 'happy' };
@@ -15,12 +16,14 @@ function stageOf(v) { const it = norm(v.item || 'mate'), va = norm(v.variant), a
   if (it === 'calabaza_planta') return { obj: 'calabaza', st: 'planta', table: false, size: 1.3 }; if (/termo/.test(it)) return { obj: 'termo', spin: true }; if (/yerba/.test(it)) return { obj: 'yerba', spin: true }; if (/pava|kettle/.test(it)) return { obj: 'pava', spin: true }; return { obj: 'mate', st: 'mate', spin: true }; }
 function toSpec(script) {
   const base = flat2d.toSpec(script, { plain: true }); base.segments.forEach(g => (g.callouts || []).forEach(c => { if (c.early) c.y = 1300; })); const pick = chooser(script.id || 'reel'); let lastPeople = [{ shirt: '#e5483a', hat: 'boina', mustache: true, face: 'happy', pose: 'idle' }];
-  base.segments.forEach((seg, si) => { const sg = script.segments[si]; const vis = sg.visuals || [sg.visual]; const words = String(sg.text || '').split(/\s+/).filter(Boolean).length; const n = Math.max(1, Math.min(3, Math.round(words / 4)));
+  base.segments.forEach((seg, si) => { const sg = script.segments[si]; const vis = sg.visuals || [sg.visual]; const words = String(sg.text || '').split(/\s+/).filter(Boolean).length; const n = Math.max(1, Math.min(2, Math.round(words / 6)));
     if (script.poll && si === script.segments.length - 1) return; // the poll board stays
     const out = []; seg.shots.forEach((s, k) => { const v = vis[k]; if (!v) return out.push(s);
       const push = (p, m = 1) => { for (let j = 0; j < m; j++) out.push({ tpl: 'build', p: { ...JSON.parse(JSON.stringify(p)), cam: j === 0 ? p.cam : (p.people && p.people.length ? pick(j % 2 ? FACECAMS : CAMS) : pick(['orbit', 'crash', 'push'])), seed: si * 7 + j } }); };
-      if (v.type === 'scene' || v.type === 'mistake') { const sc = v.type === 'mistake' ? (v.over || { people: [{ role: 'friend', does: 'no' }] }) : v; const ppl = (sc.people || []).slice(0, 4).map(toon); if (v.type === 'mistake') ppl.forEach(q => { q.pose = 'shrug'; q.face = 'worried'; }); if (ppl.length) lastPeople = ppl;
-        const busy = ppl.findIndex(q => q.pose === 'drink'); const p = { people: ppl.length ? ppl : lastPeople, cam: busy >= 0 ? 'push' : si === 0 ? 'drone' : pick(CAMS), focus: busy >= 0 ? 'face' : null, who: Math.max(0, busy) };
+      if (v.type === 'scene' || v.type === 'mistake') { const sc = v.type === 'mistake' ? (v.over || { people: [{ role: 'friend', does: 'no' }] }) : v; const ppl = (sc.people || []).slice(0, 4).map(toon); if (v.type === 'mistake') ppl.forEach(q => { q.pose = 'shrug'; q.face = 'worried'; });
+        // a failure hits the person: the first one falls over, stars over the head, the others react
+        const gag = v.type === 'mistake' && ppl.length ? [{ who: 0, pose: 'shock', face: 'scared', at: 0.3 }, { who: 0, fall: 0.9 }, { fx: 'stars', at: 1.2, from: 'head', who: 0 }, { who: 0, face: 'dizzy', at: 1.4 }, ...ppl.slice(1).map((q, k) => ({ who: k + 1, pose: 'laugh', face: 'crylaugh', at: 1.0 }))] : null; if (ppl.length) lastPeople = ppl;
+        const busy = ppl.findIndex(q => q.pose === 'drink'); const p = { people: ppl.length ? ppl : lastPeople, cam: gag ? 'low' : busy >= 0 ? 'push' : si === 0 ? 'drone' : pick(CAMS), focus: busy >= 0 ? 'face' : null, who: Math.max(0, busy) }; if (gag) p.acts = gag;
         if (ppl.length === 1) { p.people[0].x = 0; p.people[0].ry = 0; } return push(p, busy >= 0 ? 1 : n); }
       if (v.type === 'reaction') { const q = { ...(lastPeople[(v.who || 0) % lastPeople.length] || lastPeople[0]), x: 0, ry: 0, holds: null }; const e = FACE[norm(v.emotion)] || 'surprised'; q.face = e === 'surprised' ? 'shock' : e; const a = norm(v.act); q.pose = a === 'think' ? 'think' : a === 'point' ? 'point' : a === 'shrug' ? 'shrug' : e === 'surprised' || a === 'shock' ? 'shock' : ACTS.includes(a) ? (a === 'laugh' ? 'laugh' : a === 'cheer' ? 'cheer' : 'idle') : 'idle';
         return push({ people: [q], cam: 'face', who: 0 }); }

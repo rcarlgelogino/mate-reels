@@ -2,7 +2,7 @@
  "id": "0015_en_brasil_el_mate_es_verde",
  "topic": "T17",
  "title": "El chimarrão",
- "caption": "En Brasil el mate es verde flúor, y lo hacen a propósito 🧉\nMisma planta, otro mundo: así se toma el chimarrão.\n¿Vos lo probarías? 👇",
+ "caption": "En Brasil tu mate sería verde flúor, y lo hacen a propósito 🧉\nMisma planta, otro mundo: así se toma el chimarrão.\n¿Vos lo probarías? 👇",
  "hashtags": [
   "#mate",
   "#yerbamate",
@@ -14,7 +14,7 @@
  ],
  "segments": [
   {
-   "text": "En Brasil el mate es verde flúor, y lo hacen a propósito.",
+   "text": "En Brasil tu mate sería verde flúor, y lo hacen a propósito.",
    "emo": "surprised",
    "beat": "hook",
    "visual": {
@@ -63,9 +63,9 @@
    "headlineAt": "chimarr"
   },
   {
-   "text": "La yerba no se estaciona: se usa casi recién cosechada.",
+   "text": "Y no solo eso: la yerba se usa casi recién cosechada.",
    "emo": "surprised",
-   "beat": "body",
+   "beat": "rehook",
    "visual": {
     "type": "timeline",
     "items": [
@@ -84,7 +84,8 @@
     ]
    },
    "headline": "SIN ESPERAR",
-   "headlineAt": "estaciona"
+   "headlineAt": "recién",
+   "impact": true
   },
   {
    "text": "Por eso queda tan verde y con gusto a pasto fresco.",
@@ -122,7 +123,7 @@
    "headlineAt": "polvo"
   },
   {
-   "text": "Pero esperá a ver el tamaño del mate.",
+   "text": "Y lo más loco es el tamaño del mate.",
    "emo": "excited",
    "beat": "rehook",
    "visual": {
@@ -132,7 +133,7 @@
     "who": 3
    },
    "headline": "MIRÁ ESTO",
-   "headlineAt": "esper",
+   "headlineAt": "tamaño",
    "impact": true
   },
   {
@@ -174,9 +175,9 @@
    "headlineAt": "cuchara"
   },
   {
-   "text": "El argentino lo prueba y pone esta cara.",
+   "text": "Y acá viene lo mejor: el argentino lo prueba y pone esta cara.",
    "emo": "funny",
-   "beat": "body",
+   "beat": "rehook",
    "visual": {
     "type": "scene",
     "place": "plaza",
@@ -248,5 +249,5 @@
    "YA LO PROBÉ"
   ]
  },
- "rewrite": "top-reel pattern 2026-11-17"
+ "rewrite": "top-reel pattern 2026-11-17 + rehooks"
 }

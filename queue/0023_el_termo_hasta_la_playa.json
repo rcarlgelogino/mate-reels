@@ -2,7 +2,7 @@
  "id": "0023_el_termo_hasta_la_playa",
  "topic": "T29",
  "title": "Mate en la playa",
- "caption": "Hay argentinos que llevan el termo a la playa, y lo hacen a propósito 🧉\nTreinta y cinco grados, arena y mate caliente.\n¿Vos llevás el termo a la playa? 👇",
+ "caption": "Si llevás el termo a la playa, no estás loco: es a propósito 🧉\nTreinta y cinco grados, arena y mate caliente.\n¿Vos llevás el termo a la playa? 👇",
  "hashtags": [
   "#mate",
   "#yerbamate",
@@ -14,7 +14,7 @@
  ],
  "segments": [
   {
-   "text": "Hay argentinos que llevan el termo a la playa, y lo hacen a propósito.",
+   "text": "Si llevás el termo a la playa, no estás loco: es a propósito.",
    "emo": "surprised",
    "beat": "hook",
    "visual": {
@@ -38,7 +38,7 @@
    "impact": true
   },
   {
-   "text": "Treinta y cinco grados, y toman algo caliente.",
+   "text": "Treinta y cinco grados, y tomás algo caliente.",
    "emo": "funny",
    "beat": "loop",
    "visual": {
@@ -64,20 +64,21 @@
    "headlineAt": "grados"
   },
   {
-   "text": "El turista los mira como si estuvieran locos.",
+   "text": "Y tu suegra te mira como si estuvieras loco.",
    "emo": "surprised",
-   "beat": "body",
+   "beat": "rehook",
    "visual": {
     "type": "reaction",
     "emotion": "confused",
     "act": "think",
     "who": 3
    },
-   "headline": "¿ESTÁN LOCOS?",
-   "headlineAt": "locos"
+   "headline": "¿ESTÁS LOCO?",
+   "headlineAt": "loco",
+   "impact": true
   },
   {
-   "text": "Llegan cargados: sombrilla, reposera, heladerita y termo.",
+   "text": "Llegás cargado: sombrilla, reposera, heladerita y termo.",
    "emo": "funny",
    "beat": "body",
    "visual": {
@@ -101,8 +102,8 @@
      "heladerita"
     ]
    },
-   "headline": "CARGADOS",
-   "headlineAt": "cargados"
+   "headline": "CARGADO",
+   "headlineAt": "cargado"
   },
   {
    "text": "Y el termo va en la mano, por si acaso.",
@@ -133,7 +134,7 @@
    "impact": true
   },
   {
-   "text": "Porque no lo toman por la sed.",
+   "text": "Porque no lo tomás por la sed.",
    "emo": "neutral",
    "beat": "body",
    "visual": {
@@ -156,7 +157,7 @@
    "headlineAt": "sed"
   },
   {
-   "text": "Lo toman porque sin mate no hay ronda.",
+   "text": "Lo tomás porque sin mate no hay ronda.",
    "emo": "warm",
    "beat": "body",
    "visual": {
@@ -285,5 +286,5 @@
    "NUNCA"
   ]
  },
- "rewrite": "top-reel pattern 2026-11-17"
+ "rewrite": "top-reel pattern 2026-11-17 + rehooks"
 }

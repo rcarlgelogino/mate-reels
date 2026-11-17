@@ -2,7 +2,7 @@
  "id": "0026_el_mate_nunca_se_toma_solo",
  "topic": "T23",
  "title": "Por qué se comparte",
- "caption": "¿Por qué el mate casi nunca se toma solo? La razón es más vieja que el país 🧉\nUna leyenda guaraní lo explica mejor que nadie.\n¿Vos con quién tomás? 👇",
+ "caption": "¿Por qué tu mate casi nunca se toma solo? 🧉\nUna leyenda guaraní lo explica mejor que nadie.\n¿Vos con quién tomás? 👇",
  "hashtags": [
   "#mate",
   "#yerbamate",
@@ -14,7 +14,7 @@
  ],
  "segments": [
   {
-   "text": "¿Por qué el mate casi nunca se toma solo?",
+   "text": "¿Por qué tu mate casi nunca se toma solo?",
    "emo": "surprised",
    "beat": "hook",
    "visual": {
@@ -127,7 +127,7 @@
    "headlineAt": "mano"
   },
   {
-   "text": "Pero esperá, que hay una leyenda que lo explica.",
+   "text": "Y ojo, que hay una leyenda que lo explica.",
    "emo": "excited",
    "beat": "rehook",
    "visual": {
@@ -137,7 +137,7 @@
     "who": 2
    },
    "headline": "LA LEYENDA",
-   "headlineAt": "esper",
+   "headlineAt": "leyenda",
    "impact": true
   },
   {
@@ -163,9 +163,9 @@
    "headlineAt": "luna"
   },
   {
-   "text": "Un yaguareté la atacó y un viejo la defendió.",
+   "text": "Pero un yaguareté la atacó, y un viejo la defendió.",
    "emo": "tense",
-   "beat": "body",
+   "beat": "rehook",
    "visual": {
     "type": "scene",
     "place": "selva_noche",
@@ -215,9 +215,9 @@
    "headlineAt": "compart"
   },
   {
-   "text": "En agradecimiento, la luna le dejó una planta nueva.",
+   "text": "Y en agradecimiento, la luna le dejó un regalo.",
    "emo": "proud",
-   "beat": "body",
+   "beat": "rehook",
    "visual": {
     "type": "object",
     "item": "planta_yerba",
@@ -226,11 +226,12 @@
      "CAÁ"
     ]
    },
-   "headline": "LA YERBA",
-   "headlineAt": "planta"
+   "headline": "UN REGALO",
+   "headlineAt": "regalo",
+   "impact": true
   },
   {
-   "text": "Una planta para que nunca más estuviera solo.",
+   "text": "Una planta, para que nunca más estuviera solo.",
    "emo": "love",
    "beat": "body",
    "visual": {
@@ -312,5 +313,5 @@
    "SOLO, Y QUÉ"
   ]
  },
- "rewrite": "top-reel pattern 2026-11-17"
+ "rewrite": "top-reel pattern 2026-11-17 + rehooks"
 }

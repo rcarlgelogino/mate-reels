@@ -2303,6 +2303,7 @@ function makeToon(o={}){ const g=new THREE.Group(); const sc=o.scale||1; const s
     if(P==='think'){ SH(1,-0.5,0,0.25); EL(1,-2.25); head.rotation.z=0.18; head.rotation.y=-0.25; SH(0,-0.4,0,-0.1); EL(0,-1.4); }
     if(P==='shrug'){ SH(0,-0.2,0,-0.75); SH(1,-0.2,0,0.75); EL(0,-1.5); EL(1,-1.5); A[0].el.rotation.z=-0.6; A[1].el.rotation.z=0.6; head.rotation.z=Math.sin(t*2)*0.12; torso.rotation.z=Math.sin(t*2)*0.03; }
     if(P==='hold'){ SH(0,-0.55,0,0.1); SH(1,-0.55,0,-0.1); EL(0,-1.0); EL(1,-1.0); }
+    if(P==='carry'){ SH(0,-1.15,0,-0.42); SH(1,-1.15,0,0.42); EL(0,-0.55); EL(1,-0.55); lean=-0.12; }
     if(P==='present'){ SH(1,-0.95,0,-0.05); EL(1,-0.55); SH(0,-0.1,0,-0.2); EL(0,-0.4); head.rotation.y=0.25; }
     if(P==='saw'){ const k=Math.sin(t*14); SH(1,-0.6+k*0.3,0,-0.1); EL(1,-1.1-k*0.4); SH(0,-0.6,0,0.3); EL(0,-1.0); lean=0.14; torso.rotation.y=k*0.08; head.rotation.x=0.15; }
     if(P==='push'){ SH(0,-1.3,0,0.1); SH(1,-1.3,0,-0.1); EL(0,-0.3); EL(1,-0.3); lean=0.28; Lg[0].rotation.x=-0.55; Lg[0].userData.knee.rotation.x=0.65; Lg[1].rotation.x=0.4; }
@@ -2335,6 +2336,7 @@ function makeToon(o={}){ const g=new THREE.Group(); const sc=o.scale||1; const s
     if(dk>0&&api.held&&api.held.userData.tip){ g.updateMatrixWorld(true); const tip=api.held.userData.tip.getWorldPosition(new THREE.Vector3()), m=mouth.getWorldPosition(new THREE.Vector3()); const d=m.sub(tip); const L=d.length(); if(L>0.25) d.multiplyScalar(0.25/L); d.multiplyScalar(dk); const hand=A[1].hand; const w0=api.held.getWorldPosition(new THREE.Vector3()).add(d); const inv=new THREE.Matrix4().copy(hand.matrixWorld).invert(); api.held.position.copy(w0.applyMatrix4(inv)); }
     // the face: blinking, eyes that wander and follow the action, the mouth while talking
     let f=api.face; if(P==='drink') f=dk>0.8?'sip':(api.baseFace||api.face); if(P==='shock'&&!['shock','scream','surprised','disgusted'].includes(f)) f='shock'; fs0.face=f;
+    if(api._carryArms){ SH(0,-1.15,0,-0.42); SH(1,-1.15,0,0.42); EL(0,-0.55); EL(1,-0.55); api._carryArms=false; }
     fs0.blink=((t+i0*1.3)%3.3)<0.12&&!TFACE[f].arc; const gz=Math.floor(t/1.3+i0); fs0.gx=P==='point'?0.8:Math.sin(gz*2.7)*0.5; fs0.gy=Math.cos(gz*1.9)*0.3; fs0.talk=api.talk?Math.max(0,Math.sin(t*14)*0.5+Math.sin(t*9.3)*0.5):0; redraw(t); updateLimbs(); };
   api.attach=(obj,side=1)=>{ const h=arms[side>0?1:0].hand; if(api.held) api.held.parent.remove(api.held); h.add(obj); api.held=obj; return obj; };
   return api; }
@@ -2379,15 +2381,22 @@ T.build=(p={})=>{ const s=new THREE.Scene(); s.background=new THREE.Color('#bfe0
     if(a.fx==='pour'&&hero){ termoP=put(s,new THREE.Group(),0,0,0); const tm=bTool('termo'); tm.scale.setScalar(1.3); tm.position.set(0,-0.82*1.3,0); termoP.add(tm); termoP.visible=false; } });
   const rr=(k,j)=>{ const x=Math.sin(k*127.1+j*311.7)*43758.5453; return x-Math.floor(x); };
   const heroTopW=()=>{ if(!hero) return V(0,1,0.3); return V(hero.position.x,hero.position.y+(hero.userData.cutH||0.8)*hero.scale.y,hero.position.z); };
-  const pplBase=ppl.map(P=>({x:P.g.position.x,ry:P.g.rotation.y,pose:P.pose,face:P.baseFace}));
-  const applyActs=(t,u)=>{ ppl.forEach((P,i)=>{ const B=pplBase[i]; P.g.position.x=B.x; P.g.rotation.y=B.ry; P.g.rotation.x=0; P.g.position.y=0; let pose=B.pose, face=B.face;
+  const pplBase=ppl.map(P=>({x:P.g.position.x,z:P.g.position.z,ry:P.g.rotation.y,pose:P.pose,face:P.baseFace})); const hero0=hero?hero.position.clone():null; let carrier=null;
+  const applyActs=(t,u)=>{ carrier=null; if(hero){ hero.position.copy(hero0); hero.rotation.x=0; acts.forEach(a=>{ if(a.slide){ const k=clamp((t-a.slide[2])/(a.slide[3]-a.slide[2])); hero.position.x=lerp(a.slide[0],a.slide[1],a.ease==='in'?k*k:ease(k)); if(k>0&&k<1){ hero.position.y=hero0.y+Math.abs(Math.sin(t*22))*0.03; hero.rotation.x=Math.sin(t*17)*0.04; } } }); }
+    ppl.forEach((P,i)=>{ const B=pplBase[i]; P.g.position.x=B.x; P.g.position.z=B.z; P.g.rotation.y=B.ry; P.g.rotation.x=0; P.g.rotation.z=0; P.g.position.y=0; let pose=B.pose, face=B.face;
       acts.filter(a=>a.who===i).sort((a,b)=>(a.at??a.t0??0)-(b.at??b.t0??0)).forEach(a=>{
         if(a.walk){ const t0=a.t0??0, t1=a.t1??1; if(t>=t0){ const k=clamp((t-t0)/(t1-t0)); P.g.position.x=lerp(a.walk[0],a.walk[1],a.run?k:ease(k)); B.x2=a.walk[1]; if(k<1){ pose=a.run?'run':'walk'; P.g.rotation.y=Math.sign(a.walk[1]-a.walk[0])*1.35; } else { pose=a.then||'idle'; P.g.rotation.y=a.ry??B.ry; } } }
         if(a.pose&&t>=(a.at??0)){ pose=a.pose; if(a.face) face=a.face; }
         if(a.face&&!a.pose&&t>=(a.at??0)) face=a.face;
         if(a.fall!=null&&t>=a.fall){ const k=easeOut(clamp((t-a.fall)/0.32)); P.g.rotation.x=-1.25*k; P.g.position.y=-0.15*k+Math.sin(clamp((t-a.fall)/0.32)*Math.PI)*0.12; pose=k<1?'fall':'shock'; face='shock'; }
-        if(a.hop!=null&&t>=a.hop&&t<a.hop+0.45){ P.g.position.y=Math.sin((t-a.hop)/0.45*Math.PI)*0.35; } });
+        if(a.hop!=null&&t>=a.hop&&t<a.hop+0.45){ P.g.position.y=Math.sin((t-a.hop)/0.45*Math.PI)*0.35; }
+        if(a.ride&&hero&&!(a.launch!=null&&t>=a.launch)&&t>=(a.at??0)){ P.g.position.set(hero.position.x+(a.dx||0),hero.position.y+(a.rideY??0.35),hero.position.z+(a.dz||0)); P.g.rotation.y=a.ry??B.ry; pose=a.pose||'cheer'; if(a.face) face=a.face; }
+        if(a.launch!=null&&t>=a.launch){ const d=t-a.launch, T1=a.dur||0.9, k=clamp(d/T1); const sx=hero&&a.ride?hero.position.x:B.x, sy=a.ride?(a.rideY??0.35)+(hero?hero.position.y:0):0, sz=hero&&a.ride?hero.position.z:B.z; const to=a.to||[sx+2.5,sz];
+          if(a._s==null){ a._s=[sx,sy,sz]; } const S0=a._s; P.g.position.set(lerp(S0[0],to[0],k),lerp(S0[1],0.12,k)+Math.sin(k*Math.PI)*(a.h||1.8),lerp(S0[2],to[1],k)); P.g.rotation.x=-k*(Math.PI*2*(a.spins??1)+1.45); P.g.rotation.z=Math.sin(k*Math.PI)*0.4;
+          if(k<1){ pose='fall'; face='scared'; } else { P.g.rotation.x=-1.45; P.g.position.y=0.12+Math.max(0,Math.sin((d-T1)*16)*0.08*Math.max(0,1-(d-T1)*3)); pose='shock'; face=a.land||'dizzy'; } }
+        if(a.carry&&hero&&t>=a.carry[0]&&t<a.carry[1]){ carrier=P; if(pose!=='walk'&&pose!=='run') pose='carry'; else P._carryArms=true; } });
       if(P.pose!==pose) P.pose=pose; if(P._face!==face){ P._face=face; P.baseFace=face; P.setFace(face); } });
+    if(hero&&carrier){ const ry=carrier.g.rotation.y, sc2=carrier.sc||1; hero.position.set(carrier.g.position.x+Math.sin(ry)*0.42*sc2,carrier.g.position.y+0.6*sc2,carrier.g.position.z+Math.cos(ry)*0.42*sc2); hero.rotation.y=ry; }
     if(hero){ let sc=heroBase; acts.forEach(a=>{ if(a.grow){ const k=clamp((t-a.grow[0])/(a.grow[1]-a.grow[0])); sc=heroBase*lerp(0.12,1,easeOutBack(k)); }
         if(a.color&&hero.userData.mat){ const k=clamp((t-a.color[2])/(a.color[3]-a.color[2])); hero.userData.mat.color.set(a.color[0]).lerp(new THREE.Color(a.color[1]),k); }
         if(a.shake&&t>=a.shake[0]&&t<a.shake[1]) hero.rotation.z=Math.sin(t*45)*0.09; else if(a.shake) hero.rotation.z=0;
@@ -2459,10 +2468,16 @@ T.build=(p={})=>{ const s=new THREE.Scene(); s.background=new THREE.Color('#bfe0
         case 'whip': { const k2=easeOut(clamp(u/0.25)); pos=V(lerp(6,1.6,k2),1.6,lerp(1.5,4.2,k2)+f.z); break; }
         case 'crash': { const k2=u<0.55?0:easeOut(clamp((u-0.55)/0.12)); pos=f.clone().add(V(0.6-0.4*k2,0.8-0.4*k2,4.6-2.8*k2)); break; }
         case 'diorama': pos=V(lerp(0.15,0,e),lerp(1.95,1.8,e),lerp(5.4,4.8,e)); look=V(0,1.05,0); break;
-        case 'follow': { const P=ppl[p.who||0]; const x=P?P.g.position.x:0; pos=V(x+0.4,1.5,3.6); look=V(x,1.0,0.2); break; }
+        case 'follow': { const P=ppl[p.who||0]; const x=P?P.g.position.x:0, z=P?P.g.position.z:0; pos=V(x+1.1,1.25,z+1.9); look=V(x+0.15,1.05,z); break; }
         case 'cutfront': pos=V(lerp(0.3,0,e),lerp(1.6,1.25,e),lerp(6.4,5.2,e)); look=V(0,lerp(-0.2,0.2,e),0.3); break;
         case 'pov': pos=V(0,1.9,1.5); look=tgtObj.clone(); break;
+        case 'chase': { const P=ppl[p.who||0]; const o=hero&&(!P||acts.some(a=>a.ride&&a.who===(p.who||0)))?hero.position:P?P.g.position:V(0,0,0); pos=V(o.x-1.5,1.5,o.z+2.4); look=V(o.x+0.4,1.15,o.z); break; }
         default: pos=V(lerp(-0.5,0.5,e),1.8,6.2); }
+      // lens like a phone: 0.5x ultra-wide close to the person (face, low, follow, crash, pov), ~1x for wide shots.
+      // The camera moves closer by the same factor, so the subject keeps its size and the background gets wide and curved.
+      const LENS={chase:100,face:96,low:96,follow:90,crash:90,pov:100,whip:82,push:72,orbit:64,drone:58,diorama:56,cutfront:58}, fov=p.lens||LENS[p.cam]||62;
+      const kd=p.cam==='chase'||p.cam==='follow'?1:Math.pow(Math.tan(21*Math.PI/180)/Math.tan(fov/2*Math.PI/180),0.62); const dv=pos.clone().sub(look); pos=look.clone().add(dv.multiplyScalar(kd)); if(pos.y<0.12) pos.y=0.12;
+      if(cam.fov!==fov){ cam.fov=fov; cam.updateProjectionMatrix(); }
       cam.position.copy(pos); cam.lookAt(look); return cam.position.distanceTo(look); } }; };
 
 // ---------------- renderer ----------------

@@ -2,7 +2,7 @@
  "id": "0020_la_yerba_en_bolsa_de_nylon",
  "topic": "T24",
  "title": "Sos de acá",
- "caption": "Si alguna vez te pasaron la yerba en una bolsa de nylon, sos de acá 🧉\nCinco señales de que tu mate es bien argentino.\n¿Cuántas de las cinco tenés vos? 👇",
+ "caption": "Si te pasaron la yerba en una bolsa de nylon, sos de acá 🧉\nCinco señales de que tu mate es bien argentino.\n¿Cuántas de las cinco tenés vos? 👇",
  "hashtags": [
   "#mate",
   "#yerbamate",
@@ -29,7 +29,7 @@
    "impact": true
   },
   {
-   "text": "Hay cinco señales, y la última es la peor.",
+   "text": "Hay cinco señales, y el cebador de tu ronda tiene la peor.",
    "emo": "tense",
    "beat": "loop",
    "visual": {
@@ -66,9 +66,9 @@
    "headlineAt": "uno"
   },
   {
-   "text": "Dos: tu mate tiene una rajadura tapada con cinta.",
+   "text": "Y dos, la más común: tu mate tiene una rajadura con cinta.",
    "emo": "surprised",
-   "beat": "body",
+   "beat": "rehook",
    "visual": {
     "type": "object",
     "item": "mate",
@@ -96,7 +96,7 @@
    "headlineAt": "tres"
   },
   {
-   "text": "Pero esperá, que las dos que faltan duelen.",
+   "text": "Y ojo, que las dos que faltan duelen.",
    "emo": "excited",
    "beat": "rehook",
    "visual": {
@@ -106,7 +106,7 @@
     "who": 4
    },
    "headline": "FALTAN DOS",
-   "headlineAt": "esper",
+   "headlineAt": "faltan",
    "impact": true
   },
   {
@@ -146,9 +146,9 @@
    "headlineAt": "calcoman"
   },
   {
-   "text": "Cinco: calentaste el agua en una olla porque no había pava.",
+   "text": "Y la quinta es la peor: calentaste el agua en una olla.",
    "emo": "funny",
-   "beat": "body",
+   "beat": "rehook",
    "visual": {
     "type": "scene",
     "place": "cocina",
@@ -217,5 +217,5 @@
    "NINGUNA"
   ]
  },
- "rewrite": "top-reel pattern 2026-11-17"
+ "rewrite": "top-reel pattern 2026-11-17 + rehooks"
 }

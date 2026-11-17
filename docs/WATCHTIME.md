@@ -113,3 +113,44 @@ Second analysis (2026-11-13): 7 high-view reels the user sent. Each Instagram pa
 What it has that the others do not: an everyday ritual everyone knows + a hidden reason ("a propósito") that turns a habit into an insider secret + a clear villain/hero (the cebador) + a 3-option poll about the viewer's own habit. Shares come from "send this to the one who always takes the first one".
 Use for new scripts: start with a habit the viewer does every day, reveal the secret reason in the first 3 s, name the person in the ronda it is about, end with "¿vos qué hacés?" and three options.
 2D visual loop after it: one text at a time (no headline over boards), reactions in the place of the story instead of plain colour, the early question high and without the options line, groups of four in one row.
+
+## 11. Frame measurements of the top reference reels (2026-11-17)
+Measured in the browser: a picture-difference value every 0.25 s gives the hard cuts and the overall motion; contact sheets of 0–15 s and the body.
+
+| Reel | Length | Hard cuts / min | First cut | What happens on screen in 0–3 s |
+|---|---|---|---|---|
+| agrimporta "una vaca caga 50 kilos" 560k | 80 s | 11 | 3.8 s | cow next to a scale, the dung pile grows, the label counts up 17 → 36 KG/DÍA |
+| quecurioso "ojalá viene del árabe" 460k | 51 s | 22 | 0.3 s | the word OJALÁ builds letter by letter in gold, turns into Arabic at 4 s |
+| nuncateloexplicaron "tu perro te ve borroso" 152k | 61 s | 11 | 0.3 s | dog eye close-up → what the dog sees (POV street), the blur grows every second |
+| dudasbajolupa "si te pusieras a trabajar" 168k | 58 s | 20 | 2.8 s | your dent in the sofa, arrow label "TU SITIO", then one consequence per scene (dog alone, abuela crying on the phone) |
+| wemakebuild "plank becomes a bridge" 30M | 98 s | 6 | 16.8 s | Kevin walks on a plank over a river cut open like a diorama; CRACK! at 7.6 s, he falls in |
+| wemakebuild "shopping cart becomes a roller coaster" 7M | 118 s | – | – | a man sits in the cart, arms up, his friend pushes, downhill chase camera, crash + confetti at 3.5 s |
+
+**What they all share (new rules, they add to sections 1–4):**
+1. **Hard cuts are not the pace; change is.** Only 6–22 hard cuts per minute (we cut every ~1.5 s). The picture never stands still: a counter counts up, blur grows, letters assemble, a pile grows, the camera follows a moving person. Rule: *something visibly changes at least every second*, a new picture every 2–5 s.
+2. **Frame 1 is the thing in action, never a title.** A growing pile, an eye, a man already riding the cart. No logo, no text card, no establishing shot.
+3. **The hook sentence names a number or a habit of the viewer and finishes in under 4 s** ("Una vaca caga cincuenta kilos por día", "¿Sabías que cada vez que decís ojalá…" (the habit is the hook, not the trivia), "¿Qué pasaría si te pusieras a trabajar?").
+4. **A label points at the viewer**: "TU SITIO" with an arrow at the empty sofa. For us: "TU MATE", "VOS", "TU ABUELA" with an arrow, in the first 5 s.
+5. **First re-hook at 5–8 s, then every 8–12 s, each with a different phrase**: "Y no solo eso:", "Y no es por tu cara:", "…siguen en tu casa:", a CRACK! or crash. Our queue used "Pero esperá" in every script and only once at ~18 s; now there are 2–3 re-hooks per script with varied openers ("Y no solo eso:", "Ojo,", "Y lo más loco…", "Y acá está el secreto:", "Y lo peor:").
+6. **Escalation**: every step is bigger than the last (17 → 36 kg → 15 toneladas → luz para cien casas; plank → planks → deck → truss → pillars; sofa → dog → abuela crying).
+7. **Payoff comes back to the viewer's home** ("siguen en tu casa: almohada, azúcar, aceite") and the end is a comment or share prompt ("Dime qué otra curiosidad…", "Mandale este video a tu amigo más bostero").
+8. **Captions**: one word (wemakebuild, agrimporta) or the growing sentence with the current word highlighted (ojalá, perro); key words in yellow.
+
+These checks run automatically: `node scripts/lint.js` (all queue scripts, never blocks; daily build logs it). After this pass the queue went from 83 to 5 findings.
+
+## 12. wemakebuild vs our build3d: people, objects and how they interact
+| | wemakebuild | our build3d before |
+|---|---|---|
+| Scale | the object is human-sized: a man sits in the cart, carries the box, walks on the plank | a small mate on a table, people stand behind it |
+| Interaction | people ride, push, carry, hammer, fall into and fly out of the object | people point, drink, pour next to the object |
+| Failure gag | every version fails on the person: CRACK!, falls in the river, flies into a tree, crime-scene tape | failures are a red stamp on the object |
+| Recurring hero | one named guy (Kevin) + a friend who pushes, presents or laughs | changing people per shot |
+| Camera | few hard cuts; follow / chase camera on the moving person, static diorama while the object evolves | a cut every 1.5 s with a new camera |
+| World | one place, cut open like a diorama (soil cross-section under the river) | sunny lawn, cut block |
+| Progress | the object evolves in steps, each step a new problem (rain, weight, width) | stages of the gourd |
+| Lens | phone-like: ~1x for the diorama, **0.5x ultra-wide** very close to the person in chase and face shots (big head and hands in front, the world bends away behind) | fixed 42° (≈ 2x tele): flat, far away |
+| Figures in wide shots | small (~1/8 of the frame height); close-ups for faces | medium |
+| Text | one white word in the middle, technical names and gags as big yellow outlined labels ("CRACK!", "TRUSSES", "17 COMPLAINTS") | same |
+| Ending | callback: the first rider ends as the ride's employee; Kevin ends as the pilot | — |
+
+Applied in build3d: a lens per camera (engine LENS table: chase 104°, low 100°, face 96°, follow 92°, wide shots 56–64°; the camera moves closer so the subject keeps its size), new acts carry / ride / slide / launch, a chase camera, the translator cuts about every 2.5 s instead of 1.5 s and turns every mistake into a fall gag; example samples/build3d_tito.js. Also: a named hero who physically handles a big object (carries, sits in, pushes it), a friend who reacts, failure gags that hit the person (fall, fly, crack), follow cameras instead of cut-cut-cut, the object evolving in place.

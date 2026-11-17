@@ -145,7 +145,7 @@
    "headlineAt": "primero"
   },
   {
-   "text": "Pero esperá: tenés tres segundos para decidir.",
+   "text": "Y ahora tenés tres segundos para decidir.",
    "emo": "excited",
    "beat": "rehook",
    "visual": {
@@ -154,7 +154,7 @@
     "sub": "SEGUNDOS"
    },
    "headline": "DECIDÍ",
-   "headlineAt": "esper",
+   "headlineAt": "decidir",
    "impact": true
   },
   {
@@ -209,9 +209,9 @@
    "headlineAt": "dos"
   },
   {
-   "text": "Tu novia te mira y no te ayuda.",
+   "text": "Y lo peor: tu novia te mira y no te ayuda.",
    "emo": "funny",
-   "beat": "body",
+   "beat": "rehook",
    "visual": {
     "type": "reaction",
     "emotion": "worried",
@@ -287,5 +287,5 @@
    "SE LO PASO A MI NOVIA"
   ]
  },
- "rewrite": "top-reel pattern 2026-11-17"
+ "rewrite": "top-reel pattern 2026-11-17 + rehooks"
 }

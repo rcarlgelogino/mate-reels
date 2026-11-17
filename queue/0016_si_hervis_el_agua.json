@@ -106,7 +106,7 @@
    "headlineAt": "lengua"
   },
   {
-   "text": "Pero esperá: la temperatura justa es más baja.",
+   "text": "Ojo, que la temperatura justa es más baja.",
    "emo": "excited",
    "beat": "rehook",
    "visual": {
@@ -117,7 +117,7 @@
     ]
    },
    "headline": "¿CUÁNTO?",
-   "headlineAt": "esper",
+   "headlineAt": "temperatura",
    "impact": true
   },
   {
@@ -147,9 +147,9 @@
    "headlineType": "check"
   },
   {
-   "text": "Y si ya hirvió, agregale un chorrito de agua fría.",
+   "text": "Y si ya hirvió, hay un truco: un chorrito de agua fría.",
    "emo": "warm",
-   "beat": "body",
+   "beat": "rehook",
    "visual": {
     "type": "scene",
     "place": "cocina",
@@ -212,5 +212,5 @@
    "PAVA ELÉCTRICA"
   ]
  },
- "rewrite": "top-reel pattern 2026-11-17"
+ "rewrite": "top-reel pattern 2026-11-17 + rehooks"
 }

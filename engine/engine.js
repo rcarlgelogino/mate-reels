@@ -520,7 +520,7 @@ T.board=(p={})=>{
   const n=k==='cards'?(p.items||[]).length:k==='checklist'?(p.rows||[]).length:k==='poll'?(p.options||[]).length:k==='timeline'?(p.items||[]).length:0;
   for(let i=0;i<n;i++) cues.push({u:0.1+i*(0.75/Math.max(1,n)),type:k==='checklist'?((p.rows[i].ok)?'ding':'buzz'):'pop'});
   if(k==='dots') cues.push({u:0.1,type:'tick'},{u:0.55,type:'ding'});
-  return { scene:s, camera:cam, aperture:0, maxblur:0, no3d:true, cues, update(){ return 5; }, overlay:(c,u,t)=>{ if(p.scene&&p.scene!=='solid'&&p.scene!=='navygrid'){ c.save(); const zz=1.08+0.03*u; c.translate(W/2,H/2); c.scale(zz,zz); c.translate(-W/2,-H/2); f2scene(c,p.scene,t,{...p,bg:undefined}); f2detail(c,p.scene,t,p); f2fore(c,p.scene,t,p); c.restore(); c.fillStyle='rgba(13,22,38,0.78)'; c.fillRect(0,0,W,H); } else { c.fillStyle=bg; c.fillRect(0,0,W,H); }
+  return { scene:s, camera:cam, aperture:0, maxblur:0, no3d:true, cues, update(){ return 5; }, overlay:(c,u,t)=>{ if(p.scene&&p.scene!=='solid'&&p.scene!=='navygrid'){ c.save(); const zz=1.08+0.03*u; c.translate(W/2,H/2); c.scale(zz,zz); c.translate(-W/2,-H/2); f2scene(c,p.scene,t,{...p,bg:undefined}); f2detail(c,p.scene,t,p); f2fore(c,p.scene,t,p); c.restore(); c.fillStyle='rgba(13,22,38,0.55)'; c.fillRect(0,0,W,H); } else { c.fillStyle=bg; c.fillRect(0,0,W,H); }
     const bs0=p.scale??E.tl?.style?.boardScale??1, bs=p.kind==='cards'?Math.min(bs0,1.18):p.kind==='timeline'?Math.min(bs0,1):p.kind==='checklist'?Math.min(bs0,1.12):p.kind==='poll'?Math.min(bs0,1.12):bs0; c.save(); c.translate(W/2,H*0.5); c.scale(bs,bs); c.translate(-W/2,-H*0.5); drawBoard(c,p,u,t); c.restore(); } };
 };
 function rr(c,x,y,w,h,r,fill){ c.beginPath(); c.roundRect(x,y,w,h,r); c.fillStyle=fill; c.fill(); }

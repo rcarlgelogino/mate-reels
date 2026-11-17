@@ -81,7 +81,7 @@ function toSpec(script) {
       if (v.type === 'title' && v.text) return out.push(bigShot(v.text, v.sub, pick, st, sg.text)); if (v.type === 'number' && v.value != null) return out.push(bigShot(v.value, v.sub, pick, st, sg.text));
       if (v.type === 'mistake') { const sh = sceneShots(v.over || { type: 'scene', people: [{ role: 'friend', does: 'no' }] }, si, pick, 0, st)[0]; sh.p.cast.forEach(q => { if (q.kind === 'person') { q.emoAct = 'no'; q.face = q.face === 'happy' ? 'worried' : q.face; } }); return out.push(sh); }
       out.push(boardShot(s, st)); }); seg.shots = out; });
-  base.segments.forEach(seg => { const textual = seg.shots.length && seg.shots.every(s => s.p && (s.p.big || s.p.board || s.p.map)); seg.callouts = (seg.callouts || []).filter(c => c.type !== 'big' && !(textual && c.type === 'pill' && !c.early)).map(c => { if (c.early) { const { sub, ...rest } = c; return rest; } return c; }); });
+  base.segments.forEach(seg => { const textual = seg.shots.length && seg.shots.every(s => s.p && (s.p.big || s.p.board || s.p.map)); seg.callouts = (seg.callouts || []).filter(c => c.type !== 'big' && !(textual && c.type === 'pill' && !c.early)).map(c => { if (c.early) { const { sub, ...rest } = c; return { ...rest, y: 1300 }; } return c; }); });
   // light mood of the reel (sun, haze, rays, lit windows): rotates per script so the days look different
   const LIGHTS = ['golden', 'blue', 'pastel']; base.style = { ...(base.style || {}), light: script.light || LIGHTS[hashN(script.id || 'reel', 3)] };
   return { ...base, preset: 'pixel8', ab: script.ab || 'style pixel8', ...(script.follow === false ? { follow: false } : {}) };

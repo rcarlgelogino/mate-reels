@@ -14,7 +14,7 @@ function toon(pp, i) { const o = person(pp, i); const q = { shirt: o.shirt, hair
 function stageOf(v) { const it = norm(v.item || 'mate'), va = norm(v.variant), an = norm(v.animate); if (it === 'mate' || it === 'cuia' || /^mate_/.test(it)) return { obj: 'mate', st: va === 'con_moho' ? 'seca' : 'mate', spin: true };
   if (it === 'calabaza_planta') return { obj: 'calabaza', st: 'planta', table: false, size: 1.3 }; if (/termo/.test(it)) return { obj: 'termo', spin: true }; if (/yerba/.test(it)) return { obj: 'yerba', spin: true }; if (/pava|kettle/.test(it)) return { obj: 'pava', spin: true }; return { obj: 'mate', st: 'mate', spin: true }; }
 function toSpec(script) {
-  const base = flat2d.toSpec(script, { plain: true }); const pick = chooser(script.id || 'reel'); let lastPeople = [{ shirt: '#e5483a', hat: 'boina', mustache: true, face: 'happy', pose: 'idle' }];
+  const base = flat2d.toSpec(script, { plain: true }); base.segments.forEach(g => (g.callouts || []).forEach(c => { if (c.early) c.y = 1300; })); const pick = chooser(script.id || 'reel'); let lastPeople = [{ shirt: '#e5483a', hat: 'boina', mustache: true, face: 'happy', pose: 'idle' }];
   base.segments.forEach((seg, si) => { const sg = script.segments[si]; const vis = sg.visuals || [sg.visual]; const words = String(sg.text || '').split(/\s+/).filter(Boolean).length; const n = Math.max(1, Math.min(3, Math.round(words / 4)));
     if (script.poll && si === script.segments.length - 1) return; // the poll board stays
     const out = []; seg.shots.forEach((s, k) => { const v = vis[k]; if (!v) return out.push(s);

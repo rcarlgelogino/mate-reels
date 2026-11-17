@@ -107,3 +107,9 @@ Second analysis (2026-11-13): 7 high-view reels the user sent. Each Instagram pa
   2. Ask the comment question early: the styles show "¿VOS QUÉ DECÍS?" with the poll options in the second sentence. Every script that can carry a choice gets a `poll`.
   3. At most three text-only boards per reel; a sentence that can be shown is shown (scene, object, compare, map).
 - 2D vs 3D: no visible difference in two pairs (both 3D reels were the old one-camera look). Compare again with the numbers of `insights/REPORT.md` (written by `scripts/insights.js` after every post slot; watch time needs the permission instagram_manage_insights).
+
+## 10. Breakout on our own channel (2026-11-17)
+"El primer mate es el peor de la ronda… y el cebador se lo toma a propósito" (2D): 7,892 views, 20.7 s average watch, 23 shares, 17 saves, 8 comments; all other reels 1,200–1,800 views.
+What it has that the others do not: an everyday ritual everyone knows + a hidden reason ("a propósito") that turns a habit into an insider secret + a clear villain/hero (the cebador) + a 3-option poll about the viewer's own habit. Shares come from "send this to the one who always takes the first one".
+Use for new scripts: start with a habit the viewer does every day, reveal the secret reason in the first 3 s, name the person in the ronda it is about, end with "¿vos qué hacés?" and three options.
+2D visual loop after it: one text at a time (no headline over boards), reactions in the place of the story instead of plain colour, the early question high and without the options line, groups of four in one row.

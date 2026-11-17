@@ -23,9 +23,12 @@ Layers:
       "visual": { "type": "scene", "place": "kitchen", "people": [ { "role": "cebador", "does": "hold_mate" }, { "role": "friend" }, { "role": "grandma" } ], "label": { "text": "EL QUE MANDA", "on": 0 } },
       "headline": "MANDA UNO" }
   ],
-  "poll": { "question": "¿Vos qué sos?", "options": ["CEBADOR", "ESPERO MI MATE", "DIGO GRACIAS"] }
+  "poll": { "question": "¿Vos qué sos?", "options": ["CEBADOR", "ESPERO MI MATE", "DIGO GRACIAS"] },
+  "thumb": { "lines": ["EL QUE", "MANDA"] }
 }
 ```
+
+`thumb` is the cover: two short lines (max 16 characters each) in huge letters over the strongest picture of the reel with people or the object (picked automatically from the first half; `thumb.at` seconds forces a moment, `thumb.color` the colour of the last line).
 
 ### Segment fields
 - `text` – one spoken sentence, 6–12 words, rioplatense Spanish. `emo`: excited, surprised, warm, nostalgic, proud, tense, funny, sad, angry, love, neutral.

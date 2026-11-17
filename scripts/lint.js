@@ -39,6 +39,8 @@ function lint(j) {
   boards.forEach((b, i) => { if (b && boards[i - 1]) W(`seg ${i - 1}-${i}: two text boards in a row`); });
   // humour: the reels may be silly; at least one funny sentence
   if (!S.some(g => g.emo === 'funny')) W('no funny moment (one sentence with emo "funny": slapstick, exaggerated reaction, cheeky comparison)');
+  // thumbnail: big letters (two short lines)
+  if (!j.thumb || !(j.thumb.lines || []).length) W('no thumb (thumb.lines: two short lines in big letters for the cover)'); else if (j.thumb.lines.some(x => String(x).length > 16)) W('thumb line longer than 16 characters');
   // ending: question about the viewer's own habit + share line + poll
   const e = String(S[S.length - 1] && S[S.length - 1].text || '');
   if (!/\?/.test(e)) W('last sentence is no question to the viewer');

@@ -277,5 +277,11 @@
    "NO TOMO AHÍ"
   ]
  },
- "rewrite": "top-reel pattern 2026-11-17 + rehooks"
+ "rewrite": "top-reel pattern 2026-11-17 + rehooks",
+ "thumb": {
+  "lines": [
+   "LA REGLA",
+   "DE LA OFICINA"
+  ]
+ }
 }

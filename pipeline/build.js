@@ -128,7 +128,13 @@ async function render(tl) {
     const hq = !!(tl.style && tl.style.hq); for (let f = 0; f < n; f++) { const d = await page.evaluate(([t, q]) => window.__engine.jpeg(t, q), [f / tl.fps, hq ? 0.98 : 0.93]); const b = Buffer.from(d.split(',')[1], 'base64');
       if (!ff.stdin.write(b)) await new Promise(r => ff.stdin.once('drain', r)); if (f % 90 === 0) log(`frame ${f}/${n} ${((Date.now() - t0) / 1000).toFixed(0)}s`); }
     ff.stdin.end(); await new Promise((r, j) => ff.on('close', c => c === 0 ? r() : j(new Error('ffmpeg video exit ' + c))));
-    log(`render done ${n} frames in ${((Date.now() - t0) / 1000).toFixed(0)}s`); return info;
+    log(`render done ${n} frames in ${((Date.now() - t0) / 1000).toFixed(0)}s`);
+    try { const th = spec.thumb || {}; const lines = th.lines || (spec.thumbText ? String(spec.thumbText).split('|') : null) || [((tl.callouts.find(c => c.type === 'big' && c.text) || {}).text) || spec.title || ''];
+      const score = s => { const p = s.p || {}; if (s.tpl === 'board' || p.board || p.big || p.map) return -1; const ppl = (p.people || []).length + (p.cast || []).filter(q => q.kind === 'person').length; return ppl * 2 + (p.stage || (p.cast || []).some(q => q.kind !== 'person') ? 1 : 0) + (p.focus === 'face' || p.cam === 'face' ? 1 : 0); };
+      const cand = tl.shots.filter(s => s.start < tl.total * 0.55); const best = th.at != null ? { start: th.at, dur: 0 } : cand.reduce((a, s) => score(s) > score(a) ? s : a, cand[0] || tl.shots[0]);
+      const T = th.at != null ? th.at : +(best.start + best.dur * 0.6).toFixed(2); const d = await page.evaluate(([t, l, o]) => window.__engine.thumb(t, l, o), [T, lines, { color: th.color }]);
+      fs.writeFileSync(path.join(OUT, 'thumb.jpg'), Buffer.from(d.split(',')[1], 'base64')); log('thumbnail at', T + 's:', lines.join(' / ')); } catch (e) { log('thumbnail failed', String(e.message).slice(0, 120)); }
+    return info;
   } finally { try { await browser.close(); } catch (e) { log('WARN browser close', e.message.slice(0, 100)); } srv.close(); }
 }
 
@@ -161,7 +167,8 @@ function mix(tl, cues) {
   const cap = [spec.caption || '', '', (spec.hashtags || []).join(' ')].join('\n').trim(); fs.writeFileSync(path.join(OUT, 'caption.txt'), cap + '\n');
   // cover picture for Instagram: a still where the hook picture and its headline are fully visible
   const hk = tl.callouts.find(c => c.type === 'big' && c.t0 < 6 && c.text), s0 = tl.shots[0] || { dur: 2 }; const coverAt = +(hk ? Math.max(hk.t0 + 0.3, Math.min(hk.t0 + 0.7, hk.t1 - 0.15)) : Math.min(1.5, 0.6 * s0.dur)).toFixed(2);
-  try { execFileSync(FF, ['-y', '-v', 'error', '-ss', String(coverAt), '-i', r.out, '-frames:v', '1', '-q:v', '2', path.join(OUT, 'cover.jpg')]); log('cover at', coverAt + 's'); } catch (e) { log('cover failed', e.message.slice(0, 120)); }
+  if (fs.existsSync(path.join(OUT, 'thumb.jpg'))) { fs.copyFileSync(path.join(OUT, 'thumb.jpg'), path.join(OUT, 'cover.jpg')); log('cover = designed thumbnail'); }
+  else try { execFileSync(FF, ['-y', '-v', 'error', '-ss', String(coverAt), '-i', r.out, '-frames:v', '1', '-q:v', '2', path.join(OUT, 'cover.jpg')]); log('cover at', coverAt + 's'); } catch (e) { log('cover failed', e.message.slice(0, 120)); }
   fs.rmSync(path.join(OUT, 'video.mp4'), { force: true });
   const tgt = spec.target || [35, 45];
   const result = { id: spec.id, file: path.relative(ROOT, r.out), voice: tl.voiceProvider, duration: +r.dur, inTarget: +r.dur >= tgt[0] && +r.dur <= tgt[1], target: tgt, loudness: r.ebur, shots: tl.shots.length, minutes: +((Date.now() - t0) / 60000).toFixed(1) };

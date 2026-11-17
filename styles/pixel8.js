@@ -17,6 +17,7 @@ function cam(kind, f, mid) { const c = f || mid, m = mid || [270, 600];
   switch (kind) { case 'wide': return { z0: 0.86, z1: 0.98, c0: [m[0] - 70, m[1] - 20], c1: [m[0] + 50, m[1]] }; case 'dolly': return { z0: 0.72, z1: 1.45, c0: [m[0] - 70, m[1] - 140], c1: c }; case 'wide3': return { z0: 0.78, z1: 0.84, c0: [270, 600], c1: [270, 600] }; case 'wide4': return { z0: 0.6, z1: 0.66, c0: [270, 620], c1: [270, 620] }; case 'push': return { z0: 0.9, z1: 1.45, c0: m, c1: c }; case 'pull': return { z0: 1.6, z1: 0.82, c0: c, c1: [m[0] + 40, m[1] - 60] };
     case 'panR': return { z0: 1.12, z1: 1.2, c0: [m[0] - 130, m[1] - 20], c1: [m[0] + 120, m[1]] }; case 'panL': return { z0: 1.12, z1: 1.2, c0: [m[0] + 130, m[1] - 20], c1: [m[0] - 120, m[1]] };
     case 'snap': return { z0: 1.0, z1: 1.55, c0: m, c1: [c[0], c[1] + 30], snap: 0.38 }; case 'tight': return { z0: 1.42, z1: 1.52, c0: [c[0], c[1] + 30], c1: [c[0], c[1] + 30] }; case 'crane': return { z0: 1.0, z1: 1.22, c0: [m[0] - 30, m[1] - 280], c1: [m[0], m[1] + 10] };
+    case 'pullback': return { z0: 2.1, z1: 0.85, c0: c, c1: [m[0], m[1] + 10] }; case 'vertigo': return { z0: 1.5, z1: 1.55, c0: c, c1: c, dz: 0.85 }; case 'craneUp': return { z0: 1.25, z1: 1.3, c0: [m[0], m[1] + 60], c1: [m[0] + 20, m[1] - 240] };
     case 'act': return { z0: 1.45, z1: 1.75, c0: c, c1: c }; default: return { z0: 1, z1: 1.1, c0: m, c1: m }; } }
 // ---- people ----
 function layout(n) { if (n <= 1) return [{ x: 270, s: 150 }]; if (n === 2) return [{ x: 172, s: 132 }, { x: 368, s: 132 }]; if (n === 3) return [{ x: 112, s: 114 }, { x: 270, s: 118 }, { x: 428, s: 114 }];
@@ -33,12 +34,13 @@ function sceneShots(v, si, pick, words, st) { const src = (v.people || []).slice
   const mid = [Math.round(cast.reduce((a, q) => a + q.x, 0) / cast.length), 600]; const fq = cast[focus]; const fpt = fq.kind === 'person' ? headOf(fq) : [fq.x, fq.y - 80];
   const act = busy >= 0 ? cast[busy].act : null; const mk = kind => ({ tpl: 'pix', p: { ...p, cam: cam(kind, act ? [fq.x + (act === 'pour' ? -fq.s * 0.25 : 0), fq.y - fq.s * (act === 'drink' ? 0.6 : 0.4)] : fpt, mid) } });
   if (v.camera) return [mk(v.camera)]; if (act) return [mk(pick(['act', 'push']))];
+  if (si === 0) return [mk('pullback')];
   if (words >= 8 && cast.length >= 1 && cast.length <= 3) { const a = cast.length >= 3 ? 'wide3' : pick(cast.length <= 1 ? SOLO : ['push', 'snap', 'wide']); return [mk(a), mk(pick(['snap', 'tight', 'push'], a))]; }
   const first = cast.length >= 4 ? 'wide4' : cast.length === 3 ? pick(['wide3', 'push', 'crane']) : pick(cast.length <= 1 ? SOLO : si === 0 ? ['push', 'snap', 'wide'] : GROUP); return [mk(first)]; }
 const EMOTE = { think: '?', confused: '?', surprised: '!', worried: 'sweat', angry: 'anger', love: 'heart', bored: 'zzz', outraged: 'anger' };
 function reactionShot(v, si, pick, st) { const who = v.who ?? (si % 6); const base = Object.values(ROLE).find(r => r && r.who === who && !r.flag && !r.hat) || { shirt: '#2f7fd1', hair: 'short' }; const q = { kind: 'person', ...base, x: 270, y: GY, s: 160 }; delete q.who; delete q.scale;
   const e = FACE[norm(v.emotion)] || 'surprised'; q.face = e; const a0 = norm(v.act); if (GEST.includes(a0)) q.gest = a0; if (a0 === 'teeth') q.face = 'disgusted'; if (a0 === 'burn_tongue') { q.face = 'pain'; q.emote = 'sweat'; } if (ACTS.includes(a0)) q.emoAct = a0;
-  q.emote = q.emote || EMOTE[a0] || EMOTE[e] || null; const p = { place: st.place, cast: [q], cam: cam(v.camera || pick(REACT), headOf(q), [270, 600]) }; if (st.night) p.night = true; return { tpl: 'pix', p }; }
+  q.emote = q.emote || EMOTE[a0] || EMOTE[e] || null; const shock = ['surprised', 'shock', 'scream', 'disgusted'].includes(q.face) || ['shock', 'surprised'].includes(a0); const p = { place: st.place, cast: [q], cam: cam(v.camera || (shock ? 'vertigo' : pick(REACT)), headOf(q), [270, 600]) }; if (st.night) p.night = true; return { tpl: 'pix', p }; }
 // ---- objects: the thing itself, big, with a face and a glow ----
 const CUT = ['corte_interior', 'corte_polvo_arriba', 'corte_polvo_abajo', 'corte_un_costado_mojado', 'nivel_tres_cuartos', 'yerba_se_hincha', 'chorrito_fino', 'clavar_bombilla_pulgar'];
 const THINGS = ['celular', 'facturas', 'bizcochitos', 'azucarera', 'termometro', 'jarra_con_hielo', 'heladera', 'heladerita', 'bolsa_nylon_yerba', 'tacuapi', 'guampa', 'hoja_yerba', 'planta_yerba', 'rama_yerba', 'calabaza_planta', 'mano_con_polvo', 'auto', 'camioneta', 'colectivo', 'camion', 'reloj', 'calendario', 'olla', 'mortero'];
@@ -83,6 +85,10 @@ function toSpec(script) {
       if (v.type === 'mistake') { const sh = sceneShots(v.over || { type: 'scene', people: [{ role: 'friend', does: 'no' }] }, si, pick, 0, st)[0]; sh.p.cast.forEach(q => { if (q.kind === 'person') { q.emoAct = 'no'; q.face = q.face === 'happy' ? 'worried' : q.face; } }); return out.push(sh); }
       out.push(boardShot(s, st)); }); seg.shots = out; });
   base.segments.forEach(seg => { const textual = seg.shots.length && seg.shots.every(s => s.p && (s.p.big || s.p.board || s.p.map)); seg.callouts = (seg.callouts || []).filter(c => c.type !== 'big' && !(textual && c.type === 'pill' && !c.early)).map(c => { if (c.early) { const { sub, ...rest } = c; return { ...rest, y: 1300 }; } return c; }); });
+  const OUT = ['plaza', 'patio', 'calle', 'campo', 'yerbal', 'playa', 'ruta', 'mercado', 'costa', 'mision'];
+  base.segments.forEach((seg, si) => { const sg = script.segments[si] || {}; seg.shots.forEach((s, k) => { if (!s || s.tpl !== 'pix' || !s.p) return; const p = s.p; if (p.board || p.big || p.map) return;
+    if (OUT.includes(p.place) && !p.night) p.fx = { ...(p.fx || {}), rays: 'sun' };
+    if (sg.beat === 'rehook' && k === 0 && p.cast && p.cast.length && !p.pass) { const m = [Math.round(p.cast.reduce((a, q) => a + q.x, 0) / p.cast.length), 600]; p.cam = cam('craneUp', null, m); } }); });
   // light mood of the reel (sun, haze, rays, lit windows): rotates per script so the days look different
   const LIGHTS = ['golden', 'blue', 'pastel']; base.style = { ...(base.style || {}), light: script.light || LIGHTS[hashN(script.id || 'reel', 3)] };
   return { ...base, preset: 'pixel8', ab: script.ab || 'style pixel8', ...(script.follow === false ? { follow: false } : {}) };

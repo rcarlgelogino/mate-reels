@@ -28,10 +28,11 @@ function sceneShots(v, si, pick, words, st) { const src = (v.people || []).slice
   const props = (v.props || []).map(q => norm(typeof q === 'string' ? q : q.type)).filter(Boolean).slice(0, 3); if (props.length) p.props = props;
   const busy = cast.findIndex(q => q.act); let focus = v.focus ?? (busy >= 0 ? busy : v.pass ? v.pass[0] : 0); if (!cast[focus]) focus = 0;
   if (v.pass && cast[v.pass[0]] && cast[v.pass[1]] && cast[v.pass[0]].kind === 'person') { const [a, b] = v.pass; p.pass = [a, b]; const A = cast[a], B = cast[b]; if (A.hold === 'both') A.hold = 'termo'; else if (A.hold === 'mate' || A.hold === 'termo_brazo') A.hold = null; A.gest = 'offer'; B.gest = 'receive'; B.hold = null; A.facing = B.x > A.x ? 1 : -1; B.facing = A.x > B.x ? 1 : -1; }
-  const emo = src.map(pp => norm(pp.mood)); cast.forEach((q, i) => { if (emo[i] && FACE[emo[i]]) q.face = FACE[emo[i]]; if (q.face === 'love' && !q.emote) q.emote = 'heart'; if (q.face === 'angry' && !q.emote) q.emote = 'anger'; });
+  const emo = src.map(pp => norm(pp.mood)); cast.forEach((q, i) => { if (emo[i] && FACE[emo[i]]) q.face = FACE[emo[i]]; if (q.face === 'love' && !q.emote) q.emote = 'heart';  });
   const mid = [Math.round(cast.reduce((a, q) => a + q.x, 0) / cast.length), 600]; const fq = cast[focus]; const fpt = fq.kind === 'person' ? headOf(fq) : [fq.x, fq.y - 80];
   const act = busy >= 0 ? cast[busy].act : null; const mk = kind => ({ tpl: 'pix', p: { ...p, cam: cam(kind, act ? [fq.x + (act === 'pour' ? -fq.s * 0.25 : 0), fq.y - fq.s * (act === 'drink' ? 0.6 : 0.4)] : fpt, mid) } });
   if (v.camera) return [mk(v.camera)]; if (act) return [mk(pick(['act', 'push']))];
+  if (words >= 8 && cast.length >= 1 && cast.length <= 3) { const a = cast.length >= 3 ? 'wide3' : pick(cast.length <= 1 ? SOLO : ['push', 'snap', 'wide']); return [mk(a), mk(pick(['snap', 'tight', 'push'], a))]; }
   const first = cast.length >= 4 ? 'wide4' : cast.length === 3 ? pick(['wide3', 'push', 'crane']) : pick(cast.length <= 1 ? SOLO : si === 0 ? ['push', 'snap', 'wide'] : GROUP); return [mk(first)]; }
 const EMOTE = { think: '?', confused: '?', surprised: '!', worried: 'sweat', angry: 'anger', love: 'heart', bored: 'zzz', outraged: 'anger' };
 function reactionShot(v, si, pick, st) { const who = v.who ?? (si % 6); const base = Object.values(ROLE).find(r => r && r.who === who && !r.flag && !r.hat) || { shirt: '#2f7fd1', hair: 'short' }; const q = { kind: 'person', ...base, x: 270, y: GY, s: 160 }; delete q.who; delete q.scale;

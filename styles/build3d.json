@@ -1,0 +1,26 @@
+{
+  "name": "build3d",
+  "version": 1,
+  "description": "Sunny semi-realistic 3D garden (striped lawn, olive trees, small houses, real clouds), a cross-section block that shows the soil, cartoon people with big heads, arms and legs; one object is improved stage by stage; a cut or camera move every 1-2 s; one word at a time in the middle, technical names as yellow labels, failures as red stamps.",
+  "style": {
+    "accent": "#ffd400",
+    "mood": "major",
+    "bpm": 118,
+    "look": "word",
+    "hq": true,
+    "captionY": 1180,
+    "captionSize": 82,
+    "wordStroke": true,
+    "calloutY": 520,
+    "calloutSize": 130,
+    "barColor": "#ffd400"
+  },
+  "spec": {
+    "voice": "es-AR-TomasNeural",
+    "rate": "+14%",
+    "geminiVoice": "Charon",
+    "followText": "SEGUINOS PARA MÁS",
+    "followSub": "CÓMO SE HACE EL MATE",
+    "followY": 1400
+  }
+}

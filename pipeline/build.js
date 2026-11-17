@@ -42,6 +42,7 @@ function prosody(sg, base) { if (sg.voice && (sg.voice.rate || sg.voice.pitch)) 
 // Gemini (voice Charon) whenever GEMINI_API_KEY is set, unless spec.tts says otherwise; ElevenLabs next; Edge as the fallback
 let PROVIDER = spec.tts === 'edge' ? 'edge' : ((GEM.available() || spec.takeFile) && spec.tts !== 'elevenlabs') ? 'gemini' : EL.available() ? 'elevenlabs' : 'edge';
 async function narration() {
+  if (spec.silent) return spec.segments.map(sg => { const ws = String(sg.text || '').split(/\s+/).filter(Boolean); const d = Math.max(0.6, (sg.dur || 3) - 0.35); return { file: null, silentDur: sg.dur || 3, words: ws.length ? ws.map((w, k) => ({ w, t: +(0.12 + k * d / ws.length).toFixed(3), d: +(d / ws.length * 0.85).toFixed(3) })) : [{ w: '', t: 0.1, d: 0.1 }] }; });
   const voice = spec.voice || 'en-US-AndrewNeural', rate = spec.rate || '+14%'; const dir = path.join(OUT, 'vo'); fs.mkdirSync(dir, { recursive: true });
   log('tts provider', PROVIDER);
   if (PROVIDER === 'gemini') { try { return await GEM.narrate(spec, dir, log); } catch (e) { if (process.env.REQUIRE_GEMINI === '1') throw new Error('Gemini voice unavailable and REQUIRE_GEMINI=1 (never the old Edge voice in the automation): ' + e.message.slice(0, 160)); log('WARN Gemini unavailable (' + e.message.slice(0, 160) + '), falling back to Edge TTS'); PROVIDER = 'edge'; log('tts provider', PROVIDER); } }
@@ -78,8 +79,8 @@ function plan(vo) {
   const wordAt = (si, re, base) => { if (re == null) return null; const rx = new RegExp(re, 'i'); const w = vo[si].words.find(x => rx.test(x.w.replace(/[.,!?]$/, ''))); if (!w) throw new Error(`segment ${si + 1}: word /${re}/ not found in "${segs[si].text}"`); return base + w.t; };
   segs.forEach((sg, si) => {
     const ws = vo[si].words, last = ws[ws.length - 1], lead = si === 0 ? 0.05 : 0.06, tail = si === segs.length - 1 ? 0.6 : (sg.tail ?? 0.2);
-    const len = lead + last.t + last.d + tail, base = T + lead;
-    tl.voice.push({ file: path.relative(ROOT, vo[si].file).replace(/\\/g, '/'), at: +base.toFixed(3) });
+    const len = vo[si].silentDur ? vo[si].silentDur : lead + last.t + last.d + tail, base = T + lead;
+    if (vo[si].file) tl.voice.push({ file: path.relative(ROOT, vo[si].file).replace(/\\/g, '/'), at: +base.toFixed(3) });
     ws.forEach(w => tl.words.push({ w: w.w, t: +(base + w.t).toFixed(3), d: w.d, seg: si }));
     const fsum = sg.shots.reduce((a, s) => a + (s.f || 1), 0); let st = T;
     sg.shots.forEach((sh, k) => { const d = len * (sh.f || 1) / fsum; tl.shots.push({ tpl: sh.tpl, p: sh.p || {}, zoom: sh.zoom || 1, c: sh.c || [0.5, 0.5], tOffset: sh.tOffset || 0, start: +st.toFixed(3), dur: +d.toFixed(3), seg: si, emo: sh.emo || null, segEmo: sg.emo || null });
@@ -137,6 +138,7 @@ function mix(tl, cues) {
   A.writeWav(sfxF, A.sfx([...tl.cues, ...cues].sort((a, b) => a.t - b.t))); A.writeWav(musF, A.music(tl.style));
   const args = ['-y', '-v', 'error', '-i', path.join(OUT, 'video.mp4')]; tl.voice.forEach(v => args.push('-i', path.join(ROOT, v.file))); args.push('-i', musF, '-i', sfxF);
   const nv = tl.voice.length, mi = nv + 1, si = nv + 2;
+  if (!nv) { const out0 = path.join(OUT, 'final.mp4'); const a2 = ['-y', '-v', 'error', '-i', path.join(OUT, 'video.mp4'), '-i', musF, '-i', sfxF, '-filter_complex', `[1]volume=${tl.style.musicVol ?? 0.5}[m];[2]volume=${tl.style.sfxVol ?? 0.6}[f];[m][f]amix=inputs=2:normalize=0:duration=longest,loudnorm=I=-13:TP=-1.0:LRA=8,aresample=48000[a]`, '-map', '0:v', '-map', '[a]', '-c:v', 'copy', '-c:a', 'aac', '-b:a', '192k', '-t', String(tl.total), '-movflags', '+faststart', out0]; execFileSync(FF, a2, { stdio: 'inherit' }); const dur0 = execFileSync(FP, ['-v', 'error', '-show_entries', 'format=duration', '-of', 'csv=p=0', out0]).toString().trim(); return { out: out0, dur: dur0, ebur: '?' }; }
   let fc = tl.voice.map((v, k) => `[${k + 1}]aresample=48000:filter_size=64,aformat=channel_layouts=stereo,adelay=${Math.round(v.at * 1000)}:all=1[v${k}]`).join(';');
   fc += `;${tl.voice.map((_, k) => `[v${k}]`).join('')}amix=inputs=${nv}:normalize=0,${tl.voiceProvider !== 'edge' ? 'highpass=f=70,deesser=i=0.3,acompressor=threshold=-20dB:ratio=2.5:attack=20:release=150:makeup=1.5' : 'highpass=f=80,equalizer=f=250:t=q:w=1:g=-2.5,equalizer=f=3200:t=q:w=1.2:g=3,aexciter=amount=1.2:drive=6:freq=5500:blend=0,deesser=i=0.4,acompressor=threshold=-20dB:ratio=3:attack=15:release=120:makeup=1.6'},volume=${tl.style.voiceGain ?? 1.8},asplit=2[vo][sc]`;
   // voice clearly on top (user feedback 2026-11-11: "Stimme muss viel lauter"): boosted + compressed voice, quieter bed and sfx, louder master

@@ -1,10 +1,10 @@
 // A/B: build today's A/B script (picked by daily.js, saved in out/<day>/ab3d.json) a second time in another style (default toy3d).
 // Same text, same voice take (narration cache is copied from the 2D build), only the pictures differ. Never touches queue/ or done/.
-// usage: node scripts/ab3d.js [--style toy3d] [--day YYYY-MM-DD]   -> out/<day>/NN_<name>_3d.mp4 + .txt
+// usage: node scripts/ab3d.js [--style build3d] [--day YYYY-MM-DD]   -> out/<day>/NN_<name>_3d.mp4 + .txt
 const fs = require('fs'), path = require('path'); const { spawnSync } = require('child_process');
 const ROOT = path.join(__dirname, '..'); const MK = require('./make');
 const arg = (k, d) => { const i = process.argv.indexOf(k); return i > 0 ? process.argv[i + 1] : d; };
-const STYLE = arg('--style', process.env.AB_STYLE || 'toy3d'); const day = arg('--day', new Date().toISOString().slice(0, 10)); const OUT = path.join(ROOT, 'out', day);
+const STYLE = arg('--style', process.env.AB_STYLE || 'build3d'); const day = arg('--day', new Date().toISOString().slice(0, 10)); const OUT = path.join(ROOT, 'out', day);
 const log = (...a) => console.log(`[${new Date().toISOString().slice(11, 19)}]`, ...a);
 const abFile = path.join(OUT, 'ab3d.json'); if (!fs.existsSync(abFile)) { log('no A/B script today (no 2D reel was built)'); process.exit(0); }
 const ab = JSON.parse(fs.readFileSync(abFile, 'utf8')); const name = ab.name; const tag = name + '_3d';

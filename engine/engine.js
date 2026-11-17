@@ -2252,7 +2252,7 @@ T.build=(p={})=>{ const s=new THREE.Scene(); s.background=new THREE.Color('#bfe0
   { const t=canvasTex(2048,1024,(g,w,h)=>{ const gr=g.createLinearGradient(0,0,0,h); gr.addColorStop(0,'#2a78dc'); gr.addColorStop(0.42,'#4f9cec'); gr.addColorStop(0.49,'#a8d2f6'); gr.addColorStop(0.5,'#d6ebfa'); gr.addColorStop(1,'#d6ebfa'); g.fillStyle=gr; g.fillRect(0,0,w,h); const Rc=rng(44);
     for(let c=0;c<11;c++){ const cx=Rc()*w, cy=h*(0.3+Rc()*0.16), sz=26+Rc()*50; for(let k=0;k<14;k++){ const x=cx+(Rc()-0.5)*sz*2.4, y=cy+(Rc()-0.5)*sz*0.5, r=sz*(0.35+Rc()*0.45); const rg=g.createRadialGradient(x,y,0,x,y,r); rg.addColorStop(0,'rgba(255,255,255,0.9)'); rg.addColorStop(0.7,'rgba(244,248,255,0.5)'); rg.addColorStop(1,'rgba(255,255,255,0)'); g.fillStyle=rg; g.beginPath(); g.arc(x,y,r,0,7); g.fill(); } const sh=g.createRadialGradient(cx,cy+sz*0.35,0,cx,cy+sz*0.35,sz*1.4); sh.addColorStop(0,'rgba(170,185,210,0.25)'); sh.addColorStop(1,'rgba(170,185,210,0)'); g.fillStyle=sh; g.beginPath(); g.arc(cx,cy+sz*0.35,sz*1.4,0,7); g.fill(); } });
     s.userData.dome=put(s,mesh(new THREE.SphereGeometry(150,48,32),new THREE.MeshBasicMaterial({map:t,side:THREE.BackSide,fog:false}),false,false),0,0,0); } s.userData.bloom=0.18;
-  const cam=newCam(42); const hemi=new THREE.HemisphereLight('#eaf4ff','#7fae5a',1.05); s.add(hemi); const k=sun(s,'#fff2d6',3.3,V(-7,11,7),9); k.shadow.mapSize.set(4096,4096); k.shadow.bias=-0.0002; k.shadow.normalBias=0.03; k.shadow.radius=3;
+  const cam=newCam(42); const hemi=new THREE.HemisphereLight('#eaf4ff','#7fae5a',1.05); s.add(hemi); const k=sun(s,'#fff2d6',3.3,V(-7,11,7),9); { const sm=(typeof SOFT!=='undefined'&&SOFT)?2048:4096; k.shadow.mapSize.set(sm,sm); } k.shadow.bias=-0.0002; k.shadow.normalBias=0.03; k.shadow.radius=3;
   const fill=new THREE.DirectionalLight('#d6e8ff',0.45); fill.position.set(8,4,6); s.add(fill); const rim=new THREE.DirectionalLight('#fff0c8',0.8); rim.position.set(3,5,-9); s.add(rim);
   const R=rng(17+(p.seed||0)); const cut=p.view==='cut';
   // ground: striped lawn; with the cut view the ground ends at z=1.6 and a block shows the soil underneath
@@ -2269,7 +2269,7 @@ T.build=(p={})=>{ const s=new THREE.Scene(); s.background=new THREE.Color('#bfe0
     const base=onTable?0.86:0; const o=p.stage.obj||'calabaza'; hero=o==='calabaza'||o==='mate'?bGourd(p.stage.st,{capOn:p.stage.capOn}):bTool(o); hero.scale.setScalar(p.stage.size||(o==='calabaza'||o==='mate'?0.9:1.4)); put(stageG,hero,0,base,0.3); heroTop=base+0.8;
     (p.stage.tools||[]).forEach((tl,i)=>{ const t2=put(stageG,bTool(tl),-0.55+i*1.1,base,0.35); t2.rotation.y=0.4; }); if(p.stage.vine) put(stageG,bGourd('planta'),0.9,0,0.2); }
   // people
-  const ppl=(p.people||[]).map((q,i)=>{ const P=makeToon({...q,i}); const n=(p.people||[]).length; const x=q.x??(p.stage?(n===1?-0.5:-0.6+i*1.2/Math.max(1,n-1)):(n===1?0:(-1.4+i*2.8/Math.max(1,n-1)))); P.g.position.set(x,0,q.z??(p.stage&&p.stage.table!==false?-0.4:0.2)); P.g.rotation.y=q.ry??(p.stage?(x<0?0.3:-0.3):0); P.pose=q.pose||'idle'; P.baseFace=q.face||'happy'; P.setFace(P.baseFace); s.add(P.g);
+  const ppl=(p.people||[]).map((q,i)=>{ const P=makeToon({...q,i}); const n=(p.people||[]).length; const x=q.x??(p.stage?(n===1?-0.78:-0.6+i*1.2/Math.max(1,n-1)):(n===1?0:(-1.4+i*2.8/Math.max(1,n-1)))); P.g.position.set(x,0,q.z??(p.stage&&p.stage.table!==false?-0.4:0.2)); P.g.rotation.y=q.ry??(p.stage?(x<0?0.3:-0.3):0); P.pose=q.pose||'idle'; P.baseFace=q.face||'happy'; P.setFace(P.baseFace); s.add(P.g);
     if(q.holds){ const ob=q.holds==='calabaza'||q.holds==='mate'?bGourd(q.holds==='mate'?'mate':q.st||'entera'):bTool(q.holds); ob.scale.setScalar(q.holds==='mate'?0.32:0.35); if(q.holds==='mate'||q.holds==='calabaza') ob.position.set(0,-0.02,0.1); if(q.holds==='mate'){ ob.scale.setScalar(0.36); ob.position.set(0,-0.14,0.12); } P.attach(ob); } return P; });
   const acts=p.acts||[]; const fxs=[]; const heroBase=hero?hero.scale.x:1; const pm=(c,o=1,e)=>new THREE.MeshStandardMaterial({color:c,roughness:0.6,transparent:o<1,opacity:o,emissive:e||'#000000',emissiveIntensity:e?0.7:0});
   const PCOUNT={dust:16,seeds:18,spit:20,stars:10,hearts:6,leak:12,confetti:40,steam:12,shards:10,pour:1,splash:16};
@@ -2330,7 +2330,7 @@ T.build=(p={})=>{ const s=new THREE.Scene(); s.background=new THREE.Color('#bfe0
         case 'drone': pos=V(lerp(-6,-1.5,e),lerp(9,3.2,e),lerp(11,5.2,e)); break;
         case 'push': pos=f.clone().add(V(lerp(0.9,0.35,e),lerp(0.9,0.35,e),lerp(5.2,2.2,q))); break;
         case 'orbit': { const a=lerp(-0.9,0.5,e), r=lerp(3.6,2.8,e); pos=V(f.x+Math.sin(a)*r,f.y+lerp(1.2,0.7,e),f.z+Math.cos(a)*r); break; }
-        case 'low': pos=V(f.x+lerp(0.6,-0.4,e),0.55,f.z+lerp(4.8,4.0,e)); look=f.clone().add(V(0,0.25,0)); break;
+        case 'low': pos=V(f.x+lerp(0.6,-0.4,e),0.7,f.z+lerp(6.4,5.6,e)); look=f.clone().add(V(0,0.45,0)); break;
         case 'face': pos=f.clone().add(V(lerp(0.3,0.08,e),0.05,lerp(2.3,1.75,q))); break;
         case 'whip': { const k2=easeOut(clamp(u/0.25)); pos=V(lerp(6,1.6,k2),1.6,lerp(1.5,4.2,k2)+f.z); break; }
         case 'crash': { const k2=u<0.55?0:easeOut(clamp((u-0.55)/0.12)); pos=f.clone().add(V(0.6-0.4*k2,0.8-0.4*k2,4.6-2.8*k2)); break; }

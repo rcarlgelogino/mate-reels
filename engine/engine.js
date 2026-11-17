@@ -2196,13 +2196,13 @@ const TFACE={ // lid: 0 open .. 1 shut, slant: + angry (inner corners down), - s
   pain:{lid:0,squeeze:true,brow:-0.05,tilt:0.4,m:'teeth'}, love:{lid:0.1,brow:0.15,tilt:-0.1,m:'grin',heart:true}, confused:{lid:0.2,brow:0.1,tilt:0,m:'wavy',oneUp:true}, wink:{lid:0,wink:true,brow:0.1,tilt:0,m:'grin'},
   determined:{lid:0.3,slant:0.35,brow:-0.08,tilt:0.35,m:'flat'}, cry:{lid:0.3,slant:-0.5,brow:0.12,tilt:-0.55,m:'O',tears:true}, sleepy:{lid:0.8,brow:-0.05,tilt:0,m:'o'} };
 function drawToonFace(g,w,h,st){ const F=TFACE[st.face]||TFACE.neutral, ink='#2a1712', skin=st.skin; g.clearRect(0,0,w,h); g.lineCap='round'; g.lineJoin='round';
-  const ex=[w*0.335,w*0.665], ey=h*0.33, rx=33, ry=40; const lid=st.blink?1:F.lid;
+  const ex=[w*0.325,w*0.675], ey=h*0.34, rx=40, ry=48; const lid=st.blink?1:F.lid;
   // blush with little strokes
   for(const x of ex){ const bx=x+(x<w/2?-22:22), by=h*0.6; g.fillStyle='rgba(240,110,110,0.32)'; g.beginPath(); g.ellipse(bx,by,30,15,0,0,7); g.fill(); g.strokeStyle='rgba(220,70,70,0.55)'; g.lineWidth=3; for(let k=-1;k<=1;k++){ g.beginPath(); g.moveTo(bx+k*10-4,by+5); g.lineTo(bx+k*10+4,by-5); g.stroke(); } }
   ex.forEach((x,ii)=>{ const sd=ii?1:-1; const closed=F.arc||(F.wink&&ii===1)||F.squeeze;
     if(closed){ g.strokeStyle=ink; g.lineWidth=9; g.beginPath(); if(F.squeeze){ g.moveTo(x-26,ey-12); g.lineTo(x+22*sd*-1+ (sd>0?44:0),ey+2); g.moveTo(x-26+(sd>0?0:0),ey+14); } if(F.squeeze){ g.beginPath(); g.moveTo(x-sd*24,ey-14); g.lineTo(x+sd*18,ey); g.lineTo(x-sd*24,ey+14); g.stroke(); } else { g.arc(x,ey+12,26,Math.PI*1.12,Math.PI*1.88); g.stroke(); } return; }
     g.fillStyle='#ffffff'; g.beginPath(); g.ellipse(x,ey,rx,ry,0,0,7); g.fill();
-    const pr=14*(F.pupil||1), px=x+st.gx*12, py=ey+4+st.gy*10;
+    const pr=17*(F.pupil||1), px=x+st.gx*12, py=ey+4+st.gy*10;
     if(F.heart){ g.fillStyle='#e0304a'; g.beginPath(); g.moveTo(px,py+14); g.bezierCurveTo(px-26,py-4,px-12,py-22,px,py-8); g.bezierCurveTo(px+12,py-22,px+26,py-4,px,py+14); g.fill(); }
     else { g.fillStyle='#5a3a26'; g.beginPath(); g.arc(px,py,pr+5,0,7); g.fill(); g.fillStyle='#120a08'; g.beginPath(); g.arc(px,py,pr,0,7); g.fill(); g.fillStyle='#fff'; g.beginPath(); g.arc(px+6,py-7,5,0,7); g.fill(); g.beginPath(); g.arc(px-5,py+6,2.5,0,7); g.fill(); }
     // heavy upper lid (skin colour) with a dark lash line; slant for angry / sad
@@ -2210,11 +2210,11 @@ function drawToonFace(g,w,h,st){ const F=TFACE[st.face]||TFACE.neutral, ink='#2a
     g.strokeStyle=ink; g.lineWidth=5; g.beginPath(); g.ellipse(x,ey,rx,ry,0,0,7); g.stroke();
     if(F.tears&&ii===0||F.tears&&ii===1){ g.fillStyle='rgba(120,200,255,0.85)'; g.beginPath(); g.ellipse(x+sd*20,ey+ry+20+((st.t||0)*80)%40,7,11,0,0,7); g.fill(); } });
   // thick brows
-  ex.forEach((x,ii)=>{ const sd=ii?1:-1; const lift=(F.brow||0)*60+(F.oneUp&&ii===1?24:0); const tilt=(F.tilt||0)*sd; g.strokeStyle=st.brow||ink; g.lineWidth=15; g.beginPath(); g.moveTo(x-32,h*0.13-lift+tilt*16); g.quadraticCurveTo(x,h*0.1-lift-6,x+32,h*0.13-lift-tilt*16); g.stroke(); });
+  ex.forEach((x,ii)=>{ const sd=ii?1:-1; const lift=(F.brow||0)*60+(F.oneUp&&ii===1?24:0); const tilt=(F.tilt||0)*sd; g.strokeStyle=st.brow||ink; g.lineWidth=19; g.beginPath(); g.moveTo(x-38,h*0.12-lift*1.3+tilt*22); g.quadraticCurveTo(x,h*0.085-lift*1.3-8,x+38,h*0.12-lift*1.3-tilt*22); g.stroke(); });
   // painted moustache
   if(st.mustache){ g.fillStyle=st.brow||'#3a2416'; for(const sd of [-1,1]){ g.beginPath(); g.ellipse(w/2+sd*38,h*0.8,40,15,sd*-0.3,0,7); g.fill(); } }
   // mouth (talking opens it)
-  const mx=w/2, my=h*(st.mustache?0.92:0.86); const open=st.talk||0; let m=F.m; if(open>0.15&&!['O','laugh','dot'].includes(m)) m='talk';
+  const mx=w/2, my=h*(st.mustache?0.9:0.84); const open=st.talk||0; g.save(); g.translate(mx,my); g.scale(1.45,1.45); g.translate(-mx,-my); let m=F.m; if(open>0.15&&!['O','laugh','dot'].includes(m)) m='talk';
   g.strokeStyle=ink; g.lineWidth=7; g.fillStyle='#5a1a1a';
   if(m==='flat'){ g.beginPath(); g.moveTo(mx-24,my); g.lineTo(mx+24,my); g.stroke(); }
   else if(m==='smile'){ g.beginPath(); g.arc(mx,my-26,32,Math.PI*0.22,Math.PI*0.78); g.stroke(); }
@@ -2227,7 +2227,13 @@ function drawToonFace(g,w,h,st){ const F=TFACE[st.face]||TFACE.neutral, ink='#2a
   else if(m==='dot'){ g.beginPath(); g.arc(mx,my,7,0,7); g.fill(); }
   else if(m==='tongue'){ g.beginPath(); g.moveTo(mx-24,my); g.lineTo(mx+24,my-4); g.stroke(); g.fillStyle='#e06a6a'; g.beginPath(); g.ellipse(mx+8,my+10,10,12,0,0,7); g.fill(); }
   else if(m==='teeth'){ g.fillStyle='#fff'; g.beginPath(); g.rect(mx-26,my-8,52,18); g.fill(); g.stroke(); g.beginPath(); g.moveTo(mx-26,my+1); g.lineTo(mx+26,my+1); g.stroke(); }
-  else if(m==='talk'){ g.beginPath(); g.ellipse(mx,my+4,18,4+open*16,0,0,7); g.fill(); g.stroke(); } }
+  else if(m==='talk'){ g.beginPath(); g.ellipse(mx,my+4,18,4+open*16,0,0,7); g.fill(); g.stroke(); }
+  g.restore();
+  // marks: anger vein, sweat drop, love blush lines, shock lines
+  const fx=st.face; if(fx==='angry'||fx==='outraged'){ g.strokeStyle='#d92a2a'; g.lineWidth=8; const vx=w*0.84, vy=h*0.08; for(const [a,b] of [[-1,-1],[1,-1],[-1,1],[1,1]]){ g.beginPath(); g.moveTo(vx+a*6,vy+b*6); g.quadraticCurveTo(vx+a*20,vy+b*4,vx+a*22,vy+b*22); g.stroke(); } }
+  if(['worried','shock','scream','pain','confused'].includes(fx)){ g.fillStyle='rgba(140,210,255,0.95)'; g.strokeStyle='#3a7fc0'; g.lineWidth=3; const sx=w*0.13, sy=h*0.12+((st.t||0)*60%30); g.beginPath(); g.moveTo(sx,sy-22); g.quadraticCurveTo(sx+16,sy+6,sx,sy+12); g.quadraticCurveTo(sx-16,sy+6,sx,sy-22); g.fill(); g.stroke(); }
+  if(fx==='love'||fx==='happy'||fx==='laugh'){ g.fillStyle='rgba(240,90,110,0.35)'; for(const x of [w*0.24,w*0.76]){ g.beginPath(); g.ellipse(x,h*0.6,40,20,0,0,7); g.fill(); } }
+  if(fx==='shock'||fx==='scream'||fx==='surprised'){ g.strokeStyle=ink; g.lineWidth=5; for(let k=0;k<3;k++){ g.beginPath(); g.moveTo(w*0.02+k*14,h*0.3+k*10); g.lineTo(w*0.06+k*14,h*0.36+k*10); g.stroke(); g.beginPath(); g.moveTo(w*0.98-k*14,h*0.3+k*10); g.lineTo(w*0.94-k*14,h*0.36+k*10); g.stroke(); } } }
 const TOONSKIN2=['#f6d4b4','#f2cba6','#f8dcc4'];
 function makeToon(o={}){ const g=new THREE.Group(); const sc=o.scale||1; const skinHex=o.skin||TOONSKIN2[(o.i||0)%3];
   const skin=toy(skinHex,0.72), shirtHex=o.shirt||'#e5483a', shirt=toy(shirtHex,0.78), shirtL=toy(pmixHex(shirtHex,'#ffffff',0.22),0.78), pants=toy(o.pants||'#2f4a7a',0.82), shoe=toy('#3a2a20',0.55), hairHex=o.hairColor||'#4a2c1a', hair=toy(hairHex,0.85);
@@ -2253,12 +2259,12 @@ function makeToon(o={}){ const g=new THREE.Group(); const sc=o.scale||1; const s
   // the live face
   const fc=document.createElement('canvas'); fc.width=512; fc.height=384; const fctx=fc.getContext('2d'); const ftex=new THREE.CanvasTexture(fc); ftex.colorSpace=THREE.SRGBColorSpace; ftex.anisotropy=8;
   const faceMat=new THREE.MeshStandardMaterial({map:ftex,transparent:true,roughness:0.7,polygonOffset:true,polygonOffsetFactor:-2}); const plate=put(head,mesh(new THREE.SphereGeometry(0.334,40,30,Math.PI/2-0.95,1.9,0.72,1.45),faceMat,false,false),0,0,0); plate.scale.set(1,1.02,0.95);
-  const nose=put(head,mesh(new THREE.SphereGeometry(o.bigNose?0.095:0.08,18,14),toy(pmixHex(skinHex,'#d9826a',0.4),0.55)),0,-0.03,0.33); nose.scale.set(1,0.9,1.05);
+  const nose=put(head,mesh(new THREE.SphereGeometry(o.bigNose?0.07:0.055,18,14),toy(pmixHex(skinHex,'#d9826a',0.4),0.55)),0,-0.03,0.33); nose.scale.set(1,0.9,1.05);
   if(o.glasses) for(const sd of [-1,1]) put(head,mesh(new THREE.TorusGeometry(0.085,0.012,8,20),toy('#1a1210',0.4)),sd*0.11,0.08,0.33);
   const mouth=put(head,new THREE.Group(),0,o.mustache?-0.205:-0.19,0.3);
   const api={ g, head, neck, torso, arms, legs, root, sc, face:o.face||'happy', pose:'idle', held:null, mouthAt:()=>mouth.getWorldPosition(new THREE.Vector3()) };
   const fs0={face:api.face,blink:false,gx:0,gy:0,talk:0}; let lastKey='';
-  const redraw=(t)=>{ const key=[fs0.face,fs0.blink?1:0,Math.round(fs0.gx*4),Math.round(fs0.gy*4),Math.round(fs0.talk*3),TFACE[fs0.face]&&TFACE[fs0.face].tears?Math.floor(t*12):0].join('|'); if(key===lastKey) return; lastKey=key; drawToonFace(fctx,512,384,{...fs0,t,skin:skinHex,brow:pmixHex(hairHex,'#1a100c',0.4),mustache:!!o.mustache}); ftex.needsUpdate=true; };
+  const redraw=(t)=>{ const key=[fs0.face,fs0.blink?1:0,Math.round(fs0.gx*4),Math.round(fs0.gy*4),Math.round(fs0.talk*3),(TFACE[fs0.face]&&TFACE[fs0.face].tears)||['worried','shock','scream','pain','confused'].includes(fs0.face)?Math.floor(t*12):0].join('|'); if(key===lastKey) return; lastKey=key; drawToonFace(fctx,512,384,{...fs0,t,skin:skinHex,brow:pmixHex(hairHex,'#1a100c',0.4),mustache:!!o.mustache}); ftex.needsUpdate=true; };
   api.setFace=(f)=>{ api.face=f; fs0.face=f; }; api.talk=!!o.talk;
   // inverse kinematics for one arm: shoulder (x,z) and elbow (x) so that the hand reaches a point in the world
   const ikTmp=new THREE.Vector3(); const reach=(ai,target,iters=18)=>{ const A=arms[ai]; const P=[A.p.rotation,'x',A.p.rotation,'z',A.el.rotation,'x']; const err=()=>{ g.updateMatrixWorld(true); return A.hand.getWorldPosition(ikTmp).distanceTo(target); }; let e=err(), step=0.25;
@@ -2284,7 +2290,17 @@ function makeToon(o={}){ const g=new THREE.Group(); const sc=o.scale||1; const s
     if(P==='laugh'){ bob=Math.abs(Math.sin(t*12))*0.035; SH(0,-0.4,0,0.15); SH(1,-0.4,0,-0.15); EL(0,-1.3); EL(1,-1.3); head.rotation.x=-0.2; lean=-0.06; }
     if(P==='sit'){ Lg.forEach(l=>{ l.rotation.x=-1.5; l.userData.knee.rotation.x=1.5; }); root.position.y=-0.25; }
     if(P==='talk'){ SH(1,-0.6+Math.sin(t*3)*0.15,0,-0.05); EL(1,-1.1+Math.sin(t*5)*0.2); A[1].wr.rotation.z=Math.sin(t*4)*0.3; }
+    { const f0=api.face; const t0=(t%4); skull.scale.set(1,1.02,0.95); head.position.y=0.3;
+      if(f0==='shock'||f0==='scream'||f0==='surprised'){ const k=Math.max(0,1-t/0.5); skull.scale.set(1-0.08*k,1.02+0.16*k,0.95); head.position.y=0.3+0.05*k; }
+      if(f0==='angry'||f0==='outraged'){ head.rotation.y+=Math.sin(t*28)*0.05; torso.rotation.z=Math.sin(t*20)*0.02; lean+=0.06; }
+      if(f0==='laugh'){ head.rotation.x-=0.12+Math.abs(Math.sin(t*12))*0.12; bob+=Math.abs(Math.sin(t*12))*0.02; }
+      if(f0==='sad'||f0==='cry'||f0==='bored'){ head.rotation.x+=0.22; lean+=0.05; SH(0,0,0,-0.06); SH(1,0,0,0.06); }
+      if(f0==='confused'){ head.rotation.z+=0.28; }
+      if(f0==='love'){ head.rotation.z+=Math.sin(t*3)*0.15; }
+      if(f0==='proud'||f0==='sly'){ head.rotation.x-=0.12; lean-=0.05; } }
     torso.rotation.x=lean; root.position.y+=bob+jump;
+    // squash and stretch on jumps
+    root.scale.set(sc*(1+Math.max(0,-jump)*0),sc*(1+jump*0.35),sc*(1-jump*0.15));
     // hands close around what they hold
     if(api.held) A[1].fing.rotation.x=0.9;
     // drinking: the hand itself brings the mate up until the bombilla ends in the mouth
@@ -2372,6 +2388,21 @@ T.build=(p={})=>{ const s=new THREE.Scene(); s.background=new THREE.Color('#bfe0
         if(a.fx==='splash'){ life=0.6; if(d>life) return; const an=k/n*Math.PI*2; m.visible=true; m.position.copy(origin).add(V(Math.cos(an)*d*0.7,(1.6+r1)*d-4.9*d*d,Math.sin(an)*d*0.7)); } }); });
     const tl2=acts.find(a=>a.timelapse); if(tl2){ const k=clamp((t-tl2.timelapse[0])/(tl2.timelapse[1]-tl2.timelapse[0])); const an=-1.2+k*Math.PI*2*(tl2.turns||1); k2.position.set(Math.cos(an)*12,9+Math.sin(an*0.5)*2,Math.sin(an)*12); if(s.userData.dome) s.userData.dome.rotation.y=k*2.5; } };
   const k2=k;
+  const AP=ppl.map(()=>Array.from({length:14},()=>{ const m=mesh(new THREE.SphereGeometry(0.035,8,6),new THREE.MeshStandardMaterial({color:'#ffffff',roughness:0.6,transparent:true,opacity:0.9}),false,false); m.visible=false; s.add(m); return m; }));
+  const amb=[]; for(let i=0;i<46;i++){ const m=mesh(new THREE.SphereGeometry(0.011,6,4),new THREE.MeshBasicMaterial({color:'#fff6c8',transparent:true,opacity:0.85}),false,false); s.add(m); amb.push(m); }
+  const leaves=[]; for(let i=0;i<9;i++){ const m=mesh(new THREE.PlaneGeometry(0.09,0.05),new THREE.MeshStandardMaterial({color:i%2?'#7a915a':'#b8c070',side:THREE.DoubleSide}),false,false); s.add(m); leaves.push(m); }
+  const flies=[]; for(let i=0;i<2;i++){ const b=new THREE.Group(); for(const sd of [-1,1]){ const w=mesh(new THREE.CircleGeometry(0.05,10),new THREE.MeshStandardMaterial({color:i?'#ffd84a':'#ff8a3a',side:THREE.DoubleSide}),false,false); w.position.x=sd*0.045; b.add(w); } s.add(b); flies.push(b); }
+  const autoFx=(t)=>{ const cp=cam.position; amb.forEach((m,i)=>{ const r1=rr(i,91),r2=rr(i,92),r3=rr(i,93); m.position.set(cp.x+(r1-0.5)*4+Math.sin(t*0.6+i)*0.3,0.3+r2*2.6+Math.sin(t*0.8+i*1.3)*0.15,cp.z-1.4-r3*4.5); m.material.opacity=0.5+0.4*Math.sin(t*3+i); });
+    leaves.forEach((m,i)=>{ const ph=((t*0.25+rr(i,61))%1); m.position.set(cp.x+(rr(i,62)-0.5)*4+Math.sin(ph*12+i)*0.4,3.2-ph*3.3,cp.z-1.8-rr(i,63)*3); m.rotation.set(ph*9+i,ph*7,ph*5); });
+    flies.forEach((b,i)=>{ const a=t*(0.9+i*0.3)+i*2; b.position.set(focusP.x+Math.cos(a)*(1.2+i*0.4),0.9+Math.sin(a*2.3)*0.25+i*0.3,focusP.z+Math.sin(a)*0.8-0.3); b.rotation.y=-a; b.children.forEach((w,j)=>{ w.rotation.y=(j?1:-1)*(0.3+Math.abs(Math.sin(t*28))*1.1); }); });
+    ppl.forEach((P,i)=>{ const ms=AP[i]; ms.forEach(m=>m.visible=false); const f=P.face, ps=P.pose; const hd=P.g.position.clone().add(V(0,1.95*(P.sc||1)+P.g.position.y,0)); const ft=P.g.position.clone().add(V(0,0.04,0.05)); let n=0; const put2=(pos,col,sc2,op)=>{ if(n>=ms.length) return; const m=ms[n++]; m.visible=true; m.position.copy(pos); m.scale.setScalar(sc2); m.material.color.set(col); m.material.opacity=op; };
+      if(f==='angry'||f==='outraged') for(let k=0;k<4;k++){ const ph=(t*1.3+k/4)%1; put2(hd.clone().add(V((k%2?0.18:-0.18)+Math.sin(ph*6)*0.03,ph*0.45,0)),'#f4f4f4',1+ph*2.2,0.8*(1-ph)); }
+      if((f==='shock'||f==='surprised'||f==='scream')&&t<0.9) for(let k=0;k<6;k++){ const an=k/6*Math.PI*2+t*4, r=0.3+t*0.5; put2(hd.clone().add(V(Math.cos(an)*r,Math.sin(an)*r*0.5-0.1,0.1)),'#ffd84a',0.9,1-t/0.9); }
+      if(f==='love') for(let k=0;k<4;k++){ const ph=(t*0.6+k/4)%1; put2(hd.clone().add(V((k-1.5)*0.15+Math.sin(ph*7+k)*0.05,ph*0.6-0.1,0.15)),'#ff4a6a',1.3,1-ph); }
+      if(f==='laugh'||ps==='cheer') for(let k=0;k<5;k++){ const ph=(t*1.1+k/5)%1, an=k*1.3; put2(hd.clone().add(V(Math.cos(an)*0.38,Math.sin(an)*0.2+ph*0.25-0.15,0.12)),'#fff3a0',0.6*(1-ph)+0.2,1-ph); }
+      if(ps==='run'||ps==='walk') for(let k=0;k<5;k++){ const ph=(t*(ps==='run'?2.8:1.8)+k/5)%1; put2(ft.clone().add(V(-Math.sin(P.g.rotation.y)*ph*0.4,ph*0.18,-Math.cos(P.g.rotation.y)*ph*0.1)),'#e2d2b0',1+ph*2.5,0.7*(1-ph)); }
+      if(ps==='saw'&&hero) for(let k=0;k<7;k++){ const ph=(t*1.6+k/7)%1; const tp=heroTopW(); put2(tp.clone().add(V((rr(k,41)-0.5)*0.6*ph,0.05+ph*0.3-ph*ph*0.6,0.1+ph*0.2)),'#f0dca8',0.6,1-ph*0.5); }
+      if(ps==='drink'&&P.held) for(let k=0;k<3;k++){ const ph=(t*0.9+k/3)%1; const mp=P.held.getWorldPosition(new THREE.Vector3()); put2(mp.add(V(Math.sin(ph*6+k)*0.03,0.2+ph*0.3,0)),'#ffffff',0.8+ph*1.6,0.55*(1-ph)); } }); };
   // camera: target = the object, a face or the middle
   const tgtObj=V(0,heroTop-0.25,0.3), face=i=>{ const P=ppl[i]; return P?V(P.g.position.x,1.55*(P.sc||1),P.g.position.z):tgtObj; };
   const focusP=p.focus==='face'||p.cam==='face'?face(p.who||0):p.stage?tgtObj:ppl.length?V(0,1.2,0.2):V(0,1,0);
@@ -2379,7 +2410,7 @@ T.build=(p={})=>{ const s=new THREE.Scene(); s.background=new THREE.Color('#bfe0
   acts.forEach(a=>{ if(a.fall!=null){ cu(a.fall,'boomSoft'); } if(a.capoff!=null){ cu(a.capoff,'hit'); cu(a.capoff+0.02,'crackle'); } if(a.fx==='seeds') cu(a.t0||0,'rustle'); if(a.fx==='pour') cu((a.t0||0)+0.3,'pour'); if(a.obj==='ring') cu(a.drop[1],'clink'); if(a.shake) cu(a.shake[0],'shake'); if(a.fx==='stars') cu(a.at||0,'pop'); if(a.fx==='confetti') cu(a.t0||a.at||0,'popBig'); if(a.fx==='hearts') cu(a.at||0,'sparkle'); if(a.grow) cu(a.grow[0],'rise'); if(a.fx==='spit') cu(a.at||0,'hiss'); if(a.walk&&a.run) cu(a.t0||0,'swish'); if(a.fx==='dust') cu(a.at||0,'snap'); if(a.insert) cu(a.insert[1],'clank'); if(a.fill) cu(a.fill[0],'bag'); if(a.timelapse) cu(a.timelapse[0],'clock'); });
   return { scene:s, camera:cam, aperture:0.0008, maxblur:0.006, exposure:1.08, keepFaces:true, people:[], cues, update(u,t){ const f=focusP; let pos, look=f.clone(); const e=ease(u), q=easeOut(u);
       clouds.forEach((c,i)=>{ c.position.x+=0.004*(1+i%3); });
-      applyActs(t,u); ppl.forEach(P=>P.tick(t,u)); if(hero&&p.stage.spin) hero.rotation.y=t*0.8;
+      applyActs(t,u); ppl.forEach(P=>P.tick(t,u)); autoFx(t); if(hero&&p.stage.spin) hero.rotation.y=t*0.8;
       if(hero&&hero.userData.cap&&p.stage.pop){ const k=easeOut(clamp(u/0.3)); hero.userData.cap.position.y=0.66+0.15+k*0.4; }
       switch(p.cam){
         case 'drone': pos=V(lerp(-6,-1.5,e),lerp(9,3.2,e),lerp(11,5.2,e)); break;

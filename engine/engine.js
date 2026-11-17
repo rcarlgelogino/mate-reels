@@ -1335,10 +1335,10 @@ function drawPix(c,p,u,t,sh){ const gA=pxWorld(); let g=gA; const place=p.place|
     g=pxLayer('n'); E._pxNear=true; try{ pxPlace(g,place,t,p); } finally{ E._pxNear=false; } if(nightOn){ g.save(); g.globalCompositeOperation='source-atop'; pNight(g); g.restore(); }
     const pre=pxLayer('t'); pre.drawImage(E._pxn,0,0); plight(g,place,nightL,t); g.save(); g.globalCompositeOperation='destination-in'; g.drawImage(E._pxt,0,0); g.restore();
     // far layer = full picture minus the near pass; the holes are filled from the neighbours (sideways, then downwards)
-    const F=pxLayer('f'); F.drawImage(E._pxw,0,0); F.globalCompositeOperation='destination-out'; F.drawImage(E._pxn,0,0); F.globalCompositeOperation='destination-over'; if(place==='costa'){ F.fillStyle=p.night?'#16244a':'#3f7a86'; F.fillRect(0,560,PXW,PXH); }
+    const F=pxLayer('f'); F.drawImage(E._pxw,0,0); F.globalCompositeOperation='destination-out'; F.drawImage(E._pxn,0,0); F.globalCompositeOperation='destination-over'; { const HZ0=place==='costa'||place==='ruta'?560:place==='playa'?470:PGY-80; for(const dy of [3,10,24]) F.drawImage(E._pxn,0,HZ0+dy,PXW,3,0,HZ0,PXW,PXH-HZ0); }
     for(const d of [4,-4,10,-10,22,-22,46,-46,90,-90]) F.drawImage(E._pxf,d,0); for(const d of [6,14,30,60,120,240]) F.drawImage(E._pxf,0,d); F.globalCompositeOperation='source-over'; }
   (p.props||[]).forEach((pp,i)=>{ const q=typeof pp==='string'?{type:pp}:pp; const side=i%2?1:-1; pprop(g,q.type,q.x??(side>0?470-Math.floor(i/2)*40:70+Math.floor(i/2)*40),q.y??PGY+6,q.s??90,t); });
-  if(layered) pparticles(g,place,nightL,t); else { pparticles(g,place,nightL,t); if(!['titulo','macro','poros'].includes(place)) plight(g,place,nightL,t); }
+  if(layered) pparticles(g,place,nightL,t); else { pparticles(g,place,nightL,t); if(!['titulo','macro','poros','mapa'].includes(place)) plight(g,place,nightL,t); }
   const cast=p.cast||[]; const refs=[]; const LMs=PLIGHT[E._light]&&['plaza','patio','calle','yerbal','campo','playa','ruta','mercado'].includes(place)?PLIGHT[E._light]:null; pshadows(g,cast,LMs);
   cast.forEach((q,i)=>{ if(!q.glow) return; const R=Math.round((q.s||90)*0.6)+Math.round(Math.sin(t*3)*1.2); const cx=q.x, cy=q.y-(q.s||90)*0.48; pdisk(g,cx,cy,R+12,R+14,'#4a2466'); pdisk(g,cx,cy,R+6,R+7,'#b8473f'); pdisk(g,cx,cy,R,R+1,'#f08a3a'); pdisk(g,cx,cy,R-7,R-7,'#ffb85a'); });
   const order=cast.map((q,i)=>i).sort((a,b)=>cast[a].y-cast[b].y);
@@ -1354,11 +1354,11 @@ function drawPix(c,p,u,t,sh){ const gA=pxWorld(); let g=gA; const place=p.place|
   if(p.pour){ const q=cast[p.pour.from], m=refs[p.pour.to]; if(q&&m&&m.open) pTermoPour(g,q,pourK,m.open,t,p.pour.from*3+1); }
   if(p.emote){ const r=refs[p.emote.who||0]; if(r) pemote(g,p.emote.kind,r.head[0]+(r.rh||20),r.head[1]-(r.rh||20)*1.2,t); }
   cast.forEach((q,i)=>{ if(q.kind==='person'||!q.glow) return; const S=q.s||120; for(let k=0;k<6;k++) psparkle(g,q.x+Math.cos(k*1.05+0.4)*S*0.78,q.y-S*0.5+Math.sin(k*1.05+0.4)*S*0.7,t,k+i*7); });
-  const gF=pxLayer('g'); if(!['titulo','macro','poros'].includes(place)){ pfore(gF,place,nightL,t); }
+  const gF=pxLayer('g'); if(!['titulo','macro','poros','mapa'].includes(place)){ pfore(gF,place,nightL,t); }
   const TR=Math.floor(((sh&&sh.start)||0)*7.31)%4, tk=clamp(t/0.2); const trS=TR===3&&tk<1?Math.round((1-easeOut(tk))*80/4)*4:0;
   cast.forEach((q,i)=>{ if(q.kind==='person'||!q.glow||t>0.45) return; const S=q.s||120, k=t/0.45; for(let a=0;a<16;a++){ const an=a/16*Math.PI*2, r=S*(0.35+k*0.9); if((a+Math.floor(t*20))%2) continue; pr(g,q.x+Math.cos(an)*r,q.y-S*0.5+Math.sin(an)*r,3,3,a%3?'#fff6c8':E.accent); } });
   cast.forEach((q,i)=>{ if(q.kind!=='person'||!(q.emoAct==='cheer'||q.emoAct==='jump')) return; for(let k=0;k<24;k++){ const ph=(t*0.6+prand(k+i*30))%1; pr(g,q.x-q.s*0.6+prand(k+i*31)*q.s*1.2+Math.sin(ph*9+k)*6,q.y-q.s*1.3+ph*q.s*1.1,3,2,['#ffd84a','#e5483a','#2f9e44','#2f7fd1','#ffffff'][k%5]); } });
-  const k=ck; const z=lerp(cm.z0??1,cm.z1??1.12,k)*(1+0.05*Math.max(0,u-csp)); const c0=cm.c0||[270,560], c1=cm.c1||c0; let cx=lerp(c0[0],c1[0],k), cy=lerp(c0[1],c1[1],k);
+  const k=ck; const z=lerp(cm.z0??1,cm.z1??1.12,k)*(1+0.05*Math.max(0,u-csp)); const cFrom=place==='mapa'&&cm.from&&F2MAP.c[cm.from]?(pts=>[40+pts.reduce((a,q)=>a+q[0],0)/pts.length*460,90+pts.reduce((a,q)=>a+q[1],0)/pts.length*780])(F2MAP.c[cm.from]):null; const c0=cFrom||cm.c0||[270,560], c1=cm.c1||c0; let cx=lerp(c0[0],c1[0],k), cy=lerp(c0[1],c1[1],k);
   const vw=Math.min(PXW,270/z), vh=Math.min(PXH,480/z); cx=clamp(cx,vw/2,PXW-vw/2); cy=clamp(cy,vh/2,PXH-vh/2); const pxs=W/vw; const shock=cast.some(q=>q.emoAct==='shock'||q.emoAct==='angry')&&t<0.5?Math.round(Math.sin(t*60)*2*(1-t/0.5)):0; const sx=Math.round((cx-vw/2)*4)/4+shock, sy=Math.round((cy-vh/2)*4)/4;
   // put the layers together: far moves and zooms about half as much, the front about one and a half times
   const LT={}; const HZ=place==='costa'||place==='ruta'?560:place==='playa'?470:PGY-80;

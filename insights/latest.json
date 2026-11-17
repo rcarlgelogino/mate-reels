@@ -1,12 +1,12 @@
 {
- "read": "2026-11-17T16:16:57.007Z",
+ "read": "2026-11-17T20:15:53.437Z",
  "insights": true,
  "reels": [
   {
-   "id": "18351561505251624",
-   "posted": "2026-11-17T16:16:17+0000",
-   "link": "https://www.instagram.com/reel/Df2VnWsjVbo/",
-   "title": "Un desconocido te convida un mate en la plaza. ¿Lo aceptás? 🧉",
+   "id": "18112646183247764",
+   "posted": "2026-11-17T20:15:07+0000",
+   "link": "https://www.instagram.com/reel/Df2w8uzAo93/",
+   "title": "El termo bajo el brazo no es costumbre: es casi un documento 🧉",
    "likes": 0,
    "comments": 0,
    "reach": 0,
@@ -18,19 +18,34 @@
    "ig_reels_video_view_total_time": 0
   },
   {
+   "id": "18351561505251624",
+   "posted": "2026-11-17T16:16:17+0000",
+   "link": "https://www.instagram.com/reel/Df2VnWsjVbo/",
+   "title": "Un desconocido te convida un mate en la plaza. ¿Lo aceptás? 🧉",
+   "likes": 93,
+   "comments": 2,
+   "reach": 1517,
+   "views": 1867,
+   "saved": 2,
+   "shares": 6,
+   "total_interactions": 104,
+   "ig_reels_avg_watch_time": 20398,
+   "ig_reels_video_view_total_time": 30903847
+  },
+  {
    "id": "18115991309169219",
    "posted": "2026-11-17T11:14:54+0000",
    "link": "https://www.instagram.com/reel/Df1zGpkjKFu/",
    "title": "¿De dónde viene la palabra \"bombilla\"? Antes, el filtro eran los dientes 🧉",
-   "likes": 64,
+   "likes": 67,
    "comments": 0,
-   "reach": 1370,
-   "views": 1611,
+   "reach": 1472,
+   "views": 1725,
    "saved": 4,
    "shares": 9,
-   "total_interactions": 77,
-   "ig_reels_avg_watch_time": 20194,
-   "ig_reels_video_view_total_time": 27625778
+   "total_interactions": 80,
+   "ig_reels_avg_watch_time": 20213,
+   "ig_reels_video_view_total_time": 29653222
   },
   {
    "id": "18169120354491757",
@@ -39,13 +54,13 @@
    "title": "¿Yerba con palo o sin palo? Tu elección dice algo de vos 🧉",
    "likes": 45,
    "comments": 0,
-   "reach": 1154,
-   "views": 1377,
+   "reach": 1161,
+   "views": 1390,
    "saved": 1,
    "shares": 1,
    "total_interactions": 47,
-   "ig_reels_avg_watch_time": 14461,
-   "ig_reels_video_view_total_time": 17209519
+   "ig_reels_avg_watch_time": 14496,
+   "ig_reels_video_view_total_time": 17439345
   },
   {
    "id": "18130747579844259",
@@ -67,15 +82,15 @@
    "posted": "2026-11-16T16:18:18+0000",
    "link": "https://www.instagram.com/reel/DfzxB2WDw-e/",
    "title": "El primer mate es el peor de la ronda… y el cebador se lo toma a propósito 🧉",
-   "likes": 470,
+   "likes": 499,
    "comments": 9,
-   "reach": 6862,
-   "views": 8445,
-   "saved": 17,
-   "shares": 24,
-   "total_interactions": 531,
-   "ig_reels_avg_watch_time": 20905,
-   "ig_reels_video_view_total_time": 142969763
+   "reach": 7376,
+   "views": 9011,
+   "saved": 18,
+   "shares": 27,
+   "total_interactions": 565,
+   "ig_reels_avg_watch_time": 21138,
+   "ig_reels_video_view_total_time": 155238375
   },
   {
    "id": "18650638792011863",
@@ -114,13 +129,13 @@
    "title": "Mover la bombilla en una ronda no es un detalle: para el cebador es casi una ofensa 🧉",
    "likes": 34,
    "comments": 0,
-   "reach": 1283,
-   "views": 1455,
+   "reach": 1285,
+   "views": 1459,
    "saved": 4,
-   "shares": 2,
-   "total_interactions": 41,
-   "ig_reels_avg_watch_time": 11965,
-   "ig_reels_video_view_total_time": 15195992
+   "shares": 3,
+   "total_interactions": 42,
+   "ig_reels_avg_watch_time": 12008,
+   "ig_reels_video_view_total_time": 15262343
   },
   {
    "id": "17951230014084455",

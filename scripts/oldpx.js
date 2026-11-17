@@ -3,6 +3,6 @@
 const fs = require('fs'), path = require('path'), { spawnSync } = require('child_process'); const ROOT = path.join(__dirname, '..'); const MK = require('./make.js');
 const [name, style = 'pixel8'] = process.argv.slice(2); const day = fs.readdirSync(path.join(ROOT, 'done')).find(d => fs.existsSync(path.join(ROOT, 'done', d, name + '.json'))); if (!day) { console.error('no script', name); process.exit(2); }
 const dir = path.join(ROOT, 'work', 'oldpx', name); const script = JSON.parse(fs.readFileSync(path.join(ROOT, 'done', day, name + '.json'), 'utf8'));
-const spec = MK.toSpec(script, style); spec.takeFile = path.join(dir, 'take.wav'); spec.style = { ...(spec.style || {}), musicVol: 0, sfxVol: 0.18 }; // the posted sound already has its music
+const spec = MK.toSpec(script, style); spec.takeFile = path.join(dir, 'take.wav'); spec.style = { ...(spec.style || {}), musicVol: 0, sfxVol: 0.18 }; if (process.env.PX_LIGHT) spec.style.light = process.env.PX_LIGHT; // the posted sound already has its music
 fs.writeFileSync(path.join(dir, 'spec.json'), JSON.stringify(spec, null, 1));
 const r = spawnSync(process.execPath, [path.join(ROOT, 'pipeline', 'build.js'), path.join(dir, 'spec.json')], { stdio: 'inherit' }); process.exit(r.status);

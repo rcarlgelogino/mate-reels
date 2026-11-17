@@ -1,12 +1,12 @@
 {
- "read": "2026-11-16T23:15:31.602Z",
+ "read": "2026-11-17T11:15:28.269Z",
  "insights": true,
  "reels": [
   {
-   "id": "18169120354491757",
-   "posted": "2026-11-16T23:14:55+0000",
-   "link": "https://www.instagram.com/reel/Df0gtHCD4-t/",
-   "title": "¿Yerba con palo o sin palo? Tu elección dice algo de vos 🧉",
+   "id": "18115991309169219",
+   "posted": "2026-11-17T11:14:54+0000",
+   "link": "https://www.instagram.com/reel/Df1zGpkjKFu/",
+   "title": "¿De dónde viene la palabra \"bombilla\"? Antes, el filtro eran los dientes 🧉",
    "likes": 0,
    "comments": 0,
    "reach": 0,
@@ -18,34 +18,49 @@
    "ig_reels_video_view_total_time": 0
   },
   {
+   "id": "18169120354491757",
+   "posted": "2026-11-16T23:14:55+0000",
+   "link": "https://www.instagram.com/reel/Df0gtHCD4-t/",
+   "title": "¿Yerba con palo o sin palo? Tu elección dice algo de vos 🧉",
+   "likes": 44,
+   "comments": 0,
+   "reach": 1136,
+   "views": 1358,
+   "saved": 1,
+   "shares": 1,
+   "total_interactions": 46,
+   "ig_reels_avg_watch_time": 14397,
+   "ig_reels_video_view_total_time": 16902221
+  },
+  {
    "id": "18130747579844259",
    "posted": "2026-11-16T20:15:17+0000",
    "link": "https://www.instagram.com/reel/Df0MIWKgq--/",
    "title": "¿Yerba con palo o sin palo? Tu elección dice algo de vos 🧉",
    "likes": 38,
    "comments": 1,
-   "reach": 1141,
-   "views": 1345,
+   "reach": 1161,
+   "views": 1367,
    "saved": 1,
    "shares": 0,
    "total_interactions": 40,
-   "ig_reels_avg_watch_time": 15747,
-   "ig_reels_video_view_total_time": 18109390
+   "ig_reels_avg_watch_time": 15800,
+   "ig_reels_video_view_total_time": 18470434
   },
   {
    "id": "18387264883230971",
    "posted": "2026-11-16T16:18:18+0000",
    "link": "https://www.instagram.com/reel/DfzxB2WDw-e/",
    "title": "El primer mate es el peor de la ronda… y el cebador se lo toma a propósito 🧉",
-   "likes": 339,
-   "comments": 7,
-   "reach": 5241,
-   "views": 6391,
-   "saved": 13,
-   "shares": 22,
-   "total_interactions": 392,
-   "ig_reels_avg_watch_time": 20100,
-   "ig_reels_video_view_total_time": 104020638
+   "likes": 434,
+   "comments": 8,
+   "reach": 6481,
+   "views": 7892,
+   "saved": 17,
+   "shares": 23,
+   "total_interactions": 493,
+   "ig_reels_avg_watch_time": 20708,
+   "ig_reels_video_view_total_time": 133778056
   },
   {
    "id": "18650638792011863",
@@ -54,13 +69,13 @@
    "title": "¿Team calabaza o team acero? Tu mate dice mucho de vos 🧉",
    "likes": 38,
    "comments": 0,
-   "reach": 1147,
-   "views": 1328,
+   "reach": 1154,
+   "views": 1337,
    "saved": 1,
    "shares": 0,
    "total_interactions": 40,
-   "ig_reels_avg_watch_time": 16826,
-   "ig_reels_video_view_total_time": 19266370
+   "ig_reels_avg_watch_time": 16815,
+   "ig_reels_video_view_total_time": 19438814
   },
   {
    "id": "18136927855731858",
@@ -69,13 +84,13 @@
    "title": "Tu yerba esperó casi un año antes de llegar a tu mate ⏳🧉",
    "likes": 23,
    "comments": 1,
-   "reach": 1081,
-   "views": 1237,
+   "reach": 1083,
+   "views": 1240,
    "saved": 1,
    "shares": 0,
    "total_interactions": 25,
-   "ig_reels_avg_watch_time": 11852,
-   "ig_reels_video_view_total_time": 12812759
+   "ig_reels_avg_watch_time": 11881,
+   "ig_reels_video_view_total_time": 12855916
   },
   {
    "id": "18051924839821500",
@@ -85,12 +100,12 @@
    "likes": 34,
    "comments": 0,
    "reach": 1281,
-   "views": 1451,
+   "views": 1453,
    "saved": 4,
    "shares": 2,
    "total_interactions": 41,
-   "ig_reels_avg_watch_time": 11967,
-   "ig_reels_video_view_total_time": 15162878
+   "ig_reels_avg_watch_time": 11960,
+   "ig_reels_video_view_total_time": 15165939
   },
   {
    "id": "17951230014084455",
@@ -104,8 +119,8 @@
    "saved": 0,
    "shares": 0,
    "total_interactions": 38,
-   "ig_reels_avg_watch_time": 21272,
-   "ig_reels_video_view_total_time": 26930949
+   "ig_reels_avg_watch_time": 21256,
+   "ig_reels_video_view_total_time": 26931545
   },
   {
    "id": "18233419840328947",
@@ -114,13 +129,13 @@
    "title": "¿De dónde viene la palabra \"mate\"? No es español… y tampoco guaraní 🧉",
    "likes": 64,
    "comments": 0,
-   "reach": 1247,
-   "views": 1467,
+   "reach": 1249,
+   "views": 1468,
    "saved": 5,
    "shares": 5,
    "total_interactions": 78,
-   "ig_reels_avg_watch_time": 16024,
-   "ig_reels_video_view_total_time": 20174742
+   "ig_reels_avg_watch_time": 16013,
+   "ig_reels_video_view_total_time": 20176822
   },
   {
    "id": "18337366252263000",
@@ -130,12 +145,12 @@
    "likes": 76,
    "comments": 0,
    "reach": 1234,
-   "views": 1495,
+   "views": 1497,
    "saved": 5,
    "shares": 4,
    "total_interactions": 87,
-   "ig_reels_avg_watch_time": 16683,
-   "ig_reels_video_view_total_time": 21155086
+   "ig_reels_avg_watch_time": 16675,
+   "ig_reels_video_view_total_time": 21161483
   },
   {
    "id": "18645911512049665",

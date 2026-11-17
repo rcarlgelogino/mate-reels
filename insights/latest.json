@@ -1,12 +1,12 @@
 {
- "read": "2026-11-17T11:15:28.269Z",
+ "read": "2026-11-17T16:16:57.007Z",
  "insights": true,
  "reels": [
   {
-   "id": "18115991309169219",
-   "posted": "2026-11-17T11:14:54+0000",
-   "link": "https://www.instagram.com/reel/Df1zGpkjKFu/",
-   "title": "¿De dónde viene la palabra \"bombilla\"? Antes, el filtro eran los dientes 🧉",
+   "id": "18351561505251624",
+   "posted": "2026-11-17T16:16:17+0000",
+   "link": "https://www.instagram.com/reel/Df2VnWsjVbo/",
+   "title": "Un desconocido te convida un mate en la plaza. ¿Lo aceptás? 🧉",
    "likes": 0,
    "comments": 0,
    "reach": 0,
@@ -18,19 +18,34 @@
    "ig_reels_video_view_total_time": 0
   },
   {
+   "id": "18115991309169219",
+   "posted": "2026-11-17T11:14:54+0000",
+   "link": "https://www.instagram.com/reel/Df1zGpkjKFu/",
+   "title": "¿De dónde viene la palabra \"bombilla\"? Antes, el filtro eran los dientes 🧉",
+   "likes": 64,
+   "comments": 0,
+   "reach": 1370,
+   "views": 1611,
+   "saved": 4,
+   "shares": 9,
+   "total_interactions": 77,
+   "ig_reels_avg_watch_time": 20194,
+   "ig_reels_video_view_total_time": 27625778
+  },
+  {
    "id": "18169120354491757",
    "posted": "2026-11-16T23:14:55+0000",
    "link": "https://www.instagram.com/reel/Df0gtHCD4-t/",
    "title": "¿Yerba con palo o sin palo? Tu elección dice algo de vos 🧉",
-   "likes": 44,
+   "likes": 45,
    "comments": 0,
-   "reach": 1136,
-   "views": 1358,
+   "reach": 1154,
+   "views": 1377,
    "saved": 1,
    "shares": 1,
-   "total_interactions": 46,
-   "ig_reels_avg_watch_time": 14397,
-   "ig_reels_video_view_total_time": 16902221
+   "total_interactions": 47,
+   "ig_reels_avg_watch_time": 14461,
+   "ig_reels_video_view_total_time": 17209519
   },
   {
    "id": "18130747579844259",
@@ -39,28 +54,28 @@
    "title": "¿Yerba con palo o sin palo? Tu elección dice algo de vos 🧉",
    "likes": 38,
    "comments": 1,
-   "reach": 1161,
-   "views": 1367,
+   "reach": 1166,
+   "views": 1373,
    "saved": 1,
    "shares": 0,
    "total_interactions": 40,
-   "ig_reels_avg_watch_time": 15800,
-   "ig_reels_video_view_total_time": 18470434
+   "ig_reels_avg_watch_time": 15742,
+   "ig_reels_video_view_total_time": 18497854
   },
   {
    "id": "18387264883230971",
    "posted": "2026-11-16T16:18:18+0000",
    "link": "https://www.instagram.com/reel/DfzxB2WDw-e/",
    "title": "El primer mate es el peor de la ronda… y el cebador se lo toma a propósito 🧉",
-   "likes": 434,
-   "comments": 8,
-   "reach": 6481,
-   "views": 7892,
+   "likes": 470,
+   "comments": 9,
+   "reach": 6862,
+   "views": 8445,
    "saved": 17,
-   "shares": 23,
-   "total_interactions": 493,
-   "ig_reels_avg_watch_time": 20708,
-   "ig_reels_video_view_total_time": 133778056
+   "shares": 24,
+   "total_interactions": 531,
+   "ig_reels_avg_watch_time": 20905,
+   "ig_reels_video_view_total_time": 142969763
   },
   {
    "id": "18650638792011863",
@@ -70,12 +85,12 @@
    "likes": 38,
    "comments": 0,
    "reach": 1154,
-   "views": 1337,
+   "views": 1338,
    "saved": 1,
    "shares": 0,
    "total_interactions": 40,
-   "ig_reels_avg_watch_time": 16815,
-   "ig_reels_video_view_total_time": 19438814
+   "ig_reels_avg_watch_time": 16805,
+   "ig_reels_video_view_total_time": 19444529
   },
   {
    "id": "18136927855731858",
@@ -84,13 +99,13 @@
    "title": "Tu yerba esperó casi un año antes de llegar a tu mate ⏳🧉",
    "likes": 23,
    "comments": 1,
-   "reach": 1083,
-   "views": 1240,
+   "reach": 1085,
+   "views": 1241,
    "saved": 1,
    "shares": 0,
    "total_interactions": 25,
-   "ig_reels_avg_watch_time": 11881,
-   "ig_reels_video_view_total_time": 12855916
+   "ig_reels_avg_watch_time": 11905,
+   "ig_reels_video_view_total_time": 12893572
   },
   {
    "id": "18051924839821500",
@@ -99,13 +114,13 @@
    "title": "Mover la bombilla en una ronda no es un detalle: para el cebador es casi una ofensa 🧉",
    "likes": 34,
    "comments": 0,
-   "reach": 1281,
-   "views": 1453,
+   "reach": 1283,
+   "views": 1455,
    "saved": 4,
    "shares": 2,
    "total_interactions": 41,
-   "ig_reels_avg_watch_time": 11960,
-   "ig_reels_video_view_total_time": 15165939
+   "ig_reels_avg_watch_time": 11965,
+   "ig_reels_video_view_total_time": 15195992
   },
   {
    "id": "17951230014084455",
@@ -114,13 +129,13 @@
    "title": "¿Team calabaza o team acero? Tu mate dice mucho de vos 🧉",
    "likes": 37,
    "comments": 1,
-   "reach": 1259,
-   "views": 1480,
+   "reach": 1260,
+   "views": 1481,
    "saved": 0,
    "shares": 0,
    "total_interactions": 38,
-   "ig_reels_avg_watch_time": 21256,
-   "ig_reels_video_view_total_time": 26931545
+   "ig_reels_avg_watch_time": 21242,
+   "ig_reels_video_view_total_time": 26935326
   },
   {
    "id": "18233419840328947",
@@ -130,12 +145,12 @@
    "likes": 64,
    "comments": 0,
    "reach": 1249,
-   "views": 1468,
+   "views": 1469,
    "saved": 5,
    "shares": 5,
    "total_interactions": 78,
-   "ig_reels_avg_watch_time": 16013,
-   "ig_reels_video_view_total_time": 20176822
+   "ig_reels_avg_watch_time": 16002,
+   "ig_reels_video_view_total_time": 20178802
   },
   {
    "id": "18337366252263000",
@@ -159,13 +174,13 @@
    "title": "¿El mate es argentino o uruguayo? La respuesta no le va a gustar a nadie 🧉🇦🇷🇺🇾",
    "likes": 79,
    "comments": 3,
-   "reach": 1171,
-   "views": 1413,
+   "reach": 1173,
+   "views": 1414,
    "saved": 5,
    "shares": 1,
    "total_interactions": 90,
-   "ig_reels_avg_watch_time": 17318,
-   "ig_reels_video_view_total_time": 20609455
+   "ig_reels_avg_watch_time": 17306,
+   "ig_reels_video_view_total_time": 20612154
   },
   {
    "id": "18135798544775299",

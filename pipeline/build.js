@@ -116,7 +116,7 @@ async function render(tl) {
   const browser = await puppeteer.launch({ headless: true, protocolTimeout: 600000, args: (process.platform === 'win32' && !process.env.SWIFTSHADER ? ['--use-angle=d3d11', '--enable-gpu'] : ['--use-angle=swiftshader', '--use-gl=angle', '--no-sandbox', '--disable-dev-shm-usage', '--disable-accelerated-2d-canvas']).concat(['--ignore-gpu-blocklist', '--enable-unsafe-swiftshader', '--window-size=1200,2000']) });
   try {
     const page = await browser.newPage(); page.on('pageerror', e => log('pageerror', e.message)); page.on('console', m => { if (m.type() === 'error') log('console', m.text()); });
-    await page.goto(`http://127.0.0.1:${port}/engine/index.html`, { waitUntil: 'load' }); await page.waitForFunction('window.__engineReady===true', { timeout: 60000 });
+    await page.goto(`http://127.0.0.1:${port}/engine/index.html${spec.wide ? '?wide=1' : ''}`, { waitUntil: 'load' }); await page.waitForFunction('window.__engineReady===true', { timeout: 60000 });
     const gpu = await page.evaluate(() => { const g = document.createElement('canvas').getContext('webgl2'); const d = g.getExtension('WEBGL_debug_renderer_info'); return d ? g.getParameter(d.UNMASKED_RENDERER_WEBGL) : 'unknown'; }); log('gpu', gpu);
     const info = await page.evaluate(t => window.__engine.init(t), tl);
     const mids = tl.shots.map(s => +(s.start + s.dur * 0.6).toFixed(3));

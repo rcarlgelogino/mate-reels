@@ -12,13 +12,13 @@ function lev(a, b) { const m = a.length, n = b.length; if (!m || !n) return Math
   for (let i = 1; i <= m; i++) for (let j = 1; j <= n; j++) d[i][j] = Math.min(d[i - 1][j] + 1, d[i][j - 1] + 1, d[i - 1][j - 1] + (a[i - 1] === b[j - 1] ? 0 : 1)); return d[m][n]; }
 const sim = (a, b) => { a = norm(a); b = norm(b); if (!a || !b) return 0; return 1 - lev(a, b) / Math.max(a.length, b.length); };
 function wav(pcm, sr) { const h = Buffer.alloc(44); h.write('RIFF', 0); h.writeUInt32LE(36 + pcm.length, 4); h.write('WAVEfmt ', 8); h.writeUInt32LE(16, 16); h.writeUInt16LE(1, 20); h.writeUInt16LE(1, 22); h.writeUInt32LE(sr, 24); h.writeUInt32LE(sr * 2, 28); h.writeUInt16LE(2, 32); h.writeUInt16LE(16, 34); h.write('data', 36); h.writeUInt32LE(pcm.length, 40); return Buffer.concat([h, pcm]); }
-async function speak(text, voice, file, log) {
+async function speak(text, voice, file, log, style) {
   // Gemini TTS (preview) often fails for a few minutes: several rounds over all models with growing pauses (about 7 minutes in total)
   let last; const waits = [0, 45000, 90000, 150000, 150000];
   for (let round = 0; round < waits.length; round++) { if (waits[round]) { log('gemini: all models failed, next round in', waits[round] / 1000, 's'); await new Promise(q => setTimeout(q, waits[round])); }
   for (const model of MODELS()) for (let a = 1; a <= 3; a++) {
     const r = await fetch(`https://generativelanguage.googleapis.com/v1beta/models/${model}:generateContent`, { method: 'POST', headers: { 'Content-Type': 'application/json', 'x-goog-api-key': KEY() },
-      body: JSON.stringify({ contents: [{ parts: [{ text: STYLE + '\n\n' + text }] }], generationConfig: { responseModalities: ['AUDIO'], speechConfig: { voiceConfig: { prebuiltVoiceConfig: { voiceName: voice } } } } }) });
+      body: JSON.stringify({ contents: [{ parts: [{ text: (style || STYLE) + '\n\n' + text }] }], generationConfig: { responseModalities: ['AUDIO'], speechConfig: { voiceConfig: { prebuiltVoiceConfig: { voiceName: voice } } } } }) });
     const j = await r.json().catch(() => ({})); if (!r.ok) { last = `HTTP ${r.status} ${(j.error && j.error.message || '').slice(0, 140)}`; log('gemini', model, 'attempt', a, last); if (r.status === 429 && /per.?day|PerDay|daily/i.test(last)) break; // daily quota (10/day on the free tier) is gone: fall back to Edge
       if (r.status === 429 || r.status >= 500) { await new Promise(q => setTimeout(q, (r.status === 429 ? 25000 : 4000) * a)); continue; } break; }
     const part = j.candidates?.[0]?.content?.parts?.find(p => p.inlineData); if (!part) { last = 'no audio'; continue; }
@@ -38,11 +38,14 @@ function mapWords(script, heard) { const out = script.map(w => ({ w, t: null, e:
 module.exports = {
   available: () => !!KEY(),
   async narrate(spec, dir, log) {
+    // long videos (segments with "chapter"): one Gemini request per chapter, the pieces are joined in order
+    if (!spec._chunk && spec.segments.some(sg => sg.chapter != null)) { const groups = []; spec.segments.forEach(sg => { const g = groups[groups.length - 1]; if (!g || g.ch !== sg.chapter) groups.push({ ch: sg.chapter, segs: [] }); groups[groups.length - 1].segs.push(sg); });
+      const out = []; for (const g of groups) { log('gemini chapter', g.ch, g.segs.length, 'segments'); out.push(...await module.exports.narrate({ ...spec, segments: g.segs, _chunk: true }, dir, log)); } return out; }
     const voice = spec.geminiVoice || 'Charon'; const lines = spec.segments.map(sg => (sg.say || sg.text).trim()); const full = lines.join('\n');
-    const h = crypto.createHash('md5').update(voice + STYLE + full).digest('hex').slice(0, 10); // spec.takeFile: an existing Charon take (e.g. the sound of an already posted reel) is aligned again instead of asking Gemini
+    const h = crypto.createHash('md5').update(voice + (spec.geminiStyle || STYLE) + full).digest('hex').slice(0, 10); // spec.takeFile: an existing Charon take (e.g. the sound of an already posted reel) is aligned again instead of asking Gemini
     const take = spec.takeFile ? path.resolve(spec.takeFile) : path.join(dir, `gem_${h}.wav`), mf = spec.takeFile ? take + '.json' : path.join(dir, `gem_${h}.json`);
     let meta = fs.existsSync(mf) ? JSON.parse(fs.readFileSync(mf, 'utf8')) : null;
-    if (!meta) { const model = spec.takeFile && fs.existsSync(take) ? 'reused take' : await speak(full, voice, take, log); log('gemini take', model, voice); const heard = align(take, log); log('whisper words', heard.length);
+    if (!meta) { const model = spec.takeFile && fs.existsSync(take) ? 'reused take' : await speak(full, voice, take, log, spec.geminiStyle); log('gemini take', model, voice); const heard = align(take, log); log('whisper words', heard.length);
       const script = []; spec.segments.forEach((sg, si) => sg.text.split(/\s+/).filter(Boolean).forEach(w => script.push({ w, si })));
       const mapped = mapWords(script.map(x => x.w), heard).map((m, k) => ({ ...m, si: script[k].si })); meta = { model, voice, words: mapped }; fs.writeFileSync(mf, JSON.stringify(meta)); }
     const total = +execFileSync(require(path.join(TOOLS, 'ffprobe-static')).path, ['-v', 'error', '-show_entries', 'format=duration', '-of', 'csv=p=0', take]).toString().trim();

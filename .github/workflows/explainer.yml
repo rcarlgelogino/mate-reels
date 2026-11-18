@@ -1,0 +1,65 @@
+name: explainer
+
+# Builds a long landscape explainer (16:9, pixel style) with the Charon voice and puts it into its own release ("explainer-…").
+# Started by pushing trigger/explainer.txt (the file names the sample script that writes the spec). Never posted to Instagram:
+# publish-reels only takes "reels-…" releases.
+on:
+  push:
+    branches: [main]
+    paths: ['trigger/explainer.txt']
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+concurrency:
+  group: explainer
+  cancel-in-progress: false
+
+jobs:
+  build:
+    runs-on: ubuntu-24.04
+    timeout-minutes: 300
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+          cache: npm
+          cache-dependency-path: tools/package-lock.json
+
+      - name: Install tools
+        run: |
+          fail(){ echo "::error title=$1::$(tail -c 1500 /tmp/inst.log | tr '\n' ' ' | sed 's/::/ /g')"; exit 1; }
+          for i in 1 2 3; do npm ci --prefix tools > /tmp/inst.log 2>&1 && break; tail -40 /tmp/inst.log; sleep 25; [ $i = 3 ] && fail npm-ci; done
+          for i in 1 2 3; do npx --prefix tools puppeteer browsers install chrome > /tmp/inst.log 2>&1 && break; tail -40 /tmp/inst.log; sleep 25; [ $i = 3 ] && fail chrome; done
+          sudo apt-get update -qq && sudo apt-get install -y -qq libgbm1 libnss3 libasound2t64 fonts-dejavu-core > /dev/null || true
+
+      - name: Cache Whisper model
+        uses: actions/cache@v4
+        with:
+          path: tools/node_modules/@huggingface/transformers/.cache
+          key: whisper-small-timestamped-v1
+
+      - name: Build the explainer
+        env:
+          GEMINI_API_KEY: ${{ secrets.GEMINI_API_KEY }}
+          REQUIRE_GEMINI: '1'
+        run: |
+          SAMPLE=$(head -1 trigger/explainer.txt | awk '{print $1}')
+          ID=$(basename "$SAMPLE" .js | sed 's/^build3d_//')
+          node "$SAMPLE"
+          DIR=$(ls -d work/explainer_* | head -1)
+          node pipeline/build.js "$DIR/spec.json" 2>&1 | tee build.log | grep -v '^\[.*frame [0-9]*/' || true
+          tail -5 build.log
+          [ -f "$DIR/final.mp4" ] || { echo "::error title=explainer::$(tail -c 1200 build.log | tr '\n' ' ' | sed 's/::/ /g')"; exit 1; }
+          echo "DIR=$DIR" >> "$GITHUB_ENV"
+
+      - name: Publish the explainer as a release
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          NAME=$(basename "$DIR")
+          cp "$DIR/final.mp4" "$NAME.mp4"; cp "$DIR/thumb.jpg" "$NAME.jpg" 2>/dev/null || true
+          gh release create "explainer-$(date -u +%F)-${{ github.run_number }}" "$NAME.mp4" $(ls "$NAME.jpg" 2>/dev/null) --title "Explainer $NAME $(date -u +%F)" --notes "Landscape explainer (16:9), not posted automatically."

@@ -1,0 +1,20 @@
+{
+ "reel": "0015_en_brasil_el_mate_es_verde",
+ "style": "build3d",
+ "technical": [
+  "duration 43.734s",
+  "loudness -12.3 LUFS, peak -0.7 dBFS",
+  "voice gemini"
+ ],
+ "vision": {
+  "ran": false,
+  "model": null
+ },
+ "summary": "",
+ "scores": {},
+ "logic": {},
+ "graphics": {},
+ "issues": [],
+ "learnings": [],
+ "checked": "2026-11-18T12:22:21.473Z"
+}

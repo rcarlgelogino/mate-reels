@@ -1,0 +1,72 @@
+{
+ "reel": "0015_en_brasil_el_mate_es_verde",
+ "style": "flat2d",
+ "technical": [
+  "duration 43.734s",
+  "loudness -12.4 LUFS, peak -0.9 dBFS",
+  "voice gemini"
+ ],
+ "vision": {
+  "ran": true,
+  "model": "gemini-3.5-flash-lite"
+ },
+ "summary": "The reel effectively uses the flat2d template style with clear illustrations representing the spoken text about Brazilian chimarrão. Minor text alignment issues and duplicate visual representations exist across sequential frames.",
+ "scores": {
+  "visual_logic": 8,
+  "graphics": 8,
+  "overall": 8
+ },
+ "logic": {
+  "clean": [
+   "Shot 0 accurately compares Argentinian and Brazilian mate visually.",
+   "Shot 7 correctly scales the enormous cuia relative to the figures.",
+   "Shot 10 accurately depicts the disgusted facial expression of the Argentine character trying chimarrão."
+  ],
+  "unclean": [
+   "Shot 2: The map graphic is repeated identically from Shot 1 without new information.",
+   "Shot 9: Identical repeated frames for consecutive shots showing the exact same character pose."
+  ]
+ },
+ "graphics": {
+  "clean": [
+   "Good consistency in character hair, clothing, and flag placement.",
+   "Clear infographics explaining the fresh harvesting process of chimarrão yerba."
+  ],
+  "unclean": [
+   "Shot 12: Multiple overlapping interactive buttons clutter the bottom interface area."
+  ]
+ },
+ "issues": [
+  {
+   "severity": "medium",
+   "category": "match",
+   "problem": "Consecutive shots (9 and 10) show identical frames without any progression.",
+   "fix": "Introduce a slight camera push-in or change the character's reaction angle.",
+   "shot": 9,
+   "time": 32.3,
+   "template": "flat"
+  },
+  {
+   "severity": "low",
+   "category": "match",
+   "problem": "Repeated exact visual from shot 1",
+   "fix": "Vary the zoom or show a regional close-up instead of repeating the map.",
+   "shot": 2,
+   "time": 8.6,
+   "template": "flat"
+  }
+ ],
+ "learnings": [
+  {
+   "type": "avoid",
+   "area": "match",
+   "rule": "Avoid repeating identical static frames across consecutive shots without visual progression."
+  },
+  {
+   "type": "do",
+   "area": "scale",
+   "rule": "Maintain correct relative sizing between oversized props like the cuia and the characters holding them."
+  }
+ ],
+ "checked": "2026-11-18T09:33:13.954Z"
+}

@@ -1,0 +1,71 @@
+{
+ "reel": "0017_el_mate_en_la_oficina",
+ "style": "flat2d",
+ "technical": [
+  "duration 39.8s",
+  "loudness -12.1 LUFS, peak -0.9 dBFS",
+  "voice gemini"
+ ],
+ "vision": {
+  "ran": true,
+  "model": "gemini-3.5-flash-lite"
+ },
+ "summary": "The reel effectively portrays an office setting with consistent 2D flat assets and characters, though some text placement covers character elements and minor repetition in character poses occurs.",
+ "scores": {
+  "visual_logic": 8,
+  "graphics": 8,
+  "overall": 8
+ },
+ "logic": {
+  "clean": [
+   "Shot 3: Figure correctly pours water from the thermos into the gourd.",
+   "Shot 4: Characters pass the mate naturally with aligned hands.",
+   "Shot 7: Character holds the yerba package correctly at scale."
+  ],
+  "unclean": [
+   "Shot 6: Character's hands placed on head overlap incorrectly with captions."
+  ]
+ },
+ "graphics": {
+  "clean": [
+   "Office environment, desks, computers, and background windows maintain consistent style.",
+   "Character outfits and hair colors follow the requested flat2d conventions."
+  ],
+  "unclean": [
+   "Shot 6: Large text boxes 'LA REGLA ES...' overlap directly with the character's hands on their head."
+  ]
+ },
+ "issues": [
+  {
+   "severity": "medium",
+   "category": "labels",
+   "problem": "Large headline text covers the character's hands",
+   "fix": "Reposition headline text slightly higher or lower to avoid overlapping with raised hands.",
+   "shot": 6,
+   "time": 16.6,
+   "template": "flat"
+  },
+  {
+   "severity": "low",
+   "category": "people",
+   "problem": "Duplicate static poses in consecutive shots without major action shift",
+   "fix": "Vary expressions or add a subtle movement between adjacent frames.",
+   "shot": 8,
+   "time": 22.2,
+   "template": "flat"
+  }
+ ],
+ "learnings": [
+  {
+   "type": "avoid",
+   "area": "labels",
+   "rule": "Never place headline text boxes directly over raised hands or facial expressions."
+  },
+  {
+   "type": "do",
+   "area": "match",
+   "rule": "Ensure object scales like yerba packages and thermos flasks remain consistent across all office scenes."
+  }
+ ],
+ "checked": "2026-11-18T09:51:14.313Z"
+}

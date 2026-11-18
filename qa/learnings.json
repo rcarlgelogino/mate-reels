@@ -1,7 +1,22 @@
 {
- "updated": "2026-11-17T09:00:02.117Z",
- "reels": 14,
+ "updated": "2026-11-18T09:51:14.352Z",
+ "reels": 18,
  "do": [
+  {
+   "n": 1,
+   "area": "match",
+   "rule": "Ensure object scales like yerba packages and thermos flasks remain consistent across all office scenes."
+  },
+  {
+   "n": 1,
+   "area": "scale",
+   "rule": "Maintain correct relative sizing between oversized props like the cuia and the characters holding them."
+  },
+  {
+   "n": 1,
+   "area": "hands",
+   "rule": "Always keep floating ball hands visibly attached via perspective and actively gripping props."
+  },
   {
    "n": 1,
    "area": "objects",
@@ -54,6 +69,21 @@
   }
  ],
  "avoid": [
+  {
+   "n": 1,
+   "area": "labels",
+   "rule": "Never place headline text boxes directly over raised hands or facial expressions."
+  },
+  {
+   "n": 1,
+   "area": "match",
+   "rule": "Avoid repeating identical static frames across consecutive shots without visual progression."
+  },
+  {
+   "n": 1,
+   "area": "objects",
+   "rule": "Do not isolate props onto abstract pedestals when the narrative is about the character carrying them."
+  },
   {
    "n": 1,
    "area": "labels",
@@ -116,17 +146,17 @@
   }
  ],
  "recentBad": [
+  "Shot 6: Character's hands placed on head overlap incorrectly with captions.",
+  "Shot 6: Large text boxes 'LA REGLA ES...' overlap directly with the character's hands on their head.",
+  "Shot 2: The map graphic is repeated identically from Shot 1 without new information.",
+  "Shot 9: Identical repeated frames for consecutive shots showing the exact same character pose.",
+  "Shot 12: Multiple overlapping interactive buttons clutter the bottom interface area.",
+  "shot 6: Thermos and mate are placed floating on a standalone pedestal out of context.",
+  "shot 12: Icons comparing thermos and phone floating on pedestals in a surreal beach setting.",
+  "shot 3: Text cards overlap slightly with background elements.",
+  "shot 11: UI checklist boxes obscure the background completely.",
   "Shot 9: The comparison list graphics appear rigid and lack contextual integration.",
   "Shot 1: Map graphic overlay feels slightly misaligned with the dark theme.",
-  "shot 3: identical bench layout repeats directly next to the characters without spatial variation",
-  "shot 6: text overlays partially overlap with the character's hair area",
-  "shot 0: Character is drinking through a bombilla despite the narration stating 'Antes de la bombilla'.",
-  "shot 3: The gourd in frame 8 clearly has a straw sticking out, contradicting 'tomaban la yerba directo de la calabaza'.",
-  "shot 7: Static bombillas on ground fail to illustrate water rising or a pumping mechanism as narrated ('porque sube el agua hasta tu boca').",
-  "shot 2: Secondary character on the right edge is awkwardly halved by the frame border.",
-  "shot 4: The pour stream from the thermos does not clearly align with the gourd opening",
-  "shot 10: Character head is aggressively cropped behind graphic cards",
-  "shot 10: UI header overlays tightly against facial features",
-  "shot 12: Large empty dark space beneath the interactive poll elements"
+  "shot 3: identical bench layout repeats directly next to the characters without spatial variation"
  ]
 }

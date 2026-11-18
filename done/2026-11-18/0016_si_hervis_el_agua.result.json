@@ -1,0 +1,14 @@
+{
+ "id": "0016_si_hervis_el_agua",
+ "file": "work/0016_si_hervis_el_agua/final.mp4",
+ "voice": "gemini",
+ "duration": 36.6,
+ "inTarget": true,
+ "target": [
+  35,
+  45
+ ],
+ "loudness": "-11.8 LUFS, peak -0.2 dBFS",
+ "shots": 13,
+ "minutes": 3.2
+}

@@ -1,0 +1,14 @@
+{
+ "id": "0015_en_brasil_el_mate_es_verde",
+ "file": "work/0015_en_brasil_el_mate_es_verde/final.mp4",
+ "voice": "gemini",
+ "duration": 43.734,
+ "inTarget": true,
+ "target": [
+  35,
+  45
+ ],
+ "loudness": "-12.4 LUFS, peak -0.9 dBFS",
+ "shots": 13,
+ "minutes": 2.8
+}

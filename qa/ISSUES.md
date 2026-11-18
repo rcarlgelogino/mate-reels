@@ -2,7 +2,7 @@
 
 Found by the analysis after every build. Nothing is blocked; fix the most frequent ones in the style (styles/*.js, engine) or the script rules.
 
-Reels analysed: 10 · issues: 35 · updated 2026-11-17
+Reels analysed: 12 · issues: 41 · updated 2026-11-18
 
 | times | severity | category | problem (latest example) | suggested fix | last seen |
 |---|---|---|---|---|---|
@@ -28,6 +28,9 @@ Reels analysed: 10 · issues: 35 · updated 2026-11-17
 | 1 | medium | layering | Text banners crowd and overlap top of the head (0011_con_palo_o_sin_palo, shot 10) | Pull camera back slightly to preserve head silhouette | 2026-11-16 |
 | 1 | medium | people | Right character is cut off by the edge of the 9:16 frame. (0012_de_donde_viene_bombilla, shot 2) | Center the Guarani figures or cluster them closer together away from screen boundaries. | 2026-11-17 |
 | 1 | medium | match | Reused bombilla lineup shows no water movement or pump action to explain the etymology. (0012_de_donde_viene_bombilla, shot 7) | Animate water particles or an arrow rising up the tube into a mouth. | 2026-11-17 |
+| 1 | medium | objects | Thermos and mate shown isolated on a wooden pedestal instead of being held by the character. (0014_el_termo_bajo_el_brazo, shot 6) | Ensure the character is holding the thermos and mate as described in the audio. | 2026-11-17 |
+| 1 | medium | match | Consecutive shots (9 and 10) show identical frames without any progression. (0015_en_brasil_el_mate_es_verde, shot 9) | Introduce a slight camera push-in or change the character's reaction angle. | 2026-11-18 |
+| 1 | medium | labels | Large headline text covers the character's hands (0017_el_mate_en_la_oficina, shot 6) | Reposition headline text slightly higher or lower to avoid overlapping with raised hands. | 2026-11-18 |
 | 1 | low | people | Hands placed on the head for 'esperá' lack proper forearm connection alignment. (0004_mate_argentino_o_uruguayo, shot 4) | Ensure character arms seamlessly connect to raised hands. | 2026-11-14 |
 | 1 | low | labels | Repeating the exact same text and face close-up across three consecutive frames without variation. (0005_sos_argentino_de_verdad, shot 1) | Vary the zoom or introduce a new prop to maintain visual interest when repeating phrases. | 2026-11-14 |
 | 1 | low | hands | Hands float passively in the air without clear context. (0006_de_donde_viene_mate, shot 5) | Add a pose or gesture to make hand placement look intentional. | 2026-11-14 |
@@ -41,3 +44,6 @@ Reels analysed: 10 · issues: 35 · updated 2026-11-17
 | 1 | low | hands | Floating ball hands hover unnaturally wide without props (0011_con_palo_o_sin_palo, shot 7) | Bring idle hands closer to torso rest position | 2026-11-16 |
 | 1 | low | labels | Headlines and text elements sit too close to the upper character bounds. (0013_un_desconocido_te_convida, shot 6) | Keep text boxes strictly within the designated top caption area. | 2026-11-17 |
 | 1 | low | labels | Checklist comparison layout is very dry and static compared to the animated scenes. (0014_el_termo_bajo_el_brazo, shot 9) | Incorporate matching icons or subtle background elements for list items. | 2026-11-17 |
+| 1 | low | labels | Checklist UI graphic covers the entire scene background abruptly. (0014_el_termo_bajo_el_brazo, shot 11) | Integrate UI lists as floating graphic overlays with transparency or keep the character visible. | 2026-11-17 |
+| 1 | low | match | Repeated exact visual from shot 1 (0015_en_brasil_el_mate_es_verde, shot 2) | Vary the zoom or show a regional close-up instead of repeating the map. | 2026-11-18 |
+| 1 | low | people | Duplicate static poses in consecutive shots without major action shift (0017_el_mate_en_la_oficina, shot 8) | Vary expressions or add a subtle movement between adjacent frames. | 2026-11-18 |

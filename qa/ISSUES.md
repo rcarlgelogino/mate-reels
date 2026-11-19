@@ -2,7 +2,7 @@
 
 Found by the analysis after every build. Nothing is blocked; fix the most frequent ones in the style (styles/*.js, engine) or the script rules.
 
-Reels analysed: 12 · issues: 41 · updated 2026-11-18
+Reels analysed: 13 · issues: 42 · updated 2026-11-19
 
 | times | severity | category | problem (latest example) | suggested fix | last seen |
 |---|---|---|---|---|---|
@@ -47,3 +47,4 @@ Reels analysed: 12 · issues: 41 · updated 2026-11-18
 | 1 | low | labels | Checklist UI graphic covers the entire scene background abruptly. (0014_el_termo_bajo_el_brazo, shot 11) | Integrate UI lists as floating graphic overlays with transparency or keep the character visible. | 2026-11-17 |
 | 1 | low | match | Repeated exact visual from shot 1 (0015_en_brasil_el_mate_es_verde, shot 2) | Vary the zoom or show a regional close-up instead of repeating the map. | 2026-11-18 |
 | 1 | low | people | Duplicate static poses in consecutive shots without major action shift (0017_el_mate_en_la_oficina, shot 8) | Vary expressions or add a subtle movement between adjacent frames. | 2026-11-18 |
+| 1 | low | people | Girlfriend expression and stance do not emphasize the lack of help clearly enough. (0019_tu_suegra_y_el_mate_hirviendo, shot 10) | Add a shoulder shrug or open palm gesture to match the 'sin ayuda' text. | 2026-11-19 |

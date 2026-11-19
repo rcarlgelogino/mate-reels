@@ -3,12 +3,13 @@
 Every reel is analysed after it is built (scripts/qa.js), for its VISUAL representation only. Pacing, hook, wording and sound are not learned here; they come from the reference reels (docs/WATCHTIME.md).
 The rules below are collected from all analyses, most frequent first. scripts/improve.js uses them to choose the visuals of the next script; recurring drawing problems get fixed in the style (styles/*.js, engine). Nothing here blocks a release.
 
-Reels analysed: 18 · average scores: visual logic 6.9 · graphics 7.3 · overall 7.0 · updated 2026-11-18
+Reels analysed: 21 · average scores: visual logic 7.0 · graphics 7.4 · overall 7.1 · updated 2026-11-19
 
 ## Do more of
 
 | times | area | rule | last seen |
 |---|---|---|---|
+| 1 | hands | Maintain the correct side-grasping grip for all characters holding gourds across all frames. | 2026-11-19 |
 | 1 | match | Ensure object scales like yerba packages and thermos flasks remain consistent across all office scenes. | 2026-11-18 |
 | 1 | scale | Maintain correct relative sizing between oversized props like the cuia and the characters holding them. | 2026-11-18 |
 | 1 | hands | Always keep floating ball hands visibly attached via perspective and actively gripping props. | 2026-11-17 |
@@ -27,6 +28,7 @@ Reels analysed: 18 · average scores: visual logic 6.9 · graphics 7.3 · overal
 
 | times | area | rule | last seen |
 |---|---|---|---|
+| 1 | labels | Avoid overlapping multiple caption boxes when several family members are grouped together in a single frame. | 2026-11-19 |
 | 1 | labels | Never place headline text boxes directly over raised hands or facial expressions. | 2026-11-18 |
 | 1 | match | Avoid repeating identical static frames across consecutive shots without visual progression. | 2026-11-18 |
 | 1 | objects | Do not isolate props onto abstract pedestals when the narrative is about the character carrying them. | 2026-11-17 |
@@ -45,6 +47,16 @@ Reels analysed: 18 · average scores: visual logic 6.9 · graphics 7.3 · overal
 
 ## Latest reels
 
+### 0019_tu_suegra_y_el_mate_hirviendo (2026-11-19)
+The reel effectively uses flat 2D character assets and environments to tell the story of a tense mate situation with family. Character hand placement on gourds, passing mechanics, and text overlays generally follow the checklist, though some text box crowding and minor expression repetitions occur.
+- clean: Shot 0-2, 5: Mother-in-law passing the mate with correct hand grips on the sides.; Shot 4: Close-up of smoking mate with bombilla and warning label shows clear proportional scaling.; Shot 7-8: Character drinking with bombilla at mouth and hand securely grasping the gourd.; Consistent flat 2D art style, proper couch and window background proportions relative to characters.; Clear visual progression from the passing scene to options and family reactions.
+- unclean: Shot 10: Girlfriend looks worried/sad but her hands remain oddly stiff at her sides while the text mentions lack of help.; Shot 1-2: Multiple family members clustered closely at the bottom with overlapping label boxes that slightly crowd the view.
+
+### 0018_un_termo_por_dia (2026-11-19)
+
+- clean: –
+- unclean: –
+
 ### 0017_el_mate_en_la_oficina (2026-11-18)
 The reel effectively portrays an office setting with consistent 2D flat assets and characters, though some text placement covers character elements and minor repetition in character poses occurs.
 - clean: Shot 3: Figure correctly pours water from the thermos into the gourd.; Shot 4: Characters pass the mate naturally with aligned hands.; Shot 7: Character holds the yerba package correctly at scale.; Office environment, desks, computers, and background windows maintain consistent style.; Character outfits and hair colors follow the requested flat2d conventions.
@@ -56,22 +68,12 @@ The reel effectively portrays an office setting with consistent 2D flat assets a
 - unclean: –
 
 ### 0015_en_brasil_el_mate_es_verde (2026-11-18)
+
+- clean: –
+- unclean: –
+
+### 0015_en_brasil_el_mate_es_verde (2026-11-18)
 The reel effectively uses the flat2d template style with clear illustrations representing the spoken text about Brazilian chimarrão. Minor text alignment issues and duplicate visual representations exist across sequential frames.
 - clean: Shot 0 accurately compares Argentinian and Brazilian mate visually.; Shot 7 correctly scales the enormous cuia relative to the figures.; Shot 10 accurately depicts the disgusted facial expression of the Argentine character trying chimarrão.; Good consistency in character hair, clothing, and flag placement.; Clear infographics explaining the fresh harvesting process of chimarrão yerba.
 - unclean: Shot 2: The map graphic is repeated identically from Shot 1 without new information.; Shot 9: Identical repeated frames for consecutive shots showing the exact same character pose.; Shot 12: Multiple overlapping interactive buttons clutter the bottom interface area.
-
-### 0014_el_termo_bajo_el_brazo (2026-11-17)
-The toy 3D style is mostly maintained with bright lighting and clear character designs. However, several shots suffer from floating objects, overlapping text elements, and minor proportion mismatches.
-- clean: shot 0: Character holding the gourd correctly with floating ball hands.; shot 9: Character drinking with bombilla at the mouth and gourd below chin.; Consistent color palette and toy-like textures across backgrounds and characters.; Clear caption placement at the top and headline cards in appropriate zones.
-- unclean: shot 6: Thermos and mate are placed floating on a standalone pedestal out of context.; shot 12: Icons comparing thermos and phone floating on pedestals in a surreal beach setting.; shot 3: Text cards overlap slightly with background elements.; shot 11: UI checklist boxes obscure the background completely.
-
-### 0014_el_termo_bajo_el_brazo (2026-11-17)
-The reel effectively utilizes the flat2d style with clear object scales and consistent character representations. Minor alignment issues appear in isolated infographic and comparative frames, but the core narrative props maintain strong physical logic.
-- clean: Shot 0: Character correctly holds the mate and thermos.; Shot 3: Dog and walking figure match the spoken context.; Shot 4: Close-up clearly separates hand, mate, and thermos with correct grip.; Text and headline layouts consistently avoid covering faces and hands.; Color palettes and backgrounds match the requested flat2d aesthetic.
-- unclean: Shot 9: The comparison list graphics appear rigid and lack contextual integration.; Shot 1: Map graphic overlay feels slightly misaligned with the dark theme.
-
-### 0013_un_desconocido_te_convida (2026-11-17)
-The flat2d explainer reel maintains a consistent visual style and clear character proportions throughout the plaza and board scenes. Minor improvements are needed in text placement and avoiding redundant background repetition.
-- clean: shot 0: character correctly passing the mate; shot 2: character sitting on a bench holding a phone; shot 5: character offering the mate naturally; shot 9: character contemplating with proper hand positioning; consistent flat 2D character designs and color palette
-- unclean: shot 3: identical bench layout repeats directly next to the characters without spatial variation; shot 6: text overlays partially overlap with the character's hair area
 

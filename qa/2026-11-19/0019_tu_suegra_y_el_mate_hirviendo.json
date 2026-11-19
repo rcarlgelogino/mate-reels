@@ -1,0 +1,62 @@
+{
+ "reel": "0019_tu_suegra_y_el_mate_hirviendo",
+ "style": "flat2d",
+ "technical": [
+  "duration 37.9s",
+  "loudness -12.2 LUFS, peak -0.9 dBFS",
+  "voice gemini"
+ ],
+ "vision": {
+  "ran": true,
+  "model": "gemini-3.5-flash-lite"
+ },
+ "summary": "The reel effectively uses flat 2D character assets and environments to tell the story of a tense mate situation with family. Character hand placement on gourds, passing mechanics, and text overlays generally follow the checklist, though some text box crowding and minor expression repetitions occur.",
+ "scores": {
+  "visual_logic": 9,
+  "graphics": 9,
+  "overall": 9
+ },
+ "logic": {
+  "clean": [
+   "Shot 0-2, 5: Mother-in-law passing the mate with correct hand grips on the sides.",
+   "Shot 4: Close-up of smoking mate with bombilla and warning label shows clear proportional scaling.",
+   "Shot 7-8: Character drinking with bombilla at mouth and hand securely grasping the gourd."
+  ],
+  "unclean": [
+   "Shot 10: Girlfriend looks worried/sad but her hands remain oddly stiff at her sides while the text mentions lack of help."
+  ]
+ },
+ "graphics": {
+  "clean": [
+   "Consistent flat 2D art style, proper couch and window background proportions relative to characters.",
+   "Clear visual progression from the passing scene to options and family reactions."
+  ],
+  "unclean": [
+   "Shot 1-2: Multiple family members clustered closely at the bottom with overlapping label boxes that slightly crowd the view."
+  ]
+ },
+ "issues": [
+  {
+   "severity": "low",
+   "category": "people",
+   "problem": "Girlfriend expression and stance do not emphasize the lack of help clearly enough.",
+   "fix": "Add a shoulder shrug or open palm gesture to match the 'sin ayuda' text.",
+   "shot": 10,
+   "time": 25,
+   "template": "flat"
+  }
+ ],
+ "learnings": [
+  {
+   "type": "do",
+   "area": "hands",
+   "rule": "Maintain the correct side-grasping grip for all characters holding gourds across all frames."
+  },
+  {
+   "type": "avoid",
+   "area": "labels",
+   "rule": "Avoid overlapping multiple caption boxes when several family members are grouped together in a single frame."
+  }
+ ],
+ "checked": "2026-11-19T09:08:59.008Z"
+}

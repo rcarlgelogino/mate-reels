@@ -1,0 +1,14 @@
+{
+ "id": "0019_tu_suegra_y_el_mate_hirviendo",
+ "file": "work/0019_tu_suegra_y_el_mate_hirviendo/final.mp4",
+ "voice": "gemini",
+ "duration": 37.9,
+ "inTarget": true,
+ "target": [
+  35,
+  45
+ ],
+ "loudness": "-12.2 LUFS, peak -0.9 dBFS",
+ "shots": 14,
+ "minutes": 1.8
+}

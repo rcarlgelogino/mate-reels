@@ -1,7 +1,12 @@
 {
- "updated": "2026-11-18T09:51:14.352Z",
- "reels": 18,
+ "updated": "2026-11-19T09:16:30.005Z",
+ "reels": 21,
  "do": [
+  {
+   "n": 1,
+   "area": "hands",
+   "rule": "Maintain the correct side-grasping grip for all characters holding gourds across all frames."
+  },
   {
    "n": 1,
    "area": "match",
@@ -69,6 +74,11 @@
   }
  ],
  "avoid": [
+  {
+   "n": 1,
+   "area": "labels",
+   "rule": "Avoid overlapping multiple caption boxes when several family members are grouped together in a single frame."
+  },
   {
    "n": 1,
    "area": "labels",
@@ -146,17 +156,12 @@
   }
  ],
  "recentBad": [
+  "Shot 10: Girlfriend looks worried/sad but her hands remain oddly stiff at her sides while the text mentions lack of help.",
+  "Shot 1-2: Multiple family members clustered closely at the bottom with overlapping label boxes that slightly crowd the view.",
   "Shot 6: Character's hands placed on head overlap incorrectly with captions.",
   "Shot 6: Large text boxes 'LA REGLA ES...' overlap directly with the character's hands on their head.",
   "Shot 2: The map graphic is repeated identically from Shot 1 without new information.",
   "Shot 9: Identical repeated frames for consecutive shots showing the exact same character pose.",
-  "Shot 12: Multiple overlapping interactive buttons clutter the bottom interface area.",
-  "shot 6: Thermos and mate are placed floating on a standalone pedestal out of context.",
-  "shot 12: Icons comparing thermos and phone floating on pedestals in a surreal beach setting.",
-  "shot 3: Text cards overlap slightly with background elements.",
-  "shot 11: UI checklist boxes obscure the background completely.",
-  "Shot 9: The comparison list graphics appear rigid and lack contextual integration.",
-  "Shot 1: Map graphic overlay feels slightly misaligned with the dark theme.",
-  "shot 3: identical bench layout repeats directly next to the characters without spatial variation"
+  "Shot 12: Multiple overlapping interactive buttons clutter the bottom interface area."
  ]
 }

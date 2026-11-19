@@ -51,6 +51,10 @@ function lint(j) {
   if (!j.poll || !(j.poll.options || []).length) W('no poll (three options about the viewer\'s own habit)');
   // caption starts with the hook
   const c0 = String(j.caption || '').split('\n')[0]; if (c0 && h && !c0.toLowerCase().startsWith(h.slice(0, 18).toLowerCase())) W('caption line 1 is not the hook sentence');
+  // 3D: every verb needs an action in styles/build3d.js, and every scene needs somebody who does something
+  try { const B = require('../styles/build3d'); const scenes = S.flatMap(g => (g.visuals || [g.visual])).filter(v => v && v.type === 'scene');
+    const miss = B.missingVerbs(scenes.flatMap(v => (v.people || []).map(q => q.does || ''))); if (miss.length) W('verbs without a 3D action (add them to VERBS in styles/build3d.js): ' + miss.join(', '));
+    const idle = scenes.filter(v => (v.people || []).length && (v.people || []).every(q => !q.does || q.does === 'idle')).length; if (idle) W(idle + ' scene(s) where nobody does anything (give somebody a "does")'); } catch (e) { }
   return { dur, out };
 }
 if (require.main === module) {

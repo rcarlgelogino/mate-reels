@@ -35,6 +35,8 @@ jobs:
           # same pick as daily.js: today's scripts sorted by name, index = day of year modulo their count
           node -e "
             const fs=require('fs'),path=require('path'); const day='$DAY'; const dir=path.join('done',day);
+            // the topic rotation of daily.js wrote today's 3D topic to done/<day>/_3d.json
+            const t3=path.join(dir,'_3d.json'); if(fs.existsSync(t3)){ const j=JSON.parse(fs.readFileSync(t3,'utf8')); fs.writeFileSync(path.join('out',day,'ab3d.json'),JSON.stringify({name:j.name,n:j.n,test:false,script:j.script},null,1)); console.log('3D topic:',j.name); process.exit(0); }
             const jobs=fs.readdirSync(dir).filter(f=>f.endsWith('.json')&&!/\.(result|improved)\.json$/.test(f)).sort();
             if(!jobs.length){ console.log('no scripts built today'); process.exit(0); }
             const doy=Math.floor((Date.parse(day)-Date.parse(day.slice(0,4)+'-01-01'))/864e5); const f=jobs[doy%jobs.length]; const name=f.replace(/\.json$/,'');

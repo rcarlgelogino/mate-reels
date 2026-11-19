@@ -1,0 +1,282 @@
+{
+ "id": "0025a_en_la_playa_agua_tibia",
+ "topic": "situacion",
+ "title": "Agua tibia en la playa",
+ "caption": "¿Qué hacés si en la playa te piden mate y el agua está tibia? 🧉\nTodos te piden, y el termo está tibio.\n¿Vos cebás igual? 👇",
+ "hashtags": [
+  "#mate",
+  "#yerbamate",
+  "#argentina",
+  "#matero",
+  "#costumbresargentinas",
+  "#playa",
+  "#verano"
+ ],
+ "segments": [
+  {
+   "text": "¿Qué hacés si en la playa te piden mate y el agua está tibia?",
+   "emo": "surprised",
+   "beat": "hook",
+   "headline": "¿QUÉ HACÉS?",
+   "headlineAt": "tibia",
+   "impact": true,
+   "visuals": [
+    {
+     "type": "scene",
+     "place": "playa",
+     "people": [
+      {
+       "role": "estudiante",
+       "does": "point",
+       "mood": "happy"
+      },
+      {
+       "role": "you",
+       "does": "hold_both",
+       "mood": "worried"
+      }
+     ]
+    },
+    {
+     "type": "reaction",
+     "emotion": "worried",
+     "act": "think",
+     "who": 1
+    }
+   ]
+  },
+  {
+   "text": "Tres horas de sol y el termo ya se rindió.",
+   "emo": "funny",
+   "beat": "loop",
+   "visual": {
+    "type": "object",
+    "item": "termo",
+    "animate": "girar",
+    "labels": [
+     "TIBIO"
+    ]
+   },
+   "headline": "SE RINDIÓ",
+   "headlineAt": "rindió"
+  },
+  {
+   "text": "Y aparecen tus amigos y el cebador de siempre, todos con cara de mate.",
+   "emo": "warm",
+   "beat": "body",
+   "visual": {
+    "type": "scene",
+    "place": "playa",
+    "people": [
+     {
+      "role": "friend",
+      "does": "walk",
+      "mood": "happy"
+     },
+     {
+      "role": "estudiante",
+      "does": "wave",
+      "mood": "happy"
+     },
+     {
+      "role": "kid",
+      "does": "jump",
+      "mood": "happy"
+     }
+    ]
+   },
+   "headline": "CARA DE MATE",
+   "headlineAt": "cara"
+  },
+  {
+   "text": "Vos sabés que el mate tibio es casi una ofensa.",
+   "emo": "tense",
+   "beat": "rehook",
+   "visual": {
+    "type": "scene",
+    "place": "playa",
+    "people": [
+     {
+      "role": "you",
+      "does": "think",
+      "mood": "worried"
+     }
+    ]
+   },
+   "headline": "CASI UNA OFENSA",
+   "headlineAt": "ofensa",
+   "impact": true
+  },
+  {
+   "text": "Opción uno: cebás igual y rezás que nadie diga nada.",
+   "emo": "funny",
+   "beat": "body",
+   "visual": {
+    "type": "scene",
+    "place": "playa",
+    "people": [
+     {
+      "role": "you",
+      "does": "pour_lukewarm",
+      "mood": "worried"
+     },
+     {
+      "role": "friend",
+      "does": "idle",
+      "mood": "neutral"
+     }
+    ]
+   },
+   "headline": "OPCIÓN 1",
+   "headlineAt": "uno"
+  },
+  {
+   "text": "Opción dos: lo convertís en tereré con hielo de la heladerita.",
+   "emo": "excited",
+   "beat": "body",
+   "visual": {
+    "type": "scene",
+    "place": "playa",
+    "people": [
+     {
+      "role": "you",
+      "does": "pour_cold_water",
+      "mood": "proud"
+     },
+     {
+      "role": "friend",
+      "does": "cheer",
+      "mood": "happy"
+     }
+    ],
+    "props": [
+     "heladerita"
+    ]
+   },
+   "headline": "OPCIÓN 2",
+   "headlineAt": "dos"
+  },
+  {
+   "text": "Tu amigo toma el primero y pone cara de sopa fría.",
+   "emo": "funny",
+   "beat": "rehook",
+   "visual": {
+    "type": "scene",
+    "place": "playa",
+    "people": [
+     {
+      "role": "friend",
+      "does": "drink",
+      "mood": "disgusted"
+     },
+     {
+      "role": "you",
+      "does": "idle",
+      "mood": "worried"
+     }
+    ]
+   },
+   "headline": "SOPA FRÍA",
+   "headlineAt": "sopa"
+  },
+  {
+   "text": "Y el nene ya lo está escupiendo en la arena.",
+   "emo": "funny",
+   "beat": "body",
+   "visual": {
+    "type": "scene",
+    "place": "playa",
+    "people": [
+     {
+      "role": "kid",
+      "does": "drink_sin_bombilla",
+      "mood": "disgusted"
+     }
+    ]
+   },
+   "headline": "¡LO ESCUPE!",
+   "headlineAt": "escupiendo"
+  },
+  {
+   "text": "Pero el tereré salva la tarde entera.",
+   "emo": "warm",
+   "beat": "body",
+   "visual": {
+    "type": "scene",
+    "place": "playa",
+    "people": [
+     {
+      "role": "you",
+      "does": "pass",
+      "mood": "happy"
+     },
+     {
+      "role": "friend",
+      "does": "receive",
+      "mood": "happy"
+     },
+     {
+      "role": "estudiante",
+      "does": "cheer",
+      "mood": "happy"
+     }
+    ],
+    "pass": [
+     0,
+     1
+    ]
+   },
+   "headline": "SALVA LA TARDE",
+   "headlineAt": "tarde"
+  },
+  {
+   "text": "En verano, el que tiene hielo es el rey de la playa.",
+   "emo": "proud",
+   "beat": "payoff",
+   "visual": {
+    "type": "scene",
+    "place": "playa",
+    "people": [
+     {
+      "role": "you",
+      "does": "hug_mate",
+      "mood": "proud"
+     },
+     {
+      "role": "friend",
+      "does": "cheer",
+      "mood": "happy"
+     }
+    ]
+   },
+   "headline": "EL REY",
+   "headlineAt": "rey",
+   "impact": true
+  },
+  {
+   "text": "¿Vos cebás igual? Mandáselo al que lleva el termo a la playa.",
+   "emo": "funny",
+   "beat": "cta",
+   "visual": {
+    "type": "title",
+    "text": "",
+    "sub": ""
+   }
+  }
+ ],
+ "poll": {
+  "question": "¿Qué hacés?",
+  "options": [
+   "CEBO IGUAL",
+   "TERERÉ CON HIELO",
+   "NO CEBO"
+  ]
+ },
+ "thumb": {
+  "lines": [
+   "AGUA TIBIA",
+   "EN LA PLAYA"
+  ]
+ },
+ "rewrite": "suegra pattern 2026-11-20"
+}

@@ -82,14 +82,15 @@
     "people": [
      {
       "role": "tarefero",
-      "does": "idle",
+      "does": "zapecar",
       "mood": "neutral"
      }
     ],
     "props": [
      "tambor_fuego",
      "llamas",
-     "hojas_volando"
+     "hojas_volando",
+     "fogata"
     ]
    },
    "headline": "DOS · EL FUEGO",
@@ -119,7 +120,7 @@
     "people": [
      {
       "role": "tarefero",
-      "does": "idle",
+      "does": "stir_yerba",
       "mood": "happy"
      }
     ],
@@ -171,7 +172,7 @@
     "people": [
      {
       "role": "worker",
-      "does": "idle",
+      "does": "pack_yerba",
       "mood": "happy"
      }
     ],

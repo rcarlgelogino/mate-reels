@@ -53,4 +53,14 @@ Layers:
 **No limits:** characters, places, objects and actions are open. Use whatever the story needs (a gaucho, a teacher, a bus, a pava, a stadium ...). The lists below are what the styles already draw well; anything new is drawn with the closest existing look, and Claude builds a proper look for it in the styles when it shows up.
 Roles known so far: cebador, friend, grandma, grandpa, stranger, kid, worker, you, gaucho, oficinista, estudiante, turista, argentino, uruguayo, paraguayo, brasileno, chileno, aleman (nations wear their flag on the shirt). Objects known so far: see `styles/toy3d.md`. Optional per scene: `camera` (forces a camera plan), `props` (auto, camioneta, colectivo, mesa, banco). `does`: idle, hold_mate, hold_termo, hold_both, hold_yerba, drink, pour, pass, receive, wave, point, hug, cheer, jump, no, nod, shock, laugh, sigh. `mood`: happy, smile, surprised, sad, angry, outraged, bored, love, laugh, proud, neutral (the sip mouth comes by itself while drinking).
 
+**Every scene needs at least one person who DOES something.** 3D shows each verb as a real action between the people (hand-over, pouring, hug, burning the tongue ...). Verbs with a 3D action:
+- Between people: pass, offer, receive, hug, whisper, defend, reach_bombilla.
+- Preparing and yerba work: pour (pour_cold_water, pour_lukewarm, pour_from_olla, use_pava_electrica), fill_yerba, scrape_spoon, grind_mortar, harvest, zapecar, stir_yerba, pack_yerba.
+- Drinking and the mate in the hand: drink (drink_tapado, drink_sin_bombilla), blow_mate, empty_mate, shake_mate, rinse_mate, hug_mate.
+- Holding: hold_both, carry_termo_brazo, carry_all, hold_mate, hold_cuia, hold_guampa, hold_yerba, hold_termo, hold_pava, hold_bolsa_nylon, hold_bombilla.
+- Phone and computer: film_phone, sit_phone, type.
+- Body: run, walk, jump, cheer, shock, laugh, wave, point, no, nod, talk, think, sit (sit_hold_both).
+
+A new verb needs a new entry in VERBS (`styles/build3d.js`). `node scripts/lint.js` lists the verbs that have none.
+
 The last segment gets the comment poll automatically when `poll` is set.

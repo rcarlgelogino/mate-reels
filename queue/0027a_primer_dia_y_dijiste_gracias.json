@@ -1,0 +1,302 @@
+{
+ "id": "0027a_primer_dia_y_dijiste_gracias",
+ "topic": "situacion",
+ "title": "El gracias equivocado",
+ "caption": "¿Qué hacés si decís \"gracias\" y nunca más te pasan el mate? 🧉\nPrimer día, primer mate, primer error.\n¿Vos sabías? 👇",
+ "hashtags": [
+  "#mate",
+  "#yerbamate",
+  "#argentina",
+  "#matero",
+  "#costumbresargentinas",
+  "#ronda",
+  "#gracias"
+ ],
+ "segments": [
+  {
+   "text": "¿Qué hacés si decís \"gracias\" y nunca más te pasan el mate?",
+   "emo": "surprised",
+   "beat": "hook",
+   "headline": "¿QUÉ HACÉS?",
+   "headlineAt": "gracias",
+   "impact": true,
+   "visuals": [
+    {
+     "type": "scene",
+     "place": "oficina",
+     "people": [
+      {
+       "role": "you",
+       "does": "talk",
+       "mood": "happy"
+      },
+      {
+       "role": "cebador",
+       "does": "no",
+       "mood": "neutral"
+      }
+     ]
+    },
+    {
+     "type": "reaction",
+     "emotion": "surprised",
+     "act": "shock",
+     "who": 0
+    }
+   ]
+  },
+  {
+   "text": "Laburo nuevo, gente nueva y un mate que gira.",
+   "emo": "warm",
+   "beat": "loop",
+   "visual": {
+    "type": "scene",
+    "place": "oficina",
+    "people": [
+     {
+      "role": "cebador",
+      "does": "pass",
+      "mood": "happy"
+     },
+     {
+      "role": "companera",
+      "does": "receive",
+      "mood": "happy"
+     },
+     {
+      "role": "oficinista",
+      "does": "idle",
+      "mood": "happy"
+     },
+     {
+      "role": "you",
+      "does": "idle",
+      "mood": "happy"
+     }
+    ],
+    "pass": [
+     0,
+     1
+    ]
+   },
+   "headline": "LABURO NUEVO",
+   "headlineAt": "nuevo"
+  },
+  {
+   "text": "Te llega, lo tomás y, por educación, le decís gracias al cebador.",
+   "emo": "warm",
+   "beat": "body",
+   "visual": {
+    "type": "scene",
+    "place": "oficina",
+    "people": [
+     {
+      "role": "you",
+      "does": "drink",
+      "mood": "happy"
+     }
+    ]
+   },
+   "headline": "\"GRACIAS\"",
+   "headlineAt": "gracias"
+  },
+  {
+   "text": "Y el mate no vuelve nunca más.",
+   "emo": "funny",
+   "beat": "rehook",
+   "visual": {
+    "type": "scene",
+    "place": "oficina",
+    "people": [
+     {
+      "role": "cebador",
+      "does": "pass",
+      "mood": "neutral"
+     },
+     {
+      "role": "companera",
+      "does": "receive",
+      "mood": "happy"
+     },
+     {
+      "role": "you",
+      "does": "idle",
+      "mood": "confused"
+     }
+    ],
+    "pass": [
+     0,
+     1
+    ]
+   },
+   "headline": "NUNCA MÁS",
+   "headlineAt": "nunca",
+   "impact": true
+  },
+  {
+   "text": "Pasa una vuelta, pasan dos, y vos mirando.",
+   "emo": "funny",
+   "beat": "body",
+   "visual": {
+    "type": "scene",
+    "place": "oficina",
+    "people": [
+     {
+      "role": "you",
+      "does": "idle",
+      "mood": "sad"
+     },
+     {
+      "role": "companera",
+      "does": "drink",
+      "mood": "happy"
+     }
+    ]
+   },
+   "headline": "DOS VUELTAS",
+   "headlineAt": "dos"
+  },
+  {
+   "text": "Porque en la ronda, \"gracias\" significa \"ya no quiero más\".",
+   "emo": "neutral",
+   "beat": "body",
+   "visual": {
+    "type": "object",
+    "item": "mate",
+    "animate": "girar",
+    "labels": [
+     "GRACIAS = BASTA"
+    ]
+   },
+   "headline": "YA NO QUIERO",
+   "headlineAt": "quiero"
+  },
+  {
+   "text": "Pero esperá, opción uno: te hacés el distraído y estirás la mano.",
+   "emo": "funny",
+   "beat": "rehook",
+   "visual": {
+    "type": "scene",
+    "place": "oficina",
+    "people": [
+     {
+      "role": "you",
+      "does": "reach_bombilla",
+      "mood": "worried"
+     },
+     {
+      "role": "cebador",
+      "does": "shock",
+      "mood": "surprised"
+     }
+    ]
+   },
+   "headline": "OPCIÓN 1",
+   "headlineAt": "uno"
+  },
+  {
+   "text": "Opción dos: confesás que no sabías y todos se ríen.",
+   "emo": "warm",
+   "beat": "body",
+   "visual": {
+    "type": "scene",
+    "place": "oficina",
+    "people": [
+     {
+      "role": "you",
+      "does": "shrug",
+      "mood": "worried"
+     },
+     {
+      "role": "companera",
+      "does": "laugh",
+      "mood": "laugh"
+     },
+     {
+      "role": "oficinista",
+      "does": "laugh",
+      "mood": "laugh"
+     }
+    ]
+   },
+   "headline": "OPCIÓN 2",
+   "headlineAt": "dos"
+  },
+  {
+   "text": "El cebador se apiada y te ceba uno especial.",
+   "emo": "warm",
+   "beat": "rehook",
+   "visual": {
+    "type": "scene",
+    "place": "oficina",
+    "people": [
+     {
+      "role": "cebador",
+      "does": "pour",
+      "mood": "happy"
+     },
+     {
+      "role": "you",
+      "does": "idle",
+      "mood": "happy"
+     }
+    ]
+   },
+   "headline": "UNO ESPECIAL",
+   "headlineAt": "especial"
+  },
+  {
+   "text": "Una palabra y te quedás afuera de la ronda.",
+   "emo": "tense",
+   "beat": "payoff",
+   "visual": {
+    "type": "scene",
+    "place": "oficina",
+    "people": [
+     {
+      "role": "cebador",
+      "does": "pass",
+      "mood": "happy"
+     },
+     {
+      "role": "you",
+      "does": "receive",
+      "mood": "love"
+     }
+    ],
+    "pass": [
+     0,
+     1
+    ]
+   },
+   "headline": "UNA PALABRA",
+   "headlineAt": "palabra",
+   "impact": true
+  },
+  {
+   "text": "¿Vos sabías? Mandáselo al que siempre dice gracias.",
+   "emo": "funny",
+   "beat": "cta",
+   "visual": {
+    "type": "title",
+    "text": "",
+    "sub": ""
+   }
+  }
+ ],
+ "poll": {
+  "question": "¿Vos sabías?",
+  "options": [
+   "SÍ, OBVIO",
+   "NO TENÍA IDEA",
+   "ME PASÓ"
+  ]
+ },
+ "thumb": {
+  "lines": [
+   "NUNCA DIGAS",
+   "GRACIAS"
+  ]
+ },
+ "rewrite": "suegra pattern 2026-11-20"
+}

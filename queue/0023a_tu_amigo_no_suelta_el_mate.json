@@ -1,0 +1,287 @@
+{
+ "id": "0023a_tu_amigo_no_suelta_el_mate",
+ "topic": "situacion",
+ "title": "El que no suelta el mate",
+ "caption": "¿Qué hacés si tu amigo agarra el mate y no lo suelta nunca? 🧉\nHabla, habla, y el mate no vuelve.\n¿Vos se lo pedís? 👇",
+ "hashtags": [
+  "#mate",
+  "#yerbamate",
+  "#argentina",
+  "#matero",
+  "#costumbresargentinas",
+  "#ronda",
+  "#amigos"
+ ],
+ "segments": [
+  {
+   "text": "¿Qué hacés si tu amigo agarra el mate y no lo suelta nunca?",
+   "emo": "surprised",
+   "beat": "hook",
+   "visual": {
+    "type": "scene",
+    "place": "plaza",
+    "people": [
+     {
+      "role": "friend",
+      "does": "talk",
+      "mood": "happy"
+     },
+     {
+      "role": "you",
+      "does": "idle",
+      "mood": "bored"
+     }
+    ]
+   },
+   "headline": "¿QUÉ HACÉS?",
+   "headlineAt": "nunca",
+   "impact": true
+  },
+  {
+   "text": "Ronda en la plaza, cinco amigos y un solo mate.",
+   "emo": "warm",
+   "beat": "loop",
+   "visual": {
+    "type": "scene",
+    "place": "plaza",
+    "people": [
+     {
+      "role": "cebador",
+      "does": "pass",
+      "mood": "happy"
+     },
+     {
+      "role": "friend",
+      "does": "receive",
+      "mood": "happy"
+     },
+     {
+      "role": "estudiante",
+      "does": "idle",
+      "mood": "happy"
+     },
+     {
+      "role": "you",
+      "does": "idle",
+      "mood": "happy"
+     }
+    ],
+    "pass": [
+     0,
+     1
+    ]
+   },
+   "headline": "UN SOLO MATE",
+   "headlineAt": "mate"
+  },
+  {
+   "text": "Le llega a él y empieza a contar su viaje a Bariloche.",
+   "emo": "funny",
+   "beat": "body",
+   "visual": {
+    "type": "scene",
+    "place": "plaza",
+    "people": [
+     {
+      "role": "friend",
+      "does": "talk",
+      "mood": "happy"
+     },
+     {
+      "role": "estudiante",
+      "does": "idle",
+      "mood": "bored"
+     }
+    ]
+   },
+   "headline": "BARILOCHE",
+   "headlineAt": "Bariloche"
+  },
+  {
+   "text": "Diez minutos. El mate ya está frío en su mano.",
+   "emo": "funny",
+   "beat": "rehook",
+   "visual": {
+    "type": "number",
+    "value": "10",
+    "sub": "MINUTOS"
+   },
+   "headline": "MATE FRÍO",
+   "headlineAt": "frío",
+   "impact": true
+  },
+  {
+   "text": "Y nadie se anima a decirle nada.",
+   "emo": "tense",
+   "beat": "body",
+   "visual": {
+    "type": "scene",
+    "place": "plaza",
+    "people": [
+     {
+      "role": "cebador",
+      "does": "think",
+      "mood": "worried"
+     },
+     {
+      "role": "you",
+      "does": "idle",
+      "mood": "worried"
+     },
+     {
+      "role": "estudiante",
+      "does": "shrug",
+      "mood": "bored"
+     }
+    ]
+   },
+   "headline": "NADIE DICE NADA",
+   "headlineAt": "nadie"
+  },
+  {
+   "text": "Opción uno: le hacés la seña con la mano.",
+   "emo": "funny",
+   "beat": "body",
+   "visual": {
+    "type": "scene",
+    "place": "plaza",
+    "people": [
+     {
+      "role": "you",
+      "does": "wave",
+      "mood": "angry"
+     },
+     {
+      "role": "friend",
+      "does": "talk",
+      "mood": "happy"
+     }
+    ]
+   },
+   "headline": "OPCIÓN 1",
+   "headlineAt": "uno"
+  },
+  {
+   "text": "Opción dos: le decís \"che, ¿es un micrófono?\".",
+   "emo": "funny",
+   "beat": "body",
+   "visual": {
+    "type": "scene",
+    "place": "plaza",
+    "people": [
+     {
+      "role": "you",
+      "does": "point",
+      "mood": "laugh"
+     },
+     {
+      "role": "friend",
+      "does": "shock",
+      "mood": "surprised"
+     }
+    ]
+   },
+   "headline": "¿UN MICRÓFONO?",
+   "headlineAt": "micrófono"
+  },
+  {
+   "text": "El cebador ya está pensando en cebar otro mate.",
+   "emo": "excited",
+   "beat": "rehook",
+   "visual": {
+    "type": "scene",
+    "place": "plaza",
+    "people": [
+     {
+      "role": "cebador",
+      "does": "pour",
+      "mood": "angry"
+     }
+    ]
+   },
+   "headline": "OTRO MATE",
+   "headlineAt": "otro"
+  },
+  {
+   "text": "Porque en la ronda, el mate es de todos.",
+   "emo": "warm",
+   "beat": "body",
+   "visual": {
+    "type": "scene",
+    "place": "plaza",
+    "people": [
+     {
+      "role": "friend",
+      "does": "pass",
+      "mood": "happy"
+     },
+     {
+      "role": "you",
+      "does": "receive",
+      "mood": "happy"
+     },
+     {
+      "role": "cebador",
+      "does": "cheer",
+      "mood": "happy"
+     }
+    ],
+    "pass": [
+     0,
+     1
+    ]
+   },
+   "headline": "ES DE TODOS",
+   "headlineAt": "todos"
+  },
+  {
+   "text": "El que retiene el mate, retiene la ronda entera.",
+   "emo": "tense",
+   "beat": "payoff",
+   "visual": {
+    "type": "scene",
+    "place": "plaza",
+    "people": [
+     {
+      "role": "friend",
+      "does": "hold_mate",
+      "mood": "happy"
+     },
+     {
+      "role": "you",
+      "does": "idle",
+      "mood": "angry"
+     }
+    ]
+   },
+   "headline": "LA RONDA ENTERA",
+   "headlineAt": "entera",
+   "impact": true
+  },
+  {
+   "text": "¿Vos se lo pedís? Etiquetá al que no suelta el mate.",
+   "emo": "funny",
+   "beat": "cta",
+   "visual": {
+    "type": "title",
+    "text": "",
+    "sub": ""
+   }
+  }
+ ],
+ "poll": {
+  "question": "¿Qué hacés?",
+  "options": [
+   "LE HAGO LA SEÑA",
+   "\"¿ES UN MICRÓFONO?\"",
+   "CEBO OTRO"
+  ]
+ },
+ "thumb": {
+  "lines": [
+   "NO SUELTA",
+   "EL MATE"
+  ]
+ },
+ "rewrite": "suegra pattern 2026-11-20"
+}

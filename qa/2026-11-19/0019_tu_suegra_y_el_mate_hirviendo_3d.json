@@ -1,0 +1,20 @@
+{
+ "reel": "0019_tu_suegra_y_el_mate_hirviendo",
+ "style": "build3d",
+ "technical": [
+  "duration 37.9s",
+  "loudness -12.2 LUFS, peak -0.9 dBFS",
+  "voice gemini"
+ ],
+ "vision": {
+  "ran": false,
+  "model": null
+ },
+ "summary": "",
+ "scores": {},
+ "logic": {},
+ "graphics": {},
+ "issues": [],
+ "learnings": [],
+ "checked": "2026-11-19T10:27:48.772Z"
+}

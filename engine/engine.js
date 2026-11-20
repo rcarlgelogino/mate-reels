@@ -2512,6 +2512,45 @@ T.build=(p={})=>{ const s=new THREE.Scene(); s.background=new THREE.Color('#bfe0
   const rr=(k,j)=>{ const x=Math.sin(k*127.1+j*311.7)*43758.5453; return x-Math.floor(x); };
   const heroTopW=()=>{ if(!hero) return V(0,1,0.3); return V(hero.position.x,hero.position.y+(hero.userData.cutH||0.8)*hero.scale.y,hero.position.z); };
   const pplBase=ppl.map(P=>({x:P.g.position.x,z:P.g.position.z,ry:P.g.rotation.y,pose:P.pose,face:P.baseFace})); const hero0=hero?hero.position.clone():null; let carrier=null;
+  // ---- POV (p.cam 'pov1'): the camera is "vos" at eye height, own hands in the lower frame; the people look into the lens and hand things to the camera
+  // p.pov {act: hold|drink|blow|receive|give|shock|walk|phone|look, holds, holdsL, from, to, at, burn, shirt, skin}
+  const POVX=p.cam==='pov1'?(()=>{ const o=p.pov||{}; const n=ppl.length; const skinM=toy(o.skin||'#f2cba6',0.55), slM=toy(o.shirt||'#f4f1ea',0.8), cuffM=toy(o.cuff||'#d9d2c3',0.8);
+    let cx=0, hy=1.3; s.updateMatrixWorld(true); if(n){ cx=ppl.reduce((a,P)=>a+P.g.position.x,0)/n; hy=ppl.reduce((a,P)=>a+P.head.getWorldPosition(new THREE.Vector3()).y,0)/n; }
+    const zf=n?Math.max(...ppl.map(P=>P.g.position.z)):0.2, eye0=V(cx,hy+0.04,zf+(n>2?2.6:2.15)), look0=V(cx,hy-0.12,zf);
+    ppl.forEach((P,i)=>{ if((p.people[i]||{}).ry==null){ P.g.rotation.y=Math.atan2(eye0.x-P.g.position.x,eye0.z-P.g.position.z); pplBase[i].ry=P.g.rotation.y; } });
+    const C=new THREE.PerspectiveCamera(); // a camera object: lookAt points its -z at the target like the real camera
+    const arm=()=>{ const g=put(s,new THREE.Group(),0,0,0); const sl=mesh(new THREE.CylinderGeometry(0.03,0.042,1,18),slM,false,false); const cf=mesh(new THREE.CylinderGeometry(0.033,0.033,0.03,18),cuffM,false,false); const h=mesh(new THREE.SphereGeometry(0.034,22,18),skinM,false,false); const th=mesh(new THREE.SphereGeometry(0.015,14,12),skinM,false,false); g.add(sl,cf,h,th); const hold=new THREE.Group(); g.add(hold); return {g,sl,cf,h,th,hold}; };
+    const AR=arm(), AL=arm();
+    const mk=k=>{ if(!k) return null; const ob=k==='mate'?bGourd('mate'):bTool(k); ob.scale.setScalar(k==='mate'?0.15:k==='celular'?0.3:0.18); ob.position.set(-0.032,k==='mate'?-0.035:-0.05,-0.012); if(k==='celular') ob.rotation.x=0.25; return ob; };
+    const sc=Math.min(1,(p.dur||3)/2.6), act=o.act||'hold', at=(o.at??1.25)*sc; let held=mk(o.holds||(act==='drink'||act==='blow'||act==='give'?'mate':null)); if(held) AR.hold.add(held); const heldL=mk(o.holdsL); if(heldL) AL.hold.add(heldL);
+    let given=null; const RR=V(0.115,-0.2,-0.5), SR=V(0.34,-0.6,-0.12), RL=V(-0.13,-0.23,-0.5), SL=V(-0.36,-0.6,-0.12), RLo=V(-0.2,-0.52,-0.42), RRo=V(0.2,-0.5,-0.42), Q=V(0.04,-0.27,-0.66);
+    const place=(A,hl,sh,tilt)=>{ const hw=C.localToWorld(hl.clone()), sw=C.localToWorld(sh.clone()); const d=hw.clone().sub(sw), L=d.length(); d.normalize(); const end=sw.clone().addScaledVector(d,L-0.04);
+      A.sl.position.copy(sw.clone().lerp(end,0.5)); A.sl.scale.set(1,L-0.04,1); A.sl.quaternion.setFromUnitVectors(V(0,1,0),d); A.cf.position.copy(end); A.cf.quaternion.copy(A.sl.quaternion); A.h.position.copy(hw); A.h.scale.set(1,0.92,1.08);
+      A.th.position.copy(C.localToWorld(hl.clone().add(V(-Math.sign(hl.x||1)*0.028,0.014,-0.012)))); A.hold.position.copy(hw); A.hold.quaternion.copy(C.quaternion); A.hold.rotateX(tilt||0); };
+    const api={ pos:eye0.clone(), look:look0.clone(), shake:0, flash:0,
+      tip(){ const ob=held||given; return ob?ob.getWorldPosition(new THREE.Vector3()).add(V(0,0.12,0)):C.localToWorld(V(0,-0.1,-0.5)); },
+      frame(t,u){ const e=ease(u); let pos=eye0.clone(), look=look0.clone(); pos.x+=Math.sin(t*1.1)*0.012+Math.sin(t*2.7)*0.004; pos.y+=Math.sin(t*1.7)*0.009; look.x+=Math.sin(t*0.8)*0.025; pos.z+=lerp(0.18,0,e); // breathing handheld + a slow step in
+        let hr=RR.clone(), hl=heldL?RL.clone():RLo.clone(), tilt=0, showR=!!held||['receive','give','phone','hold'].includes(act); api.flash=0;
+        if(act==='walk'){ const k=ease(clamp(t/1.3)); pos.z+=lerp(1.5,0,k); pos.y+=Math.abs(Math.sin(t*8))*0.03*(1-k); }
+        if(act==='drink'||act==='blow'){ const k=ease(clamp((t-0.3*sc)/(0.55*sc))); hr.lerp(act==='drink'?V(0.01,-0.15,-0.36):V(0.02,-0.15,-0.42),k); tilt=(act==='drink'?0.75:0.35)*k; look.y+=(act==='drink'?0.16:0.05)*k;
+          if(o.burn&&t>=sc){ const d=t-sc, env=Math.max(0,1-d/0.9); pos.x+=Math.sin(t*61)*0.035*env; pos.y+=Math.sin(t*47)*0.02*env; api.flash=env; hr.lerp(RR,clamp(d/0.4)); tilt*=1-clamp(d/0.4); } }
+        if(act==='shock'&&t>=0.45){ const d=t-0.45, env=Math.max(0,1-d/0.5); pos.z+=Math.sin(Math.min(1,d/0.25)*Math.PI)*0.22; pos.y+=Math.sin(t*40)*0.015*env; }
+        const F=ppl[o.from], G=ppl[o.to];
+        if(act==='receive'){ const k1=ease(clamp((t-(at-0.55))/0.5)), k2=ease(clamp((t-at)/0.5)); hr=RRo.clone().lerp(Q,k1).lerp(RR,k2); if(F) look.lerp(V(F.g.position.x,hy-0.05,F.g.position.z),0.25*clamp((t-0.2)/0.8)); }
+        if(act==='give'){ const k1=ease(clamp((t-(at-0.6))/0.55)), k2=ease(clamp((t-at)/0.45)); hr=RR.clone().lerp(Q,k1).lerp(RRo,k2); if(G) look.lerp(V(G.g.position.x,hy-0.05,G.g.position.z),0.25*clamp((t-0.2)/0.8)); if(t>=at+0.4) showR=false; }
+        if(act==='phone') hr=V(0.03,-0.13,-0.42);
+        if(act==='look') showR=!!held;
+        api.pos=pos; api.look=look; C.position.copy(pos); C.lookAt(look); C.updateMatrixWorld(true);
+        AR.g.visible=showR; place(AR,hr,SR,tilt);
+        const lrec=act==='receive'&&!heldL; AL.g.visible=!!heldL||lrec; place(AL,lrec?RLo.clone().lerp(V(-0.08,-0.3,-0.6),ease(clamp((t-(at-0.5))/0.5))*(1-ease(clamp((t-at)/0.5)))):hl,SL,0);
+        // the giver walks up to the lens and reaches out; the receiver comes to take it
+        const W0=C.localToWorld(V(0.12,0,-1.45)); W0.y=0; const W1=C.localToWorld(V(0.04,0,-1.45)); W1.y=0;
+        const walkTo=(P,i,Wt)=>{ const B=pplBase[i]; const k=ease(clamp((t-0.15)/Math.max(0.3,at-0.75))); P.g.position.x=lerp(B.x,Wt.x,k); P.g.position.z=lerp(B.z,Wt.z,k); P.g.rotation.y=Math.atan2(pos.x-P.g.position.x,pos.z-P.g.position.z);
+          if(k>0&&k<0.85) P.pose='walk'; else if(k>=0.85&&t<at+0.4) P.pose='present'; else if(t>=at+0.4&&P.pose!=='laugh'&&P.pose!=='cheer') P.pose='idle'; if(t>=at-0.6&&t<at+0.25) P.ik[1]=C.localToWorld(Q.clone().add(V(0.02,0.03,0.02))); };
+        if(act==='receive'&&F){ walkTo(F,o.from,W0); if(t>=at){ if(F.held){ F.held.parent.remove(F.held); F.held=null; } if(!held){ held=mk(o.holds||'mate'); AR.hold.add(held); } } else if(held&&!o.holds){ AR.hold.remove(held); held=null; } }
+        if(act==='give'&&G){ walkTo(G,o.to,W1); if(t>=at){ if(held){ AR.hold.remove(held); held=null; } if(!given){ given=bGourd('mate'); given.scale.setScalar(0.37); given.position.set(0,-0.14,0.06); G.attach(given); } } } },
+      overlay(c,u,t){ if(api.flash>0.01){ const g=c.createRadialGradient(W/2,H*0.55,H*0.18,W/2,H*0.55,H*0.75); g.addColorStop(0,'rgba(255,90,40,0)'); g.addColorStop(1,'rgba(200,40,20,'+(0.55*api.flash)+')'); c.fillStyle=g; c.fillRect(0,0,W,H); } } };
+    return api; })():null;
   const applyActs=(t,u)=>{ carrier=null; if(hero){ hero.position.copy(hero0); hero.rotation.x=0; acts.forEach(a=>{ if(a.slide){ const k=clamp((t-a.slide[2])/(a.slide[3]-a.slide[2])); hero.position.x=lerp(a.slide[0],a.slide[1],a.ease==='in'?k*k:ease(k)); if(k>0&&k<1){ hero.position.y=hero0.y+Math.abs(Math.sin(t*22))*0.03; hero.rotation.x=Math.sin(t*17)*0.04; } } }); }
     ppl.forEach((P,i)=>{ const B=pplBase[i]; P.g.position.x=B.x; P.g.position.z=B.z; P.g.rotation.y=B.ry; P.g.rotation.x=0; P.g.rotation.z=0; P.g.position.y=P.y0||0; let pose=B.pose, face=B.face;
       acts.filter(a=>a.who===i).sort((a,b)=>(a.at??a.t0??0)-(b.at??b.t0??0)).forEach(a=>{
@@ -2549,7 +2588,7 @@ T.build=(p={})=>{ const s=new THREE.Scene(); s.background=new THREE.Color('#bfe0
       hero.scale.setScalar(sc); }
     if(ring){ const a=acts.find(x=>x.obj==='ring'); const k=clamp((t-a.drop[0])/(a.drop[1]-a.drop[0])); ring.visible=t>=a.drop[0]; const top=heroTopW(); const bounce=k<1?0:Math.abs(Math.sin((t-a.drop[1])*14))*Math.max(0,0.06-(t-a.drop[1])*0.12); ring.position.y=lerp(top.y+1.6,top.y,k*k)+bounce; ring.rotation.z=(1-k)*3; }
     fxs.forEach(({a,ms,ai})=>{ const n=ms.length; const t0=a.at??a.t0??0, t1=a.t1??(t0+0.01); let origin;
-      if(a.pos) origin=V(...a.pos); else if(a.from==='hand'&&ppl[a.who||0]) origin=ppl[a.who||0].arms[1].hand.getWorldPosition(new THREE.Vector3()).add(V(0,0.08,0.05)); else if(a.from==='mouth'&&ppl[a.who||0]) origin=ppl[a.who||0].mouthAt(); else if(a.from==='feet'&&ppl[a.who||0]) origin=ppl[a.who||0].g.position.clone().add(V(0,0.05,0)); else if(a.from==='head'&&ppl[a.who||0]) origin=ppl[a.who||0].head.getWorldPosition(new THREE.Vector3()).add(V(0,0.42*(ppl[a.who||0].sc||1),0)); else if(a.from==='bottom'&&hero) origin=V(hero.position.x,hero.position.y+0.05,hero.position.z+0.1); else origin=heroTopW();
+      if(a.pos) origin=V(...a.pos); else if(a.from==='hand'&&ppl[a.who||0]) origin=ppl[a.who||0].arms[1].hand.getWorldPosition(new THREE.Vector3()).add(V(0,0.08,0.05)); else if(a.from==='mouth'&&ppl[a.who||0]) origin=ppl[a.who||0].mouthAt(); else if(a.from==='feet'&&ppl[a.who||0]) origin=ppl[a.who||0].g.position.clone().add(V(0,0.05,0)); else if(a.from==='head'&&ppl[a.who||0]) origin=ppl[a.who||0].head.getWorldPosition(new THREE.Vector3()).add(V(0,0.42*(ppl[a.who||0].sc||1),0)); else if(a.from==='bottom'&&hero) origin=V(hero.position.x,hero.position.y+0.05,hero.position.z+0.1); else if(a.from==='pov'&&POVX) origin=POVX.tip(); else origin=heroTopW();
       ms.forEach((m,k)=>{ const r1=rr(k,ai+1), r2=rr(k,ai+7), r3=rr(k,ai+13); let st=t0, life=0.8; if(['seeds','leak','confetti','steam'].includes(a.fx)) st=t0+(k/n)*Math.max(0.01,t1-t0); const d=t-st; m.visible=false;
         if(a.fx==='pour'&&a.who!=null&&ppl[a.who]&&hero) return;
         if(a.fx==='pour'){ if(t>=t0&&t<t1&&termoP){ const top=heroTopW(); const spout=top.clone().add(V(0.05,0.32,0)); termoP.visible=true; termoP.position.copy(spout); termoP.rotation.z=lerp(0.2,1.05,easeOut(clamp((t-t0)/0.3))); const len=spout.y-top.y; m.visible=t>t0+0.3; m.position.set((spout.x+top.x)/2,(spout.y+top.y)/2,top.z); m.scale.set(1,len,1); } else if(termoP&&(t<t0||t>=t1)) termoP.visible=false; return; }
@@ -2561,7 +2600,7 @@ T.build=(p={})=>{ const s=new THREE.Scene(); s.background=new THREE.Color('#bfe0
         if(a.fx==='stars'){ life=0.7; if(d>life) return; const an=k/n*Math.PI*2+d*3; m.visible=true; m.position.copy(origin).add(V(Math.cos(an)*(0.15+d*0.6),Math.sin(an)*(0.15+d*0.6)*0.6+0.1,0.15)); m.rotation.set(d*8,d*6,0); m.scale.setScalar(1-d/life*0.6); }
         if(a.fx==='hearts'){ life=1.3; if(d>life) return; m.visible=true; m.position.copy(origin).add(V((k-n/2)*0.12+Math.sin(d*6+k)*0.05,d*0.7,0.1)); m.scale.set(1,0.85,0.5); }
         if(a.fx==='confetti'){ life=1.6; if(d>life) return; m.visible=true; m.position.copy(origin).add(V((r1-0.5)*2.6+Math.sin(d*5+k)*0.15,1.6-d*1.3,(r2-0.5)*1.2)); m.rotation.set(d*8+k,d*6,d*4); }
-        if(a.fx==='steam'){ life=1.4; if(d>life) return; m.visible=true; m.position.copy(origin).add(V(Math.sin(d*3+k)*0.05,d*0.45,0)); m.scale.setScalar(0.5+d*1.2); m.material.opacity=0.6*(1-d/life); }
+        if(a.fx==='steam'){ life=1.4; if(d>life) return; m.visible=true; const pv=a.from==='pov'; m.position.copy(origin).add(V(Math.sin(d*3+k)*(pv?0.02:0.05),d*(pv?0.22:0.45),pv?-d*0.25:0)); m.scale.setScalar(pv?0.18+d*0.35:0.5+d*1.2); m.material.opacity=(pv?0.45:0.6)*(1-d/life); }
         if(a.fx==='splash'){ life=0.6; if(d>life) return; const an=k/n*Math.PI*2; m.visible=true; m.position.copy(origin).add(V(Math.cos(an)*d*0.7,(1.6+r1)*d-4.9*d*d,Math.sin(an)*d*0.7)); } }); });
     fxs.forEach(({ms})=>ms.forEach(m=>{ if(m.geometry.type==='PlaneGeometry') m.quaternion.copy(cam.quaternion); }));
     const tl2=acts.find(a=>a.timelapse); if(tl2){ const k=clamp((t-tl2.timelapse[0])/(tl2.timelapse[1]-tl2.timelapse[0])); const an=-1.2+k*Math.PI*2*(tl2.turns||1); k2.position.set(Math.cos(an)*12,9+Math.sin(an*0.5)*2,Math.sin(an)*12); if(s.userData.dome) s.userData.dome.rotation.y=k*2.5; } };
@@ -2601,9 +2640,9 @@ T.build=(p={})=>{ const s=new THREE.Scene(); s.background=new THREE.Color('#bfe0
   acts.forEach(a=>{ if(a.fall!=null){ cu(a.fall+0.54,'boomSoft'); } if(a.capoff!=null){ cu(a.capoff,'hit'); cu(a.capoff+0.02,'crackle'); } if(a.fx==='seeds') cu(a.t0||0,'rustle'); if(a.fx==='pour') cu((a.t0||0)+0.3,'pour'); if(a.obj==='ring') cu(a.drop[1],'clink'); if(a.shake) cu(a.shake[0],'shake'); if(a.fx==='stars') cu(a.at||0,'pop'); if(a.fx==='confetti') cu(a.t0||a.at||0,'popBig'); if(a.fx==='hearts') cu(a.at||0,'sparkle'); if(a.grow) cu(a.grow[0],'rise'); if(a.fx==='spit') cu(a.at||0,'hiss'); if(a.walk&&a.run) cu(a.t0||0,'swish'); if(a.fx==='dust') cu(a.at||0,'snap'); if(a.insert) cu(a.insert[1],'clank'); if(a.fill) cu(a.fill[0],'bag'); if(a.timelapse) cu(a.timelapse[0],'clock'); });
   if(p.board){ const b=p.board, bk=b.kind||'title'; const nb=bk==='cards'?(b.items||[]).length:bk==='checklist'?(b.rows||[]).length:bk==='poll'?(b.options||[]).length:bk==='timeline'?(b.items||[]).length:0; for(let i=0;i<nb;i++) cues.push({u:0.1+i*(0.75/Math.max(1,nb)),type:bk==='checklist'?((b.rows[i].ok)?'ding':'buzz'):'pop'}); }
   const boardOv=p.board?(c,u,t)=>{ const b=p.board; c.fillStyle='rgba(13,22,38,'+(p.dim??0.42)+')'; c.fillRect(0,0,W,H); const bs0=b.scale??E.tl?.style?.boardScale??1, bs=b.kind==='cards'?Math.min(bs0,1.18):b.kind==='timeline'?Math.min(bs0,1):b.kind==='checklist'?Math.min(bs0,1.12):b.kind==='poll'?Math.min(bs0,1.12):bs0; c.save(); c.translate(W/2,H*0.5); c.scale(bs,bs); c.translate(-W/2,-H*0.5); drawBoard(c,b,u,t); c.restore(); }:null;
-  return { scene:s, camera:cam, aperture:0.0008, maxblur:0.006, exposure:1.08, keepFaces:true, people:[], _ppl:ppl, overlay:boardOv, cues, update(u,t){ const f=focusP; let pos, look=f.clone(); const e=ease(u), q=easeOut(u);
+  return { scene:s, camera:cam, aperture:0.0008, maxblur:0.006, exposure:1.08, keepFaces:true, people:[], _ppl:ppl, overlay:POVX?(c,u,t)=>{ if(boardOv) boardOv(c,u,t); POVX.overlay(c,u,t); }:boardOv, cues, update(u,t){ const f=focusP; let pos, look=f.clone(); const e=ease(u), q=easeOut(u);
       clouds.forEach((c,i)=>{ c.position.x+=0.004*(1+i%3); });
-      applyActs(t,u); ppl.forEach(P=>P.tick(t,u)); extras.forEach(P=>{ const q=P.ex; if(q.walk){ const span=q.walk[1]-q.walk[0], sp=q.speed||0.7; P.g.position.x=q.walk[0]+((t*sp)%Math.abs(span))*Math.sign(span); } P.tick(t+(q.ph||0),u); }); pourAfter(t); autoFx(t); if(hero&&p.stage.spin) hero.rotation.y=t*0.8;
+      applyActs(t,u); if(POVX) POVX.frame(t,u); ppl.forEach(P=>P.tick(t,u)); extras.forEach(P=>{ const q=P.ex; if(q.walk){ const span=q.walk[1]-q.walk[0], sp=q.speed||0.7; P.g.position.x=q.walk[0]+((t*sp)%Math.abs(span))*Math.sign(span); } P.tick(t+(q.ph||0),u); }); pourAfter(t); autoFx(t); if(hero&&p.stage.spin) hero.rotation.y=t*0.8;
       if(hero&&hero.userData.cap&&p.stage.pop){ const k=easeOut(clamp(u/0.3)); hero.userData.cap.position.y=0.66+0.15+k*0.4; }
       switch(p.cam){
         case 'drone': pos=V(lerp(-6,-1.5,e),lerp(9,3.2,e),lerp(11,5.2,e)); break;
@@ -2617,20 +2656,21 @@ T.build=(p={})=>{ const s=new THREE.Scene(); s.background=new THREE.Color('#bfe0
         case 'follow': { const P=ppl[p.who||0]; const x=P?P.g.position.x:0, z=P?P.g.position.z:0; pos=V(x+1.1,1.25,z+1.9); look=V(x+0.15,1.05,z); break; }
         case 'cutfront': pos=V(lerp(0.3,0,e),lerp(1.6,1.25,e),lerp(6.4,5.2,e)); look=V(0,lerp(-0.2,0.2,e),0.3); break;
         case 'pov': pos=V(0,1.9,1.5); look=tgtObj.clone(); break;
+        case 'pov1': pos=POVX.pos.clone(); look=POVX.look.clone(); break;
         case 'chase': { const P=ppl[p.who||0]; const o=hero&&(!P||acts.some(a=>a.ride&&a.who===(p.who||0)))?hero.position:P?P.g.position:V(0,0,0); pos=V(o.x-1.5,1.5,o.z+2.4); look=V(o.x+0.4,1.15,o.z); break; }
         default: pos=V(lerp(-0.5,0.5,e),1.8,6.2); }
       // big objects: the camera steps back with the object size so nobody gets cut (not for face, chase, follow)
-      const osz=(p.stage&&p.stage.size)||1; if(osz>1.05&&!['face','chase','follow','pov'].includes(p.cam)){ const hb=V(0,(osz-1)*0.45,0); look=look.clone().add(hb); pos=look.clone().add(pos.clone().sub(look).multiplyScalar(0.55+osz*0.45)); }
+      const osz=(p.stage&&p.stage.size)||1; if(osz>1.05&&!['face','chase','follow','pov','pov1'].includes(p.cam)){ const hb=V(0,(osz-1)*0.45,0); look=look.clone().add(hb); pos=look.clone().add(pos.clone().sub(look).multiplyScalar(0.55+osz*0.45)); }
       // people next to the object: look between them so they stay in the frame
-      if(p.stage&&ppl.length&&!['face','chase','follow','pov'].includes(p.cam)&&p.focus!=='face'){ const px=ppl.reduce((a,P)=>a+P.g.position.x,0)/ppl.length; const sh2=V((px-(hero?hero.position.x:0))*0.4,0,0); look.add(sh2); pos.add(sh2); }
+      if(p.stage&&ppl.length&&!['face','chase','follow','pov','pov1'].includes(p.cam)&&p.focus!=='face'){ const px=ppl.reduce((a,P)=>a+P.g.position.x,0)/ppl.length; const sh2=V((px-(hero?hero.position.x:0))*0.4,0,0); look.add(sh2); pos.add(sh2); }
       // somebody flies away: the camera turns with the flight and backs off a little
-      const fly=acts.find(a=>a.launch!=null&&t>=a.launch&&ppl[a.who]); if(fly&&p.cam!=='face'){ const k=ease(clamp((t-fly.launch)/0.6)); const pp=ppl[fly.who].g.position; const mid=look.clone().lerp(V(pp.x,Math.max(0.7,pp.y+0.5),pp.z),0.6*k); const sh3=mid.clone().sub(look); look=mid; pos=pos.clone().add(sh3).add(pos.clone().sub(look).normalize().multiplyScalar(1.2*k)); }
+      const fly=acts.find(a=>a.launch!=null&&t>=a.launch&&ppl[a.who]); if(fly&&p.cam!=='face'&&p.cam!=='pov1'){ const k=ease(clamp((t-fly.launch)/0.6)); const pp=ppl[fly.who].g.position; const mid=look.clone().lerp(V(pp.x,Math.max(0.7,pp.y+0.5),pp.z),0.6*k); const sh3=mid.clone().sub(look); look=mid; pos=pos.clone().add(sh3).add(pos.clone().sub(look).normalize().multiplyScalar(1.2*k)); }
       // lens like a phone: 0.5x ultra-wide close to the person (face, low, follow, crash, pov), ~1x for wide shots.
       // The camera moves closer by the same factor, so the subject keeps its size and the background gets wide and curved.
-      const LENS={chase:100,face:96,low:96,follow:90,crash:90,pov:100,whip:82,push:72,orbit:64,drone:58,diorama:56,cutfront:58}, fov=p.lens||LENS[p.cam]||62;
-      const kd=p.cam==='chase'||p.cam==='follow'?1:Math.pow(Math.tan(21*Math.PI/180)/Math.tan(fov/2*Math.PI/180),0.62); const dv=pos.clone().sub(look); pos=look.clone().add(dv.multiplyScalar(kd)); if(pos.y<0.12) pos.y=0.12;
+      const LENS={pov1:70,chase:100,face:96,low:96,follow:90,crash:90,pov:100,whip:82,push:72,orbit:64,drone:58,diorama:56,cutfront:58}, fov=p.lens||LENS[p.cam]||62;
+      const kd=p.cam==='chase'||p.cam==='follow'||p.cam==='pov1'?1:Math.pow(Math.tan(21*Math.PI/180)/Math.tan(fov/2*Math.PI/180),0.62); const dv=pos.clone().sub(look); pos=look.clone().add(dv.multiplyScalar(kd)); if(pos.y<0.12) pos.y=0.12;
       // groups: the camera centres on all people and backs off until nobody is cut at the sides
-      if(ppl.length>1&&!p.stage&&!p.board&&!['face','follow','chase','pov'].includes(p.cam)&&p.focus!=='face'){ let x0=1e9,x1=-1e9; ppl.forEach(P=>{ x0=Math.min(x0,P.g.position.x); x1=Math.max(x1,P.g.position.x); }); const sh=V((x0+x1)/2-look.x,0,0); look=look.clone().add(sh); pos=pos.clone().add(sh);
+      if(ppl.length>1&&!p.stage&&!p.board&&!['face','follow','chase','pov','pov1'].includes(p.cam)&&p.focus!=='face'){ let x0=1e9,x1=-1e9; ppl.forEach(P=>{ x0=Math.min(x0,P.g.position.x); x1=Math.max(x1,P.g.position.x); }); const sh=V((x0+x1)/2-look.x,0,0); look=look.clone().add(sh); pos=pos.clone().add(sh);
         const half=(x1-x0)/2+0.5, hf=Math.atan(Math.tan(fov/2*Math.PI/180)*W/H), need=half/Math.tan(hf), dv2=pos.clone().sub(look), dh=Math.hypot(dv2.x,dv2.z); if(dh<need) pos=look.clone().add(dv2.multiplyScalar(need/dh)); }
       if(cam.fov!==fov){ cam.fov=fov; cam.updateProjectionMatrix(); }
       if(TPB){ TPB.clouds.forEach((c,i)=>c.position.x=c.userData.x0+t*0.12*(1+i*0.2)); if(TPB.motes) TPB.motes.rotation.y=t*0.02; TPB.ticks.forEach(fn=>fn(t)); }

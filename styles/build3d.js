@@ -114,6 +114,22 @@ function extrasFor(place, seed, nPeople) { const n = Math.max(0, (EXTRA_PLACES[p
   for (let k = 0; k < n; k++) { const L = EXTRA_LOOKS[(seed + k * 2) % EXTRA_LOOKS.length]; const kind = (seed + k) % 3;
     out.push({ ...L, z: -2.4 - k * 0.7, ...(kind === 0 ? { walk: k % 2 ? [3.2, -3.2] : [-3.2, 3.2], speed: 0.6 + k * 0.1 } : kind === 1 ? { x: (k % 2 ? 1 : -1) * (2.0 + k * 0.4), holds: 'mate', pose: 'drink' } : { x: (k % 2 ? -1 : 1) * (2.3 + k * 0.3), pose: 'talk', ph: k }) }); }
   return out; }
+// ---- POV: "you" is the camera (eye height, own hands in the frame); the verb of "you" is what the hands do
+const isYou = pp => /^(you|vos|yo|tu)$/.test(norm(pp && pp.role));
+function povOf(sc, sg) { const all = sc.people || []; const yi = all.findIndex(isYou); if (yi < 0) return null;
+  const me = all[yi], yd = norm(me.does), look = toon(me, yi); const others = all.filter((q, i) => i !== yi).slice(0, 4).map(q => ({ ...q }));
+  const gi = others.findIndex(q => /^(pass|offer)$/.test(norm(q.does))), ri = others.findIndex(q => norm(q.does) === 'receive');
+  const pov = { shirt: look.shirt, skin: look.skin }; const hot = HOT.test(norm(sg.text)) || ['pain', 'dolor', 'quemado'].includes(norm(me.mood));
+  if (yd === 'receive' || (gi >= 0 && !/^(pass|offer)$/.test(yd))) { pov.act = 'receive'; pov.from = gi >= 0 ? gi : 0; if (others[pov.from]) others[pov.from].does = 'hold_mate'; }
+  else if (/^(pass|offer)$/.test(yd)) { pov.act = 'give'; pov.to = ri >= 0 ? ri : 0; if (others[pov.to]) others[pov.to].does = 'idle'; }
+  else if (/^drink/.test(yd)) { pov.act = 'drink'; pov.holds = /guampa/.test(yd) ? 'guampa' : /cuia/.test(yd) ? 'cuia' : 'mate'; pov.burn = hot; }
+  else if (/blow|sopl/.test(yd)) pov.act = 'blow';
+  else if (/hold_both|carry|termo_brazo/.test(yd)) { pov.act = 'hold'; pov.holds = 'mate'; pov.holdsL = 'termo'; }
+  else if (/film|phone|celu|foto/.test(yd)) { pov.act = 'phone'; pov.holds = 'celular'; }
+  else if (/hold_termo/.test(yd)) { pov.act = 'hold'; pov.holds = 'termo'; } else if (/hold_pava/.test(yd)) { pov.act = 'hold'; pov.holds = 'pava'; } else if (/hold_yerba|bolsa/.test(yd)) { pov.act = 'hold'; pov.holds = /bolsa/.test(yd) ? 'bolsa' : 'yerba'; }
+  else if (/hold_|hug_mate|mate$/.test(yd)) { pov.act = 'hold'; pov.holds = /guampa/.test(yd) ? 'guampa' : /cuia/.test(yd) ? 'cuia' : 'mate'; }
+  else if (/^(walk|run)|llega|camina/.test(yd)) pov.act = 'walk'; else if (/shock|asust|no$|niega/.test(yd)) pov.act = 'shock'; else pov.act = 'look';
+  return { pov, others }; }
 function toSpec(script) {
   const base = flat2d.toSpec(script, { plain: true }); base.segments.forEach(g => (g.callouts || []).forEach(c => { if (c.early) c.y = 1400; })); const pick = chooser(script.id || 'reel'); let gagN = 0; const firstScene = script.segments.map(g => (g.visuals || [g.visual])).flat().find(v => v && v.type === 'scene') || {}; let place = placeOf(firstScene.place);
   const where = (p, v, si) => { if (place !== 'prado') p.place = place; const pr = v && v.type === 'scene' ? propsFor(v, place) : []; if (pr.length) p.props = pr;
@@ -131,6 +147,20 @@ function toSpec(script) {
       // extra shots of the 2D style (montage, reaction close-up) never stay 2D: a close-up of one of the people of the last 3D shot
       if (!v) { if (s.tpl === 'board') return out.push(toBuild(s)); if (lastP) { const ppl0 = (lastP.people || []).filter(q => q.pose !== 'sit'); const q = { ...(ppl0[k % Math.max(1, ppl0.length)] || lastPeople[0]), x: 0, ry: 0, y: 0, z: undefined }; return out.push({ tpl: 'build', p: where({ people: [q], cam: 'face', who: 0, focus: 'face', acts: [{ who: 0, face: k % 2 ? 'surprised' : 'happy', at: 0.4 }], seed: si * 7 + k }, null, si) }); } return out.push(s); }
       const place0 = place; if (v.type === 'scene' && v.place) place = placeOf(v.place); const push = (p, m = 1) => { where(p, v, si); lastP = p; for (let j = 0; j < m; j++) out.push({ tpl: 'build', p: { ...JSON.parse(JSON.stringify(p)), cam: j === 0 ? p.cam : (p.people && p.people.length ? pick(j % 2 ? FACECAMS : CAMS) : pick(['orbit', 'crash', 'push'])), seed: si * 7 + j } }); };
+      if (script.pov && v.type === 'scene' && (v.people || []).some(isYou)) { const pv = povOf(v, sg); const sc2 = { ...v, people: pv.others }; delete sc2.pass; const ppl = pv.others.map(toon); const prevPeople = lastPeople; if (ppl.length) lastPeople = ppl;
+        const D = ppl.length ? direct(sc2, ppl, sg, prevPeople) : { acts: [], stage: null }; let acts = D.acts.filter(a => !a.give); const P = pv.pov;
+        if (P.act === 'drink') ppl.forEach((q, i) => acts.push(P.burn ? { who: i, pose: 'laugh', face: 'crylaugh', at: 1.15 } : { who: i, face: 'happy', at: 1.0 }));
+        if (P.act === 'drink' || P.act === 'blow') { acts.push({ fx: 'steam', t0: P.act === 'blow' ? 0.5 : 0.2, t1: 2.6, from: 'pov' }); if (P.burn) acts.push({ fx: 'steam', t0: 1.0, t1: 1.8, from: 'pov' }); }
+        if (P.act === 'receive' && ppl[P.from]) { ppl[P.from].pose = 'idle'; acts.push({ who: P.from, face: 'happy', at: 0.2 }); ppl.forEach((q, i) => { if (i !== P.from) acts.push({ look: [i, P.from], at: 0.3 }); }); if (HOT.test(norm(sg.text))) acts.push({ fx: 'steam', t0: 0.2, t1: 2.4, from: 'hand', who: P.from }); }
+        if (P.act === 'give' && ppl[P.to]) { ppl[P.to].pose = 'idle'; acts.push({ who: P.to, face: 'happy', at: 1.3 }); }
+        if (P.act === 'shock') ppl.forEach((q, i) => acts.push({ who: i, face: 'surprised', at: 0.5 }));
+        const p = { people: ppl, cam: 'pov1', pov: P, ...(acts.length ? { acts } : {}), ...(D.stage ? { stage: D.stage } : {}) }; where(p, v, si); lastP = p; out.push({ tpl: 'build', p: { ...JSON.parse(JSON.stringify(p)), seed: si * 7 } });
+        // long sentences: a second shot, the person in front of you in a close-up, looking into the lens
+        if (n > 1 && ppl.length && !['receive', 'give', 'drink', 'blow'].includes(P.act)) { const k0 = P.act === 'receive' ? P.from : P.act === 'give' ? P.to : 0; const q = { ...ppl[k0], x: 0, ry: 0, y: 0, z: undefined, pose: ppl[k0].pose === 'walk' ? 'idle' : ppl[k0].pose }; out.push({ tpl: 'build', p: where({ people: [q], cam: 'face', who: 0, focus: 'face', acts: [{ who: 0, face: P.burn ? 'crylaugh' : 'happy', at: 0.3 }], seed: si * 7 + 1 }, null, si) }); }
+        return; }
+      if (script.pov && v.type === 'reaction') { const e = FACE[norm(v.emotion)] || 'surprised'; const ppl = lastPeople.map(q => ({ ...q, pose: q.pose === 'sit' ? 'sit' : 'idle', holds: null, holdsL: null, y: 0, z: undefined, x: undefined, ry: undefined }));
+        const act = ['surprised', 'shock', 'scared', 'angry', 'outraged'].includes(e) ? 'shock' : 'look'; const acts = ppl.map((q, i) => ({ who: i, face: e === 'laugh' || e === 'crylaugh' ? 'crylaugh' : act === 'shock' ? 'surprised' : 'happy', at: 0.3 }));
+        const p = { people: ppl, cam: 'pov1', pov: { act }, acts }; where(p, null, si); lastP = p; return out.push({ tpl: 'build', p }); }
       if (v.type === 'scene' || v.type === 'mistake') { const sc = v.type === 'mistake' ? (v.over || { people: [{ role: 'friend', does: 'no' }] }) : v; const ppl = (sc.people || []).slice(0, 4).map(toon); if (v.type === 'mistake') ppl.forEach(q => { q.pose = 'shrug'; q.face = 'worried'; });
         // a failure hits the person: the first one falls over, stars over the head, the others react
         const gag = v.type === 'mistake' && ppl.length ? [{ who: 0, pose: 'shock', face: 'scared', at: 0.3 }, { who: 0, fall: 0.9 }, { fx: 'stars', at: 1.2, from: 'head', who: 0 }, { who: 0, face: 'dizzy', at: 1.4 }, ...ppl.slice(1).map((q, k) => ({ who: k + 1, pose: 'laugh', face: 'crylaugh', at: 1.0 }))] : null; const prevPeople = lastPeople; if (ppl.length) lastPeople = ppl;

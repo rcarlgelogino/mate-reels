@@ -1,0 +1,85 @@
+{
+ "id": "0030p_pov_tu_suegra_te_ceba",
+ "topic": "situacion",
+ "pov": true,
+ "title": "POV: la suegra te ceba",
+ "caption": "POV: primera visita y tu suegra te ceba el primer mate 🧉\nTodos te miran. No podés fallar.\n¿Vos qué hacés? 👇",
+ "hashtags": ["#mate", "#yerbamate", "#argentina", "#pov", "#suegra", "#costumbresargentinas", "#matero"],
+ "segments": [
+  {
+   "text": "POV: primera visita a la casa de tu suegra.",
+   "emo": "tense",
+   "beat": "hook",
+   "visual": { "type": "scene", "place": "living", "people": [ { "role": "you", "does": "walk", "mood": "worried" }, { "role": "suegra", "does": "wave", "mood": "happy" }, { "role": "suegro", "does": "sit", "mood": "neutral" } ] },
+   "headline": "POV",
+   "headlineSub": "PRIMERA VISITA",
+   "headlineAt": "visita",
+   "impact": true
+  },
+  {
+   "text": "Ella aparece con el mate recién cebado y te lo da a vos primero.",
+   "emo": "surprised",
+   "beat": "loop",
+   "visual": { "type": "scene", "place": "living", "people": [ { "role": "suegra", "does": "pass", "mood": "proud" }, { "role": "you", "does": "receive", "mood": "worried" } ] },
+   "headline": "A VOS PRIMERO",
+   "headlineAt": "primero"
+  },
+  {
+   "text": "Está tan caliente que sale humo como de una locomotora.",
+   "emo": "funny",
+   "beat": "body",
+   "visual": { "type": "scene", "place": "living", "people": [ { "role": "you", "does": "blow_mate", "mood": "scared" }, { "role": "suegra", "does": "idle", "mood": "happy" } ] },
+   "headline": "PELIGRO",
+   "headlineAt": "humo"
+  },
+  {
+   "text": "Todos te miran. Hasta el perro.",
+   "emo": "tense",
+   "beat": "rehook",
+   "visual": { "type": "reaction", "emotion": "surprised" },
+   "headline": "TODOS TE MIRAN",
+   "headlineAt": "miran"
+  },
+  {
+   "text": "Tomás igual, y la lengua se te despide para siempre.",
+   "emo": "funny",
+   "beat": "body",
+   "visual": { "type": "scene", "place": "living", "people": [ { "role": "you", "does": "drink", "mood": "pain" }, { "role": "suegra", "does": "laugh", "mood": "laugh" }, { "role": "cunado", "does": "laugh", "mood": "laugh" } ] },
+   "headline": "LENGUA QUEMADA",
+   "headlineAt": "lengua"
+  },
+  {
+   "text": "Tu cuñado ya lo está filmando para el grupo de la familia.",
+   "emo": "funny",
+   "beat": "body",
+   "visual": { "type": "scene", "place": "living", "people": [ { "role": "cunado", "does": "film_phone", "mood": "laugh" }, { "role": "you", "does": "shock", "mood": "scared" } ] },
+   "headline": "FILMANDO",
+   "headlineAt": "filmando"
+  },
+  {
+   "text": "Y vos, con cara de nada, le decís que está buenísimo.",
+   "emo": "proud",
+   "beat": "body",
+   "visual": { "type": "scene", "place": "living", "people": [ { "role": "you", "does": "hold_mate", "mood": "proud" }, { "role": "suegra", "does": "cheer", "mood": "happy" } ] },
+   "headline": "BUENÍSIMO",
+   "headlineAt": "buenísimo"
+  },
+  {
+   "text": "Ella sonríe. Pasaste la prueba.",
+   "emo": "warm",
+   "beat": "payoff",
+   "visual": { "type": "scene", "place": "living", "people": [ { "role": "you", "does": "pass", "mood": "happy" }, { "role": "suegra", "does": "receive", "mood": "love" } ] },
+   "headline": "APROBADO",
+   "headlineAt": "prueba",
+   "impact": true
+  },
+  {
+   "text": "¿Vos qué hacés? Mandáselo al que va a conocer a la suegra.",
+   "emo": "funny",
+   "beat": "cta",
+   "visual": { "type": "title", "text": "", "sub": "" }
+  }
+ ],
+ "poll": { "question": "¿Qué hacés?", "options": ["LO TOMO IGUAL", "SOPLO Y ESPERO", "SE LO PASO AL CUÑADO"] },
+ "thumb": { "lines": ["POV:", "TU SUEGRA TE CEBA"] }
+}

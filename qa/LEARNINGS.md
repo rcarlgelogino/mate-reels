@@ -3,12 +3,14 @@
 Every reel is analysed after it is built (scripts/qa.js), for its VISUAL representation only. Pacing, hook, wording and sound are not learned here; they come from the reference reels (docs/WATCHTIME.md).
 The rules below are collected from all analyses, most frequent first. scripts/improve.js uses them to choose the visuals of the next script; recurring drawing problems get fixed in the style (styles/*.js, engine). Nothing here blocks a release.
 
-Reels analysed: 21 · average scores: visual logic 7.0 · graphics 7.4 · overall 7.1 · updated 2026-11-19
+Reels analysed: 25 · average scores: visual logic 7.1 · graphics 7.4 · overall 7.2 · updated 2026-11-20
 
 ## Do more of
 
 | times | area | rule | last seen |
 |---|---|---|---|
+| 1 | hands | Maintain correct side-gripping of the gourd for all characters handling mate to preserve physical realism. | 2026-11-20 |
+| 1 | objects | Ensure handheld props attach directly to ball hands without gaps. | 2026-11-20 |
 | 1 | hands | Maintain the correct side-grasping grip for all characters holding gourds across all frames. | 2026-11-19 |
 | 1 | match | Ensure object scales like yerba packages and thermos flasks remain consistent across all office scenes. | 2026-11-18 |
 | 1 | scale | Maintain correct relative sizing between oversized props like the cuia and the characters holding them. | 2026-11-18 |
@@ -28,6 +30,7 @@ Reels analysed: 21 · average scores: visual logic 7.0 · graphics 7.4 · overal
 
 | times | area | rule | last seen |
 |---|---|---|---|
+| 1 | scene | Do not mix flat vector templates into pixel8 reels. | 2026-11-20 |
 | 1 | labels | Avoid overlapping multiple caption boxes when several family members are grouped together in a single frame. | 2026-11-19 |
 | 1 | labels | Never place headline text boxes directly over raised hands or facial expressions. | 2026-11-18 |
 | 1 | match | Avoid repeating identical static frames across consecutive shots without visual progression. | 2026-11-18 |
@@ -47,6 +50,26 @@ Reels analysed: 21 · average scores: visual logic 7.0 · graphics 7.4 · overal
 
 ## Latest reels
 
+### 0021a_alguien_te_mueve_la_bombilla (2026-11-20)
+The flat 2D reel consistently follows visual rules with clear character expressions, correct hand placements on gourds, and well-proportioned background elements matching the storyline.
+- clean: Shot 0: Figures stand correctly positioned near the counter with accurate hand placement on the gourd.; Shot 2: Characters pass the mate fluidly with hands meeting naturally.; Shot 5: Character grips the mate properly by the side while handling the bombilla.; Shot 7: Character's expression reflects outrage matching the scene context.; Shot 10: Characters interact clearly while demonstrating option two.
+- unclean: –
+
+### 0021_en_paraguay_con_hielo (2026-11-20)
+
+- clean: –
+- unclean: –
+
+### 0020a_tu_jefe_te_ceba_un_mate_lavado (2026-11-20)
+The pixel8 aesthetics are generally maintained with cute character designs and themed hero objects. However, clear visual bugs exist such as empty frame renders, hand-object clipping, and a style breach in shot 8.
+- clean: Pouring stance in shot 3 matches the pTermoPour rule correctly.; Drinking pose in shot 7 places bombilla properly on the mouth.; Shot 2 features a clean hero object with standard warm glow halo.; Pixel art typography renders clearly across frames.
+- unclean: shot 8: Switches abruptly to a non-pixel flat template character.; shot 9: Frame is empty with missing characters and misaligned background graphics.; shot 11: Phone floats detached near the character's hand.; shot 8: Flat style assets used instead of pixel8 engine template.; shot 9: Missing character sprites leaving background empty.
+
+### 0019_tu_suegra_y_el_mate_hirviendo (2026-11-19)
+
+- clean: –
+- unclean: –
+
 ### 0019_tu_suegra_y_el_mate_hirviendo (2026-11-19)
 The reel effectively uses flat 2D character assets and environments to tell the story of a tense mate situation with family. Character hand placement on gourds, passing mechanics, and text overlays generally follow the checklist, though some text box crowding and minor expression repetitions occur.
 - clean: Shot 0-2, 5: Mother-in-law passing the mate with correct hand grips on the sides.; Shot 4: Close-up of smoking mate with bombilla and warning label shows clear proportional scaling.; Shot 7-8: Character drinking with bombilla at mouth and hand securely grasping the gourd.; Consistent flat 2D art style, proper couch and window background proportions relative to characters.; Clear visual progression from the passing scene to options and family reactions.
@@ -56,24 +79,4 @@ The reel effectively uses flat 2D character assets and environments to tell the 
 
 - clean: –
 - unclean: –
-
-### 0017_el_mate_en_la_oficina (2026-11-18)
-The reel effectively portrays an office setting with consistent 2D flat assets and characters, though some text placement covers character elements and minor repetition in character poses occurs.
-- clean: Shot 3: Figure correctly pours water from the thermos into the gourd.; Shot 4: Characters pass the mate naturally with aligned hands.; Shot 7: Character holds the yerba package correctly at scale.; Office environment, desks, computers, and background windows maintain consistent style.; Character outfits and hair colors follow the requested flat2d conventions.
-- unclean: Shot 6: Character's hands placed on head overlap incorrectly with captions.; Shot 6: Large text boxes 'LA REGLA ES...' overlap directly with the character's hands on their head.
-
-### 0016_si_hervis_el_agua (2026-11-18)
-
-- clean: –
-- unclean: –
-
-### 0015_en_brasil_el_mate_es_verde (2026-11-18)
-
-- clean: –
-- unclean: –
-
-### 0015_en_brasil_el_mate_es_verde (2026-11-18)
-The reel effectively uses the flat2d template style with clear illustrations representing the spoken text about Brazilian chimarrão. Minor text alignment issues and duplicate visual representations exist across sequential frames.
-- clean: Shot 0 accurately compares Argentinian and Brazilian mate visually.; Shot 7 correctly scales the enormous cuia relative to the figures.; Shot 10 accurately depicts the disgusted facial expression of the Argentine character trying chimarrão.; Good consistency in character hair, clothing, and flag placement.; Clear infographics explaining the fresh harvesting process of chimarrão yerba.
-- unclean: Shot 2: The map graphic is repeated identically from Shot 1 without new information.; Shot 9: Identical repeated frames for consecutive shots showing the exact same character pose.; Shot 12: Multiple overlapping interactive buttons clutter the bottom interface area.
 

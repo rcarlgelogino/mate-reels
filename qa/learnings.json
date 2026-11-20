@@ -1,7 +1,17 @@
 {
- "updated": "2026-11-19T09:16:30.005Z",
- "reels": 21,
+ "updated": "2026-11-20T09:13:31.950Z",
+ "reels": 25,
  "do": [
+  {
+   "n": 1,
+   "area": "hands",
+   "rule": "Maintain correct side-gripping of the gourd for all characters handling mate to preserve physical realism."
+  },
+  {
+   "n": 1,
+   "area": "objects",
+   "rule": "Ensure handheld props attach directly to ball hands without gaps."
+  },
   {
    "n": 1,
    "area": "hands",
@@ -66,14 +76,14 @@
    "n": 1,
    "area": "labels",
    "rule": "Keep graphic text centered and safely within vertical UI margins."
-  },
-  {
-   "n": 1,
-   "area": "scale",
-   "rule": "Keep all props such as gourds, bombillas, and thermoses correctly proportioned relative to the figures holding them."
   }
  ],
  "avoid": [
+  {
+   "n": 1,
+   "area": "scene",
+   "rule": "Do not mix flat vector templates into pixel8 reels."
+  },
   {
    "n": 1,
    "area": "labels",
@@ -156,12 +166,11 @@
   }
  ],
  "recentBad": [
+  "shot 8: Switches abruptly to a non-pixel flat template character.",
+  "shot 9: Frame is empty with missing characters and misaligned background graphics.",
+  "shot 11: Phone floats detached near the character's hand.",
+  "shot 8: Flat style assets used instead of pixel8 engine template.",
   "Shot 10: Girlfriend looks worried/sad but her hands remain oddly stiff at her sides while the text mentions lack of help.",
-  "Shot 1-2: Multiple family members clustered closely at the bottom with overlapping label boxes that slightly crowd the view.",
-  "Shot 6: Character's hands placed on head overlap incorrectly with captions.",
-  "Shot 6: Large text boxes 'LA REGLA ES...' overlap directly with the character's hands on their head.",
-  "Shot 2: The map graphic is repeated identically from Shot 1 without new information.",
-  "Shot 9: Identical repeated frames for consecutive shots showing the exact same character pose.",
-  "Shot 12: Multiple overlapping interactive buttons clutter the bottom interface area."
+  "Shot 1-2: Multiple family members clustered closely at the bottom with overlapping label boxes that slightly crowd the view."
  ]
 }

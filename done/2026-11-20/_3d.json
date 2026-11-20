@@ -1,0 +1,231 @@
+{
+ "name": "0020_la_yerba_en_bolsa_de_nylon",
+ "n": 4,
+ "script": {
+  "id": "0020_la_yerba_en_bolsa_de_nylon",
+  "topic": "T24",
+  "title": "Sos de acá",
+  "caption": "Si te pasaron la yerba en una bolsa de nylon, sos de acá 🧉\nCinco señales de que tu mate es bien argentino.\n¿Cuántas de las cinco tenés vos? 👇",
+  "hashtags": [
+   "#mate",
+   "#yerbamate",
+   "#argentina",
+   "#matero",
+   "#costumbresargentinas",
+   "#argentinos",
+   "#identidad"
+  ],
+  "segments": [
+   {
+    "text": "Si te pasaron la yerba en una bolsa de nylon, sos de acá.",
+    "emo": "surprised",
+    "beat": "hook",
+    "visual": {
+     "type": "object",
+     "item": "bolsa_nylon_yerba",
+     "labels": [
+      "CON NUDO"
+     ]
+    },
+    "headline": "SOS DE ACÁ",
+    "headlineAt": "nylon",
+    "impact": true
+   },
+   {
+    "text": "Hay cinco señales, y el cebador de tu ronda tiene la peor.",
+    "emo": "tense",
+    "beat": "loop",
+    "visual": {
+     "type": "dots",
+     "on": 0,
+     "total": 5,
+     "cols": 5,
+     "label": "5 SEÑALES",
+     "sub": "¿CUÁNTAS TENÉS?"
+    },
+    "headline": "CINCO SEÑALES",
+    "headlineAt": "cinco"
+   },
+   {
+    "text": "Uno: la yerba viaja en una bolsita con nudo.",
+    "emo": "funny",
+    "beat": "body",
+    "visual": {
+     "type": "scene",
+     "place": "ruta",
+     "people": [
+      {
+       "role": "friend",
+       "does": "hold_bolsa_nylon",
+       "mood": "happy"
+      }
+     ],
+     "props": [
+      "auto",
+      "mochila"
+     ]
+    },
+    "headline": "UNO",
+    "headlineAt": "uno"
+   },
+   {
+    "text": "Y dos, la más común: tu mate tiene una rajadura con cinta.",
+    "emo": "surprised",
+    "beat": "rehook",
+    "visual": {
+     "type": "object",
+     "item": "mate",
+     "variant": "con_cinta",
+     "labels": [
+      "CINTA"
+     ]
+    },
+    "headline": "DOS",
+    "headlineAt": "dos"
+   },
+   {
+    "text": "Tres: la bombilla está torcida y nadie sabe por qué.",
+    "emo": "funny",
+    "beat": "body",
+    "visual": {
+     "type": "object",
+     "item": "bombilla",
+     "kind": "torcida",
+     "labels": [
+      "TORCIDA"
+     ]
+    },
+    "headline": "TRES",
+    "headlineAt": "tres"
+   },
+   {
+    "text": "Y ojo, que las dos que faltan duelen.",
+    "emo": "excited",
+    "beat": "rehook",
+    "visual": {
+     "type": "reaction",
+     "emotion": "surprised",
+     "act": "shock",
+     "who": 4
+    },
+    "headline": "FALTAN DOS",
+    "headlineAt": "faltan",
+    "impact": true
+   },
+   {
+    "text": "Cuatro: el termo tiene más abolladuras que tu auto.",
+    "emo": "funny",
+    "beat": "body",
+    "visual": {
+     "type": "compare",
+     "left": {
+      "item": "termo_abollado",
+      "label": "TERMO"
+     },
+     "right": {
+      "item": "auto",
+      "label": "AUTO"
+     },
+     "text": "MÁS ABOLLADURAS",
+     "sub": ""
+    },
+    "headline": "CUATRO",
+    "headlineAt": "cuatro"
+   },
+   {
+    "text": "Y tiene calcomanías de lugares donde nunca fuiste.",
+    "emo": "proud",
+    "beat": "body",
+    "visual": {
+     "type": "object",
+     "item": "termo",
+     "variant": "con_calcomanias",
+     "labels": [
+      "BARILOCHE",
+      "MAR DEL PLATA"
+     ]
+    },
+    "headline": "CALCOMANÍAS",
+    "headlineAt": "calcoman"
+   },
+   {
+    "text": "Y la quinta es la peor: calentaste el agua en una olla.",
+    "emo": "funny",
+    "beat": "rehook",
+    "visual": {
+     "type": "scene",
+     "place": "cocina",
+     "people": [
+      {
+       "role": "you",
+       "does": "pour_from_olla",
+       "mood": "worried"
+      }
+     ],
+     "props": [
+      "olla"
+     ]
+    },
+    "headline": "CINCO",
+    "headlineAt": "olla"
+   },
+   {
+    "text": "Si tenés las cinco, tu mate es horrible.",
+    "emo": "surprised",
+    "beat": "body",
+    "visual": {
+     "type": "dots",
+     "on": 5,
+     "total": 5,
+     "cols": 5,
+     "label": "5 DE 5",
+     "sub": "MATE HORRIBLE"
+    }
+   },
+   {
+    "text": "Y es justo por eso que nadie lo cambia.",
+    "emo": "love",
+    "beat": "payoff",
+    "visual": {
+     "type": "scene",
+     "place": "patio",
+     "people": [
+      {
+       "role": "you",
+       "does": "hug_mate",
+       "mood": "love"
+      }
+     ]
+    },
+    "headline": "NO SE CAMBIA",
+    "headlineAt": "cambia",
+    "impact": true
+   },
+   {
+    "text": "¿Cuántas de las cinco tenés vos? Mandáselo al del mate más feo.",
+    "emo": "funny",
+    "beat": "cta",
+    "visual": {
+     "type": "title",
+     "text": "ETIQUETÁ",
+     "sub": "AL DEL MATE MÁS FEO"
+    }
+   }
+  ],
+  "poll": {
+   "question": "¿Cuántas tenés?",
+   "options": [
+    "TODAS",
+    "DOS O TRES",
+    "NINGUNA"
+   ]
+  },
+  "rewrite": "top-reel pattern 2026-11-17 + rehooks",
+  "thumb": {
+   "lines": [
+    "5 SEÑALES",
+    "DE MATERO"
+   ]
+  }
+ }
+}

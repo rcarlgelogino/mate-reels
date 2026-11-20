@@ -2,7 +2,7 @@
 
 Found by the analysis after every build. Nothing is blocked; fix the most frequent ones in the style (styles/*.js, engine) or the script rules.
 
-Reels analysed: 13 · issues: 42 · updated 2026-11-19
+Reels analysed: 14 · issues: 45 · updated 2026-11-20
 
 | times | severity | category | problem (latest example) | suggested fix | last seen |
 |---|---|---|---|---|---|
@@ -10,6 +10,8 @@ Reels analysed: 13 · issues: 42 · updated 2026-11-19
 | 1 | high | hands | Mate gourd floats on the character's chest with bombilla while both arms hang down at her sides. (0011_con_palo_o_sin_palo, shot 6) | Attach character holding hand to mate gourd using the f2grip pose, curling fingers around the side. | 2026-11-16 |
 | 1 | high | match | Character drinks with a bombilla when narration says before the bombilla existed. (0012_de_donde_viene_bombilla, shot 0) | Remove the straw and depict the character sipping directly from the rim of the gourd. | 2026-11-17 |
 | 1 | high | match | Gourd has a straw inserted while the voiceover specifies drinking straight from the gourd. (0012_de_donde_viene_bombilla, shot 3) | Remove the bombilla sprite from the gourd asset for pre-bombilla Guarani scenes. | 2026-11-17 |
+| 1 | high | people | Shot uses 2D vector flat template instead of pixel8 engine style. (0020a_tu_jefe_te_ceba_un_mate_lavado, shot 8) | Rebuild shot 8 using standard pixel8 character models. | 2026-11-20 |
+| 1 | high | scene | Background is misaligned and character models fail to render. (0020a_tu_jefe_te_ceba_un_mate_lavado, shot 9) | Ensure character anchor coordinates exist within camera view bounds. | 2026-11-20 |
 | 1 | medium | labels | Board template contains only text without visual props or characters. (0004_mate_argentino_o_uruguayo, shot 1) | Add relevant background illustrations or icons to board templates instead of text-only slides. | 2026-11-14 |
 | 1 | medium | labels | Board text is tiny and placed near bottom margin. (0006_de_donde_viene_mate, shot 8) | Center and enlarge lower graphic text for better legibility. | 2026-11-14 |
 | 1 | medium | scale | Grandma character appears undersized in a vast interior. (0007_team_calabaza_o_acero, shot 3) | Scale character up to occupy roughly one-half to two-thirds of frame height. | 2026-11-15 |
@@ -31,6 +33,7 @@ Reels analysed: 13 · issues: 42 · updated 2026-11-19
 | 1 | medium | objects | Thermos and mate shown isolated on a wooden pedestal instead of being held by the character. (0014_el_termo_bajo_el_brazo, shot 6) | Ensure the character is holding the thermos and mate as described in the audio. | 2026-11-17 |
 | 1 | medium | match | Consecutive shots (9 and 10) show identical frames without any progression. (0015_en_brasil_el_mate_es_verde, shot 9) | Introduce a slight camera push-in or change the character's reaction angle. | 2026-11-18 |
 | 1 | medium | labels | Large headline text covers the character's hands (0017_el_mate_en_la_oficina, shot 6) | Reposition headline text slightly higher or lower to avoid overlapping with raised hands. | 2026-11-18 |
+| 1 | medium | objects | Cell phone floats next to hand without grip connection. (0020a_tu_jefe_te_ceba_un_mate_lavado, shot 11) | Snap phone object directly to the floating ball hand. | 2026-11-20 |
 | 1 | low | people | Hands placed on the head for 'esperá' lack proper forearm connection alignment. (0004_mate_argentino_o_uruguayo, shot 4) | Ensure character arms seamlessly connect to raised hands. | 2026-11-14 |
 | 1 | low | labels | Repeating the exact same text and face close-up across three consecutive frames without variation. (0005_sos_argentino_de_verdad, shot 1) | Vary the zoom or introduce a new prop to maintain visual interest when repeating phrases. | 2026-11-14 |
 | 1 | low | hands | Hands float passively in the air without clear context. (0006_de_donde_viene_mate, shot 5) | Add a pose or gesture to make hand placement look intentional. | 2026-11-14 |

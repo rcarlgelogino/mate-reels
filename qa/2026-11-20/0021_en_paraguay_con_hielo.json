@@ -1,0 +1,20 @@
+{
+ "reel": "0021_en_paraguay_con_hielo",
+ "style": "flat2d",
+ "technical": [
+  "duration 54s",
+  "loudness -12.0 LUFS, peak -0.8 dBFS",
+  "voice gemini"
+ ],
+ "vision": {
+  "ran": false,
+  "model": null
+ },
+ "summary": "",
+ "scores": {},
+ "logic": {},
+ "graphics": {},
+ "issues": [],
+ "learnings": [],
+ "checked": "2026-11-20T09:09:18.403Z"
+}

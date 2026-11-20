@@ -1,0 +1,82 @@
+{
+ "reel": "0020a_tu_jefe_te_ceba_un_mate_lavado",
+ "style": "pixel8",
+ "technical": [
+  "duration 34.7s",
+  "loudness -12.8 LUFS, peak -0.8 dBFS",
+  "voice gemini"
+ ],
+ "vision": {
+  "ran": true,
+  "model": "gemini-3.5-flash"
+ },
+ "summary": "The pixel8 aesthetics are generally maintained with cute character designs and themed hero objects. However, clear visual bugs exist such as empty frame renders, hand-object clipping, and a style breach in shot 8.",
+ "scores": {
+  "visual_logic": 5,
+  "graphics": 4,
+  "overall": 5
+ },
+ "logic": {
+  "clean": [
+   "Pouring stance in shot 3 matches the pTermoPour rule correctly.",
+   "Drinking pose in shot 7 places bombilla properly on the mouth."
+  ],
+  "unclean": [
+   "shot 8: Switches abruptly to a non-pixel flat template character.",
+   "shot 9: Frame is empty with missing characters and misaligned background graphics.",
+   "shot 11: Phone floats detached near the character's hand."
+  ]
+ },
+ "graphics": {
+  "clean": [
+   "Shot 2 features a clean hero object with standard warm glow halo.",
+   "Pixel art typography renders clearly across frames."
+  ],
+  "unclean": [
+   "shot 8: Flat style assets used instead of pixel8 engine template.",
+   "shot 9: Missing character sprites leaving background empty."
+  ]
+ },
+ "issues": [
+  {
+   "severity": "high",
+   "category": "people",
+   "problem": "Shot uses 2D vector flat template instead of pixel8 engine style.",
+   "fix": "Rebuild shot 8 using standard pixel8 character models.",
+   "shot": 8,
+   "time": 20.4,
+   "template": "flat"
+  },
+  {
+   "severity": "high",
+   "category": "scene",
+   "problem": "Background is misaligned and character models fail to render.",
+   "fix": "Ensure character anchor coordinates exist within camera view bounds.",
+   "shot": 9,
+   "time": 22.4,
+   "template": "pix"
+  },
+  {
+   "severity": "medium",
+   "category": "objects",
+   "problem": "Cell phone floats next to hand without grip connection.",
+   "fix": "Snap phone object directly to the floating ball hand.",
+   "shot": 11,
+   "time": 25.2,
+   "template": "pix"
+  }
+ ],
+ "learnings": [
+  {
+   "type": "avoid",
+   "area": "scene",
+   "rule": "Do not mix flat vector templates into pixel8 reels."
+  },
+  {
+   "type": "do",
+   "area": "objects",
+   "rule": "Ensure handheld props attach directly to ball hands without gaps."
+  }
+ ],
+ "checked": "2026-11-20T08:56:37.715Z"
+}

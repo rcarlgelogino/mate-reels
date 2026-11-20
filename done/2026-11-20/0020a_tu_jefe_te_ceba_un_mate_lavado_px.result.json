@@ -1,0 +1,14 @@
+{
+ "id": "0020a_tu_jefe_te_ceba_un_mate_lavado",
+ "file": "work/0020a_tu_jefe_te_ceba_un_mate_lavado/final.mp4",
+ "voice": "gemini",
+ "duration": 34.7,
+ "inTarget": false,
+ "target": [
+  35,
+  45
+ ],
+ "loudness": "-12.8 LUFS, peak -0.8 dBFS",
+ "shots": 15,
+ "minutes": 2.1
+}

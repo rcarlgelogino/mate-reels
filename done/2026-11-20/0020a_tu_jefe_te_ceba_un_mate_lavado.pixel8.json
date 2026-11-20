@@ -1,0 +1,260 @@
+{
+ "id": "0020a_tu_jefe_te_ceba_un_mate_lavado",
+ "topic": "situacion",
+ "title": "El mate lavado del jefe",
+ "caption": "¿Qué hacés si tu jefe te ceba un mate lavado? 🧉\nPrimer día, todos mirando.\n¿Vos se lo decís o te lo tomás? 👇",
+ "hashtags": [
+  "#mate",
+  "#yerbamate",
+  "#argentina",
+  "#matero",
+  "#costumbresargentinas",
+  "#oficina",
+  "#trabajo"
+ ],
+ "segments": [
+  {
+   "text": "¿Qué hacés si tu jefe te ceba un mate lavado?",
+   "emo": "surprised",
+   "beat": "hook",
+   "visual": {
+    "type": "scene",
+    "place": "oficina",
+    "people": [
+     {
+      "role": "jefe",
+      "does": "offer",
+      "mood": "proud"
+     },
+     {
+      "role": "you",
+      "does": "receive",
+      "mood": "worried"
+     }
+    ],
+    "pass": [
+     0,
+     1
+    ]
+   },
+   "headline": "¿QUÉ HACÉS?",
+   "headlineAt": "lavado",
+   "impact": true
+  },
+  {
+   "text": "Es tu primer día y toda la oficina te mira.",
+   "emo": "tense",
+   "beat": "loop",
+   "visual": {
+    "type": "scene",
+    "place": "oficina",
+    "people": [
+     {
+      "role": "companera",
+      "does": "type",
+      "mood": "neutral"
+     },
+     {
+      "role": "oficinista",
+      "does": "talk",
+      "mood": "laugh"
+     },
+     {
+      "role": "companero_vivo",
+      "does": "point",
+      "mood": "happy"
+     },
+     {
+      "role": "you",
+      "does": "idle",
+      "mood": "worried"
+     }
+    ]
+   },
+   "headline": "TODOS TE MIRAN",
+   "headlineAt": "mira"
+  },
+  {
+   "text": "El mate ya no tiene gusto a nada, es agua verde.",
+   "emo": "funny",
+   "beat": "body",
+   "visual": {
+    "type": "object",
+    "item": "mate",
+    "animate": "girar",
+    "labels": [
+     "LAVADO"
+    ]
+   },
+   "headline": "AGUA VERDE",
+   "headlineAt": "verde"
+  },
+  {
+   "text": "Y él lo ceba orgulloso, como si fuera el primero.",
+   "emo": "warm",
+   "beat": "body",
+   "visual": {
+    "type": "scene",
+    "place": "oficina",
+    "people": [
+     {
+      "role": "jefe",
+      "does": "pour",
+      "mood": "proud"
+     }
+    ]
+   },
+   "headline": "ORGULLOSO",
+   "headlineAt": "orgulloso"
+  },
+  {
+   "text": "Tenés dos segundos para poner cara de contento.",
+   "emo": "excited",
+   "beat": "rehook",
+   "visual": {
+    "type": "number",
+    "value": "2",
+    "sub": "SEGUNDOS"
+   },
+   "headline": "DECIDÍ",
+   "headlineAt": "segundos",
+   "impact": true
+  },
+  {
+   "text": "Opción uno: le decís que está lavado y arriesgás el puesto.",
+   "emo": "tense",
+   "beat": "body",
+   "visual": {
+    "type": "scene",
+    "place": "oficina",
+    "people": [
+     {
+      "role": "you",
+      "does": "talk",
+      "mood": "worried"
+     },
+     {
+      "role": "jefe",
+      "does": "shock",
+      "mood": "angry"
+     }
+    ]
+   },
+   "headline": "OPCIÓN 1",
+   "headlineAt": "uno"
+  },
+  {
+   "text": "Opción dos: tomás, sonreís y decís \"qué rico\".",
+   "emo": "funny",
+   "beat": "body",
+   "visual": {
+    "type": "scene",
+    "place": "oficina",
+    "people": [
+     {
+      "role": "you",
+      "does": "drink",
+      "mood": "happy"
+     },
+     {
+      "role": "jefe",
+      "does": "cheer",
+      "mood": "proud"
+     }
+    ]
+   },
+   "headline": "OPCIÓN 2",
+   "headlineAt": "dos"
+  },
+  {
+   "text": "Pero tu compañera ya se está tentando de risa.",
+   "emo": "funny",
+   "beat": "rehook",
+   "visual": {
+    "type": "scene",
+    "place": "oficina",
+    "people": [
+     {
+      "role": "companera",
+      "does": "laugh",
+      "mood": "laugh"
+     },
+     {
+      "role": "you",
+      "does": "idle",
+      "mood": "worried"
+     }
+    ]
+   },
+   "headline": "SE TIENTA",
+   "headlineAt": "risa"
+  },
+  {
+   "text": "Y el vivo de al lado ya está filmando con el celular.",
+   "emo": "excited",
+   "beat": "body",
+   "visual": {
+    "type": "scene",
+    "place": "oficina",
+    "people": [
+     {
+      "role": "companero_vivo",
+      "does": "film_phone",
+      "mood": "laugh"
+     }
+    ]
+   },
+   "headline": "FILMANDO",
+   "headlineAt": "filmando"
+  },
+  {
+   "text": "De este mate depende tu primer aumento.",
+   "emo": "tense",
+   "beat": "payoff",
+   "visual": {
+    "type": "scene",
+    "place": "oficina",
+    "people": [
+     {
+      "role": "you",
+      "does": "hold_mate",
+      "mood": "worried"
+     },
+     {
+      "role": "jefe",
+      "does": "idle",
+      "mood": "neutral"
+     }
+    ]
+   },
+   "headline": "TODO DEPENDE",
+   "headlineAt": "aumento",
+   "impact": true
+  },
+  {
+   "text": "¿Vos se lo decís o te lo tomás? Mandáselo al que tiene jefe.",
+   "emo": "funny",
+   "beat": "cta",
+   "visual": {
+    "type": "title",
+    "text": "",
+    "sub": ""
+   }
+  }
+ ],
+ "poll": {
+  "question": "¿Qué hacés?",
+  "options": [
+   "SE LO DIGO",
+   "ME LO TOMO",
+   "CEBO YO"
+  ]
+ },
+ "thumb": {
+  "lines": [
+   "EL MATE",
+   "DEL JEFE"
+  ]
+ },
+ "rewrite": "suegra pattern 2026-11-20"
+}

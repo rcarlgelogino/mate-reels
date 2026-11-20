@@ -739,6 +739,7 @@ function f2person(c,o,t,u){ const S=o.s||520, k=S/520; const act=o.act||null, fa
   { const sy=(o.sit?-92:-8)*k; f2ell(c,-26*k,sy,26*k,12*k,'#1d1d22'); f2ell(c,26*k,sy,26*k,12*k,'#1d1d22'); }
   const HY=-420*k+hy, HX=hx; if(o.hairStyle==='long'){ rr(c,HX-66*k,HY-30*k,132*k,150*k,50*k,hair); }
   c.fillStyle=pants; rr(c,-58*k,-185*k,116*k,50*k,14*k,pants);
+  if(o.sit){ const lp=f2shade(pants,0.1), kn=f2shade(pants,0.18); rr(c,-64*k,-160*k,60*k,48*k,20*k,lp); rr(c,4*k,-160*k,60*k,48*k,20*k,lp); f2ell(c,-34*k,-118*k,26*k,13*k,kn); f2ell(c,34*k,-118*k,26*k,13*k,kn); }
   const g=c.createLinearGradient(-60*k,-330*k,60*k,-150*k); g.addColorStop(0,f2shade(shirt,0.12)); g.addColorStop(1,f2shade(shirt,-0.12)); rr(c,-62*k,-335*k,124*k,175*k,34*k,g);
   c.save(); c.beginPath(); c.roundRect(-62*k,-335*k,124*k,175*k,34*k); c.clip();
   if(o.stripes==='sash'&&o.stripe){ c.strokeStyle=o.stripe; c.lineWidth=30*k; c.beginPath(); c.moveTo(-70*k,-340*k); c.lineTo(70*k,-150*k); c.stroke(); }
@@ -894,6 +895,11 @@ function f2flag(c,code,x,y,w,h){ c.save(); c.beginPath(); c.rect(x,y,w,h); c.cli
   else if(code==='py'){ band(['#d52b1e','#ffffff','#0038a8']); f2ell(c,x+w/2,y+h/2,h*0.1,h*0.1,'#f6b40e'); } else if(code==='br'){ c.fillStyle='#009c3b'; c.fillRect(x,y,w,h); c.fillStyle='#ffdf00'; c.beginPath(); c.moveTo(x+w/2,y+h*0.1); c.lineTo(x+w*0.92,y+h/2); c.lineTo(x+w/2,y+h*0.9); c.lineTo(x+w*0.08,y+h/2); c.closePath(); c.fill(); f2ell(c,x+w/2,y+h/2,h*0.22,h*0.22,'#002776'); }
   else if(code==='cl'){ c.fillStyle='#ffffff'; c.fillRect(x,y,w,h/2); c.fillStyle='#d52b1e'; c.fillRect(x,y+h/2,w,h/2); c.fillStyle='#0039a6'; c.fillRect(x,y,w*0.34,h/2); f2ell(c,x+w*0.17,y+h*0.25,h*0.1,h*0.1,'#ffffff'); } else if(code==='de') band(['#111111','#dd0000','#ffce00']);
   c.restore(); c.strokeStyle='rgba(0,0,0,0.25)'; c.lineWidth=2; c.strokeRect(x,y,w,h); }
+function f2seat(c,x0,x1,y,k,scene){ const pad=118*k, L=x0-pad, Wd=x1-x0+2*pad; const sofa=['living','office','oficina','bano'].includes(scene);
+  if(sofa){ const col='#3fa7a0', dk='#2f7f79', lt='#57bdb6'; rr(c,L,y-250*k,Wd,200*k,34*k,dk); const n=Math.max(1,Math.round(Wd/(190*k))); for(let i=0;i<n;i++) rr(c,L+12*k+i*(Wd-24*k)/n,y-236*k,(Wd-24*k)/n-8*k,150*k,26*k,col);
+    rr(c,L,y-74*k,Wd,56*k,20*k,lt); rr(c,L-30*k,y-150*k,44*k,132*k,18*k,dk); rr(c,L+Wd-14*k,y-150*k,44*k,132*k,18*k,dk); c.fillStyle='#3a2f2a'; c.fillRect(L+10*k,y-20*k,16*k,20*k); c.fillRect(L+Wd-26*k,y-20*k,16*k,20*k); return; }
+  const wd='#8a5a34', wl='#a36d42'; rr(c,L,y-232*k,Wd,30*k,8*k,wd); rr(c,L,y-190*k,Wd,30*k,8*k,wd); c.fillStyle='#3a2f2a'; c.fillRect(L+24*k,y-236*k,14*k,170*k); c.fillRect(L+Wd-38*k,y-236*k,14*k,170*k);
+  rr(c,L,y-76*k,Wd,26*k,8*k,wl); c.fillStyle='#3a2f2a'; c.fillRect(L+24*k,y-52*k,16*k,52*k); c.fillRect(L+Wd-40*k,y-52*k,16*k,52*k); }
 function drawFlat(c,p,u,t,sh){ c.save(); const z=(sh?.zoom||1)*(1+0.05*u)*(1+0.08*Math.pow(1-clamp(t/0.3),3)); const fc=sh?.c||[0.5,0.55];
   const drift=p.drift??E.tl?.style?.drift??0; let zz=z*(drift?1.05:1);
   if(p.cam){ const cm=p.cam, ck=cm.snap!=null?easeOut(clamp((u-cm.snap)/0.07)):ease(u); zz=Math.max(1.06,lerp(cm.z0,cm.z1,ck))*(1+0.06*Math.pow(1-clamp(t/0.3),3)); const fx=lerp(cm.c0[0],cm.c1[0],ck), fy=lerp(cm.c0[1],cm.c1[1],ck), cx=clamp(fx,0.5/zz+0.02,1-0.5/zz-0.02), cy=clamp(fy,0.5/zz,1-0.5/zz); c.translate(W/2,H/2); c.scale(zz,zz); c.translate(-cx*W,-cy*H); }
@@ -905,6 +911,7 @@ function drawFlat(c,p,u,t,sh){ c.save(); const z=(sh?.zoom||1)*(1+0.05*u)*(1+0.0
     return { skin:F2.skins[(q.who??i)%6], hair:F2.hairs[(q.who??i)%6], hairStyle:F2.styles[(q.who??i)%6], shirt:F2.shirts[(q.who??i)%8], ...q, x:(q.x??0.5)*W, y:(q.y??0.8)*H, face:q.face||(hit&&emo.face)||defFace, carry:p.pass?(p.pass.from===i?(passM(u)<=0.001?true:false):p.pass.to===i?(passM(u)>=0.999?true:false):undefined):undefined, act:p.pass&&p.pass.to===i&&!q.act?'receive':(q.act||(hit?emo.act:null)), dur, delay:q.delay??i*0.08, i }; });
   ppl.filter(q=>q.back).forEach(q=>f2person(c,q,t,u));
   (p.objs||[]).filter(o=>o.back).forEach((o,i)=>f2obj(c,o,u,t,dur,i));
+  { const rows={}; ppl.filter(q=>q.sit).forEach(q=>{ const r=Math.round(q.y/40); (rows[r]=rows[r]||[]).push(q); }); if(p.scene!=='living') Object.values(rows).forEach(r=>{ const xs=r.map(q=>q.x); f2seat(c,Math.min(...xs),Math.max(...xs),Math.max(...r.map(q=>q.y)),(r[0].s||520)/520,p.scene); }); }
   const hands=[]; ppl.filter(q=>!q.back).sort((a,b)=>a.y-b.y).forEach(q=>{ hands[q.i]=f2person(c,q,t,u); });
   f2fore(c,p.scene,t,p); (p.objs||[]).filter(o=>!o.back).forEach((o,i)=>f2obj(c,o,u,t,dur,i));
   if(p.pass&&hands[p.pass.from]&&hands[p.pass.to]){ const m=passM(u); if(m>0.001&&m<0.999){ const ha=hands[p.pass.from].R, hb=hands[p.pass.to].R, kk=hands[p.pass.from].k;

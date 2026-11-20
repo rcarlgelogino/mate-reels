@@ -56,7 +56,8 @@ function sceneShot(v, si) {
   if (ppl.length === 1 && ppl[0].does === 'drink') { people[0].s = 900; people[0].y = place === 'kitchen' ? 0.92 : 0.95; }
   const p = { scene: place, people }; if (/noche|night/.test(norm(v.place))) p.time = 'night';
   // seats for people who sit, props behind the figures
-  const objs = []; const sitters = people.filter(q => q.sit); if (sitters.length && place !== 'living') { const xs = sitters.map(q => q.x), x0 = Math.min(...xs), x1 = Math.max(...xs); objs.push({ type: 'banco', x: (x0 + x1) / 2, y: sitters[0].y + 0.005, s: Math.round(((x1 - x0) * 1080 + 300) / 2), back: true, delay: 0 }); }
+  if (place === 'living') people.filter(q => q.sit).forEach(q => { q.y = 0.695; });
+  const objs = []; const sitters = people.filter(q => q.sit); if (false && sitters.length) { const xs = sitters.map(q => q.x), x0 = Math.min(...xs), x1 = Math.max(...xs); objs.push({ type: 'banco', x: (x0 + x1) / 2, y: sitters[0].y + 0.005, s: Math.round(((x1 - x0) * 1080 + 300) / 2), back: true, delay: 0 }); }
   { const seen = {}; const ky = (L[0] ? L[0].y : 0.82) - 0.035; (v.props || []).forEach(q0 => { const name = norm(typeof q0 === 'string' ? q0 : q0.type); const hit = PROPS2.find(([re]) => re.test(name)); if (!hit) return; const t = hit[1].type + (hit[1].kind || ''); if ((place === 'ruta' && hit[1].type === 'camion') || (place === 'galpon' && hit[1].type === 'bolsas')) return;
       seen[t] = (seen[t] || 0) + 1; if (seen[t] > 2) return; const n = objs.filter(o => !o.seat).length; objs.push({ ...hit[1], x: seen[t] === 2 ? 0.2 : [0.84, 0.16, 0.5][n % 3], y: ky, back: true, delay: 0 }); }); }
   if (objs.length) p.objs = objs;
@@ -95,7 +96,7 @@ function compareShot(v) { const a = thing2(v.left || {}), b = thing2(v.right || 
   const labels = [[v.left, 0.27], [v.right, 0.73]].filter(q => q[0] && q[0].label).map(([q, x]) => ({ text: q.label, x, y: 0.74, tx: x, ty: 0.8 })); return { tpl: 'flat', p: { scene: 'navygrid', bg: NAVY, objs, labels } }; }
 function mapShot(v) { return { tpl: 'flat', p: { scene: 'navygrid', bg: NAVY, objs: [{ type: 'map', x: 0.5, y: 0.86, s: 980, countries: v.countries, text: v.text, sub: v.sub }] } }; }
 function reactionShot(v, si, st) { const bg = BG[v.color] || v.color || REACT_COLORS[si % REACT_COLORS.length]; const sc = st && st.scene && !v.color ? { scene: st.scene, table: false, ...(st.time ? { time: st.time } : {}), ...(st.tableY ? { tableY: st.tableY } : {}) } : { scene: 'solid' }; // reactions stand in the place of the story, not on an empty colour
-  return { tpl: 'flat', p: { ...sc, bg, people: [{ who: v.who ?? (si % 6), x: 0.5, y: 1.34, s: 1500, act: { teeth: null, burn_tongue: 'shock' }[v.act] !== undefined ? { teeth: null, burn_tongue: 'shock' }[v.act] : (v.act || (v.emotion === 'surprised' ? 'shock' : null)), face: v.act === 'teeth' ? 'disgusted' : v.act === 'burn_tongue' ? 'pain' : (FACE2[norm(v.emotion)] || v.emotion || 'surprised') }] } }; }
+  return { tpl: 'flat', p: { ...sc, bg, people: [{ who: v.who ?? (si % 6), x: 0.5, y: 1.1, s: 1500, act: { teeth: null, burn_tongue: 'shock' }[v.act] !== undefined ? { teeth: null, burn_tongue: 'shock' }[v.act] : (v.act || (v.emotion === 'surprised' ? 'shock' : null)), face: v.act === 'teeth' ? 'disgusted' : v.act === 'burn_tongue' ? 'pain' : (FACE2[norm(v.emotion)] || v.emotion || 'surprised') }] } }; }
 function boardShot(v, st) { const b = { bg: NAVY }; if (st && st.scene) { b.scene = st.scene; if (st.time) b.time = st.time; if (st.tableY) b.tableY = st.tableY; }
   if (v.type === 'title') return { tpl: 'board', p: { ...b, kind: 'title', text: v.text, sub: v.sub } };
   if (v.type === 'number') return { tpl: 'board', p: { ...b, kind: 'title', text: v.value, sub: v.sub } };
@@ -109,6 +110,12 @@ const CAMS2 = ['push', 'panR', 'pull', 'snap', 'panL', 'still'];
 function cam2(kind, fp) { const c = fp ? [fp.x, fp.y - 0.62 * fp.s / 1920] : [0.5, 0.55]; const mid = [0.5, 0.55];
   if (kind === 'push') return { z0: 1.06, z1: 1.3, c0: mid, c1: c }; if (kind === 'pull') return { z0: 1.38, z1: 1.08, c0: c, c1: mid }; if (kind === 'panR') return { z0: 1.22, z1: 1.22, c0: [0.36, 0.56], c1: [0.64, 0.56] }; if (kind === 'panL') return { z0: 1.22, z1: 1.22, c0: [0.64, 0.56], c1: [0.36, 0.56] };
   if (kind === 'snap') return { z0: 1.06, z1: 1.5, c0: mid, c1: c, snap: 0.42 }; if (kind === 'tight') return { z0: 1.55, z1: 1.68, c0: c, c1: c }; return null; }
+function pillY(shots) { let top = 1920; shots.forEach(sh => { const p = sh.p || {}; (p.people || []).forEach(q => { const k = (q.s || 520) / 520; const ht = (q.y || 0.8) * 1920 - (530 - (q.sit ? 84 : 0)) * k;
+    const cm = p.cam; const zs = cm ? [[cm.z0, cm.c0], [cm.z1, cm.c1]] : [[1.05, [0.5, 0.55]]]; zs.forEach(([z, c]) => { top = Math.min(top, (ht - c[1] * 1920) * z + 960); }); }); }); return top > 780 ? 660 : 1400; }
+function fitCam(cam, ppl) { if (!cam || !ppl || !ppl.length) return cam; const hw = q => 0.11 * (q.s || 520) / 520 * 1080 / 1080; const lo = Math.min(...ppl.map(q => q.x - hw(q))), hi = Math.max(...ppl.map(q => q.x + hw(q)));
+  const inView = (z, c) => { const cx = Math.min(Math.max(c[0], 0.5 / z + 0.02), 1 - 0.5 / z - 0.02); return lo >= cx - 0.5 / z && hi <= cx + 0.5 / z; };
+  if (inView(cam.z0, cam.c0) && inView(cam.z1, cam.c1)) return cam; const m = (lo + hi) / 2, z = Math.min(cam.z1, cam.z0, 0.98 / (hi - lo)); if (z < 1.06) return { z0: 1.06, z1: 1.1, c0: [0.5, 0.55], c1: [0.5, 0.55] };
+  const c = [m, cam.c1[1]]; return { z0: Math.max(1.06, z * 0.94), z1: z, c0: [m, 0.55], c1: c }; }
 function shotFor(v, si, st) {
   if (!v) return boardShot({ type: 'title', text: '' }, st);
   if (v.type === 'scene') { const sh = sceneShot(v, si); if (st) { st.scene = sh.p.scene; st.time = sh.p.time; st.tableY = sh.p.tableY; } return sh; } if (v.type === 'object') return onScene(objectShot(v, si), st); if (v.type === 'reaction') return reactionShot(v, si, st);
@@ -140,13 +147,13 @@ function toSpec(script, opt = {}) { script = vary(script); // opt.plain: one sho
   const segs = script.segments.map((sg, si) => {
     const vis = sg.visuals || [sg.visual]; let shots = vis.map((v, k) => { const s = shotFor(v, si, opt.plain ? null : st); if (k % 2 === 1) s.zoom = 1.12; if (v && v.instant && s.p && s.p.people) s.p.people.forEach(q => { q.delay = 0; }); return s; });
     if (!opt.plain) { const out = []; shots.forEach((s, k) => { const v = vis[k]; const isScene = v && (v.type === 'scene' || v.type === 'mistake') && s.tpl === 'flat' && (s.p.people || []).length; if (!isScene) return out.push(s);
-        const ppl = s.p.people, busy = ppl.findIndex(q => q.act === 'pour' || q.act === 'drink'), fi = busy >= 0 ? busy : s.p.pass ? s.p.pass.from : 0, fp = ppl[fi]; const words = String(sg.text || '').split(/\s+/).length; const kind = si === 0 ? 'push' : nextCam(); const cam = cam2(kind, fp); if (cam) s.p.cam = cam; out.push(s);
+        const ppl = s.p.people, busy = ppl.findIndex(q => q.act === 'pour' || q.act === 'drink'), fi = busy >= 0 ? busy : s.p.pass ? s.p.pass.from : 0, fp = ppl[fi]; const words = String(sg.text || '').split(/\s+/).length; const kind = si === 0 ? 'push' : nextCam(); const cam = fitCam(cam2(kind, fp), ppl); if (cam) s.p.cam = cam; out.push(s);
         if (vis.length === 1 && words >= 10 && !s.p.pass && ppl.length > 1 && !(v.type === 'mistake')) { const t2 = JSON.parse(JSON.stringify(s)); t2.p.cam = cam2('tight', fp); t2.p.people.forEach(q => { q.delay = 0; }); out.push(t2); } }); shots = out; }
     const callouts = [];
     if (sg.headline) { const at = sg.headlineAt || AT(sg.text); const t = sg.headlineType || 'big'; callouts.push({ type: t, text: sg.headline, at, ...(sg.impact ? { impact: true } : {}), ...(sg.headlineSub ? { sub: sg.headlineSub } : {}) }); }
     if (sg.visual && sg.visual.type === 'mistake') callouts.push({ type: 'xmark', text: sg.visual.text, at: sg.visual.at || AT(sg.text), y: 820, size: 300 });
     // comments: the question of the poll is already asked early (second sentence), not only at the end
-    if (script.poll && si === 1 && (script.poll.options || []).length) callouts.push({ type: 'pill', text: '¿VOS QUÉ DECÍS?', y: 1400, early: true }); // low, so it never meets the headline or the caption line at the top
+    if (script.poll && si === 1 && (script.poll.options || []).length) callouts.push({ type: 'pill', text: '¿VOS QUÉ DECÍS?', y: pillY(shots), early: true }); // low, so it never meets the headline or the caption line at the top
     if (!opt.plain) { const textual = shots.length && shots.every(sh => sh.tpl === 'board'); for (let i = callouts.length - 1; i >= 0; i--) if (textual && callouts[i].type === 'big') callouts.splice(i, 1); const heads = callouts.filter(c => c.type === 'big').map(c => norm(c.text)); shots.forEach(sh => { if (sh.p && sh.p.labels) sh.p.labels = sh.p.labels.filter(l => !heads.includes(norm(l.text))); }); }
     return { text: sg.text, say: sg.say, emo: sg.emo || 'neutral', shots, callouts };
   });

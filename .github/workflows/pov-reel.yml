@@ -1,0 +1,71 @@
+name: pov-reel
+
+# Builds one POV script from the queue in 3D (build3d) right away and adds it to today's release as "00_...",
+# so the next post slot puts it on Instagram first. The script leaves the queue (copied to done/<day>/).
+# Started by pushing trigger/pov.txt; its first word is the script file in queue/ (e.g. 0030p_pov_tu_suegra_te_ceba.json).
+on:
+  push:
+    branches: [main]
+    paths: ['trigger/pov.txt']
+
+permissions:
+  contents: write
+
+concurrency:
+  group: daily-reels
+  cancel-in-progress: false
+
+jobs:
+  pov:
+    runs-on: ubuntu-24.04  # pinned like daily-reels
+    timeout-minutes: 200
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Find the script and today's release
+        id: find
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          DAY=$(date -u +%F)
+          FILE=$(head -1 trigger/pov.txt | awk '{print $1}')
+          [ -f "queue/$FILE" ] || { echo "::error::queue/$FILE not found"; exit 1; }
+          TAG=$(gh release list --limit 20 --json tagName,createdAt --jq 'sort_by(.createdAt) | reverse | .[].tagName' | grep "^reels-$DAY" | head -n 1 || true)
+          [ -z "$TAG" ] && { echo "::error::no release today yet"; exit 1; }
+          NAME="${FILE%.json}"
+          mkdir -p "out/$DAY"
+          node -e "const fs=require('fs'); fs.writeFileSync('out/$DAY/ab3d.json', JSON.stringify({name:'$NAME', n:0, test:false, script:JSON.parse(fs.readFileSync('queue/$FILE','utf8'))},null,1));"
+          echo "tag=$TAG" >> "$GITHUB_OUTPUT"; echo "day=$DAY" >> "$GITHUB_OUTPUT"; echo "file=$FILE" >> "$GITHUB_OUTPUT"
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+          cache: npm
+          cache-dependency-path: tools/package-lock.json
+
+      - name: Install tools
+        run: |
+          fail(){ echo "::error title=$1::$(tail -c 1500 /tmp/inst.log | tr '\n' ' ' | sed 's/::/ /g')"; exit 1; }
+          for i in 1 2 3; do npm ci --prefix tools > /tmp/inst.log 2>&1 && break; tail -40 /tmp/inst.log; echo "npm ci failed (try $i), retrying"; sleep 25; [ $i = 3 ] && fail npm-ci; done
+          for i in 1 2 3; do npx --prefix tools puppeteer browsers install chrome > /tmp/inst.log 2>&1 && break; tail -40 /tmp/inst.log; echo "chrome download failed (try $i), retrying"; sleep 25; [ $i = 3 ] && fail chrome; done
+          sudo apt-get update -qq && sudo apt-get install -y -qq libgbm1 libnss3 libasound2t64 fonts-dejavu-core > /dev/null || true
+
+      - name: Cache Whisper model
+        uses: actions/cache@v4
+        with:
+          path: tools/node_modules/@huggingface/transformers/.cache
+          key: whisper-small-timestamped-v1
+
+      - name: Build the POV reel in 3D and add it to today's release
+        env:
+          GEMINI_API_KEY: ${{ secrets.GEMINI_API_KEY }}
+          GH_TOKEN: ${{ github.token }}
+          REQUIRE_GEMINI: '1'
+        run: |
+          DAY="${{ steps.find.outputs.day }}"; TAG="${{ steps.find.outputs.tag }}"; FILE="${{ steps.find.outputs.file }}"
+          AB_STYLE=build3d node scripts/ab3d.js --day "$DAY"
+          OUT="$(cat "out/$DAY/ab3d.out")"
+          gh release upload "$TAG" "out/$DAY/$OUT.mp4" "out/$DAY/$OUT.txt" $(ls "out/$DAY/$OUT.jpg" 2>/dev/null)
+          mkdir -p "done/$DAY"; git mv "queue/$FILE" "done/$DAY/$FILE"
+          git config user.name 'reels-bot'; git config user.email 'reels-bot@users.noreply.github.com'
+          git add -A qa queue done; git diff --cached --quiet || (git commit -m "POV reel $DAY: $OUT" && git pull --rebase -q && git push)

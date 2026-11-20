@@ -1,0 +1,76 @@
+{
+ "reel": "0030p_pov_tu_suegra_te_ceba",
+ "style": "build3d",
+ "technical": [
+  "duration 27.267s",
+  "loudness -12.6 LUFS, peak -0.8 dBFS",
+  "voice gemini"
+ ],
+ "vision": {
+  "ran": true,
+  "model": "gemini-3.6-flash"
+ },
+ "summary": "The 3D render style captures a clean, bright aesthetic consistent with cartoon models. However, several visual elements fail to match the spoken audio, such as missing characters and key visual effects.",
+ "scores": {
+  "visual_logic": 4,
+  "graphics": 5,
+  "overall": 4
+ },
+ "logic": {
+  "clean": [
+   "Character positions and living room background layout remain consistent across shots.",
+   "First-person perspective arm correctly holds and receives the mate gourd."
+  ],
+  "unclean": [
+   "shot 3: Steam effect is missing despite text describing locomotive-like smoke.",
+   "shot 4: No dog is visible in the frame even though the text explicitly mentions one.",
+   "shot 5: Burnt tongue reaction is not clearly depicted on the character."
+  ]
+ },
+ "graphics": {
+  "clean": [
+   "Text overlays are readable and placed neatly at the top of the frame.",
+   "3D lighting and soft shading create a cohesive look."
+  ],
+  "unclean": [
+   "shot 0: Characters feature an untextured white rectangular patch on their chests."
+  ]
+ },
+ "issues": [
+  {
+   "severity": "medium",
+   "category": "objects",
+   "problem": "Missing steam/smoke visual effect for hot mate.",
+   "fix": "Add a prominent 3D smoke particle effect above the gourd.",
+   "shot": 3,
+   "time": 6.2,
+   "template": "build"
+  },
+  {
+   "severity": "medium",
+   "category": "match",
+   "problem": "Audio mentions a dog, but no dog model is present.",
+   "fix": "Insert a cartoon dog model looking at the camera.",
+   "shot": 4,
+   "time": 9.4,
+   "template": "build"
+  },
+  {
+   "severity": "low",
+   "category": "scene",
+   "problem": "White blank rectangle on character torso looks unrendered.",
+   "fix": "Fix texture map or remove placeholder plane on clothing.",
+   "shot": 0,
+   "time": 0,
+   "template": "build"
+  }
+ ],
+ "learnings": [
+  {
+   "type": "do",
+   "area": "match",
+   "rule": "Ensure key visual props and characters mentioned in the voiceover are rendered in the scene."
+  }
+ ],
+ "checked": "2026-11-20T14:59:02.287Z"
+}

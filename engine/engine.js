@@ -1317,7 +1317,7 @@ function pfore(g,place,night,t){ const FG=-Math.round((E._par||0)*0.45), sh=nigh
   if(['plaza','patio','calle','yerbal'].includes(place)){ for(let i=0;i<7;i++) leaf(500+sway+Math.cos(i)*40,40+i*18,26-i,'#3f9b4a'); pline(g,PXW+20,0,430+sway,120,sh||'#3a2414',4); for(let i=0;i<6;i++) leaf(-10+i*22,PXH-30-Math.abs(i-2)*12,22,'#2f7a2a'); }
   else if(place==='playa'){ for(let i=0;i<9;i++) pline(g,10+i*7,PXH,30+i*5+sway,PXH-80-prand(i)*60,sh||'#c9a24a',2); for(let i=0;i<9;i++) pline(g,PXW-10-i*7,PXH,PXW-30-i*5+sway,PXH-80-prand(i+9)*60,sh||'#c9a24a',2); }
   else if(place==='selva'||place==='campo'){ for(let i=0;i<5;i++){ leaf(-6+sway,200+i*90,40,'#2f7a2a'); leaf(PXW+6-sway,250+i*90,40,'#2f7a2a'); } }
-  else if(['cocina','living','oficina'].includes(place)){ prect(g,-10,PXH-70,PXW+20,90,sh||'#5a3420','#2a160c'); pr(g,0,PXH-70,PXW,4,sh||'#8a5634'); prect(g,PXW-60,PXH-150,40,80,sh||'#c0603a'); for(let i=0;i<5;i++) leaf(PXW-40+Math.cos(i*1.3)*22+sway,PXH-160-i*14,18,'#3f9b4a'); }
+  else if(['cocina','living','oficina'].includes(place)){ prect(g,-10,PXH-70,PXW+20,90,sh||'#5a3420','#2a160c'); pr(g,0,PXH-70,PXW,4,sh||'#8a5634'); }
   else if(place==='noche'){ for(let x=-20;x<PXW+20;x+=26) pr(g,x,PXH-110,5,110,'#100820'); pr(g,-20,PXH-114,PXW+40,7,'#100820'); }
   g.restore(); }
 function pparticles(g,place,night,t){ const outdoor=['plaza','patio','calle','playa','ruta','campo','yerbal','selva','noche'].includes(place);
@@ -1355,7 +1355,7 @@ function drawPix(c,p,u,t,sh){ const gA=pxWorld(); let g=gA; const place=p.place|
   (p.props||[]).forEach((pp,i)=>{ const q=typeof pp==='string'?{type:pp}:pp; const side=i%2?1:-1; pprop(g,q.type,q.x??(side>0?470-Math.floor(i/2)*40:70+Math.floor(i/2)*40),q.y??PGY+6,q.s??90,t); });
   if(layered) pparticles(g,place,nightL,t); else { pparticles(g,place,nightL,t); if(!['titulo','macro','poros','mapa'].includes(place)) plight(g,place,nightL,t); }
   const cast=p.cast||[]; const refs=[]; const LMs=PLIGHT[E._light]&&['plaza','patio','calle','yerbal','campo','playa','ruta','mercado'].includes(place)?PLIGHT[E._light]:null; pshadows(g,cast,LMs);
-  cast.forEach((q,i)=>{ if(!q.glow) return; const R=Math.round((q.s||90)*0.6)+Math.round(Math.sin(t*3)*1.2); const cx=q.x, cy=q.y-(q.s||90)*0.48; pdisk(g,cx,cy,R+12,R+14,'#4a2466'); pdisk(g,cx,cy,R+6,R+7,'#b8473f'); pdisk(g,cx,cy,R,R+1,'#f08a3a'); pdisk(g,cx,cy,R-7,R-7,'#ffb85a'); });
+  cast.forEach((q,i)=>{ if(!q.glow) return; const R=Math.round((q.s||90)*0.6)+Math.round(Math.sin(t*3)*1.2); const cx=q.x, cy=q.y-(q.s||90)*0.48; pdisk(g,cx,cy,R+4,R+5,'rgba(255,214,150,0.16)'); pdisk(g,cx,cy,R-8,R-7,'rgba(255,226,170,0.14)'); }); // soft light behind the object, no hard ring (user 2026-11-20)
   const order=cast.map((q,i)=>i).sort((a,b)=>cast[a].y-cast[b].y);
   let pourK=-1; if(p.pour){ const [a0,a1]=p.pour.at||[0.12,0.45]; pourK=clamp((u-a0)/(a1-a0)); }
   for(const i of order){ const q=cast[i]; if(p.pour&&i===p.pour.from) continue; const pop=q.delay?clamp((t-q.delay-0.02)/0.18):1; if(pop<=0) continue;
@@ -2532,8 +2532,11 @@ T.build=(p={})=>{ const s=new THREE.Scene(); s.background=new THREE.Color('#bfe0
       frame(t,u){ const e=ease(u); let pos=eye0.clone(), look=look0.clone(); pos.x+=Math.sin(t*1.1)*0.012+Math.sin(t*2.7)*0.004; pos.y+=Math.sin(t*1.7)*0.009; look.x+=Math.sin(t*0.8)*0.025; pos.z+=lerp(0.18,0,e); // breathing handheld + a slow step in
         let hr=RR.clone(), hl=heldL?RL.clone():RLo.clone(), tilt=0, showR=!!held||['receive','give','phone','hold'].includes(act); api.flash=0;
         if(act==='walk'){ const k=ease(clamp(t/1.3)); pos.z+=lerp(1.5,0,k); pos.y+=Math.abs(Math.sin(t*8))*0.03*(1-k); }
-        if(act==='drink'||act==='blow'){ const k=ease(clamp((t-0.3*sc)/(0.55*sc))); hr.lerp(act==='drink'?V(0.01,-0.15,-0.36):V(0.02,-0.15,-0.42),k); tilt=(act==='drink'?0.75:0.35)*k; look.y+=(act==='drink'?0.16:0.05)*k;
-          if(o.burn&&t>=sc){ const d=t-sc, env=Math.max(0,1-d/0.9); pos.x+=Math.sin(t*61)*0.035*env; pos.y+=Math.sin(t*47)*0.02*env; api.flash=env; hr.lerp(RR,clamp(d/0.4)); tilt*=1-clamp(d/0.4); } }
+        let drinkK=0, sip=0;
+        if(act==='blow'){ const k=ease(clamp((t-0.3*sc)/(0.55*sc))); hr.lerp(V(0.02,-0.17,-0.42),k); tilt=0.35*k; }
+        if(act==='drink'){ const D=p.dur||3; const up=ease(clamp((t-0.25*sc)/(0.5*sc))); const down=o.burn?ease(clamp((t-sc)/0.3)):ease(clamp((t-(D-0.35))/0.3)); drinkK=up*(1-down);
+          hr.lerp(V(0.02,-0.2,-0.32),drinkK); look.y-=0.04*drinkK; if(t>0.75*sc&&!o.burn) sip=Math.max(0,Math.sin((t-0.75*sc)*10))*0.012*drinkK; // short pulls on the bombilla
+          if(o.burn&&t>=sc){ const d=t-sc, env=Math.max(0,1-d/0.9); pos.x+=Math.sin(t*61)*0.035*env; pos.y+=Math.sin(t*47)*0.02*env; api.flash=env; } }
         if(act==='shock'&&t>=0.45){ const d=t-0.45, env=Math.max(0,1-d/0.5); pos.z+=Math.sin(Math.min(1,d/0.25)*Math.PI)*0.22; pos.y+=Math.sin(t*40)*0.015*env; }
         const F=ppl[o.from], G=ppl[o.to];
         if(act==='receive'){ const k1=ease(clamp((t-(at-0.55))/0.5)), k2=ease(clamp((t-at)/0.5)); hr=RRo.clone().lerp(Q,k1).lerp(RR,k2); if(F) look.lerp(V(F.g.position.x,hy-0.05,F.g.position.z),0.25*clamp((t-0.2)/0.8)); }
@@ -2542,6 +2545,10 @@ T.build=(p={})=>{ const s=new THREE.Scene(); s.background=new THREE.Color('#bfe0
         if(act==='look') showR=!!held;
         api.pos=pos; api.look=look; C.position.copy(pos); C.lookAt(look); C.updateMatrixWorld(true);
         AR.g.visible=showR; place(AR,hr,SR,tilt);
+        // drinking: the mate turns so its bombilla points at the mouth (just below the lens) and moves until the tip is in the mouth
+        if(drinkK>0.001&&held){ const mouth=C.localToWorld(V(0.005,-0.078,-0.15+sip)); /* the mouth sits just under the lens: the bombilla leaves the frame at the bottom edge, the mate stays in view */ const qRest=AR.hold.quaternion.clone(); const aim=(()=>{ const up=mouth.clone().sub(AR.hold.position).normalize(); return new THREE.Quaternion().setFromUnitVectors(V(0,1,0),up); })();
+          const qq=qRest.clone().slerp(aim,drinkK*0.85); AR.hold.quaternion.copy(qq); AR.hold.updateMatrixWorld(true); const tipO=held.userData&&held.userData.tip;
+          if(tipO){ const tw=tipO.getWorldPosition(new THREE.Vector3()); const np=AR.hold.position.clone().add(mouth.clone().sub(tw).multiplyScalar(drinkK)); place(AR,C.worldToLocal(np.clone()),SR,0); AR.hold.quaternion.copy(qq); } }
         const lrec=act==='receive'&&!heldL; AL.g.visible=!!heldL||lrec; place(AL,lrec?RLo.clone().lerp(V(-0.08,-0.3,-0.6),ease(clamp((t-(at-0.5))/0.5))*(1-ease(clamp((t-at)/0.5)))):hl,SL,0);
         // the giver walks up to the lens and reaches out; the receiver comes to take it
         const W0=C.localToWorld(V(0.12,0,-1.45)); W0.y=0; const W1=C.localToWorld(V(0.04,0,-1.45)); W1.y=0;
@@ -2600,7 +2607,7 @@ T.build=(p={})=>{ const s=new THREE.Scene(); s.background=new THREE.Color('#bfe0
         if(a.fx==='stars'){ life=0.7; if(d>life) return; const an=k/n*Math.PI*2+d*3; m.visible=true; m.position.copy(origin).add(V(Math.cos(an)*(0.15+d*0.6),Math.sin(an)*(0.15+d*0.6)*0.6+0.1,0.15)); m.rotation.set(d*8,d*6,0); m.scale.setScalar(1-d/life*0.6); }
         if(a.fx==='hearts'){ life=1.3; if(d>life) return; m.visible=true; m.position.copy(origin).add(V((k-n/2)*0.12+Math.sin(d*6+k)*0.05,d*0.7,0.1)); m.scale.set(1,0.85,0.5); }
         if(a.fx==='confetti'){ life=1.6; if(d>life) return; m.visible=true; m.position.copy(origin).add(V((r1-0.5)*2.6+Math.sin(d*5+k)*0.15,1.6-d*1.3,(r2-0.5)*1.2)); m.rotation.set(d*8+k,d*6,d*4); }
-        if(a.fx==='steam'){ life=1.4; if(d>life) return; m.visible=true; const pv=a.from==='pov'; m.position.copy(origin).add(V(Math.sin(d*3+k)*(pv?0.02:0.05),d*(pv?0.22:0.45),pv?-d*0.25:0)); m.scale.setScalar(pv?0.18+d*0.35:0.5+d*1.2); m.material.opacity=(pv?0.45:0.6)*(1-d/life); }
+        if(a.fx==='steam'){ life=1.4; if(d>life) return; m.visible=true; const pv=a.from==='pov'; m.position.copy(origin).add(V(Math.sin(d*3+k)*(pv?0.02:0.05),d*(pv?0.22:0.45),pv?-d*0.25:0)); m.scale.setScalar(pv?0.1+d*0.22:0.5+d*1.2); m.material.opacity=(pv?0.35:0.6)*(1-d/life); }
         if(a.fx==='splash'){ life=0.6; if(d>life) return; const an=k/n*Math.PI*2; m.visible=true; m.position.copy(origin).add(V(Math.cos(an)*d*0.7,(1.6+r1)*d-4.9*d*d,Math.sin(an)*d*0.7)); } }); });
     fxs.forEach(({ms})=>ms.forEach(m=>{ if(m.geometry.type==='PlaneGeometry') m.quaternion.copy(cam.quaternion); }));
     const tl2=acts.find(a=>a.timelapse); if(tl2){ const k=clamp((t-tl2.timelapse[0])/(tl2.timelapse[1]-tl2.timelapse[0])); const an=-1.2+k*Math.PI*2*(tl2.turns||1); k2.position.set(Math.cos(an)*12,9+Math.sin(an*0.5)*2,Math.sin(an)*12); if(s.userData.dome) s.userData.dome.rotation.y=k*2.5; } };

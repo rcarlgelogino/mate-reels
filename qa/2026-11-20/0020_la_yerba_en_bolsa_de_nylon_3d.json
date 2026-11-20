@@ -1,0 +1,100 @@
+{
+ "reel": "0020_la_yerba_en_bolsa_de_nylon",
+ "style": "build3d",
+ "technical": [
+  "duration 45.734s",
+  "loudness -12.4 LUFS, peak -0.8 dBFS",
+  "voice gemini"
+ ],
+ "vision": {
+  "ran": true,
+  "model": "gemini-3.6-flash"
+ },
+ "summary": "The visual render features consistent semi-realistic 3D environments and stylized character models. Visual representation frequently mismatches spoken content, with missing key object details like stickers and broken gourds.",
+ "scores": {
+  "visual_logic": 4,
+  "graphics": 5,
+  "overall": 4
+ },
+ "logic": {
+  "clean": [
+   "Outdoor environment perspective and table placements remain consistent across basic scenes.",
+   "Character body proportions and placement fit the stylized art direction."
+  ],
+  "unclean": [
+   "shot 7: Bombilla appears isolated without a mate gourd on the table.",
+   "shot 8: Straw stands upright on the table surface without support.",
+   "shot 10: Dented thermos is represented by basic smooth blue cylinders."
+  ]
+ },
+ "graphics": {
+  "clean": [
+   "3D lighting and shadow distribution match the outdoor environment.",
+   "Text rendering remains sharp and legible against backgrounds."
+  ],
+  "unclean": [
+   "shot 2: Interface graphic covers the character face completely.",
+   "shot 11: Thermos asset lacks the decals described in the spoken text."
+  ]
+ },
+ "issues": [
+  {
+   "severity": "high",
+   "category": "match",
+   "problem": "Bombilla shown without mate gourd.",
+   "fix": "Place bombilla inside a mate gourd prop.",
+   "shot": 7,
+   "time": 16.3,
+   "template": "build"
+  },
+  {
+   "severity": "medium",
+   "category": "labels",
+   "problem": "UI graphic obscures character head.",
+   "fix": "Reposition UI banner higher or adjust camera angle.",
+   "shot": 2,
+   "time": 3.8,
+   "template": "build"
+  },
+  {
+   "severity": "medium",
+   "category": "objects",
+   "problem": "Bombilla stands vertically on table surface unsupported.",
+   "fix": "Rest bombilla horizontally or insert into gourd.",
+   "shot": 8,
+   "time": 18.3,
+   "template": "build"
+  },
+  {
+   "severity": "medium",
+   "category": "match",
+   "problem": "Thermos model lacks dented detail mentioned in narration.",
+   "fix": "Use a deformed mesh asset with visible dents.",
+   "shot": 10,
+   "time": 23,
+   "template": "build"
+  },
+  {
+   "severity": "medium",
+   "category": "match",
+   "problem": "Thermos model missing stickers.",
+   "fix": "Add sticker texture overlays to thermos model.",
+   "shot": 11,
+   "time": 26.5,
+   "template": "build"
+  }
+ ],
+ "learnings": [
+  {
+   "type": "avoid",
+   "area": "match",
+   "rule": "Avoid using generic placeholder geometry when specific object flaws are narrated."
+  },
+  {
+   "type": "do",
+   "area": "labels",
+   "rule": "Keep upper screen region clear of overlapping character faces during UI overlays."
+  }
+ ],
+ "checked": "2026-11-20T11:11:30.537Z"
+}

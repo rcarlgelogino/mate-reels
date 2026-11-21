@@ -1,7 +1,22 @@
 {
- "updated": "2026-11-20T09:13:31.950Z",
- "reels": 25,
+ "updated": "2026-11-21T09:03:04.925Z",
+ "reels": 29,
  "do": [
+  {
+   "n": 1,
+   "area": "match",
+   "rule": "Whenever instructional cleaning or preparation steps are spoken (emptying, rinsing, drying), show the specific action or prop rather than a character standing passively."
+  },
+  {
+   "n": 1,
+   "area": "labels",
+   "rule": "Ensure captions maintain adequate spacing from the top edge in all vertical frames."
+  },
+  {
+   "n": 1,
+   "area": "match",
+   "rule": "Ensure key visual props and characters mentioned in the voiceover are rendered in the scene."
+  },
   {
    "n": 1,
    "area": "hands",
@@ -11,6 +26,11 @@
    "n": 1,
    "area": "objects",
    "rule": "Ensure handheld props attach directly to ball hands without gaps."
+  },
+  {
+   "n": 1,
+   "area": "labels",
+   "rule": "Keep upper screen region clear of overlapping character faces during UI overlays."
   },
   {
    "n": 1,
@@ -56,33 +76,23 @@
    "n": 1,
    "area": "match",
    "rule": "When the script specifically mentions an action and prop like dumping into a sink ('pileta'), render the sink and pouring motion rather than placing an abstract red X over a generic pose."
-  },
-  {
-   "n": 1,
-   "area": "hands",
-   "rule": "Ensure character hands clearly clasp the gourd contour rather than floating as simple discs."
-  },
-  {
-   "n": 1,
-   "area": "objects",
-   "rule": "Model featured prop assets with recognizable silhouettes instead of basic geometric primitives."
-  },
-  {
-   "n": 1,
-   "area": "match",
-   "rule": "Ensure featured material types are directly depicted rather than abstracted as numbered cards."
-  },
-  {
-   "n": 1,
-   "area": "labels",
-   "rule": "Keep graphic text centered and safely within vertical UI margins."
   }
  ],
  "avoid": [
   {
    "n": 1,
+   "area": "layering",
+   "rule": "Never place graphic warning marks, text, or crosses over character faces."
+  },
+  {
+   "n": 1,
    "area": "scene",
    "rule": "Do not mix flat vector templates into pixel8 reels."
+  },
+  {
+   "n": 1,
+   "area": "match",
+   "rule": "Avoid using generic placeholder geometry when specific object flaws are narrated."
   },
   {
    "n": 1,
@@ -166,11 +176,17 @@
   }
  ],
  "recentBad": [
-  "shot 8: Switches abruptly to a non-pixel flat template character.",
-  "shot 9: Frame is empty with missing characters and misaligned background graphics.",
-  "shot 11: Phone floats detached near the character's hand.",
-  "shot 8: Flat style assets used instead of pixel8 engine template.",
-  "Shot 10: Girlfriend looks worried/sad but her hands remain oddly stiff at her sides while the text mentions lack of help.",
-  "Shot 1-2: Multiple family members clustered closely at the bottom with overlapping label boxes that slightly crowd the view."
+  "Shot 7: Spoken text explains emptying the yerba ('Sacás la yerba'), but the character stands passively behind the counter with nothing in hand.",
+  "Shot 8 & 9: Spoken text explains rinsing only with water, but neither a tap, water flow, nor mate rinsing is depicted; characters simply stand still.",
+  "Shot 10: Spoken text describes letting the mate air-dry ('dejás secar al aire'), but the frame shows a completely empty kitchen counter with no mate present at all.",
+  "Shot 11: The mate gourd is scaled almost as tall as a full-size refrigerator, completely breaking physical scale.",
+  "Shot 6: The text layout overlaps slightly with the visual flow.",
+  "Shot 7: The car and thermos scale comparison visually disconnects from the spoken context momentarily.",
+  "Shot 1: Text alignment at the top is slightly cramped.",
+  "shot 3: Steam effect is missing despite text describing locomotive-like smoke.",
+  "shot 4: No dog is visible in the frame even though the text explicitly mentions one.",
+  "shot 5: Burnt tongue reaction is not clearly depicted on the character.",
+  "shot 0: Characters feature an untextured white rectangular patch on their chests.",
+  "shot 8: Switches abruptly to a non-pixel flat template character."
  ]
 }

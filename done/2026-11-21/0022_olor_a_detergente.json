@@ -1,0 +1,242 @@
+{
+ "id": "0022_olor_a_detergente",
+ "topic": "T06",
+ "title": "No lo laves así",
+ "caption": "Si tu mate tiene olor a detergente, no lo laves más así 🧉\nLa calabaza se toma todo lo que le ponés.\n¿Vos cómo lo lavás? 👇",
+ "hashtags": [
+  "#mate",
+  "#yerbamate",
+  "#argentina",
+  "#matero",
+  "#costumbresargentinas",
+  "#calabaza",
+  "#tips"
+ ],
+ "segments": [
+  {
+   "text": "Si tu mate tiene olor a detergente, no lo laves más así.",
+   "emo": "surprised",
+   "beat": "hook",
+   "visual": {
+    "type": "mistake",
+    "text": "NO",
+    "at": "detergente",
+    "over": {
+     "type": "scene",
+     "place": "cocina",
+     "people": [
+      {
+       "role": "you",
+       "does": "wash_mate",
+       "mood": "happy"
+      }
+     ],
+     "props": [
+      "esponja",
+      "detergente",
+      "pileta_cocina"
+     ]
+    }
+   },
+   "headline": "¡ASÍ NO!",
+   "headlineAt": "detergente",
+   "impact": true,
+   "headlineType": "cross"
+  },
+  {
+   "text": "Y esto no le va a gustar a tu mamá.",
+   "emo": "funny",
+   "beat": "loop",
+   "visual": {
+    "type": "reaction",
+    "emotion": "surprised",
+    "act": "shock",
+    "who": 4
+   },
+   "headline": "PERDÓN, MAMÁ",
+   "headlineAt": "mam"
+  },
+  {
+   "text": "La calabaza no es un vaso: es una fruta seca.",
+   "emo": "surprised",
+   "beat": "body",
+   "visual": {
+    "type": "object",
+    "item": "calabaza_planta",
+    "labels": [
+     "FRUTA SECA"
+    ]
+   },
+   "headline": "FRUTA SECA",
+   "headlineAt": "fruta"
+  },
+  {
+   "text": "Tiene poros, como una esponja muy dura.",
+   "emo": "neutral",
+   "beat": "body",
+   "visual": {
+    "type": "object",
+    "item": "mate",
+    "animate": "zoom_poros",
+    "labels": [
+     "POROS"
+    ]
+   },
+   "headline": "TIENE POROS",
+   "headlineAt": "poros"
+  },
+  {
+   "text": "Y acá está el problema: todo lo que le ponés, se lo queda.",
+   "emo": "tense",
+   "beat": "rehook",
+   "visual": {
+    "type": "title",
+    "text": "SE LO QUEDA",
+    "sub": "TODO LO QUE LE PONÉS"
+   }
+  },
+  {
+   "text": "El detergente entra y después lo tomás vos.",
+   "emo": "funny",
+   "beat": "body",
+   "visual": {
+    "type": "scene",
+    "place": "cocina",
+    "people": [
+     {
+      "role": "you",
+      "does": "drink",
+      "mood": "disgusted"
+     }
+    ],
+    "props": [
+     "burbujas_jabon"
+    ]
+   },
+   "headline": "LO TOMÁS VOS",
+   "headlineAt": "tom"
+  },
+  {
+   "text": "¿Y entonces cómo se limpia?",
+   "emo": "excited",
+   "beat": "rehook",
+   "visual": {
+    "type": "reaction",
+    "emotion": "surprised",
+    "act": "think",
+    "who": 0
+   },
+   "headline": "¿Y ENTONCES?",
+   "headlineAt": "entonces",
+   "impact": true
+  },
+  {
+   "text": "Sacás la yerba apenas terminás de tomar.",
+   "emo": "neutral",
+   "beat": "body",
+   "visual": {
+    "type": "scene",
+    "place": "cocina",
+    "people": [
+     {
+      "role": "you",
+      "does": "empty_mate",
+      "mood": "smile"
+     }
+    ],
+    "props": [
+     "tacho"
+    ]
+   },
+   "headline": "UNO",
+   "headlineAt": "yerba",
+   "headlineType": "check"
+  },
+  {
+   "text": "Lo enjuagás solo con agua, nada más.",
+   "emo": "neutral",
+   "beat": "body",
+   "visual": {
+    "type": "scene",
+    "place": "cocina",
+    "people": [
+     {
+      "role": "you",
+      "does": "rinse_mate",
+      "mood": "smile"
+     }
+    ],
+    "props": [
+     "canilla",
+     "pileta_cocina"
+    ]
+   },
+   "headline": "DOS · SOLO AGUA",
+   "headlineAt": "agua",
+   "headlineType": "check"
+  },
+  {
+   "text": "Y lo dejás secar al aire, nunca cerrado.",
+   "emo": "warm",
+   "beat": "body",
+   "visual": {
+    "type": "scene",
+    "place": "cocina",
+    "people": [],
+    "props": [
+     "mate_secando_ventana",
+     "sol_ventana"
+    ]
+   },
+   "headline": "TRES · AL AIRE",
+   "headlineAt": "aire",
+   "headlineType": "check"
+  },
+  {
+   "text": "Un mate bien cuidado dura más que tu heladera.",
+   "emo": "proud",
+   "beat": "payoff",
+   "visual": {
+    "type": "compare",
+    "left": {
+     "item": "mate",
+     "label": "DURA AÑOS"
+    },
+    "right": {
+     "item": "heladera",
+     "label": "SE ROMPE"
+    },
+    "text": "DURA MÁS",
+    "sub": ""
+   },
+   "headline": "DURA MÁS",
+   "headlineAt": "heladera",
+   "impact": true
+  },
+  {
+   "text": "¿Vos cómo lo lavás? Mandáselo al que usa detergente.",
+   "emo": "funny",
+   "beat": "cta",
+   "visual": {
+    "type": "title",
+    "text": "",
+    "sub": ""
+   }
+  }
+ ],
+ "poll": {
+  "question": "¿Cómo lo lavás?",
+  "options": [
+   "SOLO AGUA",
+   "CON DETERGENTE",
+   "NO LO LAVO"
+  ]
+ },
+ "rewrite": "top-reel pattern 2026-11-17 + rehooks",
+ "thumb": {
+  "lines": [
+   "¡NO LO LAVES",
+   "ASÍ!"
+  ]
+ }
+}

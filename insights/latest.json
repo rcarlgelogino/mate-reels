@@ -1,11 +1,11 @@
 {
- "read": "2026-11-21T11:17:20.412Z",
+ "read": "2026-11-21T16:16:27.667Z",
  "insights": true,
  "reels": [
   {
-   "id": "18115290086579863",
-   "posted": "2026-11-21T11:15:02+0000",
-   "link": "https://www.instagram.com/reel/DgAGTqQEceE/",
+   "id": "17916110445308147",
+   "posted": "2026-11-21T16:15:24+0000",
+   "link": "https://www.instagram.com/reel/DgAop6iDQ1M/",
    "title": "Si te pasaron la yerba en una bolsa de nylon, sos de acá 🧉",
    "likes": 0,
    "comments": 0,
@@ -18,34 +18,49 @@
    "ig_reels_video_view_total_time": 0
   },
   {
+   "id": "18115290086579863",
+   "posted": "2026-11-21T11:15:02+0000",
+   "link": "https://www.instagram.com/reel/DgAGTqQEceE/",
+   "title": "Si te pasaron la yerba en una bolsa de nylon, sos de acá 🧉",
+   "likes": 47,
+   "comments": 0,
+   "reach": 1539,
+   "views": 1752,
+   "saved": 4,
+   "shares": 0,
+   "total_interactions": 51,
+   "ig_reels_avg_watch_time": 20286,
+   "ig_reels_video_view_total_time": 31240520
+  },
+  {
    "id": "17956764576324531",
    "posted": "2026-11-20T23:14:29+0000",
    "link": "https://www.instagram.com/reel/Df-z3NOGdWk/",
    "title": "¿Qué hacés si en tu ronda alguien te mueve la bombilla? 🧉",
-   "likes": 34,
+   "likes": 39,
    "comments": 1,
-   "reach": 1301,
-   "views": 1511,
-   "saved": 0,
+   "reach": 1382,
+   "views": 1623,
+   "saved": 1,
    "shares": 1,
-   "total_interactions": 37,
-   "ig_reels_avg_watch_time": 15962,
-   "ig_reels_video_view_total_time": 20543670
+   "total_interactions": 43,
+   "ig_reels_avg_watch_time": 16132,
+   "ig_reels_video_view_total_time": 22117539
   },
   {
    "id": "17931320949185239",
    "posted": "2026-11-20T20:14:51+0000",
    "link": "https://www.instagram.com/reel/Df-fT2CE2EP/",
    "title": "Si tomás mate en Paraguay, te lo dan con hielo. Y les sobra razón 🧉",
-   "likes": 54,
+   "likes": 59,
    "comments": 2,
-   "reach": 1150,
-   "views": 1372,
+   "reach": 1177,
+   "views": 1412,
    "saved": 0,
    "shares": 1,
-   "total_interactions": 58,
-   "ig_reels_avg_watch_time": 18896,
-   "ig_reels_video_view_total_time": 22392175
+   "total_interactions": 63,
+   "ig_reels_avg_watch_time": 19128,
+   "ig_reels_video_view_total_time": 23279397
   },
   {
    "id": "18075620057782983",
@@ -54,43 +69,43 @@
    "title": "POV: primera visita y tu suegra te ceba el primer mate 🧉",
    "likes": 37,
    "comments": 0,
-   "reach": 1320,
-   "views": 1783,
+   "reach": 1324,
+   "views": 1794,
    "saved": 1,
    "shares": 0,
    "total_interactions": 38,
-   "ig_reels_avg_watch_time": 15290,
-   "ig_reels_video_view_total_time": 20030126
+   "ig_reels_avg_watch_time": 15309,
+   "ig_reels_video_view_total_time": 20162979
   },
   {
    "id": "18091881065271889",
    "posted": "2026-11-19T20:15:44+0000",
    "link": "https://www.instagram.com/reel/Df76l9InKet/",
    "title": "¿Qué hacés si tu suegra te pasa el mate hirviendo? 🧉",
-   "likes": 219,
+   "likes": 220,
    "comments": 2,
-   "reach": 5736,
-   "views": 7516,
+   "reach": 5757,
+   "views": 7549,
    "saved": 8,
    "shares": 15,
-   "total_interactions": 253,
-   "ig_reels_avg_watch_time": 20976,
-   "ig_reels_video_view_total_time": 118872105
+   "total_interactions": 254,
+   "ig_reels_avg_watch_time": 20985,
+   "ig_reels_video_view_total_time": 119364728
   },
   {
    "id": "17954688126338284",
    "posted": "2026-11-19T16:16:01+0000",
    "link": "https://www.instagram.com/reel/Df7fJ_elCBe/",
    "title": "¿Qué hacés si tu suegra te pasa el mate hirviendo? 🧉",
-   "likes": 2220,
-   "comments": 21,
-   "reach": 44190,
-   "views": 63579,
+   "likes": 2238,
+   "comments": 22,
+   "reach": 44639,
+   "views": 64233,
    "saved": 50,
    "shares": 110,
-   "total_interactions": 2442,
-   "ig_reels_avg_watch_time": 24930,
-   "ig_reels_video_view_total_time": 1125165762
+   "total_interactions": 2461,
+   "ig_reels_avg_watch_time": 24946,
+   "ig_reels_video_view_total_time": 1136683629
   },
   {
    "id": "17945097024385575",
@@ -100,12 +115,12 @@
    "likes": 75,
    "comments": 1,
    "reach": 1562,
-   "views": 1810,
+   "views": 1812,
    "saved": 1,
    "shares": 4,
    "total_interactions": 81,
-   "ig_reels_avg_watch_time": 16389,
-   "ig_reels_video_view_total_time": 25633859
+   "ig_reels_avg_watch_time": 16373,
+   "ig_reels_video_view_total_time": 25673499
   },
   {
    "id": "17968406085224611",
@@ -114,13 +129,13 @@
    "title": "En Brasil tu mate sería verde flúor, y lo hacen a propósito 🧉",
    "likes": 49,
    "comments": 0,
-   "reach": 1292,
-   "views": 1549,
+   "reach": 1295,
+   "views": 1551,
    "saved": 2,
    "shares": 0,
    "total_interactions": 53,
-   "ig_reels_avg_watch_time": 18494,
-   "ig_reels_video_view_total_time": 24449641
+   "ig_reels_avg_watch_time": 18466,
+   "ig_reels_video_view_total_time": 24467802
   },
   {
    "id": "18118295290828239",
@@ -129,13 +144,13 @@
    "title": "Tomás mate en la oficina, y hay una regla que nadie escribió 🧉",
    "likes": 67,
    "comments": 0,
-   "reach": 1335,
-   "views": 1556,
+   "reach": 1337,
+   "views": 1559,
    "saved": 1,
    "shares": 6,
    "total_interactions": 75,
-   "ig_reels_avg_watch_time": 20077,
-   "ig_reels_video_view_total_time": 26782835
+   "ig_reels_avg_watch_time": 20019,
+   "ig_reels_video_view_total_time": 26786250
   },
   {
    "id": "18109760816525498",
@@ -144,13 +159,13 @@
    "title": "Hervís el agua todos los días, y así quemás la yerba 🧉",
    "likes": 39,
    "comments": 1,
-   "reach": 1168,
-   "views": 1366,
+   "reach": 1169,
+   "views": 1368,
    "saved": 1,
    "shares": 5,
    "total_interactions": 46,
-   "ig_reels_avg_watch_time": 14899,
-   "ig_reels_video_view_total_time": 17119840
+   "ig_reels_avg_watch_time": 14876,
+   "ig_reels_video_view_total_time": 17123101
   },
   {
    "id": "18143893870542564",
@@ -159,13 +174,13 @@
    "title": "En Brasil tu mate sería verde flúor, y lo hacen a propósito 🧉",
    "likes": 84,
    "comments": 0,
-   "reach": 1787,
-   "views": 2126,
+   "reach": 1789,
+   "views": 2129,
    "saved": 2,
    "shares": 3,
    "total_interactions": 89,
-   "ig_reels_avg_watch_time": 22074,
-   "ig_reels_video_view_total_time": 39866123
+   "ig_reels_avg_watch_time": 22049,
+   "ig_reels_video_view_total_time": 39887039
   },
   {
    "id": "17986465505900268",
@@ -175,12 +190,12 @@
    "likes": 56,
    "comments": 0,
    "reach": 1171,
-   "views": 1348,
+   "views": 1349,
    "saved": 1,
    "shares": 0,
    "total_interactions": 59,
-   "ig_reels_avg_watch_time": 14320,
-   "ig_reels_video_view_total_time": 17084210
+   "ig_reels_avg_watch_time": 14308,
+   "ig_reels_video_view_total_time": 17084883
   },
   {
    "id": "18112646183247764",
@@ -189,13 +204,13 @@
    "title": "El termo bajo el brazo no es costumbre: es casi un documento 🧉",
    "likes": 47,
    "comments": 0,
-   "reach": 1122,
-   "views": 1279,
+   "reach": 1124,
+   "views": 1280,
    "saved": 0,
    "shares": 0,
    "total_interactions": 47,
-   "ig_reels_avg_watch_time": 12858,
-   "ig_reels_video_view_total_time": 14478866
+   "ig_reels_avg_watch_time": 12847,
+   "ig_reels_video_view_total_time": 14479539
   },
   {
    "id": "18351561505251624",
@@ -204,13 +219,13 @@
    "title": "Un desconocido te convida un mate en la plaza. ¿Lo aceptás? 🧉",
    "likes": 118,
    "comments": 4,
-   "reach": 1804,
-   "views": 2205,
+   "reach": 1806,
+   "views": 2207,
    "saved": 3,
    "shares": 13,
    "total_interactions": 140,
-   "ig_reels_avg_watch_time": 20318,
-   "ig_reels_video_view_total_time": 36431864
+   "ig_reels_avg_watch_time": 20297,
+   "ig_reels_video_view_total_time": 36434835
   },
   {
    "id": "18115991309169219",
@@ -220,12 +235,12 @@
    "likes": 74,
    "comments": 0,
    "reach": 1604,
-   "views": 1892,
+   "views": 1893,
    "saved": 5,
    "shares": 9,
    "total_interactions": 88,
-   "ig_reels_avg_watch_time": 19767,
-   "ig_reels_video_view_total_time": 32023312
+   "ig_reels_avg_watch_time": 19755,
+   "ig_reels_video_view_total_time": 32023949
   },
   {
    "id": "18169120354491757",
@@ -234,13 +249,13 @@
    "title": "¿Yerba con palo o sin palo? Tu elección dice algo de vos 🧉",
    "likes": 46,
    "comments": 0,
-   "reach": 1187,
-   "views": 1411,
+   "reach": 1189,
+   "views": 1412,
    "saved": 1,
    "shares": 1,
    "total_interactions": 48,
-   "ig_reels_avg_watch_time": 14481,
-   "ig_reels_video_view_total_time": 17710978
+   "ig_reels_avg_watch_time": 14470,
+   "ig_reels_video_view_total_time": 17711554
   },
   {
    "id": "18130747579844259",
@@ -250,27 +265,27 @@
    "likes": 38,
    "comments": 1,
    "reach": 1182,
-   "views": 1391,
+   "views": 1392,
    "saved": 1,
    "shares": 0,
    "total_interactions": 40,
-   "ig_reels_avg_watch_time": 15586,
-   "ig_reels_video_view_total_time": 18532849
+   "ig_reels_avg_watch_time": 15574,
+   "ig_reels_video_view_total_time": 18533643
   },
   {
    "id": "18387264883230971",
    "posted": "2026-11-16T16:18:18+0000",
    "link": "https://www.instagram.com/reel/DfzxB2WDw-e/",
    "title": "El primer mate es el peor de la ronda… y el cebador se lo toma a propósito 🧉",
-   "likes": 516,
+   "likes": 517,
    "comments": 9,
-   "reach": 7719,
-   "views": 9501,
+   "reach": 7727,
+   "views": 9514,
    "saved": 19,
    "shares": 29,
-   "total_interactions": 586,
-   "ig_reels_avg_watch_time": 21128,
-   "ig_reels_video_view_total_time": 164291419
+   "total_interactions": 587,
+   "ig_reels_avg_watch_time": 21127,
+   "ig_reels_video_view_total_time": 164501703
   },
   {
    "id": "18650638792011863",
@@ -280,12 +295,12 @@
    "likes": 38,
    "comments": 0,
    "reach": 1162,
-   "views": 1351,
+   "views": 1352,
    "saved": 1,
    "shares": 0,
    "total_interactions": 40,
-   "ig_reels_avg_watch_time": 16702,
-   "ig_reels_video_view_total_time": 19525103
+   "ig_reels_avg_watch_time": 16689,
+   "ig_reels_video_view_total_time": 19526277
   },
   {
    "id": "18136927855731858",
@@ -295,12 +310,12 @@
    "likes": 23,
    "comments": 1,
    "reach": 1088,
-   "views": 1252,
+   "views": 1253,
    "saved": 1,
    "shares": 0,
    "total_interactions": 25,
-   "ig_reels_avg_watch_time": 11844,
-   "ig_reels_video_view_total_time": 12945935
+   "ig_reels_avg_watch_time": 11834,
+   "ig_reels_video_view_total_time": 12947397
   },
   {
    "id": "18051924839821500",
@@ -309,13 +324,13 @@
    "title": "Mover la bombilla en una ronda no es un detalle: para el cebador es casi una ofensa 🧉",
    "likes": 34,
    "comments": 0,
-   "reach": 1293,
-   "views": 1471,
+   "reach": 1294,
+   "views": 1472,
    "saved": 4,
    "shares": 3,
    "total_interactions": 42,
-   "ig_reels_avg_watch_time": 11954,
-   "ig_reels_video_view_total_time": 15314270
+   "ig_reels_avg_watch_time": 11946,
+   "ig_reels_video_view_total_time": 15314921
   },
   {
    "id": "17951230014084455",
@@ -324,13 +339,13 @@
    "title": "¿Team calabaza o team acero? Tu mate dice mucho de vos 🧉",
    "likes": 37,
    "comments": 1,
-   "reach": 1275,
-   "views": 1494,
+   "reach": 1276,
+   "views": 1495,
    "saved": 0,
    "shares": 0,
    "total_interactions": 38,
-   "ig_reels_avg_watch_time": 21058,
-   "ig_reels_video_view_total_time": 26997354
+   "ig_reels_avg_watch_time": 21043,
+   "ig_reels_video_view_total_time": 26998825
   },
   {
    "id": "18233419840328947",
@@ -339,13 +354,13 @@
    "title": "¿De dónde viene la palabra \"mate\"? No es español… y tampoco guaraní 🧉",
    "likes": 64,
    "comments": 0,
-   "reach": 1258,
-   "views": 1483,
+   "reach": 1260,
+   "views": 1484,
    "saved": 5,
    "shares": 5,
    "total_interactions": 78,
-   "ig_reels_avg_watch_time": 15899,
-   "ig_reels_video_view_total_time": 20224128
+   "ig_reels_avg_watch_time": 15887,
+   "ig_reels_video_view_total_time": 20224700
   },
   {
    "id": "18337366252263000",
@@ -354,13 +369,13 @@
    "title": "¿De dónde viene la palabra \"mate\"? No es español… y tampoco guaraní 🧉",
    "likes": 75,
    "comments": 0,
-   "reach": 1242,
-   "views": 1502,
+   "reach": 1243,
+   "views": 1503,
    "saved": 5,
    "shares": 4,
    "total_interactions": 86,
-   "ig_reels_avg_watch_time": 16624,
-   "ig_reels_video_view_total_time": 21179870
+   "ig_reels_avg_watch_time": 16612,
+   "ig_reels_video_view_total_time": 21180510
   },
   {
    "id": "18645911512049665",
@@ -370,12 +385,12 @@
    "likes": 79,
    "comments": 3,
    "reach": 1180,
-   "views": 1426,
+   "views": 1427,
    "saved": 5,
    "shares": 1,
    "total_interactions": 90,
-   "ig_reels_avg_watch_time": 17247,
-   "ig_reels_video_view_total_time": 20662837
+   "ig_reels_avg_watch_time": 17234,
+   "ig_reels_video_view_total_time": 20663574
   },
   {
    "id": "18135798544775299",
@@ -384,13 +399,13 @@
    "title": "Nadie ceba como la abuela. Y no es nostalgia 🧉❤️",
    "likes": 69,
    "comments": 0,
-   "reach": 1273,
-   "views": 1494,
+   "reach": 1275,
+   "views": 1495,
    "saved": 7,
    "shares": 0,
    "total_interactions": 77,
-   "ig_reels_avg_watch_time": 17839,
-   "ig_reels_video_view_total_time": 22638262
+   "ig_reels_avg_watch_time": 17827,
+   "ig_reels_video_view_total_time": 22641229
   },
   {
    "id": "17871561285661280",
@@ -400,12 +415,12 @@
    "likes": 85,
    "comments": 0,
    "reach": 1422,
-   "views": 1727,
+   "views": 1728,
    "saved": 2,
    "shares": 3,
    "total_interactions": 91,
-   "ig_reels_avg_watch_time": 16211,
-   "ig_reels_video_view_total_time": 23749860
+   "ig_reels_avg_watch_time": 16202,
+   "ig_reels_video_view_total_time": 23752569
   },
   {
    "id": "18039775121814755",

@@ -1,0 +1,264 @@
+{
+ "name": "0021_en_paraguay_con_hielo",
+ "n": 4,
+ "script": {
+  "id": "0021_en_paraguay_con_hielo",
+  "topic": "T18",
+  "title": "El tereré",
+  "caption": "Si tomás mate en Paraguay, te lo dan con hielo. Y les sobra razón 🧉\nEl tereré: agua helada, yuyos y cuarenta grados a la sombra.\n¿Vos lo probarías con hielo? 👇",
+  "hashtags": [
+   "#mate",
+   "#yerbamate",
+   "#argentina",
+   "#matero",
+   "#costumbresargentinas",
+   "#terere",
+   "#paraguay"
+  ],
+  "segments": [
+   {
+    "text": "Si tomás mate en Paraguay, te lo dan con hielo. Y les sobra razón.",
+    "emo": "surprised",
+    "beat": "hook",
+    "visual": {
+     "type": "scene",
+     "place": "patio",
+     "people": [
+      {
+       "role": "paraguayo",
+       "does": "hold_guampa",
+       "mood": "happy"
+      }
+     ],
+     "props": [
+      "jarra_con_hielo",
+      "sol_fuerte"
+     ]
+    },
+    "headline": "CON HIELO",
+    "headlineAt": "hielo",
+    "impact": true
+   },
+   {
+    "text": "Para tu tío argentino suena a pecado, hasta que hacen cuarenta grados.",
+    "emo": "funny",
+    "beat": "loop",
+    "visual": {
+     "type": "scene",
+     "place": "patio",
+     "people": [
+      {
+       "role": "argentino",
+       "does": "shock",
+       "mood": "disgusted"
+      },
+      {
+       "role": "paraguayo",
+       "does": "laugh",
+       "mood": "laugh"
+      }
+     ]
+    },
+    "headline": "¿PECADO?",
+    "headlineAt": "pecado"
+   },
+   {
+    "text": "Se llama tereré y es la bebida nacional de Paraguay.",
+    "emo": "neutral",
+    "beat": "body",
+    "visual": {
+     "type": "map",
+     "countries": [
+      "py"
+     ],
+     "text": "TERERÉ",
+     "sub": "BEBIDA NACIONAL"
+    },
+    "headline": "TERERÉ",
+    "headlineAt": "terer"
+   },
+   {
+    "text": "Y no solo eso: el agua sale de una jarra helada.",
+    "emo": "warm",
+    "beat": "rehook",
+    "visual": {
+     "type": "object",
+     "item": "jarra_con_hielo",
+     "labels": [
+      "AGUA HELADA"
+     ]
+    },
+    "headline": "AGUA HELADA",
+    "headlineAt": "helada"
+   },
+   {
+    "text": "Y se toma en una guampa, que es un cuerno de vaca.",
+    "emo": "surprised",
+    "beat": "body",
+    "visual": {
+     "type": "object",
+     "item": "guampa",
+     "labels": [
+      "CUERNO"
+     ]
+    },
+    "headline": "LA GUAMPA",
+    "headlineAt": "guampa"
+   },
+   {
+    "text": "Y ojo, que falta el ingrediente secreto.",
+    "emo": "excited",
+    "beat": "rehook",
+    "visual": {
+     "type": "reaction",
+     "emotion": "surprised",
+     "act": "think",
+     "who": 2
+    },
+    "headline": "¿EL SECRETO?",
+    "headlineAt": "secreto",
+    "impact": true
+   },
+   {
+    "text": "Al agua le ponen yuyos frescos machacados.",
+    "emo": "warm",
+    "beat": "body",
+    "visual": {
+     "type": "scene",
+     "place": "mercado",
+     "people": [
+      {
+       "role": "yuyera",
+       "does": "grind_mortar",
+       "mood": "happy"
+      }
+     ],
+     "props": [
+      "mortero",
+      "yuyos",
+      "puesto_mercado"
+     ]
+    },
+    "headline": "LOS YUYOS",
+    "headlineAt": "yuyos"
+   },
+   {
+    "text": "Menta, cedrón, burrito: cada uno tiene su mezcla.",
+    "emo": "neutral",
+    "beat": "body",
+    "visual": {
+     "type": "list",
+     "items": [
+      {
+       "title": "MENTA"
+      },
+      {
+       "title": "CEDRÓN"
+      },
+      {
+       "title": "BURRITO"
+      }
+     ]
+    }
+   },
+   {
+    "text": "Hay vendedoras que los preparan en la calle, a pedido.",
+    "emo": "warm",
+    "beat": "body",
+    "visual": {
+     "type": "scene",
+     "place": "mercado",
+     "people": [
+      {
+       "role": "yuyera",
+       "does": "offer",
+       "mood": "happy"
+      },
+      {
+       "role": "paraguayo",
+       "does": "receive",
+       "mood": "happy"
+      }
+     ],
+     "props": [
+      "puesto_mercado",
+      "mortero"
+     ]
+    },
+    "headline": "A PEDIDO",
+    "headlineAt": "calle"
+   },
+   {
+    "text": "Y lo más loco: en dos mil veinte lo declararon patrimonio de la humanidad.",
+    "emo": "proud",
+    "beat": "rehook",
+    "visual": {
+     "type": "number",
+     "value": "2020",
+     "sub": "PATRIMONIO DE LA HUMANIDAD"
+    }
+   },
+   {
+    "text": "Y la ronda es la misma: uno ceba y todos esperan.",
+    "emo": "love",
+    "beat": "payoff",
+    "visual": {
+     "type": "scene",
+     "place": "patio",
+     "people": [
+      {
+       "role": "paraguayo",
+       "does": "pass",
+       "mood": "happy"
+      },
+      {
+       "role": "argentino",
+       "does": "receive",
+       "mood": "happy"
+      },
+      {
+       "role": "brasileno",
+       "does": "idle",
+       "mood": "happy"
+      }
+     ],
+     "pass": [
+      0,
+      1
+     ],
+     "props": [
+      "jarra_con_hielo"
+     ]
+    },
+    "headline": "LA MISMA RONDA",
+    "headlineAt": "ronda",
+    "impact": true
+   },
+   {
+    "text": "¿Vos lo probarías con hielo? Mandáselo al que dice que no es mate.",
+    "emo": "funny",
+    "beat": "cta",
+    "visual": {
+     "type": "title",
+     "text": "",
+     "sub": ""
+    }
+   }
+  ],
+  "poll": {
+   "question": "¿Tereré?",
+   "options": [
+    "LO AMO",
+    "NUNCA",
+    "EN VERANO SÍ"
+   ]
+  },
+  "rewrite": "top-reel pattern 2026-11-17 + rehooks",
+  "thumb": {
+   "lines": [
+    "¿MATE",
+    "CON HIELO?"
+   ]
+  }
+ }
+}

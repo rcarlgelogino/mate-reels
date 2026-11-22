@@ -1,28 +1,16 @@
 {
- "0020_la_yerba_en_bolsa_de_nylon": {
-  "first": "2026-11-20",
-  "styles": [
-   "build3d",
-   "pixel8"
-  ]
- },
- "0020a_tu_jefe_te_ceba_un_mate_lavado": {
-  "first": "2026-11-20",
-  "styles": [
-   "pixel8",
-   "build3d"
-  ]
- },
  "0021_en_paraguay_con_hielo": {
   "first": "2026-11-20",
   "styles": [
-   "flat2d"
+   "flat2d",
+   "build3d"
   ]
  },
  "0021a_alguien_te_mueve_la_bombilla": {
   "first": "2026-11-20",
   "styles": [
-   "flat2d"
+   "flat2d",
+   "pixel8"
   ]
  },
  "0022_olor_a_detergente": {

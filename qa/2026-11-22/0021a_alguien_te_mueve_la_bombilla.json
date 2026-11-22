@@ -1,0 +1,71 @@
+{
+ "reel": "0021a_alguien_te_mueve_la_bombilla",
+ "style": "pixel8",
+ "technical": [
+  "duration 37.467s",
+  "loudness -12.2 LUFS, peak -0.9 dBFS",
+  "voice gemini"
+ ],
+ "vision": {
+  "ran": true,
+  "model": "gemini-3.6-flash"
+ },
+ "summary": "The pixel-art visuals consistently follow the pixel8 aesthetic with readable characters and thematic props. Prop interactions like mate holding and character framing are clear, though hand positioning remains basic.",
+ "scores": {
+  "visual_logic": 6,
+  "graphics": 6,
+  "overall": 6
+ },
+ "logic": {
+  "clean": [
+   "Character appearances follow style guidelines with light skin and uniform floating hands.",
+   "Hero mate object features proper glow halo effect in shot 8."
+  ],
+  "unclean": [
+   "shot 5: Stirring action described in narration is shown as a static hold rather than dynamic motion.",
+   "shot 11: Hand placement relative to the passed mate appears slightly detached."
+  ]
+ },
+ "graphics": {
+  "clean": [
+   "Pixelify Sans typography remains legible and positioned correctly at top.",
+   "Color palette and background elements maintain scene continuity."
+  ],
+  "unclean": [
+   "shot 6: Gourd holding visually clips into character body edge."
+  ]
+ },
+ "issues": [
+  {
+   "severity": "medium",
+   "category": "match",
+   "problem": "Stirring action is not visually depicted.",
+   "fix": "Add small pixel motion lines around bombilla to indicate stirring motion.",
+   "shot": 5,
+   "time": 9.4,
+   "template": "pix"
+  },
+  {
+   "severity": "low",
+   "category": "layering",
+   "problem": "Mate gourd clips slightly into body torso layer.",
+   "fix": "Adjust X offset of the held mate object forward.",
+   "shot": 6,
+   "time": 11.4,
+   "template": "pix"
+  }
+ ],
+ "learnings": [
+  {
+   "type": "do",
+   "area": "objects",
+   "rule": "Use dedicated motion indicator frames for active object manipulation."
+  },
+  {
+   "type": "avoid",
+   "area": "layering",
+   "rule": "Avoid overlapping held hero objects directly on body centerlines without offset."
+  }
+ ],
+ "checked": "2026-11-22T08:58:20.860Z"
+}

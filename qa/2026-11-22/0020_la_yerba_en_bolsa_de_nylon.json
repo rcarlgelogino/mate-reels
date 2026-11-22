@@ -1,0 +1,54 @@
+{
+ "reel": "0020_la_yerba_en_bolsa_de_nylon",
+ "style": "flat2d",
+ "technical": [
+  "duration 42.434s",
+  "loudness -12.5 LUFS, peak -0.8 dBFS",
+  "voice gemini"
+ ],
+ "vision": {
+  "ran": true,
+  "model": "gemini-3.6-flash"
+ },
+ "summary": "The visual quality of this flat 2D reel is clean, with clear vector graphics, consistent typography, and well-structured layout templates. However, shot 8 presents a visual mismatch where the audio mentions heating water in a pot ('olla'), but the visual shows a character pouring water from a flask with a kettle in the background.",
+ "scores": {
+  "visual_logic": 8,
+  "graphics": 9,
+  "overall": 8
+ },
+ "logic": {
+  "clean": [
+   "Gourd, bombilla, nylon bag, and thermos are drawn cleanly with correct scale and proportion.",
+   "Character arm positions and facial expressions in shot 5 convey shock appropriately without floating elements."
+  ],
+  "unclean": [
+   "shot 8: The script mentions heating water in a pot ('olla'), but the scene displays a character pouring water from a blue thermos into a mate, with a kettle on the counter instead of a pot."
+  ]
+ },
+ "graphics": {
+  "clean": [
+   "Captions and label pins ('CON NUDO', 'CINTA', 'TORCIDA', 'BARILOCHE') are placed neatly without obscuring focal objects or faces.",
+   "Board and flat background templates transition cleanly with consistent color palettes."
+  ],
+  "unclean": []
+ },
+ "issues": [
+  {
+   "severity": "high",
+   "category": "match",
+   "problem": "Sentence mentions heating water in a pot ('olla'), but the scene shows a character pouring from a thermos with a kettle nearby.",
+   "fix": "Replace the thermos/kettle prop in shot 8 with a pot ('olla') on a stove or held by the character to accurately match the spoken line.",
+   "shot": 8,
+   "time": 28.1,
+   "template": "flat"
+  }
+ ],
+ "learnings": [
+  {
+   "type": "do",
+   "area": "match",
+   "rule": "Ensure key object keywords in the voiceover (e.g., 'olla') directly match the primary visual prop drawn in the shot."
+  }
+ ],
+ "checked": "2026-11-22T09:01:44.760Z"
+}

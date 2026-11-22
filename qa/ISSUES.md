@@ -2,7 +2,7 @@
 
 Found by the analysis after every build. Nothing is blocked; fix the most frequent ones in the style (styles/*.js, engine) or the script rules.
 
-Reels analysed: 17 · issues: 60 · updated 2026-11-21
+Reels analysed: 18 · issues: 63 · updated 2026-11-22
 
 | times | severity | category | problem (latest example) | suggested fix | last seen |
 |---|---|---|---|---|---|
@@ -16,6 +16,7 @@ Reels analysed: 17 · issues: 60 · updated 2026-11-21
 | 1 | high | objects | The mate is missing entirely from the drying scene, showing only an empty counter. (0022_olor_a_detergente, shot 10) | Place an inverted or tilted mate gourd resting on a cloth/counter to visually depict air-drying. | 2026-11-21 |
 | 1 | high | match | Sentence instructs emptying yerba, but the figure stands idly without a mate or spoon. (0022_olor_a_detergente, shot 7) | Show hands tapping out or scooping spent yerba from the gourd into a bin/plate. | 2026-11-21 |
 | 1 | high | match | Sentence instructs rinsing with water, but no water, sink, or rinsing action is rendered. (0022_olor_a_detergente, shot 8) | Show the mate under a kitchen faucet with flowing water. | 2026-11-21 |
+| 1 | high | match | Sentence mentions heating water in a pot ('olla'), but the scene shows a character pouring from a thermos with a kettle nearby. (0020_la_yerba_en_bolsa_de_nylon, shot 8) | Replace the thermos/kettle prop in shot 8 with a pot ('olla') on a stove or held by the character to accurately match the spoken line. | 2026-11-22 |
 | 1 | medium | labels | Board template contains only text without visual props or characters. (0004_mate_argentino_o_uruguayo, shot 1) | Add relevant background illustrations or icons to board templates instead of text-only slides. | 2026-11-14 |
 | 1 | medium | labels | Board text is tiny and placed near bottom margin. (0006_de_donde_viene_mate, shot 8) | Center and enlarge lower graphic text for better legibility. | 2026-11-14 |
 | 1 | medium | scale | Grandma character appears undersized in a vast interior. (0007_team_calabaza_o_acero, shot 3) | Scale character up to occupy roughly one-half to two-thirds of frame height. | 2026-11-15 |
@@ -46,6 +47,7 @@ Reels analysed: 17 · issues: 60 · updated 2026-11-21
 | 1 | medium | match | Audio mentions a dog, but no dog model is present. (0030p_pov_tu_suegra_te_ceba, shot 4) | Insert a cartoon dog model looking at the camera. | 2026-11-20 |
 | 1 | medium | scale | The mate gourd is drawn nearly equal in height to the refrigerator. (0022_olor_a_detergente, shot 11) | Adjust relative scale so the refrigerator is appropriately tall and the mate remains hand-sized, or place them in separate comparative cards. | 2026-11-21 |
 | 1 | medium | layering | A large red 'X' graphic is superimposed directly over the character's face. (0022_olor_a_detergente, shot 0) | Position the 'NO' badge beside or above the character rather than overlapping their head. | 2026-11-21 |
+| 1 | medium | match | Stirring action is not visually depicted. (0021a_alguien_te_mueve_la_bombilla, shot 5) | Add small pixel motion lines around bombilla to indicate stirring motion. | 2026-11-22 |
 | 1 | low | people | Hands placed on the head for 'esperá' lack proper forearm connection alignment. (0004_mate_argentino_o_uruguayo, shot 4) | Ensure character arms seamlessly connect to raised hands. | 2026-11-14 |
 | 1 | low | labels | Repeating the exact same text and face close-up across three consecutive frames without variation. (0005_sos_argentino_de_verdad, shot 1) | Vary the zoom or introduce a new prop to maintain visual interest when repeating phrases. | 2026-11-14 |
 | 1 | low | hands | Hands float passively in the air without clear context. (0006_de_donde_viene_mate, shot 5) | Add a pose or gesture to make hand placement look intentional. | 2026-11-14 |
@@ -64,5 +66,3 @@ Reels analysed: 17 · issues: 60 · updated 2026-11-21
 | 1 | low | people | Duplicate static poses in consecutive shots without major action shift (0017_el_mate_en_la_oficina, shot 8) | Vary expressions or add a subtle movement between adjacent frames. | 2026-11-18 |
 | 1 | low | people | Girlfriend expression and stance do not emphasize the lack of help clearly enough. (0019_tu_suegra_y_el_mate_hirviendo, shot 10) | Add a shoulder shrug or open palm gesture to match the 'sin ayuda' text. | 2026-11-19 |
 | 1 | low | scene | White blank rectangle on character torso looks unrendered. (0030p_pov_tu_suegra_te_ceba, shot 0) | Fix texture map or remove placeholder plane on clothing. | 2026-11-20 |
-| 1 | low | labels | Top caption text feels slightly crowded relative to the background. (0020_la_yerba_en_bolsa_de_nylon, shot 6) | Adjust top margin for captions to prevent crowding. | 2026-11-21 |
-| 1 | low | scene | Cross-section gourd floats in the room space over the kitchen counter. (0022_olor_a_detergente, shot 3) | Use a clear diagram/card presentation or neutral zoom-in background rather than dropping an oversized prop into the kitchen perspective. | 2026-11-21 |

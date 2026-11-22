@@ -1,0 +1,14 @@
+{
+ "id": "0021a_alguien_te_mueve_la_bombilla",
+ "file": "work/0021a_alguien_te_mueve_la_bombilla/final.mp4",
+ "voice": "gemini",
+ "duration": 37.467,
+ "inTarget": true,
+ "target": [
+  35,
+  45
+ ],
+ "loudness": "-12.2 LUFS, peak -0.9 dBFS",
+ "shots": 18,
+ "minutes": 2.9
+}

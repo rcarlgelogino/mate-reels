@@ -1,0 +1,20 @@
+{
+ "reel": "0020a_tu_jefe_te_ceba_un_mate_lavado",
+ "style": "flat2d",
+ "technical": [
+  "duration 35.134s",
+  "loudness -12.2 LUFS, peak -0.8 dBFS",
+  "voice gemini"
+ ],
+ "vision": {
+  "ran": false,
+  "model": null
+ },
+ "summary": "",
+ "scores": {},
+ "logic": {},
+ "graphics": {},
+ "issues": [],
+ "learnings": [],
+ "checked": "2026-11-22T09:10:22.772Z"
+}

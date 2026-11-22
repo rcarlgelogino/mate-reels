@@ -1,0 +1,14 @@
+{
+ "id": "0020_la_yerba_en_bolsa_de_nylon",
+ "file": "work/0020_la_yerba_en_bolsa_de_nylon/final.mp4",
+ "voice": "gemini",
+ "duration": 42.434,
+ "inTarget": true,
+ "target": [
+  35,
+  45
+ ],
+ "loudness": "-12.5 LUFS, peak -0.8 dBFS",
+ "shots": 12,
+ "minutes": 2.4
+}

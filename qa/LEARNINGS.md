@@ -3,12 +3,14 @@
 Every reel is analysed after it is built (scripts/qa.js), for its VISUAL representation only. Pacing, hook, wording and sound are not learned here; they come from the reference reels (docs/WATCHTIME.md).
 The rules below are collected from all analyses, most frequent first. scripts/improve.js uses them to choose the visuals of the next script; recurring drawing problems get fixed in the style (styles/*.js, engine). Nothing here blocks a release.
 
-Reels analysed: 29 · average scores: visual logic 6.7 · graphics 7.2 · overall 6.8 · updated 2026-11-21
+Reels analysed: 33 · average scores: visual logic 6.7 · graphics 7.2 · overall 6.8 · updated 2026-11-22
 
 ## Do more of
 
 | times | area | rule | last seen |
 |---|---|---|---|
+| 1 | objects | Use dedicated motion indicator frames for active object manipulation. | 2026-11-22 |
+| 1 | match | Ensure key object keywords in the voiceover (e.g., 'olla') directly match the primary visual prop drawn in the shot. | 2026-11-22 |
 | 1 | match | Whenever instructional cleaning or preparation steps are spoken (emptying, rinsing, drying), show the specific action or prop rather than a character standing passively. | 2026-11-21 |
 | 1 | labels | Ensure captions maintain adequate spacing from the top edge in all vertical frames. | 2026-11-21 |
 | 1 | match | Ensure key visual props and characters mentioned in the voiceover are rendered in the scene. | 2026-11-20 |
@@ -34,6 +36,7 @@ Reels analysed: 29 · average scores: visual logic 6.7 · graphics 7.2 · overal
 
 | times | area | rule | last seen |
 |---|---|---|---|
+| 1 | layering | Avoid overlapping held hero objects directly on body centerlines without offset. | 2026-11-22 |
 | 1 | layering | Never place graphic warning marks, text, or crosses over character faces. | 2026-11-21 |
 | 1 | scene | Do not mix flat vector templates into pixel8 reels. | 2026-11-20 |
 | 1 | match | Avoid using generic placeholder geometry when specific object flaws are narrated. | 2026-11-20 |
@@ -56,33 +59,33 @@ Reels analysed: 29 · average scores: visual logic 6.7 · graphics 7.2 · overal
 
 ## Latest reels
 
+### 0021a_alguien_te_mueve_la_bombilla (2026-11-22)
+The pixel-art visuals consistently follow the pixel8 aesthetic with readable characters and thematic props. Prop interactions like mate holding and character framing are clear, though hand positioning remains basic.
+- clean: Character appearances follow style guidelines with light skin and uniform floating hands.; Hero mate object features proper glow halo effect in shot 8.; Pixelify Sans typography remains legible and positioned correctly at top.; Color palette and background elements maintain scene continuity.
+- unclean: shot 5: Stirring action described in narration is shown as a static hold rather than dynamic motion.; shot 11: Hand placement relative to the passed mate appears slightly detached.; shot 6: Gourd holding visually clips into character body edge.
+
+### 0020a_tu_jefe_te_ceba_un_mate_lavado (2026-11-22)
+
+- clean: –
+- unclean: –
+
+### 0020_la_yerba_en_bolsa_de_nylon (2026-11-22)
+The visual quality of this flat 2D reel is clean, with clear vector graphics, consistent typography, and well-structured layout templates. However, shot 8 presents a visual mismatch where the audio mentions heating water in a pot ('olla'), but the visual shows a character pouring water from a flask with a kettle in the background.
+- clean: Gourd, bombilla, nylon bag, and thermos are drawn cleanly with correct scale and proportion.; Character arm positions and facial expressions in shot 5 convey shock appropriately without floating elements.; Captions and label pins ('CON NUDO', 'CINTA', 'TORCIDA', 'BARILOCHE') are placed neatly without obscuring focal objects or faces.; Board and flat background templates transition cleanly with consistent color palettes.
+- unclean: shot 8: The script mentions heating water in a pot ('olla'), but the scene displays a character pouring water from a blue thermos into a mate, with a kettle on the counter instead of a pot.
+
 ### 0022_olor_a_detergente (2026-11-21)
 The reel uses a clean flat2d color palette and readable typography, but suffers from severe mismatches where key instructional actions are entirely absent from the screen. Several scenes fail to show the objects being discussed, including cleaning steps with no water or sink, and a drying scene showing an empty kitchen with no mate.
 - clean: Shot 2 depicts hanging drying gourds logically matching the botanical context.; Shot 5 shows the character sipping with the bombilla properly reaching the mouth.; Clear, consistent graphic styling and color scheme across kitchen and characters.; Step badges (UNO, DOS, TRES) and quiz buttons are cleanly aligned.
 - unclean: Shot 7: Spoken text explains emptying the yerba ('Sacás la yerba'), but the character stands passively behind the counter with nothing in hand.; Shot 8 & 9: Spoken text explains rinsing only with water, but neither a tap, water flow, nor mate rinsing is depicted; characters simply stand still.; Shot 10: Spoken text describes letting the mate air-dry ('dejás secar al aire'), but the frame shows a completely empty kitchen counter with no mate present at all.; Shot 11: The mate gourd is scaled almost as tall as a full-size refrigerator, completely breaking physical scale.; Shot 0: The red 'NO' cross is drawn directly over the character's face and cap.; Shot 3: The giant cross-section gourd floats unnaturally in the middle of the kitchen perspective.
 
-### 0020_la_yerba_en_bolsa_de_nylon (2026-11-21)
-The pixel-art style reel correctly utilizes character models, glowing hero objects, and consistent thematic elements. However, there are minor layout inconsistencies with text overlapping and object scaling in some dialogue shots.
-- clean: Shot 2: Character correctly holding the mate gourd with floating ball hands.; Shot 7: Thermos object featured properly with face and glow.; Shot 9: Character interacting with the mate inside an indoor room setting.; Consistent use of the pixel8 art style across backgrounds and characters.; Clear captions at the top with yellow highlighted words matching the narration.
-- unclean: Shot 6: The text layout overlaps slightly with the visual flow.; Shot 7: The car and thermos scale comparison visually disconnects from the spoken context momentarily.; Shot 1: Text alignment at the top is slightly cramped.
-
-### 0030p_pov_tu_suegra_te_ceba (2026-11-20)
-The 3D render style captures a clean, bright aesthetic consistent with cartoon models. However, several visual elements fail to match the spoken audio, such as missing characters and key visual effects.
-- clean: Character positions and living room background layout remain consistent across shots.; First-person perspective arm correctly holds and receives the mate gourd.; Text overlays are readable and placed neatly at the top of the frame.; 3D lighting and soft shading create a cohesive look.
-- unclean: shot 3: Steam effect is missing despite text describing locomotive-like smoke.; shot 4: No dog is visible in the frame even though the text explicitly mentions one.; shot 5: Burnt tongue reaction is not clearly depicted on the character.; shot 0: Characters feature an untextured white rectangular patch on their chests.
-
-### 0021a_alguien_te_mueve_la_bombilla (2026-11-20)
-The flat 2D reel consistently follows visual rules with clear character expressions, correct hand placements on gourds, and well-proportioned background elements matching the storyline.
-- clean: Shot 0: Figures stand correctly positioned near the counter with accurate hand placement on the gourd.; Shot 2: Characters pass the mate fluidly with hands meeting naturally.; Shot 5: Character grips the mate properly by the side while handling the bombilla.; Shot 7: Character's expression reflects outrage matching the scene context.; Shot 10: Characters interact clearly while demonstrating option two.
-- unclean: –
-
-### 0021_en_paraguay_con_hielo (2026-11-20)
+### 0020a_tu_jefe_te_ceba_un_mate_lavado (2026-11-21)
 
 - clean: –
 - unclean: –
 
-### 0020a_tu_jefe_te_ceba_un_mate_lavado (2026-11-20)
-The pixel8 aesthetics are generally maintained with cute character designs and themed hero objects. However, clear visual bugs exist such as empty frame renders, hand-object clipping, and a style breach in shot 8.
-- clean: Pouring stance in shot 3 matches the pTermoPour rule correctly.; Drinking pose in shot 7 places bombilla properly on the mouth.; Shot 2 features a clean hero object with standard warm glow halo.; Pixel art typography renders clearly across frames.
-- unclean: shot 8: Switches abruptly to a non-pixel flat template character.; shot 9: Frame is empty with missing characters and misaligned background graphics.; shot 11: Phone floats detached near the character's hand.; shot 8: Flat style assets used instead of pixel8 engine template.; shot 9: Missing character sprites leaving background empty.
+### 0020_la_yerba_en_bolsa_de_nylon (2026-11-21)
+The pixel-art style reel correctly utilizes character models, glowing hero objects, and consistent thematic elements. However, there are minor layout inconsistencies with text overlapping and object scaling in some dialogue shots.
+- clean: Shot 2: Character correctly holding the mate gourd with floating ball hands.; Shot 7: Thermos object featured properly with face and glow.; Shot 9: Character interacting with the mate inside an indoor room setting.; Consistent use of the pixel8 art style across backgrounds and characters.; Clear captions at the top with yellow highlighted words matching the narration.
+- unclean: Shot 6: The text layout overlaps slightly with the visual flow.; Shot 7: The car and thermos scale comparison visually disconnects from the spoken context momentarily.; Shot 1: Text alignment at the top is slightly cramped.
 

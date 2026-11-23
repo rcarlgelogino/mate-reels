@@ -1,0 +1,93 @@
+{
+ "reel": "0023_el_termo_hasta_la_playa",
+ "style": "flat2d",
+ "technical": [
+  "duration 36.934s",
+  "loudness -12.5 LUFS, peak -0.9 dBFS",
+  "voice gemini"
+ ],
+ "vision": {
+  "ran": true,
+  "model": "gemini-3.5-flash-lite"
+ },
+ "summary": "The reel depicts a beach scene with characters drinking mate and carrying beach gear. The flat 2D style is consistently applied, though some shots suffer from minor repetitive staging and text placement.",
+ "scores": {
+  "visual_logic": 8,
+  "graphics": 9,
+  "overall": 8
+ },
+ "logic": {
+  "clean": [
+   "Shot 0: character correctly holding thermos and beach mat",
+   "Shot 4: close-up on thermos correctly highlights the object",
+   "Shot 7: character pouring hot water into the gourd correctly",
+   "Shot 10: two characters sharing a mate round correctly"
+  ],
+  "unclean": [
+   "Shot 2: suegra expression and pose are repeated almost identically across frames",
+   "Shot 9: wind blowing yerba could be more explicitly visualized beyond text labels"
+  ]
+ },
+ "graphics": {
+  "clean": [
+   "Consistent flat 2D vector style throughout all frames",
+   "Clear color contrast and appropriate prop scaling (thermos, mate gourd, beach elements)",
+   "Readable top captions and headline pills"
+  ],
+  "unclean": [
+   "Shot 2: dark background pill slightly overlaps the character's head top edge"
+  ]
+ },
+ "issues": [
+  {
+   "severity": "medium",
+   "fault": "object_missing",
+   "category": "objects",
+   "problem": "\"heladerita\" is named but flat2d has no drawing for it",
+   "fix": "add a heladerita drawing to flat2d and its column in styles/lexicon.js",
+   "shot": null,
+   "source": "lexicon"
+  },
+  {
+   "severity": "medium",
+   "fault": "object_missing",
+   "category": "objects",
+   "problem": "\"sombrilla\" is named but flat2d has no drawing for it",
+   "fix": "add a sombrilla drawing to flat2d and its column in styles/lexicon.js",
+   "shot": null,
+   "source": "lexicon"
+  },
+  {
+   "severity": "medium",
+   "fault": "object_missing",
+   "category": "objects",
+   "problem": "\"reposera\" is named but flat2d has no drawing for it",
+   "fix": "add a reposera drawing to flat2d and its column in styles/lexicon.js",
+   "shot": null,
+   "source": "lexicon"
+  },
+  {
+   "severity": "low",
+   "fault": "text_over_face",
+   "category": "labels",
+   "problem": "Dark caption box touches the top of the character's head",
+   "fix": "Lower character or raise the caption box slightly",
+   "shot": 2,
+   "time": 8.7,
+   "template": "flat"
+  }
+ ],
+ "learnings": [
+  {
+   "type": "do",
+   "area": "labels",
+   "rule": "Ensure caption boxes have a safe margin above character heads"
+  },
+  {
+   "type": "avoid",
+   "area": "match",
+   "rule": "Avoid repeating static character poses across consecutive frames without subtle movement"
+  }
+ ],
+ "checked": "2026-11-23T20:42:54.672Z"
+}

@@ -1,0 +1,296 @@
+{
+ "id": "0023_el_termo_hasta_la_playa",
+ "topic": "T29",
+ "title": "Mate en la playa",
+ "caption": "Si llevás el termo a la playa, no estás loco: es a propósito 🧉\nTreinta y cinco grados, arena y mate caliente.\n¿Vos llevás el termo a la playa? 👇",
+ "hashtags": [
+  "#mate",
+  "#yerbamate",
+  "#argentina",
+  "#matero",
+  "#costumbresargentinas",
+  "#playa",
+  "#verano"
+ ],
+ "segments": [
+  {
+   "text": "Si llevás el termo a la playa, no estás loco: es a propósito.",
+   "emo": "surprised",
+   "beat": "hook",
+   "visual": {
+    "type": "scene",
+    "place": "playa",
+    "people": [
+     {
+      "role": "argentino",
+      "does": "carry_termo_brazo",
+      "mood": "proud"
+     }
+    ],
+    "props": [
+     "sombrilla",
+     "heladerita",
+     "reposera"
+    ]
+   },
+   "headline": "HASTA LA PLAYA",
+   "headlineAt": "playa",
+   "impact": true
+  },
+  {
+   "text": "Treinta y cinco grados, y tomás algo caliente.",
+   "emo": "funny",
+   "beat": "loop",
+   "visual": {
+    "type": "scene",
+    "place": "playa",
+    "people": [
+     {
+      "role": "turista",
+      "does": "shock",
+      "mood": "surprised"
+     },
+     {
+      "role": "argentino",
+      "does": "drink",
+      "mood": "happy"
+     }
+    ],
+    "props": [
+     "sol_fuerte"
+    ]
+   },
+   "headline": "35 GRADOS",
+   "headlineAt": "grados"
+  },
+  {
+   "text": "Y tu suegra te mira como si estuvieras loco.",
+   "emo": "surprised",
+   "beat": "rehook",
+   "visual": {
+    "type": "reaction",
+    "emotion": "confused",
+    "act": "think",
+    "who": 3
+   },
+   "headline": "¿ESTÁS LOCO?",
+   "headlineAt": "loco",
+   "impact": true
+  },
+  {
+   "text": "Llegás cargado: sombrilla, reposera, heladerita y termo.",
+   "emo": "funny",
+   "beat": "body",
+   "visual": {
+    "type": "scene",
+    "place": "playa",
+    "people": [
+     {
+      "role": "argentino",
+      "does": "carry_all",
+      "mood": "worried"
+     },
+     {
+      "role": "kid",
+      "does": "run",
+      "mood": "happy"
+     }
+    ],
+    "props": [
+     "sombrilla",
+     "reposera",
+     "heladerita"
+    ]
+   },
+   "headline": "CARGADO",
+   "headlineAt": "cargado"
+  },
+  {
+   "text": "Y el termo va en la mano, por si acaso.",
+   "emo": "proud",
+   "beat": "body",
+   "visual": {
+    "type": "object",
+    "item": "termo",
+    "labels": [
+     "POR SI ACASO"
+    ]
+   },
+   "headline": "EN LA MANO",
+   "headlineAt": "mano"
+  },
+  {
+   "text": "Pero esperá: ¿por qué caliente con este calor?",
+   "emo": "excited",
+   "beat": "rehook",
+   "visual": {
+    "type": "reaction",
+    "emotion": "surprised",
+    "act": "think",
+    "who": 2
+   },
+   "headline": "¿POR QUÉ?",
+   "headlineAt": "esper",
+   "impact": true
+  },
+  {
+   "text": "Porque no lo tomás por la sed.",
+   "emo": "neutral",
+   "beat": "body",
+   "visual": {
+    "type": "mistake",
+    "text": "NO",
+    "at": "sed",
+    "over": {
+     "type": "scene",
+     "place": "playa",
+     "people": [
+      {
+       "role": "argentino",
+       "does": "drink",
+       "mood": "neutral"
+      }
+     ]
+    }
+   },
+   "headline": "NO ES SED",
+   "headlineAt": "sed"
+  },
+  {
+   "text": "Lo tomás porque sin mate no hay ronda.",
+   "emo": "warm",
+   "beat": "body",
+   "visual": {
+    "type": "scene",
+    "place": "playa",
+    "people": [
+     {
+      "role": "argentino",
+      "does": "pour",
+      "mood": "happy"
+     },
+     {
+      "role": "friend",
+      "does": "idle",
+      "mood": "happy"
+     },
+     {
+      "role": "grandma",
+      "does": "idle",
+      "mood": "happy"
+     },
+     {
+      "role": "kid",
+      "does": "idle",
+      "mood": "happy"
+     }
+    ],
+    "props": [
+     "sombrilla",
+     "lona"
+    ]
+   },
+   "headline": "POR LA RONDA",
+   "headlineAt": "ronda"
+  },
+  {
+   "text": "Aunque entre arena en la bombilla.",
+   "emo": "funny",
+   "beat": "body",
+   "visual": {
+    "type": "object",
+    "item": "mate",
+    "variant": "con_arena",
+    "labels": [
+     "ARENA"
+    ]
+   },
+   "headline": "CON ARENA",
+   "headlineAt": "arena"
+  },
+  {
+   "text": "Y el viento te vuele la yerba a la cara.",
+   "emo": "funny",
+   "beat": "body",
+   "visual": {
+    "type": "scene",
+    "place": "playa",
+    "people": [
+     {
+      "role": "argentino",
+      "does": "hold_mate",
+      "mood": "disgusted"
+     }
+    ],
+    "props": [
+     "viento",
+     "yerba_volando"
+    ]
+   },
+   "headline": "Y EL VIENTO",
+   "headlineAt": "viento"
+  },
+  {
+   "text": "Las vacaciones empiezan cuando alguien dice: ¿armo un mate?",
+   "emo": "love",
+   "beat": "payoff",
+   "visual": {
+    "type": "scene",
+    "place": "playa",
+    "people": [
+     {
+      "role": "argentino",
+      "does": "pass",
+      "mood": "happy"
+     },
+     {
+      "role": "friend",
+      "does": "receive",
+      "mood": "happy"
+     },
+     {
+      "role": "grandma",
+      "does": "laugh",
+      "mood": "happy"
+     }
+    ],
+    "pass": [
+     0,
+     1
+    ],
+    "props": [
+     "sombrilla",
+     "atardecer"
+    ]
+   },
+   "headline": "¿ARMO UN MATE?",
+   "headlineAt": "armo",
+   "impact": true
+  },
+  {
+   "text": "¿Vos llevás el termo a la playa? Mandáselo al que nunca lo deja.",
+   "emo": "funny",
+   "beat": "cta",
+   "visual": {
+    "type": "title",
+    "text": "ETIQUETÁ",
+    "sub": "AL QUE LLEVA EL TERMO A LA PLAYA"
+   }
+  }
+ ],
+ "poll": {
+  "question": "¿Termo a la playa?",
+  "options": [
+   "SIEMPRE",
+   "A VECES",
+   "NUNCA"
+  ]
+ },
+ "rewrite": "top-reel pattern 2026-11-17 + rehooks",
+ "thumb": {
+  "lines": [
+   "EL TERMO",
+   "A LA PLAYA"
+  ]
+ }
+}

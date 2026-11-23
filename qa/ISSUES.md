@@ -2,10 +2,11 @@
 
 Found by the analysis after every build. Nothing is blocked; fix the most frequent ones in the style (styles/*.js, engine) or the script rules.
 
-Reels analysed: 18 · issues: 63 · updated 2026-11-22
+Reels analysed: 20 · issues: 71 · updated 2026-11-23
 
 | times | severity | category | problem (latest example) | suggested fix | last seen |
 |---|---|---|---|---|---|
+| 7 | medium | objects | "reposera" is named but flat2d has no drawing for it (0023_el_termo_hasta_la_playa) | add a reposera drawing to flat2d and its column in styles/lexicon.js | 2026-11-23 |
 | 1 | high | labels | Headline graphic covers character eyes and glasses in cell 14. (0007_team_calabaza_o_acero, shot 6) | Shift the headline card upward or adjust camera framing. | 2026-11-15 |
 | 1 | high | hands | Mate gourd floats on the character's chest with bombilla while both arms hang down at her sides. (0011_con_palo_o_sin_palo, shot 6) | Attach character holding hand to mate gourd using the f2grip pose, curling fingers around the side. | 2026-11-16 |
 | 1 | high | match | Character drinks with a bombilla when narration says before the bombilla existed. (0012_de_donde_viene_bombilla, shot 0) | Remove the straw and depict the character sipping directly from the rim of the gourd. | 2026-11-17 |
@@ -65,4 +66,3 @@ Reels analysed: 18 · issues: 63 · updated 2026-11-22
 | 1 | low | match | Repeated exact visual from shot 1 (0015_en_brasil_el_mate_es_verde, shot 2) | Vary the zoom or show a regional close-up instead of repeating the map. | 2026-11-18 |
 | 1 | low | people | Duplicate static poses in consecutive shots without major action shift (0017_el_mate_en_la_oficina, shot 8) | Vary expressions or add a subtle movement between adjacent frames. | 2026-11-18 |
 | 1 | low | people | Girlfriend expression and stance do not emphasize the lack of help clearly enough. (0019_tu_suegra_y_el_mate_hirviendo, shot 10) | Add a shoulder shrug or open palm gesture to match the 'sin ayuda' text. | 2026-11-19 |
-| 1 | low | scene | White blank rectangle on character torso looks unrendered. (0030p_pov_tu_suegra_te_ceba, shot 0) | Fix texture map or remove placeholder plane on clothing. | 2026-11-20 |

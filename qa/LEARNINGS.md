@@ -3,21 +3,21 @@
 Every reel is analysed after it is built (scripts/qa.js), for its VISUAL representation only. Pacing, hook, wording and sound are not learned here; they come from the reference reels (docs/WATCHTIME.md).
 The rules below are collected from all analyses, most frequent first. scripts/improve.js uses them to choose the visuals of the next script; recurring drawing problems get fixed in the style (styles/*.js, engine). Nothing here blocks a release.
 
-Reels analysed: 33 · average scores: visual logic 6.7 · graphics 7.2 · overall 6.8 · updated 2026-11-22
+Reels analysed: 36 · average scores: visual logic 6.8 · graphics 7.3 · overall 6.9 · updated 2026-11-23
 
 ## Do more of
 
 | times | area | rule | last seen |
 |---|---|---|---|
+| 2 | hands | Maintain correct side-gripping of the gourd for all characters handling mate to preserve physical realism. | 2026-11-20 |
+| 1 | labels | Ensure caption boxes have a safe margin above character heads | 2026-11-23 |
 | 1 | objects | Use dedicated motion indicator frames for active object manipulation. | 2026-11-22 |
 | 1 | match | Ensure key object keywords in the voiceover (e.g., 'olla') directly match the primary visual prop drawn in the shot. | 2026-11-22 |
 | 1 | match | Whenever instructional cleaning or preparation steps are spoken (emptying, rinsing, drying), show the specific action or prop rather than a character standing passively. | 2026-11-21 |
 | 1 | labels | Ensure captions maintain adequate spacing from the top edge in all vertical frames. | 2026-11-21 |
 | 1 | match | Ensure key visual props and characters mentioned in the voiceover are rendered in the scene. | 2026-11-20 |
-| 1 | hands | Maintain correct side-gripping of the gourd for all characters handling mate to preserve physical realism. | 2026-11-20 |
 | 1 | objects | Ensure handheld props attach directly to ball hands without gaps. | 2026-11-20 |
 | 1 | labels | Keep upper screen region clear of overlapping character faces during UI overlays. | 2026-11-20 |
-| 1 | hands | Maintain the correct side-grasping grip for all characters holding gourds across all frames. | 2026-11-19 |
 | 1 | match | Ensure object scales like yerba packages and thermos flasks remain consistent across all office scenes. | 2026-11-18 |
 | 1 | scale | Maintain correct relative sizing between oversized props like the cuia and the characters holding them. | 2026-11-18 |
 | 1 | hands | Always keep floating ball hands visibly attached via perspective and actively gripping props. | 2026-11-17 |
@@ -36,13 +36,13 @@ Reels analysed: 33 · average scores: visual logic 6.7 · graphics 7.2 · overal
 
 | times | area | rule | last seen |
 |---|---|---|---|
+| 2 | match | Avoid repeating static character poses across consecutive frames without subtle movement | 2026-11-23 |
 | 1 | layering | Avoid overlapping held hero objects directly on body centerlines without offset. | 2026-11-22 |
 | 1 | layering | Never place graphic warning marks, text, or crosses over character faces. | 2026-11-21 |
 | 1 | scene | Do not mix flat vector templates into pixel8 reels. | 2026-11-20 |
 | 1 | match | Avoid using generic placeholder geometry when specific object flaws are narrated. | 2026-11-20 |
 | 1 | labels | Avoid overlapping multiple caption boxes when several family members are grouped together in a single frame. | 2026-11-19 |
 | 1 | labels | Never place headline text boxes directly over raised hands or facial expressions. | 2026-11-18 |
-| 1 | match | Avoid repeating identical static frames across consecutive shots without visual progression. | 2026-11-18 |
 | 1 | objects | Do not isolate props onto abstract pedestals when the narrative is about the character carrying them. | 2026-11-17 |
 | 1 | labels | Avoid overly plain text lists without contextual illustrations in infographic frames. | 2026-11-17 |
 | 1 | scene | Do not repeat identical background asset clusters side by side without varying scale or spacing. | 2026-11-17 |
@@ -59,6 +59,21 @@ Reels analysed: 33 · average scores: visual logic 6.7 · graphics 7.2 · overal
 
 ## Latest reels
 
+### 0023_el_termo_hasta_la_playa (2026-11-23)
+The reel depicts a beach scene with characters drinking mate and carrying beach gear. The flat 2D style is consistently applied, though some shots suffer from minor repetitive staging and text placement.
+- clean: Shot 0: character correctly holding thermos and beach mat; Shot 4: close-up on thermos correctly highlights the object; Shot 7: character pouring hot water into the gourd correctly; Shot 10: two characters sharing a mate round correctly; Consistent flat 2D vector style throughout all frames
+- unclean: Shot 2: suegra expression and pose are repeated almost identically across frames; Shot 9: wind blowing yerba could be more explicitly visualized beyond text labels; Shot 2: dark background pill slightly overlaps the character's head top edge
+
+### 0022_olor_a_detergente (2026-11-23)
+
+- clean: –
+- unclean: –
+
+### 0021_en_paraguay_con_hielo (2026-11-23)
+
+- clean: –
+- unclean: –
+
 ### 0021a_alguien_te_mueve_la_bombilla (2026-11-22)
 The pixel-art visuals consistently follow the pixel8 aesthetic with readable characters and thematic props. Prop interactions like mate holding and character framing are clear, though hand positioning remains basic.
 - clean: Character appearances follow style guidelines with light skin and uniform floating hands.; Hero mate object features proper glow halo effect in shot 8.; Pixelify Sans typography remains legible and positioned correctly at top.; Color palette and background elements maintain scene continuity.
@@ -73,19 +88,4 @@ The pixel-art visuals consistently follow the pixel8 aesthetic with readable cha
 The visual quality of this flat 2D reel is clean, with clear vector graphics, consistent typography, and well-structured layout templates. However, shot 8 presents a visual mismatch where the audio mentions heating water in a pot ('olla'), but the visual shows a character pouring water from a flask with a kettle in the background.
 - clean: Gourd, bombilla, nylon bag, and thermos are drawn cleanly with correct scale and proportion.; Character arm positions and facial expressions in shot 5 convey shock appropriately without floating elements.; Captions and label pins ('CON NUDO', 'CINTA', 'TORCIDA', 'BARILOCHE') are placed neatly without obscuring focal objects or faces.; Board and flat background templates transition cleanly with consistent color palettes.
 - unclean: shot 8: The script mentions heating water in a pot ('olla'), but the scene displays a character pouring water from a blue thermos into a mate, with a kettle on the counter instead of a pot.
-
-### 0022_olor_a_detergente (2026-11-21)
-The reel uses a clean flat2d color palette and readable typography, but suffers from severe mismatches where key instructional actions are entirely absent from the screen. Several scenes fail to show the objects being discussed, including cleaning steps with no water or sink, and a drying scene showing an empty kitchen with no mate.
-- clean: Shot 2 depicts hanging drying gourds logically matching the botanical context.; Shot 5 shows the character sipping with the bombilla properly reaching the mouth.; Clear, consistent graphic styling and color scheme across kitchen and characters.; Step badges (UNO, DOS, TRES) and quiz buttons are cleanly aligned.
-- unclean: Shot 7: Spoken text explains emptying the yerba ('Sacás la yerba'), but the character stands passively behind the counter with nothing in hand.; Shot 8 & 9: Spoken text explains rinsing only with water, but neither a tap, water flow, nor mate rinsing is depicted; characters simply stand still.; Shot 10: Spoken text describes letting the mate air-dry ('dejás secar al aire'), but the frame shows a completely empty kitchen counter with no mate present at all.; Shot 11: The mate gourd is scaled almost as tall as a full-size refrigerator, completely breaking physical scale.; Shot 0: The red 'NO' cross is drawn directly over the character's face and cap.; Shot 3: The giant cross-section gourd floats unnaturally in the middle of the kitchen perspective.
-
-### 0020a_tu_jefe_te_ceba_un_mate_lavado (2026-11-21)
-
-- clean: –
-- unclean: –
-
-### 0020_la_yerba_en_bolsa_de_nylon (2026-11-21)
-The pixel-art style reel correctly utilizes character models, glowing hero objects, and consistent thematic elements. However, there are minor layout inconsistencies with text overlapping and object scaling in some dialogue shots.
-- clean: Shot 2: Character correctly holding the mate gourd with floating ball hands.; Shot 7: Thermos object featured properly with face and glow.; Shot 9: Character interacting with the mate inside an indoor room setting.; Consistent use of the pixel8 art style across backgrounds and characters.; Clear captions at the top with yellow highlighted words matching the narration.
-- unclean: Shot 6: The text layout overlaps slightly with the visual flow.; Shot 7: The car and thermos scale comparison visually disconnects from the spoken context momentarily.; Shot 1: Text alignment at the top is slightly cramped.
 

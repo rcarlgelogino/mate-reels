@@ -1,0 +1,19 @@
+{
+ "id": "0023_el_termo_hasta_la_playa",
+ "missing": [
+  "heladerita",
+  "sombrilla",
+  "reposera"
+ ],
+ "file": "work/0023_el_termo_hasta_la_playa/final.mp4",
+ "voice": "gemini",
+ "duration": 36.934,
+ "inTarget": true,
+ "target": [
+  35,
+  45
+ ],
+ "loudness": "-12.5 LUFS, peak -0.9 dBFS",
+ "shots": 12,
+ "minutes": 1.7
+}

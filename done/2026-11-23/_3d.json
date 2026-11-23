@@ -1,0 +1,273 @@
+{
+ "name": "0021a_alguien_te_mueve_la_bombilla",
+ "n": 4,
+ "script": {
+  "id": "0021a_alguien_te_mueve_la_bombilla",
+  "topic": "situacion",
+  "title": "Te mueven la bombilla",
+  "caption": "¿Qué hacés si en tu ronda alguien te mueve la bombilla? 🧉\nLa ronda se congela.\n¿Vos qué le decís? 👇",
+  "hashtags": [
+   "#mate",
+   "#yerbamate",
+   "#argentina",
+   "#matero",
+   "#costumbresargentinas",
+   "#ronda",
+   "#bombilla"
+  ],
+  "segments": [
+   {
+    "text": "¿Qué hacés si en tu ronda alguien te mueve la bombilla?",
+    "emo": "surprised",
+    "beat": "hook",
+    "visual": {
+     "type": "scene",
+     "place": "patio",
+     "people": [
+      {
+       "role": "friend",
+       "does": "reach_bombilla",
+       "mood": "happy"
+      },
+      {
+       "role": "cebador",
+       "does": "hold_mate",
+       "mood": "outraged"
+      }
+     ]
+    },
+    "headline": "¿QUÉ HACÉS?",
+    "headlineAt": "bombilla",
+    "impact": true
+   },
+   {
+    "text": "Domingo, asado, el mate pasa perfecto de mano en mano.",
+    "emo": "warm",
+    "beat": "loop",
+    "visual": {
+     "type": "scene",
+     "place": "patio",
+     "people": [
+      {
+       "role": "cebador",
+       "does": "pass",
+       "mood": "happy"
+      },
+      {
+       "role": "friend",
+       "does": "receive",
+       "mood": "happy"
+      },
+      {
+       "role": "grandpa",
+       "does": "idle",
+       "mood": "happy"
+      }
+     ],
+     "props": [
+      "mesa"
+     ]
+    },
+    "headline": "TODO PERFECTO",
+    "headlineAt": "mano"
+   },
+   {
+    "text": "Hasta que llega el amigo nuevo de tu prima.",
+    "emo": "tense",
+    "beat": "body",
+    "visual": {
+     "type": "scene",
+     "place": "patio",
+     "people": [
+      {
+       "role": "turista",
+       "does": "walk",
+       "mood": "happy"
+      }
+     ]
+    },
+    "headline": "EL NUEVO",
+    "headlineAt": "nuevo"
+   },
+   {
+    "text": "Agarra el mate y empieza a revolver la bombilla como si fuera sopa.",
+    "emo": "funny",
+    "beat": "body",
+    "visual": {
+     "type": "scene",
+     "place": "patio",
+     "people": [
+      {
+       "role": "turista",
+       "does": "shake_mate",
+       "mood": "happy"
+      },
+      {
+       "role": "cebador",
+       "does": "shock",
+       "mood": "outraged"
+      }
+     ]
+    },
+    "headline": "¡COMO SOPA!",
+    "headlineAt": "revolver",
+    "impact": true
+   },
+   {
+    "text": "El cebador lo mira como si le hubiera roto el auto.",
+    "emo": "funny",
+    "beat": "rehook",
+    "visual": {
+     "type": "reaction",
+     "emotion": "angry",
+     "act": "shock",
+     "who": 1
+    },
+    "headline": "LO MIRA",
+    "headlineAt": "auto"
+   },
+   {
+    "text": "Porque mover la bombilla tapa todo y arruina la ronda.",
+    "emo": "neutral",
+    "beat": "body",
+    "visual": {
+     "type": "object",
+     "item": "mate",
+     "animate": "girar",
+     "labels": [
+      "TAPADO"
+     ]
+    },
+    "headline": "SE TAPA",
+    "headlineAt": "tapa"
+   },
+   {
+    "text": "Opción uno: le explicás tranquilo, con paciencia de abuela.",
+    "emo": "warm",
+    "beat": "body",
+    "visual": {
+     "type": "scene",
+     "place": "patio",
+     "people": [
+      {
+       "role": "cebador",
+       "does": "talk",
+       "mood": "neutral"
+      },
+      {
+       "role": "turista",
+       "does": "nod",
+       "mood": "confused"
+      }
+     ]
+    },
+    "headline": "OPCIÓN 1",
+    "headlineAt": "uno"
+   },
+   {
+    "text": "Pero opción dos: le sacás el mate y no se lo pasás nunca más.",
+    "emo": "funny",
+    "beat": "rehook",
+    "visual": {
+     "type": "scene",
+     "place": "patio",
+     "people": [
+      {
+       "role": "cebador",
+       "does": "pass",
+       "mood": "angry"
+      },
+      {
+       "role": "friend",
+       "does": "receive",
+       "mood": "laugh"
+      },
+      {
+       "role": "turista",
+       "does": "no",
+       "mood": "sad"
+      }
+     ],
+     "pass": [
+      0,
+      1
+     ]
+    },
+    "headline": "OPCIÓN 2",
+    "headlineAt": "dos"
+   },
+   {
+    "text": "Y tu abuelo ya está preparando el sermón.",
+    "emo": "excited",
+    "beat": "rehook",
+    "visual": {
+     "type": "scene",
+     "place": "patio",
+     "people": [
+      {
+       "role": "grandpa",
+       "does": "defend",
+       "mood": "outraged"
+      }
+     ]
+    },
+    "headline": "EL SERMÓN",
+    "headlineAt": "sermón"
+   },
+   {
+    "text": "Una bombilla movida puede arruinar un domingo entero.",
+    "emo": "tense",
+    "beat": "payoff",
+    "visual": {
+     "type": "scene",
+     "place": "patio",
+     "people": [
+      {
+       "role": "turista",
+       "does": "hold_mate",
+       "mood": "worried"
+      },
+      {
+       "role": "cebador",
+       "does": "idle",
+       "mood": "angry"
+      },
+      {
+       "role": "grandpa",
+       "does": "point",
+       "mood": "angry"
+      }
+     ]
+    },
+    "headline": "UN DOMINGO",
+    "headlineAt": "domingo",
+    "impact": true
+   },
+   {
+    "text": "¿Vos qué le decís? Mandáselo al que siempre mueve la bombilla.",
+    "emo": "funny",
+    "beat": "cta",
+    "visual": {
+     "type": "title",
+     "text": "",
+     "sub": ""
+    }
+   }
+  ],
+  "poll": {
+   "question": "¿Qué le decís?",
+   "options": [
+    "LE EXPLICO",
+    "LE SACO EL MATE",
+    "LO DEJO PASAR"
+   ]
+  },
+  "thumb": {
+   "lines": [
+    "NO TOQUES",
+    "LA BOMBILLA"
+   ]
+  },
+  "rewrite": "suegra pattern 2026-11-20"
+ }
+}

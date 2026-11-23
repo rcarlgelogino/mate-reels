@@ -1,0 +1,17 @@
+{
+ "id": "0021_en_paraguay_con_hielo",
+ "missing": [
+  "jarra"
+ ],
+ "file": "work/0021_en_paraguay_con_hielo/final.mp4",
+ "voice": "gemini",
+ "duration": 46.067,
+ "inTarget": false,
+ "target": [
+  35,
+  45
+ ],
+ "loudness": "-12.3 LUFS, peak -0.8 dBFS",
+ "shots": 14,
+ "minutes": 3
+}

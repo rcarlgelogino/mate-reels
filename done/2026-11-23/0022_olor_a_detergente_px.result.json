@@ -1,0 +1,19 @@
+{
+ "id": "0022_olor_a_detergente",
+ "missing": [
+  "detergente",
+  "esponja",
+  "heladera"
+ ],
+ "file": "work/0022_olor_a_detergente/final.mp4",
+ "voice": "gemini",
+ "duration": 37.467,
+ "inTarget": true,
+ "target": [
+  35,
+  45
+ ],
+ "loudness": "-12.2 LUFS, peak -0.6 dBFS",
+ "shots": 14,
+ "minutes": 2.3
+}

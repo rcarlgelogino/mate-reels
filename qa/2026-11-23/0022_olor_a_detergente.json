@@ -1,0 +1,48 @@
+{
+ "reel": "0022_olor_a_detergente",
+ "style": "pixel8",
+ "technical": [
+  "duration 37.467s",
+  "loudness -12.2 LUFS, peak -0.6 dBFS",
+  "voice gemini"
+ ],
+ "vision": {
+  "ran": false,
+  "model": null
+ },
+ "summary": "",
+ "scores": {},
+ "logic": {},
+ "graphics": {},
+ "issues": [
+  {
+   "severity": "medium",
+   "fault": "object_missing",
+   "category": "objects",
+   "problem": "\"detergente\" is named but pixel8 has no drawing for it",
+   "fix": "add a detergente drawing to pixel8 and its column in styles/lexicon.js",
+   "shot": null,
+   "source": "lexicon"
+  },
+  {
+   "severity": "medium",
+   "fault": "object_missing",
+   "category": "objects",
+   "problem": "\"esponja\" is named but pixel8 has no drawing for it",
+   "fix": "add a esponja drawing to pixel8 and its column in styles/lexicon.js",
+   "shot": null,
+   "source": "lexicon"
+  },
+  {
+   "severity": "medium",
+   "fault": "object_missing",
+   "category": "objects",
+   "problem": "\"heladera\" is named but pixel8 has no drawing for it",
+   "fix": "add a heladera drawing to pixel8 and its column in styles/lexicon.js",
+   "shot": null,
+   "source": "lexicon"
+  }
+ ],
+ "learnings": [],
+ "checked": "2026-11-23T20:45:39.357Z"
+}

@@ -1,0 +1,268 @@
+{
+ "id": "0036_confieso_tomo_mate_tibio",
+ "topic": "opinion",
+ "title": "Confieso: tomo mate tibio",
+ "shape": "confession",
+ "caption": "¿Vos me cancelarías? Confieso que tomo mate tibio. 🧉\nMis amigos no me lo perdonan.\n¿Me cancelás o me entendés? 👇",
+ "hashtags": [
+  "#mate",
+  "#yerbamate",
+  "#argentina",
+  "#matero",
+  "#opinionimpopular",
+  "#confesion",
+  "#debate"
+ ],
+ "segments": [
+  {
+   "text": "¿Vos me cancelarías? Confieso que tomo mate tibio.",
+   "emo": "tense",
+   "beat": "hook",
+   "visual": {
+    "type": "scene",
+    "place": "cocina",
+    "people": [
+     {
+      "role": "you",
+      "does": "drink",
+      "mood": "happy"
+     },
+     {
+      "role": "friend",
+      "does": "shock",
+      "mood": "outraged"
+     }
+    ]
+   },
+   "headline": "MATE TIBIO",
+   "headlineAt": "tibio",
+   "impact": true
+  },
+  {
+   "text": "Mi amigo no me lo perdona, pero tengo tres razones.",
+   "emo": "proud",
+   "beat": "loop",
+   "visual": {
+    "type": "reaction",
+    "emotion": "proud",
+    "act": "nod",
+    "who": 0
+   },
+   "headline": "TRES RAZONES",
+   "headlineAt": "razones"
+  },
+  {
+   "text": "Una: no me quemo la lengua desde dos mil diecinueve.",
+   "emo": "funny",
+   "beat": "body",
+   "visual": {
+    "type": "scene",
+    "place": "cocina",
+    "people": [
+     {
+      "role": "you",
+      "does": "drink",
+      "mood": "proud"
+     }
+    ]
+   },
+   "headline": "LENGUA INTACTA",
+   "headlineAt": "lengua"
+  },
+  {
+   "text": "Dos: el mate me dura toda la mañana, tranquilo.",
+   "emo": "warm",
+   "beat": "body",
+   "visual": {
+    "type": "scene",
+    "place": "oficina",
+    "people": [
+     {
+      "role": "you",
+      "does": "hold_mate",
+      "mood": "happy"
+     }
+    ]
+   },
+   "headline": "TODA LA MAÑANA",
+   "headlineAt": "mañana"
+  },
+  {
+   "text": "Y encima, el cebador de la oficina me lo guarda aparte.",
+   "emo": "funny",
+   "beat": "rehook",
+   "visual": {
+    "type": "scene",
+    "place": "oficina",
+    "people": [
+     {
+      "role": "oficinista",
+      "does": "pass",
+      "mood": "happy"
+     },
+     {
+      "role": "you",
+      "does": "receive",
+      "mood": "love"
+     }
+    ],
+    "pass": [
+     0,
+     1
+    ]
+   },
+   "headline": "ME LO GUARDA",
+   "headlineAt": "aparte"
+  },
+  {
+   "text": "Pero mi amigo dice que el mate tibio es un insulto.",
+   "emo": "funny",
+   "beat": "rehook",
+   "visual": {
+    "type": "scene",
+    "place": "plaza",
+    "people": [
+     {
+      "role": "friend",
+      "does": "point",
+      "mood": "angry"
+     },
+     {
+      "role": "you",
+      "does": "shrug",
+      "mood": "neutral"
+     }
+    ]
+   },
+   "headline": "UN INSULTO",
+   "headlineAt": "insulto",
+   "impact": true
+  },
+  {
+   "text": "Y encima mi abuela directamente no me ceba más.",
+   "emo": "sad",
+   "beat": "rehook",
+   "visual": {
+    "type": "scene",
+    "place": "cocina",
+    "people": [
+     {
+      "role": "grandma",
+      "does": "no",
+      "mood": "outraged"
+     },
+     {
+      "role": "you",
+      "does": "think",
+      "mood": "sad"
+     }
+    ]
+   },
+   "headline": "NO ME CEBA",
+   "headlineAt": "ceba"
+  },
+  {
+   "text": "Tres: el mate es para charlar, no para sufrir.",
+   "emo": "warm",
+   "beat": "payoff",
+   "visual": {
+    "type": "scene",
+    "place": "plaza",
+    "people": [
+     {
+      "role": "you",
+      "does": "pass",
+      "mood": "happy"
+     },
+     {
+      "role": "friend",
+      "does": "receive",
+      "mood": "laugh"
+     }
+    ],
+    "pass": [
+     0,
+     1
+    ]
+   },
+   "headline": "PARA CHARLAR",
+   "headlineAt": "charlar",
+   "impact": true
+  },
+  {
+   "text": "Igual, el primero se lo cebo hirviendo a él.",
+   "emo": "funny",
+   "beat": "body",
+   "visual": {
+    "type": "scene",
+    "place": "plaza",
+    "people": [
+     {
+      "role": "friend",
+      "does": "drink",
+      "mood": "pain"
+     },
+     {
+      "role": "you",
+      "does": "laugh",
+      "mood": "laugh"
+     }
+    ]
+   },
+   "headline": "HIRVIENDO",
+   "headlineAt": "hirviendo"
+  },
+  {
+   "text": "Probalo una vez, con calma, y después hablamos.",
+   "emo": "warm",
+   "beat": "body",
+   "visual": {
+    "type": "scene",
+    "place": "cocina",
+    "people": [
+     {
+      "role": "you",
+      "does": "pass",
+      "mood": "happy"
+     },
+     {
+      "role": "friend",
+      "does": "receive",
+      "mood": "surprised"
+     }
+    ],
+    "pass": [
+     0,
+     1
+    ]
+   },
+   "headline": "PROBALO",
+   "headlineAt": "probalo"
+  },
+  {
+   "text": "¿Me cancelás o me entendés? Mandáselo al que toma tibio.",
+   "emo": "funny",
+   "beat": "cta",
+   "visual": {
+    "type": "title",
+    "text": "",
+    "sub": ""
+   }
+  }
+ ],
+ "poll": {
+  "question": "¿Mate tibio?",
+  "options": [
+   "TE ENTIENDO",
+   "CANCELADO",
+   "SOLO EN VERANO"
+  ]
+ },
+ "thumb": {
+  "lines": [
+   "CONFIESO:",
+   "TOMO MATE TIBIO"
+  ]
+ },
+ "rewrite": "rewrite 2026-11-23: suegra drivers, new shape"
+}

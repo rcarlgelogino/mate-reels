@@ -1,0 +1,247 @@
+{
+ "id": "0037_mi_termo_en_montevideo",
+ "topic": "paises",
+ "title": "Mi termo en Montevideo",
+ "shape": "story",
+ "caption": "Te cuento qué me pasó en Montevideo con mi termo. 🧉\nLo que pasó en la rambla no me lo olvido más.\n¿Quién toma mejor mate? 👇",
+ "hashtags": [
+  "#mate",
+  "#yerbamate",
+  "#argentina",
+  "#matero",
+  "#uruguay",
+  "#montevideo",
+  "#viaje"
+ ],
+ "segments": [
+  {
+   "text": "Te cuento qué me pasó en Montevideo con mi termo.",
+   "emo": "surprised",
+   "beat": "hook",
+   "visual": {
+    "type": "scene",
+    "place": "ruta",
+    "people": [
+     {
+      "role": "you",
+      "does": "carry_termo_brazo",
+      "mood": "proud"
+     },
+     {
+      "role": "uruguayo",
+      "does": "idle",
+      "mood": "neutral"
+     }
+    ]
+   },
+   "headline": "MONTEVIDEO",
+   "headlineAt": "Montevideo",
+   "impact": true
+  },
+  {
+   "text": "Lo que pasó en la rambla todavía no lo puedo creer.",
+   "emo": "tense",
+   "beat": "loop",
+   "visual": {
+    "type": "reaction",
+    "emotion": "surprised",
+    "act": "shock",
+    "who": 0
+   },
+   "headline": "EN LA RAMBLA",
+   "headlineAt": "rambla"
+  },
+  {
+   "text": "Me siento a tomar y un señor uruguayo me mira el termo.",
+   "emo": "tense",
+   "beat": "body",
+   "visual": {
+    "type": "scene",
+    "place": "playa",
+    "people": [
+     {
+      "role": "uruguayo",
+      "does": "point",
+      "mood": "surprised"
+     },
+     {
+      "role": "you",
+      "does": "hold_both",
+      "mood": "worried"
+     }
+    ]
+   },
+   "headline": "ME MIRA",
+   "headlineAt": "mira"
+  },
+  {
+   "text": "Y me dice: \"¿con ese termito pensás aguantar la tarde?\".",
+   "emo": "funny",
+   "beat": "body",
+   "visual": {
+    "type": "scene",
+    "place": "playa",
+    "people": [
+     {
+      "role": "uruguayo",
+      "does": "laugh",
+      "mood": "laugh"
+     },
+     {
+      "role": "you",
+      "does": "shock",
+      "mood": "outraged"
+     }
+    ]
+   },
+   "headline": "TERMITO",
+   "headlineAt": "termito"
+  },
+  {
+   "text": "Pero allá el termo va bajo el brazo, todo el día.",
+   "emo": "proud",
+   "beat": "rehook",
+   "visual": {
+    "type": "scene",
+    "place": "plaza",
+    "people": [
+     {
+      "role": "uruguayo",
+      "does": "carry_termo_brazo",
+      "mood": "proud"
+     }
+    ]
+   },
+   "headline": "BAJO EL BRAZO",
+   "headlineAt": "brazo",
+   "impact": true
+  },
+  {
+   "text": "Saca el suyo, que parece un matafuego, y me ceba.",
+   "emo": "funny",
+   "beat": "body",
+   "visual": {
+    "type": "scene",
+    "place": "playa",
+    "people": [
+     {
+      "role": "uruguayo",
+      "does": "pass",
+      "mood": "happy"
+     },
+     {
+      "role": "you",
+      "does": "receive",
+      "mood": "surprised"
+     }
+    ],
+    "pass": [
+     0,
+     1
+    ]
+   },
+   "headline": "UN MATAFUEGO",
+   "headlineAt": "matafuego"
+  },
+  {
+   "text": "Y encima me cuenta que toma dos termos por día.",
+   "emo": "surprised",
+   "beat": "rehook",
+   "visual": {
+    "type": "reaction",
+    "emotion": "surprised",
+    "act": "shock",
+    "who": 1
+   },
+   "headline": "DOS TERMOS",
+   "headlineAt": "termos",
+   "impact": true
+  },
+  {
+   "text": "Yerba sin palo, fuerte, de esas que te despiertan.",
+   "emo": "excited",
+   "beat": "body",
+   "visual": {
+    "type": "object",
+    "item": "yerba_sin_palo",
+    "labels": [
+     "SIN PALO"
+    ]
+   },
+   "headline": "SIN PALO",
+   "headlineAt": "palo"
+  },
+  {
+   "text": "Volví con un termo nuevo y un amigo uruguayo.",
+   "emo": "warm",
+   "beat": "payoff",
+   "visual": {
+    "type": "scene",
+    "place": "playa",
+    "people": [
+     {
+      "role": "you",
+      "does": "hug",
+      "mood": "happy"
+     },
+     {
+      "role": "uruguayo",
+      "does": "hug",
+      "mood": "happy"
+     }
+    ]
+   },
+   "headline": "UN AMIGO",
+   "headlineAt": "amigo",
+   "impact": true
+  },
+  {
+   "text": "El mate no tiene pasaporte, tiene ronda.",
+   "emo": "warm",
+   "beat": "body",
+   "visual": {
+    "type": "scene",
+    "place": "playa",
+    "people": [
+     {
+      "role": "uruguayo",
+      "does": "drink",
+      "mood": "happy"
+     },
+     {
+      "role": "you",
+      "does": "laugh",
+      "mood": "laugh"
+     }
+    ]
+   },
+   "headline": "SIN PASAPORTE",
+   "headlineAt": "pasaporte"
+  },
+  {
+   "text": "¿Quién toma mejor? Mandáselo a tu amigo uruguayo.",
+   "emo": "funny",
+   "beat": "cta",
+   "visual": {
+    "type": "title",
+    "text": "",
+    "sub": ""
+   }
+  }
+ ],
+ "poll": {
+  "question": "¿Quién toma mejor?",
+  "options": [
+   "ARGENTINA",
+   "URUGUAY",
+   "LOS DOS"
+  ]
+ },
+ "thumb": {
+  "lines": [
+   "MI TERMO EN",
+   "MONTEVIDEO"
+  ]
+ },
+ "rewrite": "rewrite 2026-11-23: suegra drivers, new shape"
+}

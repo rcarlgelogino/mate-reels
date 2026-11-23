@@ -1,0 +1,274 @@
+{
+ "id": "0033_senales_tu_pareja_es_la_indicada",
+ "topic": "pareja",
+ "title": "Señales de que es la indicada",
+ "shape": "list",
+ "caption": "Cinco señales de que tu pareja es la indicada (según el mate) 🧉\nLa quinta casi nadie la cumple.\n¿Cuántas cumple la tuya? 👇",
+ "hashtags": [
+  "#mate",
+  "#yerbamate",
+  "#argentina",
+  "#matero",
+  "#pareja",
+  "#amor",
+  "#costumbresargentinas"
+ ],
+ "segments": [
+  {
+   "text": "Cinco señales de que tu pareja es la indicada. Según el mate.",
+   "emo": "excited",
+   "beat": "hook",
+   "visual": {
+    "type": "scene",
+    "place": "living",
+    "people": [
+     {
+      "role": "novia",
+      "does": "hold_mate",
+      "mood": "love"
+     },
+     {
+      "role": "you",
+      "does": "idle",
+      "mood": "happy"
+     }
+    ]
+   },
+   "headline": "LA INDICADA",
+   "headlineAt": "indicada",
+   "impact": true
+  },
+  {
+   "text": "Y la quinta es la que casi nadie cumple.",
+   "emo": "tense",
+   "beat": "loop",
+   "visual": {
+    "type": "reaction",
+    "emotion": "surprised",
+    "act": "think",
+    "who": 1
+   },
+   "headline": "LA QUINTA",
+   "headlineAt": "quinta"
+  },
+  {
+   "text": "Uno: tu novia te deja cebar, aunque cebás peor.",
+   "emo": "funny",
+   "beat": "body",
+   "visual": {
+    "type": "scene",
+    "place": "cocina",
+    "people": [
+     {
+      "role": "you",
+      "does": "pour",
+      "mood": "proud"
+     },
+     {
+      "role": "novia",
+      "does": "laugh",
+      "mood": "laugh"
+     }
+    ]
+   },
+   "headline": "CEBÁS VOS",
+   "headlineAt": "cebar"
+  },
+  {
+   "text": "Dos: nunca te pidió azúcar. Ni en pleno invierno.",
+   "emo": "proud",
+   "beat": "body",
+   "visual": {
+    "type": "scene",
+    "place": "patio",
+    "people": [
+     {
+      "role": "novia",
+      "does": "drink",
+      "mood": "happy"
+     },
+     {
+      "role": "you",
+      "does": "nod",
+      "mood": "love"
+     }
+    ]
+   },
+   "headline": "SIN AZÚCAR",
+   "headlineAt": "azúcar"
+  },
+  {
+   "text": "Tres: te guarda el termo caliente cuando llegás tarde.",
+   "emo": "warm",
+   "beat": "body",
+   "visual": {
+    "type": "scene",
+    "place": "cocina",
+    "people": [
+     {
+      "role": "novia",
+      "does": "hold_termo",
+      "mood": "love"
+     },
+     {
+      "role": "you",
+      "does": "walk",
+      "mood": "surprised"
+     }
+    ]
+   },
+   "headline": "TERMO LISTO",
+   "headlineAt": "termo"
+  },
+  {
+   "text": "Pero ojo: si limpia la bombilla con la remera, hay que hablar.",
+   "emo": "funny",
+   "beat": "rehook",
+   "visual": {
+    "type": "scene",
+    "place": "living",
+    "people": [
+     {
+      "role": "novia",
+      "does": "reach_bombilla",
+      "mood": "neutral"
+     },
+     {
+      "role": "you",
+      "does": "shock",
+      "mood": "outraged"
+     }
+    ]
+   },
+   "headline": "HAY QUE HABLAR",
+   "headlineAt": "hablar",
+   "impact": true
+  },
+  {
+   "text": "Cuatro: comparte la bombilla sin poner cara de asco.",
+   "emo": "warm",
+   "beat": "body",
+   "visual": {
+    "type": "scene",
+    "place": "living",
+    "people": [
+     {
+      "role": "you",
+      "does": "pass",
+      "mood": "happy"
+     },
+     {
+      "role": "novia",
+      "does": "receive",
+      "mood": "love"
+     }
+    ],
+    "pass": [
+     0,
+     1
+    ]
+   },
+   "headline": "SIN ASCO",
+   "headlineAt": "asco"
+  },
+  {
+   "text": "Y si te devuelve el mate frío, revisá todo.",
+   "emo": "funny",
+   "beat": "body",
+   "visual": {
+    "type": "scene",
+    "place": "plaza",
+    "people": [
+     {
+      "role": "novia",
+      "does": "pass",
+      "mood": "neutral"
+     },
+     {
+      "role": "you",
+      "does": "receive",
+      "mood": "worried"
+     }
+    ],
+    "pass": [
+     0,
+     1
+    ]
+   },
+   "headline": "MATE FRÍO",
+   "headlineAt": "frío"
+  },
+  {
+   "text": "Y cinco: se toma el primer mate, el más amargo, por vos.",
+   "emo": "love",
+   "beat": "payoff",
+   "visual": {
+    "type": "scene",
+    "place": "cocina",
+    "people": [
+     {
+      "role": "novia",
+      "does": "drink",
+      "mood": "pain"
+     },
+     {
+      "role": "you",
+      "does": "hug",
+      "mood": "love"
+     }
+    ]
+   },
+   "headline": "EL PRIMERO",
+   "headlineAt": "primer",
+   "impact": true
+  },
+  {
+   "text": "Si cumple las cinco, no la dejes ir.",
+   "emo": "warm",
+   "beat": "body",
+   "visual": {
+    "type": "scene",
+    "place": "living",
+    "people": [
+     {
+      "role": "novia",
+      "does": "hug",
+      "mood": "love"
+     },
+     {
+      "role": "you",
+      "does": "hug",
+      "mood": "love"
+     }
+    ]
+   },
+   "headline": "NO LA DEJES",
+   "headlineAt": "dejes"
+  },
+  {
+   "text": "¿Cuántas cumple la tuya? Mandáselo a tu pareja.",
+   "emo": "funny",
+   "beat": "cta",
+   "visual": {
+    "type": "title",
+    "text": "",
+    "sub": ""
+   }
+  }
+ ],
+ "poll": {
+  "question": "¿Cuántas cumple?",
+  "options": [
+   "LAS CINCO",
+   "TRES O CUATRO",
+   "NI UNA"
+  ]
+ },
+ "thumb": {
+  "lines": [
+   "SEÑALES DE QUE",
+   "ES LA INDICADA"
+  ]
+ },
+ "rewrite": "rewrite 2026-11-23: suegra drivers, new shape"
+}

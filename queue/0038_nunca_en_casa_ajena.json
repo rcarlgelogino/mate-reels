@@ -1,0 +1,284 @@
+{
+ "id": "0038_nunca_en_casa_ajena",
+ "topic": "etiqueta",
+ "title": "Nunca en casa ajena",
+ "shape": "donts",
+ "caption": "Si te invitan a tomar mate a lo de un amigo, nunca hagas esto. 🧉\nEl último lo hace casi todo el mundo.\n¿Cuál rompiste vos? 👇",
+ "hashtags": [
+  "#mate",
+  "#yerbamate",
+  "#argentina",
+  "#matero",
+  "#etiqueta",
+  "#costumbresargentinas",
+  "#visita"
+ ],
+ "segments": [
+  {
+   "text": "Si te invitan a tomar mate a lo de un amigo, nunca hagas esto.",
+   "emo": "tense",
+   "beat": "hook",
+   "headline": "NUNCA",
+   "headlineAt": "nunca",
+   "impact": true,
+   "visuals": [
+    {
+     "type": "scene",
+     "place": "living",
+     "people": [
+      {
+       "role": "cebador",
+       "does": "hold_both",
+       "mood": "happy"
+      },
+      {
+       "role": "you",
+       "does": "walk",
+       "mood": "happy"
+      }
+     ]
+    },
+    {
+     "type": "scene",
+     "place": "living",
+     "people": [
+      {
+       "role": "friend",
+       "does": "hold_both",
+       "mood": "happy"
+      },
+      {
+       "role": "you",
+       "does": "wave",
+       "mood": "happy"
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "text": "El último lo hace casi todo el mundo sin darse cuenta.",
+   "emo": "tense",
+   "beat": "loop",
+   "visual": {
+    "type": "reaction",
+    "emotion": "worried",
+    "act": "think",
+    "who": 1
+   },
+   "headline": "SIN DARSE CUENTA",
+   "headlineAt": "cuenta"
+  },
+  {
+   "text": "Uno: no pidas azúcar si nadie la sacó.",
+   "emo": "funny",
+   "beat": "body",
+   "visual": {
+    "type": "mistake",
+    "text": "NO",
+    "at": "azúcar",
+    "over": {
+     "type": "scene",
+     "place": "living",
+     "people": [
+      {
+       "role": "you",
+       "does": "point",
+       "mood": "happy"
+      },
+      {
+       "role": "cebador",
+       "does": "shock",
+       "mood": "outraged"
+      }
+     ]
+    }
+   },
+   "headline": "SIN AZÚCAR",
+   "headlineAt": "azúcar"
+  },
+  {
+   "text": "Dos: no agarres el termo. Ceba el dueño de casa.",
+   "emo": "tense",
+   "beat": "body",
+   "visual": {
+    "type": "mistake",
+    "text": "NO",
+    "at": "termo",
+    "over": {
+     "type": "scene",
+     "place": "living",
+     "people": [
+      {
+       "role": "you",
+       "does": "hold_termo",
+       "mood": "happy"
+      },
+      {
+       "role": "cebador",
+       "does": "no",
+       "mood": "angry"
+      }
+     ]
+    }
+   },
+   "headline": "EL TERMO NO",
+   "headlineAt": "termo"
+  },
+  {
+   "text": "Ojo con la tres: no limpies la bombilla con la remera.",
+   "emo": "funny",
+   "beat": "rehook",
+   "visual": {
+    "type": "mistake",
+    "text": "NO",
+    "at": "remera",
+    "over": {
+     "type": "scene",
+     "place": "living",
+     "people": [
+      {
+       "role": "you",
+       "does": "reach_bombilla",
+       "mood": "happy"
+      },
+      {
+       "role": "cebador",
+       "does": "shock",
+       "mood": "disgusted"
+      }
+     ]
+    }
+   },
+   "headline": "LA REMERA NO",
+   "headlineAt": "remera",
+   "impact": true
+  },
+  {
+   "text": "Cuatro: no critiques la yerba, aunque sea de supermercado.",
+   "emo": "funny",
+   "beat": "body",
+   "visual": {
+    "type": "scene",
+    "place": "cocina",
+    "people": [
+     {
+      "role": "cebador",
+      "does": "think",
+      "mood": "sad"
+     },
+     {
+      "role": "you",
+      "does": "talk",
+      "mood": "neutral"
+     }
+    ]
+   },
+   "headline": "NO CRITIQUES",
+   "headlineAt": "critiques"
+  },
+  {
+   "text": "Y si te dan el primero, tomalo sin poner caras.",
+   "emo": "funny",
+   "beat": "rehook",
+   "visual": {
+    "type": "scene",
+    "place": "patio",
+    "people": [
+     {
+      "role": "cebador",
+      "does": "pass",
+      "mood": "proud"
+     },
+     {
+      "role": "you",
+      "does": "receive",
+      "mood": "pain"
+     }
+    ],
+    "pass": [
+     0,
+     1
+    ]
+   },
+   "headline": "SIN CARAS",
+   "headlineAt": "caras"
+  },
+  {
+   "text": "Y cinco: el gracias se dice una sola vez, al final.",
+   "emo": "proud",
+   "beat": "payoff",
+   "visual": {
+    "type": "scene",
+    "place": "patio",
+    "people": [
+     {
+      "role": "you",
+      "does": "pass",
+      "mood": "happy"
+     },
+     {
+      "role": "cebador",
+      "does": "receive",
+      "mood": "happy"
+     }
+    ],
+    "pass": [
+     0,
+     1
+    ]
+   },
+   "headline": "GRACIAS, AL FINAL",
+   "headlineAt": "gracias",
+   "impact": true
+  },
+  {
+   "text": "Hacé eso y te vuelven a invitar seguro.",
+   "emo": "warm",
+   "beat": "body",
+   "visual": {
+    "type": "scene",
+    "place": "living",
+    "people": [
+     {
+      "role": "cebador",
+      "does": "cheer",
+      "mood": "happy"
+     },
+     {
+      "role": "you",
+      "does": "laugh",
+      "mood": "laugh"
+     }
+    ]
+   },
+   "headline": "TE INVITAN",
+   "headlineAt": "invitar"
+  },
+  {
+   "text": "¿Cuál rompiste vos? Mandáselo al que siempre rompe alguna.",
+   "emo": "funny",
+   "beat": "cta",
+   "visual": {
+    "type": "title",
+    "text": "",
+    "sub": ""
+   }
+  }
+ ],
+ "poll": {
+  "question": "¿Cuál rompiste?",
+  "options": [
+   "EL AZÚCAR",
+   "EL TERMO",
+   "LA REMERA"
+  ]
+ },
+ "thumb": {
+  "lines": [
+   "NUNCA HAGAS ESTO",
+   "EN CASA AJENA"
+  ]
+ },
+ "rewrite": "rewrite 2026-11-23: suegra drivers, new shape"
+}

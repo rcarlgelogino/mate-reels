@@ -1,0 +1,257 @@
+{
+ "id": "0034_los_seis_de_toda_ronda",
+ "topic": "ronda",
+ "title": "Los seis de toda ronda",
+ "shape": "types",
+ "caption": "En tu ronda de mate hay seis personas. Siempre las mismas. 🧉\nY vos sos uno, aunque no quieras.\n¿Cuál sos? Etiquetá a tu ronda 👇",
+ "hashtags": [
+  "#mate",
+  "#yerbamate",
+  "#argentina",
+  "#matero",
+  "#ronda",
+  "#amigos",
+  "#humor"
+ ],
+ "segments": [
+  {
+   "text": "En tu ronda de mate hay seis personas. Siempre las mismas.",
+   "emo": "excited",
+   "beat": "hook",
+   "visual": {
+    "type": "scene",
+    "place": "plaza",
+    "people": [
+     {
+      "role": "cebador",
+      "does": "hold_both",
+      "mood": "proud"
+     },
+     {
+      "role": "friend",
+      "does": "talk",
+      "mood": "happy"
+     },
+     {
+      "role": "estudiante",
+      "does": "idle",
+      "mood": "happy"
+     },
+     {
+      "role": "turista",
+      "does": "wave",
+      "mood": "happy"
+     }
+    ]
+   },
+   "headline": "SIEMPRE LOS MISMOS",
+   "headlineAt": "mismas",
+   "impact": true
+  },
+  {
+   "text": "Y vos sos una de ellas, aunque no quieras.",
+   "emo": "funny",
+   "beat": "loop",
+   "visual": {
+    "type": "reaction",
+    "emotion": "surprised",
+    "act": "shock",
+    "who": 0
+   },
+   "headline": "SOS UNO",
+   "headlineAt": "ellas"
+  },
+  {
+   "text": "El cebador: decide quién toma, cuándo y cuánto.",
+   "emo": "proud",
+   "beat": "body",
+   "visual": {
+    "type": "scene",
+    "place": "plaza",
+    "people": [
+     {
+      "role": "cebador",
+      "does": "pour",
+      "mood": "proud"
+     }
+    ]
+   },
+   "headline": "EL QUE MANDA",
+   "headlineAt": "decide"
+  },
+  {
+   "text": "El que no lo suelta: cuenta todo su viaje con el mate.",
+   "emo": "funny",
+   "beat": "body",
+   "visual": {
+    "type": "scene",
+    "place": "patio",
+    "people": [
+     {
+      "role": "friend",
+      "does": "talk",
+      "mood": "happy"
+     },
+     {
+      "role": "cebador",
+      "does": "no",
+      "mood": "bored"
+     }
+    ]
+   },
+   "headline": "NO LO SUELTA",
+   "headlineAt": "suelta"
+  },
+  {
+   "text": "Esperá, el del gracias: lo dijo una vez y nunca más le llegó.",
+   "emo": "sad",
+   "beat": "rehook",
+   "visual": {
+    "type": "scene",
+    "place": "plaza",
+    "people": [
+     {
+      "role": "estudiante",
+      "does": "think",
+      "mood": "sad"
+     }
+    ]
+   },
+   "headline": "EL DEL GRACIAS",
+   "headlineAt": "gracias"
+  },
+  {
+   "text": "Pero el peor es el ingeniero: mueve la bombilla y tapa todo.",
+   "emo": "funny",
+   "beat": "rehook",
+   "visual": {
+    "type": "scene",
+    "place": "plaza",
+    "people": [
+     {
+      "role": "turista",
+      "does": "shake_mate",
+      "mood": "happy"
+     },
+     {
+      "role": "cebador",
+      "does": "shock",
+      "mood": "outraged"
+     }
+    ]
+   },
+   "headline": "EL INGENIERO",
+   "headlineAt": "ingeniero",
+   "impact": true
+  },
+  {
+   "text": "Y encima el que pide dulce, y la ronda se queda muda.",
+   "emo": "funny",
+   "beat": "rehook",
+   "visual": {
+    "type": "scene",
+    "place": "living",
+    "people": [
+     {
+      "role": "friend",
+      "does": "point",
+      "mood": "happy"
+     },
+     {
+      "role": "cebador",
+      "does": "no",
+      "mood": "angry"
+     },
+     {
+      "role": "estudiante",
+      "does": "shock",
+      "mood": "surprised"
+     }
+    ]
+   },
+   "headline": "MUDA",
+   "headlineAt": "muda"
+  },
+  {
+   "text": "Y el que nunca trae nada, pero siempre llega primero.",
+   "emo": "funny",
+   "beat": "payoff",
+   "visual": {
+    "type": "scene",
+    "place": "plaza",
+    "people": [
+     {
+      "role": "worker",
+      "does": "wave",
+      "mood": "laugh"
+     },
+     {
+      "role": "cebador",
+      "does": "no",
+      "mood": "bored"
+     }
+    ]
+   },
+   "headline": "NO TRAE NADA",
+   "headlineAt": "nada",
+   "impact": true
+  },
+  {
+   "text": "Sin los seis, la ronda no es ronda.",
+   "emo": "warm",
+   "beat": "body",
+   "visual": {
+    "type": "scene",
+    "place": "plaza",
+    "people": [
+     {
+      "role": "cebador",
+      "does": "pass",
+      "mood": "happy"
+     },
+     {
+      "role": "friend",
+      "does": "receive",
+      "mood": "happy"
+     },
+     {
+      "role": "worker",
+      "does": "laugh",
+      "mood": "laugh"
+     }
+    ],
+    "pass": [
+     0,
+     1
+    ]
+   },
+   "headline": "LOS SEIS",
+   "headlineAt": "seis"
+  },
+  {
+   "text": "¿Cuál sos vos? Etiquetá a cada uno de tu ronda.",
+   "emo": "funny",
+   "beat": "cta",
+   "visual": {
+    "type": "title",
+    "text": "",
+    "sub": ""
+   }
+  }
+ ],
+ "poll": {
+  "question": "¿Cuál sos?",
+  "options": [
+   "EL CEBADOR",
+   "EL QUE NO SUELTA",
+   "EL QUE NO TRAE NADA"
+  ]
+ },
+ "thumb": {
+  "lines": [
+   "LOS 6 DE",
+   "TODA RONDA"
+  ]
+ },
+ "rewrite": "rewrite 2026-11-23: suegra drivers, new shape"
+}

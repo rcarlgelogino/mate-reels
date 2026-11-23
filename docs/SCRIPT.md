@@ -9,6 +9,13 @@ Layers:
 2. **Scripts** – `queue/*.json` (this format). Topics and facts live here.
 3. **Styles** – `styles/<name>.json` (look settings) + `styles/<name>.js` (visual translator) + `styles/<name>.md` (notes). Switch with one line in `styles/active.json`.
 
+## Reusing a hit
+When a reel works, reuse WHY it worked, never its format. Copies with a few words changed get noticed: "tu jefe te ceba un mate lavado" was too close to the suegra hit (2026-11-23).
+1. Name the drivers of the hit. For the suegra reel they were: almost everyone knows the situation; the relationship is delicate; everyone is watching; there is no clean right answer.
+2. Find a different situation with the same drivers.
+3. Tell it in a different shape: list of signs, types of people, then vs now, confession, story with a twist, list of don'ts, POV.
+4. Never put two scripts with the same hook frame ("¿Qué hacés si…?") next to each other in the queue.
+
 ## File
 
 ```json

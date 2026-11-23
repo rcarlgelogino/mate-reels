@@ -1,267 +1,275 @@
 {
- "id": "0039p_pov_tu_viejo_te_ensena_a_cebar",
- "topic": "familia",
- "title": "POV: tu viejo te enseña a cebar",
- "shape": "pov",
- "pov": true,
- "caption": "POV: tenés doce años y tu viejo te deja cebar por primera vez 🧉\nLo hacés mal. Él igual dice \"buenísimo\".\n¿Quién te enseñó a vos? 👇",
- "hashtags": [
-  "#mate",
-  "#yerbamate",
-  "#argentina",
-  "#matero",
-  "#pov",
-  "#papa",
-  "#familia",
-  "#nostalgia"
- ],
- "segments": [
-  {
-   "text": "POV: tenés doce años y tu viejo te deja cebar.",
-   "emo": "nostalgic",
-   "beat": "hook",
-   "visual": {
-    "type": "scene",
-    "place": "cocina",
-    "people": [
-     {
-      "role": "you",
-      "does": "hold_mate",
-      "mood": "happy"
-     },
-     {
-      "role": "papa",
-      "does": "idle",
-      "mood": "proud"
-     }
+  "id": "0039p_pov_tu_viejo_te_ensena_a_cebar",
+  "topic": "familia",
+  "title": "POV: tu viejo te enseña a cebar",
+  "shape": "pov",
+  "pov": true,
+  "caption": "POV: tenés doce años y tu viejo te deja cebar por primera vez 🧉\nLo hacés mal. Él igual dice \"buenísimo\".\n¿Quién te enseñó a vos? 👇",
+  "hashtags": [
+    "#mate",
+    "#yerbamate",
+    "#argentina",
+    "#matero",
+    "#pov",
+    "#papa",
+    "#familia",
+    "#nostalgia"
+  ],
+  "segments": [
+    {
+      "text": "POV: tenés doce años y tu viejo te deja cebar.",
+      "emo": "nostalgic",
+      "beat": "hook",
+      "visual": {
+        "type": "scene",
+        "place": "cocina",
+        "people": [
+          {
+            "role": "you",
+            "does": "hold_mate",
+            "mood": "happy"
+          },
+          {
+            "role": "papa",
+            "does": "idle",
+            "mood": "proud"
+          }
+        ]
+      },
+      "headline": "POV",
+      "headlineAt": "cebar",
+      "impact": true,
+      "headlineSub": "TU PRIMER MATE"
+    },
+    {
+      "text": "Lo vas a hacer mal. Él ya lo sabe.",
+      "emo": "funny",
+      "beat": "loop",
+      "visual": {
+        "type": "reaction",
+        "emotion": "smile",
+        "act": "nod",
+        "who": 1,
+        "role": "papa"
+      },
+      "headline": "YA LO SABE",
+      "headlineAt": "sabe"
+    },
+    {
+      "text": "Ponés yerba hasta arriba y tu viejo cierra los ojos.",
+      "emo": "funny",
+      "beat": "body",
+      "visual": {
+        "type": "scene",
+        "place": "cocina",
+        "people": [
+          {
+            "role": "you",
+            "does": "fill_yerba",
+            "mood": "proud"
+          },
+          {
+            "role": "papa",
+            "does": "no",
+            "mood": "worried"
+          }
+        ]
+      },
+      "headline": "HASTA ARRIBA",
+      "headlineAt": "arriba"
+    },
+    {
+      "text": "Echás el agua hirviendo y la yerba hace ruido.",
+      "emo": "funny",
+      "beat": "body",
+      "visual": {
+        "type": "scene",
+        "place": "cocina",
+        "people": [
+          {
+            "role": "you",
+            "does": "hold_termo",
+            "mood": "happy"
+          },
+          {
+            "role": "papa",
+            "does": "shock",
+            "mood": "surprised"
+          }
+        ]
+      },
+      "headline": "HIRVIENDO",
+      "headlineAt": "hirviendo"
+    },
+    {
+      "text": "Tu viejo respira hondo y no dice nada.",
+      "emo": "funny",
+      "beat": "body",
+      "visual": {
+        "type": "reaction",
+        "emotion": "neutral",
+        "act": "think",
+        "who": 1,
+        "role": "papa"
+      },
+      "headline": "NO DICE NADA",
+      "headlineAt": "nada"
+    },
+    {
+      "text": "Pero él no te saca el termo. Te muestra el chorrito.",
+      "emo": "warm",
+      "beat": "rehook",
+      "visual": {
+        "type": "scene",
+        "place": "cocina",
+        "people": [
+          {
+            "role": "papa",
+            "does": "pour",
+            "mood": "love"
+          },
+          {
+            "role": "you",
+            "does": "idle",
+            "mood": "surprised"
+          }
+        ]
+      },
+      "headline": "EL CHORRITO",
+      "headlineAt": "chorrito",
+      "impact": true
+    },
+    {
+      "text": "Despacio, al costado, y la bombilla no se mueve.",
+      "emo": "warm",
+      "beat": "body",
+      "visual": {
+        "type": "scene",
+        "place": "cocina",
+        "people": [
+          {
+            "role": "papa",
+            "does": "pour",
+            "mood": "proud"
+          },
+          {
+            "role": "you",
+            "does": "idle",
+            "mood": "surprised"
+          }
+        ]
+      },
+      "headline": "NO SE MUEVE",
+      "headlineAt": "mueve"
+    },
+    {
+      "text": "Probás primero vos, como hace él, y te quemás.",
+      "emo": "funny",
+      "beat": "body",
+      "visual": {
+        "type": "scene",
+        "place": "cocina",
+        "people": [
+          {
+            "role": "you",
+            "does": "drink",
+            "mood": "pain"
+          },
+          {
+            "role": "papa",
+            "does": "laugh",
+            "mood": "laugh"
+          }
+        ]
+      },
+      "headline": "TE QUEMÁS",
+      "headlineAt": "quemás"
+    },
+    {
+      "text": "Esperá, todavía falta lo más importante.",
+      "emo": "tense",
+      "beat": "rehook",
+      "visual": {
+        "type": "reaction",
+        "emotion": "smile",
+        "act": "nod",
+        "who": 1,
+        "role": "papa"
+      },
+      "headline": "FALTA LO MEJOR",
+      "headlineAt": "importante"
+    },
+    {
+      "text": "Le pasás tu primer mate. Está horrible.",
+      "emo": "funny",
+      "beat": "body",
+      "visual": {
+        "type": "scene",
+        "place": "cocina",
+        "people": [
+          {
+            "role": "you",
+            "does": "pass",
+            "mood": "worried"
+          },
+          {
+            "role": "papa",
+            "does": "drink",
+            "mood": "pain"
+          }
+        ]
+      },
+      "headline": "HORRIBLE",
+      "headlineAt": "horrible"
+    },
+    {
+      "text": "Y él te mira y dice: \"buenísimo\".",
+      "emo": "love",
+      "beat": "payoff",
+      "visual": {
+        "type": "scene",
+        "place": "cocina",
+        "people": [
+          {
+            "role": "papa",
+            "does": "hug",
+            "mood": "love"
+          },
+          {
+            "role": "you",
+            "does": "receive",
+            "mood": "happy"
+          }
+        ]
+      },
+      "headline": "BUENÍSIMO",
+      "headlineAt": "buenísimo",
+      "impact": true
+    },
+    {
+      "text": "¿Quién te enseñó a vos? Mandáselo a tu viejo.",
+      "emo": "funny",
+      "beat": "cta",
+      "visual": {
+        "type": "title",
+        "text": "",
+        "sub": ""
+      }
+    }
+  ],
+  "poll": {
+    "question": "¿Quién te enseñó?",
+    "options": [
+      "MI VIEJO",
+      "MI ABUELA",
+      "APRENDÍ SOLO"
     ]
-   },
-   "headline": "POV",
-   "headlineAt": "cebar",
-   "impact": true,
-   "headlineSub": "TU PRIMER MATE"
   },
-  {
-   "text": "Lo vas a hacer mal. Él ya lo sabe.",
-   "emo": "funny",
-   "beat": "loop",
-   "visual": {
-    "type": "reaction",
-    "emotion": "smile",
-    "act": "nod",
-    "who": 1
-   },
-   "headline": "YA LO SABE",
-   "headlineAt": "sabe"
-  },
-  {
-   "text": "Ponés yerba hasta arriba y tu viejo cierra los ojos.",
-   "emo": "funny",
-   "beat": "body",
-   "visual": {
-    "type": "scene",
-    "place": "cocina",
-    "people": [
-     {
-      "role": "you",
-      "does": "fill_yerba",
-      "mood": "proud"
-     },
-     {
-      "role": "papa",
-      "does": "no",
-      "mood": "worried"
-     }
+  "thumb": {
+    "lines": [
+      "POV: TU VIEJO",
+      "TE ENSEÑA"
     ]
-   },
-   "headline": "HASTA ARRIBA",
-   "headlineAt": "arriba"
   },
-  {
-   "text": "Echás el agua hirviendo y la yerba hace ruido.",
-   "emo": "funny",
-   "beat": "body",
-   "visual": {
-    "type": "scene",
-    "place": "cocina",
-    "people": [
-     {
-      "role": "you",
-      "does": "hold_termo",
-      "mood": "happy"
-     },
-     {
-      "role": "papa",
-      "does": "shock",
-      "mood": "surprised"
-     }
-    ]
-   },
-   "headline": "HIRVIENDO",
-   "headlineAt": "hirviendo"
-  },
-  {
-   "text": "Tu viejo respira hondo y no dice nada.",
-   "emo": "funny",
-   "beat": "body",
-   "visual": {
-    "type": "reaction",
-    "emotion": "neutral",
-    "act": "think",
-    "who": 1
-   },
-   "headline": "NO DICE NADA",
-   "headlineAt": "nada"
-  },
-  {
-   "text": "Pero él no te saca el termo. Te muestra el chorrito.",
-   "emo": "warm",
-   "beat": "rehook",
-   "visual": {
-    "type": "scene",
-    "place": "cocina",
-    "people": [
-     {
-      "role": "papa",
-      "does": "pour",
-      "mood": "love"
-     },
-     {
-      "role": "you",
-      "does": "idle",
-      "mood": "surprised"
-     }
-    ]
-   },
-   "headline": "EL CHORRITO",
-   "headlineAt": "chorrito",
-   "impact": true
-  },
-  {
-   "text": "Despacio, al costado, y la bombilla no se mueve.",
-   "emo": "warm",
-   "beat": "body",
-   "visual": {
-    "type": "scene",
-    "place": "cocina",
-    "people": [
-     {
-      "role": "papa",
-      "does": "point",
-      "mood": "proud"
-     }
-    ]
-   },
-   "headline": "NO SE MUEVE",
-   "headlineAt": "mueve"
-  },
-  {
-   "text": "Probás primero vos, como hace él, y te quemás.",
-   "emo": "funny",
-   "beat": "body",
-   "visual": {
-    "type": "scene",
-    "place": "patio",
-    "people": [
-     {
-      "role": "you",
-      "does": "drink",
-      "mood": "pain"
-     },
-     {
-      "role": "papa",
-      "does": "laugh",
-      "mood": "laugh"
-     }
-    ]
-   },
-   "headline": "TE QUEMÁS",
-   "headlineAt": "quemás"
-  },
-  {
-   "text": "Esperá, todavía falta lo más importante.",
-   "emo": "tense",
-   "beat": "rehook",
-   "visual": {
-    "type": "reaction",
-    "emotion": "smile",
-    "act": "nod",
-    "who": 1
-   },
-   "headline": "FALTA LO MEJOR",
-   "headlineAt": "importante"
-  },
-  {
-   "text": "Le pasás tu primer mate. Está horrible.",
-   "emo": "funny",
-   "beat": "body",
-   "visual": {
-    "type": "scene",
-    "place": "cocina",
-    "people": [
-     {
-      "role": "you",
-      "does": "pass",
-      "mood": "worried"
-     },
-     {
-      "role": "papa",
-      "does": "drink",
-      "mood": "pain"
-     }
-    ]
-   },
-   "headline": "HORRIBLE",
-   "headlineAt": "horrible"
-  },
-  {
-   "text": "Y él te mira y dice: \"buenísimo\".",
-   "emo": "love",
-   "beat": "payoff",
-   "visual": {
-    "type": "scene",
-    "place": "cocina",
-    "people": [
-     {
-      "role": "papa",
-      "does": "hug",
-      "mood": "love"
-     },
-     {
-      "role": "you",
-      "does": "receive",
-      "mood": "happy"
-     }
-    ]
-   },
-   "headline": "BUENÍSIMO",
-   "headlineAt": "buenísimo",
-   "impact": true
-  },
-  {
-   "text": "¿Quién te enseñó a vos? Mandáselo a tu viejo.",
-   "emo": "funny",
-   "beat": "cta",
-   "visual": {
-    "type": "title",
-    "text": "",
-    "sub": ""
-   }
-  }
- ],
- "poll": {
-  "question": "¿Quién te enseñó?",
-  "options": [
-   "MI VIEJO",
-   "MI ABUELA",
-   "APRENDÍ SOLO"
-  ]
- },
- "thumb": {
-  "lines": [
-   "POV: TU VIEJO",
-   "TE ENSEÑA"
-  ]
- },
- "rewrite": "rewrite 2026-11-23: suegra drivers, new shape"
+  "rewrite": "rewrite 2026-11-23: suegra drivers, new shape"
 }

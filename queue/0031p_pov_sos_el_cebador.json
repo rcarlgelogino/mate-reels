@@ -1,77 +1,211 @@
 {
- "id": "0031p_pov_sos_el_cebador",
- "topic": "situacion",
- "pov": true,
- "title": "POV: sos el cebador",
- "caption": "POV: sos el que ceba en la ronda 🧉\nUno no te lo devuelve, otro dice gracias, otro lo quiere dulce.\n¿Cuál te tocó a vos? 👇",
- "hashtags": ["#mate", "#yerbamate", "#argentina", "#pov", "#cebador", "#ronda", "#matero"],
- "segments": [
-  {
-   "text": "POV: sos el que ceba en la ronda de la plaza.",
-   "emo": "proud",
-   "beat": "hook",
-   "visual": { "type": "scene", "place": "plaza", "people": [ { "role": "you", "does": "carry_termo_brazo", "mood": "proud" }, { "role": "friend", "does": "wave", "mood": "happy" }, { "role": "estudiante", "does": "talk", "mood": "happy" } ] },
-   "headline": "POV",
-   "headlineSub": "SOS EL CEBADOR",
-   "headlineAt": "ceba",
-   "impact": true
+  "id": "0031p_pov_sos_el_cebador",
+  "topic": "situacion",
+  "pov": true,
+  "title": "POV: sos el cebador",
+  "caption": "POV: sos el que ceba en la ronda 🧉\nUno no te lo devuelve, otro dice gracias, otro lo quiere dulce.\n¿Cuál te tocó a vos? 👇",
+  "hashtags": [
+    "#mate",
+    "#yerbamate",
+    "#argentina",
+    "#pov",
+    "#cebador",
+    "#ronda",
+    "#matero"
+  ],
+  "segments": [
+    {
+      "text": "POV: sos el que ceba en la ronda de la plaza.",
+      "emo": "proud",
+      "beat": "hook",
+      "visual": {
+        "type": "scene",
+        "place": "plaza",
+        "people": [
+          {
+            "role": "you",
+            "does": "carry_termo_brazo",
+            "mood": "proud"
+          },
+          {
+            "role": "friend",
+            "does": "wave",
+            "mood": "happy"
+          },
+          {
+            "role": "estudiante",
+            "does": "talk",
+            "mood": "happy"
+          }
+        ]
+      },
+      "headline": "POV",
+      "headlineSub": "SOS EL CEBADOR",
+      "headlineAt": "ceba",
+      "impact": true
+    },
+    {
+      "text": "Le pasás el primero a tu amigo, como manda la ley.",
+      "emo": "warm",
+      "beat": "loop",
+      "visual": {
+        "type": "scene",
+        "place": "plaza",
+        "people": [
+          {
+            "role": "you",
+            "does": "pass",
+            "mood": "happy"
+          },
+          {
+            "role": "friend",
+            "does": "receive",
+            "mood": "happy"
+          }
+        ]
+      },
+      "headline": "EL PRIMERO",
+      "headlineAt": "primero"
+    },
+    {
+      "text": "Pasan cinco minutos y no te lo devuelve. Está contando una historia.",
+      "emo": "funny",
+      "beat": "body",
+      "visual": {
+        "type": "scene",
+        "place": "plaza",
+        "people": [
+          {
+            "role": "friend",
+            "does": "talk",
+            "mood": "happy"
+          },
+          {
+            "role": "you",
+            "does": "shock",
+            "mood": "angry"
+          }
+        ]
+      },
+      "headline": "NO ES MICRÓFONO",
+      "headlineAt": "historia"
+    },
+    {
+      "text": "Por fin vuelve. Frío.",
+      "emo": "sad",
+      "beat": "rehook",
+      "visual": {
+        "type": "scene",
+        "place": "plaza",
+        "people": [
+          {
+            "role": "friend",
+            "does": "pass",
+            "mood": "happy"
+          },
+          {
+            "role": "you",
+            "does": "receive",
+            "mood": "sad"
+          }
+        ]
+      },
+      "headline": "FRÍO",
+      "headlineAt": "frío"
+    },
+    {
+      "text": "Le cebás a la nueva del grupo y te dice gracias.",
+      "emo": "surprised",
+      "beat": "body",
+      "visual": {
+        "type": "scene",
+        "place": "plaza",
+        "people": [
+          {
+            "role": "you",
+            "does": "pass",
+            "mood": "happy"
+          },
+          {
+            "role": "estudiante",
+            "does": "receive",
+            "mood": "happy"
+          }
+        ]
+      },
+      "headline": "\"GRACIAS\"",
+      "headlineAt": "gracias"
+    },
+    {
+      "text": "Nadie le avisó. Ya no toma más.",
+      "emo": "funny",
+      "beat": "body",
+      "visual": {
+        "type": "scene",
+        "place": "plaza",
+        "people": [
+          {
+            "role": "estudiante",
+            "does": "sigh",
+            "mood": "sad"
+          },
+          {
+            "role": "friend",
+            "does": "laugh",
+            "mood": "laugh"
+          }
+        ]
+      },
+      "headline": "SE TERMINÓ",
+      "headlineAt": "avisó"
+    },
+    {
+      "text": "Y al final te queda un mate lavado para vos solo.",
+      "emo": "sad",
+      "beat": "payoff",
+      "visual": {
+        "type": "scene",
+        "place": "plaza",
+        "people": [
+          {
+            "role": "you",
+            "does": "drink",
+            "mood": "sad"
+          },
+          {
+            "role": "friend",
+            "does": "laugh",
+            "mood": "laugh"
+          }
+        ]
+      },
+      "headline": "LAVADO",
+      "headlineAt": "lavado",
+      "impact": true
+    },
+    {
+      "text": "¿Cuál te tocó a vos? Mandáselo al que no devuelve el mate.",
+      "emo": "funny",
+      "beat": "cta",
+      "visual": {
+        "type": "title",
+        "text": "",
+        "sub": ""
+      }
+    }
+  ],
+  "poll": {
+    "question": "¿Cuál sos vos?",
+    "options": [
+      "EL CEBADOR",
+      "EL QUE NO DEVUELVE",
+      "EL DEL GRACIAS"
+    ]
   },
-  {
-   "text": "Le pasás el primero a tu amigo, como manda la ley.",
-   "emo": "warm",
-   "beat": "loop",
-   "visual": { "type": "scene", "place": "plaza", "people": [ { "role": "you", "does": "pass", "mood": "happy" }, { "role": "friend", "does": "receive", "mood": "happy" } ] },
-   "headline": "EL PRIMERO",
-   "headlineAt": "primero"
-  },
-  {
-   "text": "Pasan cinco minutos y no te lo devuelve. Está contando una historia.",
-   "emo": "funny",
-   "beat": "body",
-   "visual": { "type": "scene", "place": "plaza", "people": [ { "role": "friend", "does": "talk", "mood": "happy" }, { "role": "you", "does": "shock", "mood": "angry" } ] },
-   "headline": "NO ES MICRÓFONO",
-   "headlineAt": "historia"
-  },
-  {
-   "text": "Por fin vuelve. Frío.",
-   "emo": "sad",
-   "beat": "rehook",
-   "visual": { "type": "scene", "place": "plaza", "people": [ { "role": "friend", "does": "pass", "mood": "happy" }, { "role": "you", "does": "receive", "mood": "sad" } ] },
-   "headline": "FRÍO",
-   "headlineAt": "frío"
-  },
-  {
-   "text": "Le cebás a la nueva del grupo y te dice gracias.",
-   "emo": "surprised",
-   "beat": "body",
-   "visual": { "type": "scene", "place": "plaza", "people": [ { "role": "you", "does": "pass", "mood": "happy" }, { "role": "estudiante", "does": "receive", "mood": "happy" } ] },
-   "headline": "\"GRACIAS\"",
-   "headlineAt": "gracias"
-  },
-  {
-   "text": "Nadie le avisó. Ya no toma más.",
-   "emo": "funny",
-   "beat": "body",
-   "visual": { "type": "reaction", "emotion": "laugh" },
-   "headline": "SE TERMINÓ",
-   "headlineAt": "avisó"
-  },
-  {
-   "text": "Y al final te queda un mate lavado para vos solo.",
-   "emo": "sad",
-   "beat": "payoff",
-   "visual": { "type": "scene", "place": "plaza", "people": [ { "role": "you", "does": "drink", "mood": "sad" }, { "role": "friend", "does": "laugh", "mood": "laugh" } ] },
-   "headline": "LAVADO",
-   "headlineAt": "lavado",
-   "impact": true
-  },
-  {
-   "text": "¿Cuál te tocó a vos? Mandáselo al que no devuelve el mate.",
-   "emo": "funny",
-   "beat": "cta",
-   "visual": { "type": "title", "text": "", "sub": "" }
+  "thumb": {
+    "lines": [
+      "POV:",
+      "SOS EL CEBADOR"
+    ]
   }
- ],
- "poll": { "question": "¿Cuál sos vos?", "options": ["EL CEBADOR", "EL QUE NO DEVUELVE", "EL DEL GRACIAS"] },
- "thumb": { "lines": ["POV:", "SOS EL CEBADOR"] }
 }

@@ -1,263 +1,263 @@
 {
- "id": "0035_tu_abuela_vs_vos",
- "topic": "familia",
- "title": "Tu abuela vs vos",
- "shape": "then_vs_now",
- "caption": "Tu abuela tomaba mate así. Vos lo tomás así. 🧉\nY en una cosa te gana por goleada.\n¿Quién la tiene más clara? 👇",
- "hashtags": [
-  "#mate",
-  "#yerbamate",
-  "#argentina",
-  "#matero",
-  "#abuela",
-  "#nostalgia",
-  "#familia"
- ],
- "segments": [
-  {
-   "text": "Tu abuela tomaba mate así. Vos lo tomás así.",
-   "emo": "nostalgic",
-   "beat": "hook",
-   "visual": {
-    "type": "scene",
-    "place": "cocina",
-    "people": [
-     {
-      "role": "grandma",
-      "does": "hold_pava",
-      "mood": "happy"
-     },
-     {
-      "role": "you",
-      "does": "carry_termo_brazo",
-      "mood": "neutral"
-     }
+  "id": "0035_tu_abuela_vs_vos",
+  "topic": "familia",
+  "title": "Tu abuela vs vos",
+  "shape": "then_vs_now",
+  "caption": "Tu abuela tomaba mate así. Vos lo tomás así. 🧉\nY en una cosa te gana por goleada.\n¿Quién la tiene más clara? 👇",
+  "hashtags": [
+    "#mate",
+    "#yerbamate",
+    "#argentina",
+    "#matero",
+    "#abuela",
+    "#nostalgia",
+    "#familia"
+  ],
+  "segments": [
+    {
+      "text": "Tu abuela tomaba mate así. Vos lo tomás así.",
+      "emo": "nostalgic",
+      "beat": "hook",
+      "visual": {
+        "type": "scene",
+        "place": "cocina",
+        "people": [
+          {
+            "role": "grandma",
+            "does": "hold_pava",
+            "mood": "happy"
+          },
+          {
+            "role": "you",
+            "does": "carry_termo_brazo",
+            "mood": "neutral"
+          }
+        ]
+      },
+      "headline": "ELLA VS VOS",
+      "headlineAt": "abuela",
+      "impact": true
+    },
+    {
+      "text": "Y en una sola cosa ella tenía toda la razón.",
+      "emo": "tense",
+      "beat": "loop",
+      "visual": {
+        "type": "reaction",
+        "role": "grandma",
+        "emotion": "proud"
+      },
+      "headline": "UNA SOLA",
+      "headlineAt": "razón"
+    },
+    {
+      "text": "Ella: la pava al fuego, y el agua nunca hervida.",
+      "emo": "nostalgic",
+      "beat": "body",
+      "visual": {
+        "type": "scene",
+        "place": "cocina",
+        "people": [
+          {
+            "role": "grandma",
+            "does": "hold_pava",
+            "mood": "proud"
+          }
+        ]
+      },
+      "headline": "PAVA AL FUEGO",
+      "headlineAt": "pava"
+    },
+    {
+      "text": "Vos: termo de un litro, lleno desde las siete.",
+      "emo": "funny",
+      "beat": "body",
+      "visual": {
+        "type": "scene",
+        "place": "oficina",
+        "people": [
+          {
+            "role": "you",
+            "does": "carry_termo_brazo",
+            "mood": "bored"
+          }
+        ]
+      },
+      "headline": "TERMO DE UN LITRO",
+      "headlineAt": "termo"
+    },
+    {
+      "text": "Ella: yerba suelta, comprada por kilo en el almacén.",
+      "emo": "nostalgic",
+      "beat": "body",
+      "visual": {
+        "type": "scene",
+        "place": "almacen",
+        "people": [
+          {
+            "role": "grandma",
+            "does": "hold_yerba",
+            "mood": "happy"
+          }
+        ]
+      },
+      "headline": "POR KILO",
+      "headlineAt": "kilo"
+    },
+    {
+      "text": "Y encima vos: yerba saborizada con naranja y menta.",
+      "emo": "funny",
+      "beat": "rehook",
+      "visual": {
+        "type": "scene",
+        "place": "oficina",
+        "people": [
+          {
+            "role": "you",
+            "does": "hold_yerba",
+            "mood": "happy"
+          }
+        ]
+      },
+      "headline": "SABORIZADA",
+      "headlineAt": "saborizada"
+    },
+    {
+      "text": "Ella: una calabaza curada hace treinta años, negra por dentro.",
+      "emo": "proud",
+      "beat": "body",
+      "visual": {
+        "type": "object",
+        "item": "mate",
+        "labels": [
+          "30 AÑOS"
+        ]
+      },
+      "headline": "TREINTA AÑOS",
+      "headlineAt": "treinta"
+    },
+    {
+      "text": "Pero vos: un mate de silicona que te regalaron.",
+      "emo": "funny",
+      "beat": "rehook",
+      "visual": {
+        "type": "scene",
+        "place": "oficina",
+        "people": [
+          {
+            "role": "you",
+            "does": "hold_mate",
+            "mood": "proud"
+          }
+        ]
+      },
+      "headline": "SILICONA",
+      "headlineAt": "silicona",
+      "impact": true
+    },
+    {
+      "text": "Ella: ronda en la vereda con los vecinos, hasta la noche.",
+      "emo": "warm",
+      "beat": "body",
+      "visual": {
+        "type": "scene",
+        "place": "plaza",
+        "people": [
+          {
+            "role": "grandma",
+            "does": "pass",
+            "mood": "happy"
+          },
+          {
+            "role": "grandpa",
+            "does": "receive",
+            "mood": "happy"
+          },
+          {
+            "role": "friend",
+            "does": "laugh",
+            "mood": "laugh"
+          }
+        ],
+        "pass": [
+          0,
+          1
+        ]
+      },
+      "headline": "CON LOS VECINOS",
+      "headlineAt": "vecinos"
+    },
+    {
+      "text": "Vos: mate solo frente a la compu. Y ahí te ganó.",
+      "emo": "sad",
+      "beat": "payoff",
+      "visual": {
+        "type": "scene",
+        "place": "oficina",
+        "people": [
+          {
+            "role": "you",
+            "does": "drink",
+            "mood": "sad"
+          }
+        ]
+      },
+      "headline": "TE GANÓ",
+      "headlineAt": "ganó",
+      "impact": true
+    },
+    {
+      "text": "El mate nunca fue para tomar solo.",
+      "emo": "warm",
+      "beat": "body",
+      "visual": {
+        "type": "scene",
+        "place": "cocina",
+        "people": [
+          {
+            "role": "grandma",
+            "does": "pass",
+            "mood": "love"
+          },
+          {
+            "role": "you",
+            "does": "receive",
+            "mood": "happy"
+          }
+        ],
+        "pass": [
+          0,
+          1
+        ]
+      },
+      "headline": "NUNCA SOLO",
+      "headlineAt": "solo"
+    },
+    {
+      "text": "¿Quién la tiene clara? Mandáselo a tu abuela.",
+      "emo": "funny",
+      "beat": "cta",
+      "visual": {
+        "type": "title",
+        "text": "",
+        "sub": ""
+      }
+    }
+  ],
+  "poll": {
+    "question": "¿Quién la tiene clara?",
+    "options": [
+      "LA ABUELA",
+      "YO",
+      "EMPATE"
     ]
-   },
-   "headline": "ELLA VS VOS",
-   "headlineAt": "abuela",
-   "impact": true
   },
-  {
-   "text": "Y en una sola cosa ella tenía toda la razón.",
-   "emo": "tense",
-   "beat": "loop",
-   "visual": {
-    "type": "reaction",
-    "emotion": "neutral",
-    "act": "think",
-    "who": 0
-   },
-   "headline": "UNA SOLA",
-   "headlineAt": "razón"
-  },
-  {
-   "text": "Ella: la pava al fuego, y el agua nunca hervida.",
-   "emo": "nostalgic",
-   "beat": "body",
-   "visual": {
-    "type": "scene",
-    "place": "cocina",
-    "people": [
-     {
-      "role": "grandma",
-      "does": "hold_pava",
-      "mood": "proud"
-     }
+  "thumb": {
+    "lines": [
+      "TU ABUELA",
+      "VS VOS"
     ]
-   },
-   "headline": "PAVA AL FUEGO",
-   "headlineAt": "pava"
   },
-  {
-   "text": "Vos: termo de un litro, lleno desde las siete.",
-   "emo": "funny",
-   "beat": "body",
-   "visual": {
-    "type": "scene",
-    "place": "oficina",
-    "people": [
-     {
-      "role": "you",
-      "does": "carry_termo_brazo",
-      "mood": "bored"
-     }
-    ]
-   },
-   "headline": "TERMO DE UN LITRO",
-   "headlineAt": "termo"
-  },
-  {
-   "text": "Ella: yerba suelta, comprada por kilo en el almacén.",
-   "emo": "nostalgic",
-   "beat": "body",
-   "visual": {
-    "type": "scene",
-    "place": "almacen",
-    "people": [
-     {
-      "role": "grandma",
-      "does": "hold_yerba",
-      "mood": "happy"
-     }
-    ]
-   },
-   "headline": "POR KILO",
-   "headlineAt": "kilo"
-  },
-  {
-   "text": "Y encima vos: yerba saborizada con naranja y menta.",
-   "emo": "funny",
-   "beat": "rehook",
-   "visual": {
-    "type": "scene",
-    "place": "super",
-    "people": [
-     {
-      "role": "you",
-      "does": "hold_yerba",
-      "mood": "happy"
-     },
-     {
-      "role": "grandma",
-      "does": "shock",
-      "mood": "disgusted"
-     }
-    ]
-   },
-   "headline": "SABORIZADA",
-   "headlineAt": "saborizada"
-  },
-  {
-   "text": "Ella: una calabaza curada hace treinta años, negra por dentro.",
-   "emo": "proud",
-   "beat": "body",
-   "visual": {
-    "type": "object",
-    "item": "mate",
-    "labels": [
-     "30 AÑOS"
-    ]
-   },
-   "headline": "TREINTA AÑOS",
-   "headlineAt": "treinta"
-  },
-  {
-   "text": "Pero vos: un mate de silicona que te regalaron.",
-   "emo": "funny",
-   "beat": "rehook",
-   "visual": {
-    "type": "reaction",
-    "emotion": "disgusted",
-    "act": "shock",
-    "who": 0
-   },
-   "headline": "SILICONA",
-   "headlineAt": "silicona",
-   "impact": true
-  },
-  {
-   "text": "Ella: ronda en la vereda con los vecinos, hasta la noche.",
-   "emo": "warm",
-   "beat": "body",
-   "visual": {
-    "type": "scene",
-    "place": "plaza",
-    "people": [
-     {
-      "role": "grandma",
-      "does": "pass",
-      "mood": "happy"
-     },
-     {
-      "role": "grandpa",
-      "does": "receive",
-      "mood": "happy"
-     },
-     {
-      "role": "friend",
-      "does": "laugh",
-      "mood": "laugh"
-     }
-    ],
-    "pass": [
-     0,
-     1
-    ]
-   },
-   "headline": "CON LOS VECINOS",
-   "headlineAt": "vecinos"
-  },
-  {
-   "text": "Vos: mate solo frente a la compu. Y ahí te ganó.",
-   "emo": "sad",
-   "beat": "payoff",
-   "visual": {
-    "type": "scene",
-    "place": "oficina",
-    "people": [
-     {
-      "role": "you",
-      "does": "drink",
-      "mood": "sad"
-     }
-    ]
-   },
-   "headline": "TE GANÓ",
-   "headlineAt": "ganó",
-   "impact": true
-  },
-  {
-   "text": "El mate nunca fue para tomar solo.",
-   "emo": "warm",
-   "beat": "body",
-   "visual": {
-    "type": "scene",
-    "place": "cocina",
-    "people": [
-     {
-      "role": "grandma",
-      "does": "pass",
-      "mood": "love"
-     },
-     {
-      "role": "you",
-      "does": "receive",
-      "mood": "happy"
-     }
-    ],
-    "pass": [
-     0,
-     1
-    ]
-   },
-   "headline": "NUNCA SOLO",
-   "headlineAt": "solo"
-  },
-  {
-   "text": "¿Quién la tiene clara? Mandáselo a tu abuela.",
-   "emo": "funny",
-   "beat": "cta",
-   "visual": {
-    "type": "title",
-    "text": "",
-    "sub": ""
-   }
-  }
- ],
- "poll": {
-  "question": "¿Quién la tiene clara?",
-  "options": [
-   "LA ABUELA",
-   "YO",
-   "EMPATE"
-  ]
- },
- "thumb": {
-  "lines": [
-   "TU ABUELA",
-   "VS VOS"
-  ]
- },
- "rewrite": "rewrite 2026-11-23: suegra drivers, new shape"
+  "rewrite": "rewrite 2026-11-23: suegra drivers, new shape",
+  "places": "free"
 }

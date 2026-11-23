@@ -11,6 +11,23 @@ const YOU = /\b(tu|tus|te|vos|sos|tenés|tomás|hacés|cebás|llenás|hervís|po
 const LOOP = /\b(por qué|a propósito|secreto|truco|nadie|razón|motivo|en realidad|no es|pero|hay uno|hay una)\b/i;
 const REHOOK = /^(pero|y no solo|y encima|esperá|ojo|lo peor|lo mejor|y lo más|ahora|y ahí|aunque|sin embargo|y si)\b/i;
 const PERSON = /(^|[^a-záéíóúñ])(cebador|cebadora|abuel[oa]|suegr[oa]|compañer[oa]|tí[oa]|vecin[oa]|amig[oa]|novi[oa]|viej[oa]|mamá|papá|herman[oa]|cuñad[oa]|brasileño|uruguayo|paraguayo|jefe|ronda)(?=[^a-záéíóúñ]|$)/i;
+const MOVE = /^(uno|dos|tres|cuatro|cinco|seis)\b|\b(sube|invit|lleg|lleg[aá]s|vas\b|vamos|fuiste|fue\b|despu[eé]s|al otro d[ií]a|viaj|sal[eií]|entr[aá]|volv|cruz|en casa|a casa|de casa)/i;
+const NAMED = (() => { try { return require('../styles/lexicon').ROLE_WORDS; } catch { return null; } })() || [[/\bsuegra\b/, ['suegra']], [/\bsuegro\b/, ['suegro']], [/\bcuñad[oa]/, ['cunado']], [/\babuela\b/, ['grandma']], [/\babuelo\b/, ['grandpa']], [/\bjefe\b/, ['jefe']], [/\bnovi[oa]\b|\bpareja\b/, ['novia']], [/\bcebador/, ['cebador']], [/\bgaucho/, ['gaucho']], [/\bturista/, ['turista']], [/\btu viejo\b|\bpap[aá]\b/, ['papa']], [/\bnene|\bnena|\bhij[oa]s?\b|\bchic[oa]s\b/, ['kid']]];
+const VOS = /\b(vos|sos|tom[aá]s|ceb[aá]s|hac[eé]s|llen[aá]s|herv[ií]s|pon[eé]s|sab[eé]s|us[aá]s|llev[aá]s|ten[eé]s|dec[ií]s|quer[eé]s|est[aá]s)\b/i;
+function pictureChecks(S, W, j) { const youRole = j.you_role || 'you'; const freePlaces = j.places === 'free'; const LEX = (() => { try { return require('../styles/lexicon').LEX; } catch { return []; } })();
+  let lastPlace = null, prevPlace = null, lastPeople = [];
+  S.forEach((g, i) => { const t = norm(g.text); const V = vis(g); const scenes = V.map(v => v.type === 'mistake' ? v.over : v).filter(v => v && v.type === 'scene');
+    if (V.length && V.every(v => BOARD.has(v.type))) return; const roles = new Set(scenes.flatMap(v => (v.people || []).map(p => p.role))); V.filter(v => v.type === 'reaction').forEach(v => roles.add(v.role || lastPeople[v.who || 0] || 'cebador'));
+    // place
+    scenes.forEach(v => { const p = norm(v.place); if (v.flashback) return; if (lastPlace && !freePlaces && !v.moves && p !== lastPlace && p.split('_')[0] !== lastPlace.split('_')[0]) { if (p === prevPlace) W(`seg ${i}: place jumps back (${prevPlace} -> ${lastPlace} -> ${p}); keep one place`); else if (!MOVE.test(t) && !t.includes(p)) W(`seg ${i}: place changes ${lastPlace} -> ${p} but the sentence does not move there (keep ${lastPlace} or say where they go)`); }
+      if (p !== lastPlace) { prevPlace = lastPlace; lastPlace = p; } if ((v.people || []).length) lastPeople = v.people.map(q => q.role); });
+    // named people
+    NAMED.forEach(([re, rs]) => { if (re.test(t) && !rs.some(r => roles.has(r))) W(`seg ${i}: names "${t.match(re)[0]}" but nobody in the picture is ${rs.join('/')}`); });
+    // named things need a scene to stand in
+    LEX.forEach(([re, key]) => { if (re.test(t) && !scenes.length) W(`seg ${i}: names "${key}" but the picture has no scene to show it in`); });
+    // the viewer: a sentence about "vos" shows you, never the cebador
+    if (VOS.test(t) && !roles.has('you') && !roles.has(youRole) && !V.some(v => ['title', 'list', 'checklist', 'number', 'dots', 'timeline'].includes(v.type)) && i < S.length - 1) W(`seg ${i}: the sentence is about vos but "you" is not in the picture (${[...roles].join(', ') || 'nobody'})`);
+    V.filter(v => v.type === 'reaction' && v.role && !lastPeople.includes(v.role)).forEach(v => W(`seg ${i}: reaction role "${v.role}" is not in the scene before`)); }); }
 function lint(j) {
   const out = []; const W = m => out.push(m); const S = j.segments || [];
   let t = 0; const at = S.map(g => { const a = t; t += words(g.text) / WPS + PAUSE; return a; }); const dur = t;
@@ -38,8 +55,8 @@ function lint(j) {
   const boards = S.map((g, i) => !(j.poll && i === S.length - 1) && vis(g).some(v => BOARD.has(v.type) && (v.text || v.value || v.items || v.rows || v.label || v.on != null)));
   const nb = boards.filter(Boolean).length; if (nb > 3) W(`${nb} text boards (max 3; show it as a scene, object or compare)`);
   boards.forEach((b, i) => { if (b && boards[i - 1]) W(`seg ${i - 1}-${i}: two text boards in a row`); });
-  // variety: the same place three sentences in a row looks like one long shot
-  { let run = 1, pl = null; S.forEach((g, i) => { const v = vis(g)[0]; const p = v && v.type === 'scene' ? norm(v.place) : null; if (p && p === pl) { run++; if (run === 3) W('seg ' + (i - 2) + '-' + i + ': the same place (' + p + ') three times in a row'); } else { run = 1; pl = p; } }); }
+  // one picture per sentence: the place only changes when the story moves, named people and things are in the picture, a reaction shows the person the sentence is about
+  pictureChecks(S, W, j);
   // humour: the reels may be silly; at least one funny sentence
   if (!S.some(g => g.emo === 'funny')) W('no funny moment (one sentence with emo "funny": slapstick, exaggerated reaction, cheeky comparison)');
   // thumbnail: big letters (two short lines)

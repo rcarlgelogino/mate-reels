@@ -53,6 +53,8 @@ function sceneShot(v, si) {
   const people = ppl.map((pp, i) => { const r = roleOf(pp.role, i); const sc = r.scale || 1; delete r.scale; const dk = norm(pp.does); let d = DOES[dk] || {}; if (!DOES[dk] && dk.startsWith('hold_')) { const it = dk.slice(5); d = ITEMS2.includes(it) ? { item: it } : { hold: 'mate' }; }
     const pos = L[i]; const o = { ...r, ...d, x: pos.x, y: pos.y, s: Math.round(pos.s * sc), back: pos.back };
     if (pp.mood) o.face = FACE2[norm(pp.mood)] || pp.mood; if (dk === 'spit') o.face = 'disgusted'; if (pp.termo && o.hold === 'mate') o.hold = 'both'; if (dk === 'drink' && pp.termo) o.hold = 'termo'; if (pp.mate) o.mate = { mate_madera: 'madera' }[pp.mate] || pp.mate; if (pos.x > 0.55 && ppl.length >= 2) o.flip = true; if (d.hold === 'mate' || d.hold === 'both' || pp.does === 'drink') o.steam = true; return o; });
+  // reaching for the bombilla needs a mate in somebody else's hand (like in 3D)
+  ppl.forEach((pp, i) => { if (norm(pp.does) !== 'reach_bombilla') return; const o = people.findIndex((q, k) => k !== i && !q.hold && !q.item); if (o >= 0) people[o].hold = 'mate'; });
   if (ppl.length === 1 && ppl[0].does === 'drink') { people[0].s = 900; people[0].y = place === 'kitchen' ? 0.92 : 0.95; }
   const p = { scene: place, people }; if (/noche|night/.test(norm(v.place))) p.time = 'night';
   // seats for people who sit, props behind the figures

@@ -79,6 +79,7 @@ const VERBS = [
   [/^nod|asiente/, (i, C) => { C.p[i].pose = 'talk'; C.acts.push({ who: i, face: 'happy', at: 0.2 }, { who: i, hop: 0.6 }); }],
   [/^talk|habla|cuenta/, (i, C) => { C.p[i].pose = 'talk'; C.p[i].talk = true; C.others(i).forEach((o, k) => C.acts.push({ look: [o, i], at: 0.15 + k * 0.12 }, { who: o, face: k % 2 ? 'surprised' : 'happy', at: 0.9 + k * 0.2 })); }],
   [/^shrug|no_se/, (i, C) => { C.p[i].pose = 'shrug'; C.acts.push({ who: i, face: 'confused', at: 0.2 }); const t = C.target(i); if (t >= 0) C.acts.push({ look: [i, t], at: 0 }); }],
+  [/^sigh|suspira/, (i, C) => { C.p[i].face = 'bored'; const t = C.target(i); if (t >= 0) C.acts.push({ look: [i, t], at: 0 }); C.acts.push({ who: i, face: 'sad', at: 0.8 }); }],
   [/^think|piensa/, (i, C) => { C.p[i].pose = 'think'; C.acts.push({ who: i, face: 'confused', at: 0 }, { who: i, face: 'surprised', at: 1.4 }); }],
   // yerba work (secadero, factory)
   [/zapec|toast|fuego_vivo/, (i, C) => { C.p[i].holds = 'machete'; C.p[i].pose = 'saw'; for (const t0 of [0.2, 0.9, 1.6]) C.acts.push({ fx: 'steam', t0, t1: t0 + 0.6, from: 'hand', who: i }); C.acts.push({ who: i, face: 'proud', at: 0.5 }); C.cam('low'); }],

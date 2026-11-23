@@ -16,6 +16,15 @@ When a reel works, reuse WHY it worked, never its format. Copies with a few word
 3. Tell it in a different shape: list of signs, types of people, then vs now, confession, story with a twist, list of don'ts, POV.
 4. Never put two scripts with the same hook frame ("¿Qué hacés si…?") next to each other in the queue.
 
+## One picture per sentence
+Every picture must tell its sentence without sound (2026-11-23). `node scripts/lint.js` checks most of it.
+- **Who:** the people and things the sentence names are in the picture (suegra, cuñado, abuela, perro, olla …). A sentence about "vos" shows the role `you`, never the cebador.
+- **What:** the verb of the sentence is the `does` of a person (the gracias one stays without mate while it passes him; the one who brings nothing arrives with empty hands).
+- **Focus:** the first person in `people` is the one the sentence is about; every style frames that person (pixel puts them in the middle). A person the sentence names (suegra, cuñado, ingeniero …) is moved to the front automatically (`ROLE_WORDS` in styles/lexicon.js).
+- **Reaction:** a `reaction` names whose face it is: `{ "type": "reaction", "role": "suegra", "emotion": "surprised" }` (the role must be in the scene before).
+- **Cast:** one role per character for the whole reel; six types are six different roles.
+- **Where:** the place stays the same unless the story moves (the sentence says it: llega, vamos, en la oficina, "Uno:", "Dos:" …). Cut-aways that do not move the story (history, a legend, a fact) get `"flashback": true` on the scene; an intended move without such a word gets `"moves": true`; a then-vs-now script sets `"places": "free"` at the top. When the viewer appears as a child in memories, set `"you_role": "kid"`.
+
 ## File
 
 ```json

@@ -35,6 +35,8 @@ const LEX = [
   [/\bmoto\b/, 'moto', { flat2d: null, pixel8: null, build3d: null }],
   [/\bavi[oó]n/, 'avion', { flat2d: null, pixel8: null, build3d: null }],
   [/\btren\b|\bsubte\b/, 'tren', { flat2d: null, pixel8: null, build3d: null }] ];
+// words that name a person of the ronda -> the roles that draw them
+const ROLE_WORDS = [[/\bsuegra\b/, ['suegra']], [/\bsuegro\b/, ['suegro']], [/\bcuñad[oa]/, ['cunado']], [/\babuela\b/, ['grandma']], [/\babuelo\b/, ['grandpa']], [/\bjefe\b/, ['jefe']], [/\bnovi[oa]\b|\bpareja\b/, ['novia']], [/\bcebador/, ['cebador']], [/\bgaucho/, ['gaucho']], [/\bturista/, ['turista']], [/\btu viejo\b|\bpap[aá]\b/, ['papa']], [/\bingenier/, ['oficinista']], [/\bnene|\bnena|\bhij[oa]s?\b|\bchic[oa]s\b/, ['kid']]];
 const low = s => String(s || '').toLowerCase();
 // adds the props of each sentence to its scene (max 3 per scene, existing props first); returns the script copy and the missing things
 function applyLexicon(script, style) { const j = JSON.parse(JSON.stringify(script)); const missing = new Set();
@@ -43,4 +45,4 @@ function applyLexicon(script, style) { const j = JSON.parse(JSON.stringify(scrip
     hits.forEach(([, key, cols]) => { const name = cols[style]; if (name === undefined) return; if (name === null) { missing.add(key); return; }
       scenes.forEach(v => { const have = (v.props || []).map(p => low(typeof p === 'string' ? p : p.type)); if (have.includes(name) || have.length >= 3) return; v.props = [...(v.props || []), name]; }); }); });
   return { script: j, missing: [...missing] }; }
-module.exports = { LEX, applyLexicon };
+module.exports = { LEX, ROLE_WORDS, applyLexicon };

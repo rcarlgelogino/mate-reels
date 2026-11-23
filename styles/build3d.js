@@ -56,7 +56,7 @@ const VERBS = [
   [/empty_mate|vaci|tira/, (i, C) => { C.p[i].holds = 'mate'; C.p[i].pose = 'present'; C.acts.push({ who: i, tilt: [0.5, 0.9], ang: 2.7 }, { fx: 'seeds', t0: 0.85, t1: 1.6, from: 'hand', who: i }, { who: i, face: 'proud', at: 1.2 }); }],
   [/shake_mate|sacud/, (i, C) => { C.p[i].holds = 'mate'; C.p[i].pose = 'saw'; C.acts.push({ fx: 'seeds', t0: 0.3, t1: 1.8, from: 'hand', who: i }, { who: i, face: 'proud', at: 0.4 }); }],
   [/rinse|wash|lava|enjuag/, (i, C) => { C.p[i].holds = 'mate'; C.p[i].pose = 'present'; C.acts.push({ fx: 'leak', t0: 0.4, t1: 1.6, from: 'hand', who: i }, { fx: 'splash', at: 1.0, from: 'hand', who: i }, { who: i, tilt: [0.4, 0.8], ang: 1.2 }); }],
-  [/film|foto|photo/, (i, C) => { C.bringOthers(i); C.p[i].holds = 'celular'; C.p[i].pose = 'present'; C.p[i].x = 1.25; C.p[i].ry = -1.0; C.p.forEach((q, k) => { if (k !== i) { q.x = -1.1 + k * 0.75; q.ry = 0.5; } }); C.acts.push({ fx: 'stars', at: 0.9, from: 'hand', who: i }); C.cam('orbit'); }],
+  [/film|foto|photo/, (i, C) => { C.bringOthers(i); C.p[i].holds = 'celular'; C.p[i].pose = 'film'; C.p[i].x = 1.25; C.p[i].ry = -1.0; C.p.forEach((q, k) => { if (k !== i) { q.x = -1.1 + k * 0.9; q.ry = 0.5; } }); C.cam('orbit'); }],
   [/sit_phone|phone|celu/, (i, C) => { C.p[i].holds = 'celular'; C.acts.push({ who: i, face: 'bored', at: 0 }, { who: i, face: 'laugh', at: 1.3 }); }],
   [/hug_mate/, (i, C) => { C.p[i].holds = 'mate'; C.p[i].pose = 'carry'; C.acts.push({ who: i, face: 'love', at: 0.3 }, { fx: 'hearts', at: 0.5, from: 'head', who: i }); }],
   [/hold_both|carry_termo|carry_all|termo_brazo/, (i, C) => { C.p[i].holds = 'mate'; C.p[i].holdsL = 'termo'; if (/carry_all|walk/.test(C.p[i].does) || C.p.length === 1) C.acts.push({ who: i, walk: [C.x(i) - 1.2, C.x(i)], t0: 0, t1: 0.9 }); }],
@@ -141,7 +141,7 @@ function toSpec(script) {
   let lastPeople = [{ shirt: '#e5483a', hat: 'boina', mustache: true, face: 'happy', pose: 'idle' }], lastP = null;
   base.segments.forEach((seg, si) => { const sg = script.segments[si]; const vis = sg.visuals || [sg.visual]; const words = String(sg.text || '').split(/\s+/).filter(Boolean).length; const n = Math.max(1, Math.min(2, Math.round(words / 6)));
     // boards (cards, lists, poll) float over the 3D world: the people of the reel stand behind them, the camera drifts slowly
-    const toBuild = s => { if (!s || s.tpl !== 'board' || !s.p || (s.p.kind === 'title' && !s.p.text)) return s; const { bg, scene, time, tableY, ...board } = s.p; return { tpl: 'build', p: where({ people: lastPeople.map(q => ({ ...q, pose: 'idle', y: 0, z: undefined })), cam: 'orbit', board, dim: 0.45, seed: si * 7 }, null, si) }; };
+    const toBuild = s => { if (!s || s.tpl !== 'board' || !s.p || (s.p.kind === 'title' && !s.p.text)) return s; const { bg, scene, time, tableY, ...board } = s.p; return { tpl: 'build', p: where({ people: lastPeople.map(q => ({ ...q, pose: 'idle', y: 0, z: undefined })), cam: 'orbit', board, dim: 0.45, seed: si * 7, ...(board.kind === 'poll' ? { lift: 1.0 } : {}) }, null, si) }; };
     if (script.poll && si === script.segments.length - 1) { seg.shots = seg.shots.map(toBuild); return; }
     const out = []; seg.shots.forEach((s, k) => { const v = vis[k];
       // extra shots of the 2D style (montage, reaction close-up) never stay 2D: a close-up of one of the people of the last 3D shot
@@ -176,6 +176,7 @@ function toSpec(script) {
       if (v.type === 'object') { const an = norm(v.animate), hot = /humo|steam|vapor|hirv/.test(an) || HOT.test(norm(sg.text)); const oa = hot ? [{ fx: 'steam', t0: 0, t1: 3.2, pos: MATE_TOP }, { fx: 'steam', t0: 0.15, t1: 3.2, pos: [0.05, 1.8, 0.3] }, ...(/fuerte|locomot|mucho/.test(an + norm(sg.text)) ? [{ shake: [0.5, 3.2] }] : [])] : [];
         return push({ stage: stageOf(v), cam: pick(['orbit', 'crash', 'push']), people: [], ...(oa.length ? { acts: oa } : {}) }, Math.min(2, n)); }
       if (v.type === 'compare') { const a = stageOf(v.left || {}), b = stageOf(v.right || {}); return push({ stage: { ...a, tools: [b.obj === 'mate' ? 'termo' : b.obj] }, cam: 'orbit', people: [] }); }
+      if ((v.type === 'title' || v.type === 'number') && si < script.segments.length - 1) { return push({ people: lastPeople.map(q => ({ ...q, pose: q.pose === 'sit' ? 'sit' : 'shock', y: 0, z: undefined })), cam: 'push' }); } // text cards mid-reel: the people react, the words sit framed in the subtitle line (no tile)
       if (v.type === 'title' || v.type === 'number' || v.type === 'map') { const text = String(v.type === 'number' ? v.value : v.text || (v.countries || []).join(' · ')).toUpperCase(); seg.callouts = [...(seg.callouts || []).filter(c => c.type !== 'big'), { type: 'big', keep: true, text: text.slice(0, 22), ...(v.type === 'number' ? { size: 300 } : {}), sub: v.sub ? String(v.sub).toUpperCase().slice(0, 40) : undefined, at: String(sg.text).split(/\s+/)[0] }];
         return push({ people: lastPeople.map(q => ({ ...q, pose: 'point', y: 0, z: undefined })), cam: 'drone' }); }
       out.push(toBuild(s)); }); seg.shots = out; });
@@ -184,6 +185,7 @@ function toSpec(script) {
     base.segments.forEach(g => (g.shots || []).forEach(sh => { const p = sh && sh.tpl === 'build' && sh.p; if (!p || !p.cam) { prev = null; return; }
       if (p.cam === prev && ALT[p.cam]) { const nx = ALT[p.cam].find(c => c !== prev); p.cam = nx; if (nx !== 'push' && p.focus === 'face') p.focus = null; }
       prev = p.cam; })); }
+  base.segments.forEach(g => (g.shots || []).forEach(sh => { const p = sh && sh.tpl === 'build' && sh.p; if (!p || p.board || p.stage || p.lift || !(p.people || []).length || ['face', 'pov1', 'chase'].includes(p.cam)) return; p.lift = 0.14; }));
   return { ...base, preset: 'build3d', ab: script.ab || 'style build3d', ...(script.follow === false ? { follow: false } : {}) };
 }
 module.exports = { name: 'build3d', toSpec, VERBS, verbOf, missingVerbs };

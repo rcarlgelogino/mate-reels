@@ -13,7 +13,8 @@
     "calloutY": 470,
     "calloutSize": 120,
     "barColor": "#ffd400",
-    "captionBox": true
+    "captionBox": true,
+    "cut": "hard"
   },
   "spec": {
     "voice": "es-AR-TomasNeural",

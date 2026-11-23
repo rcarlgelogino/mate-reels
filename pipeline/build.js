@@ -182,7 +182,7 @@ function mix(tl, cues) {
   else try { execFileSync(FF, ['-y', '-v', 'error', '-ss', String(coverAt), '-i', r.out, '-frames:v', '1', '-q:v', '2', path.join(OUT, 'cover.jpg')]); log('cover at', coverAt + 's'); } catch (e) { log('cover failed', e.message.slice(0, 120)); }
   fs.rmSync(path.join(OUT, 'video.mp4'), { force: true });
   const tgt = spec.target || [35, 45];
-  const result = { id: spec.id, ...(guardOut && Object.keys(guardOut).length ? { guard: guardOut } : {}), file: path.relative(ROOT, r.out), voice: tl.voiceProvider, duration: +r.dur, inTarget: +r.dur >= tgt[0] && +r.dur <= tgt[1], target: tgt, loudness: r.ebur, shots: tl.shots.length, minutes: +((Date.now() - t0) / 60000).toFixed(1) };
+  const result = { id: spec.id, ...(guardOut && Object.keys(guardOut).length ? { guard: guardOut } : {}), ...(spec.missing ? { missing: spec.missing } : {}), file: path.relative(ROOT, r.out), voice: tl.voiceProvider, duration: +r.dur, inTarget: +r.dur >= tgt[0] && +r.dur <= tgt[1], target: tgt, loudness: r.ebur, shots: tl.shots.length, minutes: +((Date.now() - t0) / 60000).toFixed(1) };
   fs.writeFileSync(path.join(OUT, 'result.json'), JSON.stringify(result, null, 1)); log('DONE', JSON.stringify(result));
   process.exit(0);
 })().catch(e => { log('FAILED', e.stack || e.message); process.exit(1); });

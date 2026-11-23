@@ -3,7 +3,7 @@
 // The camera is chosen here: 14 set-ups and 15 moves, never the same twice in a row, long sentences get a cut in the middle.
 const flat2d = require('./flat2d');
 const norm = s => String(s || '').toLowerCase().normalize('NFD').replace(/[̀-ͯ]/g, '').replace(/[^a-z0-9]+/g, '_').replace(/^_|_$/g, '');
-const ROLE = { cebador: { who: 0, shirt: '#e5483a', hair: 'short' }, friend: { who: 1, shirt: '#2f6fd0', hair: 'side' }, stranger: { who: 2, shirt: '#f2a922', hair: 'bob' }, you: { who: 3, shirt: '#2f9e6e', hair: 'short' },
+const ROLE = { cebador: { who: 0, shirt: '#c8703a', hair: 'short', hat: 'boina', hatColor: '#1f1e1d', mustache: true }, friend: { who: 1, shirt: '#2f6fd0', hair: 'side' }, stranger: { who: 2, shirt: '#f2a922', hair: 'bob' }, you: { who: 3, shirt: '#2f9e6e', hair: 'short' },
   grandma: { who: 4, shirt: '#8a4fd0', hair: 'bun', hairColor: '#c9c2b8', glasses: true }, grandpa: { who: 5, shirt: '#2f6b8a', hair: 'short', hairColor: '#c9c2b8', glasses: true, mustache: true },
   kid: { who: 2, scale: 0.72, shirt: '#ef7a3a', hair: 'side', hat: 'cap', hatColor: '#2f6fd0' }, worker: { who: 1, shirt: '#f08a24', hair: 'short', hat: 'hardhat' },
   // nations: the flag is printed on the shirt

@@ -4,7 +4,7 @@ const ROOT = path.join(__dirname, '..');
 function activeStyle(override) { if (override) return override; if (process.env.REEL_STYLE) return process.env.REEL_STYLE; try { return JSON.parse(fs.readFileSync(path.join(ROOT, 'styles', 'active.json'), 'utf8')).style; } catch { return 'flat2d'; } }
 function isScript(j) { return Array.isArray(j.segments) && j.segments.some(s => s.visual || s.visuals); }
 function toSpec(j, styleName) { if (!isScript(j)) return j; const mod = path.join(ROOT, 'styles', styleName + '.js'); if (!fs.existsSync(mod)) throw new Error('style ' + styleName + ' has no translator styles/' + styleName + '.js');
-  const spec = require(mod).toSpec(j); spec.style_used = styleName;
+  const lx = require(path.join(ROOT, 'styles', 'lexicon.js')).applyLexicon(j, styleName); const spec = require(mod).toSpec(lx.script); spec.style_used = styleName; if (lx.missing.length) spec.missing = lx.missing;
   // designed thumbnail (cover): the script's thumb (lines in big letters) or its first headline + title
   spec.thumb = j.thumb || { lines: [((j.segments || [])[0] || {}).headline || j.title || ''].filter(Boolean) }; spec.title = spec.title || j.title; return spec; }
 module.exports = { activeStyle, isScript, toSpec };

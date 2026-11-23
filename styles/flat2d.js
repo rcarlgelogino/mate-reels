@@ -1,6 +1,6 @@
 // flat2d style translator: style-neutral script (docs/SCRIPT.md) -> render spec for the 2D vector look (templates flat + board)
 const ROLE = { // appearance per role (who = palette index in the engine)
-  cebador: { who: 0 }, friend: { who: 3 }, stranger: { who: 2 }, you: { who: 5 },
+  cebador: { who: 0, hat: 'boina', hatColor: '#1f1e1d', mustache: true, shirt: '#c8703a' }, friend: { who: 3 }, stranger: { who: 2 }, you: { who: 5 },
   grandma: { who: 4, hairStyle: 'bun', hair: '#bdb6ac', shirt: '#7c3aed', glasses: true },
   grandpa: { who: 1, hairStyle: 'short', hair: '#c9c2b8', shirt: '#2f6b8a', beard: true, glasses: true },
   kid: { who: 2, scale: 0.72 }, worker: { who: 1, hat: 'hardhat', shirt: '#f08a24' },
@@ -156,7 +156,7 @@ function toSpec(script, opt = {}) { script = vary(script); // opt.plain: one sho
   const segs = script.segments.map((sg, si) => {
     const vis = sg.visuals || [sg.visual]; let shots = vis.map((v, k) => { const s = shotFor(v, si, opt.plain ? null : st); if (k % 2 === 1) s.zoom = 1.12; if (v && v.instant && s.p && s.p.people) s.p.people.forEach(q => { q.delay = 0; }); return s; });
     if (!opt.plain) { const out = []; shots.forEach((s, k) => { const v = vis[k]; const isScene = v && (v.type === 'scene' || v.type === 'mistake') && s.tpl === 'flat' && (s.p.people || []).length; if (!isScene) return out.push(s);
-        const ppl = s.p.people, busy = ppl.findIndex(q => q.act === 'pour' || q.act === 'drink'), fi = busy >= 0 ? busy : s.p.pass ? s.p.pass.from : 0, fp = ppl[fi]; const words = String(sg.text || '').split(/\s+/).length; const kind = si === 0 ? 'push' : nextCam(); const cam = fitCam(cam2(kind, fp), ppl); if (cam) s.p.cam = cam; out.push(s);
+        const ppl = s.p.people, busy = ppl.findIndex(q => q.act === 'pour' || q.act === 'drink'), fi = busy >= 0 ? busy : s.p.pass ? s.p.pass.from : 0, fp = ppl[fi]; const words = String(sg.text || '').split(/\s+/).length; const bt = (script.segments[si] || {}).beat; let kind = si === 0 || bt === 'hook' ? 'push' : bt === 'payoff' ? 'snap' : bt === 'rehook' ? 'pull' : null; if (!kind || kind === lastCam) kind = nextCam(); else lastCam = kind; const cam = fitCam(cam2(kind, fp), ppl); if (cam) s.p.cam = cam; out.push(s);
         if (vis.length === 1 && words >= 10 && !s.p.pass && ppl.length > 1 && !(v.type === 'mistake')) { const t2 = JSON.parse(JSON.stringify(s)); t2.p.cam = cam2('tight', fp); t2.p.people = [t2.p.people[fi]]; t2.p.people.forEach(q => { q.delay = 0; }); if (t2.p.pass) delete t2.p.pass; out.push(t2); } }); shots = out; }
     if (!opt.plain && /asado|parrilla/.test(String(sg.text).toLowerCase())) shots.forEach(sh => { if (sh.tpl === 'flat' && sh.p && sh.p.scene === 'patio' && (sh.p.people || []).length > 1 && !(sh.p.objs || []).some(o => o.type === 'asado')) { const two = sh.p.people.length === 2; sh.p.objs = [...(sh.p.objs || []), { type: 'asado', x: two ? 0.5 : 0.93, y: two ? 0.8 : 0.74, s: two ? 360 : 300, back: true, delay: 0 }]; } });
     const callouts = [];

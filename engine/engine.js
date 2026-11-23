@@ -687,9 +687,9 @@ function f2face(c,face,k,t,hx,hy){ const ex=24*k, ey=hy-6*k, ink='#1b120e'; c.fi
 // 2-bone IK: shoulder S, hand target T -> elbow; the elbow bends outwards (side = -1 left, +1 right)
 function f2ik(Sx,Sy,Tx,Ty,L1,L2,side){ const dx=Tx-Sx, dy=Ty-Sy; let d=Math.hypot(dx,dy)||1e-3; const maxD=(L1+L2)*0.995; const k=Math.min(1,maxD/d); d=Math.min(d,maxD); const tx=Sx+dx*k, ty=Sy+dy*k;
   const a=Math.atan2(dy,dx), cb=clamp((L1*L1+d*d-L2*L2)/(2*L1*d),-1,1), bb=Math.acos(cb); const e1=[Sx+Math.cos(a+bb)*L1,Sy+Math.sin(a+bb)*L1], e2=[Sx+Math.cos(a-bb)*L1,Sy+Math.sin(a-bb)*L1];
-  const pick=(e1[0]*side+e1[1]*0.35)>(e2[0]*side+e2[1]*0.35)?e1:e2; return {e:pick,h:[tx,ty]}; }
+  const pick=(e1[1]+e1[0]*side*0.25)>(e2[1]+e2[0]*side*0.25)?e1:e2; return {e:pick,h:[tx,ty]}; }
 // hand targets per act (local units of a 520 px figure; y up is negative). Returns {L:[x,y],R:[x,y], sipK}
-function f2targets(o,act,t,u,HX,HY){ const sw=Math.sin(t*2.1+(o.i||0)), rest=side=>[side*74+side*3*sw,-150+2*Math.cos(t*2.1)];
+function f2targets(o,act,t,u,HX,HY){ const sw=Math.sin(t*2.1+(o.i||0)), rest=side=>[side*60+side*2*sw,-160+2*Math.cos(t*2.1)];
   const T={L:rest(-1),R:rest(1)}; const hold=o.hold;
   const chest=[22,-212], hip=[-74,-178];
   if(hold==='mate'||hold==='both'||o.carry) T.R=chest; if(hold==='termo'||hold==='both') T.L=hip;
@@ -754,9 +754,9 @@ function f2person(c,o,t,u){ const S=o.s||520, k=S/520; const act=o.act||null, fa
   if(o.tie){ c.fillStyle=o.tie; c.beginPath(); c.moveTo(-9*k,-312*k); c.lineTo(9*k,-312*k); c.lineTo(13*k,-232*k); c.lineTo(0,-212*k); c.lineTo(-13*k,-232*k); c.closePath(); c.fill(); }
   if(o.necklace){ for(let i=0;i<7;i++){ const a=Math.PI*(0.15+0.7*i/6); f2ell(c,Math.cos(a)*30*k,-338*k+Math.sin(a)*22*k,5*k,5*k,o.necklace); } }
   // arms via IK (sleeve = upper arm, skin = forearm); hands are drawn last, over the props
-  const T=f2targets(o,act,t,u,HX/k,HY/k); const L1=95*k, L2=88*k; const hands={}, arms={};
-  [['L',-1],['R',1]].forEach(([nm,side])=>{ const sx=side*56*k, sy=-318*k; const r=f2ik(sx,sy,T[nm][0]*k,T[nm][1]*k,L1,L2,side); arms[nm]={s:[sx,sy],e:r.e,h:r.h,side}; hands[nm]=r.h; });
-  const drawArm=(A)=>{ c.lineCap='round'; c.lineJoin='round'; c.strokeStyle=skin; c.lineWidth=24*k; c.beginPath(); c.moveTo(A.e[0],A.e[1]); c.lineTo(A.h[0],A.h[1]); c.stroke(); c.strokeStyle=sleeve; c.lineWidth=31*k; c.beginPath(); c.moveTo(A.s[0],A.s[1]); c.lineTo(A.e[0],A.e[1]); c.stroke(); };
+  const T=f2targets(o,act,t,u,HX/k,HY/k); const L1=80*k, L2=76*k; const hands={}, arms={};
+  [['L',-1],['R',1]].forEach(([nm,side])=>{ const sx=side*50*k, sy=-306*k; const r=f2ik(sx,sy,T[nm][0]*k,T[nm][1]*k,L1,L2,side); arms[nm]={s:[sx,sy],e:r.e,h:r.h,side}; hands[nm]=r.h; });
+  const drawArm=(A)=>{ c.lineCap='round'; c.lineJoin='round'; c.strokeStyle=skin; c.lineWidth=24*k; c.beginPath(); c.moveTo(A.e[0],A.e[1]); c.lineTo(A.h[0],A.h[1]); c.stroke(); c.strokeStyle=sleeve; c.lineWidth=30*k; c.beginPath(); c.moveTo(A.s[0],A.s[1]); c.lineTo(A.e[0],A.e[1]); c.stroke(); c.fillStyle=sleeve; c.beginPath(); c.arc(A.s[0],A.s[1],15*k,0,Math.PI*2); c.fill(); };
   const raised=nm=>T[nm][1]<-380;  // arms above the shoulders go in front of the head
   ['L','R'].forEach(nm=>{ if(!raised(nm)) drawArm(arms[nm]); });
   // head
@@ -2362,9 +2362,9 @@ function makeToon(o={}){ const g=new THREE.Group(); const sc=o.scale||1; const s
   if(o.dress){ const dr=put(root,mesh(new THREE.CylinderGeometry(0.19,0.3,0.34,22,1,true),toy(o.dress===true?shirtHex:o.dress,0.8)),0,0.4,0); dr.material.side=THREE.DoubleSide; }
   if(o.belt) put(torso,mesh(new THREE.TorusGeometry(0.205,0.025,6,24),toy(o.belt,0.5)),0,0.1,0).rotation.x=Math.PI/2;
   // arms: shoulder, upper arm, elbow, forearm, wrist, mitten hand (palm, thumb, curled fingers)
-  const arms=[-1,1].map(sd=>{ const p=put(torso,new THREE.Group(),sd*0.185,0.5,0); put(p,mesh(new THREE.SphereGeometry(0.06,16,12),shirt),0,0,0); put(p,mesh(new THREE.CapsuleGeometry(0.06,0.1,6,14),shirt),0,-0.1,0);
-    const el=put(p,new THREE.Group(),0,-0.2,0); put(el,mesh(new THREE.SphereGeometry(0.058,16,12),shirt),0,0,0); put(el,mesh(new THREE.CapsuleGeometry(0.056,0.1,6,14),shirt),0,-0.09,0);
-    const wr=put(el,new THREE.Group(),0,-0.2,0); const hand=put(wr,new THREE.Group(),0,-0.035,0); const palm=put(hand,mesh(new THREE.SphereGeometry(0.075,20,16),skin),0,0,0);
+  const arms=[-1,1].map(sd=>{ const p=put(torso,new THREE.Group(),sd*0.185,0.5,0); put(p,mesh(new THREE.SphereGeometry(0.062,16,12),shirt),0,0,0); put(p,mesh(new THREE.CapsuleGeometry(0.058,0.14,6,14),shirt),0,-0.12,0);
+    const el=put(p,new THREE.Group(),0,-0.25,0); put(el,mesh(new THREE.SphereGeometry(0.055,16,12),shirt),0,0,0); put(el,mesh(new THREE.CapsuleGeometry(0.05,0.13,6,14),shirt),0,-0.11,0);
+    const wr=put(el,new THREE.Group(),0,-0.23,0); const hand=put(wr,new THREE.Group(),0,-0.03,0); const palm=put(hand,mesh(new THREE.SphereGeometry(0.062,20,16),skin),0,0,0); palm.scale.set(0.92,1.05,0.8);
     const th=put(hand,new THREE.Group(),-sd*0.04,0.015,0.045); th.visible=false;
     const fing=put(hand,new THREE.Group(),sd*0.005,-0.05,0.02); fing.visible=false; return {p,el,wr,hand,fing,th,sd}; });
   arms.forEach(A=>{ A.p.children.forEach((c,j)=>{ if(c.isMesh) c.visible=j===0; }); A.el.children.forEach(c=>{ if(c.isMesh) c.visible=false; }); });
@@ -2405,7 +2405,7 @@ function makeToon(o={}){ const g=new THREE.Group(); const sc=o.scale||1; const s
     const SH=(i,x,y,z)=>A[i].p.rotation.set(x,y,z), EL=(i,x)=>{ A[i].el.rotation.x=x; };
     // life: breathing, weight shift, small head turns, arms that never hang still
     const br=Math.sin(t*2.3+i0); body.scale.y=1+br*0.018; root.position.x=Math.sin(t*0.9+i0)*0.012; root.rotation.z=Math.sin(t*0.9+i0)*0.02; head.rotation.y=Math.sin(t*0.55+i0*2)*0.12; head.rotation.x=Math.sin(t*1.3+i0)*0.04; head.rotation.z=Math.sin(t*0.8+i0)*0.04;
-    SH(0,Math.sin(t*1.1+i0)*0.06+0.12,0,-0.2); SH(1,-Math.sin(t*1.1+i0)*0.06+0.12,0,0.2); EL(0,-0.55); EL(1,-0.55); Lg.forEach(l=>{ l.rotation.x=-0.08; l.userData.knee.rotation.x=0.16; }); root.position.y-=0.006;
+    SH(0,Math.sin(t*1.1+i0)*0.05+0.04,0,-0.13); SH(1,-Math.sin(t*1.1+i0)*0.05+0.04,0,0.13); EL(0,-0.18); EL(1,-0.18); Lg.forEach(l=>{ l.rotation.x=-0.08; l.userData.knee.rotation.x=0.16; }); root.position.y-=0.006;
     if(P==='wave'){ SH(1,0,0,2.3); EL(1,-0.4-Math.abs(Math.sin(t*10))*0.6); A[1].el.rotation.z=Math.sin(t*10)*0.4; head.rotation.z=0.1; }
     if(P==='point'){ SH(1,-1.45,0,0.2); EL(1,-0.05); head.rotation.y=0.35; A[1].fing.rotation.x=0.3; }
     if(P==='cheer'){ SH(0,0,0,-2.6+Math.sin(t*10)*0.15); SH(1,0,0,2.6-Math.sin(t*10)*0.15); EL(0,-0.3); EL(1,-0.3); jump=Math.abs(Math.sin(t*7))*0.14; const kb=jump>0.03?0:0.35; Lg.forEach(l=>{ l.rotation.x=-kb; l.userData.knee.rotation.x=kb*2; }); head.rotation.x=-0.15; }

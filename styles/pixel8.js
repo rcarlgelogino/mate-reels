@@ -35,10 +35,11 @@ function sceneShots(v, si, pick, words, st) { const src = (v.people || []).slice
   const act = busy >= 0 ? cast[busy].act : null; const mk = kind => ({ tpl: 'pix', p: { ...p, cam: cam(kind, act ? [fq.x + (act === 'pour' ? -fq.s * 0.25 : 0), fq.y - fq.s * (act === 'drink' ? 0.6 : 0.4)] : fpt, mid) } });
   if (v.camera) return [mk(v.camera)]; if (act) return [mk(pick(['act', 'push']))];
   if (si === 0) return [mk('pullback')];
-  if (words >= 8 && cast.length >= 1 && cast.length <= 3) { const a = cast.length >= 3 ? 'wide3' : pick(cast.length <= 1 ? SOLO : ['push', 'snap', 'wide']); return [mk(a), mk(pick(['snap', 'tight', 'push'], a))]; }
+  if (words >= 8 && cast.length >= 1 && cast.length <= 3) { const a = cast.length >= 3 ? 'wide3' : pick(cast.length <= 1 ? SOLO : ['push', 'snap', 'wide']); const sec = mk(pick(['snap', 'tight', 'push'], a)); if (cast.length > 1) { const fp = { ...cast[focus], x: 270 }; sec.p = { ...sec.p, cast: [fp], cam: cam(sec.p.cam && sec.p.cam.snap ? 'snap' : 'tight', fp.kind === 'person' ? headOf(fp) : [270, GY - 80], [270, 600]) }; delete sec.p.pass; } return [mk(a), sec]; }
   const first = cast.length >= 4 ? 'wide4' : cast.length === 3 ? pick(['wide3', 'push', 'crane']) : pick(cast.length <= 1 ? SOLO : si === 0 ? ['push', 'snap', 'wide'] : GROUP); return [mk(first)]; }
 const EMOTE = { think: '?', confused: '?', surprised: '!', worried: 'sweat', angry: 'anger', love: 'heart', bored: 'zzz', outraged: 'anger' };
-function reactionShot(v, si, pick, st) { const who = v.who ?? (si % 6); const base = Object.values(ROLE).find(r => r && r.who === who && !r.flag && !r.hat) || { shirt: '#2f7fd1', hair: 'short' }; const q = { kind: 'person', ...base, x: 270, y: GY, s: 160 }; delete q.who; delete q.scale;
+function reactionShot(v, si, pick, st) { const who = v.who ?? (si % 6); const ci = v.who == null ? 0 : v.who; const fromCast = st.cast && ci < st.cast.length ? { ...st.cast[ci] } : null; if (fromCast) ['x', 'y', 's', 'hold', 'act', 'gest', 'emoAct', 'emote', 'facing', 'passing', 'face'].forEach(kk => delete fromCast[kk]);
+  const base = fromCast || Object.values(ROLE).find(r => r && r.who === who && !r.flag && !r.hat) || { shirt: '#2f7fd1', hair: 'short' }; const q = { kind: 'person', ...base, x: 270, y: GY, s: 160 }; delete q.who; delete q.scale;
   const e = FACE[norm(v.emotion)] || 'surprised'; q.face = e; const a0 = norm(v.act); if (GEST.includes(a0)) q.gest = a0; if (a0 === 'teeth') q.face = 'disgusted'; if (a0 === 'burn_tongue') { q.face = 'pain'; q.emote = 'sweat'; } if (ACTS.includes(a0)) q.emoAct = a0;
   q.emote = q.emote || EMOTE[a0] || EMOTE[e] || null; const shock = ['surprised', 'shock', 'scream', 'disgusted'].includes(q.face) || ['shock', 'surprised'].includes(a0); const p = { place: st.place, cast: [q], cam: cam(v.camera || (shock ? 'vertigo' : pick(REACT)), headOf(q), [270, 600]) }; if (st.night) p.night = true; return { tpl: 'pix', p }; }
 // ---- objects: the thing itself, big, with a face and a glow ----
@@ -56,8 +57,9 @@ function heroOf(v, x = 270, s = 150) { const it = norm(v.item || 'mate'), an = n
 function heroShot(v, pick, st) { const h = heroOf(v); if (h.kind === 'bombilla') h.bkind = h.kind2 || 'recta'; delete h.kind2; const p = { place: h.poros ? 'poros' : st.place, cast: h.poros ? [] : [h] };
   if (st.night) p.night = true; p.cam = cam(v.camera || pick(HERO), [270, GY - 90], [270, 620]); if (v.label) p.tags = [{ text: String(v.label).toUpperCase(), x: 530, y: 1340, screen: true, size: 64, u: 0.1 }]; return { tpl: 'pix', p }; }
 const W2 = 540;
-function compareShot(v, pick, st) { const a = heroOf(v.left || {}, 160, 118), b = heroOf(v.right || {}, 380, 118); a.glow = b.glow = false; const p = { place: st.place, cast: [a, b], vs: { y: 1050 }, cam: cam('wide', null, [270, 620]) };
-  p.tags = [[v.left, 160], [v.right, 380]].filter(([s]) => s && s.label).map(([s, x]) => ({ text: String(s.label).toUpperCase(), x, y: GY + 30, size: 54, u: 0.12 })); if (st.night) p.night = true; return { tpl: 'pix', p }; }
+const VEH = ['auto', 'camioneta', 'colectivo', 'camion'];
+function compareShot(v, pick, st) { const a = heroOf(v.left || {}, 150, 118), b = heroOf(v.right || {}, 390, 118); a.glow = b.glow = false; [a, b].forEach(o => { if (VEH.includes(o.kind)) o.s = 74; }); const p = { place: st.place, cast: [a, b], vs: { y: 1050 }, cam: cam('wide', null, [270, 620]) };
+  p.tags = [[v.left, 160], [v.right, 380]].filter(([s]) => s && s.label).map(([s, x]) => ({ text: String(s.label).toUpperCase(), x: x === 160 ? 150 : 390, y: GY + 44, size: 66, u: 0.12 })); if (st.night) p.night = true; return { tpl: 'pix', p }; }
 // what a title is about decides the picture behind it: countries -> the lit map from above, Guaraní -> people in the jungle, Jesuits -> the mission; otherwise the last scene again
 const CTRY = [[/argentin/, 'ar'], [/urugua/, 'uy'], [/paragua/, 'py'], [/brasil|brazil/, 'br'], [/chile/, 'cl']];
 const countriesIn = k => CTRY.filter(([re]) => re.test(k)).map(c => c[1]);
@@ -81,16 +83,18 @@ function toSpec(script) {
       if (v.type === 'object') return out.push(heroShot(v, pick, st)); if (v.type === 'compare') return out.push(compareShot(v, pick, st));
       if (v.type === 'map' || (v.type === 'list' && countriesIn(norm((v.items || []).map(i => i.title).join(' '))).length >= 2)) { const cs = v.type === 'map' ? (v.countries || []) : countriesIn(norm((v.items || []).map(i => i.title).join(' '))); return out.push({ tpl: 'pix', p: { place: 'mapa', lit: cs.map((c, i) => ({ c, u: 0.5 + i * Math.min(0.12, 0.45 / cs.length) })), cam: { z0: 2.4, z1: 0.56, from: cs[0], c1: [270, 480], sp: 0.55 }, ...(v.text ? { big: { text: String(v.text).toUpperCase(), sub: v.sub ? String(v.sub).toUpperCase() : undefined, y: 560, size: 100 } } : {}) } }); }
       if (v.type === 'map') { const p = { place: st.place, map: { countries: v.countries || [], text: v.text ? String(v.text).toUpperCase() : '', sub: v.sub ? String(v.sub).toUpperCase() : '' }, dim: 0.35, cam: cam('wide', null, [270, 600]) }; if (st.night) p.night = true; return out.push({ tpl: 'pix', p }); }
-      if (v.type === 'title' && v.text) return out.push(bigShot(v.text, v.sub, pick, st, sg.text)); if (v.type === 'number' && v.value != null) return out.push(bigShot(v.value, v.sub, pick, st, sg.text));
+      if ((v.type === 'title' && v.text) || (v.type === 'number' && v.value != null)) { const txt = v.type === 'title' ? v.text : v.value; const sc = sceneForText(norm(txt + ' ' + (v.sub || '') + ' ' + (sg.text || '')), st); if (sc) return out.push(bigShot(txt, v.sub, pick, st, sg.text)); return out.push(reactionShot({ type: 'reaction', emotion: ['funny', 'happy', 'excited', 'proud'].includes(sg.emo) ? 'happy' : 'surprised', act: 'nod', who: 0 }, si, pick, st)); }
       if (v.type === 'mistake') { const sh = sceneShots(v.over || { type: 'scene', people: [{ role: 'friend', does: 'no' }] }, si, pick, 0, st)[0]; sh.p.cast.forEach(q => { if (q.kind === 'person') { q.emoAct = 'no'; q.face = q.face === 'happy' ? 'worried' : q.face; } }); return out.push(sh); }
-      out.push(boardShot(s, st)); }); seg.shots = out; });
+      const bs = boardShot(s, st); if (bs && bs.p && bs.p.board && ['dots', 'title'].includes(bs.p.board.kind)) return out.push(reactionShot({ type: 'reaction', emotion: ['funny', 'happy', 'excited', 'proud'].includes(sg.emo) ? 'happy' : ['sad'].includes(sg.emo) ? 'sad' : 'surprised', act: 'nod', who: 0 }, si, pick, st)); out.push(bs); }); seg.shots = out; });
   base.segments.forEach(seg => { const textual = seg.shots.length && seg.shots.every(s => s.p && (s.p.big || s.p.board || s.p.map)); seg.callouts = (seg.callouts || []).filter(c => c.type !== 'big' && !(textual && c.type === 'pill' && !c.early)).map(c => { if (c.early) { const { sub, ...rest } = c; return { ...rest, y: 720 }; } return c; }); });
+  base.segments.forEach((seg, si) => { const sg = script.segments[si] || {}; if (!/asado|parrilla/.test(String(sg.text).toLowerCase())) return; seg.shots.forEach(s => { if (s && s.tpl === 'pix' && s.p && !s.p.big && !s.p.board && (s.p.cast || []).length > 1) s.p.props = [...new Set([...(s.p.props || []), 'fogata', 'humo'])].slice(0, 3); }); });
   const OUT = ['plaza', 'patio', 'calle', 'campo', 'yerbal', 'playa', 'ruta', 'mercado', 'costa', 'mision'];
   base.segments.forEach((seg, si) => { const sg = script.segments[si] || {}; seg.shots.forEach((s, k) => { if (!s || s.tpl !== 'pix' || !s.p) return; const p = s.p; if (p.board || p.big || p.map) return;
     if (OUT.includes(p.place) && !p.night) p.fx = { ...(p.fx || {}), rays: 'sun' };
     if (sg.beat === 'rehook' && k === 0 && p.cast && p.cast.length && !p.pass) { const m = [Math.round(p.cast.reduce((a, q) => a + q.x, 0) / p.cast.length), 600]; p.cam = cam('wide', null, m); } }); });
+  base.segments.forEach(seg => seg.shots.forEach(s => { const c = s && s.p && s.p.cam; if (!c || s.p.place === 'mapa' || c.from) return; c.z0 = Math.max(1, c.z0); c.z1 = Math.max(1, c.z1); }));
   // light mood of the reel (sun, haze, rays, lit windows): rotates per script so the days look different
-  const LIGHTS = ['golden', 'blue', 'pastel']; base.style = { ...(base.style || {}), light: script.light || LIGHTS[hashN(script.id || 'reel', 3)] };
+  const LIGHTS = ['golden', 'pastel']; base.style = { ...(base.style || {}), light: script.light || LIGHTS[hashN(script.id || 'reel', 2)] };
   return { ...base, preset: 'pixel8', ab: script.ab || 'style pixel8', ...(script.follow === false ? { follow: false } : {}) };
 }
 module.exports = { name: 'pixel8', toSpec };

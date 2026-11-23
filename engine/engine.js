@@ -1165,7 +1165,8 @@ function pthing(g,kind,x,y,s,o,t,seed){ // small things: in a hand, on a table, 
   if(K==='jarra_con_hielo'||K==='jarra'){ pr(g,x-s*0.32,y-s,s*0.64,s,'#bfe8f4'); pr(g,x-s*0.3,y-s*0.6,s*0.6,s*0.6,'#8fdcff'); for(let i=0;i<4;i++) prect(g,x-s*0.25+(i%2)*s*0.24,y-s*0.55+Math.floor(i/2)*s*0.22+Math.round(Math.sin(t*2+i)),s*0.18,s*0.16,'#ffffff','#bfe8f4'); pr(g,x+s*0.32,y-s*0.8,8,s*0.5,'#bfe8f4'); return {}; }
   if(K==='heladerita'){ prect(g,x-s*0.5,y-s*0.6,s,s*0.6,'#2f7fd1'); pr(g,x-s*0.5,y-s*0.64,s,8,'#ffffff'); pr(g,x-s*0.2,y-s*0.74,s*0.4,6,'#ffffff'); return {}; }
   if(K==='heladera'){ prect(g,x-s*0.3,y-s,s*0.6,s,'#eef1f6','#9aa3b4','#ffffff'); pr(g,x-s*0.28,y-s*0.62,s*0.56,2,'#9aa3b4'); pr(g,x+s*0.2,y-s*0.9,4,s*0.2,'#9aa3b4'); pr(g,x+s*0.2,y-s*0.5,4,s*0.25,'#9aa3b4'); if(o.face!=='none'&&o.face) pface(g,x,y-s*0.35,s*0.9,o.face,t,seed); return {}; }
-  if(K==='bolsa_nylon_yerba'||K==='bolsa_nylon'){ pr(g,x-s*0.32,y-s*0.85,s*0.64,s*0.85,'rgba(230,248,255,0.55)'); pdisk(g,x,y-s*0.3,s*0.3,s*0.28,PXP.yerba); for(let i=0;i<20;i++) pr(g,x-s*0.25+prand(i)*s*0.5,y-s*0.55+prand(i+1)*s*0.5,1,1,PXP.yerbaD); pr(g,x-s*0.1,y-s*0.95,s*0.2,8,'#e5483a'); return {}; }
+  if(K==='bolsa_nylon_yerba'||K==='bolsa_nylon'){ const w=s*0.66, h=s*0.8, cy=y-h*0.42; pdisk(g,x,y+1,w*0.5,3,'rgba(10,6,20,0.4)'); pdisk(g,x,cy,w*0.5+2,h*0.5+2,POUT); pdisk(g,x,cy,w*0.5,h*0.5,'#e4f4fb'); pdisk(g,x,cy+h*0.06,w*0.44,h*0.42,PXP.yerba,cy-h*0.18,1e9); pdisk(g,x,cy+h*0.06,w*0.44,h*0.42,PXP.yerbaL,cy-h*0.18,cy-h*0.12); for(let i=0;i<34;i++) pr(g,x-w*0.36+prand(i)*w*0.72,cy-h*0.12+prand(i+3)*h*0.48,1,1,i%3?PXP.yerbaD:'#c9b36a');
+    pr(g,x-s*0.05,y-h*1.04,s*0.1,s*0.16,POUT); pr(g,x-s*0.035,y-h*1.03,s*0.07,s*0.15,'#e4f4fb'); pdisk(g,x-s*0.1,y-h*1.1,s*0.08+1,s*0.055+1,POUT); pdisk(g,x+s*0.1,y-h*1.1,s*0.08+1,s*0.055+1,POUT); pdisk(g,x-s*0.1,y-h*1.1,s*0.08,s*0.055,'#e4f4fb'); pdisk(g,x+s*0.1,y-h*1.1,s*0.08,s*0.055,'#e4f4fb'); pr(g,x-w*0.33,cy-h*0.3,3,h*0.42,'#ffffff'); pr(g,x-w*0.25,cy-h*0.36,2,h*0.12,'#ffffff'); return {}; }
   if(K==='tacuapi'){ pr(g,x-s*0.22,y-s,s*0.44,s,'#c9a24a'); pr(g,x-s*0.2,y-s,s*0.1,s,'#e6c27a'); for(let i=1;i<3;i++) pr(g,x-s*0.22,y-s+i*s/3,s*0.44,3,'#8a6a22'); pdisk(g,x,y-s,s*0.2,4,PXP.yerba); return {}; }
   if(K==='guampa'){ g.fillStyle='#e8dcc0'; g.beginPath(); g.moveTo(Math.round(x-s*0.25),Math.round(y-s)); g.lineTo(Math.round(x+s*0.25),Math.round(y-s)); g.lineTo(Math.round(x+s*0.05),Math.round(y)); g.lineTo(Math.round(x-s*0.08),Math.round(y)); g.closePath(); g.fill(); pr(g,x-s*0.25,y-s,s*0.5,5,'#8a7a5a'); pdisk(g,x,y-s-2,s*0.2,4,PXP.yerba); return {}; }
   if(K==='hoja_yerba'||K==='hoja'){ pdisk(g,x,y-s*0.5,s*0.28,s*0.5,PXP.yerbaD); pdisk(g,x-1,y-s*0.5,s*0.24,s*0.46,PXP.yerba); pline(g,x,y,x,y-s*0.95,PXP.yerbaD,2); if(o.face) pface(g,x,y-s*0.55,s*0.7,o.face,t,seed); return {}; }
@@ -1225,7 +1226,7 @@ function pfigure(g,q,i,u,t,ctx){ const s=q.s||110, x=q.x+(q.dx||0), y=q.y; const
   const drink=q.act==='drink', pour=q.act==='pour';
   const dk=drink?ease(clamp((u-0.08)/0.14))*(1-ease(clamp((u-0.8)/0.14))):0; if(drink) face=dk>0.85?'sip':face;
   const P=pperson(g,x,y+jump,s,q,t,seed,{hx:shake,face}); const hr=Math.max(4,Math.round(s*0.075)); const bx=P.body[0], byc=P.body[1], bw=P.bw;
-  let L=[bx-bw*0.62,byc+4], R=[bx+bw*0.62,byc+4]; const g0=q.gest, wob=Math.sin(t*5)*3;
+  let L=[bx-bw*0.55,byc+2], R=[bx+bw*0.55,byc+2]; const g0=q.gest, wob=Math.sin(t*5)*3;
   if(g0==='think') L=[P.head[0]-P.rh*0.5,P.head[1]+P.rh*1.05]; if(g0==='point') R=[bx+bw*1.0,byc-s*0.32]; if(g0==='shrug'){ L=[bx-bw*0.85,byc-s*0.12]; R=[bx+bw*0.85,byc-s*0.12]; }
   if(g0==='talk') R=[bx+bw*0.7,byc-4+wob]; if(g0==='whisper') L=[P.head[0]-P.rh*1.0,P.head[1]+P.rh*0.3]; if(g0==='receive'||g0==='offer') R=[bx+bw*0.95*(q.facing||1),byc-6];
   if(act==='cheer'||act==='wave'){ R=[bx+bw*0.85,byc-s*0.4+(act==='wave'?Math.round(Math.sin(t*10)*3):0)]; if(act==='cheer') L=[bx-bw*0.85,byc-s*0.4]; }
@@ -1237,8 +1238,8 @@ function pfigure(g,q,i,u,t,ctx){ const s=q.s||110, x=q.x+(q.dx||0), y=q.y; const
     const M=P.mouth; const rest=[bx+bw*0.55,byc+ms*0.4+8], up=[M[0]-Math.round(ms*0.42*0.25),M[1]+Math.round(P.rh*0.55)+2*Math.round(ms*0.39)+12]; const mx=Math.round(lerp(rest[0],up[0],dk)), my=Math.round(lerp(rest[1],up[1],dk)); mateRef=drawMateAt(mx,my,{bombilla:false});
     const rxm=Math.round(ms*0.42), top=my-2*Math.round(ms*0.39), base=[mx+Math.round(rxm*0.1),top-5], nat=[mx+Math.round(rxm*0.5)-3,top-Math.round(ms*0.48)], tip=[Math.round(lerp(nat[0],M[0]+2,dk)),Math.round(lerp(nat[1],M[1],dk))];
     pline(g,base[0],base[1],tip[0],tip[1],PXP.metalD,2); pline(g,base[0]-1,base[1],tip[0]-1,tip[1],PXP.metalL,1); pr(g,tip[0]-2,tip[1]-1,4,3,PXP.metal); pr(g,tip[0]-2,tip[1]-1,4,1,PXP.metalL); R=[mx+ms*0.3,my-ms*0.3]; }
-  else if(pour){ const mx=bx-bw*0.55, my=byc+ms*0.55; L=[mx-ms*0.3,my-ms*0.35]; mateRef=drawMateAt(mx,my); }
-  else if(hold==='mate'||hold==='both'){ if(!(q.passing&&i===q.passing.giver&&u>0.25)) { const hx0=(g0==='offer'||g0==='receive')?R[0]:bx+bw*0.6, hy0=(g0==='offer'||g0==='receive')?R[1]+ms*0.5:byc+ms*0.6; mateRef=drawMateAt(hx0,hy0); R=[hx0+ms*0.3,hy0-ms*0.35]; } }
+  else if(pour){ const mx=bx+bw*0.2, my=byc+ms*0.75; L=[mx-ms*0.4,my-ms*0.35]; mateRef=drawMateAt(mx,my); }
+  else if(hold==='mate'||hold==='both'){ if(!(q.passing&&i===q.passing.giver&&u>0.25)) { const hx0=(g0==='offer'||g0==='receive')?R[0]:bx+bw*0.55, hy0=(g0==='offer'||g0==='receive')?R[1]+ms*0.5:byc+ms*0.15; mateRef=drawMateAt(hx0,hy0); R=[hx0+ms*0.3,hy0-ms*0.35]; } }
   if(hold==='both'&&!pour){ ptermoDraw(g,bx-bw*0.62,byc+s*0.24,Math.round(s*0.5),{face:'none'},t,seed); L=[bx-bw*0.62+s*0.08,byc+2]; }
   if(hold==='termo_brazo'){ g.save(); g.translate(bx+bw*0.45,byc+2); g.rotate(-1.2); ptermoDraw(g,0,s*0.12,Math.round(s*0.5),{face:'none'},t,seed); g.restore(); const hx0=bx-bw*0.6; mateRef=drawMateAt(hx0,byc+ms*0.6); L=[hx0-ms*0.3,byc+ms*0.6-ms*0.35]; }
   if(hold==='termo'){ ptermoDraw(g,bx+bw*0.62,byc+s*0.26,Math.round(s*0.52),{face:'none'},t,seed); R=[bx+bw*0.62,byc+4]; }
@@ -1247,7 +1248,7 @@ function pfigure(g,q,i,u,t,ctx){ const s=q.s||110, x=q.x+(q.dx||0), y=q.y; const
   if(hold==='bombilla'){ pbombilla(g,R[0],R[1]+s*0.05,Math.round(s*0.4),{kind:q.item||'recta'},t,seed); }
   if(hold==='item'){ const it=q.item||'celular'; if(g0==='phone'){ pthing(g,'celular',R[0],R[1]+s*0.12,Math.round(s*0.22),{},t,seed); } else pthing(g,it,R[0],R[1]+s*0.16,Math.round(s*0.28),{},t,seed); }
   if(hold==='bolsa_nylon') pthing(g,'bolsa_nylon_yerba',R[0],R[1]+s*0.24,Math.round(s*0.34),{},t,seed);
-  if(pour){ const tq={x:bx+bw*0.9,y:byc+s*0.32,s:Math.round(s*0.52),face:'none',tilt:1.0}; const k=clamp((u-0.1)/0.3); pTermoPour(g,tq,k,mateRef.open,t,seed,true); }
+  if(pour){ const tq={x:bx+bw*1.2,y:byc+s*0.3,s:Math.round(s*0.44),face:'none',tilt:1.0}; const k=clamp((u-0.1)/0.3); pTermoPour(g,tq,k,mateRef.open,t,seed,true); }
   phand(g,L[0],L[1],hr); phand(g,R[0],R[1],hr);
   if(q.emote) pemote(g,q.emote,P.head[0]+P.rh*0.9,P.head[1]-P.rh*1.1,t);
   if(act==='shock') pemote(g,'!',P.head[0],P.head[1]-P.rh*1.3,t); if(act==='sigh') pemote(g,'sweat',P.head[0]+P.rh,P.head[1]-P.rh*0.4,t);
@@ -1319,7 +1320,7 @@ function plight(g,place,night,t){ const LM=PLIGHT[E._light]; if(LM&&['plaza','pa
     gr=g.createLinearGradient(0,PGY-260,0,PGY); gr.addColorStop(0,'rgba(220,235,255,0)'); gr.addColorStop(1,'rgba(220,235,255,0.16)'); g.fillStyle=gr; g.fillRect(0,PGY-260,W0,260);
     g.globalCompositeOperation='multiply'; gr=g.createLinearGradient(0,0,W0,H0); gr.addColorStop(0.45,'rgba(255,255,255,1)'); gr.addColorStop(1,'rgba(150,150,215,1)'); g.fillStyle=gr; g.fillRect(0,0,W0,H0); }
   if(ind){ g.globalCompositeOperation='screen'; const gr=g.createRadialGradient(270,380,30,270,420,420); gr.addColorStop(0,night?'rgba(255,200,110,0.30)':'rgba(255,244,214,0.30)'); gr.addColorStop(1,'rgba(255,244,214,0)'); g.fillStyle=gr; g.fillRect(0,0,W0,H0); }
-  if(night){ if(!['noche','selva'].includes(place)){ g.globalCompositeOperation='multiply'; g.fillStyle='rgba(120,110,200,0.55)'; g.fillRect(0,0,W0,H0); } g.globalCompositeOperation='screen'; for(const [lx,ly,r] of (place==='plaza'||place==='calle'?[[303,524,150]]:place==='noche'?[[270,640,240]]:place==='cocina'||place==='living'?[[270,190,300]]:[[270,560,220]])){ const gr=g.createRadialGradient(lx,ly,8,lx,ly,r); gr.addColorStop(0,'rgba(255,190,100,0.42)'); gr.addColorStop(1,'rgba(255,190,100,0)'); g.fillStyle=gr; g.fillRect(lx-r,ly-r,2*r,2*r); } }
+  if(night){ if(!['noche','selva'].includes(place)){ g.globalCompositeOperation='multiply'; g.fillStyle='rgba(150,140,210,0.4)'; g.fillRect(0,0,W0,H0); } g.globalCompositeOperation='screen'; for(const [lx,ly,r] of (place==='plaza'||place==='calle'?[[303,524,150]]:place==='noche'?[[270,640,240]]:place==='cocina'||place==='living'?[[270,190,300]]:[[270,560,220]])){ const gr=g.createRadialGradient(lx,ly,8,lx,ly,r); gr.addColorStop(0,'rgba(255,190,100,0.42)'); gr.addColorStop(1,'rgba(255,190,100,0)'); g.fillStyle=gr; g.fillRect(lx-r,ly-r,2*r,2*r); } }
   g.globalCompositeOperation='multiply'; const v=g.createRadialGradient(270,560,260,270,560,640); v.addColorStop(0,'rgba(255,255,255,1)'); v.addColorStop(1,'rgba(70,50,110,1)'); g.globalAlpha=0.3; g.fillStyle=v; g.fillRect(0,0,W0,H0);
   g.restore(); }
 // foreground close to the camera: it moves more than the scene (depth); kept to the edges and darker
@@ -1366,7 +1367,7 @@ function drawPix(c,p,u,t,sh){ const gA=pxWorld(); let g=gA; const place=p.place|
   (p.props||[]).forEach((pp,i)=>{ const q=typeof pp==='string'?{type:pp}:pp; const side=i%2?1:-1; pprop(g,q.type,q.x??(side>0?470-Math.floor(i/2)*40:70+Math.floor(i/2)*40),q.y??PGY+6,q.s??90,t); });
   if(layered) pparticles(g,place,nightL,t); else { pparticles(g,place,nightL,t); if(!['titulo','macro','poros','mapa'].includes(place)) plight(g,place,nightL,t); }
   const cast=p.cast||[]; const refs=[]; const LMs=PLIGHT[E._light]&&['plaza','patio','calle','yerbal','campo','playa','ruta','mercado'].includes(place)?PLIGHT[E._light]:null; pshadows(g,cast,LMs);
-  cast.forEach((q,i)=>{ if(!q.glow) return; const R=Math.round((q.s||90)*0.6)+Math.round(Math.sin(t*3)*1.2); const cx=q.x, cy=q.y-(q.s||90)*0.48; pdisk(g,cx,cy,R+4,R+5,'rgba(255,214,150,0.16)'); pdisk(g,cx,cy,R-8,R-7,'rgba(255,226,170,0.14)'); }); // soft light behind the object, no hard ring (user 2026-11-20)
+  /* no disk behind objects: it read as a stain (review 2026-11-23) */ // soft light behind the object, no hard ring (user 2026-11-20)
   const order=cast.map((q,i)=>i).sort((a,b)=>cast[a].y-cast[b].y);
   let pourK=-1; if(p.pour){ const [a0,a1]=p.pour.at||[0.12,0.45]; pourK=clamp((u-a0)/(a1-a0)); }
   for(const i of order){ const q=cast[i]; if(p.pour&&i===p.pour.from) continue; const pop=q.delay?clamp((t-q.delay-0.02)/0.18):1; if(pop<=0) continue;
@@ -2944,9 +2945,9 @@ function drawCaptionPixel(T_,ch){ const st=E.tl.style||{}; const size=st.caption
   const lines=[[]]; let lw=0; words.forEach((w,i)=>{ if(lw+ws[i]>(WIDE?1500:780)&&lines[lines.length-1].length){ lines.push([]); lw=0; } lines[lines.length-1].push(i); lw+=ws[i]+sp; });
   const lh=size*1.2, y0=E.capY-(lines.length-1)*lh/2, o=Math.max(4,Math.round(size/11));
   lines.forEach((ln,li)=>{ const tw=ln.reduce((a,i)=>a+ws[i],0)+sp*(ln.length-1); let x=Math.round(W/2-10-tw/2);
-    ln.forEach(i=>{ const w=ch.words[i]; const active=T_>=w.t-0.02&&(i===ch.words.length-1||T_<ch.words[i+1].t-0.02); if(T_<w.t-0.08){ x+=ws[i]+sp; return; } const yy=Math.round(y0+li*lh);
+    ln.forEach(i=>{ const w=ch.words[i]; const active=T_>=w.t-0.02&&(i===ch.words.length-1||T_<ch.words[i+1].t-0.02); const future=T_<w.t-0.08; const yy=Math.round(y0+li*lh); ctx.globalAlpha=future?0.72:1;
       ctx.fillStyle='#140c1c'; for(const [dx,dy] of [[o,o],[-o/2,0],[o/2,0],[0,-o/2],[0,o/2],[o,0],[0,o],[o/2,o]]) ctx.fillText(words[i],x+dx,yy+dy);
-      const jb=active?Math.round(8*Math.max(0,1-(T_-w.t)/0.14)):0; if(jb){ ctx.fillStyle='#140c1c'; ctx.fillText(words[i],x+o,yy+o-jb); } ctx.fillStyle=active?E.accent:'#fffaf0'; ctx.fillText(words[i],x,yy-jb); x+=ws[i]+sp; }); });
+      const jb=active?Math.round(8*Math.max(0,1-(T_-w.t)/0.14)):0; if(jb){ ctx.fillStyle='#140c1c'; ctx.fillText(words[i],x+o,yy+o-jb); } ctx.fillStyle=active?'#f2a35e':'#fffaf0'; ctx.fillText(words[i],x,yy-jb); ctx.globalAlpha=1; x+=ws[i]+sp; }); });
   ctx.restore(); }
 function drawCaption0(T_){
   if(E.tl.style?.noCaptions) return; const ch=E.chunks.find(c=>T_>=c.t0&&T_<c.t1); if(!ch) return; if(E.tl.style?.look==='word'){ const sp=E.curShot&&E.curShot.p; if(E.curShot&&(E.curShot.tpl==='board'||(sp&&sp.board))) return; return drawCaptionWord(T_,ch); }

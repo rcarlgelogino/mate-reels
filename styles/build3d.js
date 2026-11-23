@@ -179,6 +179,11 @@ function toSpec(script) {
       if (v.type === 'title' || v.type === 'number' || v.type === 'map') { const text = String(v.type === 'number' ? v.value : v.text || (v.countries || []).join(' · ')).toUpperCase(); seg.callouts = [...(seg.callouts || []).filter(c => c.type !== 'big'), { type: 'big', keep: true, text: text.slice(0, 22), ...(v.type === 'number' ? { size: 300 } : {}), sub: v.sub ? String(v.sub).toUpperCase().slice(0, 40) : undefined, at: String(sg.text).split(/\s+/)[0] }];
         return push({ people: lastPeople.map(q => ({ ...q, pose: 'point', y: 0, z: undefined })), cam: 'drone' }); }
       out.push(toBuild(s)); }); seg.shots = out; });
+  // never the same camera move twice in a row: a repeated move gets the next one from its list (face, pov1 and chase stay)
+  { const ALT = { orbit: ['push', 'low'], push: ['orbit', 'low'], drone: ['push', 'orbit'], low: ['push', 'orbit'], follow: ['low', 'push'], crash: ['orbit', 'push'], whip: ['push', 'orbit'], diorama: ['push', 'orbit'] }; let prev = null;
+    base.segments.forEach(g => (g.shots || []).forEach(sh => { const p = sh && sh.tpl === 'build' && sh.p; if (!p || !p.cam) { prev = null; return; }
+      if (p.cam === prev && ALT[p.cam]) { const nx = ALT[p.cam].find(c => c !== prev); p.cam = nx; if (nx !== 'push' && p.focus === 'face') p.focus = null; }
+      prev = p.cam; })); }
   return { ...base, preset: 'build3d', ab: script.ab || 'style build3d', ...(script.follow === false ? { follow: false } : {}) };
 }
 module.exports = { name: 'build3d', toSpec, VERBS, verbOf, missingVerbs };

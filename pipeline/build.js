@@ -81,7 +81,9 @@ function plan(vo) {
     const ws = vo[si].words, last = ws[ws.length - 1], lead = si === 0 ? 0.05 : 0.06, tail = si === segs.length - 1 ? 0.6 : (sg.tail ?? 0.2);
     const len = vo[si].silentDur ? vo[si].silentDur : lead + last.t + last.d + tail, base = T + lead;
     if (vo[si].file) tl.voice.push({ file: path.relative(ROOT, vo[si].file).replace(/\\/g, '/'), at: +base.toFixed(3) });
-    ws.forEach(w => tl.words.push({ w: w.w, t: +(base + w.t).toFixed(3), d: w.d, seg: si }));
+    { const nrm = x => String(x).toLowerCase().normalize('NFD').replace(/[^a-z0-9]/g, ''); const toks = String(sg.say || sg.text || '').split(/\s+/).filter(Boolean); let ti = 0;
+      ws.forEach(w => { let end = false; const nw = nrm(w.w); for (let j = ti; j < Math.min(toks.length, ti + 3); j++) if (nrm(toks[j]) === nw) { end = /[.!?:;,]["»”)]*$/.test(toks[j]); ti = j + 1; break; }
+        tl.words.push({ w: w.w, t: +(base + w.t).toFixed(3), d: w.d, seg: si, ...(end ? { end: true } : {}) }); }); }
     const fsum = sg.shots.reduce((a, s) => a + (s.f || 1), 0); let st = T;
     sg.shots.forEach((sh, k) => { const d = len * (sh.f || 1) / fsum; tl.shots.push({ tpl: sh.tpl, p: sh.p || {}, zoom: sh.zoom || 1, c: sh.c || [0.5, 0.5], tOffset: sh.tOffset || 0, start: +st.toFixed(3), dur: +d.toFixed(3), seg: si, emo: sh.emo || null, segEmo: sg.emo || null });
       if (k > 0) tl.cues.push({ type: 'snap', t: st }); st += d; });

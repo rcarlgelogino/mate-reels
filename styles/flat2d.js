@@ -20,7 +20,7 @@ const FACE2 = { excited: 'happy', dizzy: 'confused', preocupado: 'worried', asco
 const DOES = { idle: {}, hold_mate: { hold: 'mate' }, hold_termo: { hold: 'termo' }, hold_both: { hold: 'both' }, drink: { act: 'drink' }, pass: { act: 'pass' }, receive: { act: 'receive' }, offer: { act: 'offer' }, pour: { hold: 'both', act: 'pour' }, pour_cold_water: { hold: 'both', act: 'pour' }, pour_from_olla: { hold: 'both', act: 'pour' }, pour_lukewarm: { hold: 'both', act: 'pour' }, pour_fast: { hold: 'both', act: 'pour' },
   think: { act: 'think' }, shrug: { act: 'shrug' }, talk: { act: 'talk' }, whisper: { act: 'whisper' }, type: { act: 'talk' }, grind_mortar: { act: 'talk' }, defend: { act: 'point' }, reach_bombilla: { act: 'point' }, harvest: { act: 'point' },
   sit: { sit: true }, sit_phone: { sit: true, item: 'celular', act: 'phone' }, sit_hold_both: { sit: true, hold: 'both' }, film_phone: { item: 'celular', act: 'phone' }, carry_termo_brazo: { hold: 'both' }, carry_all: { hold: 'both' },
-  hold_cuia: { hold: 'mate', mate: 'cuia' }, hold_guampa: { hold: 'mate', mate: 'guampa' }, blow_mate: { hold: 'mate', act: 'blow' }, shake_mate: { hold: 'mate', act: 'shake' }, empty_mate: { hold: 'mate', act: 'shake' }, wash_mate: { hold: 'mate', act: 'shake' }, rinse_mate: { hold: 'mate', act: 'shake' },
+  hold_cuia: { hold: 'mate', mate: 'cuia' }, hold_guampa: { hold: 'mate', mate: 'guampa' }, blow_mate: { hold: 'mate', act: 'blow' }, shake_mate: { hold: 'mate', act: 'stir' }, empty_mate: { hold: 'mate', act: 'shake' }, wash_mate: { hold: 'mate', act: 'rinse' }, rinse_mate: { hold: 'mate', act: 'rinse' }, stir_bombilla: { hold: 'mate', act: 'stir' }, revolver: { hold: 'mate', act: 'stir' },
   shake_bombilla: { item: 'bombilla', act: 'shake' }, hug_mate: { hold: 'mate' }, scrape_spoon: { hold: 'mate' }, spit: { hold: 'mate' }, drink_tapado: { act: 'drink' }, drink_sin_bombilla: { act: 'drink' }, fill_yerba: { item: 'yerba' }, hold_yerba: { item: 'yerba' },
   hold_pava: { item: 'pava' }, use_pava_electrica: { item: 'pava' }, hold_bolsa_nylon: { item: 'bolsa' }, hold_bombilla: { item: 'bombilla' },
   wave: { act: 'wave' }, point: { act: 'point' }, hug: { act: 'hug' }, cheer: { act: 'cheer' }, jump: { act: 'jump' }, no: { act: 'no' }, nod: { act: 'nod' }, shock: { act: 'shock' }, laugh: { act: 'laugh' }, sigh: { act: 'sigh' } };
@@ -31,11 +31,11 @@ const NAVY = '#132033';
 // x positions / sizes by number of people (feet y in 0..1 of the frame)
 function layout(n, place) { if (place === 'kitchen') return layoutBase(n, 0.9).map(p => ({ ...p, s: Math.round(p.s * 1.12) })); return layoutBase(n, place === 'patio' || place === 'beach' || INSIDE.includes(place) ? 0.86 : 0.8); }
 function layoutBase(n, ky) {
-  if (n === 1) return [{ x: 0.5, y: ky + 0.06, s: 820 }];
-  if (n === 2) return [{ x: 0.28, y: ky + 0.03, s: 700 }, { x: 0.74, y: ky + 0.03, s: 700 }];
-  if (n === 3) return [{ x: 0.19, y: ky + 0.03, s: 620 }, { x: 0.5, y: ky + 0.04, s: 640 }, { x: 0.81, y: ky + 0.03, s: 620 }];
-  if (n === 4) return [0.14, 0.38, 0.62, 0.86].map(x => ({ x, y: ky + 0.05, s: 540 }));
-  return Array.from({ length: n }, (_, i) => i < 3 ? { x: [0.17, 0.5, 0.83][i], y: ky + 0.06, s: 560 } : { x: [0.33, 0.67, 0.5][i - 3], y: ky - 0.07, s: 430, back: true }); }
+  if (n === 1) return [{ x: 0.5, y: ky + 0.07, s: 860 }];
+  if (n === 2) return [{ x: 0.29, y: ky + 0.06, s: 780 }, { x: 0.72, y: ky + 0.04, s: 750 }];
+  if (n === 3) return [{ x: 0.2, y: ky + 0.07, s: 700 }, { x: 0.5, y: ky + 0.01, s: 620, back: true }, { x: 0.8, y: ky + 0.05, s: 680 }];
+  if (n === 4) return [{ x: 0.15, y: ky + 0.07, s: 640 }, { x: 0.39, y: ky + 0.0, s: 560, back: true }, { x: 0.62, y: ky + 0.02, s: 580, back: true }, { x: 0.86, y: ky + 0.06, s: 640 }];
+  return Array.from({ length: n }, (_, i) => i < 3 ? { x: [0.17, 0.5, 0.83][i], y: ky + 0.07, s: 600 } : { x: [0.33, 0.67, 0.5][i - 3], y: ky - 0.05, s: 470, back: true }); }
 // place names (any wording) -> drawn 2D scenes
 const PLACES2 = [[/supermercado|^super|gondola|almacen/, 'super'], [/mercado|feria|puesto/, 'mercado'], [/living|sala|sillon|suegr/, 'living'], [/selva|monte|jungla|choza|aldea/, 'selva'], [/yerbal|plantacion|cosecha|misiones|tarefa/, 'yerbal'], [/galpon|secadero|fabrica|molino|deposito/, 'galpon'],
   [/bano|ducha/, 'bano'], [/ruta|carretera|viaje|camino/, 'ruta'], [/cocina|kitchen|casa|home|hogar|comedor|desayuno/, 'kitchen'], [/oficina|office|trabajo|laburo|escritorio|reunion/, 'office'], [/plaza|ciudad|city|calle|street|centro|barrio|parada|colectivo|vereda|kiosco/, 'plaza'],
@@ -44,7 +44,7 @@ const placeOf2 = name => { const k = norm(name); const hit = PLACES2.find(([re])
 const INSIDE = ['living', 'super', 'galpon', 'office', 'bano'];
 // props a script names -> things drawn behind the figures
 const PROPS2 = [[/fogata|fuego/, { type: 'fogata', s: 250 }], [/pileta_lona|pileta_de_lona/, { type: 'pileta', s: 190 }], [/banera/, { type: 'banera', s: 170 }], [/changuito|carrito/, { type: 'changuito', s: 300 }], [/yaguarete|jaguar/, { type: 'animal', kind: 'yaguarete', s: 250 }], [/perro/, { type: 'animal', kind: 'perro', s: 160 }],
-  [/bolsas|arpillera/, { type: 'bolsas', s: 240 }], [/^camion$/, { type: 'camion', s: 190 }], [/^auto$/, { type: 'auto', s: 200 }], [/colectivo/, { type: 'colectivo', s: 180 }], [/^heladera$/, { type: 'heladera', s: 520 }], [/jarra/, { type: 'jarra', s: 260 }], [/enredadera/, { type: 'calabaza_planta', s: 620 }]];
+  [/bolsas|arpillera/, { type: 'bolsas', s: 240 }], [/^camion$/, { type: 'camion', s: 190 }], [/^auto$/, { type: 'auto', s: 200 }], [/colectivo/, { type: 'colectivo', s: 180 }], [/^heladera$/, { type: 'heladera', s: 520 }], [/jarra/, { type: 'jarra', s: 260 }], [/enredadera/, { type: 'calabaza_planta', s: 620 }], [/pileta_cocina|canilla|bacha|fregadero/, { type: 'pileta_cocina', s: 300, counter: true }], [/detergente/, { type: 'detergente', s: 170, counter: true }], [/esponja/, { type: 'esponja', s: 120, counter: true }], [/tacho|basura/, { type: 'tacho', s: 190 }], [/burbuja|jabon/, { type: 'burbujas', s: 260, counter: true }], [/mate_secando|secando/, { type: 'mate_secando', s: 520, counter: true, cx: 0.5 }], [/asado|parrilla_prendida|carne/, { type: 'asado', s: 380 }]];
 const hashN = (s, n) => { let h = 0; for (const ch of String(s)) h = (h * 31 + ch.charCodeAt(0)) >>> 0; return h % n; };
 const INDOOR = /casa|cocina|home|living|oficina|office|bar|caf|escuela|school|aula|cuarto|room|mesa|colectivo|bus|tren|auto/i;
 function sceneShot(v, si) {
@@ -52,16 +52,19 @@ function sceneShot(v, si) {
   const place = PLACE[v.place] || placeOf2(v.place); const ppl = (v.people || []).slice(0, 6); const L = layout(Math.max(1, ppl.length), place);
   const people = ppl.map((pp, i) => { const r = roleOf(pp.role, i); const sc = r.scale || 1; delete r.scale; const dk = norm(pp.does); let d = DOES[dk] || {}; if (!DOES[dk] && dk.startsWith('hold_')) { const it = dk.slice(5); d = ITEMS2.includes(it) ? { item: it } : { hold: 'mate' }; }
     const pos = L[i]; const o = { ...r, ...d, x: pos.x, y: pos.y, s: Math.round(pos.s * sc), back: pos.back };
-    if (pp.mood) o.face = FACE2[norm(pp.mood)] || pp.mood; if (dk === 'spit') o.face = 'disgusted'; if (pp.termo && o.hold === 'mate') o.hold = 'both'; if (dk === 'drink' && pp.termo) o.hold = 'termo'; if (pp.mate) o.mate = { mate_madera: 'madera' }[pp.mate] || pp.mate; if (pos.x > 0.55 && ppl.length === 2) o.flip = true; if (d.hold === 'mate' || d.hold === 'both' || pp.does === 'drink') o.steam = true; return o; });
+    if (pp.mood) o.face = FACE2[norm(pp.mood)] || pp.mood; if (dk === 'spit') o.face = 'disgusted'; if (pp.termo && o.hold === 'mate') o.hold = 'both'; if (dk === 'drink' && pp.termo) o.hold = 'termo'; if (pp.mate) o.mate = { mate_madera: 'madera' }[pp.mate] || pp.mate; if (pos.x > 0.55 && ppl.length >= 2) o.flip = true; if (d.hold === 'mate' || d.hold === 'both' || pp.does === 'drink') o.steam = true; return o; });
   if (ppl.length === 1 && ppl[0].does === 'drink') { people[0].s = 900; people[0].y = place === 'kitchen' ? 0.92 : 0.95; }
   const p = { scene: place, people }; if (/noche|night/.test(norm(v.place))) p.time = 'night';
   // seats for people who sit, props behind the figures
   if (place === 'living') people.filter(q => q.sit).forEach(q => { q.y = 0.695; });
   const objs = []; const sitters = people.filter(q => q.sit); if (false && sitters.length) { const xs = sitters.map(q => q.x), x0 = Math.min(...xs), x1 = Math.max(...xs); objs.push({ type: 'banco', x: (x0 + x1) / 2, y: sitters[0].y + 0.005, s: Math.round(((x1 - x0) * 1080 + 300) / 2), back: true, delay: 0 }); }
   { const seen = {}; const ky = (L[0] ? L[0].y : 0.82) - 0.035; (v.props || []).forEach(q0 => { const name = norm(typeof q0 === 'string' ? q0 : q0.type); const hit = PROPS2.find(([re]) => re.test(name)); if (!hit) return; const t = hit[1].type + (hit[1].kind || ''); if ((place === 'ruta' && hit[1].type === 'camion') || (place === 'galpon' && hit[1].type === 'bolsas')) return;
-      seen[t] = (seen[t] || 0) + 1; if (seen[t] > 2) return; const n = objs.filter(o => !o.seat).length; objs.push({ ...hit[1], x: seen[t] === 2 ? 0.2 : [0.84, 0.16, 0.5][n % 3], y: ky, back: true, delay: 0 }); }); }
+      seen[t] = (seen[t] || 0) + 1; if (seen[t] > 2) return; const n = objs.filter(o => !o.seat).length; const onCounter = hit[1].counter && place === 'kitchen'; const ox = hit[1].cx ?? (seen[t] === 2 ? 0.2 : [0.84, 0.16, 0.66][n % 3]); objs.push({ ...hit[1], x: ox, y: onCounter ? null : ky, back: !onCounter, delay: 0 }); delete objs[objs.length - 1].counter; delete objs[objs.length - 1].cx; }); }
   if (objs.length) p.objs = objs;
-  if (place === 'kitchen') { const f0 = people.filter(q => !q.back)[0] || people[0]; p.tableY = f0 ? +(f0.y - 0.34 * f0.s / 1920).toFixed(3) : 0.62; } // counter at hip height (the figures have short cartoon legs: hip at ~1/3 of the height)
+  if (place === 'kitchen') { const f0 = people.filter(q => !q.back)[0] || people[0]; p.tableY = f0 ? +(f0.y - 0.34 * f0.s / 1920).toFixed(3) : 0.66; }
+  (p.objs || []).forEach(o => { if (o.y == null) o.y = (p.tableY || 0.66) + 0.004; });
+  // nobody in the scene: the thing of the sentence stands there (a mate drying on a cloth), never an empty room
+  if (!people.length && !(p.objs || []).some(o => !o.back)) { p.objs = [...(p.objs || []), { type: 'mate_secando', x: 0.5, y: place === 'kitchen' ? (p.tableY || 0.66) + 0.004 : 0.8, s: 420, delay: 0 }]; } // counter at hip height (the figures have short cartoon legs: hip at ~1/3 of the height)
   if (v.pass && people[v.pass[0]] && people[v.pass[1]]) { p.pass = { from: v.pass[0], to: v.pass[1] }; const A = people[v.pass[0]], B = people[v.pass[1]]; A.act = 'pass'; delete A.item; if (B.act === 'receive') delete B.act;
     // hand to hand: the two stand close enough that their hands meet, and face each other
     if (A && B && Math.abs(A.x - B.x) > 0.32) { const m = (A.x + B.x) / 2, dir = Math.sign(B.x - A.x) || 1; A.x = +(m - dir * 0.16).toFixed(3); B.x = +(m + dir * 0.16).toFixed(3); }
@@ -92,11 +95,13 @@ function objectShot(v, si) {
   return { tpl: 'flat', p };
 }
 // two things side by side with their names
-function compareShot(v) { const a = thing2(v.left || {}), b = thing2(v.right || {}); if (!a || !b) return null; delete a.mate; delete b.mate; const objs = [{ ...a, x: 0.27, y: 0.72, s: Math.round(a.s * 0.62) }, { ...b, x: 0.73, y: 0.72, s: Math.round(b.s * 0.62), delay: 0.2 }];
+const BIG2 = ['heladera', 'auto', 'camion', 'colectivo']; const sz2 = o => BIG2.includes(o.type) ? 900 : Math.round(o.s * 0.5);
+function compareShot(v) { const a = thing2(v.left || {}), b = thing2(v.right || {}); if (!a || !b) return null; delete a.mate; delete b.mate; const objs = [{ ...a, x: 0.27, y: 0.72, s: sz2(a) }, { ...b, x: 0.73, y: 0.72, s: sz2(b), delay: 0.2 }];
   const labels = [[v.left, 0.27], [v.right, 0.73]].filter(q => q[0] && q[0].label).map(([q, x]) => ({ text: q.label, x, y: 0.74, tx: x, ty: 0.8 })); return { tpl: 'flat', p: { scene: 'navygrid', bg: NAVY, objs, labels } }; }
 function mapShot(v) { return { tpl: 'flat', p: { scene: 'navygrid', bg: NAVY, objs: [{ type: 'map', x: 0.5, y: 0.86, s: 980, countries: v.countries, text: v.text, sub: v.sub }] } }; }
 function reactionShot(v, si, st) { const bg = BG[v.color] || v.color || REACT_COLORS[si % REACT_COLORS.length]; const sc = st && st.scene && !v.color ? { scene: st.scene, table: false, ...(st.time ? { time: st.time } : {}), ...(st.tableY ? { tableY: st.tableY } : {}) } : { scene: 'solid' }; // reactions stand in the place of the story, not on an empty colour
-  return { tpl: 'flat', p: { ...sc, bg, people: [{ who: v.who ?? (si % 6), x: 0.5, y: 1.1, s: 1500, act: { teeth: null, burn_tongue: 'shock' }[v.act] !== undefined ? { teeth: null, burn_tongue: 'shock' }[v.act] : (v.act || (v.emotion === 'surprised' ? 'shock' : null)), face: v.act === 'teeth' ? 'disgusted' : v.act === 'burn_tongue' ? 'pain' : (FACE2[norm(v.emotion)] || v.emotion || 'surprised') }] } }; }
+  const LOOKK = ['x', 'y', 's', 'act', 'hold', 'item', 'back', 'flip', 'sit', 'delay', 'face', 'steam', 'carry', 'passing', 'mate', 'termo']; const cast = st && st.cast; const ci = v.who == null ? 0 : v.who; const look = cast && ci < cast.length ? Object.fromEntries(Object.entries(cast[ci]).filter(([kk]) => !LOOKK.includes(kk))) : null;
+  return { tpl: 'flat', p: { ...sc, bg, people: [{ ...(look || { who: v.who ?? (si % 6) }), x: 0.5, y: 1.1, s: 1500, act: { teeth: null, burn_tongue: 'shock', think: null }[v.act] !== undefined ? { teeth: null, burn_tongue: 'shock', think: null }[v.act] : (v.act || (v.emotion === 'surprised' ? 'shock' : null)), face: v.act === 'teeth' ? 'disgusted' : v.act === 'burn_tongue' ? 'pain' : v.act === 'think' ? 'confused' : (FACE2[norm(v.emotion)] || v.emotion || 'surprised') }] } }; }
 function boardShot(v, st) { const b = { bg: NAVY }; if (st && st.scene) { b.scene = st.scene; if (st.time) b.time = st.time; if (st.tableY) b.tableY = st.tableY; }
   if (v.type === 'title') return { tpl: 'board', p: { ...b, kind: 'title', text: v.text, sub: v.sub } };
   if (v.type === 'number') return { tpl: 'board', p: { ...b, kind: 'title', text: v.value, sub: v.sub } };
@@ -118,11 +123,13 @@ function fitCam(cam, ppl) { if (!cam || !ppl || !ppl.length) return cam; const h
   const c = [m, cam.c1[1]]; return { z0: Math.max(1.06, z * 0.94), z1: z, c0: [m, 0.55], c1: c }; }
 function shotFor(v, si, st) {
   if (!v) return boardShot({ type: 'title', text: '' }, st);
-  if (v.type === 'scene') { const sh = sceneShot(v, si); if (st) { st.scene = sh.p.scene; st.time = sh.p.time; st.tableY = sh.p.tableY; } return sh; } if (v.type === 'object') return onScene(objectShot(v, si), st); if (v.type === 'reaction') return reactionShot(v, si, st);
+  if (v.type === 'scene') { const sh = sceneShot(v, si); if (st) { st.scene = sh.p.scene; st.time = sh.p.time; st.tableY = sh.p.tableY; if ((sh.p.people || []).length) st.cast = sh.p.people; } return sh; } if (v.type === 'object') return onScene(objectShot(v, si), st); if (v.type === 'reaction') return reactionShot(v, si, st);
   if (v.type === 'compare') { const c = compareShot(v); if (c) return onScene(c, st); } if (v.type === 'map') return onScene(mapShot(v), st);
-  if (v.type === 'mistake') { const sh = sceneShot(v.over || { type: 'scene', place: 'kitchen', people: [{ role: 'friend', does: 'no' }] }, si); if (st) { st.scene = sh.p.scene; st.time = sh.p.time; st.tableY = sh.p.tableY; } return sh; }
+  if (v.type === 'mistake') { const sh = sceneShot(v.over || { type: 'scene', place: 'kitchen', people: [{ role: 'friend', does: 'no' }] }, si); const q0 = (sh.p.people || [])[0]; if (q0) { if (!q0.act || q0.act === 'shake' || q0.act === 'rinse') q0.act = 'no'; q0.face = 'disgusted'; } if (st) { st.scene = sh.p.scene; st.time = sh.p.time; st.tableY = sh.p.tableY; st.cast = sh.p.people; } return sh; }
   return boardShot(v, st) || boardShot({ type: 'title', text: v.text || '', sub: v.sub }, st); }
-const onScene = (s, st) => { if (s && s.tpl === 'flat' && s.p && s.p.scene === 'navygrid' && st && st.scene) { s.p.scene = st.scene; s.p.veil = 0.5; s.p.table = false; if (st.time) s.p.time = st.time; } return s; }; // visual kinds no style draws yet (compare, map ...) show their text as a card
+const OUTDOOR2 = ['calabaza_planta', 'planta', 'rama', 'hoja', 'tacuapi'];
+const onScene = (s, st) => { if (s && s.tpl === 'flat' && s.p && s.p.scene === 'navygrid' && st && st.scene) { const outdoor = (s.p.objs || []).some(o => OUTDOOR2.includes(o.type)); s.p.scene = outdoor ? 'park' : st.scene; s.p.veil = 0.18; if (st.time) s.p.time = st.time;
+    if (!outdoor && st.scene === 'kitchen' && st.tableY) { const dy = st.tableY + 0.004 - 0.7; (s.p.objs || []).forEach(o => { o.y = +(o.y + dy).toFixed(3); }); (s.p.labels || []).forEach(l => { l.y = +(l.y + dy).toFixed(3); l.ty = +(l.ty + dy).toFixed(3); }); s.p.tableY = st.tableY; } else s.p.table = false; } return s; }; // visual kinds no style draws yet (compare, map ...) show their text as a card
 const AT = text => { const w = text.replace(/[¿¡]/g, '').split(/\s+/).map(x => x.replace(/[^\p{L}]/gu, '')).filter(x => x.length > 3 && !/^\d/.test(x)); const pick = (w[1] || w[0] || '').toLowerCase(); const cut = pick.search(/[^a-zñ]/); return (cut > 1 ? pick.slice(0, cut) : pick).slice(0, 5); };
 // --- variety (2026-11-17, reel 0014 "termo bajo el brazo": 13 s of the same street, 14 s of dark text screens) ---
 const ITEM_HINTS = [[/colectivo|bondi|bus/, { place: 'ruta', props: ['colectivo'] }], [/cancha|futbol|partido/, { place: 'plaza', props: ['pelota'] }], [/banco/, { place: 'park', props: ['banco'] }],
@@ -137,6 +144,8 @@ function vary(script) { const j = JSON.parse(JSON.stringify(script)); let prevKe
       const key = sceneKey(v); if (key && key === prevKey && String(sg.text).split(/\s+/).length >= 6 && (v.people || []).length) { sg.visuals = [v, { type: 'reaction', emotion: (v.people[0].mood || 'happy'), act: 'nod', who: 0 }]; delete sg.visual; }
       prevKey = key; prevMain = v; return; }
     prevKey = null; });
+  j.segments.forEach((sg, si) => { if (si === j.segments.length - 1 || sg.visuals) return; const v = sg.visual; if (!v || !['title', 'number'].includes(v.type)) return; const txt = v.type === 'number' ? [v.value, v.sub].filter(Boolean).join(' ') : v.text; if (!txt) return;
+    sg.visual = { type: 'reaction', emotion: ['funny', 'happy', 'excited', 'proud'].includes(sg.emo) ? 'happy' : ['sad'].includes(sg.emo) ? 'sad' : 'surprised', act: ['tense', 'neutral'].includes(sg.emo) ? 'think' : 'shock', who: 0 }; if (!sg.headline) { sg.headline = String(txt).toUpperCase(); sg.headlineAt = AT(sg.text); } });
   // the ending (no poll): the people of the reel instead of a dark title card, the title becomes a big headline
   const last = j.segments[j.segments.length - 1], lv = last && (last.visuals || [last.visual])[0]; const lastScene = [...j.segments].reverse().map(g => (g.visuals || [g.visual]).find(v => v && v.type === 'scene')).find(Boolean);
   if (!j.poll && lv && lv.type === 'title' && lastScene) { last.visual = { ...JSON.parse(JSON.stringify(lastScene)), people: (lastScene.people || []).map(q => ({ ...q, does: 'cheer', mood: 'happy' })) }; delete last.visuals; if (lv.text) { last.headline = last.headline || String(lv.text).toUpperCase(); last.headlineAt = last.headlineAt || AT(last.text); } }
@@ -148,16 +157,16 @@ function toSpec(script, opt = {}) { script = vary(script); // opt.plain: one sho
     const vis = sg.visuals || [sg.visual]; let shots = vis.map((v, k) => { const s = shotFor(v, si, opt.plain ? null : st); if (k % 2 === 1) s.zoom = 1.12; if (v && v.instant && s.p && s.p.people) s.p.people.forEach(q => { q.delay = 0; }); return s; });
     if (!opt.plain) { const out = []; shots.forEach((s, k) => { const v = vis[k]; const isScene = v && (v.type === 'scene' || v.type === 'mistake') && s.tpl === 'flat' && (s.p.people || []).length; if (!isScene) return out.push(s);
         const ppl = s.p.people, busy = ppl.findIndex(q => q.act === 'pour' || q.act === 'drink'), fi = busy >= 0 ? busy : s.p.pass ? s.p.pass.from : 0, fp = ppl[fi]; const words = String(sg.text || '').split(/\s+/).length; const kind = si === 0 ? 'push' : nextCam(); const cam = fitCam(cam2(kind, fp), ppl); if (cam) s.p.cam = cam; out.push(s);
-        if (vis.length === 1 && words >= 10 && !s.p.pass && ppl.length > 1 && !(v.type === 'mistake')) { const t2 = JSON.parse(JSON.stringify(s)); t2.p.cam = cam2('tight', fp); t2.p.people.forEach(q => { q.delay = 0; }); out.push(t2); } }); shots = out; }
+        if (vis.length === 1 && words >= 10 && !s.p.pass && ppl.length > 1 && !(v.type === 'mistake')) { const t2 = JSON.parse(JSON.stringify(s)); t2.p.cam = cam2('tight', fp); t2.p.people = [t2.p.people[fi]]; t2.p.people.forEach(q => { q.delay = 0; }); if (t2.p.pass) delete t2.p.pass; out.push(t2); } }); shots = out; }
+    if (!opt.plain && /asado|parrilla/.test(String(sg.text).toLowerCase())) shots.forEach(sh => { if (sh.tpl === 'flat' && sh.p && sh.p.scene === 'patio' && (sh.p.people || []).length > 1 && !(sh.p.objs || []).some(o => o.type === 'asado')) { const two = sh.p.people.length === 2; sh.p.objs = [...(sh.p.objs || []), { type: 'asado', x: two ? 0.5 : 0.93, y: two ? 0.8 : 0.74, s: two ? 360 : 300, back: true, delay: 0 }]; } });
     const callouts = [];
     if (sg.headline) { const at = sg.headlineAt || AT(sg.text); const t = sg.headlineType || 'big'; callouts.push({ type: t, text: sg.headline, at, ...(sg.impact ? { impact: true } : {}), ...(sg.headlineSub ? { sub: sg.headlineSub } : {}) }); }
-    if (sg.visual && sg.visual.type === 'mistake') callouts.push({ type: 'xmark', text: sg.visual.text, at: sg.visual.at || AT(sg.text), y: 820, size: 300 });
     // comments: the question of the poll is already asked early (second sentence), not only at the end
     if (false && script.poll && si === 1 && (script.poll.options || []).length) callouts.push({ type: 'pill', text: '¿VOS QUÉ DECÍS?', y: pillY(shots), early: true }); // low, so it never meets the headline or the caption line at the top
     if (!opt.plain) { const textual = shots.length && shots.every(sh => sh.tpl === 'board'); for (let i = callouts.length - 1; i >= 0; i--) if (textual && callouts[i].type === 'big') callouts.splice(i, 1); const heads = callouts.filter(c => c.type === 'big').map(c => norm(c.text)); shots.forEach(sh => { if (sh.p && sh.p.labels) sh.p.labels = sh.p.labels.filter(l => !heads.includes(norm(l.text))); }); }
     return { text: sg.text, say: sg.say, emo: sg.emo || 'neutral', shots, callouts };
   });
-  if (script.poll) { const last = segs[segs.length - 1]; last.shots = [{ tpl: 'board', p: { kind: 'poll', bg: NAVY, question: script.poll.question, options: script.poll.options, top: 600, cta: false, ...(!opt.plain && st.scene ? { scene: st.scene, time: st.time, tableY: st.tableY } : {}) } }]; last.callouts = []; }
+  if (script.poll) { const last = segs[segs.length - 1]; last.shots = [{ tpl: 'board', p: { kind: 'poll', bg: NAVY, question: script.poll.question, options: script.poll.options, top: 600, cta: false, ...(!opt.plain && st.scene ? { scene: st.scene, time: st.time, tableY: st.tableY, people: (st.cast || []).map(q => ({ ...q, act: null, hold: null, item: null, face: 'happy', delay: 0 })) } : {}) } }]; last.callouts = []; }
   return { id: script.id, topic: script.topic, preset: 'flat2d', ab: script.ab || 'style flat2d', segments: segs, caption: script.caption, hashtags: script.hashtags,
     ...(script.followSub ? { followSub: script.followSub } : {}) };
 }

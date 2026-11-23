@@ -14,7 +14,8 @@
     "calloutY": 470,
     "calloutSize": 120,
     "boardScale": 1.35,
-    "drift": 1
+    "drift": 1,
+    "cut": "hard"
   },
   "spec": {
     "voice": "es-AR-TomasNeural",

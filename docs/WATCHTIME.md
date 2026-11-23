@@ -98,7 +98,7 @@ Second analysis (2026-11-13): 7 high-view reels the user sent. Each Instagram pa
 3. Points ordered by surprise, one idea per segment?
 4. Re-hook every 8–12 s?
 5. Payoff lands on emotion or a joke?
-5b. Humour: at least one silly moment per reel (a sentence with emo "funny": slapstick, an exaggerated reaction, a cheeky comparison, self-irony). The reels may be goofy; in 3D every funny sentence becomes a gag on screen (trip, spit-take, goofy face, happy dance) with the others laughing until they cry, at most three per reel.
+5b. Humour: reels may be extremely absurd (user, 2026-11-23). Wild exaggerations and impossible escalations are welcome in every style, as long as the situation stays relatable at its core. At least one silly moment per reel (a sentence with emo "funny": slapstick, an exaggerated reaction, a cheeky comparison, self-irony). The reels may be goofy; in 3D every funny sentence becomes a gag on screen (trip, spit-take, goofy face, happy dance) with the others laughing until they cry, at most three per reel.
 6. Ending: choice with options (or "parte 2" question) + "Seguinos para más", last picture echoes the first?
 
 ## 9. First numbers of our own reels (2026-11-16, 10 reels, public counts)

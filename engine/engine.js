@@ -697,7 +697,7 @@ function f2targets(o,act,t,u,HX,HY){ const sw=Math.sin(t*2.1+(o.i||0)), rest=sid
   if(act==='drink'){ const cyc=(t*0.55+0.15)%1; sipK=cyc<0.15?easeInOut(cyc/0.15):cyc<0.6?1:cyc<0.75?1-easeInOut((cyc-0.6)/0.15):0; const ms=76, rr0=-0.25*sipK, tx=0.24*ms, ty=-1.37*ms, ox=-0.3*ms+tx*Math.cos(rr0)-ty*Math.sin(rr0), oy=0.36*ms+tx*Math.sin(rr0)+ty*Math.cos(rr0); const mouth=[HX-ox,HY+28-oy]; T.R=[chest[0]+(mouth[0]-chest[0])*sipK,chest[1]+(mouth[1]-chest[1])*sipK]; }
   if(act==='pass'||act==='offer'){ const r=easeOut(clamp(u/0.25)); T.R=[chest[0]+(168-chest[0])*r,chest[1]+(-300-chest[1])*r]; }
   if(act==='receive'){ const r=easeOut(clamp((u-0.3)/0.3)); T.R=[74+(168-74)*r,-150+(-300+150)*r]; }
-  if(act==='point') T.R=[176,-338];
+  if(act==='point') T.R=[198,-342];  // almost straight, so the whole arm shows beside the body
   if(act==='wave') T.R=[118+26*Math.sin(t*10),-540];
   if(act==='cheer'||act==='jump'){ T.L=[-96,-565+14*Math.sin(t*10)]; T.R=[96,-565-14*Math.sin(t*10)]; }
   if(act==='shock'){ T.L=[-92,-440]; T.R=[92,-440]; }
@@ -705,7 +705,7 @@ function f2targets(o,act,t,u,HX,HY){ const sw=Math.sin(t*2.1+(o.i||0)), rest=sid
   if(act==='laugh'){ T.L=[-40,-215]; T.R=[40,-215]; }
   if(act==='sigh'){ T.L=[-70,-140]; T.R=[70,-140]; }
   if(o.item) T.R=chest;
-  if(act==='think') T.L=[-16,-352+3*Math.sin(t*1.5)]; if(act==='talk') T.L=[-96+14*Math.sin(t*4.4),-250+16*Math.sin(t*5.2)]; if(act==='whisper') T.L=[-44,-392];
+  if(act==='think') T.L=[-16,-352+3*Math.sin(t*1.5)]; if(act==='talk') T.L=[-134+10*Math.sin(t*4.4),-258+14*Math.sin(t*5.2)]; if(act==='whisper') T.L=[-44,-392];
   if(act==='shrug'){ T.L=[-150,-330+6*Math.sin(t*2.2)]; if(!hold&&!o.item) T.R=[150,-330+6*Math.sin(t*2.2)]; }
   if(act==='phone') T.R=[36,-300]; if(act==='blow') T.R=[26,-292]; if(act==='shake') T.R=[22+10*Math.sin(t*16),-212+14*Math.sin(t*16)];
   // pouring: the gourd is held low, the flask is tilted so that its spout ends right above the opening of the gourd

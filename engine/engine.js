@@ -913,7 +913,8 @@ function f2seat(c,x0,x1,y,k,scene){ const pad=118*k, L=x0-pad, Wd=x1-x0+2*pad; c
   rr(c,L,y-76*k,Wd,26*k,8*k,wl); c.fillStyle='#3a2f2a'; c.fillRect(L+24*k,y-52*k,16*k,52*k); c.fillRect(L+Wd-40*k,y-52*k,16*k,52*k); }
 function drawFlat(c,p,u,t,sh){ c.save(); const z=(sh?.zoom||1)*(1+0.05*u)*(1+0.08*Math.pow(1-clamp(t/0.3),3)); const fc=sh?.c||[0.5,0.55];
   const drift=p.drift??E.tl?.style?.drift??0; let zz=z*(drift?1.05:1);
-  if(p.cam){ const cm=p.cam, ck=cm.snap!=null?easeOut(clamp((u-cm.snap)/0.07)):ease(u); zz=Math.max(1.06,lerp(cm.z0,cm.z1,ck))*(1+0.06*Math.pow(1-clamp(t/0.3),3)); const fx=lerp(cm.c0[0],cm.c1[0],ck), fy=lerp(cm.c0[1],cm.c1[1],ck), cx=clamp(fx,0.5/zz+0.02,1-0.5/zz-0.02), cy=clamp(fy,0.5/zz,1-0.5/zz); c.translate(W/2,H/2); c.scale(zz,zz); c.translate(-cx*W,-cy*H); }
+  if(p.cam){ const cm=p.cam, ck=cm.snap!=null?easeOut(clamp((u-cm.snap)/0.07)):ease(u); zz=Math.max(1.06,lerp(cm.z0,cm.z1,ck))*(1+0.06*Math.pow(1-clamp(t/0.3),3)); const fx=lerp(cm.c0[0],cm.c1[0],ck), fy=lerp(cm.c0[1],cm.c1[1],ck); let cx=clamp(fx,0.5/zz+0.02,1-0.5/zz-0.02), cy=clamp(fy,0.5/zz,1-0.5/zz);
+    { const P2=(p.people||[]).filter(q=>!q.back&&(q.s||520)<1200); if(P2.length){ const fits=()=>P2.every(q=>{ const k2=(q.s||520)/520, hw=125*k2/W, top=((q.y??0.8)*H-540*k2)/H; const sx0=((q.x??0.5)-hw-cx)*zz+0.5, sx1=((q.x??0.5)+hw-cx)*zz+0.5, sy=(top-cy)*zz+0.5; return sx0>=-0.005&&sx1<=1.005&&sy*H>=SAFE.top+70; }); let n2=0; while(!fits()&&zz>1.0&&n2<14){ n2++; zz=Math.max(1.0,zz*0.95); cx=clamp(fx,0.5/zz,1-0.5/zz); cy=clamp(fy,0.5/zz,1-0.5/zz); } if(n2) E.guardNote('2d_zoomout',E.tl.shots.indexOf(sh)); } } c.translate(W/2,H/2); c.scale(zz,zz); c.translate(-cx*W,-cy*H); }
   else { c.translate(fc[0]*W,fc[1]*H); c.scale(zz,zz); c.translate(-fc[0]*W,-fc[1]*H); }
   const dir=(Math.round((sh?.start||0)*3)%2)?1:-1, dx=drift*dir*(ease(u)-0.5)*56;
   c.save(); c.translate(dx*0.35,0); f2scene(c,p.scene||'solid',t,p); if(p.details!==false) f2detail(c,p.scene,t,p); c.restore(); if(p.veil){ c.save(); c.setTransform(1,0,0,1,0,0); c.fillStyle='rgba(13,22,38,'+p.veil+')'; c.fillRect(0,0,W,H); c.restore(); } c.translate(dx,0); const dur=sh?.dur||3;
@@ -2669,6 +2670,7 @@ T.build=(p={})=>{ const s=new THREE.Scene(); s.background=new THREE.Color('#bfe0
     if(a.fx==='pour'&&hero){ termoP=put(s,new THREE.Group(),0,0,0); const tm=bTool('termo'); tm.scale.setScalar(1.3); tm.position.set(0,-0.82*1.3,0); termoP.add(tm); termoP.visible=false; } });
   const rr=(k,j)=>{ const x=Math.sin(k*127.1+j*311.7)*43758.5453; return x-Math.floor(x); };
   const heroTopW=()=>{ if(!hero) return V(0,1,0.3); return V(hero.position.x,hero.position.y+(hero.userData.cutH||0.8)*hero.scale.y,hero.position.z); };
+  if(!p.stunt&&ppl.length>1){ let moved=false; for(let it=0;it<6;it++){ let any=false; for(let a=0;a<ppl.length;a++) for(let b=a+1;b<ppl.length;b++){ const A=ppl[a].g.position, B=ppl[b].g.position, dx=B.x-A.x, dz=B.z-A.z, d=Math.hypot(dx,dz); if(d<0.85){ const push=(0.85-d)/2+0.01, sx=dx===0?(b>a?1:-1):Math.sign(dx); A.x-=sx*push; B.x+=sx*push; any=true; moved=true; } } if(!any) break; } if(moved) p._spread=true; }
   const pplBase=ppl.map(P=>({x:P.g.position.x,z:P.g.position.z,ry:P.g.rotation.y,pose:P.pose,face:P.baseFace})); const hero0=hero?hero.position.clone():null; let carrier=null;
   // ---- POV (p.cam 'pov1'): the camera is "vos" at eye height, own hands in the lower frame; the people look into the lens and hand things to the camera
   // p.pov {act: hold|drink|blow|receive|give|shock|walk|phone|look, holds, holdsL, from, to, at, burn, shirt, skin}
@@ -2842,6 +2844,9 @@ T.build=(p={})=>{ const s=new THREE.Scene(); s.background=new THREE.Color('#bfe0
       if(STN){ STN._roll=0; const cv=STN.cam(t,tr); if(cv){ pos=cv.pos; look=cv.look; if(cv.fov&&cam.fov!==cv.fov){ cam.fov=cv.fov; cam.updateProjectionMatrix(); } } }
       if(TPB){ TPB.clouds.forEach((c,i)=>c.position.x=c.userData.x0+t*0.12*(1+i*0.2)); if(TPB.motes) TPB.motes.rotation.y=t*0.02; TPB.ticks.forEach(fn=>fn(t)); }
       if(subte){ tunnel.forEach(l=>{ l.position.x=((l.userData.off*3.1-t*14)%20+30)%20-10; }); pos.y+=Math.sin(t*1.9)*0.012+Math.sin(t*5.3)*0.004; pos.x+=Math.sin(t*1.3)*0.01; if(p.brake!=null&&t>=p.brake){ const d=t-p.brake, kk=Math.exp(-d*5)*Math.sin(d*22)*0.12; pos.x+=kk; look=look.clone(); look.x+=kk*1.4; } }
+      if(!STN&&!p.board&&ppl.length&&!['pov1','pov','face','chase'].includes(p.cam)&&p.focus!=='face'){ const TOPY=1-2*(SAFE.top+90)/H; const pts=[]; ppl.forEach(P=>{ const sc0=P.sc||1, gp=P.g.position; pts.push(V(gp.x-0.34*sc0,gp.y+1.0*sc0,gp.z),V(gp.x+0.34*sc0,gp.y+1.0*sc0,gp.z),V(gp.x,gp.y+1.95*sc0,gp.z)); });
+        const bad=()=>{ cam.position.copy(pos); cam.lookAt(look); cam.updateMatrixWorld(true); let side=false, top=false; for(let i=0;i<pts.length;i++){ const q=pts[i].clone().project(cam); if(q.z>1) continue; if(i%3!==2&&Math.abs(q.x)>0.95) side=true; if(i%3===2&&q.y>TOPY) top=true; } return side?'edge':top?'subtitle':null; };
+        let why=bad(); if(why){ const dv=pos.clone().sub(look); let k=0; while(why&&k<10){ k++; pos=look.clone().add(dv.clone().multiplyScalar(1+0.07*k)); why=bad(); } E.guardNote(why?'3d_unfixed':'3d_backoff',E.curShot?E.tl.shots.indexOf(E.curShot):null); } if(p._spread) E.guardNote('3d_spread',E.curShot?E.tl.shots.indexOf(E.curShot):null); }
       cam.position.copy(pos); cam.lookAt(look); if(STN){ if(STN._roll) cam.rotateZ(STN._roll); cam.updateMatrixWorld(true); STN.after(cam,t,tr); } return cam.position.distanceTo(look); } }; };
 
 // ---- brand colours for everything written on the screen (style.brand:false keeps the old colours) ----
@@ -3053,4 +3058,5 @@ E.jpeg=(T_,q=0.92)=>{ E.frame(T_); return cv.toDataURL('image/jpeg',q); };
 E.sheet=(times,cols=5)=>{ const cw=216,chh=384; const sc=document.createElement('canvas'); sc.width=cw*cols; sc.height=chh*Math.ceil(times.length/cols); const g2=sc.getContext('2d');
   times.forEach((t,k)=>{ E.frame(t); g2.drawImage(cv,(k%cols)*cw,Math.floor(k/cols)*chh,cw,chh); }); return sc.toDataURL('image/png'); };
 E.templates=Object.keys(T);
+E.guard={}; E.guardNote=(kind,shot)=>{ const k=E.guard[kind]=E.guard[kind]||new Set(); k.add(shot??-1); }; E.guardReport=()=>Object.fromEntries(Object.entries(E.guard).map(([k,v])=>[k,[...v].sort((a,b)=>a-b)]));
 window.__engine=E; window.__engineReady=true;

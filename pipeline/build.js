@@ -113,6 +113,7 @@ function serve() { return new Promise(res => { const types = { '.html': 'text/ht
   const srv = http.createServer((q, r) => { const p = path.join(ROOT, decodeURIComponent(q.url.split('?')[0])); if (!p.startsWith(ROOT)) { r.writeHead(403); return r.end(); }
     fs.readFile(p, (e, d) => { if (e) { r.writeHead(404); return r.end(); } r.writeHead(200, { 'Content-Type': types[path.extname(p)] || 'application/octet-stream' }); r.end(d); }); });
   srv.listen(0, '127.0.0.1', () => res(srv)); }); }
+let guardOut = null; // what the frame guards fixed (engine) and what the spec checks changed
 async function render(tl) {
   const srv = await serve(); const port = srv.address().port;
   const browser = await puppeteer.launch({ headless: true, protocolTimeout: 600000, args: (process.platform === 'win32' && !process.env.SWIFTSHADER ? ['--use-angle=d3d11', '--enable-gpu'] : ['--use-angle=swiftshader', '--use-gl=angle', '--no-sandbox', '--disable-dev-shm-usage', '--disable-accelerated-2d-canvas']).concat(['--ignore-gpu-blocklist', '--enable-unsafe-swiftshader', '--window-size=1200,2000']) });
@@ -120,6 +121,13 @@ async function render(tl) {
     const page = await browser.newPage(); page.on('pageerror', e => log('pageerror', e.message)); page.on('console', m => { if (m.type() === 'error') log('console', m.text()); });
     await page.goto(`http://127.0.0.1:${port}/engine/index.html${spec.wide ? '?wide=1' : ''}`, { waitUntil: 'load' }); await page.waitForFunction('window.__engineReady===true', { timeout: 60000 });
     const gpu = await page.evaluate(() => { const g = document.createElement('canvas').getContext('webgl2'); const d = g.getExtension('WEBGL_debug_renderer_info'); return d ? g.getParameter(d.UNMASKED_RENDERER_WEBGL) : 'unknown'; }); log('gpu', gpu);
+    // spec checks (never block): an empty picture gets the people of the shot before; a shot that repeats the one before gets another camera
+    const specFix = {}; { const note = (k, i) => (specFix[k] = specFix[k] || []).push(i); let prev = null;
+      tl.shots.forEach((sh, i) => { const p = sh.p || {}; const ppl = (p.people || []).length, cast = (p.cast || []).length;
+        const empty = (sh.tpl === 'build' && !ppl && !p.stage && !p.board && !p.stunt && !p.hero && !p.pov) || (sh.tpl === 'flat' && !ppl && !(p.objs || []).length && !(p.labels || []).length && !p.map) || (sh.tpl === 'pix' && !cast && !p.big && !p.board && !p.map && !p.lit && p.place !== 'poros');
+        if (empty && prev && prev.tpl === sh.tpl) { const pp = prev.p || {}; if (sh.tpl === 'pix' && (pp.cast || []).length) { p.cast = JSON.parse(JSON.stringify(pp.cast)); note('empty_filled', i); } else if ((pp.people || []).length) { p.people = JSON.parse(JSON.stringify(pp.people)); note('empty_filled', i); } else note('empty', i); }
+        if (prev && prev.tpl === sh.tpl && sh.tpl === 'build') { const a = JSON.stringify({ ...prev.p, seed: 0 }), c = JSON.stringify({ ...p, seed: 0 }); if (a === c) { p.cam = { push: 'orbit', orbit: 'push', low: 'push', drone: 'push', diorama: 'push', face: 'push', follow: 'low', crash: 'orbit' }[p.cam] || 'push'; note('repeat_recam', i); } }
+        prev = sh; }); if (Object.keys(specFix).length) log('spec checks', JSON.stringify(specFix)); }
     const info = await page.evaluate(t => window.__engine.init(t), tl);
     const mids = tl.shots.map(s => +(s.start + s.dur * 0.6).toFixed(3));
     const sheet = await page.evaluate(ts => window.__engine.sheet(ts, 5), mids); fs.writeFileSync(path.join(OUT, 'sheet.png'), Buffer.from(sheet.split(',')[1], 'base64'));
@@ -130,6 +138,7 @@ async function render(tl) {
     const hq = !!(tl.style && tl.style.hq); for (let f = 0; f < n; f++) { const d = await page.evaluate(([t, q]) => window.__engine.jpeg(t, q), [f / tl.fps, hq ? 0.98 : 0.93]); const b = Buffer.from(d.split(',')[1], 'base64');
       if (!ff.stdin.write(b)) await new Promise(r => ff.stdin.once('drain', r)); if (f % 90 === 0) log(`frame ${f}/${n} ${((Date.now() - t0) / 1000).toFixed(0)}s`); }
     ff.stdin.end(); await new Promise((r, j) => ff.on('close', c => c === 0 ? r() : j(new Error('ffmpeg video exit ' + c))));
+    try { guardOut = { ...(await page.evaluate(() => window.__engine.guardReport ? window.__engine.guardReport() : {})), ...Object.fromEntries(Object.entries(specFix).map(([k, v]) => ['spec_' + k, v])) }; if (Object.keys(guardOut).length) log('frame guards', JSON.stringify(guardOut)); } catch {}
     log(`render done ${n} frames in ${((Date.now() - t0) / 1000).toFixed(0)}s`);
     try { const th = spec.thumb || {}; const lines = th.lines || (spec.thumbText ? String(spec.thumbText).split('|') : null) || [((tl.callouts.find(c => c.type === 'big' && c.text) || {}).text) || spec.title || ''];
       const score = s => { const p = s.p || {}; if (s.tpl === 'board' || p.board || p.big || p.map) return -1; const ppl = (p.people || []).length + (p.cast || []).filter(q => q.kind === 'person').length; return ppl * 2 + (p.stage || (p.cast || []).some(q => q.kind !== 'person') ? 1 : 0) + (p.focus === 'face' || p.cam === 'face' ? 1 : 0); };
@@ -173,7 +182,7 @@ function mix(tl, cues) {
   else try { execFileSync(FF, ['-y', '-v', 'error', '-ss', String(coverAt), '-i', r.out, '-frames:v', '1', '-q:v', '2', path.join(OUT, 'cover.jpg')]); log('cover at', coverAt + 's'); } catch (e) { log('cover failed', e.message.slice(0, 120)); }
   fs.rmSync(path.join(OUT, 'video.mp4'), { force: true });
   const tgt = spec.target || [35, 45];
-  const result = { id: spec.id, file: path.relative(ROOT, r.out), voice: tl.voiceProvider, duration: +r.dur, inTarget: +r.dur >= tgt[0] && +r.dur <= tgt[1], target: tgt, loudness: r.ebur, shots: tl.shots.length, minutes: +((Date.now() - t0) / 60000).toFixed(1) };
+  const result = { id: spec.id, ...(guardOut && Object.keys(guardOut).length ? { guard: guardOut } : {}), file: path.relative(ROOT, r.out), voice: tl.voiceProvider, duration: +r.dur, inTarget: +r.dur >= tgt[0] && +r.dur <= tgt[1], target: tgt, loudness: r.ebur, shots: tl.shots.length, minutes: +((Date.now() - t0) / 60000).toFixed(1) };
   fs.writeFileSync(path.join(OUT, 'result.json'), JSON.stringify(result, null, 1)); log('DONE', JSON.stringify(result));
   process.exit(0);
 })().catch(e => { log('FAILED', e.stack || e.message); process.exit(1); });

@@ -1,0 +1,17 @@
+{
+ "id": "0023_el_termo_hasta_la_playa",
+ "missing": [
+  "heladerita"
+ ],
+ "file": "work/0023_el_termo_hasta_la_playa/final.mp4",
+ "voice": "gemini",
+ "duration": 42.034,
+ "inTarget": true,
+ "target": [
+  35,
+  45
+ ],
+ "loudness": "-12.7 LUFS, peak -0.8 dBFS",
+ "shots": 14,
+ "minutes": 2.6
+}

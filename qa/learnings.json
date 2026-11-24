@@ -1,6 +1,6 @@
 {
- "updated": "2026-11-23T20:45:39.415Z",
- "reels": 36,
+ "updated": "2026-11-24T08:57:57.128Z",
+ "reels": 39,
  "do": [
   {
    "n": 2,
@@ -10,7 +10,22 @@
   {
    "n": 1,
    "area": "labels",
+   "rule": "Keep informational charts and text pills well-aligned above or below key visual elements to maintain clarity."
+  },
+  {
+   "n": 1,
+   "area": "scene",
+   "rule": "Ensure background elements remain entirely inside camera viewport bounds."
+  },
+  {
+   "n": 1,
+   "area": "labels",
    "rule": "Ensure caption boxes have a safe margin above character heads"
+  },
+  {
+   "n": 1,
+   "area": "hands",
+   "rule": "Ensure hand models realistically wrap around the mate gourd without body clipping."
   },
   {
    "n": 1,
@@ -61,21 +76,6 @@
    "n": 1,
    "area": "hands",
    "rule": "Always keep floating ball hands visibly attached via perspective and actively gripping props."
-  },
-  {
-   "n": 1,
-   "area": "objects",
-   "rule": "Maintain clear proportional scaling between thermos and gourds across close-up and wide shots."
-  },
-  {
-   "n": 1,
-   "area": "people",
-   "rule": "Keep floating-hand characters within the inner safe zone to prevent edge cropping on narrow 9:16 vertical viewports."
-  },
-  {
-   "n": 1,
-   "area": "objects",
-   "rule": "Align pouring spouts vertically above liquid targets for convincing flow physics."
   }
  ],
  "avoid": [
@@ -83,6 +83,21 @@
    "n": 2,
    "area": "match",
    "rule": "Avoid repeating static character poses across consecutive frames without subtle movement"
+  },
+  {
+   "n": 1,
+   "area": "match",
+   "rule": "Avoid reusing identical character poses across too many sequential frames without a micro-action."
+  },
+  {
+   "n": 1,
+   "area": "match",
+   "rule": "Avoid reusing particle animation loops across distinct spoken context changes."
+  },
+  {
+   "n": 1,
+   "area": "objects",
+   "rule": "Do not repeat identical static object shots across consecutive dialogue lines without changing camera perspective or character action."
   },
   {
    "n": 1,
@@ -163,30 +178,20 @@
    "n": 1,
    "area": "scale",
    "rule": "Avoid placing isolated, shrunken full-body figures in oversized empty rooms."
-  },
-  {
-   "n": 1,
-   "area": "hands",
-   "rule": "Avoid T-pose or wide floating hand placements when characters hold no props."
-  },
-  {
-   "n": 1,
-   "area": "labels",
-   "rule": "Avoid reusing the exact same static close-up frame multiple times consecutively without a change in expression, angle, or action."
-  },
-  {
-   "n": 1,
-   "area": "labels",
-   "rule": "Avoid using board templates that display only plain text without any visual icons, props, or characters."
   }
  ],
  "recentBad": [
+  "Shot 0: The initial plant scene has text pills slightly crowding the top area.",
+  "Shot 6: Character expressions are somewhat repetitive across consecutive frames.",
+  "Shot 4: The drying progress chart overlay covers part of the background furniture awkwardly.",
+  "Shot 3: Background umbrella graphic gets clipped abruptly at the left frame edge.",
+  "Shot 12: Visual continues showing wind/yerba effect instead of transitioning to the vacation start scene.",
+  "Shot 3: Edge cropping on background props breaks scene composition.",
+  "Shots 11-13: Repetitive character animation frames across different script lines.",
   "Shot 2: suegra expression and pose are repeated almost identically across frames",
   "Shot 9: wind blowing yerba could be more explicitly visualized beyond text labels",
   "Shot 2: dark background pill slightly overlaps the character's head top edge",
-  "shot 5: Stirring action described in narration is shown as a static hold rather than dynamic motion.",
-  "shot 11: Hand placement relative to the passed mate appears slightly detached.",
-  "shot 6: Gourd holding visually clips into character body edge.",
-  "shot 8: The script mentions heating water in a pot ('olla'), but the scene displays a character pouring water from a blue thermos into a mate, with a kettle on the counter instead of a pot."
+  "shot 6: The mate gourd clips into the character's torso and floats near the hand rather than being firmly gripped.",
+  "shot 8: The mate gourd on the wooden table floats slightly above the surface with unnatural shadow contact."
  ]
 }

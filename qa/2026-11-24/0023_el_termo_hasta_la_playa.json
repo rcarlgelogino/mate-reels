@@ -1,0 +1,83 @@
+{
+ "reel": "0023_el_termo_hasta_la_playa",
+ "style": "pixel8",
+ "technical": [
+  "duration 42.034s",
+  "loudness -12.7 LUFS, peak -0.8 dBFS",
+  "voice gemini"
+ ],
+ "vision": {
+  "ran": true,
+  "model": "gemini-3.6-flash"
+ },
+ "summary": "The pixel-art visual style is consistently rendered with clean character sprites and hero objects. Some late shots suffer from visual repetition and incomplete action matching.",
+ "scores": {
+  "visual_logic": 6,
+  "graphics": 6,
+  "overall": 6
+ },
+ "logic": {
+  "clean": [
+   "Character proportions and floating hands remain consistent across beach scenes.",
+   "Mate and thermos objects scale appropriately relative to character bodies."
+  ],
+  "unclean": [
+   "Shot 3: Background umbrella graphic gets clipped abruptly at the left frame edge.",
+   "Shot 12: Visual continues showing wind/yerba effect instead of transitioning to the vacation start scene."
+  ]
+ },
+ "graphics": {
+  "clean": [
+   "Pixel art aesthetic, outline strokes, and color palette strictly follow the template.",
+   "Typography remains legible with clear yellow highlights."
+  ],
+  "unclean": [
+   "Shot 3: Edge cropping on background props breaks scene composition.",
+   "Shots 11-13: Repetitive character animation frames across different script lines."
+  ]
+ },
+ "issues": [
+  {
+   "severity": "medium",
+   "fault": "edge_cut",
+   "category": "scene",
+   "problem": "Background props clipped at frame border",
+   "fix": "Adjust camera bounds or prop position to avoid visual hard cuts.",
+   "shot": 3,
+   "time": 11.9,
+   "template": "pix"
+  },
+  {
+   "severity": "medium",
+   "fault": "action_missing",
+   "category": "match",
+   "problem": "Visual repeat of yerba blowing instead of showing new scene",
+   "fix": "Add distinct visual asset representing the spoken line.",
+   "shot": 12,
+   "time": 34.2,
+   "template": "pix"
+  },
+  {
+   "severity": "medium",
+   "fault": "object_missing",
+   "category": "objects",
+   "problem": "\"heladerita\" is named but pixel8 has no drawing for it",
+   "fix": "add a heladerita drawing to pixel8 and its column in styles/lexicon.js",
+   "shot": null,
+   "source": "lexicon"
+  }
+ ],
+ "learnings": [
+  {
+   "type": "avoid",
+   "area": "match",
+   "rule": "Avoid reusing particle animation loops across distinct spoken context changes."
+  },
+  {
+   "type": "do",
+   "area": "scene",
+   "rule": "Ensure background elements remain entirely inside camera viewport bounds."
+  }
+ ],
+ "checked": "2026-11-24T08:55:09.201Z"
+}

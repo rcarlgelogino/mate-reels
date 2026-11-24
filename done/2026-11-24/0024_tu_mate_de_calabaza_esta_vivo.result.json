@@ -1,0 +1,14 @@
+{
+ "id": "0024_tu_mate_de_calabaza_esta_vivo",
+ "file": "work/0024_tu_mate_de_calabaza_esta_vivo/final.mp4",
+ "voice": "gemini",
+ "duration": 39.234,
+ "inTarget": true,
+ "target": [
+  35,
+  45
+ ],
+ "loudness": "-12.2 LUFS, peak -0.8 dBFS",
+ "shots": 15,
+ "minutes": 1.7
+}

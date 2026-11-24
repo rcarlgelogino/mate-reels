@@ -4,7 +4,7 @@
 // Uses the test voice (edge) and --sheet-only builds: nothing is posted, the queue is not touched.
 const fs = require('fs'), path = require('path'), http = require('http'); const { spawnSync, execFileSync } = require('child_process');
 const ROOT = path.join(__dirname, '..'); const MK = require('./make'); const TOOLS = path.join(ROOT, 'tools', 'node_modules');
-const SCRIPTS = { story: 'done/2026-11-19/0019_tu_suegra_y_el_mate_hirviendo.json', list: 'queue/0034_los_seis_de_toda_ronda.json', pov: 'done/2026-11-20/0030p_pov_tu_suegra_te_ceba.json' };
+const SCRIPTS = { story: 'done/2026-11-19/0019_tu_suegra_y_el_mate_hirviendo.json', list: 'queue/0034_los_seis_de_toda_ronda.json', pov: 'done/2026-11-20/0030p_pov_tu_suegra_te_ceba.json', tiles: 'queue/0028_si_tu_mate_se_tapa.json' }; // tiles: only with --scripts tiles (✓/✗ headlines over the picture)
 const FRACS = [0.03, 0.1, 0.18, 0.26, 0.34, 0.42, 0.5, 0.58, 0.66, 0.74, 0.84, 0.95];
 const a = process.argv.slice(2); const label = a[0] || 'run'; const arg = k => { const i = a.indexOf(k); return i >= 0 ? a[i + 1] : null; };
 const styles = (arg('--only') || 'flat2d,pixel8,build3d').split(','); const keep = arg('--scripts') ? arg('--scripts').split(',') : null; const base = arg('--base');
@@ -19,7 +19,7 @@ async function grab(dir, outFile) { const puppeteer = require(path.join(TOOLS, '
       for (let i = 0; i < ts.length; i++) { const u = E.jpeg(ts[i], 0.8); const im = new Image(); await new Promise(r => { im.onload = r; im.src = u; }); g.drawImage(im, (i % 6) * cw, Math.floor(i / 6) * ch, cw, ch); g.fillStyle = '#ffd84a'; g.font = 'bold 22px sans-serif'; g.fillText(ts[i] + 's', (i % 6) * cw + 6, Math.floor(i / 6) * ch + 24); }
       return c.toDataURL('image/jpeg', 0.85); }, times); fs.writeFileSync(outFile, Buffer.from(d.split(',')[1], 'base64')); }
   finally { clearTimeout(kill); await b.close().catch(() => {}); srv.close(); } }
-(async () => { for (const st of styles) for (const [name, file] of Object.entries(SCRIPTS)) { if (keep && !keep.includes(name)) continue; const key = `${st}_${name}`; const dir = path.join(ROOT, 'work', 'bench', label, key); fs.rmSync(dir, { recursive: true, force: true }); fs.mkdirSync(dir, { recursive: true });
+(async () => { for (const st of styles) for (const [name, file] of Object.entries(SCRIPTS)) { if (keep ? !keep.includes(name) : name === 'tiles') continue; const key = `${st}_${name}`; const dir = path.join(ROOT, 'work', 'bench', label, key); fs.rmSync(dir, { recursive: true, force: true }); fs.mkdirSync(dir, { recursive: true });
     try { const spec = MK.toSpec(JSON.parse(fs.readFileSync(path.join(ROOT, file), 'utf8')), st); spec.tts = 'edge'; fs.writeFileSync(path.join(dir, 'spec.json'), JSON.stringify(spec, null, 1));
       const r = spawnSync(process.execPath, [path.join(ROOT, 'pipeline', 'build.js'), path.join(dir, 'spec.json'), '--sheet-only'], { encoding: 'utf8', timeout: 400000 }); if (r.status !== 0) { console.log('FAIL build', key, (r.stderr || '').slice(-300)); continue; }
       const jpg = path.join(OUT, key + '.jpg'); await grab(dir, jpg); console.log('ok', key);

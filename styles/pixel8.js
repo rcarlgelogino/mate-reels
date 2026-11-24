@@ -58,7 +58,7 @@ function heroShot(v, pick, st) { const h = heroOf(v); if (h.kind === 'bombilla')
   if (st.night) p.night = true; p.cam = cam(v.camera || pick(HERO), [270, GY - 90], [270, 620]); if (v.label) p.tags = [{ text: String(v.label).toUpperCase(), x: 530, y: 1340, screen: true, size: 64, u: 0.1 }]; return { tpl: 'pix', p }; }
 const W2 = 540;
 const VEH = ['auto', 'camioneta', 'colectivo', 'camion'];
-function compareShot(v, pick, st) { const a = heroOf(v.left || {}, 150, 118), b = heroOf(v.right || {}, 390, 118); a.glow = b.glow = false; [a, b].forEach(o => { if (VEH.includes(o.kind)) o.s = 74; }); const p = { place: st.place, cast: [a, b], vs: { y: 1050 }, cam: cam('wide', null, [270, 620]) };
+function compareShot(v, pick, st) { const a = heroOf(v.left || {}, 150, 118), b = heroOf(v.right || {}, 390, 118); a.glow = b.glow = false; [a, b].forEach(o => { if (VEH.includes(o.kind)) o.s = 74; }); const p = { place: st.place, cast: [a, b], vs: { y: 1050 }, cam: { z0: 1, z1: 1.04, c0: [270, 620], c1: [270, 620] } }; // both things whole in the frame: no pan that cuts one off
   p.tags = [[v.left, 160], [v.right, 380]].filter(([s]) => s && s.label).map(([s, x]) => ({ text: String(s.label).toUpperCase(), x: x === 160 ? 150 : 390, y: GY + 44, size: 66, u: 0.12 })); if (st.night) p.night = true; return { tpl: 'pix', p }; }
 // what a title is about decides the picture behind it: countries -> the lit map from above, Guaraní -> people in the jungle, Jesuits -> the mission; otherwise the last scene again
 const CTRY = [[/argentin/, 'ar'], [/urugua/, 'uy'], [/paragua/, 'py'], [/brasil|brazil/, 'br'], [/chile/, 'cl']];

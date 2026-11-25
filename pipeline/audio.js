@@ -46,7 +46,11 @@ function make(totalSec) {
     keys: e => { const d = e.d || 2; const out = new Float32Array(Math.round(d * SR)); let t = 0.1; while (t < d) { const s = Math.round(t * SR); for (let i = 0; i < 0.015 * SR && s + i < out.length; i++) out[s + i] += noise() * Math.exp(-i / SR * 400) * 0.25; t += 0.08 + rnd() * 0.18; } return hp(out, 1500); }
   };
   const pans = { whoosh: 0, swish: 0.3, birds: -0.4 };
-  function sfx(cues) { const B = buf(); for (const e of cues) { const f = fx[e.type]; if (!f) continue; add(B, Math.max(0, e.t), f(e), e.gain || 1, e.type === 'blip' ? ((e.n % 2) ? 0.35 : -0.35) : (pans[e.type] || 0)); } return B; }
+  // samples from the sound library (assets/sfx/<name>.wav, 16-bit PCM): cue type 'lib:<name>'
+  const LIB = {}; const libSound = name => { if (LIB[name] !== undefined) return LIB[name]; const p = require('path').join(__dirname, '..', 'assets', 'sfx', name + '.wav'); if (!fs.existsSync(p)) return (LIB[name] = null);
+    const b = fs.readFileSync(p); let o = 12, ch = 2, rate = SR, data = null; while (o + 8 <= b.length) { const id = b.toString('ascii', o, o + 4), len = b.readUInt32LE(o + 4); if (id === 'fmt ') { ch = b.readUInt16LE(o + 10); rate = b.readUInt32LE(o + 12); } if (id === 'data') { data = b.subarray(o + 8, o + 8 + len); break; } o += 8 + len + (len % 2); }
+    if (!data) return (LIB[name] = null); const n = Math.floor(data.length / (2 * ch)), k = rate / SR, m = Math.floor(n / k), out = new Float32Array(m); for (let i = 0; i < m; i++) { const j = Math.floor(i * k); let v = 0; for (let c = 0; c < ch; c++) v += data.readInt16LE((j * ch + c) * 2); out[i] = v / ch / 32768; } return (LIB[name] = out); };
+  function sfx(cues) { const B = buf(); for (const e of cues) { if (String(e.type).startsWith('lib:')) { const smp = libSound(e.type.slice(4)); if (smp) add(B, Math.max(0, e.t), smp, e.gain || 0.8, e.pan || 0); continue; } const f = fx[e.type]; if (!f) continue; add(B, Math.max(0, e.t), f(e), e.gain || 1, e.type === 'blip' ? ((e.n % 2) ? 0.35 : -0.35) : (pans[e.type] || 0)); } return B; }
   function music(style = {}) {
     const M = buf(), bpm = style.bpm || 112, beat = 60 / bpm;
     const kick = gen(0.35, t => Math.sin(2 * Math.PI * (45 + 90 * Math.exp(-t * 30)) * t) * Math.exp(-t * 9) * 0.9);

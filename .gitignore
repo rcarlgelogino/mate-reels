@@ -21,3 +21,6 @@ shots/
 /index.html
 /serve.js
 tools/kokoro_es.mjs
+
+# sound library samples used by reels (cue type lib:<name>)
+!assets/sfx/*.wav

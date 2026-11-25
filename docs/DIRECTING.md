@@ -28,6 +28,9 @@ No fixed number of sentences, no fixed beats, no forced poll, no fixed length (a
 - **Proven shapes (code-built):** serial with a viewer vote (end on a dilemma, the next episode follows the majority); build time-lapse ("how X becomes Y"); what-if with a running counter; counter escalation on one object; cutaway / section view (the viewer knows more than the characters); true-story shorts; isometric dioramas.
 - **Consistency:** a series bible with a character sheet and an expression set, fixed before the first episode; every frame checked.
 
+## "¿Sabías que…?" format (2026-11-26, details: docs/research/sabias-que-format.md)
+Everyday mate action → "y no" + an absurd but real, named, mate-world alternative → 3–4 real numbers, each on its word, as pill labels / counter / gauge on the object → the consequence as three losses ("sin X, sin Y y sin Z"), each its own destruction beat → "Seguime para más datos de mate." About 20–25 s, a picture every 1.5–2 s with fast bursts in the escalation.
+
 ## Story logic (written before any shot)
 Every script starts with a `story` block, and every shot must agree with it:
 - **logline**: the whole story in one sentence (who wants what, what goes wrong, how it ends).

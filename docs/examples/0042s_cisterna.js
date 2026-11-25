@@ -1,0 +1,100 @@
+// Generator for docs/examples/0042s_cisterna.json — "¿Sabías que…?" format (from @el_planeta_curioso / @loquepasahoy.es, 2026-11-26):
+// an everyday mate action, "y no" an absurdly oversized but very specific alternative, 3-4 real numbers shown as labels / counters / a gauge,
+// then the consequence as a list of three losses ("sin yerba, sin bombilla y sin cocina"), then "Seguime para más datos".
+// Run: node docs/examples/0042s_cisterna.js
+const fs = require('fs'), path = require('path');
+const look = { vos: { skin: '#f6d7bb', hair: '#3a2416', hairStyle: 'short', shirt: '#8fc3ea', pants: '#d8c39a' } };
+const SEAT = { x: 0, z: -0.75 };
+const TZ = -0.25; // where the truck stops: its valve is level with the window
+const tomas = (k0 = {}, extra = []) => ({ id: 'vos', look: look.vos, keys: [{ u: 0, px: SEAT.x, pz: SEAT.z, faceTo: 'center', sit: true, s: 520, hold: 'both', L: [-70, -300], R: [60, -280], face: 'happy', look: 'cam', ...k0 }, ...extra] });
+const casa = o => ({ world: 'casita', light: 'sun', seats: [SEAT], props: [], fx: [], sounds: [], truck: [{ u: 0, tz: TZ }], ...o });
+const S = [];
+const say = (text, emo, ...shots) => S.push({ text, emo, shots });
+
+// 1 — the normal way: a one-litre termo
+say('¿Sabías que para cebar mate lo recomendable es un termo de un litro', 'neutral',
+  { f: 1.1, direction: 'Wide dollhouse view of a small kitchen without a front wall, in the morning sun: tiled floor, cream walls, a counter with a stove, a shelf with three yerba packs, a white fridge, a round table with a white cloth. Tomás (short dark hair, light blue shirt) sits behind the table facing the camera, the green termo in his left hand, the gourd in his right. He tips the termo and pours: a thin stream into the mate. On "termo" a black pill label pops in at the spout: TERMO 1 L. The window on the left shows the street outside. Camera high front, slow push-in.',
+    anim: casa({ people: [tomas({}, [{ u: 0.25, pour: 0.6, dur: 0.12 }, { u: 0.8, pour: 0, dur: 0.1 }])],
+      fx: [{ kind: 'stream', u0: 0.3, u1: 0.8, at: 'vos.spout', to: 'vos.mate', color: '#cfeeff', w: 7 }],
+      labels: [{ u0: 0.45, text: 'TERMO · 1 L', at: 'vos.spout', dy: -70 }],
+      cam3: [{ u: 0, a: 8, r: 5.2, h: 3.0, ax: 0, ay: 0.7, az: -0.6 }, { u: 1, r: 4.4, h: 2.6, dur: 1 }],
+      sounds: [{ u: 0.3, type: 'pour' }, { u: 0.45, type: 'lib:pop_1' }] }) },
+  { f: 0.8, direction: 'Close on the gourd: the water goes in, the green yerba glistens, a little steam. Tomás smiles. Label 1 L stays on the termo.',
+    anim: casa({ people: [tomas({ pour: 0.6 })], fx: [{ kind: 'stream', u0: 0, u1: 0.9, at: 'vos.spout', to: 'vos.mate', color: '#cfeeff', w: 7 }],
+      labels: [{ u0: 0, text: '1 L', at: 'vos.spout', dy: -60 }],
+      cam3: [{ u: 0, on: 'vos.mate', a: 10, r: 1.5, h: 0.25, ax: 0.05, ay: 0.12, az: 0 }, { u: 1, r: 1.3, dur: 1 }],
+      sounds: [{ u: 0.5, type: 'lib:bubble_1' }] }) });
+// 2 — the absurd alternative, very specific
+say('y no un camión cisterna de treinta mil litros?', 'surprised',
+  { f: 1, direction: 'Outside on the street: a huge white water tanker with a red cab backs up towards the kitchen window with reverse beeps. Its side sign says AGUA PARA MATE. Label CAMIÓN CISTERNA pops in over the tank. Camera low on the street, the truck grows in the frame.',
+    anim: casa({ people: [tomas({ face: 'surprised', look: 'center' })], truck: [{ u: 0, tz: 9 }, { u: 0.85, tz: TZ, dur: 0.85 }],
+      labels: [{ u0: 0.45, text: 'CAMIÓN CISTERNA', at: [-4.75, 3.1, -0.9] }],
+      cam3: [{ u: 0, a: -28, r: 13, h: 1.6, ax: -4.6, ay: 1.7, az: 1.5 }, { u: 1, r: 12, dur: 1 }],
+      sounds: [{ u: 0.1, type: 'lib:police_radio_beep_1' }, { u: 0.35, type: 'lib:police_radio_beep_1' }, { u: 0.6, type: 'lib:police_radio_beep_1' }, { u: 0.45, type: 'lib:pop_2' }, { u: 0.85, type: 'lib:body_thud_1', gain: 0.6 }] }) },
+  { f: 1, direction: 'Side view: the truck stands right next to the tiny kitchen, the tank is taller than the house wall. On "treinta mil litros" a big label 30.000 L slams onto the tank. Tomás inside stares out of the window, mouth open.',
+    anim: casa({ people: [tomas({ face: 'shock', look: 'center' })],
+      labels: [{ u0: 0.35, text: '30.000 L', at: [-4.75, 2.9, -0.9], big: true }],
+      cam3: [{ u: 0, a: -42, r: 12.5, h: 4.4, ax: -2.6, ay: 1.2, az: -0.6 }, { u: 1, r: 11.5, dur: 1 }],
+      sounds: [{ u: 0.35, type: 'lib:vine_boom_1', gain: 0.9 }] }) });
+// 3 — a real number: the temperature
+say('Con el agua a setenta y cinco grados,', 'neutral',
+  { f: 1, direction: 'Close on the tank valve with the red wheel; a dial gauge pops up and its needle sweeps to 75 °C. Steam would burn the yerba at 100, so 75 is the mate temperature. Camera close, slight push.',
+    anim: casa({ people: [tomas({ face: 'confused', look: 'center' })],
+      gauge: { u0: 0.12, to: 75, max: 100, unit: ' °C' },
+      cam3: [{ u: 0, on: 'valve', a: 12, r: 3.2, h: 0.3, ax: 0.3, ay: 0.3, az: 0 }, { u: 1, r: 2.7, dur: 1 }],
+      sounds: [{ u: 0.12, type: 'lib:charge_1', gain: 0.6 }, { u: 0.6, type: 'lib:tik_tik_1' }] }) });
+// 4 — a real number: how many cebadas
+say('alcanza para unas seiscientas mil cebadas,', 'excited',
+  { f: 1, direction: 'The hose goes from the valve through the window straight into Tomás\' tiny mate. Camera cranes up high: beside the house a field of gourds fills row by row, hundreds of them, while a yellow counter runs 0 → 600.000 with the label CEBADAS (about 50 ml per cebada: 30.000 L / 0.05 L).',
+    anim: casa({ people: [tomas({ face: 'starstruck', look: 'center' })], pile: { n: 900, u0: 0.1, u1: 0.95 },
+      fx: [{ kind: 'stream', u0: 0, u1: 1, at: 'valve', to: 'vos.mate', color: '#8fd0ff', w: 16 }],
+      counter: { u0: 0.08, u1: 0.9, from: 0, to: 600000, label: 'CEBADAS' },
+      cam3: [{ u: 0, a: 20, r: 7, h: 4, ax: 1.5, ay: 0.4, az: -1 }, { u: 1, a: 35, r: 11, h: 9, ax: 4, ay: 0, az: -2, dur: 1 }],
+      sounds: [{ u: 0.08, type: 'lib:cash_3', gain: 0.7 }, { u: 0.9, type: 'lib:collect_1' }] }) });
+// 5 — the comparison everyone knows
+say('siete mates para cada hincha del Monumental.', 'excited',
+  { f: 1, direction: 'Aerial over a huge oval stadium packed with tiny red-and-white fans. Label 84.000 HINCHAS, then the counter shows 7 with the label MATES POR HINCHA (600.000 / 84.000 ≈ 7). Camera orbits slowly from high.',
+    anim: { world: 'cancha', light: 'sun', people: [], props: [], fx: [], labels: [{ u0: 0.1, text: '84.000 HINCHAS', at: [0, 7.5, 0], big: true }],
+      counter: { u0: 0.45, u1: 0.8, from: 0, to: 7, label: 'MATES POR HINCHA', lin: true },
+      cam3: [{ u: 0, a: 10, r: 52, h: 46, ax: 0, ay: 0, az: -3 }, { u: 1, a: 35, r: 46, h: 40, dur: 1 }],
+      sounds: [{ u: 0.1, type: 'lib:party_horn_1', gain: 0.6 }, { u: 0.45, type: 'lib:coin_2' }, { u: 0.8, type: 'lib:riser_1', gain: 0.7 }] } });
+// 6 — the consequence: three losses
+say('Lo más probable es que te quedes sin yerba, sin bombilla y sin cocina.', 'funny',
+  { f: 1.1, direction: 'Back in the kitchen, close: the valve opens fully, the jet hits the gourd and the whole yerba explodes upwards in green flakes. Tomás\' face: shock. Label SIN YERBA. Small camera shake.',
+    anim: casa({ people: [tomas({ face: 'shock', look: 'center' }, [{ u: 0.3, mateEmpty: true }])],
+      fx: [{ kind: 'stream', u0: 0, u1: 1, at: 'valve', to: 'vos.mate', color: '#8fd0ff', w: 30 }, { kind: 'burst', u0: 0.25, u1: 1, at: 'vos.mate', n: 90, speed: 1.6, secs: 1.4, dir: [0, 1.2, 0.6] }],
+      labels: [{ u0: 0.3, text: 'SIN YERBA', at: 'vos.head', dy: -150 }], shake: [{ u0: 0.25, u1: 0.6, a: 3 }],
+      cam3: [{ u: 0, on: 'vos.head', a: 0, r: 2.3, h: 0.1, ax: 0, ay: -0.1, az: 0 }],
+      sounds: [{ u: 0.25, type: 'lib:explosion_2', gain: 0.8 }, { u: 0.3, type: 'lib:pop_1' }] }) },
+  { f: 0.9, direction: 'The bombilla shoots out of the gourd like a rocket with a smoke trail, straight up into the sky. Tomás looks up. Label SIN BOMBILLA.',
+    anim: casa({ people: [tomas({ face: 'surprised', look: null, mateEmpty: true }, [{ u: 0.1, mateNoBomb: true }])],
+      fx: [{ kind: 'stream', u0: 0, u1: 1, at: 'valve', to: 'vos.mate', color: '#8fd0ff', w: 30 }, { kind: 'rocket', u0: 0.1, u1: 1, at: 'vos.mate', h: 9 }],
+      labels: [{ u0: 0.25, text: 'SIN BOMBILLA', xy: [520, 700] }],
+      cam3: [{ u: 0, a: 4, r: 5.5, h: 1.3, ax: 0, ay: 1.4, az: -0.6 }, { u: 1, ay: 4.5, h: 2.0, dur: 1 }],
+      sounds: [{ u: 0.1, type: 'lib:whoosh_5' }, { u: 0.75, type: 'lib:metal_pipe_1', gain: 0.5 }] }) },
+  { f: 1.2, direction: 'Wide: the water bursts through the left wall, the walls break into blocks that fly away, the kitchen floods knee-high. Tomás stays on his chair, dizzy. Label SIN COCINA.',
+    anim: casa({ breakAt: 0.12, people: [tomas({ face: 'dizzy', look: null, mateEmpty: true, mateNoBomb: true })],
+      fx: [{ kind: 'stream', u0: 0, u1: 0.4, at: 'valve', to: 'vos.mate', color: '#8fd0ff', w: 30 }, { kind: 'debris', u0: 0.12, u1: 1, at: [-2.3, 0.2, -0.9], n: 46, speed: 4, dir: [3, 1, 0], spread: [0.3, 2.2, 3.6], secs: 2.2 }, { kind: 'debris', u0: 0.15, u1: 1, at: [0, 0.2, -2.3], n: 30, speed: 3, dir: [0, 1, -2], spread: [4.4, 2.2, 0.3], secs: 2.2 }, { kind: 'flood', u0: 0.12, u1: 0.7, hold: 1, h: 0.45, w: 7, d: 6, x: 0, z: -0.4 }],
+      labels: [{ u0: 0.3, text: 'SIN COCINA', xy: [520, 760], big: true }], shake: [{ u0: 0.12, u1: 0.4, a: 5 }],
+      cam3: [{ u: 0, a: 15, r: 6.5, h: 3.4, ax: -0.5, ay: 0.6, az: -0.6 }, { u: 1, r: 7.5, h: 4, dur: 1 }],
+      sounds: [{ u: 0.12, type: 'lib:lego_breaking_1' }, { u: 0.13, type: 'lib:boom_2', gain: 0.8 }, { u: 0.3, type: 'lib:glass_crack_1', gain: 0.6 }] }) });
+// 7 — call to action
+say('Seguime para más datos de mate.', 'funny',
+  { f: 1, direction: 'Tomás sits in the flooded ruin, soaked, the empty gourd in his hand, the truck still there. Three labels around him: SIN YERBA, SIN BOMBILLA, SIN COCINA. Water drips from his hair. Camera slow push-in, then hold.',
+    anim: casa({ breakAt: 0, people: [tomas({ face: 'confused', look: 'cam', mateEmpty: true, mateNoBomb: true })],
+      fx: [{ kind: 'flood', u0: 0, u1: 0.01, hold: 1, h: 0.45, w: 7, d: 6, x: 0, z: -0.4 }, { kind: 'drops', u0: 0, u1: 1, at: 'vos.head', n: 4, fall: 120 }],
+      labels: [{ u0: 0.05, text: 'SIN YERBA', at: 'vos.head', dy: -230 }, { u0: 0.12, text: 'SIN BOMBILLA', at: 'vos.L', dy: 40 }, { u0: 0.19, text: 'SIN COCINA', at: 'vos.R', dy: 120 }],
+      cam3: [{ u: 0, on: 'vos.head', a: -6, r: 3.4, h: 0.4, ax: 0, ay: -0.25, az: 0 }, { u: 1, r: 2.8, dur: 1 }],
+      sounds: [{ u: 0.02, type: 'lib:record_scratch_1', gain: 0.6 }, { u: 0.6, type: 'lib:bruh_1', gain: 0.7 }] }) });
+
+const j = { id: '0042s_cisterna', title: 'Cebar con un camión cisterna',
+  caption: '¿Sabías que para cebar mate lo recomendable es un termo y no un camión cisterna de 30.000 litros? 🧉🚛\nSeguime para más datos de mate.', hashtags: ['#mate', '#datoscuriosos', '#argentina', '#humor', '#sabiasque'],
+  story: { logline: 'A "did you know" gag: for cebar, a one-litre termo is recommended, not a 30,000-litre water tanker; real numbers show how absurd it is, then the jet destroys yerba, bombilla and kitchen.',
+    timeline: ['One morning, about 10:00, sun; one continuous moment except the stadium cut-away (an illustration of the number).'],
+    links: ['1 normal action -> 2 the absurd alternative arrives', '2 -> 3 its water temperature (real mate temperature)', '3 -> 4 its volume in cebadas (counter)', '4 -> 5 the number made tangible (stadium)', '5 -> 6 the hose is opened: consequence in three steps', '6 -> 7 result and call to action'],
+    objects: ['termo: in Tomás\' left hand until 6', 'mate: right hand; full -> yerba blown out (6a) -> bombilla gone (6b) -> empty', 'truck: arrives in 2, stays to the end', 'walls: break in 6c, gone in 7'],
+    facts: ['A typical termo holds about 1 litre.', 'Water tankers commonly carry 20,000-30,000 litres.', 'Mate water is best around 70-80 °C (boiling water burns the yerba).', 'About 50 ml per cebada: 30,000 L / 0.05 L = 600,000 cebadas.', 'Estadio Monumental (River Plate) holds about 84,000-85,000 people: 600,000 / 84,000 ≈ 7.'],
+    places: { casita: 'a small kitchen like a dollhouse (no front wall, no roof) on a lawn; street on the left; the truck parks along the left wall, its valve level with the window', cancha: 'the Monumental as a toy stadium, seen from above' } },
+  cast: { vos: 'Tomás, about 25, short dark hair, light blue shirt, beige trousers' },
+  segments: S };
+fs.writeFileSync(path.join(__dirname, '0042s_cisterna.json'), JSON.stringify(j, null, 2) + '\n'); console.log('written', S.length, 'segments,', S.reduce((a, s) => a + s.shots.length, 0), 'shots');

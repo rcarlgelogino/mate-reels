@@ -1,0 +1,3483 @@
+{
+  "id": "0041s_ep1_tapado",
+  "series": "primera-visita",
+  "episode": 1,
+  "title": "Primera visita 1: El mate tapado",
+  "caption": "Primera visita, episodio 1: el mate está tapado y todos te miran 🧉😰\n¿Qué hacés? Comentá MUEVO o AVISO. El episodio 2 sigue a la mayoría 👇",
+  "hashtags": [
+    "#mate",
+    "#suegro",
+    "#argentina",
+    "#humor",
+    "#serie"
+  ],
+  "vote": {
+    "options": [
+      "MUEVO",
+      "AVISO"
+    ],
+    "rule": "episode 2 starts with the winner and its consequence"
+  },
+  "story": {
+    "logline": "On his first visit to his girlfriend's family, Tomás gets a clogged mate from her father, the proud cebador: sucking harder gives nothing, moving the bombilla is a sin in the ronda, telling him insults his mate; the family watches, the brother-in-law films, and the viewers decide.",
+    "timeline": [
+      "One continuous moment, a Sunday about 16:00, sun; the whole episode lasts as long as the voice (no time jumps)."
+    ],
+    "links": [
+      "1: the mate is already clogged when we start (the suegro just served it).",
+      "2: he tries the obvious fix first (suck harder) and fails.",
+      "3: the second fix would work but breaks a ronda rule; the suegro's face shows the price.",
+      "4: the third fix (tell him) has a price too: his pride as cebador.",
+      "5: the family waits, the clock runs: the pressure for the viewer.",
+      "6: freeze on the open choice; the vote decides episode 2."
+    ],
+    "objects": [
+      "mate: full, green, clogged, in Tomás' right hand the whole time; nobody touches the bombilla.",
+      "green termo: in the suegro's left hand the whole time.",
+      "phone: in Facu's right hand, filming from shot 1b on."
+    ],
+    "knowledge": [
+      "Everybody at the table sees that the mate does not pull.",
+      "Nobody says it: that is the joke and the pressure."
+    ],
+    "places": {
+      "patio": "the family patio (3D world patio); seated: Tomás at the back facing the camera, Nélida to his right, Caro to his left, Facu at the left side; the suegro stands behind Tomás' right shoulder"
+    }
+  },
+  "cast": {
+    "vos": "Tomás, 25, short dark hair, light blue shirt, beige trousers",
+    "suegro": "Don Rubén, 58, black boina, moustache, dark red polo, grey trousers, green termo",
+    "abuela": "Nélida, 82, grey bun, round glasses, purple cardigan",
+    "novia": "Caro, 24, dark ponytail, yellow T-shirt, jeans",
+    "cunado": "Facu, 30, curly hair, green football shirt, phone",
+    "dog": "Pancho, light brown, front right"
+  },
+  "sets": {
+    "patio": {
+      "desc": "family patio: brick floor circle, grass, white back wall with bushes, lemon tree, parrilla with smoke, string lights, round table with white cloth, yerba pack and medialunas, four low chairs, the dog",
+      "light": "afternoon sun from the front left"
+    }
+  },
+  "segments": [
+    {
+      "text": "Episodio uno: primera vez en lo de tu novia, y el mate está tapado.",
+      "emo": "tense",
+      "shots": [
+        {
+          "f": 1.2,
+          "direction": "## 1a — frame 0: the clogged mate and the man behind him\nWhat the viewer must understand without sound, in the first half second: a young man sucks on a mate and nothing comes, and a big man with a moustache stands right behind him and watches. Problem and threat in one picture. The voice says \"Episodio uno\", so the picture must already be the story, not a title card.\n\nSet: the family patio in the afternoon sun (about 16:00). Behind Tomás we see the brick floor circle, the edge of the round table with the white cloth in the lower frame, a medialuna plate out of focus, the green grass, the white back wall with bushes and the lemon tree on the right edge of the frame. The string lights hang above, not lit (daytime). The sun comes from the front left, so Tomás' face is lit on his right cheek (screen left) and the suegro behind him gets a hard rim on his boina.\n\nTomás sits on his low chair at the back of the table, facing the camera. Light blue shirt, beige trousers, short neat dark hair. In his right hand (screen left) the calabaza with the steel bombilla; the bombilla is in his mouth. Face \"suck\": eyes wide open, small pupils, brows high, lips pursed round, cheeks puffed and red. He holds still, only the cheeks shake a little. His left hand rests on his thigh.\n\nDon Rubén stands behind Tomás' right shoulder (screen left, half a metre back): black boina, thick moustache, dark red polo, grey trousers, the green termo in his left hand at hip height. Face neutral, lids half down: he watches the bombilla. He does not move at all; that stillness is the threat.\n\nCamera: in front of Tomás at face height, a little lower than his eyes, about 1.4 m away, framing both heads: Tomás in the lower middle, the suegro's head above and left. Very slow push-in (1.4 → 1.2 m). Sound: a long dry suck noise that gets nothing.",
+          "anim": {
+            "world": "patio",
+            "light": "sun",
+            "seats": [
+              {
+                "x": 0.246,
+                "z": -0.918
+              },
+              {
+                "x": 0.839,
+                "z": -0.446
+              },
+              {
+                "x": -0.503,
+                "z": -0.806
+              },
+              {
+                "x": -0.949,
+                "z": -0.033
+              }
+            ],
+            "props": [
+              {
+                "id": "phone",
+                "kind": "phone",
+                "keys": [
+                  {
+                    "u": 0,
+                    "at": "cunado.R",
+                    "ry": -1.5707963267948966,
+                    "dy": -60
+                  }
+                ]
+              }
+            ],
+            "fx": [],
+            "sounds": [
+              {
+                "u": 0.02,
+                "type": "suck"
+              },
+              {
+                "u": 0.5,
+                "type": "suck"
+              }
+            ],
+            "people": [
+              {
+                "id": "suegro",
+                "look": {
+                  "skin": "#f2c9a4",
+                  "hair": "#6b5a4a",
+                  "hairStyle": "short",
+                  "hat": "boina",
+                  "hatColor": "#2b2b2b",
+                  "mustache": true,
+                  "shirt": "#a8323a",
+                  "pants": "#6f7682",
+                  "termo": "#2f9e44"
+                },
+                "keys": [
+                  {
+                    "u": 0,
+                    "px": -0.31,
+                    "pz": -1.345,
+                    "faceTo": "vos",
+                    "hold": "termo",
+                    "L": [
+                      -40,
+                      -230
+                    ],
+                    "R": [
+                      60,
+                      -250
+                    ],
+                    "face": "sly",
+                    "look": "vos"
+                  }
+                ]
+              },
+              {
+                "id": "vos",
+                "look": {
+                  "skin": "#f6d7bb",
+                  "hair": "#3a2416",
+                  "hairStyle": "short",
+                  "shirt": "#8fc3ea",
+                  "pants": "#d8c39a"
+                },
+                "keys": [
+                  {
+                    "u": 0,
+                    "px": 0.246,
+                    "pz": -0.918,
+                    "faceTo": "center",
+                    "sit": true,
+                    "s": 520,
+                    "face": "suck",
+                    "look": null,
+                    "hold": "mate",
+                    "R": [
+                      40,
+                      -300
+                    ],
+                    "L": [
+                      -45,
+                      -235
+                    ],
+                    "suck": true
+                  }
+                ]
+              },
+              {
+                "id": "abuela",
+                "look": {
+                  "skin": "#f3cba6",
+                  "hair": "#cfcfcf",
+                  "hairStyle": "bun",
+                  "glasses": true,
+                  "shirt": "#7c5a9e",
+                  "dress": "#8a8f96",
+                  "pants": "#8a8f96"
+                },
+                "keys": [
+                  {
+                    "u": 0,
+                    "px": 0.839,
+                    "pz": -0.446,
+                    "faceTo": "center",
+                    "sit": true,
+                    "s": 500,
+                    "face": "neutral",
+                    "look": "vos"
+                  }
+                ]
+              },
+              {
+                "id": "novia",
+                "look": {
+                  "skin": "#f6d7bb",
+                  "hair": "#3a2416",
+                  "hairStyle": "ponytail",
+                  "shirt": "#f2c53d",
+                  "pants": "#3b5b9a"
+                },
+                "keys": [
+                  {
+                    "u": 0,
+                    "px": -0.503,
+                    "pz": -0.806,
+                    "faceTo": "center",
+                    "sit": true,
+                    "s": 520,
+                    "face": "neutral",
+                    "look": "vos"
+                  }
+                ]
+              },
+              {
+                "id": "cunado",
+                "look": {
+                  "skin": "#f1c6a0",
+                  "hair": "#2a1a10",
+                  "hairStyle": "curly",
+                  "shirt": "#2f9e44",
+                  "pants": "#2b2f3a"
+                },
+                "keys": [
+                  {
+                    "u": 0,
+                    "px": -0.949,
+                    "pz": -0.033,
+                    "faceTo": "center",
+                    "sit": true,
+                    "s": 520,
+                    "face": "sly",
+                    "look": "vos",
+                    "R": [
+                      100,
+                      -330
+                    ]
+                  }
+                ]
+              }
+            ],
+            "cam3": [
+              {
+                "u": 0,
+                "on": "vos.head",
+                "a": -11,
+                "r": 3.2,
+                "h": -0.1,
+                "ax": -0.3,
+                "ay": 0.2,
+                "az": 0
+              },
+              {
+                "u": 1,
+                "r": 2.8,
+                "dur": 1
+              }
+            ]
+          }
+        },
+        {
+          "f": 1,
+          "direction": "## 1b — the whole family stares\nReverse shot from behind and above Tomás' left shoulder: we see the table from his side, and all faces turned to him. Nélida (grey bun, round glasses, purple cardigan) on the right, chin on her hand, curious. Caro (dark ponytail, yellow T-shirt) on the left, a polite smile that freezes. Facu (curly hair, green football shirt) at the far left lifts his phone with his right hand at 30 % of the shot and points it at Tomás: a red REC light blinks on the back. Pancho, the dog in the front right corner, lifts his head at 50 %.\n\nTomás' back and the mate fill the lower left corner of the frame. Camera still, slight drift to the right. Sound: a single tick (a clock in the silence).",
+          "anim": {
+            "world": "patio",
+            "light": "sun",
+            "seats": [
+              {
+                "x": 0.246,
+                "z": -0.918
+              },
+              {
+                "x": 0.839,
+                "z": -0.446
+              },
+              {
+                "x": -0.503,
+                "z": -0.806
+              },
+              {
+                "x": -0.949,
+                "z": -0.033
+              }
+            ],
+            "props": [
+              {
+                "id": "phone",
+                "kind": "phone",
+                "keys": [
+                  {
+                    "u": 0,
+                    "at": "cunado.R",
+                    "ry": -1.5707963267948966,
+                    "dy": -60
+                  }
+                ]
+              }
+            ],
+            "fx": [],
+            "sounds": [
+              {
+                "u": 0.3,
+                "type": "beep"
+              },
+              {
+                "u": 0.6,
+                "type": "tick"
+              }
+            ],
+            "people": [
+              {
+                "id": "suegro",
+                "look": {
+                  "skin": "#f2c9a4",
+                  "hair": "#6b5a4a",
+                  "hairStyle": "short",
+                  "hat": "boina",
+                  "hatColor": "#2b2b2b",
+                  "mustache": true,
+                  "shirt": "#a8323a",
+                  "pants": "#6f7682",
+                  "termo": "#2f9e44"
+                },
+                "keys": [
+                  {
+                    "u": 0,
+                    "px": -0.31,
+                    "pz": -1.345,
+                    "faceTo": "vos",
+                    "hold": "termo",
+                    "L": [
+                      -40,
+                      -230
+                    ],
+                    "R": [
+                      60,
+                      -250
+                    ],
+                    "face": "neutral",
+                    "look": "vos"
+                  }
+                ]
+              },
+              {
+                "id": "vos",
+                "look": {
+                  "skin": "#f6d7bb",
+                  "hair": "#3a2416",
+                  "hairStyle": "short",
+                  "shirt": "#8fc3ea",
+                  "pants": "#d8c39a"
+                },
+                "keys": [
+                  {
+                    "u": 0,
+                    "px": 0.246,
+                    "pz": -0.918,
+                    "faceTo": "center",
+                    "sit": true,
+                    "s": 520,
+                    "face": "suck",
+                    "look": "center",
+                    "hold": "mate",
+                    "R": [
+                      40,
+                      -300
+                    ],
+                    "L": [
+                      -45,
+                      -235
+                    ],
+                    "suck": true
+                  }
+                ]
+              },
+              {
+                "id": "abuela",
+                "look": {
+                  "skin": "#f3cba6",
+                  "hair": "#cfcfcf",
+                  "hairStyle": "bun",
+                  "glasses": true,
+                  "shirt": "#7c5a9e",
+                  "dress": "#8a8f96",
+                  "pants": "#8a8f96"
+                },
+                "keys": [
+                  {
+                    "u": 0,
+                    "px": 0.839,
+                    "pz": -0.446,
+                    "faceTo": "center",
+                    "sit": true,
+                    "s": 500,
+                    "face": "confused",
+                    "look": "vos",
+                    "L": [
+                      -20,
+                      -360
+                    ]
+                  }
+                ]
+              },
+              {
+                "id": "novia",
+                "look": {
+                  "skin": "#f6d7bb",
+                  "hair": "#3a2416",
+                  "hairStyle": "ponytail",
+                  "shirt": "#f2c53d",
+                  "pants": "#3b5b9a"
+                },
+                "keys": [
+                  {
+                    "u": 0,
+                    "px": -0.503,
+                    "pz": -0.806,
+                    "faceTo": "center",
+                    "sit": true,
+                    "s": 520,
+                    "face": "smile",
+                    "look": "vos"
+                  },
+                  {
+                    "u": 0.6,
+                    "face": "worried"
+                  }
+                ]
+              },
+              {
+                "id": "cunado",
+                "look": {
+                  "skin": "#f1c6a0",
+                  "hair": "#2a1a10",
+                  "hairStyle": "curly",
+                  "shirt": "#2f9e44",
+                  "pants": "#2b2f3a"
+                },
+                "keys": [
+                  {
+                    "u": 0,
+                    "px": -0.949,
+                    "pz": -0.033,
+                    "faceTo": "center",
+                    "sit": true,
+                    "s": 520,
+                    "face": "neutral",
+                    "look": "vos",
+                    "R": [
+                      45,
+                      -235
+                    ]
+                  },
+                  {
+                    "u": 0.3,
+                    "R": [
+                      100,
+                      -330
+                    ],
+                    "face": "sly"
+                  }
+                ]
+              }
+            ],
+            "dogUp": 0.5,
+            "cam3": [
+              {
+                "u": 0,
+                "a": -4,
+                "r": 5,
+                "h": 2.9,
+                "ax": -0.05,
+                "ay": 0.85,
+                "az": -0.45
+              },
+              {
+                "u": 1,
+                "a": 4,
+                "r": 4.3,
+                "h": 2.5,
+                "dur": 1
+              }
+            ]
+          }
+        },
+        {
+          "f": 0.9,
+          "direction": "## 1c — his face, sweat\nClose on Tomás' face from the front. Sweat drops start at 20 % and run down from his temple. His eyes go to the abuela (screen left, 25 %), to Caro (55 %), then up over his shoulder to the suegro (80 %). Face \"worried\": brows up in the middle, mouth wavy. The mate stays at his chin. Camera very slow push-in.",
+          "anim": {
+            "world": "patio",
+            "light": "sun",
+            "seats": [
+              {
+                "x": 0.246,
+                "z": -0.918
+              },
+              {
+                "x": 0.839,
+                "z": -0.446
+              },
+              {
+                "x": -0.503,
+                "z": -0.806
+              },
+              {
+                "x": -0.949,
+                "z": -0.033
+              }
+            ],
+            "props": [
+              {
+                "id": "phone",
+                "kind": "phone",
+                "keys": [
+                  {
+                    "u": 0,
+                    "at": "cunado.R",
+                    "ry": -1.5707963267948966,
+                    "dy": -60
+                  }
+                ]
+              }
+            ],
+            "fx": [
+              {
+                "kind": "sweat",
+                "u0": 0.15,
+                "u1": 1,
+                "at": "vos.head"
+              }
+            ],
+            "sounds": [
+              {
+                "u": 0.5,
+                "type": "tick"
+              }
+            ],
+            "people": [
+              {
+                "id": "suegro",
+                "look": {
+                  "skin": "#f2c9a4",
+                  "hair": "#6b5a4a",
+                  "hairStyle": "short",
+                  "hat": "boina",
+                  "hatColor": "#2b2b2b",
+                  "mustache": true,
+                  "shirt": "#a8323a",
+                  "pants": "#6f7682",
+                  "termo": "#2f9e44"
+                },
+                "keys": [
+                  {
+                    "u": 0,
+                    "px": -0.31,
+                    "pz": -1.345,
+                    "faceTo": "vos",
+                    "hold": "termo",
+                    "L": [
+                      -40,
+                      -230
+                    ],
+                    "R": [
+                      60,
+                      -250
+                    ],
+                    "face": "neutral",
+                    "look": "vos"
+                  }
+                ]
+              },
+              {
+                "id": "vos",
+                "look": {
+                  "skin": "#f6d7bb",
+                  "hair": "#3a2416",
+                  "hairStyle": "short",
+                  "shirt": "#8fc3ea",
+                  "pants": "#d8c39a"
+                },
+                "keys": [
+                  {
+                    "u": 0,
+                    "px": 0.246,
+                    "pz": -0.918,
+                    "faceTo": "center",
+                    "sit": true,
+                    "s": 520,
+                    "face": "suck",
+                    "look": "abuela",
+                    "hold": "mate",
+                    "R": [
+                      40,
+                      -300
+                    ],
+                    "L": [
+                      -45,
+                      -235
+                    ],
+                    "suck": true
+                  },
+                  {
+                    "u": 0.5,
+                    "look": "novia"
+                  },
+                  {
+                    "u": 0.8,
+                    "look": "suegro",
+                    "face": "worried",
+                    "suck": false
+                  }
+                ]
+              },
+              {
+                "id": "abuela",
+                "look": {
+                  "skin": "#f3cba6",
+                  "hair": "#cfcfcf",
+                  "hairStyle": "bun",
+                  "glasses": true,
+                  "shirt": "#7c5a9e",
+                  "dress": "#8a8f96",
+                  "pants": "#8a8f96"
+                },
+                "keys": [
+                  {
+                    "u": 0,
+                    "px": 0.839,
+                    "pz": -0.446,
+                    "faceTo": "center",
+                    "sit": true,
+                    "s": 500,
+                    "face": "neutral",
+                    "look": "vos"
+                  }
+                ]
+              },
+              {
+                "id": "novia",
+                "look": {
+                  "skin": "#f6d7bb",
+                  "hair": "#3a2416",
+                  "hairStyle": "ponytail",
+                  "shirt": "#f2c53d",
+                  "pants": "#3b5b9a"
+                },
+                "keys": [
+                  {
+                    "u": 0,
+                    "px": -0.503,
+                    "pz": -0.806,
+                    "faceTo": "center",
+                    "sit": true,
+                    "s": 520,
+                    "face": "neutral",
+                    "look": "vos"
+                  }
+                ]
+              },
+              {
+                "id": "cunado",
+                "look": {
+                  "skin": "#f1c6a0",
+                  "hair": "#2a1a10",
+                  "hairStyle": "curly",
+                  "shirt": "#2f9e44",
+                  "pants": "#2b2f3a"
+                },
+                "keys": [
+                  {
+                    "u": 0,
+                    "px": -0.949,
+                    "pz": -0.033,
+                    "faceTo": "center",
+                    "sit": true,
+                    "s": 520,
+                    "face": "sly",
+                    "look": "vos",
+                    "R": [
+                      100,
+                      -330
+                    ]
+                  }
+                ]
+              }
+            ],
+            "cam3": [
+              {
+                "u": 0,
+                "on": "vos.head",
+                "a": -7,
+                "r": 1.9,
+                "h": 0,
+                "ax": 0,
+                "ay": 0.02,
+                "az": 0
+              },
+              {
+                "u": 1,
+                "r": 1.7,
+                "dur": 1
+              }
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "text": "Si chupás más fuerte, no sale nada.",
+      "emo": "tense",
+      "shots": [
+        {
+          "f": 1.1,
+          "direction": "## 2a — \"Si chupás más fuerte…\"\nThe viewer must see the first option being tried: he sucks harder. The voice says \"Si chupás más fuerte\" and the picture does exactly that on the word \"fuerte\".\n\nSame patio, same afternoon sun. Medium shot of Tomás from the front, a little to his right, so the suegro is out of frame for once: the threat is the empty bombilla now. Behind him the white wall, the bushes and the lemon tree, soft. The table edge and the cloth at the bottom.\n\nTomás: mate in the right hand at his mouth, bombilla between the lips. At the start he takes a breath (chest up), then on \"fuerte\" he bends forward about 15 degrees, cheeks puff up even more and go red, eyes bulge, brows jump to the top. Small shaking of the whole upper body (effort). The left hand grips his knee.\n\nCamera: starts at 1.3 m and pushes in to 1.0 m on \"fuerte\"; a small camera shake for the effort. Sound: two suck noises, the second longer and higher, then nothing.",
+          "anim": {
+            "world": "patio",
+            "light": "sun",
+            "seats": [
+              {
+                "x": 0.246,
+                "z": -0.918
+              },
+              {
+                "x": 0.839,
+                "z": -0.446
+              },
+              {
+                "x": -0.503,
+                "z": -0.806
+              },
+              {
+                "x": -0.949,
+                "z": -0.033
+              }
+            ],
+            "props": [
+              {
+                "id": "phone",
+                "kind": "phone",
+                "keys": [
+                  {
+                    "u": 0,
+                    "at": "cunado.R",
+                    "ry": -1.5707963267948966,
+                    "dy": -60
+                  }
+                ]
+              }
+            ],
+            "fx": [],
+            "sounds": [
+              {
+                "u": 0.1,
+                "type": "suck"
+              },
+              {
+                "u": 0.45,
+                "type": "suck"
+              }
+            ],
+            "people": [
+              {
+                "id": "suegro",
+                "look": {
+                  "skin": "#f2c9a4",
+                  "hair": "#6b5a4a",
+                  "hairStyle": "short",
+                  "hat": "boina",
+                  "hatColor": "#2b2b2b",
+                  "mustache": true,
+                  "shirt": "#a8323a",
+                  "pants": "#6f7682",
+                  "termo": "#2f9e44"
+                },
+                "keys": [
+                  {
+                    "u": 0,
+                    "px": -0.31,
+                    "pz": -1.345,
+                    "faceTo": "vos",
+                    "hold": "termo",
+                    "L": [
+                      -40,
+                      -230
+                    ],
+                    "R": [
+                      60,
+                      -250
+                    ],
+                    "face": "neutral",
+                    "look": "vos"
+                  }
+                ]
+              },
+              {
+                "id": "vos",
+                "look": {
+                  "skin": "#f6d7bb",
+                  "hair": "#3a2416",
+                  "hairStyle": "short",
+                  "shirt": "#8fc3ea",
+                  "pants": "#d8c39a"
+                },
+                "keys": [
+                  {
+                    "u": 0,
+                    "px": 0.246,
+                    "pz": -0.918,
+                    "faceTo": "center",
+                    "sit": true,
+                    "s": 520,
+                    "face": "suck",
+                    "look": null,
+                    "hold": "mate",
+                    "R": [
+                      40,
+                      -300
+                    ],
+                    "L": [
+                      -45,
+                      -235
+                    ],
+                    "suck": true,
+                    "bow": 0
+                  },
+                  {
+                    "u": 0.35,
+                    "bow": 0.25,
+                    "dur": 0.15,
+                    "L": [
+                      -60,
+                      -250
+                    ]
+                  }
+                ]
+              },
+              {
+                "id": "abuela",
+                "look": {
+                  "skin": "#f3cba6",
+                  "hair": "#cfcfcf",
+                  "hairStyle": "bun",
+                  "glasses": true,
+                  "shirt": "#7c5a9e",
+                  "dress": "#8a8f96",
+                  "pants": "#8a8f96"
+                },
+                "keys": [
+                  {
+                    "u": 0,
+                    "px": 0.839,
+                    "pz": -0.446,
+                    "faceTo": "center",
+                    "sit": true,
+                    "s": 500,
+                    "face": "neutral",
+                    "look": "vos"
+                  }
+                ]
+              },
+              {
+                "id": "novia",
+                "look": {
+                  "skin": "#f6d7bb",
+                  "hair": "#3a2416",
+                  "hairStyle": "ponytail",
+                  "shirt": "#f2c53d",
+                  "pants": "#3b5b9a"
+                },
+                "keys": [
+                  {
+                    "u": 0,
+                    "px": -0.503,
+                    "pz": -0.806,
+                    "faceTo": "center",
+                    "sit": true,
+                    "s": 520,
+                    "face": "neutral",
+                    "look": "vos"
+                  }
+                ]
+              },
+              {
+                "id": "cunado",
+                "look": {
+                  "skin": "#f1c6a0",
+                  "hair": "#2a1a10",
+                  "hairStyle": "curly",
+                  "shirt": "#2f9e44",
+                  "pants": "#2b2f3a"
+                },
+                "keys": [
+                  {
+                    "u": 0,
+                    "px": -0.949,
+                    "pz": -0.033,
+                    "faceTo": "center",
+                    "sit": true,
+                    "s": 520,
+                    "face": "sly",
+                    "look": "vos",
+                    "R": [
+                      100,
+                      -330
+                    ]
+                  }
+                ]
+              }
+            ],
+            "cam3": [
+              {
+                "u": 0,
+                "on": "vos.head",
+                "a": 0,
+                "r": 2.4,
+                "h": 0,
+                "ax": 0,
+                "ay": -0.08,
+                "az": 0
+              },
+              {
+                "u": 0.45,
+                "r": 1.9,
+                "dur": 0.15
+              }
+            ],
+            "shake": [
+              {
+                "u0": 0.4,
+                "u1": 0.95,
+                "a": 2
+              }
+            ]
+          }
+        },
+        {
+          "f": 1,
+          "direction": "## 2b — \"…no sale nada.\"\nNothing comes. He takes the bombilla out of his mouth and sits back, dizzy: crossed-out eyes become spirals (\"dizzy\" face), three small yellow stars circle above his head. The mate comes down to his chest, still in the right hand, still full and green (the clog stays: continuity for the next shots). His head wobbles once.\n\nCamera from slightly more to the side (30 degrees), 1.5 m, at face height, still. Behind him now the suegro is back in the frame, out of focus, arms crossed around the termo. Sound: a little sparkle when the stars appear.\n\nThe gag: he sucks so hard he almost faints, for a mate that gives nothing.",
+          "anim": {
+            "world": "patio",
+            "light": "sun",
+            "seats": [
+              {
+                "x": 0.246,
+                "z": -0.918
+              },
+              {
+                "x": 0.839,
+                "z": -0.446
+              },
+              {
+                "x": -0.503,
+                "z": -0.806
+              },
+              {
+                "x": -0.949,
+                "z": -0.033
+              }
+            ],
+            "props": [
+              {
+                "id": "phone",
+                "kind": "phone",
+                "keys": [
+                  {
+                    "u": 0,
+                    "at": "cunado.R",
+                    "ry": -1.5707963267948966,
+                    "dy": -60
+                  }
+                ]
+              }
+            ],
+            "fx": [
+              {
+                "kind": "stars",
+                "u0": 0.08,
+                "u1": 1,
+                "at": "vos.head"
+              }
+            ],
+            "sounds": [
+              {
+                "u": 0.08,
+                "type": "sparkle"
+              }
+            ],
+            "people": [
+              {
+                "id": "suegro",
+                "look": {
+                  "skin": "#f2c9a4",
+                  "hair": "#6b5a4a",
+                  "hairStyle": "short",
+                  "hat": "boina",
+                  "hatColor": "#2b2b2b",
+                  "mustache": true,
+                  "shirt": "#a8323a",
+                  "pants": "#6f7682",
+                  "termo": "#2f9e44"
+                },
+                "keys": [
+                  {
+                    "u": 0,
+                    "px": -0.31,
+                    "pz": -1.345,
+                    "faceTo": "vos",
+                    "hold": "termo",
+                    "L": [
+                      -40,
+                      -230
+                    ],
+                    "R": [
+                      60,
+                      -250
+                    ],
+                    "face": "neutral",
+                    "look": "vos"
+                  }
+                ]
+              },
+              {
+                "id": "vos",
+                "look": {
+                  "skin": "#f6d7bb",
+                  "hair": "#3a2416",
+                  "hairStyle": "short",
+                  "shirt": "#8fc3ea",
+                  "pants": "#d8c39a"
+                },
+                "keys": [
+                  {
+                    "u": 0,
+                    "px": 0.246,
+                    "pz": -0.918,
+                    "faceTo": "center",
+                    "sit": true,
+                    "s": 520,
+                    "face": "dizzy",
+                    "look": null,
+                    "hold": "mate",
+                    "R": [
+                      40,
+                      -270
+                    ],
+                    "L": [
+                      -45,
+                      -235
+                    ],
+                    "bow": -0.08
+                  }
+                ]
+              },
+              {
+                "id": "abuela",
+                "look": {
+                  "skin": "#f3cba6",
+                  "hair": "#cfcfcf",
+                  "hairStyle": "bun",
+                  "glasses": true,
+                  "shirt": "#7c5a9e",
+                  "dress": "#8a8f96",
+                  "pants": "#8a8f96"
+                },
+                "keys": [
+                  {
+                    "u": 0,
+                    "px": 0.839,
+                    "pz": -0.446,
+                    "faceTo": "center",
+                    "sit": true,
+                    "s": 500,
+                    "face": "neutral",
+                    "look": "vos"
+                  }
+                ]
+              },
+              {
+                "id": "novia",
+                "look": {
+                  "skin": "#f6d7bb",
+                  "hair": "#3a2416",
+                  "hairStyle": "ponytail",
+                  "shirt": "#f2c53d",
+                  "pants": "#3b5b9a"
+                },
+                "keys": [
+                  {
+                    "u": 0,
+                    "px": -0.503,
+                    "pz": -0.806,
+                    "faceTo": "center",
+                    "sit": true,
+                    "s": 520,
+                    "face": "neutral",
+                    "look": "vos"
+                  }
+                ]
+              },
+              {
+                "id": "cunado",
+                "look": {
+                  "skin": "#f1c6a0",
+                  "hair": "#2a1a10",
+                  "hairStyle": "curly",
+                  "shirt": "#2f9e44",
+                  "pants": "#2b2f3a"
+                },
+                "keys": [
+                  {
+                    "u": 0,
+                    "px": -0.949,
+                    "pz": -0.033,
+                    "faceTo": "center",
+                    "sit": true,
+                    "s": 520,
+                    "face": "sly",
+                    "look": "vos",
+                    "R": [
+                      100,
+                      -330
+                    ]
+                  }
+                ]
+              }
+            ],
+            "cam3": [
+              {
+                "u": 0,
+                "on": "vos.head",
+                "a": 15,
+                "r": 2.6,
+                "h": 0.02,
+                "ax": -0.15,
+                "ay": -0.05,
+                "az": 0
+              }
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "text": "Pero si movés la bombilla, el suegro no te lo perdona.",
+      "emo": "tense",
+      "shots": [
+        {
+          "f": 1,
+          "direction": "## 3a — \"Pero si movés la bombilla…\"\nThe second option: move the bombilla. Everyone in a ronda knows: you never touch the bombilla of someone else's mate; it is the cebador's work.\n\nExtreme close on the mate in Tomás' right hand: the calabaza with its green yerba top and the steel bombilla, his ball hand around the body of the gourd. His left hand comes in slowly from the screen right edge, on \"movés\", and stops two fingers away from the bombilla. It shakes a little. The background is the white tablecloth and the brick floor, very soft.\n\nCamera: at mate height, 0.7 m, still, the mate in the centre. Sound: a tick on \"bombilla\".",
+          "anim": {
+            "world": "patio",
+            "light": "sun",
+            "seats": [
+              {
+                "x": 0.246,
+                "z": -0.918
+              },
+              {
+                "x": 0.839,
+                "z": -0.446
+              },
+              {
+                "x": -0.503,
+                "z": -0.806
+              },
+              {
+                "x": -0.949,
+                "z": -0.033
+              }
+            ],
+            "props": [
+              {
+                "id": "phone",
+                "kind": "phone",
+                "keys": [
+                  {
+                    "u": 0,
+                    "at": "cunado.R",
+                    "ry": -1.5707963267948966,
+                    "dy": -60
+                  }
+                ]
+              }
+            ],
+            "fx": [],
+            "sounds": [
+              {
+                "u": 0.5,
+                "type": "tick"
+              }
+            ],
+            "people": [
+              {
+                "id": "suegro",
+                "look": {
+                  "skin": "#f2c9a4",
+                  "hair": "#6b5a4a",
+                  "hairStyle": "short",
+                  "hat": "boina",
+                  "hatColor": "#2b2b2b",
+                  "mustache": true,
+                  "shirt": "#a8323a",
+                  "pants": "#6f7682",
+                  "termo": "#2f9e44"
+                },
+                "keys": [
+                  {
+                    "u": 0,
+                    "px": -0.31,
+                    "pz": -1.345,
+                    "faceTo": "vos",
+                    "hold": "termo",
+                    "L": [
+                      -40,
+                      -230
+                    ],
+                    "R": [
+                      60,
+                      -250
+                    ],
+                    "face": "neutral",
+                    "look": "vos"
+                  }
+                ]
+              },
+              {
+                "id": "vos",
+                "look": {
+                  "skin": "#f6d7bb",
+                  "hair": "#3a2416",
+                  "hairStyle": "short",
+                  "shirt": "#8fc3ea",
+                  "pants": "#d8c39a"
+                },
+                "keys": [
+                  {
+                    "u": 0,
+                    "px": 0.246,
+                    "pz": -0.918,
+                    "faceTo": "center",
+                    "sit": true,
+                    "s": 520,
+                    "face": "worried",
+                    "look": null,
+                    "hold": "mate",
+                    "R": [
+                      40,
+                      -300
+                    ],
+                    "L": [
+                      -45,
+                      -235
+                    ]
+                  },
+                  {
+                    "u": 0.25,
+                    "L": [
+                      10,
+                      -310
+                    ],
+                    "dur": 0.25
+                  },
+                  {
+                    "u": 0.55,
+                    "L": "vos.mate",
+                    "dur": 0.25,
+                    "wiggleL": 4
+                  }
+                ]
+              },
+              {
+                "id": "abuela",
+                "look": {
+                  "skin": "#f3cba6",
+                  "hair": "#cfcfcf",
+                  "hairStyle": "bun",
+                  "glasses": true,
+                  "shirt": "#7c5a9e",
+                  "dress": "#8a8f96",
+                  "pants": "#8a8f96"
+                },
+                "keys": [
+                  {
+                    "u": 0,
+                    "px": 0.839,
+                    "pz": -0.446,
+                    "faceTo": "center",
+                    "sit": true,
+                    "s": 500,
+                    "face": "neutral",
+                    "look": "vos"
+                  }
+                ]
+              },
+              {
+                "id": "novia",
+                "look": {
+                  "skin": "#f6d7bb",
+                  "hair": "#3a2416",
+                  "hairStyle": "ponytail",
+                  "shirt": "#f2c53d",
+                  "pants": "#3b5b9a"
+                },
+                "keys": [
+                  {
+                    "u": 0,
+                    "px": -0.503,
+                    "pz": -0.806,
+                    "faceTo": "center",
+                    "sit": true,
+                    "s": 520,
+                    "face": "neutral",
+                    "look": "vos"
+                  }
+                ]
+              },
+              {
+                "id": "cunado",
+                "look": {
+                  "skin": "#f1c6a0",
+                  "hair": "#2a1a10",
+                  "hairStyle": "curly",
+                  "shirt": "#2f9e44",
+                  "pants": "#2b2f3a"
+                },
+                "keys": [
+                  {
+                    "u": 0,
+                    "px": -0.949,
+                    "pz": -0.033,
+                    "faceTo": "center",
+                    "sit": true,
+                    "s": 520,
+                    "face": "sly",
+                    "look": "vos",
+                    "R": [
+                      100,
+                      -330
+                    ]
+                  }
+                ]
+              }
+            ],
+            "cam3": [
+              {
+                "u": 0,
+                "on": "vos.mate",
+                "a": -5,
+                "r": 1.35,
+                "h": 0.15,
+                "ax": 0,
+                "ay": 0.08,
+                "az": 0
+              }
+            ]
+          }
+        },
+        {
+          "f": 1,
+          "direction": "## 3b — the suegro's eyes\nPush-in on Don Rubén's face, from his front, slightly below (low angle = power). His lids drop to half, the inner corners of the brows go down, the moustache goes straight: face \"angry\" at the start, \"rage\" from 60 % on. His head turns to Tomás' hand. The termo in his left hand, at hip height, does not move. Behind him the blue sky and the string lights.\n\nCamera: 1.2 m → 0.8 m, slow, steady. Sound: a low buzz at 60 %.",
+          "anim": {
+            "world": "patio",
+            "light": "sun",
+            "seats": [
+              {
+                "x": 0.246,
+                "z": -0.918
+              },
+              {
+                "x": 0.839,
+                "z": -0.446
+              },
+              {
+                "x": -0.503,
+                "z": -0.806
+              },
+              {
+                "x": -0.949,
+                "z": -0.033
+              }
+            ],
+            "props": [
+              {
+                "id": "phone",
+                "kind": "phone",
+                "keys": [
+                  {
+                    "u": 0,
+                    "at": "cunado.R",
+                    "ry": -1.5707963267948966,
+                    "dy": -60
+                  }
+                ]
+              }
+            ],
+            "fx": [],
+            "sounds": [
+              {
+                "u": 0.6,
+                "type": "buzz"
+              }
+            ],
+            "people": [
+              {
+                "id": "suegro",
+                "look": {
+                  "skin": "#f2c9a4",
+                  "hair": "#6b5a4a",
+                  "hairStyle": "short",
+                  "hat": "boina",
+                  "hatColor": "#2b2b2b",
+                  "mustache": true,
+                  "shirt": "#a8323a",
+                  "pants": "#6f7682",
+                  "termo": "#2f9e44"
+                },
+                "keys": [
+                  {
+                    "u": 0,
+                    "px": -0.31,
+                    "pz": -1.345,
+                    "faceTo": "vos",
+                    "hold": "termo",
+                    "L": [
+                      -40,
+                      -230
+                    ],
+                    "R": [
+                      60,
+                      -250
+                    ],
+                    "face": "angry",
+                    "look": "vos"
+                  },
+                  {
+                    "u": 0.6,
+                    "face": "rage"
+                  }
+                ]
+              },
+              {
+                "id": "vos",
+                "look": {
+                  "skin": "#f6d7bb",
+                  "hair": "#3a2416",
+                  "hairStyle": "short",
+                  "shirt": "#8fc3ea",
+                  "pants": "#d8c39a"
+                },
+                "keys": [
+                  {
+                    "u": 0,
+                    "px": 0.246,
+                    "pz": -0.918,
+                    "faceTo": "center",
+                    "sit": true,
+                    "s": 520,
+                    "face": "worried",
+                    "look": "suegro",
+                    "hold": "mate",
+                    "R": [
+                      40,
+                      -300
+                    ],
+                    "L": "vos.mate"
+                  }
+                ]
+              },
+              {
+                "id": "abuela",
+                "look": {
+                  "skin": "#f3cba6",
+                  "hair": "#cfcfcf",
+                  "hairStyle": "bun",
+                  "glasses": true,
+                  "shirt": "#7c5a9e",
+                  "dress": "#8a8f96",
+                  "pants": "#8a8f96"
+                },
+                "keys": [
+                  {
+                    "u": 0,
+                    "px": 0.839,
+                    "pz": -0.446,
+                    "faceTo": "center",
+                    "sit": true,
+                    "s": 500,
+                    "face": "neutral",
+                    "look": "vos"
+                  }
+                ]
+              },
+              {
+                "id": "novia",
+                "look": {
+                  "skin": "#f6d7bb",
+                  "hair": "#3a2416",
+                  "hairStyle": "ponytail",
+                  "shirt": "#f2c53d",
+                  "pants": "#3b5b9a"
+                },
+                "keys": [
+                  {
+                    "u": 0,
+                    "px": -0.503,
+                    "pz": -0.806,
+                    "faceTo": "center",
+                    "sit": true,
+                    "s": 520,
+                    "face": "neutral",
+                    "look": "vos"
+                  }
+                ]
+              },
+              {
+                "id": "cunado",
+                "look": {
+                  "skin": "#f1c6a0",
+                  "hair": "#2a1a10",
+                  "hairStyle": "curly",
+                  "shirt": "#2f9e44",
+                  "pants": "#2b2f3a"
+                },
+                "keys": [
+                  {
+                    "u": 0,
+                    "px": -0.949,
+                    "pz": -0.033,
+                    "faceTo": "center",
+                    "sit": true,
+                    "s": 520,
+                    "face": "sly",
+                    "look": "vos",
+                    "R": [
+                      100,
+                      -330
+                    ]
+                  }
+                ]
+              }
+            ],
+            "cam3": [
+              {
+                "u": 0,
+                "on": "suegro.head",
+                "a": 13,
+                "r": 2.3,
+                "h": -0.3,
+                "ax": 0,
+                "ay": 0.02,
+                "az": 0
+              },
+              {
+                "u": 1,
+                "r": 1.7,
+                "h": -0.2,
+                "dur": 1
+              }
+            ]
+          }
+        },
+        {
+          "f": 1,
+          "direction": "## 3c — \"…el suegro no te lo perdona.\"\nWide from the camera side of the table: the whole ronda. Nélida (right) brings both hands to her cheeks, face \"shock\", glasses flash. Facu (left) leans the phone closer, face \"sly\", then \"laugh\". Caro freezes, face \"scared\". Tomás pulls his left hand back to his knee at 50 % (he did not dare), face \"worried\". The dog's head is up.\n\nCamera still, 3 m, at 1.6 m height. Sound: a whoosh as the hand pulls back.",
+          "anim": {
+            "world": "patio",
+            "light": "sun",
+            "seats": [
+              {
+                "x": 0.246,
+                "z": -0.918
+              },
+              {
+                "x": 0.839,
+                "z": -0.446
+              },
+              {
+                "x": -0.503,
+                "z": -0.806
+              },
+              {
+                "x": -0.949,
+                "z": -0.033
+              }
+            ],
+            "props": [
+              {
+                "id": "phone",
+                "kind": "phone",
+                "keys": [
+                  {
+                    "u": 0,
+                    "at": "cunado.R",
+                    "ry": -1.5707963267948966,
+                    "dy": -60
+                  }
+                ]
+              }
+            ],
+            "fx": [],
+            "sounds": [
+              {
+                "u": 0.5,
+                "type": "whoosh"
+              }
+            ],
+            "people": [
+              {
+                "id": "suegro",
+                "look": {
+                  "skin": "#f2c9a4",
+                  "hair": "#6b5a4a",
+                  "hairStyle": "short",
+                  "hat": "boina",
+                  "hatColor": "#2b2b2b",
+                  "mustache": true,
+                  "shirt": "#a8323a",
+                  "pants": "#6f7682",
+                  "termo": "#2f9e44"
+                },
+                "keys": [
+                  {
+                    "u": 0,
+                    "px": -0.31,
+                    "pz": -1.345,
+                    "faceTo": "vos",
+                    "hold": "termo",
+                    "L": [
+                      -40,
+                      -230
+                    ],
+                    "R": [
+                      60,
+                      -250
+                    ],
+                    "face": "rage",
+                    "look": "vos"
+                  }
+                ]
+              },
+              {
+                "id": "vos",
+                "look": {
+                  "skin": "#f6d7bb",
+                  "hair": "#3a2416",
+                  "hairStyle": "short",
+                  "shirt": "#8fc3ea",
+                  "pants": "#d8c39a"
+                },
+                "keys": [
+                  {
+                    "u": 0,
+                    "px": 0.246,
+                    "pz": -0.918,
+                    "faceTo": "center",
+                    "sit": true,
+                    "s": 520,
+                    "face": "scared",
+                    "look": "suegro",
+                    "hold": "mate",
+                    "R": [
+                      40,
+                      -300
+                    ],
+                    "L": "vos.mate"
+                  },
+                  {
+                    "u": 0.5,
+                    "L": [
+                      -45,
+                      -235
+                    ],
+                    "face": "worried"
+                  }
+                ]
+              },
+              {
+                "id": "abuela",
+                "look": {
+                  "skin": "#f3cba6",
+                  "hair": "#cfcfcf",
+                  "hairStyle": "bun",
+                  "glasses": true,
+                  "shirt": "#7c5a9e",
+                  "dress": "#8a8f96",
+                  "pants": "#8a8f96"
+                },
+                "keys": [
+                  {
+                    "u": 0,
+                    "px": 0.839,
+                    "pz": -0.446,
+                    "faceTo": "center",
+                    "sit": true,
+                    "s": 500,
+                    "face": "shock",
+                    "look": "vos",
+                    "L": [
+                      -35,
+                      -440
+                    ],
+                    "R": [
+                      35,
+                      -440
+                    ]
+                  }
+                ]
+              },
+              {
+                "id": "novia",
+                "look": {
+                  "skin": "#f6d7bb",
+                  "hair": "#3a2416",
+                  "hairStyle": "ponytail",
+                  "shirt": "#f2c53d",
+                  "pants": "#3b5b9a"
+                },
+                "keys": [
+                  {
+                    "u": 0,
+                    "px": -0.503,
+                    "pz": -0.806,
+                    "faceTo": "center",
+                    "sit": true,
+                    "s": 520,
+                    "face": "scared",
+                    "look": "vos"
+                  }
+                ]
+              },
+              {
+                "id": "cunado",
+                "look": {
+                  "skin": "#f1c6a0",
+                  "hair": "#2a1a10",
+                  "hairStyle": "curly",
+                  "shirt": "#2f9e44",
+                  "pants": "#2b2f3a"
+                },
+                "keys": [
+                  {
+                    "u": 0,
+                    "px": -0.949,
+                    "pz": -0.033,
+                    "faceTo": "center",
+                    "sit": true,
+                    "s": 520,
+                    "face": "sly",
+                    "look": "vos",
+                    "R": [
+                      100,
+                      -330
+                    ]
+                  },
+                  {
+                    "u": 0.55,
+                    "face": "laugh",
+                    "jump": 0.03
+                  }
+                ]
+              }
+            ],
+            "dogUp": 0,
+            "cam3": [
+              {
+                "u": 0,
+                "a": 6,
+                "r": 4.7,
+                "h": 2.1,
+                "ax": 0,
+                "ay": 0.85,
+                "az": -0.35
+              },
+              {
+                "u": 1,
+                "a": 0,
+                "r": 4.4,
+                "dur": 1
+              }
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "text": "Y si le avisás, quedás como que su mate está mal cebado.",
+      "emo": "tense",
+      "shots": [
+        {
+          "f": 1,
+          "direction": "## 4a — \"Y si le avisás…\"\nThe third option: tell the cebador. Over the suegro's shoulder: in the foreground the back of his boina and his red shoulder (screen left), in the middle Tomás looking up at him. Tomás turns his head to the suegro, lifts his left index finger (hand up to shoulder height), opens his mouth: face \"surprised\", as if he is about to say \"disculpe…\". The mate stays in his right hand.\n\nCamera: behind the suegro, 1.6 m from Tomás, at Tomás' eye height. Still. Sound: a short pop on \"avisás\".",
+          "anim": {
+            "world": "patio",
+            "light": "sun",
+            "seats": [
+              {
+                "x": 0.246,
+                "z": -0.918
+              },
+              {
+                "x": 0.839,
+                "z": -0.446
+              },
+              {
+                "x": -0.503,
+                "z": -0.806
+              },
+              {
+                "x": -0.949,
+                "z": -0.033
+              }
+            ],
+            "props": [
+              {
+                "id": "phone",
+                "kind": "phone",
+                "keys": [
+                  {
+                    "u": 0,
+                    "at": "cunado.R",
+                    "ry": -1.5707963267948966,
+                    "dy": -60
+                  }
+                ]
+              }
+            ],
+            "fx": [],
+            "sounds": [
+              {
+                "u": 0.3,
+                "type": "pop"
+              }
+            ],
+            "people": [
+              {
+                "id": "suegro",
+                "look": {
+                  "skin": "#f2c9a4",
+                  "hair": "#6b5a4a",
+                  "hairStyle": "short",
+                  "hat": "boina",
+                  "hatColor": "#2b2b2b",
+                  "mustache": true,
+                  "shirt": "#a8323a",
+                  "pants": "#6f7682",
+                  "termo": "#2f9e44"
+                },
+                "keys": [
+                  {
+                    "u": 0,
+                    "px": -0.31,
+                    "pz": -1.345,
+                    "faceTo": "vos",
+                    "hold": "termo",
+                    "L": [
+                      -40,
+                      -230
+                    ],
+                    "R": [
+                      60,
+                      -250
+                    ],
+                    "face": "neutral",
+                    "look": "vos"
+                  }
+                ]
+              },
+              {
+                "id": "vos",
+                "look": {
+                  "skin": "#f6d7bb",
+                  "hair": "#3a2416",
+                  "hairStyle": "short",
+                  "shirt": "#8fc3ea",
+                  "pants": "#d8c39a"
+                },
+                "keys": [
+                  {
+                    "u": 0,
+                    "px": 0.246,
+                    "pz": -0.918,
+                    "faceTo": "center",
+                    "sit": true,
+                    "s": 520,
+                    "face": "surprised",
+                    "look": "suegro",
+                    "hold": "mate",
+                    "R": [
+                      40,
+                      -300
+                    ],
+                    "L": [
+                      -40,
+                      -440
+                    ]
+                  }
+                ]
+              },
+              {
+                "id": "abuela",
+                "look": {
+                  "skin": "#f3cba6",
+                  "hair": "#cfcfcf",
+                  "hairStyle": "bun",
+                  "glasses": true,
+                  "shirt": "#7c5a9e",
+                  "dress": "#8a8f96",
+                  "pants": "#8a8f96"
+                },
+                "keys": [
+                  {
+                    "u": 0,
+                    "px": 0.839,
+                    "pz": -0.446,
+                    "faceTo": "center",
+                    "sit": true,
+                    "s": 500,
+                    "face": "neutral",
+                    "look": "vos"
+                  }
+                ]
+              },
+              {
+                "id": "novia",
+                "look": {
+                  "skin": "#f6d7bb",
+                  "hair": "#3a2416",
+                  "hairStyle": "ponytail",
+                  "shirt": "#f2c53d",
+                  "pants": "#3b5b9a"
+                },
+                "keys": [
+                  {
+                    "u": 0,
+                    "px": -0.503,
+                    "pz": -0.806,
+                    "faceTo": "center",
+                    "sit": true,
+                    "s": 520,
+                    "face": "neutral",
+                    "look": "vos"
+                  }
+                ]
+              },
+              {
+                "id": "cunado",
+                "look": {
+                  "skin": "#f1c6a0",
+                  "hair": "#2a1a10",
+                  "hairStyle": "curly",
+                  "shirt": "#2f9e44",
+                  "pants": "#2b2f3a"
+                },
+                "keys": [
+                  {
+                    "u": 0,
+                    "px": -0.949,
+                    "pz": -0.033,
+                    "faceTo": "center",
+                    "sit": true,
+                    "s": 520,
+                    "face": "sly",
+                    "look": "vos",
+                    "R": [
+                      100,
+                      -330
+                    ]
+                  }
+                ]
+              }
+            ],
+            "cam3": [
+              {
+                "u": 0,
+                "on": "vos.head",
+                "a": 10,
+                "r": 2.6,
+                "h": 0.05,
+                "ax": -0.25,
+                "ay": 0.1,
+                "az": 0
+              },
+              {
+                "u": 1,
+                "r": 2.3,
+                "dur": 1
+              }
+            ]
+          }
+        },
+        {
+          "f": 1.2,
+          "direction": "## 4b — \"…quedás como que su mate está mal cebado.\"\nDon Rubén, proud: he leans back a little (chest out), lifts the green termo to chest height, face \"proud\": lids half down, a smirk under the moustache. He is the cebador of the house; a bad mate would be an insult to him. Low angle from the front, 1.4 m; behind him the sky. He nods twice slowly.",
+          "anim": {
+            "world": "patio",
+            "light": "sun",
+            "seats": [
+              {
+                "x": 0.246,
+                "z": -0.918
+              },
+              {
+                "x": 0.839,
+                "z": -0.446
+              },
+              {
+                "x": -0.503,
+                "z": -0.806
+              },
+              {
+                "x": -0.949,
+                "z": -0.033
+              }
+            ],
+            "props": [
+              {
+                "id": "phone",
+                "kind": "phone",
+                "keys": [
+                  {
+                    "u": 0,
+                    "at": "cunado.R",
+                    "ry": -1.5707963267948966,
+                    "dy": -60
+                  }
+                ]
+              }
+            ],
+            "fx": [],
+            "sounds": [
+              {
+                "u": 0.2,
+                "type": "ding"
+              }
+            ],
+            "people": [
+              {
+                "id": "suegro",
+                "look": {
+                  "skin": "#f2c9a4",
+                  "hair": "#6b5a4a",
+                  "hairStyle": "short",
+                  "hat": "boina",
+                  "hatColor": "#2b2b2b",
+                  "mustache": true,
+                  "shirt": "#a8323a",
+                  "pants": "#6f7682",
+                  "termo": "#2f9e44"
+                },
+                "keys": [
+                  {
+                    "u": 0,
+                    "px": -0.31,
+                    "pz": -1.345,
+                    "faceTo": "vos",
+                    "hold": "termo",
+                    "L": [
+                      -70,
+                      -290
+                    ],
+                    "R": [
+                      60,
+                      -250
+                    ],
+                    "face": "proud",
+                    "look": "vos",
+                    "bow": -0.15,
+                    "nod": 0.12
+                  }
+                ]
+              },
+              {
+                "id": "vos",
+                "look": {
+                  "skin": "#f6d7bb",
+                  "hair": "#3a2416",
+                  "hairStyle": "short",
+                  "shirt": "#8fc3ea",
+                  "pants": "#d8c39a"
+                },
+                "keys": [
+                  {
+                    "u": 0,
+                    "px": 0.246,
+                    "pz": -0.918,
+                    "faceTo": "center",
+                    "sit": true,
+                    "s": 520,
+                    "face": "worried",
+                    "look": "suegro",
+                    "hold": "mate",
+                    "R": [
+                      40,
+                      -300
+                    ],
+                    "L": [
+                      -45,
+                      -235
+                    ]
+                  }
+                ]
+              },
+              {
+                "id": "abuela",
+                "look": {
+                  "skin": "#f3cba6",
+                  "hair": "#cfcfcf",
+                  "hairStyle": "bun",
+                  "glasses": true,
+                  "shirt": "#7c5a9e",
+                  "dress": "#8a8f96",
+                  "pants": "#8a8f96"
+                },
+                "keys": [
+                  {
+                    "u": 0,
+                    "px": 0.839,
+                    "pz": -0.446,
+                    "faceTo": "center",
+                    "sit": true,
+                    "s": 500,
+                    "face": "neutral",
+                    "look": "vos"
+                  }
+                ]
+              },
+              {
+                "id": "novia",
+                "look": {
+                  "skin": "#f6d7bb",
+                  "hair": "#3a2416",
+                  "hairStyle": "ponytail",
+                  "shirt": "#f2c53d",
+                  "pants": "#3b5b9a"
+                },
+                "keys": [
+                  {
+                    "u": 0,
+                    "px": -0.503,
+                    "pz": -0.806,
+                    "faceTo": "center",
+                    "sit": true,
+                    "s": 520,
+                    "face": "neutral",
+                    "look": "vos"
+                  }
+                ]
+              },
+              {
+                "id": "cunado",
+                "look": {
+                  "skin": "#f1c6a0",
+                  "hair": "#2a1a10",
+                  "hairStyle": "curly",
+                  "shirt": "#2f9e44",
+                  "pants": "#2b2f3a"
+                },
+                "keys": [
+                  {
+                    "u": 0,
+                    "px": -0.949,
+                    "pz": -0.033,
+                    "faceTo": "center",
+                    "sit": true,
+                    "s": 520,
+                    "face": "sly",
+                    "look": "vos",
+                    "R": [
+                      100,
+                      -330
+                    ]
+                  }
+                ]
+              }
+            ],
+            "cam3": [
+              {
+                "u": 0,
+                "on": "suegro.head",
+                "a": 17,
+                "r": 2.3,
+                "h": -0.22,
+                "ax": 0,
+                "ay": -0.05,
+                "az": 0
+              },
+              {
+                "u": 1,
+                "r": 2,
+                "dur": 1
+              }
+            ]
+          }
+        },
+        {
+          "f": 0.9,
+          "direction": "## 4c — Caro shakes her head\nClose on Caro from the front: she looks at Tomás and shakes her head small and fast (no, no, no), face \"scared\": brows up, eyes wide, mouth wavy. Her ponytail swings. Camera 1.1 m, still. Sound: a swish.",
+          "anim": {
+            "world": "patio",
+            "light": "sun",
+            "seats": [
+              {
+                "x": 0.246,
+                "z": -0.918
+              },
+              {
+                "x": 0.839,
+                "z": -0.446
+              },
+              {
+                "x": -0.503,
+                "z": -0.806
+              },
+              {
+                "x": -0.949,
+                "z": -0.033
+              }
+            ],
+            "props": [
+              {
+                "id": "phone",
+                "kind": "phone",
+                "keys": [
+                  {
+                    "u": 0,
+                    "at": "cunado.R",
+                    "ry": -1.5707963267948966,
+                    "dy": -60
+                  }
+                ]
+              }
+            ],
+            "fx": [],
+            "sounds": [
+              {
+                "u": 0.1,
+                "type": "swish"
+              }
+            ],
+            "people": [
+              {
+                "id": "suegro",
+                "look": {
+                  "skin": "#f2c9a4",
+                  "hair": "#6b5a4a",
+                  "hairStyle": "short",
+                  "hat": "boina",
+                  "hatColor": "#2b2b2b",
+                  "mustache": true,
+                  "shirt": "#a8323a",
+                  "pants": "#6f7682",
+                  "termo": "#2f9e44"
+                },
+                "keys": [
+                  {
+                    "u": 0,
+                    "px": -0.31,
+                    "pz": -1.345,
+                    "faceTo": "vos",
+                    "hold": "termo",
+                    "L": [
+                      -40,
+                      -230
+                    ],
+                    "R": [
+                      60,
+                      -250
+                    ],
+                    "face": "neutral",
+                    "look": "vos"
+                  }
+                ]
+              },
+              {
+                "id": "vos",
+                "look": {
+                  "skin": "#f6d7bb",
+                  "hair": "#3a2416",
+                  "hairStyle": "short",
+                  "shirt": "#8fc3ea",
+                  "pants": "#d8c39a"
+                },
+                "keys": [
+                  {
+                    "u": 0,
+                    "px": 0.246,
+                    "pz": -0.918,
+                    "faceTo": "center",
+                    "sit": true,
+                    "s": 520,
+                    "face": "worried",
+                    "look": "cam",
+                    "hold": "mate",
+                    "R": [
+                      40,
+                      -300
+                    ],
+                    "L": [
+                      -45,
+                      -235
+                    ]
+                  }
+                ]
+              },
+              {
+                "id": "abuela",
+                "look": {
+                  "skin": "#f3cba6",
+                  "hair": "#cfcfcf",
+                  "hairStyle": "bun",
+                  "glasses": true,
+                  "shirt": "#7c5a9e",
+                  "dress": "#8a8f96",
+                  "pants": "#8a8f96"
+                },
+                "keys": [
+                  {
+                    "u": 0,
+                    "px": 0.839,
+                    "pz": -0.446,
+                    "faceTo": "center",
+                    "sit": true,
+                    "s": 500,
+                    "face": "neutral",
+                    "look": "vos"
+                  }
+                ]
+              },
+              {
+                "id": "novia",
+                "look": {
+                  "skin": "#f6d7bb",
+                  "hair": "#3a2416",
+                  "hairStyle": "ponytail",
+                  "shirt": "#f2c53d",
+                  "pants": "#3b5b9a"
+                },
+                "keys": [
+                  {
+                    "u": 0,
+                    "px": -0.503,
+                    "pz": -0.806,
+                    "faceTo": "center",
+                    "sit": true,
+                    "s": 520,
+                    "face": "scared",
+                    "look": "cam",
+                    "hshake": 0.35
+                  }
+                ]
+              },
+              {
+                "id": "cunado",
+                "look": {
+                  "skin": "#f1c6a0",
+                  "hair": "#2a1a10",
+                  "hairStyle": "curly",
+                  "shirt": "#2f9e44",
+                  "pants": "#2b2f3a"
+                },
+                "keys": [
+                  {
+                    "u": 0,
+                    "px": -0.949,
+                    "pz": -0.033,
+                    "faceTo": "center",
+                    "sit": true,
+                    "s": 520,
+                    "face": "sly",
+                    "look": "vos",
+                    "R": [
+                      100,
+                      -330
+                    ]
+                  }
+                ]
+              }
+            ],
+            "cam3": [
+              {
+                "u": 0,
+                "on": "novia.head",
+                "a": 17,
+                "r": 1.9,
+                "h": 0,
+                "ax": 0,
+                "ay": -0.03,
+                "az": 0
+              }
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "text": "Tenés tres segundos: tres, dos, uno.",
+      "emo": "tense",
+      "shots": [
+        {
+          "f": 1.4,
+          "direction": "## 5a — \"Tenés tres segundos\"\nHigh wide of the ronda from the camera side, slow push-in toward Tomás: everyone looks at him (Nélida, Caro, Facu with the phone, the suegro standing behind him). Nobody moves; only the lemon tree leaves and the smoke of the parrilla. Camera from 3.4 m to 2.4 m, height 2.4 m → 1.9 m. Sound: ticks.",
+          "anim": {
+            "world": "patio",
+            "light": "sun",
+            "seats": [
+              {
+                "x": 0.246,
+                "z": -0.918
+              },
+              {
+                "x": 0.839,
+                "z": -0.446
+              },
+              {
+                "x": -0.503,
+                "z": -0.806
+              },
+              {
+                "x": -0.949,
+                "z": -0.033
+              }
+            ],
+            "props": [
+              {
+                "id": "phone",
+                "kind": "phone",
+                "keys": [
+                  {
+                    "u": 0,
+                    "at": "cunado.R",
+                    "ry": -1.5707963267948966,
+                    "dy": -60
+                  }
+                ]
+              }
+            ],
+            "fx": [],
+            "sounds": [
+              {
+                "u": 0.2,
+                "type": "tick"
+              },
+              {
+                "u": 0.7,
+                "type": "tick"
+              }
+            ],
+            "people": [
+              {
+                "id": "suegro",
+                "look": {
+                  "skin": "#f2c9a4",
+                  "hair": "#6b5a4a",
+                  "hairStyle": "short",
+                  "hat": "boina",
+                  "hatColor": "#2b2b2b",
+                  "mustache": true,
+                  "shirt": "#a8323a",
+                  "pants": "#6f7682",
+                  "termo": "#2f9e44"
+                },
+                "keys": [
+                  {
+                    "u": 0,
+                    "px": -0.31,
+                    "pz": -1.345,
+                    "faceTo": "vos",
+                    "hold": "termo",
+                    "L": [
+                      -40,
+                      -230
+                    ],
+                    "R": [
+                      60,
+                      -250
+                    ],
+                    "face": "angry",
+                    "look": "vos"
+                  }
+                ]
+              },
+              {
+                "id": "vos",
+                "look": {
+                  "skin": "#f6d7bb",
+                  "hair": "#3a2416",
+                  "hairStyle": "short",
+                  "shirt": "#8fc3ea",
+                  "pants": "#d8c39a"
+                },
+                "keys": [
+                  {
+                    "u": 0,
+                    "px": 0.246,
+                    "pz": -0.918,
+                    "faceTo": "center",
+                    "sit": true,
+                    "s": 520,
+                    "face": "scared",
+                    "look": "cam",
+                    "hold": "mate",
+                    "R": [
+                      40,
+                      -300
+                    ],
+                    "L": [
+                      -45,
+                      -235
+                    ]
+                  }
+                ]
+              },
+              {
+                "id": "abuela",
+                "look": {
+                  "skin": "#f3cba6",
+                  "hair": "#cfcfcf",
+                  "hairStyle": "bun",
+                  "glasses": true,
+                  "shirt": "#7c5a9e",
+                  "dress": "#8a8f96",
+                  "pants": "#8a8f96"
+                },
+                "keys": [
+                  {
+                    "u": 0,
+                    "px": 0.839,
+                    "pz": -0.446,
+                    "faceTo": "center",
+                    "sit": true,
+                    "s": 500,
+                    "face": "worried",
+                    "look": "vos"
+                  }
+                ]
+              },
+              {
+                "id": "novia",
+                "look": {
+                  "skin": "#f6d7bb",
+                  "hair": "#3a2416",
+                  "hairStyle": "ponytail",
+                  "shirt": "#f2c53d",
+                  "pants": "#3b5b9a"
+                },
+                "keys": [
+                  {
+                    "u": 0,
+                    "px": -0.503,
+                    "pz": -0.806,
+                    "faceTo": "center",
+                    "sit": true,
+                    "s": 520,
+                    "face": "worried",
+                    "look": "vos"
+                  }
+                ]
+              },
+              {
+                "id": "cunado",
+                "look": {
+                  "skin": "#f1c6a0",
+                  "hair": "#2a1a10",
+                  "hairStyle": "curly",
+                  "shirt": "#2f9e44",
+                  "pants": "#2b2f3a"
+                },
+                "keys": [
+                  {
+                    "u": 0,
+                    "px": -0.949,
+                    "pz": -0.033,
+                    "faceTo": "center",
+                    "sit": true,
+                    "s": 520,
+                    "face": "sly",
+                    "look": "vos",
+                    "R": [
+                      100,
+                      -330
+                    ]
+                  }
+                ]
+              }
+            ],
+            "dogUp": 0,
+            "cam3": [
+              {
+                "u": 0,
+                "a": 4,
+                "r": 5,
+                "h": 2.6,
+                "ax": 0.05,
+                "ay": 0.85,
+                "az": -0.45
+              },
+              {
+                "u": 1,
+                "r": 3.2,
+                "h": 1.9,
+                "ax": 0.2,
+                "az": -0.8,
+                "dur": 1
+              }
+            ]
+          }
+        },
+        {
+          "f": 0.8,
+          "direction": "## 5b — \"tres\"\nClose on Tomás' face, sweat. A big number \"3\" punches in at the top of the frame in a dark-brown circle with a terracotta ring that runs out. Camera 1.0 m, the face in the lower half of the frame so the number never covers it. Sound: tick.",
+          "anim": {
+            "world": "patio",
+            "light": "sun",
+            "seats": [
+              {
+                "x": 0.246,
+                "z": -0.918
+              },
+              {
+                "x": 0.839,
+                "z": -0.446
+              },
+              {
+                "x": -0.503,
+                "z": -0.806
+              },
+              {
+                "x": -0.949,
+                "z": -0.033
+              }
+            ],
+            "props": [
+              {
+                "id": "phone",
+                "kind": "phone",
+                "keys": [
+                  {
+                    "u": 0,
+                    "at": "cunado.R",
+                    "ry": -1.5707963267948966,
+                    "dy": -60
+                  }
+                ]
+              }
+            ],
+            "fx": [
+              {
+                "kind": "sweat",
+                "u0": 0,
+                "u1": 1,
+                "at": "vos.head"
+              }
+            ],
+            "sounds": [
+              {
+                "u": 0.02,
+                "type": "tick"
+              }
+            ],
+            "people": [
+              {
+                "id": "suegro",
+                "look": {
+                  "skin": "#f2c9a4",
+                  "hair": "#6b5a4a",
+                  "hairStyle": "short",
+                  "hat": "boina",
+                  "hatColor": "#2b2b2b",
+                  "mustache": true,
+                  "shirt": "#a8323a",
+                  "pants": "#6f7682",
+                  "termo": "#2f9e44"
+                },
+                "keys": [
+                  {
+                    "u": 0,
+                    "px": -0.31,
+                    "pz": -1.345,
+                    "faceTo": "vos",
+                    "hold": "termo",
+                    "L": [
+                      -40,
+                      -230
+                    ],
+                    "R": [
+                      60,
+                      -250
+                    ],
+                    "face": "angry",
+                    "look": "vos"
+                  }
+                ]
+              },
+              {
+                "id": "vos",
+                "look": {
+                  "skin": "#f6d7bb",
+                  "hair": "#3a2416",
+                  "hairStyle": "short",
+                  "shirt": "#8fc3ea",
+                  "pants": "#d8c39a"
+                },
+                "keys": [
+                  {
+                    "u": 0,
+                    "px": 0.246,
+                    "pz": -0.918,
+                    "faceTo": "center",
+                    "sit": true,
+                    "s": 520,
+                    "face": "scared",
+                    "look": "cam",
+                    "hold": "mate",
+                    "R": [
+                      40,
+                      -300
+                    ],
+                    "L": [
+                      -45,
+                      -235
+                    ]
+                  }
+                ]
+              },
+              {
+                "id": "abuela",
+                "look": {
+                  "skin": "#f3cba6",
+                  "hair": "#cfcfcf",
+                  "hairStyle": "bun",
+                  "glasses": true,
+                  "shirt": "#7c5a9e",
+                  "dress": "#8a8f96",
+                  "pants": "#8a8f96"
+                },
+                "keys": [
+                  {
+                    "u": 0,
+                    "px": 0.839,
+                    "pz": -0.446,
+                    "faceTo": "center",
+                    "sit": true,
+                    "s": 500,
+                    "face": "worried",
+                    "look": "vos"
+                  }
+                ]
+              },
+              {
+                "id": "novia",
+                "look": {
+                  "skin": "#f6d7bb",
+                  "hair": "#3a2416",
+                  "hairStyle": "ponytail",
+                  "shirt": "#f2c53d",
+                  "pants": "#3b5b9a"
+                },
+                "keys": [
+                  {
+                    "u": 0,
+                    "px": -0.503,
+                    "pz": -0.806,
+                    "faceTo": "center",
+                    "sit": true,
+                    "s": 520,
+                    "face": "worried",
+                    "look": "vos"
+                  }
+                ]
+              },
+              {
+                "id": "cunado",
+                "look": {
+                  "skin": "#f1c6a0",
+                  "hair": "#2a1a10",
+                  "hairStyle": "curly",
+                  "shirt": "#2f9e44",
+                  "pants": "#2b2f3a"
+                },
+                "keys": [
+                  {
+                    "u": 0,
+                    "px": -0.949,
+                    "pz": -0.033,
+                    "faceTo": "center",
+                    "sit": true,
+                    "s": 520,
+                    "face": "sly",
+                    "look": "vos",
+                    "R": [
+                      100,
+                      -330
+                    ]
+                  }
+                ]
+              }
+            ],
+            "count": [
+              {
+                "u": 0,
+                "text": "3",
+                "dur": 1
+              }
+            ],
+            "cam3": [
+              {
+                "u": 0,
+                "on": "vos.head",
+                "a": -15,
+                "r": 2,
+                "h": 0,
+                "ax": 0,
+                "ay": 0.22,
+                "az": 0
+              },
+              {
+                "u": 1,
+                "r": 1.8,
+                "dur": 1
+              }
+            ]
+          }
+        },
+        {
+          "f": 0.8,
+          "direction": "## 5c — \"dos\"\nClose on the suegro's narrowing eyes, low angle; the number \"2\". Sound: tick.",
+          "anim": {
+            "world": "patio",
+            "light": "sun",
+            "seats": [
+              {
+                "x": 0.246,
+                "z": -0.918
+              },
+              {
+                "x": 0.839,
+                "z": -0.446
+              },
+              {
+                "x": -0.503,
+                "z": -0.806
+              },
+              {
+                "x": -0.949,
+                "z": -0.033
+              }
+            ],
+            "props": [
+              {
+                "id": "phone",
+                "kind": "phone",
+                "keys": [
+                  {
+                    "u": 0,
+                    "at": "cunado.R",
+                    "ry": -1.5707963267948966,
+                    "dy": -60
+                  }
+                ]
+              }
+            ],
+            "fx": [],
+            "sounds": [
+              {
+                "u": 0.02,
+                "type": "tick"
+              }
+            ],
+            "people": [
+              {
+                "id": "suegro",
+                "look": {
+                  "skin": "#f2c9a4",
+                  "hair": "#6b5a4a",
+                  "hairStyle": "short",
+                  "hat": "boina",
+                  "hatColor": "#2b2b2b",
+                  "mustache": true,
+                  "shirt": "#a8323a",
+                  "pants": "#6f7682",
+                  "termo": "#2f9e44"
+                },
+                "keys": [
+                  {
+                    "u": 0,
+                    "px": -0.31,
+                    "pz": -1.345,
+                    "faceTo": "vos",
+                    "hold": "termo",
+                    "L": [
+                      -40,
+                      -230
+                    ],
+                    "R": [
+                      60,
+                      -250
+                    ],
+                    "face": "rage",
+                    "look": "vos"
+                  }
+                ]
+              },
+              {
+                "id": "vos",
+                "look": {
+                  "skin": "#f6d7bb",
+                  "hair": "#3a2416",
+                  "hairStyle": "short",
+                  "shirt": "#8fc3ea",
+                  "pants": "#d8c39a"
+                },
+                "keys": [
+                  {
+                    "u": 0,
+                    "px": 0.246,
+                    "pz": -0.918,
+                    "faceTo": "center",
+                    "sit": true,
+                    "s": 520,
+                    "face": "scared",
+                    "look": "cam",
+                    "hold": "mate",
+                    "R": [
+                      40,
+                      -300
+                    ],
+                    "L": [
+                      -45,
+                      -235
+                    ]
+                  }
+                ]
+              },
+              {
+                "id": "abuela",
+                "look": {
+                  "skin": "#f3cba6",
+                  "hair": "#cfcfcf",
+                  "hairStyle": "bun",
+                  "glasses": true,
+                  "shirt": "#7c5a9e",
+                  "dress": "#8a8f96",
+                  "pants": "#8a8f96"
+                },
+                "keys": [
+                  {
+                    "u": 0,
+                    "px": 0.839,
+                    "pz": -0.446,
+                    "faceTo": "center",
+                    "sit": true,
+                    "s": 500,
+                    "face": "worried",
+                    "look": "vos"
+                  }
+                ]
+              },
+              {
+                "id": "novia",
+                "look": {
+                  "skin": "#f6d7bb",
+                  "hair": "#3a2416",
+                  "hairStyle": "ponytail",
+                  "shirt": "#f2c53d",
+                  "pants": "#3b5b9a"
+                },
+                "keys": [
+                  {
+                    "u": 0,
+                    "px": -0.503,
+                    "pz": -0.806,
+                    "faceTo": "center",
+                    "sit": true,
+                    "s": 520,
+                    "face": "worried",
+                    "look": "vos"
+                  }
+                ]
+              },
+              {
+                "id": "cunado",
+                "look": {
+                  "skin": "#f1c6a0",
+                  "hair": "#2a1a10",
+                  "hairStyle": "curly",
+                  "shirt": "#2f9e44",
+                  "pants": "#2b2f3a"
+                },
+                "keys": [
+                  {
+                    "u": 0,
+                    "px": -0.949,
+                    "pz": -0.033,
+                    "faceTo": "center",
+                    "sit": true,
+                    "s": 520,
+                    "face": "sly",
+                    "look": "vos",
+                    "R": [
+                      100,
+                      -330
+                    ]
+                  }
+                ]
+              }
+            ],
+            "count": [
+              {
+                "u": 0,
+                "text": "2",
+                "dur": 1
+              }
+            ],
+            "cam3": [
+              {
+                "u": 0,
+                "on": "suegro.head",
+                "a": 13,
+                "r": 2,
+                "h": -0.25,
+                "ax": 0,
+                "ay": 0.22,
+                "az": 0
+              },
+              {
+                "u": 1,
+                "r": 1.7,
+                "dur": 1
+              }
+            ]
+          }
+        },
+        {
+          "f": 0.8,
+          "direction": "## 5d — \"uno\"\nClose on Facu's phone: the red REC light blinks, Facu's grin behind it; the number \"1\". Sound: tick.",
+          "anim": {
+            "world": "patio",
+            "light": "sun",
+            "seats": [
+              {
+                "x": 0.246,
+                "z": -0.918
+              },
+              {
+                "x": 0.839,
+                "z": -0.446
+              },
+              {
+                "x": -0.503,
+                "z": -0.806
+              },
+              {
+                "x": -0.949,
+                "z": -0.033
+              }
+            ],
+            "props": [
+              {
+                "id": "phone",
+                "kind": "phone",
+                "keys": [
+                  {
+                    "u": 0,
+                    "at": "cunado.R",
+                    "ry": -1.5707963267948966,
+                    "dy": -60
+                  }
+                ]
+              }
+            ],
+            "fx": [],
+            "sounds": [
+              {
+                "u": 0.02,
+                "type": "tick"
+              }
+            ],
+            "people": [
+              {
+                "id": "suegro",
+                "look": {
+                  "skin": "#f2c9a4",
+                  "hair": "#6b5a4a",
+                  "hairStyle": "short",
+                  "hat": "boina",
+                  "hatColor": "#2b2b2b",
+                  "mustache": true,
+                  "shirt": "#a8323a",
+                  "pants": "#6f7682",
+                  "termo": "#2f9e44"
+                },
+                "keys": [
+                  {
+                    "u": 0,
+                    "px": -0.31,
+                    "pz": -1.345,
+                    "faceTo": "vos",
+                    "hold": "termo",
+                    "L": [
+                      -40,
+                      -230
+                    ],
+                    "R": [
+                      60,
+                      -250
+                    ],
+                    "face": "angry",
+                    "look": "vos"
+                  }
+                ]
+              },
+              {
+                "id": "vos",
+                "look": {
+                  "skin": "#f6d7bb",
+                  "hair": "#3a2416",
+                  "hairStyle": "short",
+                  "shirt": "#8fc3ea",
+                  "pants": "#d8c39a"
+                },
+                "keys": [
+                  {
+                    "u": 0,
+                    "px": 0.246,
+                    "pz": -0.918,
+                    "faceTo": "center",
+                    "sit": true,
+                    "s": 520,
+                    "face": "scared",
+                    "look": "cam",
+                    "hold": "mate",
+                    "R": [
+                      40,
+                      -300
+                    ],
+                    "L": [
+                      -45,
+                      -235
+                    ]
+                  }
+                ]
+              },
+              {
+                "id": "abuela",
+                "look": {
+                  "skin": "#f3cba6",
+                  "hair": "#cfcfcf",
+                  "hairStyle": "bun",
+                  "glasses": true,
+                  "shirt": "#7c5a9e",
+                  "dress": "#8a8f96",
+                  "pants": "#8a8f96"
+                },
+                "keys": [
+                  {
+                    "u": 0,
+                    "px": 0.839,
+                    "pz": -0.446,
+                    "faceTo": "center",
+                    "sit": true,
+                    "s": 500,
+                    "face": "worried",
+                    "look": "vos"
+                  }
+                ]
+              },
+              {
+                "id": "novia",
+                "look": {
+                  "skin": "#f6d7bb",
+                  "hair": "#3a2416",
+                  "hairStyle": "ponytail",
+                  "shirt": "#f2c53d",
+                  "pants": "#3b5b9a"
+                },
+                "keys": [
+                  {
+                    "u": 0,
+                    "px": -0.503,
+                    "pz": -0.806,
+                    "faceTo": "center",
+                    "sit": true,
+                    "s": 520,
+                    "face": "worried",
+                    "look": "vos"
+                  }
+                ]
+              },
+              {
+                "id": "cunado",
+                "look": {
+                  "skin": "#f1c6a0",
+                  "hair": "#2a1a10",
+                  "hairStyle": "curly",
+                  "shirt": "#2f9e44",
+                  "pants": "#2b2f3a"
+                },
+                "keys": [
+                  {
+                    "u": 0,
+                    "px": -0.949,
+                    "pz": -0.033,
+                    "faceTo": "center",
+                    "sit": true,
+                    "s": 520,
+                    "face": "laugh",
+                    "look": "vos",
+                    "R": [
+                      100,
+                      -330
+                    ]
+                  }
+                ]
+              }
+            ],
+            "count": [
+              {
+                "u": 0,
+                "text": "1",
+                "dur": 1
+              }
+            ],
+            "cam3": [
+              {
+                "u": 0,
+                "on": "cunado.head",
+                "a": 103,
+                "r": 1.9,
+                "h": 0,
+                "ax": 0,
+                "ay": 0.22,
+                "az": 0
+              },
+              {
+                "u": 1,
+                "r": 1.6,
+                "dur": 1
+              }
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "text": "¿Qué hacés? Comentá MUEVO o AVISO. El episodio dos sigue a la mayoría.",
+      "emo": "tense",
+      "shots": [
+        {
+          "f": 1,
+          "direction": "## 6a — the freeze and the vote\nOn \"¿Qué hacés?\" the picture freezes on Tomás' face: a short white flash, then everything stands still (the sweat drops hang in the air). Face \"scared\": brows high, tiny pupils, mouth wavy; the clogged mate in his right hand at his chest; the suegro behind his shoulder, frozen too.\n\nUnder his face the two vote words punch in side by side: MUEVO (terracotta) o AVISO (cream). The face stays in the upper half; the words sit in the lower third, never over the face. They stay until the end while the voice says: \"Comentá MUEVO o AVISO. El episodio dos sigue a la mayoría.\" Sound: a pop when the words appear.",
+          "anim": {
+            "world": "patio",
+            "light": "sun",
+            "seats": [
+              {
+                "x": 0.246,
+                "z": -0.918
+              },
+              {
+                "x": 0.839,
+                "z": -0.446
+              },
+              {
+                "x": -0.503,
+                "z": -0.806
+              },
+              {
+                "x": -0.949,
+                "z": -0.033
+              }
+            ],
+            "props": [
+              {
+                "id": "phone",
+                "kind": "phone",
+                "keys": [
+                  {
+                    "u": 0,
+                    "at": "cunado.R",
+                    "ry": -1.5707963267948966,
+                    "dy": -60
+                  }
+                ]
+              }
+            ],
+            "fx": [
+              {
+                "kind": "sweat",
+                "u0": 0,
+                "u1": 1,
+                "at": "vos.head"
+              }
+            ],
+            "sounds": [
+              {
+                "u": 0.06,
+                "type": "shutter"
+              },
+              {
+                "u": 0.1,
+                "type": "pop"
+              }
+            ],
+            "people": [
+              {
+                "id": "suegro",
+                "look": {
+                  "skin": "#f2c9a4",
+                  "hair": "#6b5a4a",
+                  "hairStyle": "short",
+                  "hat": "boina",
+                  "hatColor": "#2b2b2b",
+                  "mustache": true,
+                  "shirt": "#a8323a",
+                  "pants": "#6f7682",
+                  "termo": "#2f9e44"
+                },
+                "keys": [
+                  {
+                    "u": 0,
+                    "px": -0.31,
+                    "pz": -1.345,
+                    "faceTo": "vos",
+                    "hold": "termo",
+                    "L": [
+                      -40,
+                      -230
+                    ],
+                    "R": [
+                      60,
+                      -250
+                    ],
+                    "face": "angry",
+                    "look": "vos"
+                  }
+                ]
+              },
+              {
+                "id": "vos",
+                "look": {
+                  "skin": "#f6d7bb",
+                  "hair": "#3a2416",
+                  "hairStyle": "short",
+                  "shirt": "#8fc3ea",
+                  "pants": "#d8c39a"
+                },
+                "keys": [
+                  {
+                    "u": 0,
+                    "px": 0.246,
+                    "pz": -0.918,
+                    "faceTo": "center",
+                    "sit": true,
+                    "s": 520,
+                    "face": "shock",
+                    "look": "cam",
+                    "hold": "mate",
+                    "R": [
+                      40,
+                      -300
+                    ],
+                    "L": [
+                      -45,
+                      -235
+                    ]
+                  }
+                ]
+              },
+              {
+                "id": "abuela",
+                "look": {
+                  "skin": "#f3cba6",
+                  "hair": "#cfcfcf",
+                  "hairStyle": "bun",
+                  "glasses": true,
+                  "shirt": "#7c5a9e",
+                  "dress": "#8a8f96",
+                  "pants": "#8a8f96"
+                },
+                "keys": [
+                  {
+                    "u": 0,
+                    "px": 0.839,
+                    "pz": -0.446,
+                    "faceTo": "center",
+                    "sit": true,
+                    "s": 500,
+                    "face": "neutral",
+                    "look": "vos"
+                  }
+                ]
+              },
+              {
+                "id": "novia",
+                "look": {
+                  "skin": "#f6d7bb",
+                  "hair": "#3a2416",
+                  "hairStyle": "ponytail",
+                  "shirt": "#f2c53d",
+                  "pants": "#3b5b9a"
+                },
+                "keys": [
+                  {
+                    "u": 0,
+                    "px": -0.503,
+                    "pz": -0.806,
+                    "faceTo": "center",
+                    "sit": true,
+                    "s": 520,
+                    "face": "neutral",
+                    "look": "vos"
+                  }
+                ]
+              },
+              {
+                "id": "cunado",
+                "look": {
+                  "skin": "#f1c6a0",
+                  "hair": "#2a1a10",
+                  "hairStyle": "curly",
+                  "shirt": "#2f9e44",
+                  "pants": "#2b2f3a"
+                },
+                "keys": [
+                  {
+                    "u": 0,
+                    "px": -0.949,
+                    "pz": -0.033,
+                    "faceTo": "center",
+                    "sit": true,
+                    "s": 520,
+                    "face": "sly",
+                    "look": "vos",
+                    "R": [
+                      100,
+                      -330
+                    ]
+                  }
+                ]
+              }
+            ],
+            "freeze": 0.06,
+            "flash": 0.06,
+            "vote": {
+              "u": 0.1,
+              "a": "MUEVO",
+              "b": "AVISO"
+            },
+            "cam3": [
+              {
+                "u": 0,
+                "on": "vos.head",
+                "a": -21,
+                "r": 2.6,
+                "h": 0,
+                "ax": 0,
+                "ay": -0.32,
+                "az": 0
+              },
+              {
+                "u": 0.06,
+                "r": 2.3,
+                "dur": 0.06
+              }
+            ]
+          }
+        }
+      ]
+    }
+  ]
+}

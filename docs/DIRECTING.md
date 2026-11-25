@@ -19,6 +19,15 @@ No fixed number of sentences, no fixed beats, no forced poll, no fixed length (a
 - **One world, one line of tension** (bigshortmedia): the whole reel lives in one connected world that the camera travels through; tension rises over the reel with clear peaks; nothing is a loose single picture.
 - **Shot plan first** (toonwright.click): a typed line alone gives a dull clip; a written shot-by-shot plan (camera pushes in, he walks and talks, camera follows, close on the face) gives a story with a beginning and a payoff. That is this format.
 
+## From the code-built AI reels (2026-11-25; video-generator reels do not count; details: docs/research/reels-ai-animation.md)
+- **Frame 0 shows the premise and the threat; the story runs If → But → So; every step lands on its word.**
+- **Density:** a new picture about every 1–2 s (morrow, Claude Code: 75 shots and ~100 sound effects in 60 s). A shot may be one beat of a longer action.
+- **Light:** one key + one warm practical light, a bright focus spot, the rest darker. Never even light everywhere.
+- **Motion:** anticipation before big moves, ease, overshoot and settle; nothing at constant speed; motion fits the material (vinyl toys hop and settle).
+- **Camera by feeling:** push in = tension, over the shoulder = conversation, POV = be the hero, static wide = a build or a gag that must read.
+- **Proven shapes (code-built):** serial with a viewer vote (end on a dilemma, the next episode follows the majority); build time-lapse ("how X becomes Y"); what-if with a running counter; counter escalation on one object; cutaway / section view (the viewer knows more than the characters); true-story shorts; isometric dioramas.
+- **Consistency:** a series bible with a character sheet and an expression set, fixed before the first episode; every frame checked.
+
 ## Story logic (written before any shot)
 Every script starts with a `story` block, and every shot must agree with it:
 - **logline**: the whole story in one sentence (who wants what, what goes wrong, how it ends).

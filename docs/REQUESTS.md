@@ -18,7 +18,8 @@ Every improvement request the user sends is counted here, with the topic it belo
 | 11-21 | 1 | more detail (bus) |
 | 11-23 | 7 | critical review, arms (2x), linear growth |
 | 11-24 | 3 | last pixel reel, last 3D reel, measure progress |
-| **total** | **63** | |
+| 11-25 | 8 | still very unhappy; cause = rules + scripts; scripts must detail every movement and background; rules fight the script (one person shown for several, one background) ; first stage reel: faces a bit strange, object interactions bad, object sizes odd, background needs more detail |
+| **total** | **71** | |
 
 ## Topics that keep coming back (no fix held)
 | topic | times asked | days | still in the last uploads (11-24) |

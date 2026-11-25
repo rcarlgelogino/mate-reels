@@ -1,0 +1,4405 @@
+{
+  "id": "0022s_detergente",
+  "title": "Tu mamá lavó tu mate con detergente",
+  "caption": "Tu mamá lavó tu mate con detergente y ahora sabe a limón 🧉🫧\n¿En tu casa quién fue? Etiquetalo 👇",
+  "hashtags": [
+    "#mate",
+    "#yerbamate",
+    "#argentina",
+    "#mamá",
+    "#humor"
+  ],
+  "poll": {
+    "question": "¿Quién lo lavó en tu casa?",
+    "options": [
+      "MI MAMÁ",
+      "MI VIEJO",
+      "YO, PERDÓN"
+    ]
+  },
+  "story": {
+    "logline": "Mamá washes your calabaza mate with lots of dish soap, proud of it; the next morning your mate foams and tastes of soap; the abuela finds out, nearly faints, and teaches the right way; mamá stays unrepentant.",
+    "timeline": [
+      "Scene 1–2: day 1, 08:00, morning sun. Mamá cleans the kitchen after breakfast.",
+      "Scene 3–4: day 2, 07:30, earlier and paler light. You just got up.",
+      "Scene 5: same moment as 4 (a drawn cutaway, no time passes).",
+      "Scene 6–7: day 2, about 07:40, ten minutes later; the abuela comes in for her own first mate.",
+      "Scene 8: day 2, a minute later; mamá comes back to the kitchen."
+    ],
+    "links": [
+      "1 → 2: she poured the soap, now she scrubs (same moment, same place).",
+      "2 → 3: she rinsed it only once, fast, and put it in the dish rack; the soap stayed in the gourd wall. Next morning you take it from the rack, half asleep, without looking.",
+      "3 → 4: the foam surprises you but you are too sleepy and too stubborn: you try it anyway.",
+      "4 → 5: why it tastes of soap: the gourd soaked it up (cutaway, explained on the mate you just put on the counter).",
+      "5 → 6: the abuela always comes down at 07:40 for her mate; she enters through the hall door, you hold out your mate to show her.",
+      "6 → 7: she gets up from the chair, takes over: empties the yerba into the bin, rinses with water only, puts it upside down on the window sill; she puts the detergent bottle on top of the fridge, out of reach.",
+      "7 → 8: mamá comes in, has already taken the bottle down from the fridge, and hides it behind her back."
+    ],
+    "objects": {
+      "mate": [
+        "after 1: in the sink, yerba out, full of detergent",
+        "after 2: rinsed once quickly, in the dish rack, soap inside the gourd wall",
+        "after 3: fresh yerba, bombilla, hot water, foam over the rim, in your left hand",
+        "after 4: you put it down on the counter, foam on the rim",
+        "after 6: in your hand again, held out to the abuela",
+        "after 7: empty, rinsed, upside down on the window sill in the sun"
+      ],
+      "detergent": [
+        "after 1: on the sink edge, dented",
+        "after 7: on top of the fridge",
+        "in 8: in mamá's hands behind her back"
+      ],
+      "bombilla": [
+        "after 1: in the dish rack",
+        "in 3: back in the mate (you put it in)",
+        "after 7: rinsed, next to the mate on the sill"
+      ]
+    },
+    "knowledge": [
+      "Mamá is sure she cleaned the mate well, from start to end.",
+      "You do not know what happened until the foam; you suspect mamá in 8.",
+      "The abuela knows the rule; she learns what happened in 6 by the smell."
+    ],
+    "places": {
+      "cocina": "one kitchen for the whole story; hall door on the right wall between the shelf and the fridge"
+    }
+  },
+  "cast": {
+    "mama": {
+      "role": "mama",
+      "age": "about 50",
+      "body": "short, round",
+      "hair": "dark brown, tied up in a messy bun with a pencil stuck in it",
+      "clothes": "lilac house dress, yellow apron with a lemon print; day 2: light blue house dress with white dots, same apron",
+      "shoes": "pink fluffy slippers",
+      "extras": "pink rubber gloves up to the elbow",
+      "personality": "energetic, proud of her cleaning, never admits a mistake"
+    },
+    "vos": {
+      "role": "you",
+      "age": "about 25",
+      "body": "medium height, slim",
+      "hair": "dark brown, messy, just got up",
+      "clothes": "grey hoodie, blue pyjama trousers",
+      "shoes": "barefoot",
+      "extras": "red sleep marks on one cheek",
+      "personality": "half asleep, loves his mate"
+    },
+    "abuela": {
+      "role": "grandma",
+      "age": "about 80",
+      "body": "small, slightly bent",
+      "hair": "grey bun, round glasses on a chain",
+      "clothes": "dark green cardigan over a flowered blouse, grey skirt",
+      "shoes": "black low shoes",
+      "extras": "her own old calabaza mate in a crocheted holder",
+      "personality": "calm, strict about mate, dramatic when shocked"
+    }
+  },
+  "sets": {
+    "cocina": {
+      "desc": "Small Argentine kitchen of a family house, morning",
+      "light": "warm morning sun from the window on the left, soft long shadows to the right",
+      "time": "08:00",
+      "elements": [
+        {
+          "what": "back wall",
+          "where": "whole back",
+          "detail": "cream tiles up to shoulder height, light green paint above"
+        },
+        {
+          "what": "window",
+          "where": "back wall, left third, above the sink",
+          "detail": "white frame, open, short yellow curtains moving a little in the wind; outside: a lemon tree and blue sky"
+        },
+        {
+          "what": "sink with chrome tap",
+          "where": "under the window, counter level",
+          "state": "dry, a few drops on the edge"
+        },
+        {
+          "what": "dish rack",
+          "where": "right of the sink",
+          "detail": "two plates, a cup, a wooden spoon"
+        },
+        {
+          "what": "detergent bottle",
+          "where": "on the sink edge, right",
+          "detail": "green bottle, big yellow lemon on the label, white cap",
+          "size": "like a 750 ml bottle, a bit taller than the mate"
+        },
+        {
+          "what": "sponge",
+          "where": "next to the bottle",
+          "detail": "yellow with a green scrub side"
+        },
+        {
+          "what": "counter",
+          "where": "across the whole front, hip height of the people",
+          "detail": "light wood top, white cupboard doors with round knobs"
+        },
+        {
+          "what": "termo",
+          "where": "on the counter, right",
+          "detail": "green steel termo with two football stickers"
+        },
+        {
+          "what": "yerba pack",
+          "where": "next to the termo",
+          "detail": "red and white paper pack, open, folded top"
+        },
+        {
+          "what": "wall clock",
+          "where": "back wall, right, above head height",
+          "detail": "round, white face, shows 8:00"
+        },
+        {
+          "what": "shelf",
+          "where": "back wall, right, above the counter",
+          "detail": "three glass jars (sugar, coffee, yerba), a small plant in a mug"
+        },
+        {
+          "what": "fridge",
+          "where": "far right edge, half in the frame",
+          "detail": "white, with magnets and a child's drawing"
+        },
+        {
+          "what": "wooden chair",
+          "where": "front left corner",
+          "detail": "straw seat, a folded tea towel on the backrest"
+        },
+        {
+          "what": "hall door",
+          "where": "right wall, between the shelf and the fridge, seen at an angle",
+          "detail": "white wooden door, open inwards, a bit of the dark hall visible behind it"
+        },
+        {
+          "what": "bin",
+          "where": "under the sink, behind a cupboard door that opens",
+          "detail": "small grey pedal bin"
+        }
+      ]
+    }
+  },
+  "segments": [
+    {
+      "text": "Tu mamá lavó tu mate con detergente, re orgullosa. Y lo arruinó.",
+      "emo": "surprised",
+      "shots": [
+        {
+          "dur": "sentence",
+          "set": "cocina",
+          "camera": {
+            "frame": "medium",
+            "angle": "eye height",
+            "on": "mama at the sink",
+            "move": "still, then a short push-in to the sink when the detergent is squeezed",
+            "why": "hook: the crime has to be clear in the first second"
+          },
+          "positions": {
+            "mama": {
+              "x": 0.38,
+              "depth": "middle",
+              "facing": "camera, turned a little to the sink",
+              "pose": "stand behind the counter"
+            }
+          },
+          "props": [
+            {
+              "what": "your calabaza mate",
+              "where": "mama's right hand",
+              "state": "yerba still inside, bombilla in it"
+            },
+            {
+              "what": "detergent bottle",
+              "where": "sink edge",
+              "state": "full"
+            }
+          ],
+          "beats": [
+            {
+              "at": 0,
+              "who": "mama",
+              "body": "stands straight, proud",
+              "arms": "right arm holds the mate up at shoulder height like a trophy",
+              "face": "brows up, eyes wide and shining, big closed smile",
+              "head": "tilted to the left"
+            },
+            {
+              "at": 0.25,
+              "who": "mama",
+              "arms": "right hand pulls the bombilla out and drops it in the rack; tips the mate upside down over the sink",
+              "face": "concentrated, tongue tip out at the side of the mouth"
+            },
+            {
+              "at": 0.45,
+              "who": "mama",
+              "arms": "puts the mate into the sink; left hand grabs the detergent bottle",
+              "eyes": "on the mate"
+            },
+            {
+              "at": 0.6,
+              "who": "mama",
+              "hands": "squeezes the bottle hard with both hands, a long green stream goes into the mate",
+              "face": "eyes squeezed, mouth in a determined line"
+            },
+            {
+              "at": 0.85,
+              "who": "mama",
+              "hands": "puts the bottle back with a little bang",
+              "face": "satisfied smile, brows down, eyes half closed"
+            }
+          ],
+          "fx": [
+            {
+              "at": 0.6,
+              "what": "green stream of detergent, three bubbles rise from the sink"
+            },
+            {
+              "at": 0.3,
+              "what": "wet yerba falls into the sink in one lump"
+            }
+          ],
+          "sound": [
+            {
+              "at": 0.3,
+              "what": "wet plop"
+            },
+            {
+              "at": 0.6,
+              "what": "long squelchy squeeze"
+            },
+            {
+              "at": 0.85,
+              "what": "plastic tap on the sink"
+            }
+          ],
+          "direction": "Sentence: \"Tu mamá lavó tu mate con detergente, re orgullosa. Y lo arruinó.\" About 3.6 seconds.\n\nWhat the viewer must understand without sound: this is a normal family kitchen in the morning, the mother is proud and busy, she holds YOUR mate, and she is about to commit a crime against it: she pours green dish soap into it. The detergent bottle must be readable as detergent (green bottle, big lemon on the label, white cap), the mate must be readable as a mate (brown calabaza, silver bombilla, green yerba on top). If a viewer sees only this one frame, the thumbnail should already say \"mother + mate + soap = disaster\". That is why we open on her at the sink and not on a close-up: the sink, the bottle, the mate and her proud face must be in one picture from the very first frame.\n\nThe set in this shot. We look at the back wall of the kitchen from the front, at the height of an adult's eyes. The back wall is split in two: up to the shoulders of the mother it is covered with small square cream tiles with thin light-grey joints, above that the wall is painted a soft light green. In the left third of the back wall, above the sink, is the window: a white wooden frame with two open wings, short yellow curtains with a thin white border on both sides. The curtains move slightly in a small breeze, the left one a bit more than the right one, a slow swing of about two seconds back and forth. Through the window we see the top of a lemon tree with dark green leaves and four or five yellow lemons, and behind it a clear blue morning sky with one small white cloud that drifts very slowly to the right. Sunlight comes through the window from the left and falls in a warm, slightly orange rectangle onto the counter and the right half of the sink; the mother's shadow falls softly to the right onto the tiles.\n\nUnder the window is the sink: a single steel basin set into the counter, with a curved chrome tap that shines where the sun hits it. The sink is dry at the start except for three small water drops on its front edge. Right of the sink stands a white plastic dish rack with two white plates standing upright, one blue cup upside down and a wooden spoon lying across. On the sink edge, between the basin and the rack, stand the detergent bottle and the sponge: the bottle is green, a little taller than the mate, with a big yellow lemon and two green leaves on the label and a white flip cap; the sponge is a yellow rectangle with a dark green scrub side facing up. The counter runs across the whole front of the picture at the hip height of the mother: a light wooden worktop with a darker front edge, under it white cupboard doors with small round brass knobs. On the counter, right of the dish rack, stands the termo: green steel, a little shorter than the mother's forearm, with two round football stickers, and next to it the red and white paper pack of yerba, open, its top folded down twice. On the right part of the back wall, above the counter, hangs a wooden shelf with three glass jars (white sugar, dark coffee, green yerba) and a small green plant in a white mug. Above the shelf hangs the round wall clock with a white face and black hands: it shows 8:00, and its thin red second hand moves visibly in small steps during the shot. At the far right edge of the frame we see half of a white fridge with three fruit magnets and the corner of a child's drawing of a sun. In the front left corner, cut by the frame edge, is the backrest of a wooden chair with a folded tea towel with red stripes on it.\n\nThe mother. She stands behind the counter, a little left of centre (x 0.38), with her body turned three quarters to the camera and a quarter to the sink, so we see her face, her proud chest and the sink at the same time. She is short and round, about 50, dark brown hair tied up in a messy bun with a yellow pencil stuck through it, a few loose strands at the temples. She wears a lilac house dress with short sleeves and a yellow apron with a lemon print tied at the waist with a bow we see at her side. On her hands are pink rubber gloves that reach up to her elbows, slightly too big, with a fold at the wrist. Her slippers are pink and fluffy; we do not see them now because the counter covers her legs, but they matter later.\n\nHer movements, from the first to the last frame.\nAt 0.0 she already holds your mate in her right hand, lifted up to the height of her shoulder, arm half stretched, like someone showing a trophy. The mate is held from below, all five gloved fingers around the belly of the gourd, the bombilla pointing up and slightly to the left. Her left hand rests on the counter edge. She stands straight, chest out, chin a little up, head tilted to the left. Her eyebrows are raised high, her eyes are wide open and have a small white shine, her mouth is a big closed smile with round cheeks. She breathes in once, visibly: the shoulders go up a little.\nAt 0.25 (on \"agarró\") she brings the mate down in front of her chest and, with her left hand, pulls the bombilla out of the yerba in one move. She looks at the bombilla for a moment with a small frown, then lets it drop into the dish rack, where it lands between the plates with a little bounce. At the same time she turns the mate upside down above the sink with her right hand: the wet yerba falls out in one dark green lump and lands in the sink with a wet plop; two small crumbs stay on the rim of the mate. While doing this she sticks the tip of her tongue out at the left corner of her mouth, concentrated, her eyebrows now low and close together.\nAt 0.45 (on \"tu mate\") she puts the mate into the sink, opening up, and holds it there with her right hand. Her left hand leaves the counter and takes the detergent bottle from the sink edge: the hand grabs the bottle around its middle, the thumb on the label, and lifts it in an arc to above the mate. Her eyes follow the bottle and then fix on the mate.\nAt 0.6 (on \"pileta\") she squeezes. She uses both hands now: the right hand leaves the mate and joins the left one on the bottle, both squeeze hard, the gloves crease, the bottle gets a visible dent in the middle. A long, thick green stream comes out of the cap and goes into the mate; it is more than anybody would ever need, about as long as the mate is high. Her eyes are squeezed shut, her mouth is a straight determined line, her shoulders are pulled up to her ears.\nAt 0.85 (on \"detergente\") she stops, puts the bottle back on the sink edge with a small decided tap, wipes her gloves once on the apron and looks at the mate in the sink with a satisfied smile, eyes half closed, eyebrows down, chin up. She nods once.\n\nObjects and how they end. The bombilla ends in the dish rack. The yerba lump lies in the sink. The mate stands in the sink, opening up, with green detergent inside, three bubbles rising out of it. The bottle stands on the sink edge again, now with a visible dent. All of this must be the same at the start of the next shot.\n\nCamera. The shot starts as a medium shot: the mother from the hips up, the window above her, the sink and the dish rack in the frame, the clock and the shelf at the right edge. The camera stands still until 0.6. When she squeezes the bottle, the camera makes a short, soft push-in of about 15 percent toward the sink, ending with the mother's face, her hands, the bottle and the mate all still inside the frame; her head must never be cut. Focus stays on her and the sink; the window and the lemon tree are a little soft.\n\nEffects and sounds. At 0.3 a wet \"plop\" when the yerba lump hits the sink. At 0.6 a long, squelchy squeeze sound for as long as the stream runs, and three bubbles rise out of the mate, one large and two small, catching the sunlight with a small rainbow edge. At 0.85 a short plastic tap. Under all of it, the voice; the background music is low and cheerful.\n\nThe feeling: the mother is not evil, she is proud and convinced she is doing a great job; the joke is the size of the green stream and her proud face while she does something terrible. The viewer who drinks mate should wince.\n\nContinuity: the next shot is still the same moment at the same sink; her gloves, apron, the dented bottle and the foam must match.\n\nHook check (context + curiosity + snapback): context = mother, your mate, detergent, visible in frame 0; curiosity = why would washing ruin it?; snapback = \"re orgullosa\" against \"lo arruinó\": on \"Y lo arruinó\" her proud smile is held while the camera pushes in on the green stream, and one bubble pops.",
+          "anim": {
+            "set": {
+              "elements": [
+                {
+                  "kind": "wall",
+                  "paint": "#cfe3c6",
+                  "tile": "#f3ead6",
+                  "tileTop": 0.42
+                },
+                {
+                  "kind": "floor",
+                  "y": 0.9
+                },
+                {
+                  "kind": "uppers",
+                  "x0": 0.52,
+                  "x1": 0.8,
+                  "y": 0.36,
+                  "h": 300
+                },
+                {
+                  "kind": "frame",
+                  "x": 0.08,
+                  "y": 0.4
+                },
+                {
+                  "kind": "calendar",
+                  "x": 0.58,
+                  "y": 0.66
+                },
+                {
+                  "kind": "rail",
+                  "x": 0.13,
+                  "y": 0.5,
+                  "w": 220
+                },
+                {
+                  "kind": "socket",
+                  "x": 0.66,
+                  "y": 0.7
+                },
+                {
+                  "id": "lamp",
+                  "kind": "lamp",
+                  "x": 0.55,
+                  "y": 0.07
+                },
+                {
+                  "id": "window",
+                  "kind": "window",
+                  "x": 0.33,
+                  "y": 0.6,
+                  "w": 360,
+                  "h": 340,
+                  "tree": true,
+                  "wind": 1
+                },
+                {
+                  "kind": "sun",
+                  "x": 0.33,
+                  "y": 0.45,
+                  "r": 420
+                },
+                {
+                  "id": "shelf",
+                  "kind": "shelf",
+                  "x": 0.7,
+                  "y": 0.5,
+                  "w": 240
+                },
+                {
+                  "id": "clock",
+                  "kind": "clock",
+                  "x": 0.9,
+                  "y": 0.3,
+                  "r": 50,
+                  "time": "8:00"
+                },
+                {
+                  "id": "door",
+                  "kind": "door",
+                  "x": 0.84,
+                  "y": 0.88,
+                  "w": 210,
+                  "h": 760,
+                  "open": 0.55
+                },
+                {
+                  "id": "fridge",
+                  "kind": "fridge",
+                  "x": 1.02,
+                  "y": 0.88,
+                  "w": 300,
+                  "h": 840,
+                  "top": [],
+                  "layer": "back"
+                },
+                {
+                  "id": "sill",
+                  "kind": "sill",
+                  "x": 0.33,
+                  "y": 0.6,
+                  "w": 400,
+                  "on": [],
+                  "layer": "back"
+                },
+                {
+                  "id": "counter",
+                  "kind": "counter",
+                  "y": 0.77,
+                  "x0": 0,
+                  "x1": 0.92,
+                  "layer": "front"
+                },
+                {
+                  "id": "under",
+                  "kind": "under",
+                  "x": 0.36,
+                  "y": 0.786,
+                  "open": false,
+                  "layer": "front"
+                },
+                {
+                  "id": "sink",
+                  "kind": "sink",
+                  "x": 0.36,
+                  "y": 0.774,
+                  "w": 330,
+                  "foam": 0,
+                  "yerba": false,
+                  "layer": "front"
+                },
+                {
+                  "kind": "sinkLip",
+                  "x": 0.36,
+                  "y": 0.774,
+                  "w": 330,
+                  "layer": "top"
+                },
+                {
+                  "id": "rack",
+                  "kind": "rack",
+                  "x": 0.56,
+                  "y": 0.77,
+                  "on": [],
+                  "layer": "front"
+                },
+                {
+                  "kind": "stove",
+                  "x": 0.12,
+                  "y": 0.774,
+                  "w": 260,
+                  "steam": false,
+                  "layer": "front"
+                },
+                {
+                  "kind": "roll",
+                  "x": 0.9,
+                  "y": 0.774,
+                  "layer": "front"
+                },
+                {
+                  "id": "chair",
+                  "kind": "chair",
+                  "x": 0.1,
+                  "y": 1.06,
+                  "s": 1.1,
+                  "layer": "front"
+                }
+              ]
+            },
+            "light": "morning",
+            "sunPatch": [
+              0.18,
+              0.42
+            ],
+            "state": {
+              "rack": [
+                {
+                  "u": 0,
+                  "on": []
+                },
+                {
+                  "u": 0.3,
+                  "on": [
+                    "bombilla"
+                  ]
+                }
+              ],
+              "sink": [
+                {
+                  "u": 0
+                },
+                {
+                  "u": 0.38,
+                  "yerba": true
+                }
+              ]
+            },
+            "people": [
+              {
+                "id": "mama",
+                "look": {
+                  "skin": "#f3cba6",
+                  "hair": "#3a2416",
+                  "hairStyle": "bun",
+                  "pencil": true,
+                  "shirt": "#b9a3e3",
+                  "dress": "#b9a3e3",
+                  "pants": "#b9a3e3",
+                  "shorts": true,
+                  "apron": "#ffe27a",
+                  "gloves": "#ff8fb3",
+                  "shoes": "#ff9ec4"
+                },
+                "keys": [
+                  {
+                    "u": 0,
+                    "x": 0.25,
+                    "y": 0.875,
+                    "hold": "mate",
+                    "R": [
+                      110,
+                      -350
+                    ],
+                    "L": [
+                      -70,
+                      -172
+                    ],
+                    "face": {
+                      "eyes": "shine",
+                      "brows": "high",
+                      "mouth": "closedSmile"
+                    },
+                    "s": 600
+                  },
+                  {
+                    "u": 0.22,
+                    "R": [
+                      105,
+                      -210
+                    ],
+                    "face": {
+                      "eyes": "dot",
+                      "brows": "down",
+                      "mouth": "tongueTip"
+                    },
+                    "dur": 0.12
+                  },
+                  {
+                    "u": 0.24,
+                    "mateNoBomb": true
+                  },
+                  {
+                    "u": 0.26,
+                    "act": "shake"
+                  },
+                  {
+                    "u": 0.38,
+                    "act": null,
+                    "mateEmpty": true
+                  },
+                  {
+                    "u": 0.4,
+                    "R": [
+                      140,
+                      -168
+                    ],
+                    "dur": 0.12
+                  },
+                  {
+                    "u": 0.44,
+                    "hold": null,
+                    "R": [
+                      70,
+                      -160
+                    ]
+                  },
+                  {
+                    "u": 0.5,
+                    "L": [
+                      118,
+                      -222
+                    ],
+                    "dur": 0.08
+                  },
+                  {
+                    "u": 0.58,
+                    "L": [
+                      72,
+                      -346
+                    ],
+                    "R": [
+                      96,
+                      -380
+                    ],
+                    "press": [
+                      "R"
+                    ],
+                    "face": {
+                      "eyes": "squeeze",
+                      "brows": "down",
+                      "mouth": "line"
+                    },
+                    "dur": 0.06
+                  },
+                  {
+                    "u": 0.86,
+                    "L": [
+                      100,
+                      -190
+                    ],
+                    "R": [
+                      60,
+                      -172
+                    ],
+                    "press": [],
+                    "face": {
+                      "eyes": "half",
+                      "brows": "down",
+                      "mouth": "closedSmile"
+                    },
+                    "dur": 0.08
+                  }
+                ]
+              }
+            ],
+            "props": [
+              {
+                "id": "mate",
+                "kind": "mate",
+                "keys": [
+                  {
+                    "u": 0,
+                    "hide": true
+                  },
+                  {
+                    "u": 0.44,
+                    "hide": false,
+                    "x": 0.385,
+                    "y": 0.783,
+                    "empty": true,
+                    "nobomb": true,
+                    "front": true
+                  }
+                ]
+              },
+              {
+                "id": "bottle",
+                "kind": "bottle",
+                "keys": [
+                  {
+                    "u": 0,
+                    "x": 0.47,
+                    "y": 0.774,
+                    "s": 0.95,
+                    "front": true
+                  },
+                  {
+                    "u": 0.52,
+                    "at": "mama.L",
+                    "center": true,
+                    "frontGrip": true,
+                    "front": true
+                  },
+                  {
+                    "u": 0.58,
+                    "rot": 2.75,
+                    "dur": 0.06
+                  },
+                  {
+                    "u": 0.84,
+                    "rot": 0,
+                    "dur": 0.02
+                  },
+                  {
+                    "u": 0.86,
+                    "at": "",
+                    "x": 0.47,
+                    "y": 0.774,
+                    "dent": true,
+                    "rot": 0,
+                    "front": true
+                  }
+                ]
+              },
+              {
+                "id": "sponge",
+                "kind": "sponge",
+                "keys": [
+                  {
+                    "u": 0,
+                    "x": 0.52,
+                    "y": 0.774,
+                    "s": 0.9,
+                    "front": true
+                  }
+                ]
+              },
+              {
+                "id": "termo",
+                "kind": "termo",
+                "keys": [
+                  {
+                    "u": 0,
+                    "x": 0.72,
+                    "y": 0.772,
+                    "front": true
+                  }
+                ]
+              },
+              {
+                "id": "yerba",
+                "kind": "yerba",
+                "keys": [
+                  {
+                    "u": 0,
+                    "x": 0.8,
+                    "y": 0.772,
+                    "front": true
+                  }
+                ]
+              }
+            ],
+            "fx": [
+              {
+                "kind": "lump",
+                "u0": 0.29,
+                "u1": 0.38,
+                "x": 0.335,
+                "y": 0.742,
+                "fall": 45
+              },
+              {
+                "kind": "stream",
+                "u0": 0.6,
+                "u1": 0.84,
+                "at": "bottle.top",
+                "to": "mate.top",
+                "color": "#4fc25e",
+                "w": 12
+              },
+              {
+                "kind": "bubbles",
+                "u0": 0.62,
+                "u1": 1,
+                "x": 0.352,
+                "y": 0.74,
+                "n": 3,
+                "r": 16,
+                "rise": 220,
+                "spread": 50
+              }
+            ],
+            "cam": [
+              {
+                "u": 0,
+                "z": 1.7,
+                "c": [
+                  0.36,
+                  0.64
+                ]
+              },
+              {
+                "u": 0.58,
+                "z": 1.7,
+                "c": [
+                  0.36,
+                  0.64
+                ]
+              },
+              {
+                "u": 0.75,
+                "z": 2,
+                "c": [
+                  0.37,
+                  0.68
+                ],
+                "dur": 0.17
+              }
+            ],
+            "sounds": [
+              {
+                "u": 0.3,
+                "type": "pop"
+              },
+              {
+                "u": 0.6,
+                "type": "swish"
+              },
+              {
+                "u": 0.86,
+                "type": "tick"
+              }
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "text": "Lo frotó con la esponja como si fuera una olla quemada.",
+      "emo": "funny",
+      "shots": [
+        {
+          "dur": "sentence",
+          "set": "cocina",
+          "camera": {
+            "frame": "close",
+            "angle": "slightly high",
+            "on": "mama's gloves, the mate and the sponge in the sink",
+            "move": "small shake on every scrub",
+            "why": "the scrubbing is the gag"
+          },
+          "positions": {
+            "mama": {
+              "x": 0.45,
+              "depth": "middle",
+              "facing": "sink",
+              "pose": "leans over the sink, elbows out"
+            }
+          },
+          "props": [
+            {
+              "what": "your mate",
+              "where": "mama's left hand, in the sink",
+              "state": "full of foam"
+            },
+            {
+              "what": "sponge",
+              "where": "mama's right hand",
+              "state": "green side down"
+            },
+            {
+              "what": "burnt aluminium pot",
+              "where": "counter right of the sink, in front of the dish rack",
+              "state": "black burnt rice crust inside, wooden spoon stuck upright"
+            }
+          ],
+          "beats": [
+            {
+              "at": 0,
+              "who": "mama",
+              "arms": "right arm scrubs inside the mate in fast circles, elbow pumping up and down",
+              "face": "teeth clenched, brows down, eyes narrow, one strand of hair falls on her forehead"
+            },
+            {
+              "at": 0.4,
+              "who": "mama",
+              "arms": "scrubs the outside too, turning the mate with the left hand",
+              "mouth": "blows the hair strand away"
+            },
+            {
+              "at": 0.7,
+              "who": "mama",
+              "arms": "holds the mate up dripping with foam, checks it against the window light",
+              "face": "one eye closed, critical; then nods once"
+            },
+            {
+              "at": 0.9,
+              "who": "mama",
+              "arms": "rinses the mate for one second under the tap, shakes it once, puts it upside down in the dish rack",
+              "face": "satisfied"
+            }
+          ],
+          "fx": [
+            {
+              "at": 0,
+              "what": "foam grows over the sink edge, bubbles fly up on every scrub"
+            },
+            {
+              "at": 0.7,
+              "what": "one big bubble floats past her face and pops"
+            }
+          ],
+          "sound": [
+            {
+              "at": 0,
+              "what": "fast scrubbing squeaks in rhythm"
+            },
+            {
+              "at": 0.8,
+              "what": "bubble pop"
+            }
+          ],
+          "gag": "she scrubs the delicate gourd like a burnt pot, foam everywhere",
+          "direction": "Sentence: \"Lo frotó con la esponja como si fuera una olla quemada.\" About 3.4 seconds.\n\nWhat the viewer must understand without sound: the mother now scrubs the delicate gourd with the hard green side of the sponge, with all her strength, the way you scrub a burnt pot, and the foam gets out of control. The comparison \"olla quemada\" must be visible: we add a real burnt pot to the picture so the viewer sees both, the pot and the mate, treated the same way. This is the first big laugh of the reel, so the movement must be big, fast and rhythmic.\n\nLink to the shot before: it is the same moment, two seconds later. The bottle stands dented on the sink edge, the yerba lump lies in the sink, the bombilla lies in the dish rack. The mate is still in the sink, full of detergent. Nothing has changed in the kitchen, only the camera is closer.\n\nNew element for this shot: a burnt pot. On the counter to the right of the sink, in front of the dish rack, stands a big aluminium pot with two handles, its inside black and crusty from burnt rice, a wooden spoon stuck upright in the crust. It was already there in shot 1, half hidden by the mother's elbow; in this closer shot it is clearly visible. It is the visual of \"olla quemada\".\n\nThe set in this shot. The camera looks slightly down into the sink from the height of the mother's shoulder, so we see the inside of the steel basin, the mate, the gloves and the sponge large in the frame. Behind them, a little out of focus, we see the cream tiles, the lower part of the open window with the hem of a yellow curtain moving, the chrome tap shining in the sun, and on the right the dish rack with the bombilla and the burnt pot. The sunlight still falls from the left over the sink; every bubble that flies up catches it and gets a small bright edge. The foam builds up in the basin during the shot: at the start only the mate is full of foam; by the end the whole sink is filled with white foam up to the edge and a little spills over the front edge onto the wooden counter in a soft lump.\n\nThe mother. She leans over the sink, her upper body bent forward, both elbows out to the sides like wings. We see her from the chest up: the yellow apron with lemons, the lilac sleeves, the pink gloves, her face from slightly above. A strand of dark hair has come loose from the bun and hangs over her forehead and her right eye. The pencil in her bun wobbles with every scrub.\n\nHer movements.\nAt 0.0 her left hand holds the mate by its belly down in the sink, fingers spread. Her right hand holds the sponge with the green scrub side down and scrubs the inside of the mate in fast small circles, about three circles per second. Her right elbow pumps up and down with every circle; her whole body follows a little, the shoulders rock, the bun bounces. Her teeth are clenched and visible, her eyebrows are low and pushed together, her eyes are narrow, her nostrils wide. She breathes out in short puffs on every circle.\nAt 0.2 she glances to the right at the burnt pot for half a second, as if comparing, and nods to herself: same treatment.\nAt 0.4 she turns the mate in her left hand a quarter turn and scrubs the outside of the gourd with long hard strokes up and down, the way you scrub the bottom of a pot. Little flakes of the gourd's dark skin seem to come off with the foam (two tiny brown flecks fly out). The loose strand of hair falls into her eyes; she pushes her lower lip forward and blows it up and away with one puff, without stopping the scrubbing. The strand flies up and falls back to the same place.\nAt 0.7 she stops, lifts the mate out of the sink with both hands and holds it up against the light of the window at eye height. Foam drips from it in long white threads back into the sink. She closes her left eye and inspects it with the right, critical, lips pursed, head tilted. Then she nods once, firmly, satisfied: clean.\nAt 0.9 she rinses it for exactly one second under the tap (just a short splash, not enough), shakes it once and sets it into the dish rack upside down next to the plates. This quick rinse is important for the story: the soap stays in the gourd.\n\nObjects and how they end. The sponge is left in the sink, squashed, dripping foam. The mate ends upside down in the dish rack, still soapy inside its wall. The sink is full of foam. The burnt pot is untouched. The bottle stays dented on the sink edge.\n\nCamera. A close shot from slightly above, centred on the gloves, the mate and the sponge, with the mother's face in the upper third. On every scrub the picture shakes very slightly to the rhythm (a two-pixel jolt, never more), so the energy is felt. At 0.7, when she lifts the mate to the light, the camera tilts up a little to follow it and her face, and the window comes into the frame behind the mate. Her face and the mate never leave the frame.\n\nTiming on the words: \"Lo frotó\" = the scrubbing starts at full speed on the first word. \"con la esponja\" = the green side of the sponge is clearly visible. \"como si fuera\" = she glances at the burnt pot. \"una olla quemada\" = the hard strokes on the outside of the gourd, flakes flying. The lift to the light and the quick rinse come right after the sentence, in the last half second.\n\nEffects and sounds. Foam grows from the mate to the whole sink. Bubbles fly up on every scrub, five to eight small ones each time, some catching the sun. At 0.7 one big bubble the size of the mate floats slowly past her face and pops in front of her nose; she does not even blink. Sounds: fast squeaky scrubbing in rhythm, the puff of air when she blows her hair, the bubble pop, a short splash of water.\n\nThe gag: the delicate gourd is treated exactly like the crusty burnt pot next to it; the energy of the scrubbing and the growing foam are the joke, and her total conviction that she is doing well.\n\nContinuity to the next shot: the next shot is the next day. The mate must be in the dish rack, upside down, looking clean on the outside. The bottle must still be on the sink edge. The burnt pot is gone the next day (washed and put away), the sink is empty.",
+          "anim": {
+            "set": {
+              "elements": [
+                {
+                  "kind": "wall",
+                  "paint": "#cfe3c6",
+                  "tile": "#f3ead6",
+                  "tileTop": 0.42
+                },
+                {
+                  "kind": "floor",
+                  "y": 0.9
+                },
+                {
+                  "kind": "uppers",
+                  "x0": 0.52,
+                  "x1": 0.8,
+                  "y": 0.36,
+                  "h": 300
+                },
+                {
+                  "kind": "frame",
+                  "x": 0.08,
+                  "y": 0.4
+                },
+                {
+                  "kind": "calendar",
+                  "x": 0.58,
+                  "y": 0.66
+                },
+                {
+                  "kind": "rail",
+                  "x": 0.13,
+                  "y": 0.5,
+                  "w": 220
+                },
+                {
+                  "kind": "socket",
+                  "x": 0.66,
+                  "y": 0.7
+                },
+                {
+                  "id": "lamp",
+                  "kind": "lamp",
+                  "x": 0.55,
+                  "y": 0.07
+                },
+                {
+                  "id": "window",
+                  "kind": "window",
+                  "x": 0.33,
+                  "y": 0.6,
+                  "w": 360,
+                  "h": 340,
+                  "tree": true,
+                  "wind": 1
+                },
+                {
+                  "kind": "sun",
+                  "x": 0.33,
+                  "y": 0.45,
+                  "r": 420
+                },
+                {
+                  "id": "shelf",
+                  "kind": "shelf",
+                  "x": 0.7,
+                  "y": 0.5,
+                  "w": 240
+                },
+                {
+                  "id": "clock",
+                  "kind": "clock",
+                  "x": 0.9,
+                  "y": 0.3,
+                  "r": 50,
+                  "time": "8:01"
+                },
+                {
+                  "id": "door",
+                  "kind": "door",
+                  "x": 0.84,
+                  "y": 0.88,
+                  "w": 210,
+                  "h": 760,
+                  "open": 0.55
+                },
+                {
+                  "id": "fridge",
+                  "kind": "fridge",
+                  "x": 1.02,
+                  "y": 0.88,
+                  "w": 300,
+                  "h": 840,
+                  "top": [],
+                  "layer": "back"
+                },
+                {
+                  "id": "sill",
+                  "kind": "sill",
+                  "x": 0.33,
+                  "y": 0.6,
+                  "w": 400,
+                  "on": [],
+                  "layer": "back"
+                },
+                {
+                  "id": "counter",
+                  "kind": "counter",
+                  "y": 0.77,
+                  "x0": 0,
+                  "x1": 0.92,
+                  "layer": "front"
+                },
+                {
+                  "id": "under",
+                  "kind": "under",
+                  "x": 0.36,
+                  "y": 0.786,
+                  "open": false,
+                  "layer": "front"
+                },
+                {
+                  "id": "sink",
+                  "kind": "sink",
+                  "x": 0.36,
+                  "y": 0.774,
+                  "w": 330,
+                  "foam": 0,
+                  "yerba": true,
+                  "layer": "front"
+                },
+                {
+                  "kind": "sinkLip",
+                  "x": 0.36,
+                  "y": 0.774,
+                  "w": 330,
+                  "layer": "top"
+                },
+                {
+                  "id": "rack",
+                  "kind": "rack",
+                  "x": 0.56,
+                  "y": 0.77,
+                  "on": [
+                    "bombilla"
+                  ],
+                  "layer": "front"
+                },
+                {
+                  "kind": "pot",
+                  "x": 0.5,
+                  "y": 0.772,
+                  "s": 0.8,
+                  "layer": "front"
+                },
+                {
+                  "kind": "stove",
+                  "x": 0.12,
+                  "y": 0.774,
+                  "w": 260,
+                  "steam": false,
+                  "layer": "front"
+                },
+                {
+                  "kind": "roll",
+                  "x": 0.9,
+                  "y": 0.774,
+                  "layer": "front"
+                },
+                {
+                  "id": "chair",
+                  "kind": "chair",
+                  "x": 0.1,
+                  "y": 1.06,
+                  "s": 1.1,
+                  "layer": "front"
+                }
+              ]
+            },
+            "light": "morning",
+            "sunPatch": [
+              0.18,
+              0.42
+            ],
+            "state": {
+              "sink": [
+                {
+                  "u": 0,
+                  "foam": 0.2
+                },
+                {
+                  "u": 0.7,
+                  "foam": 1.15,
+                  "dur": 0.7
+                }
+              ]
+            },
+            "people": [
+              {
+                "id": "mama",
+                "look": {
+                  "skin": "#f3cba6",
+                  "hair": "#3a2416",
+                  "hairStyle": "bun",
+                  "pencil": true,
+                  "shirt": "#b9a3e3",
+                  "dress": "#b9a3e3",
+                  "pants": "#b9a3e3",
+                  "shorts": true,
+                  "apron": "#ffe27a",
+                  "gloves": "#ff8fb3",
+                  "shoes": "#ff9ec4"
+                },
+                "keys": [
+                  {
+                    "u": 0,
+                    "x": 0.25,
+                    "y": 0.875,
+                    "lean": 0.04,
+                    "L": [
+                      -50,
+                      -255
+                    ],
+                    "R": [
+                      62,
+                      -262
+                    ],
+                    "wiggleR": 9,
+                    "face": {
+                      "eyes": "squeeze",
+                      "brows": "down",
+                      "mouth": "teeth"
+                    },
+                    "s": 600
+                  },
+                  {
+                    "u": 0.18,
+                    "face": {
+                      "eyes": "sideR",
+                      "brows": "down",
+                      "mouth": "teeth"
+                    }
+                  },
+                  {
+                    "u": 0.28,
+                    "face": {
+                      "eyes": "squeeze",
+                      "brows": "down",
+                      "mouth": "teeth"
+                    }
+                  },
+                  {
+                    "u": 0.45,
+                    "face": {
+                      "eyes": "squeeze",
+                      "brows": "down",
+                      "mouth": "puff"
+                    }
+                  },
+                  {
+                    "u": 0.55,
+                    "face": {
+                      "eyes": "squeeze",
+                      "brows": "down",
+                      "mouth": "teeth"
+                    }
+                  },
+                  {
+                    "u": 0.66,
+                    "wiggleR": 0
+                  },
+                  {
+                    "u": 0.7,
+                    "lean": 0,
+                    "L": [
+                      84,
+                      -350
+                    ],
+                    "R": [
+                      70,
+                      -172
+                    ],
+                    "face": {
+                      "eyes": "wink",
+                      "brows": "one",
+                      "mouth": "line"
+                    },
+                    "dur": 0.1
+                  },
+                  {
+                    "u": 0.84,
+                    "face": {
+                      "eyes": "half",
+                      "brows": "flat",
+                      "mouth": "closedSmile"
+                    }
+                  },
+                  {
+                    "u": 0.9,
+                    "L": [
+                      130,
+                      -210
+                    ],
+                    "dur": 0.06
+                  }
+                ]
+              }
+            ],
+            "props": [
+              {
+                "id": "mate",
+                "kind": "mate",
+                "keys": [
+                  {
+                    "u": 0,
+                    "at": "mama.L",
+                    "center": true,
+                    "dx": 42,
+                    "rot": 0.1,
+                    "foam": 0.6,
+                    "empty": true,
+                    "nobomb": true,
+                    "front": true
+                  },
+                  {
+                    "u": 0.7,
+                    "at": "mama.L",
+                    "center": true,
+                    "dx": 42,
+                    "rot": 0,
+                    "foam": 0.5,
+                    "empty": true,
+                    "nobomb": true,
+                    "front": true
+                  },
+                  {
+                    "u": 0.92,
+                    "at": "",
+                    "x": 0.6,
+                    "y": 0.77,
+                    "rot": 3.141592653589793,
+                    "foam": 0,
+                    "empty": true,
+                    "nobomb": true,
+                    "front": true
+                  }
+                ]
+              },
+              {
+                "id": "sponge",
+                "kind": "sponge",
+                "keys": [
+                  {
+                    "u": 0,
+                    "at": "mama.R",
+                    "center": true,
+                    "dx": -30,
+                    "rot": -0.2,
+                    "s": 0.8,
+                    "front": true
+                  },
+                  {
+                    "u": 0.66,
+                    "at": "",
+                    "x": 0.43,
+                    "y": 0.774,
+                    "rot": 0,
+                    "wiggle": 0,
+                    "front": true
+                  }
+                ]
+              },
+              {
+                "id": "bottle",
+                "kind": "bottle",
+                "keys": [
+                  {
+                    "u": 0,
+                    "x": 0.47,
+                    "y": 0.774,
+                    "dent": true,
+                    "s": 0.95,
+                    "front": true
+                  }
+                ]
+              },
+              {
+                "id": "termo",
+                "kind": "termo",
+                "keys": [
+                  {
+                    "u": 0,
+                    "x": 0.72,
+                    "y": 0.772,
+                    "front": true
+                  }
+                ]
+              }
+            ],
+            "fx": [
+              {
+                "kind": "bubbles",
+                "u0": 0,
+                "u1": 0.7,
+                "x": 0.3,
+                "y": 0.67,
+                "n": 7,
+                "r": 14,
+                "rise": 260,
+                "spread": 120,
+                "speed": 1.1,
+                "behind": true
+              },
+              {
+                "kind": "drops",
+                "u0": 0.05,
+                "u1": 0.65,
+                "at": "mama.L",
+                "n": 3,
+                "fall": 120
+              },
+              {
+                "kind": "bigbubble",
+                "u0": 0.72,
+                "u1": 0.9,
+                "x": 0.4,
+                "y": 0.67,
+                "r": 58,
+                "rise": 160,
+                "dx": -0.06
+              },
+              {
+                "kind": "drops",
+                "u0": 0.7,
+                "u1": 0.9,
+                "at": "mama.L",
+                "n": 4,
+                "fall": 80
+              }
+            ],
+            "shake": [
+              {
+                "u0": 0.02,
+                "u1": 0.66,
+                "a": 3
+              }
+            ],
+            "cam": [
+              {
+                "u": 0,
+                "z": 2.2,
+                "c": [
+                  0.36,
+                  0.66
+                ]
+              },
+              {
+                "u": 0.66,
+                "z": 2.2,
+                "c": [
+                  0.36,
+                  0.66
+                ]
+              },
+              {
+                "u": 0.8,
+                "z": 2,
+                "c": [
+                  0.38,
+                  0.6
+                ],
+                "dur": 0.14
+              }
+            ],
+            "sounds": [
+              {
+                "u": 0.05,
+                "type": "swish"
+              },
+              {
+                "u": 0.3,
+                "type": "swish"
+              },
+              {
+                "u": 0.55,
+                "type": "swish"
+              },
+              {
+                "u": 0.86,
+                "type": "pop"
+              }
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "text": "Al otro día cebás el primero, medio dormido, y sale espuma.",
+      "emo": "surprised",
+      "shots": [
+        {
+          "dur": "sentence",
+          "set": "cocina",
+          "changes": [
+            {
+              "what": "wall clock",
+              "state": "shows 7:30"
+            },
+            {
+              "what": "window",
+              "state": "early light, paler sky"
+            },
+            {
+              "what": "ceiling lamp",
+              "state": "on, warm circle on the counter"
+            },
+            {
+              "what": "sink",
+              "state": "empty and dry; burnt pot gone"
+            },
+            {
+              "what": "plate with two medialunas",
+              "state": "on the counter under a napkin"
+            }
+          ],
+          "camera": {
+            "frame": "medium",
+            "angle": "eye height",
+            "on": "vos and the mate",
+            "move": "still; quick push-in to the mate when the foam comes",
+            "why": "the surprise has to be seen on the mate and on his face at once"
+          },
+          "positions": {
+            "vos": {
+              "x": 0.5,
+              "depth": "middle",
+              "facing": "camera",
+              "pose": "stand behind the counter, shoulders hanging"
+            }
+          },
+          "props": [
+            {
+              "what": "your mate",
+              "where": "vos' left hand",
+              "state": "fresh yerba, bombilla in"
+            },
+            {
+              "what": "termo",
+              "where": "vos' right hand"
+            }
+          ],
+          "beats": [
+            {
+              "at": 0,
+              "who": "vos",
+              "arms": "takes the mate from the dish rack without looking, turns it up, puts the bombilla in, tips yerba in with a shaky hand"
+            },
+            {
+              "at": 0,
+              "who": "vos",
+              "body": "sways a little",
+              "face": "eyes half shut, mouth open in a yawn",
+              "arms": "right hand tilts the termo, water pours into the mate"
+            },
+            {
+              "at": 0.45,
+              "who": "vos",
+              "face": "eyes still closed, small content smile"
+            },
+            {
+              "at": 0.6,
+              "who": "vos",
+              "face": "eyes snap wide open, brows jump up, mouth a small o",
+              "head": "jerks back",
+              "arms": "stops pouring, holds the termo in the air"
+            }
+          ],
+          "fx": [
+            {
+              "at": 0.55,
+              "what": "white foam rises out of the mate like a soufflé, runs over his fingers and drips on the counter"
+            },
+            {
+              "at": 0.65,
+              "what": "two small bubbles float up to his face"
+            }
+          ],
+          "sound": [
+            {
+              "at": 0,
+              "what": "water pouring"
+            },
+            {
+              "at": 0.55,
+              "what": "growing bubbling, like a washing machine"
+            }
+          ],
+          "gag": "the mate foams over like a washing machine",
+          "direction": "Sentence: \"Al otro día cebás el primero, medio dormido, y sale espuma.\" About 3.5 seconds.\n\nWhat the viewer must understand without sound: it is the next morning, earlier, you have just got up and are half asleep, you prepare your first mate as every day without paying attention, and when you pour the hot water the mate foams over like a washing machine. The time jump must be clear at a glance: the clock shows 7:30 instead of 8:00, the light is paler and cooler, the window shows an early sky, and you look freshly out of bed.\n\nLink to the shot before: yesterday the mother put the mate upside down in the dish rack after one quick rinse. This morning you take it from the dish rack, still half asleep, fill it with yerba and pour. We show the first second of you taking it from the rack, so the viewer connects it with the mother's scrubbing.\n\nThe set in this shot. The same kitchen, the same camera height (eyes of an adult), this time centred a little more to the right, on the counter between the sink and the termo. The back wall: cream tiles, light green paint. The window on the left: the curtains hang still, there is no wind yet; the sky outside is pale blue with a soft pink band near the horizon, the lemon tree is in shadow, its lemons look pale. The light comes softly from the window, no hard sun patch yet; the kitchen is a bit grey-blue, and the ceiling lamp (a simple white bowl lamp hanging from the top of the frame on a short cord) is switched on and gives a warm yellow circle of light on the counter. The clock on the right wall shows 7:30, its red second hand ticking. The sink is empty and dry: no foam, no yerba, no pot. The dish rack holds only the mate upside down, the bombilla lying next to it, and one cup. The detergent bottle still stands dented on the sink edge, label to the camera. On the counter: the termo, the open yerba pack, and a plate with two medialunas from yesterday under a paper napkin. On the fridge at the right edge we still see the child's drawing and the magnets. The hall door on the right is half open, the hall behind it dark.\n\nYou. You stand behind the counter in the middle of the frame (x 0.5), facing the camera, shoulders hanging, slightly bent forward. You are about 25, slim, dark brown hair that sticks up on one side and is flat on the other, a red crease from the pillow on the left cheek. You wear a grey hoodie with the hood half on, half off, and blue pyjama trousers with small white clouds (only the top visible above the counter). You are barefoot (not visible).\n\nYour movements.\nAt 0.0 your right hand reaches into the dish rack without looking and takes the mate, turns it the right way up; your left hand takes the bombilla. Your eyes are almost closed, two thin lines, your mouth hangs open in a long yawn, your head tilts to the side. Your body sways slowly left and right like a tree in the wind, about one sway per two seconds.\nAt 0.15 you stick the bombilla into the mate, then tip yerba from the pack into it with a shaky hand (some yerba falls next to it on the counter), without looking, the yawn ending in a small smack of the lips.\nAt 0.3 (on \"cebás\") you take the termo in your right hand and the mate in your left, at chest height. You tilt the termo and a thin stream of steaming water pours into the mate beside the bombilla. Your eyes are still closed, a small content smile on your face, you hum.\nAt 0.55 (on \"medio dormido\") your head sinks forward a little as if you were falling asleep standing, then jerks back up a centimetre.\nAt 0.6 (on \"sale espuma\") the foam comes. Your eyes snap wide open, your eyebrows jump up to the hairline, your mouth turns into a small round o, your head jerks back, your chin pulls in. You stop pouring at once, the termo frozen in the air, a last drop falling from its spout. Your left hand with the mate stays where it is, you stare at it from as far away as your arm allows. The foam runs over your fingers; you spread the fingers a little, disgusted, but you do not let go.\n\nObjects and how they end. The mate is in your left hand, full of yerba and water, the foam spilling over its rim, running down the gourd, over your fingers, and dripping onto the counter into a small white puddle that keeps growing. The termo is in your right hand, held up. Some dry yerba lies on the counter. The detergent bottle on the sink edge is in the frame behind you, so a viewer who looks closely can connect the foam with it.\n\nCamera. Medium shot, you from the hips up, the counter, the termo, the yerba and the mate in the frame, the clock visible at the top right. Still until 0.55. When the foam starts, a quick soft push-in (about 20 percent in half a second) toward the mate and your face, ending with your face in the upper third and the foaming mate in the lower third; never cut the mate or your eyes. Focus on you; the window slightly soft.\n\nTiming on the words: \"Al otro día\" = the clock at 7:30 and the pale light are visible from the first frame, you take the mate from the rack. \"cebás el primero\" = the water pours. \"medio dormido\" = your head nods. \"y sale espuma\" = the foam rises and your face jumps awake.\n\nEffects and sounds. Steam rises from the termo spout and the mate in thin curls. At 0.55 white foam rises out of the mate like a soufflé, slowly at first, then faster, building a dome higher than the mate, then spilling over. At 0.65 two small bubbles float up from the dome to your face and pop near your nose. Sounds: soft morning birds outside, the water pouring, your humming, then a growing bubbling noise like a washing machine starting, a wet drip on the counter.\n\nThe gag: the sleepy morning ritual turns into a washing machine in your hand; your face goes from asleep to wide awake in one frame.\n\nContinuity to the next shot: the foam stays on the rim, the termo goes back on the counter, the mate stays in your hand; you are still in the hoodie with the pillow mark.",
+          "anim": {
+            "set": {
+              "elements": [
+                {
+                  "kind": "wall",
+                  "paint": "#cfe3c6",
+                  "tile": "#f3ead6",
+                  "tileTop": 0.42
+                },
+                {
+                  "kind": "floor",
+                  "y": 0.9
+                },
+                {
+                  "kind": "uppers",
+                  "x0": 0.52,
+                  "x1": 0.8,
+                  "y": 0.36,
+                  "h": 300
+                },
+                {
+                  "kind": "frame",
+                  "x": 0.08,
+                  "y": 0.4
+                },
+                {
+                  "kind": "calendar",
+                  "x": 0.58,
+                  "y": 0.66
+                },
+                {
+                  "kind": "rail",
+                  "x": 0.13,
+                  "y": 0.5,
+                  "w": 220
+                },
+                {
+                  "kind": "socket",
+                  "x": 0.66,
+                  "y": 0.7
+                },
+                {
+                  "id": "lamp",
+                  "kind": "lamp",
+                  "x": 0.55,
+                  "y": 0.07,
+                  "on": true
+                },
+                {
+                  "id": "window",
+                  "kind": "window",
+                  "x": 0.33,
+                  "y": 0.6,
+                  "w": 360,
+                  "h": 340,
+                  "tree": true,
+                  "wind": 0
+                },
+                {
+                  "kind": "sun",
+                  "x": 0.33,
+                  "y": 0.45,
+                  "r": 420
+                },
+                {
+                  "id": "shelf",
+                  "kind": "shelf",
+                  "x": 0.7,
+                  "y": 0.5,
+                  "w": 240
+                },
+                {
+                  "id": "clock",
+                  "kind": "clock",
+                  "x": 0.9,
+                  "y": 0.3,
+                  "r": 50,
+                  "time": "7:30"
+                },
+                {
+                  "id": "door",
+                  "kind": "door",
+                  "x": 0.84,
+                  "y": 0.88,
+                  "w": 210,
+                  "h": 760,
+                  "open": 0.55
+                },
+                {
+                  "id": "fridge",
+                  "kind": "fridge",
+                  "x": 1.02,
+                  "y": 0.88,
+                  "w": 300,
+                  "h": 840,
+                  "top": [],
+                  "layer": "back"
+                },
+                {
+                  "id": "sill",
+                  "kind": "sill",
+                  "x": 0.33,
+                  "y": 0.6,
+                  "w": 400,
+                  "on": [],
+                  "layer": "back"
+                },
+                {
+                  "id": "counter",
+                  "kind": "counter",
+                  "y": 0.77,
+                  "x0": 0,
+                  "x1": 0.92,
+                  "layer": "front"
+                },
+                {
+                  "id": "under",
+                  "kind": "under",
+                  "x": 0.36,
+                  "y": 0.786,
+                  "open": false,
+                  "layer": "front"
+                },
+                {
+                  "id": "sink",
+                  "kind": "sink",
+                  "x": 0.36,
+                  "y": 0.774,
+                  "w": 330,
+                  "foam": 0,
+                  "yerba": false,
+                  "layer": "front"
+                },
+                {
+                  "kind": "sinkLip",
+                  "x": 0.36,
+                  "y": 0.774,
+                  "w": 330,
+                  "layer": "top"
+                },
+                {
+                  "id": "rack",
+                  "kind": "rack",
+                  "x": 0.56,
+                  "y": 0.77,
+                  "on": [
+                    "mate",
+                    "bombilla"
+                  ],
+                  "layer": "front"
+                },
+                {
+                  "kind": "plate",
+                  "x": 0.84,
+                  "y": 0.772,
+                  "napkin": true,
+                  "layer": "front"
+                },
+                {
+                  "kind": "stove",
+                  "x": 0.12,
+                  "y": 0.774,
+                  "w": 260,
+                  "steam": false,
+                  "layer": "front"
+                },
+                {
+                  "kind": "roll",
+                  "x": 0.9,
+                  "y": 0.774,
+                  "layer": "front"
+                },
+                {
+                  "id": "chair",
+                  "kind": "chair",
+                  "x": 0.1,
+                  "y": 1.06,
+                  "s": 1.1,
+                  "layer": "front"
+                }
+              ]
+            },
+            "light": "early",
+            "state": {
+              "rack": [
+                {
+                  "u": 0,
+                  "on": [
+                    "mate",
+                    "bombilla"
+                  ]
+                },
+                {
+                  "u": 0.2,
+                  "on": []
+                }
+              ]
+            },
+            "people": [
+              {
+                "id": "vos",
+                "look": {
+                  "skin": "#f6d7bb",
+                  "hair": "#3a2416",
+                  "hairStyle": "curly",
+                  "shirt": "#9aa3ad",
+                  "pants": "#3b5b9a",
+                  "shoes": "#f6d7bb",
+                  "termo": "#2f9e44",
+                  "longSleeves": true
+                },
+                "keys": [
+                  {
+                    "u": 0,
+                    "x": 0.43,
+                    "y": 0.875,
+                    "lean": -0.04,
+                    "L": [
+                      70,
+                      -172
+                    ],
+                    "R": [
+                      120,
+                      -210
+                    ],
+                    "face": {
+                      "eyes": "closed",
+                      "brows": "flat",
+                      "mouth": "yawn",
+                      "mark": true
+                    },
+                    "s": 600
+                  },
+                  {
+                    "u": 0.12,
+                    "R": [
+                      60,
+                      -160
+                    ],
+                    "L": [
+                      -40,
+                      -172
+                    ],
+                    "dur": 0.1
+                  },
+                  {
+                    "u": 0.22,
+                    "lean": 0.04,
+                    "hold": "mate",
+                    "R": [
+                      40,
+                      -150
+                    ],
+                    "dur": 0.08,
+                    "face": {
+                      "eyes": "closed",
+                      "brows": "flat",
+                      "mouth": "line",
+                      "mark": true
+                    }
+                  },
+                  {
+                    "u": 0.3,
+                    "hold": "both",
+                    "act": "pour",
+                    "face": {
+                      "eyes": "closed",
+                      "brows": "flat",
+                      "mouth": "closedSmile",
+                      "mark": true
+                    }
+                  },
+                  {
+                    "u": 0.5,
+                    "lean": 0.08,
+                    "dur": 0.06
+                  },
+                  {
+                    "u": 0.56,
+                    "lean": 0,
+                    "dur": 0.04
+                  },
+                  {
+                    "u": 0.6,
+                    "act": null,
+                    "hold": "termo",
+                    "R": [
+                      40,
+                      -240
+                    ],
+                    "L": [
+                      -78,
+                      -206
+                    ],
+                    "face": {
+                      "eyes": "big",
+                      "brows": "high",
+                      "mouth": "o",
+                      "mark": true
+                    },
+                    "lean": -0.06,
+                    "dur": 0.04
+                  }
+                ]
+              }
+            ],
+            "props": [
+              {
+                "id": "mateR",
+                "kind": "mate",
+                "keys": [
+                  {
+                    "u": 0,
+                    "hide": true
+                  },
+                  {
+                    "u": 0.6,
+                    "hide": false,
+                    "at": "vos.R",
+                    "dx": -23,
+                    "dy": 27,
+                    "gy": 27,
+                    "foam": 0,
+                    "front": true
+                  },
+                  {
+                    "u": 0.95,
+                    "foam": 1,
+                    "dur": 0.35
+                  }
+                ]
+              },
+              {
+                "id": "yerba",
+                "kind": "yerba",
+                "keys": [
+                  {
+                    "u": 0,
+                    "x": 0.62,
+                    "y": 0.772,
+                    "front": true
+                  }
+                ]
+              }
+            ],
+            "fx": [
+              {
+                "kind": "bubbles",
+                "u0": 0.66,
+                "u1": 1,
+                "at": "vos.R",
+                "n": 2,
+                "r": 12,
+                "rise": 300,
+                "spread": 40
+              },
+              {
+                "kind": "drops",
+                "u0": 0.75,
+                "u1": 1,
+                "at": "vos.R",
+                "n": 3,
+                "fall": 100
+              }
+            ],
+            "cam": [
+              {
+                "u": 0,
+                "z": 1.65,
+                "c": [
+                  0.45,
+                  0.66
+                ]
+              },
+              {
+                "u": 0.58,
+                "z": 1.65,
+                "c": [
+                  0.45,
+                  0.66
+                ]
+              },
+              {
+                "u": 0.7,
+                "z": 2.1,
+                "c": [
+                  0.45,
+                  0.66
+                ],
+                "dur": 0.12
+              }
+            ],
+            "sounds": [
+              {
+                "u": 0.3,
+                "type": "swish"
+              },
+              {
+                "u": 0.6,
+                "type": "boomSoft"
+              }
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "text": "Lo probás igual. Sabe a limón con lavandina.",
+      "emo": "funny",
+      "shots": [
+        {
+          "dur": "sentence",
+          "set": "cocina",
+          "camera": {
+            "frame": "close",
+            "angle": "eye height",
+            "on": "vos' face",
+            "move": "still",
+            "why": "the taste is a face"
+          },
+          "positions": {
+            "vos": {
+              "x": 0.5,
+              "depth": "front",
+              "facing": "camera",
+              "pose": "stand"
+            }
+          },
+          "props": [
+            {
+              "what": "your mate",
+              "where": "vos' right hand at the mouth",
+              "state": "foam on the rim"
+            }
+          ],
+          "beats": [
+            {
+              "at": 0,
+              "who": "vos",
+              "arms": "brings the bombilla to his mouth, sips once",
+              "face": "brave, eyes closed, cheeks in"
+            },
+            {
+              "at": 0.35,
+              "who": "vos",
+              "face": "whole face scrunches: eyes squeezed, nose wrinkled, mouth pulled to one side",
+              "body": "shoulders up to the ears, a shiver"
+            },
+            {
+              "at": 0.6,
+              "who": "vos",
+              "mouth": "tongue hangs out, three soap bubbles come out of his mouth",
+              "eyes": "crossed"
+            },
+            {
+              "at": 0.8,
+              "who": "vos",
+              "arms": "puts the mate down on the counter as far away as the arm reaches, wipes the tongue with the hoodie sleeve"
+            }
+          ],
+          "fx": [
+            {
+              "at": 0.6,
+              "what": "three small soap bubbles rise from his mouth, one with a tiny lemon reflection"
+            },
+            {
+              "at": 0.4,
+              "what": "green wavy lines next to his head"
+            }
+          ],
+          "sound": [
+            {
+              "at": 0,
+              "what": "short sip"
+            },
+            {
+              "at": 0.35,
+              "what": "comic 'blegh'"
+            },
+            {
+              "at": 0.6,
+              "what": "three bubble pops"
+            }
+          ],
+          "gag": "he breathes out soap bubbles",
+          "direction": "Sentence: \"Lo probás igual. Sabe a limón con lavandina.\" About 3.2 seconds.\n\nWhat the viewer must understand without sound: you are stubborn, you try the foaming mate anyway, and it tastes horrible: your whole face scrunches and you breathe out soap bubbles. The taste is told only by the face and the bubbles, so the face must be big in the frame and every part of it must act.\n\nLink to the shot before: a second later. You have put the termo back on the counter; the foam on the rim of the mate has gone down a little but is still there. You look at the mate, decide \"whatever\", and drink. At the end of the shot you put the mate down on the counter, which is where the next shot (the cutaway) shows it.\n\nThe set in this shot. A close shot of you, so the set is mostly behind you and soft: the cream tiles, the edge of the window with the pale morning sky, the yellow circle of the ceiling lamp light on the wall, the shelf with the three jars at the right edge, and the clock at the very top right showing 7:30. The counter edge is at the bottom of the frame, with the small foam puddle and the scattered yerba on it. The termo stands at the right edge of the counter. The light is still the cool morning light, with the warm lamp light from above on your hair.\n\nYou. Framed from the chest up, facing the camera, centred. Hoodie, messy hair, pillow mark on the left cheek. Your eyes are still wide from the foam at the start.\n\nYour movements.\nAt 0.0 (on \"Lo probás\") you look at the mate in your right hand for a moment, with your head pulled back and one eyebrow up, suspicious. Then your face changes to brave: you close your eyes, press your lips together, breathe in through the nose (chest goes up), and bring the bombilla to your mouth with a slow, determined move. You put the tip between your lips and suck once; your cheeks go in, your eyes stay closed.\nAt 0.25 (on \"igual\") you pull the bombilla out of your mouth; for half a second nothing happens, your face is neutral, eyes closed, as if tasting wine.\nAt 0.35 (on \"Sabe a\") the taste hits. Your whole face scrunches in one move: eyes squeezed shut so hard that wrinkles form around them, nose wrinkled up, eyebrows pushed down and together, mouth pulled to the left side, the lower lip sticking out. Your shoulders shoot up to your ears and your whole body shivers once from top to bottom, the hood falls off your head completely. Your free left hand comes up and grabs the edge of the counter as if you had to hold on.\nAt 0.6 (on \"limón con lavandina\") your mouth opens and your tongue hangs out, long, to the side; your eyes open and are crossed, looking at your own nose. Out of your open mouth come three soap bubbles, one after the other, rising slowly in front of your face.\nAt 0.8 without looking you put the mate down on the counter in front of you with your right hand, as far away from you as your arm reaches, and wipe your tongue with the sleeve of the hoodie.\n\nObjects and how they end. The mate ends on the counter, a little to the right of the centre, the bombilla in it, foam on the rim. The termo is on the right of the counter. The sleeve of your hoodie has a wet spot.\n\nCamera. A close shot: your face takes up about a third of the frame height, the mate in your hand is visible when you drink, and the counter edge with the mate is visible at the bottom at the end. The camera is still: all the energy comes from the face. At 0.35, at the moment of the scrunch, there is one very short shake (one jolt, like a hit). The face is sharp, the background soft.\n\nTiming on the words: \"Lo probás\" = the suspicious look and the brave sip. \"igual\" = the tasting pause. \"Sabe a\" = the scrunch and shiver. \"limón con lavandina\" = tongue, crossed eyes and the bubbles, the last bubble with a tiny lemon reflection rising on \"lavandina\".\n\nEffects and sounds. Three soap bubbles from the mouth, the first small, the second medium, the third the size of a lemon with a thin rainbow edge and a small yellow lemon reflected in it; they rise and pop one after the other at the top of the frame. Next to your head, at 0.4, two short green wavy lines (the classic cartoon \"bad taste\" lines) appear for half a second. Sounds: a short sip, a silent beat, a comic \"blegh\" with a shiver sound, three soft pops in a little rhythm, the dull clunk of the mate on the counter.\n\nThe gag: you are so stubborn you drink it anyway, and you literally breathe out soap.\n\nContinuity to the next shot: the next shot explains why, on this very mate, standing on the counter where you just put it.",
+          "anim": {
+            "set": {
+              "elements": [
+                {
+                  "kind": "wall",
+                  "paint": "#cfe3c6",
+                  "tile": "#f3ead6",
+                  "tileTop": 0.42
+                },
+                {
+                  "kind": "floor",
+                  "y": 0.9
+                },
+                {
+                  "kind": "uppers",
+                  "x0": 0.52,
+                  "x1": 0.8,
+                  "y": 0.36,
+                  "h": 300
+                },
+                {
+                  "kind": "frame",
+                  "x": 0.08,
+                  "y": 0.4
+                },
+                {
+                  "kind": "calendar",
+                  "x": 0.58,
+                  "y": 0.66
+                },
+                {
+                  "kind": "rail",
+                  "x": 0.13,
+                  "y": 0.5,
+                  "w": 220
+                },
+                {
+                  "kind": "socket",
+                  "x": 0.66,
+                  "y": 0.7
+                },
+                {
+                  "id": "lamp",
+                  "kind": "lamp",
+                  "x": 0.55,
+                  "y": 0.07,
+                  "on": true
+                },
+                {
+                  "id": "window",
+                  "kind": "window",
+                  "x": 0.33,
+                  "y": 0.6,
+                  "w": 360,
+                  "h": 340,
+                  "tree": true,
+                  "wind": 0
+                },
+                {
+                  "kind": "sun",
+                  "x": 0.33,
+                  "y": 0.45,
+                  "r": 420
+                },
+                {
+                  "id": "shelf",
+                  "kind": "shelf",
+                  "x": 0.7,
+                  "y": 0.5,
+                  "w": 240
+                },
+                {
+                  "id": "clock",
+                  "kind": "clock",
+                  "x": 0.9,
+                  "y": 0.3,
+                  "r": 50,
+                  "time": "7:31"
+                },
+                {
+                  "id": "door",
+                  "kind": "door",
+                  "x": 0.84,
+                  "y": 0.88,
+                  "w": 210,
+                  "h": 760,
+                  "open": 0.55
+                },
+                {
+                  "id": "fridge",
+                  "kind": "fridge",
+                  "x": 1.02,
+                  "y": 0.88,
+                  "w": 300,
+                  "h": 840,
+                  "top": [],
+                  "layer": "back"
+                },
+                {
+                  "id": "sill",
+                  "kind": "sill",
+                  "x": 0.33,
+                  "y": 0.6,
+                  "w": 400,
+                  "on": [],
+                  "layer": "back"
+                },
+                {
+                  "id": "counter",
+                  "kind": "counter",
+                  "y": 0.77,
+                  "x0": 0,
+                  "x1": 0.92,
+                  "layer": "front"
+                },
+                {
+                  "id": "under",
+                  "kind": "under",
+                  "x": 0.36,
+                  "y": 0.786,
+                  "open": false,
+                  "layer": "front"
+                },
+                {
+                  "id": "sink",
+                  "kind": "sink",
+                  "x": 0.36,
+                  "y": 0.774,
+                  "w": 330,
+                  "foam": 0,
+                  "yerba": false,
+                  "layer": "front"
+                },
+                {
+                  "kind": "sinkLip",
+                  "x": 0.36,
+                  "y": 0.774,
+                  "w": 330,
+                  "layer": "top"
+                },
+                {
+                  "id": "rack",
+                  "kind": "rack",
+                  "x": 0.56,
+                  "y": 0.77,
+                  "on": [
+                    "bombilla"
+                  ],
+                  "layer": "front"
+                },
+                {
+                  "kind": "plate",
+                  "x": 0.84,
+                  "y": 0.772,
+                  "napkin": true,
+                  "layer": "front"
+                },
+                {
+                  "kind": "stove",
+                  "x": 0.12,
+                  "y": 0.774,
+                  "w": 260,
+                  "steam": false,
+                  "layer": "front"
+                },
+                {
+                  "kind": "roll",
+                  "x": 0.9,
+                  "y": 0.774,
+                  "layer": "front"
+                },
+                {
+                  "id": "chair",
+                  "kind": "chair",
+                  "x": 0.1,
+                  "y": 1.06,
+                  "s": 1.1,
+                  "layer": "front"
+                }
+              ]
+            },
+            "light": "early",
+            "people": [
+              {
+                "id": "vos",
+                "look": {
+                  "skin": "#f6d7bb",
+                  "hair": "#3a2416",
+                  "hairStyle": "curly",
+                  "shirt": "#9aa3ad",
+                  "pants": "#3b5b9a",
+                  "shoes": "#f6d7bb",
+                  "termo": "#2f9e44",
+                  "longSleeves": true
+                },
+                "keys": [
+                  {
+                    "u": 0,
+                    "x": 0.43,
+                    "y": 0.875,
+                    "hold": "mate",
+                    "R": [
+                      36,
+                      -142
+                    ],
+                    "L": [
+                      -70,
+                      -172
+                    ],
+                    "face": {
+                      "eyes": "dot",
+                      "brows": "one",
+                      "mouth": "line",
+                      "mark": true
+                    },
+                    "tilt": -0.1,
+                    "s": 600
+                  },
+                  {
+                    "u": 0.1,
+                    "act": "drink",
+                    "face": {
+                      "eyes": "closed",
+                      "brows": "flat",
+                      "mouth": "sip",
+                      "mark": true
+                    }
+                  },
+                  {
+                    "u": 0.3,
+                    "act": null,
+                    "R": [
+                      36,
+                      -142
+                    ],
+                    "face": {
+                      "eyes": "closed",
+                      "brows": "flat",
+                      "mouth": "line",
+                      "mark": true
+                    }
+                  },
+                  {
+                    "u": 0.36,
+                    "L": [
+                      -150,
+                      -180
+                    ],
+                    "face": {
+                      "eyes": "squeeze",
+                      "brows": "down",
+                      "mouth": "side",
+                      "mark": true,
+                      "nose": "wrinkle"
+                    },
+                    "lean": 0.03
+                  },
+                  {
+                    "u": 0.44,
+                    "lean": -0.03
+                  },
+                  {
+                    "u": 0.5,
+                    "lean": 0
+                  },
+                  {
+                    "u": 0.6,
+                    "face": {
+                      "eyes": "crossed",
+                      "brows": "worried",
+                      "mouth": "tongue",
+                      "mark": true
+                    }
+                  },
+                  {
+                    "u": 0.8,
+                    "hold": null,
+                    "R": [
+                      150,
+                      -172
+                    ],
+                    "dur": 0.08
+                  },
+                  {
+                    "u": 0.9,
+                    "R": [
+                      20,
+                      -290
+                    ],
+                    "face": {
+                      "eyes": "half",
+                      "brows": "worried",
+                      "mouth": "tongue",
+                      "mark": true
+                    },
+                    "dur": 0.08
+                  }
+                ]
+              }
+            ],
+            "props": [
+              {
+                "id": "mate",
+                "kind": "mate",
+                "keys": [
+                  {
+                    "u": 0,
+                    "hide": true
+                  },
+                  {
+                    "u": 0.84,
+                    "hide": false,
+                    "x": 0.66,
+                    "y": 0.774,
+                    "foam": 0.4,
+                    "front": true
+                  }
+                ]
+              },
+              {
+                "id": "termo",
+                "kind": "termo",
+                "keys": [
+                  {
+                    "u": 0,
+                    "x": 0.78,
+                    "y": 0.772,
+                    "front": true
+                  }
+                ]
+              }
+            ],
+            "fx": [
+              {
+                "kind": "wavy",
+                "u0": 0.38,
+                "u1": 0.6,
+                "at": "vos.head",
+                "dx": 120
+              },
+              {
+                "kind": "bigbubble",
+                "u0": 0.6,
+                "u1": 0.72,
+                "at": "vos.mouth",
+                "r": 22,
+                "rise": 180
+              },
+              {
+                "kind": "bigbubble",
+                "u0": 0.66,
+                "u1": 0.8,
+                "at": "vos.mouth",
+                "r": 32,
+                "rise": 220,
+                "dx": 0.04
+              },
+              {
+                "kind": "bigbubble",
+                "u0": 0.72,
+                "u1": 0.92,
+                "at": "vos.mouth",
+                "r": 46,
+                "rise": 260,
+                "dx": -0.03,
+                "lemon": true
+              }
+            ],
+            "shake": [
+              {
+                "u0": 0.36,
+                "u1": 0.42,
+                "a": 6
+              }
+            ],
+            "cam": [
+              {
+                "u": 0,
+                "z": 2.6,
+                "c": [
+                  0.43,
+                  0.58
+                ]
+              },
+              {
+                "u": 0.78,
+                "z": 2.6,
+                "c": [
+                  0.43,
+                  0.58
+                ]
+              },
+              {
+                "u": 0.9,
+                "z": 2.1,
+                "c": [
+                  0.5,
+                  0.63
+                ],
+                "dur": 0.12
+              }
+            ],
+            "sounds": [
+              {
+                "u": 0.1,
+                "type": "pop"
+              },
+              {
+                "u": 0.36,
+                "type": "buzz"
+              },
+              {
+                "u": 0.62,
+                "type": "pop"
+              },
+              {
+                "u": 0.7,
+                "type": "pop"
+              },
+              {
+                "u": 0.8,
+                "type": "pop"
+              }
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "text": "Porque la calabaza es como una esponja: se chupa todo lo que le ponés.",
+      "emo": "neutral",
+      "shots": [
+        {
+          "dur": "sentence",
+          "set": "cocina",
+          "camera": {
+            "frame": "extreme close",
+            "angle": "eye height",
+            "on": "the mate on the counter, cut in half (cutaway drawing)",
+            "move": "slow push-in into the gourd wall",
+            "why": "the reason is only clear if we see the wall soaking up soap"
+          },
+          "positions": {},
+          "props": [
+            {
+              "what": "your mate as a cut-open drawing",
+              "where": "on the counter, in front of the blurred kitchen",
+              "state": "gourd wall with tiny holes (pores)"
+            },
+            {
+              "what": "yellow sponge",
+              "where": "counter, left of the mate",
+              "state": "big open holes facing the camera"
+            }
+          ],
+          "beats": [
+            {
+              "at": 0,
+              "who": "mate",
+              "face": "the mate gets two small eyes on the outside, looks worried",
+              "body": "the cut side faces the camera"
+            },
+            {
+              "at": 0.3,
+              "who": "mate",
+              "body": "green soap drops slide into the pores and stay there, the wall turns pale green from inside"
+            },
+            {
+              "at": 0.75,
+              "who": "mate",
+              "face": "eyes go round, it hiccups once and a bubble comes out of the top"
+            }
+          ],
+          "fx": [
+            {
+              "at": 0.3,
+              "what": "soap drops enter the pores one by one"
+            },
+            {
+              "at": 0.75,
+              "what": "one bubble out of the opening"
+            }
+          ],
+          "sound": [
+            {
+              "at": 0.3,
+              "what": "soft sponge-like squish"
+            },
+            {
+              "at": 0.75,
+              "what": "hiccup"
+            }
+          ],
+          "gag": "the mate hiccups a bubble",
+          "direction": "Sentence: \"Porque la calabaza es como una esponja: se chupa todo lo que le ponés.\" About 3.8 seconds.\n\nWhat the viewer must understand without sound: the reason. The gourd wall is full of tiny holes, like a sponge; the soap went into those holes yesterday and stays there, and comes out again into every mate. To make this visible we cut the mate in half in a drawing (a cutaway) and put a real sponge next to it, so the comparison \"como una esponja\" is seen, not only heard. The mate gets small eyes for this shot, so it can react; this is the only shot where an object has a face, and it is motivated: the mate \"suffers\".\n\nLink to the shot before: you just put the mate down on the counter. We stay on that mate, in the same kitchen, the same morning; no time passes. The cutaway is a drawn look inside the mate, not a new place. Behind it the kitchen stays visible but soft, so the viewer knows we are still at your counter.\n\nNew elements for this shot: the cut-open mate (the half facing the camera is removed, so we see the yerba, the water and the gourd wall in section) and the yellow sponge from the sink edge, which we place on the counter next to the mate for the comparison.\n\nThe set in this shot. An extreme close-up at the height of the counter top. Behind: the counter edge, a soft view of the tiles, the steel tap shining softly, the window light from the left, the edge of the termo on the right, all out of focus. In front, sharp: the mate on the light wooden counter, the foam puddle near it, a few dry yerba leaves on the wood, and the sponge on the left of the mate, its yellow side with its big open holes turned to the camera. The cool morning light with the warm lamp from above.\n\nThe cutaway. At 0.0 the mate is whole. At 0.1 it opens like a drawing: the front half slides away to the right and vanishes, and we see the inside in section: the green yerba on top, the bombilla going down into it, the light brown water at the bottom, and the gourd wall around it, thick and light brown. The wall is drawn with many tiny round holes (pores), like the holes of the sponge next to it but much smaller, a few hundred dots. The same pattern on the sponge and on the wall makes the comparison obvious.\n\nThe mate's face. On the outside of the remaining half, on the left curve, the mate has two small black dot eyes with white shine points and two thin worried eyebrows, no mouth. At 0.0 the eyes look at the camera, worried.\n\nWhat happens, beat by beat.\nAt 0.2 (on \"la calabaza\") a soft white highlight runs over the gourd wall from top to bottom, showing the pores; the sponge next to it gets the same highlight at the same time.\nAt 0.3 (on \"es como una esponja\") a few drops of green soap appear inside the pores of the wall: they slide into the holes one by one from the inside, about ten drops, each one disappearing into a hole with a tiny squeeze; the wall turns light green from the inside where they went in. The mate's eyes look down at its own wall, eyebrows going up in the middle, scared.\nAt 0.6 (on \"se chupa todo\") the green comes out again: from the pores it seeps back into the water of the mate in small green clouds, and the water turns slightly green. Small bubbles start to rise in the water.\nAt 0.8 (on \"lo que le ponés\") the mate's eyes become round and big, and it hiccups once: its whole body jumps a centimetre up and lands again, and one bubble comes out of the top opening, past the bombilla, and floats up out of the frame.\nAt 0.95 the front half slides back in and the mate is whole again, on the counter, with a small bubble still on its rim.\n\nCamera. Extreme close-up: the mate fills about half the frame height, the sponge is fully visible to the left of it, the top of the bombilla must stay in the frame. A slow, steady push-in during the whole shot, about 15 percent, toward the wall of the gourd, so the pores become a little bigger and clearer while the green goes in. At the hiccup the camera does not move: the mate jumps inside the frame. Focus on the mate and the sponge, the kitchen behind soft.\n\nTiming: the cut opens on \"Porque\", the pores and sponge glow on \"la calabaza\", the soap goes in on \"esponja\", it comes out on \"se chupa todo\", the hiccup on \"ponés\".\n\nEffects and sounds. The opening of the cutaway with a soft paper-like slide. The highlight over pores and sponge with a small sparkle. Each soap drop going into a pore with a tiny squish sound, like a sponge being pressed, in a quick rhythm. A soft bubbling when the green comes back into the water. A cartoon hiccup \"hic!\" with the jump. The bubble floats up silently.\n\nThe feeling: the viewer understands the reason in one picture (sponge = gourd), and the hiccup keeps it funny, not a lecture.\n\nFacts: a calabaza mate is a dried gourd and is porous; it absorbs flavours and soap, which is why it is rinsed only with water. Correct.\n\nContinuity to the next shot: the mate is whole again on the counter, a small bubble on the rim; you will pick it up again when the grandma comes in.",
+          "anim": {
+            "light": "early",
+            "cut": {
+              "size": 640
+            },
+            "set": {
+              "elements": [
+                {
+                  "kind": "wall",
+                  "paint": "#cfe3c6",
+                  "tile": "#f3ead6",
+                  "tileTop": 0.42
+                },
+                {
+                  "kind": "floor",
+                  "y": 0.9
+                },
+                {
+                  "kind": "uppers",
+                  "x0": 0.52,
+                  "x1": 0.8,
+                  "y": 0.36,
+                  "h": 300
+                },
+                {
+                  "kind": "frame",
+                  "x": 0.08,
+                  "y": 0.4
+                },
+                {
+                  "kind": "calendar",
+                  "x": 0.58,
+                  "y": 0.66
+                },
+                {
+                  "kind": "rail",
+                  "x": 0.13,
+                  "y": 0.5,
+                  "w": 220
+                },
+                {
+                  "kind": "socket",
+                  "x": 0.66,
+                  "y": 0.7
+                },
+                {
+                  "id": "lamp",
+                  "kind": "lamp",
+                  "x": 0.55,
+                  "y": 0.07,
+                  "on": true
+                },
+                {
+                  "id": "window",
+                  "kind": "window",
+                  "x": 0.33,
+                  "y": 0.6,
+                  "w": 360,
+                  "h": 340,
+                  "tree": true,
+                  "wind": 1
+                },
+                {
+                  "kind": "sun",
+                  "x": 0.33,
+                  "y": 0.45,
+                  "r": 420
+                },
+                {
+                  "id": "shelf",
+                  "kind": "shelf",
+                  "x": 0.7,
+                  "y": 0.5,
+                  "w": 240
+                },
+                {
+                  "id": "clock",
+                  "kind": "clock",
+                  "x": 0.9,
+                  "y": 0.3,
+                  "r": 50,
+                  "time": "7:31"
+                },
+                {
+                  "id": "door",
+                  "kind": "door",
+                  "x": 0.84,
+                  "y": 0.88,
+                  "w": 210,
+                  "h": 760,
+                  "open": 0.55
+                },
+                {
+                  "id": "fridge",
+                  "kind": "fridge",
+                  "x": 1.02,
+                  "y": 0.88,
+                  "w": 300,
+                  "h": 840,
+                  "top": [],
+                  "layer": "back"
+                },
+                {
+                  "id": "sill",
+                  "kind": "sill",
+                  "x": 0.33,
+                  "y": 0.6,
+                  "w": 400,
+                  "on": [],
+                  "layer": "back"
+                },
+                {
+                  "id": "counter",
+                  "kind": "counter",
+                  "y": 0.77,
+                  "x0": 0,
+                  "x1": 0.92,
+                  "layer": "front"
+                },
+                {
+                  "id": "under",
+                  "kind": "under",
+                  "x": 0.36,
+                  "y": 0.786,
+                  "open": false,
+                  "layer": "front"
+                },
+                {
+                  "id": "sink",
+                  "kind": "sink",
+                  "x": 0.36,
+                  "y": 0.774,
+                  "w": 330,
+                  "foam": 0,
+                  "yerba": false,
+                  "layer": "front"
+                },
+                {
+                  "kind": "sinkLip",
+                  "x": 0.36,
+                  "y": 0.774,
+                  "w": 330,
+                  "layer": "top"
+                },
+                {
+                  "id": "rack",
+                  "kind": "rack",
+                  "x": 0.56,
+                  "y": 0.77,
+                  "on": [],
+                  "layer": "front"
+                },
+                {
+                  "kind": "plate",
+                  "x": 0.84,
+                  "y": 0.772,
+                  "napkin": true,
+                  "layer": "front"
+                },
+                {
+                  "kind": "stove",
+                  "x": 0.12,
+                  "y": 0.774,
+                  "w": 260,
+                  "steam": false,
+                  "layer": "front"
+                },
+                {
+                  "kind": "roll",
+                  "x": 0.9,
+                  "y": 0.774,
+                  "layer": "front"
+                },
+                {
+                  "id": "chair",
+                  "kind": "chair",
+                  "x": 0.1,
+                  "y": 1.06,
+                  "s": 1.1,
+                  "layer": "front"
+                }
+              ]
+            },
+            "props": [
+              {
+                "id": "bigsponge",
+                "kind": "bigsponge",
+                "keys": [
+                  {
+                    "u": 0,
+                    "x": 0.2,
+                    "y": 0.72,
+                    "s": 0.9
+                  }
+                ]
+              }
+            ],
+            "fx": [
+              {
+                "kind": "sparkle",
+                "u0": 0.18,
+                "u1": 0.3,
+                "x": 0.2,
+                "y": 0.62,
+                "s": 40
+              },
+              {
+                "kind": "sparkle",
+                "u0": 0.18,
+                "u1": 0.3,
+                "x": 0.6,
+                "y": 0.5,
+                "s": 40
+              }
+            ],
+            "cam": [
+              {
+                "u": 0,
+                "z": 1,
+                "c": [
+                  0.5,
+                  0.5
+                ]
+              },
+              {
+                "u": 1,
+                "z": 1.12,
+                "c": [
+                  0.52,
+                  0.52
+                ],
+                "dur": 1
+              }
+            ],
+            "sounds": [
+              {
+                "u": 0.08,
+                "type": "swish"
+              },
+              {
+                "u": 0.35,
+                "type": "tick"
+              },
+              {
+                "u": 0.45,
+                "type": "tick"
+              },
+              {
+                "u": 0.8,
+                "type": "popBig"
+              }
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "text": "Tu abuela entra, huele el mate y casi se desmaya.",
+      "emo": "funny",
+      "shots": [
+        {
+          "dur": "sentence",
+          "set": "cocina",
+          "camera": {
+            "frame": "full",
+            "angle": "eye height",
+            "on": "abuela between the door side and the chair",
+            "move": "still, a short pan left following her fall onto the chair",
+            "why": "the faint needs her whole body and the chair"
+          },
+          "positions": {
+            "abuela": {
+              "x": 0.62,
+              "depth": "middle",
+              "facing": "vos",
+              "pose": "walks in from the right"
+            },
+            "vos": {
+              "x": 0.35,
+              "depth": "middle",
+              "facing": "abuela",
+              "pose": "stand, holds the mate out"
+            }
+          },
+          "props": [
+            {
+              "what": "your mate",
+              "where": "vos' right hand, held out to abuela",
+              "state": "foam on the rim"
+            },
+            {
+              "what": "wooden chair",
+              "where": "front left"
+            }
+          ],
+          "beats": [
+            {
+              "at": 0,
+              "who": "vos",
+              "arms": "has picked the mate up again from the counter"
+            },
+            {
+              "at": 0,
+              "who": "abuela",
+              "body": "walks in from the right with small steps, slightly bent",
+              "face": "calm, friendly",
+              "hands": "her own mate in the crocheted holder in the left hand"
+            },
+            {
+              "at": 0,
+              "who": "vos",
+              "arms": "holds the mate out to her",
+              "face": "guilty, brows up in the middle, small sorry smile"
+            },
+            {
+              "at": 0.3,
+              "who": "abuela",
+              "head": "leans to the mate, sniffs twice",
+              "face": "nose wrinkles, glasses slide down the nose"
+            },
+            {
+              "at": 0.5,
+              "who": "abuela",
+              "face": "eyes wide, mouth open in a silent scream, glasses fall and hang on the chain",
+              "arms": "right hand to her heart"
+            },
+            {
+              "at": 0.7,
+              "who": "abuela",
+              "body": "sways back, lets herself fall onto the chair, legs up for a second",
+              "arms": "back of the right hand on her forehead like in a telenovela"
+            },
+            {
+              "at": 0.7,
+              "who": "vos",
+              "body": "steps forward to catch her, too late",
+              "face": "mouth open, eyes wide"
+            }
+          ],
+          "fx": [
+            {
+              "at": 0.5,
+              "what": "three small stars circle her head"
+            }
+          ],
+          "sound": [
+            {
+              "at": 0.3,
+              "what": "two sniffs"
+            },
+            {
+              "at": 0.5,
+              "what": "dramatic telenovela chord"
+            },
+            {
+              "at": 0.75,
+              "what": "chair creak"
+            }
+          ],
+          "gag": "telenovela faint onto the kitchen chair",
+          "direction": "Sentence: \"Tu abuela entra, huele el mate y casi se desmaya.\" About 3.5 seconds.\n\nWhat the viewer must understand without sound: the grandma, who knows everything about mate, comes into the kitchen, you show her your mate, she smells it, and she reacts like a telenovela heroine: hand on the heart, and she falls back onto the kitchen chair. The comedy needs her whole body, the door she comes through and the chair she falls on, so this is a full shot of both of you.\n\nLink to the shot before: ten minutes later (the clock shows 7:40). The grandma always comes down at this time for her own first mate. You have picked your mate up again from the counter and are holding it, unsure what to do with it. She comes in through the hall door on the right. You hold the mate out to her, both to ask and to confess.\n\nThe set in this shot. A full shot of the whole kitchen, slightly wider than before, at adult eye height, from the front. From left to right: the wooden chair in the front left corner (straw seat, striped tea towel on the backrest), the window with the yellow curtains, now with the first warm sun coming through, the sink with the dented detergent bottle on the edge and the sponge, the counter with the mate's foam puddle, the termo, the yerba pack and the plate with medialunas, the shelf with the jars and the clock at 7:40 on the back wall, then on the right wall the hall door, open, and the edge of the fridge with the drawing at the far right. The ceiling lamp is still on. The light is getting warmer: a pale sun patch on the counter.\n\nThe grandma. About 80, small and slightly bent, grey hair in a tight bun, round glasses on a thin silver chain around her neck, a dark green cardigan buttoned over a blouse with small red flowers, a grey skirt below the knee, black low shoes, thin skin-coloured stockings. In her left hand she carries her own old calabaza mate in a white crocheted holder, empty, ready for her morning mate. She moves slowly but with dignity.\n\nYou. Still in the grey hoodie with the hood down now, messy hair, pillow mark, pyjama trousers with clouds, barefoot, which we now see because this is a full shot. You stand left of centre (x 0.35), in front of the counter, facing right toward the door and the grandma.\n\nMovements, beat by beat.\nAt 0.0 (on \"Tu abuela entra\") the grandma comes in through the hall door on the right with small, careful steps, three steps until she stands at x 0.62, facing you. Her face is calm and friendly, a small smile, eyebrows relaxed, eyes a little narrow behind the glasses. At the same time you turn to her and hold your mate out in your right hand at chest height, arm half stretched. Your eyebrows go up in the middle, guilty; you show a small, crooked \"sorry\" smile and pull your head a bit between your shoulders. Your left hand scratches the back of your head.\nAt 0.3 (on \"huele el mate\") she leans her upper body toward the mate, slowly, her nose almost touching the rim. She sniffs twice: two short visible movements of her nose, the nostrils open; her glasses slide down to the tip of her nose with the second sniff. Her eyebrows go down, the nose wrinkles.\nAt 0.5 she straightens up in one jerk. Her eyes become huge, her mouth opens wide in a silent scream, both eyebrows shoot up; the glasses fall off her nose and swing on the chain in front of her chest. Her right hand goes flat to her heart; her left hand with her own mate goes up into the air, keeping it safe.\nAt 0.7 (on \"y casi se desmaya\") she sways backward, slowly, like a tree, takes two little steps back to the left toward the chair, turns a little, and lets herself fall onto the chair: she sits down hard, her body leans back against the backrest, both legs fly up for a moment so we see the black shoes in the air, and the back of her right hand goes to her forehead in the pose of a telenovela heroine, her eyes closed, her head back. Her left hand still holds her own mate safely up in the air.\nAt 0.7 you take a step toward her with your free left hand out to catch her, too late; your mouth is open, eyes wide; your right hand still holds the mate, foam flicking off the rim.\nAt 0.9 her legs come down, she stays in the pose; one eye opens a little to check whether you are watching.\n\nCamera. A full shot, both of you from head to feet, the door on the right and the chair on the left in the frame. Still at the start; when she falls back toward the chair, the camera makes a short pan to the left of about 15 percent to keep her centred, ending with her on the chair and you on the right of her, both fully in the frame. Nobody's head or feet may be cut.\n\nTiming on the words: \"Tu abuela entra\" = she walks in through the door. \"huele el mate\" = the lean and the two sniffs. \"y casi\" = the jerk up and the hand on the heart. \"se desmaya\" = the fall onto the chair, legs up.\n\nEffects and sounds. At 0.5 three small yellow stars appear and circle her head once. Sounds: her slow steps (soft shoes on tiles), two sniffs, a dramatic telenovela chord (a big orchestral hit with a violin swell), the chair creaking under her, a small \"ay\" from her.\n\nThe gag: the grandma reacts to a smell in a mate like to a crime in a telenovela; she even saves her own mate during the fall and checks with one eye if she has an audience.\n\nContinuity to the next shot: next she gets up and takes over the washing; your mate is still in your hand, her own mate still in her hand; the bottle is still on the sink edge.",
+          "changes": [
+            {
+              "what": "wall clock",
+              "state": "7:40"
+            },
+            {
+              "what": "window",
+              "state": "first warm sun"
+            }
+          ],
+          "anim": {
+            "set": {
+              "elements": [
+                {
+                  "kind": "wall",
+                  "paint": "#cfe3c6",
+                  "tile": "#f3ead6",
+                  "tileTop": 0.42
+                },
+                {
+                  "kind": "floor",
+                  "y": 0.9
+                },
+                {
+                  "kind": "uppers",
+                  "x0": 0.52,
+                  "x1": 0.8,
+                  "y": 0.36,
+                  "h": 300
+                },
+                {
+                  "kind": "frame",
+                  "x": 0.08,
+                  "y": 0.4
+                },
+                {
+                  "kind": "calendar",
+                  "x": 0.58,
+                  "y": 0.66
+                },
+                {
+                  "kind": "rail",
+                  "x": 0.13,
+                  "y": 0.5,
+                  "w": 220
+                },
+                {
+                  "kind": "socket",
+                  "x": 0.66,
+                  "y": 0.7
+                },
+                {
+                  "id": "lamp",
+                  "kind": "lamp",
+                  "x": 0.55,
+                  "y": 0.07,
+                  "on": true
+                },
+                {
+                  "id": "window",
+                  "kind": "window",
+                  "x": 0.33,
+                  "y": 0.6,
+                  "w": 360,
+                  "h": 340,
+                  "tree": true,
+                  "wind": 1
+                },
+                {
+                  "kind": "sun",
+                  "x": 0.33,
+                  "y": 0.45,
+                  "r": 420
+                },
+                {
+                  "id": "shelf",
+                  "kind": "shelf",
+                  "x": 0.7,
+                  "y": 0.5,
+                  "w": 240
+                },
+                {
+                  "id": "clock",
+                  "kind": "clock",
+                  "x": 0.9,
+                  "y": 0.3,
+                  "r": 50,
+                  "time": "7:40"
+                },
+                {
+                  "id": "door",
+                  "kind": "door",
+                  "x": 0.84,
+                  "y": 0.88,
+                  "w": 210,
+                  "h": 760,
+                  "open": 0.75
+                },
+                {
+                  "id": "fridge",
+                  "kind": "fridge",
+                  "x": 1.02,
+                  "y": 0.88,
+                  "w": 300,
+                  "h": 840,
+                  "top": [],
+                  "layer": "back"
+                },
+                {
+                  "id": "sill",
+                  "kind": "sill",
+                  "x": 0.33,
+                  "y": 0.6,
+                  "w": 400,
+                  "on": [],
+                  "layer": "back"
+                },
+                {
+                  "id": "counter",
+                  "kind": "counter",
+                  "y": 0.77,
+                  "x0": 0.32,
+                  "x1": 0.92,
+                  "layer": "front"
+                },
+                {
+                  "id": "under",
+                  "kind": "under",
+                  "x": 0.36,
+                  "y": 0.786,
+                  "open": false,
+                  "layer": "front"
+                },
+                {
+                  "id": "sink",
+                  "kind": "sink",
+                  "x": 0.36,
+                  "y": 0.774,
+                  "w": 330,
+                  "foam": 0,
+                  "yerba": false,
+                  "layer": "front"
+                },
+                {
+                  "kind": "sinkLip",
+                  "x": 0.36,
+                  "y": 0.774,
+                  "w": 330,
+                  "layer": "top"
+                },
+                {
+                  "id": "rack",
+                  "kind": "rack",
+                  "x": 0.56,
+                  "y": 0.77,
+                  "on": [],
+                  "layer": "front"
+                },
+                {
+                  "kind": "plate",
+                  "x": 0.84,
+                  "y": 0.772,
+                  "napkin": true,
+                  "layer": "front"
+                },
+                {
+                  "kind": "stove",
+                  "x": 0.12,
+                  "y": 0.774,
+                  "w": 260,
+                  "steam": false,
+                  "layer": "front"
+                },
+                {
+                  "kind": "roll",
+                  "x": 0.9,
+                  "y": 0.774,
+                  "layer": "front"
+                },
+                {
+                  "id": "chair",
+                  "kind": "chair",
+                  "x": 0.15,
+                  "y": 0.9,
+                  "s": 1,
+                  "layer": "back"
+                }
+              ]
+            },
+            "light": "morning",
+            "sunPatch": [
+              0.2,
+              0.44
+            ],
+            "people": [
+              {
+                "id": "abuela",
+                "look": {
+                  "skin": "#f2c9a4",
+                  "hair": "#c9c9c9",
+                  "hairStyle": "bun",
+                  "glasses": true,
+                  "longSleeves": true,
+                  "shirt": "#3f6b4a",
+                  "dress": "#8a8f96",
+                  "pants": "#8a8f96",
+                  "shorts": true,
+                  "shoes": "#1d1d22"
+                },
+                "keys": [
+                  {
+                    "u": 0,
+                    "x": 0.86,
+                    "y": 0.875,
+                    "s": 545,
+                    "flip": true,
+                    "hold": "mate",
+                    "R": [
+                      36,
+                      -142
+                    ],
+                    "L": [
+                      -70,
+                      -90
+                    ],
+                    "face": {
+                      "eyes": "happy",
+                      "brows": "flat",
+                      "mouth": "smile"
+                    }
+                  },
+                  {
+                    "u": 0.25,
+                    "x": 0.72,
+                    "dur": 0.25
+                  },
+                  {
+                    "u": 0.3,
+                    "lean": -0.1,
+                    "face": {
+                      "eyes": "half",
+                      "brows": "down",
+                      "mouth": "line",
+                      "nose": "wrinkle"
+                    },
+                    "dur": 0.06
+                  },
+                  {
+                    "u": 0.5,
+                    "lean": 0.06,
+                    "L": [
+                      -40,
+                      -240
+                    ],
+                    "R": [
+                      90,
+                      -380
+                    ],
+                    "face": {
+                      "eyes": "big",
+                      "brows": "high",
+                      "mouth": "scream"
+                    },
+                    "dur": 0.04
+                  },
+                  {
+                    "u": 0.7,
+                    "lean": 0.2,
+                    "x": 0.16,
+                    "y": 0.85,
+                    "dur": 0.18
+                  },
+                  {
+                    "u": 0.86,
+                    "sit": true,
+                    "lean": 0.1,
+                    "L": [
+                      -20,
+                      -350
+                    ],
+                    "R": [
+                      100,
+                      -390
+                    ],
+                    "face": {
+                      "eyes": "closed",
+                      "brows": "worried",
+                      "mouth": "bigO"
+                    }
+                  },
+                  {
+                    "u": 0.93,
+                    "face": {
+                      "eyes": "wink",
+                      "brows": "worried",
+                      "mouth": "bigO"
+                    }
+                  }
+                ]
+              },
+              {
+                "id": "vos",
+                "look": {
+                  "skin": "#f6d7bb",
+                  "hair": "#3a2416",
+                  "hairStyle": "curly",
+                  "shirt": "#9aa3ad",
+                  "pants": "#3b5b9a",
+                  "shoes": "#f6d7bb",
+                  "termo": "#2f9e44",
+                  "longSleeves": true
+                },
+                "keys": [
+                  {
+                    "u": 0,
+                    "x": 0.44,
+                    "y": 0.875,
+                    "hold": "mate",
+                    "R": [
+                      140,
+                      -210
+                    ],
+                    "L": [
+                      -20,
+                      -330
+                    ],
+                    "face": {
+                      "eyes": "dot",
+                      "brows": "worried",
+                      "mouth": "side",
+                      "mark": true
+                    },
+                    "s": 600
+                  },
+                  {
+                    "u": 0.7,
+                    "x": 0.38,
+                    "L": [
+                      -150,
+                      -210
+                    ],
+                    "face": {
+                      "eyes": "big",
+                      "brows": "high",
+                      "mouth": "bigO",
+                      "mark": true
+                    },
+                    "dur": 0.1
+                  }
+                ]
+              }
+            ],
+            "props": [
+              {
+                "id": "termo",
+                "kind": "termo",
+                "keys": [
+                  {
+                    "u": 0,
+                    "x": 0.72,
+                    "y": 0.772,
+                    "front": true
+                  }
+                ]
+              },
+              {
+                "id": "yerba",
+                "kind": "yerba",
+                "keys": [
+                  {
+                    "u": 0,
+                    "x": 0.8,
+                    "y": 0.772,
+                    "front": true
+                  }
+                ]
+              }
+            ],
+            "fx": [
+              {
+                "kind": "stars",
+                "u0": 0.5,
+                "u1": 1,
+                "at": "abuela.head"
+              }
+            ],
+            "cam": [
+              {
+                "u": 0,
+                "z": 1.25,
+                "c": [
+                  0.55,
+                  0.63
+                ]
+              },
+              {
+                "u": 0.66,
+                "z": 1.25,
+                "c": [
+                  0.55,
+                  0.63
+                ]
+              },
+              {
+                "u": 0.86,
+                "z": 1.25,
+                "c": [
+                  0.45,
+                  0.66
+                ],
+                "dur": 0.2
+              }
+            ],
+            "sounds": [
+              {
+                "u": 0.3,
+                "type": "tick"
+              },
+              {
+                "u": 0.36,
+                "type": "tick"
+              },
+              {
+                "u": 0.5,
+                "type": "boom"
+              },
+              {
+                "u": 0.86,
+                "type": "pop"
+              }
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "text": "Desde ese día, en esta casa el mate se lava solo con agua y se seca al aire.",
+      "emo": "proud",
+      "shots": [
+        {
+          "dur": "sentence",
+          "set": "cocina",
+          "changes": [
+            {
+              "what": "wall clock",
+              "state": "7:41"
+            },
+            {
+              "what": "window sill",
+              "state": "white ledge, small basil pot"
+            },
+            {
+              "what": "fridge top",
+              "state": "onion basket"
+            }
+          ],
+          "camera": {
+            "frame": "medium",
+            "angle": "eye height",
+            "on": "abuela at the sink, then the window sill",
+            "move": "slow pan from the sink up to the window sill",
+            "why": "show the right way in two clear steps"
+          },
+          "positions": {
+            "abuela": {
+              "x": 0.4,
+              "depth": "middle",
+              "facing": "sink",
+              "pose": "stand, sleeves pushed up"
+            },
+            "vos": {
+              "x": 0.72,
+              "depth": "back",
+              "facing": "abuela",
+              "pose": "stand, watching like a pupil"
+            }
+          },
+          "props": [
+            {
+              "what": "your mate",
+              "where": "abuela's hands under the tap",
+              "state": "empty, no yerba, no bombilla"
+            }
+          ],
+          "beats": [
+            {
+              "at": 0,
+              "who": "abuela",
+              "arms": "pulls the bombilla out, taps the wet yerba into the pedal bin under the sink"
+            },
+            {
+              "at": 0.2,
+              "who": "abuela",
+              "arms": "carries the detergent bottle with two fingers to the top of the fridge, behind the onion basket",
+              "face": "disgusted"
+            },
+            {
+              "at": 0,
+              "who": "abuela",
+              "hands": "turns on the tap with the right hand, rinses the empty mate under clear water, turning it slowly",
+              "face": "serious, lips pressed, brows a little down"
+            },
+            {
+              "at": 0,
+              "who": "vos",
+              "head": "nods slowly",
+              "face": "attentive, small mouth"
+            },
+            {
+              "at": 0.5,
+              "who": "abuela",
+              "arms": "shakes the water out with two short shakes, puts the mate upside down on the window sill in the sun",
+              "face": "satisfied"
+            },
+            {
+              "at": 0.8,
+              "who": "abuela",
+              "head": "turns to vos",
+              "arms": "raises the right index finger",
+              "face": "brows up, eyes over the glasses: 'nunca más'"
+            },
+            {
+              "at": 0.8,
+              "who": "vos",
+              "body": "stands straight like a soldier",
+              "face": "eyes wide, nods fast"
+            }
+          ],
+          "fx": [
+            {
+              "at": 0,
+              "what": "clear water stream, a few drops"
+            },
+            {
+              "at": 0.55,
+              "what": "a sun glint on the wet mate on the sill"
+            }
+          ],
+          "sound": [
+            {
+              "at": 0,
+              "what": "tap water"
+            },
+            {
+              "at": 0.5,
+              "what": "two small shakes"
+            }
+          ],
+          "direction": "Sentence: \"Desde ese día, en esta casa el mate se lava solo con agua y se seca al aire.\" About 4.2 seconds.\n\nWhat the viewer must understand without sound: the grandma takes over and shows the right way, step by step: empty the yerba into the bin, rinse with clear water only, shake it, put it upside down on the window sill in the sun to dry; and the detergent is banned: she puts the bottle up on top of the fridge, out of reach. You watch and learn like a pupil. This is the useful part of the reel, so every step must be clearly readable, slower than the rest.\n\nLink to the shot before: half a minute later. The grandma has got up from the chair, put her own mate on the counter, rolled up the sleeves of her cardigan and taken your mate from your hand. She is now at the sink. You stand back by the door, watching.\n\nThe set in this shot. A medium shot at the sink, at adult eye height, slightly from the right so the window sill is well visible. The sun is now fully out: a warm golden light comes through the window, the lemons on the tree outside are bright yellow, the curtains move a little again in the morning breeze. The sink, the chrome tap, the dish rack, the dented detergent bottle on the sink edge, the sponge. The window sill is a white painted wooden ledge, wide enough for a mate, with a small pot of basil on the left end. On the counter on the right: the termo, the yerba pack, her own crocheted mate. The clock shows 7:41. On the far right, partly in the frame, the fridge with its flat top, on which there is a small basket with onions.\n\nThe grandma. Same look: grey bun, glasses back on her nose, green cardigan with the sleeves now pushed up to the elbows, flowered blouse, grey skirt. She stands at the sink (x 0.4), facing it, three quarters to the camera, so we see her hands and her face. Her face is serious and focused: lips pressed together, eyebrows a little down, eyes over the glasses.\n\nYou. Back at x 0.72, near the door, in the background but sharp enough, hoodie and pyjamas, hands folded in front of you like a pupil.\n\nMovements, beat by beat.\nAt 0.0 (on \"Desde ese día\") she holds your mate in her left hand over the open cupboard under the sink, where the grey pedal bin stands; she pulls the bombilla out with her right hand and lays it on the counter, then turns the mate over and taps it twice against the inside of the bin with a firm hand: the wet yerba falls out into the bin in one lump. You nod slowly, your mouth small and round, eyes big.\nAt 0.2 (on \"en esta casa\") she straightens up, closes the cupboard door with her knee, and with her right hand takes the detergent bottle from the sink edge, holding it with two fingers far away from her body as if it were something dirty. She turns to the right, stretches up on her toes and puts it on top of the fridge, behind the onion basket, out of reach. She dusts her hands off against each other. You follow the bottle with your eyes and turn your head.\nAt 0.45 (on \"el mate se lava solo con agua\") she turns back to the sink, opens the tap with her right hand: a clear stream of water. She holds your mate under it with her left hand and turns it slowly, once around; the water runs in and out; she rubs the inside once gently with her bare thumb, no sponge. She closes the tap.\nAt 0.65 (on \"y se seca\") she shakes the mate twice with short wrist movements; drops fly. She takes the bombilla from the counter and rinses it for a second under a short splash too.\nAt 0.75 (on \"al aire\") she reaches up and puts the mate upside down on the window sill, in the sun, next to the basil, with the bombilla lying beside it. A sun glint flashes on the wet gourd.\nAt 0.85 she turns to you, raises her right index finger and holds it up, her eyebrows go up, her eyes look at you over the glasses: \"nunca más\". You straighten up at once like a soldier, arms down by your sides, chin up, and nod three times fast, eyes wide.\n\nObjects and how they end. The yerba is in the bin. The detergent bottle is on top of the fridge, behind the onion basket. The mate stands upside down on the window sill in the sun, empty and rinsed, the bombilla next to it. The sponge stays on the sink edge (it is for the dishes, not the mate). Her own crocheted mate is on the counter.\n\nCamera. Medium shot, the grandma from the hips up, the sink and the window in the frame. It starts slightly lower to see the bin under the sink at 0.0, then tilts up and pans a little to the right to follow the bottle to the top of the fridge at 0.2, then comes back to the sink at 0.45, and at 0.75 follows her hands up to the window sill in a slow pan. At 0.85 it holds still on the grandma and you in one frame (you are in the background on the right). Her hands and the mate are always in the frame.\n\nTiming on the words: \"Desde ese día\" = yerba into the bin. \"en esta casa\" = the bottle goes onto the fridge. \"el mate se lava solo con agua\" = rinsing under the tap. \"y se seca al aire\" = the shakes and the mate on the sun-lit sill. The finger and the soldier nod in the last half second.\n\nEffects and sounds. The clear water stream with small splashes. A sun glint on the wet mate. A small sparkle on the bottle when it lands on the fridge, as if put in prison. Sounds: two dull taps on the bin, the cupboard door closing, the bottle placed on top of the fridge, the tap water, two short shakes, the water drops, and a short proud \"ta-da\" chord at the end.\n\nFacts: rinse with water only, no detergent, empty the yerba after use, let it dry in the air with the opening down or open, never closed in a bag: this is the usual advice for calabaza mates. Correct.\n\nContinuity to the next shot: the bottle must be on the fridge. In the next shot, a minute later, the mother comes in and already has it in her hands, which tells the viewer she took it down again.",
+          "anim": {
+            "set": {
+              "elements": [
+                {
+                  "kind": "wall",
+                  "paint": "#cfe3c6",
+                  "tile": "#f3ead6",
+                  "tileTop": 0.42
+                },
+                {
+                  "kind": "floor",
+                  "y": 0.9
+                },
+                {
+                  "kind": "uppers",
+                  "x0": 0.52,
+                  "x1": 0.8,
+                  "y": 0.36,
+                  "h": 300
+                },
+                {
+                  "kind": "frame",
+                  "x": 0.08,
+                  "y": 0.4
+                },
+                {
+                  "kind": "calendar",
+                  "x": 0.58,
+                  "y": 0.66
+                },
+                {
+                  "kind": "rail",
+                  "x": 0.13,
+                  "y": 0.5,
+                  "w": 220
+                },
+                {
+                  "kind": "socket",
+                  "x": 0.66,
+                  "y": 0.7
+                },
+                {
+                  "id": "lamp",
+                  "kind": "lamp",
+                  "x": 0.55,
+                  "y": 0.07
+                },
+                {
+                  "id": "window",
+                  "kind": "window",
+                  "x": 0.33,
+                  "y": 0.6,
+                  "w": 360,
+                  "h": 340,
+                  "tree": true,
+                  "wind": 1
+                },
+                {
+                  "kind": "sun",
+                  "x": 0.33,
+                  "y": 0.45,
+                  "r": 420
+                },
+                {
+                  "id": "shelf",
+                  "kind": "shelf",
+                  "x": 0.7,
+                  "y": 0.5,
+                  "w": 240
+                },
+                {
+                  "id": "clock",
+                  "kind": "clock",
+                  "x": 0.9,
+                  "y": 0.3,
+                  "r": 50,
+                  "time": "7:41"
+                },
+                {
+                  "id": "door",
+                  "kind": "door",
+                  "x": 0.84,
+                  "y": 0.88,
+                  "w": 210,
+                  "h": 760,
+                  "open": 0.55
+                },
+                {
+                  "id": "fridge",
+                  "kind": "fridge",
+                  "x": 1.02,
+                  "y": 0.88,
+                  "w": 300,
+                  "h": 840,
+                  "top": [],
+                  "layer": "back"
+                },
+                {
+                  "id": "sill",
+                  "kind": "sill",
+                  "x": 0.33,
+                  "y": 0.6,
+                  "w": 400,
+                  "on": [],
+                  "layer": "back"
+                },
+                {
+                  "id": "counter",
+                  "kind": "counter",
+                  "y": 0.77,
+                  "x0": 0,
+                  "x1": 0.92,
+                  "layer": "front"
+                },
+                {
+                  "id": "under",
+                  "kind": "under",
+                  "x": 0.36,
+                  "y": 0.786,
+                  "open": false,
+                  "layer": "front"
+                },
+                {
+                  "id": "sink",
+                  "kind": "sink",
+                  "x": 0.36,
+                  "y": 0.774,
+                  "w": 330,
+                  "foam": 0,
+                  "yerba": false,
+                  "layer": "front"
+                },
+                {
+                  "kind": "sinkLip",
+                  "x": 0.36,
+                  "y": 0.774,
+                  "w": 330,
+                  "layer": "top"
+                },
+                {
+                  "id": "rack",
+                  "kind": "rack",
+                  "x": 0.56,
+                  "y": 0.77,
+                  "on": [],
+                  "layer": "front"
+                },
+                {
+                  "kind": "plate",
+                  "x": 0.84,
+                  "y": 0.772,
+                  "napkin": true,
+                  "layer": "front"
+                },
+                {
+                  "kind": "stove",
+                  "x": 0.12,
+                  "y": 0.774,
+                  "w": 260,
+                  "steam": false,
+                  "layer": "front"
+                },
+                {
+                  "kind": "roll",
+                  "x": 0.9,
+                  "y": 0.774,
+                  "layer": "front"
+                },
+                {
+                  "id": "chair",
+                  "kind": "chair",
+                  "x": 0.1,
+                  "y": 1.06,
+                  "s": 1.1,
+                  "layer": "front"
+                }
+              ]
+            },
+            "light": "sun",
+            "sunPatch": [
+              0.2,
+              0.46
+            ],
+            "state": {
+              "under": [
+                {
+                  "u": 0,
+                  "open": true
+                },
+                {
+                  "u": 0.2,
+                  "open": false
+                }
+              ],
+              "fridge": [
+                {
+                  "u": 0,
+                  "top": [
+                    "onions"
+                  ]
+                },
+                {
+                  "u": 0.32,
+                  "top": [
+                    "onions",
+                    "bottle"
+                  ]
+                }
+              ],
+              "sill": [
+                {
+                  "u": 0,
+                  "on": []
+                },
+                {
+                  "u": 0.78,
+                  "on": [
+                    "mate",
+                    "bombilla"
+                  ]
+                }
+              ]
+            },
+            "people": [
+              {
+                "id": "abuela",
+                "look": {
+                  "skin": "#f2c9a4",
+                  "hair": "#c9c9c9",
+                  "hairStyle": "bun",
+                  "glasses": true,
+                  "longSleeves": true,
+                  "shirt": "#3f6b4a",
+                  "dress": "#8a8f96",
+                  "pants": "#8a8f96",
+                  "shorts": true,
+                  "shoes": "#1d1d22"
+                },
+                "keys": [
+                  {
+                    "u": 0,
+                    "x": 0.27,
+                    "y": 0.875,
+                    "s": 545,
+                    "hold": "mate",
+                    "R": [
+                      110,
+                      -60
+                    ],
+                    "L": [
+                      80,
+                      -110
+                    ],
+                    "face": {
+                      "eyes": "half",
+                      "brows": "down",
+                      "mouth": "line"
+                    }
+                  },
+                  {
+                    "u": 0.16,
+                    "hold": null,
+                    "R": [
+                      40,
+                      -142
+                    ],
+                    "L": [
+                      -70,
+                      -90
+                    ]
+                  },
+                  {
+                    "u": 0.2,
+                    "x": 0.86,
+                    "flip": false,
+                    "R": [
+                      120,
+                      -240
+                    ],
+                    "dur": 0.12
+                  },
+                  {
+                    "u": 0.3,
+                    "R": [
+                      120,
+                      -430
+                    ],
+                    "dur": 0.06
+                  },
+                  {
+                    "u": 0.4,
+                    "x": 0.3,
+                    "R": [
+                      60,
+                      -172
+                    ],
+                    "dur": 0.1
+                  },
+                  {
+                    "u": 0.45,
+                    "hold": "mate",
+                    "R": [
+                      132,
+                      -232
+                    ],
+                    "mateEmpty": true,
+                    "mateNoBomb": true
+                  },
+                  {
+                    "u": 0.62,
+                    "R": [
+                      136,
+                      -240
+                    ]
+                  },
+                  {
+                    "u": 0.66,
+                    "R": [
+                      126,
+                      -226
+                    ]
+                  },
+                  {
+                    "u": 0.7,
+                    "R": [
+                      136,
+                      -240
+                    ]
+                  },
+                  {
+                    "u": 0.74,
+                    "R": [
+                      100,
+                      -380
+                    ],
+                    "dur": 0.06
+                  },
+                  {
+                    "u": 0.79,
+                    "hold": null,
+                    "R": [
+                      40,
+                      -142
+                    ]
+                  },
+                  {
+                    "u": 0.86,
+                    "flip": true,
+                    "R": [
+                      120,
+                      -350
+                    ],
+                    "face": {
+                      "eyes": "dot",
+                      "brows": "high",
+                      "mouth": "line"
+                    }
+                  }
+                ]
+              },
+              {
+                "id": "vos",
+                "look": {
+                  "skin": "#f6d7bb",
+                  "hair": "#3a2416",
+                  "hairStyle": "curly",
+                  "shirt": "#9aa3ad",
+                  "pants": "#3b5b9a",
+                  "shoes": "#f6d7bb",
+                  "termo": "#2f9e44",
+                  "longSleeves": true
+                },
+                "keys": [
+                  {
+                    "u": 0,
+                    "x": 0.56,
+                    "y": 0.81,
+                    "s": 560,
+                    "flip": true,
+                    "L": [
+                      -40,
+                      -110
+                    ],
+                    "R": [
+                      40,
+                      -110
+                    ],
+                    "face": {
+                      "eyes": "dot",
+                      "brows": "flat",
+                      "mouth": "o",
+                      "mark": true
+                    }
+                  },
+                  {
+                    "u": 0.86,
+                    "L": [
+                      -60,
+                      -70
+                    ],
+                    "R": [
+                      60,
+                      -70
+                    ],
+                    "face": {
+                      "eyes": "big",
+                      "brows": "high",
+                      "mouth": "line",
+                      "mark": true
+                    }
+                  }
+                ]
+              }
+            ],
+            "props": [
+              {
+                "id": "bottle",
+                "kind": "bottle",
+                "keys": [
+                  {
+                    "u": 0,
+                    "x": 0.47,
+                    "y": 0.774,
+                    "dent": true,
+                    "s": 0.95,
+                    "front": true
+                  },
+                  {
+                    "u": 0.2,
+                    "at": "abuela.R",
+                    "dy": 70,
+                    "gy": 70
+                  },
+                  {
+                    "u": 0.32,
+                    "hide": true
+                  }
+                ]
+              },
+              {
+                "id": "yerba",
+                "kind": "yerba",
+                "keys": [
+                  {
+                    "u": 0,
+                    "x": 0.8,
+                    "y": 0.772,
+                    "front": true
+                  }
+                ]
+              }
+            ],
+            "fx": [
+              {
+                "kind": "lump",
+                "u0": 0.05,
+                "u1": 0.15,
+                "x": 0.36,
+                "y": 0.78,
+                "fall": 60
+              },
+              {
+                "kind": "stream",
+                "u0": 0.46,
+                "u1": 0.62,
+                "x": 0.409,
+                "y": 0.73,
+                "to": "abuela.mate",
+                "color": "rgba(170,220,255,0.9)",
+                "w": 12
+              },
+              {
+                "kind": "drops",
+                "u0": 0.62,
+                "u1": 0.74,
+                "at": "abuela.R",
+                "n": 5,
+                "fall": 90
+              },
+              {
+                "kind": "sparkle",
+                "u0": 0.8,
+                "u1": 0.95,
+                "x": 0.37,
+                "y": 0.57,
+                "s": 36
+              },
+              {
+                "kind": "sparkle",
+                "u0": 0.3,
+                "u1": 0.4,
+                "x": 1,
+                "y": 0.43,
+                "s": 30
+              }
+            ],
+            "cam": [
+              {
+                "u": 0,
+                "z": 1.5,
+                "c": [
+                  0.38,
+                  0.68
+                ]
+              },
+              {
+                "u": 0.18,
+                "z": 1.35,
+                "c": [
+                  0.7,
+                  0.58
+                ],
+                "dur": 0.12
+              },
+              {
+                "u": 0.4,
+                "z": 1.5,
+                "c": [
+                  0.38,
+                  0.66
+                ],
+                "dur": 0.1
+              },
+              {
+                "u": 0.86,
+                "z": 1.3,
+                "c": [
+                  0.52,
+                  0.64
+                ],
+                "dur": 0.12
+              }
+            ],
+            "sounds": [
+              {
+                "u": 0.06,
+                "type": "tick"
+              },
+              {
+                "u": 0.1,
+                "type": "tick"
+              },
+              {
+                "u": 0.32,
+                "type": "pop"
+              },
+              {
+                "u": 0.46,
+                "type": "swish"
+              },
+              {
+                "u": 0.66,
+                "type": "tick"
+              },
+              {
+                "u": 0.9,
+                "type": "ding"
+              }
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "text": "¿Y en tu casa quién lo lavó con detergente? Etiquetalo.",
+      "emo": "funny",
+      "shots": [
+        {
+          "dur": "sentence",
+          "set": "cocina",
+          "camera": {
+            "frame": "medium",
+            "angle": "eye height",
+            "on": "mama in the door gap on the right",
+            "move": "still",
+            "why": "end on the culprit and a laugh, poll appears in the last second"
+          },
+          "positions": {
+            "mama": {
+              "x": 0.7,
+              "depth": "middle",
+              "facing": "camera",
+              "pose": "half behind the fridge, only head and one shoulder visible at first"
+            }
+          },
+          "props": [
+            {
+              "what": "detergent bottle",
+              "where": "mama's hands behind her back"
+            }
+          ],
+          "beats": [
+            {
+              "at": 0,
+              "who": "mama",
+              "body": "peeks out from behind the fridge",
+              "eyes": "look left and right",
+              "face": "innocent, lips pointed, whistling"
+            },
+            {
+              "at": 0.4,
+              "who": "mama",
+              "body": "steps out, stands straight",
+              "arms": "both hands behind her back, the green bottle sticks out at the side",
+              "face": "big innocent smile, eyes to the ceiling"
+            },
+            {
+              "at": 0.75,
+              "who": "mama",
+              "arms": "the bottle slips, she catches it, hides it again fast",
+              "face": "eyes wide, then the innocent smile again"
+            }
+          ],
+          "fx": [
+            {
+              "at": 0,
+              "what": "two small music notes from her mouth"
+            }
+          ],
+          "sound": [
+            {
+              "at": 0,
+              "what": "innocent whistling"
+            },
+            {
+              "at": 0.75,
+              "what": "bottle slip and catch"
+            }
+          ],
+          "gag": "the culprit whistles and hides the bottle badly",
+          "direction": "Sentence: \"¿Y en tu casa quién lo lavó con detergente? Etiquetalo.\" About 3.6 seconds, then the poll for about 2 seconds.\n\nWhat the viewer must understand without sound: the culprit is back. The mother comes in, pretends to be innocent, and hides the detergent bottle behind her back, which she has already taken down from the fridge. She will do it again. The viewer laughs and thinks of their own mother, and the question \"who did it in your house?\" invites them to tag someone. The poll comes in only at the end, over a picture that stays readable.\n\nLink to the shot before: a minute later. The grandma has left the kitchen with her own mate (the chair is empty, her crocheted mate is gone from the counter). Your mate stands upside down on the window sill. The bottle is no longer on top of the fridge: the onion basket is there alone. The mother comes from behind the fridge, where the hall door is, so the viewer can connect: she took it.\n\nThe set in this shot. A medium shot of the right half of the kitchen, at adult eye height: the fridge with the child's drawing and the magnets, its top with the onion basket and an empty spot where the bottle was, the open hall door, the shelf with the jars, the clock at 7:43, the right part of the counter with the termo and the yerba pack, and, at the left edge of the frame, the window sill with your mate upside down in the sun as a small reminder. Full warm sunlight now, the ceiling lamp off.\n\nThe mother. Same look as on day one but a new day: dark hair in the messy bun with the pencil, a different house dress (light blue with small white dots), the same yellow apron with lemons, the pink fluffy slippers now visible, the pink rubber gloves on again. Her hands are behind her back.\n\nMovements, beat by beat.\nAt 0.0 (on \"¿Y en tu casa\") only her head and her left shoulder come out from behind the side of the fridge, slowly, at x 0.72. Her eyes look to the left, then to the right, then to the left again, fast, checking whether anyone is there. Her lips are pointed and she whistles a little tune; her eyebrows are raised in an innocent way.\nAt 0.4 (on \"quién lo lavó\") she steps out with two small, too casual steps and stands next to the fridge, facing the camera, very straight. Both hands are behind her back, but the green detergent bottle with the lemon label sticks out clearly on her right side, at hip height. She keeps whistling, her eyes roll up to the ceiling, a big innocent smile with closed lips; she rocks once from her heels to her toes and back, the slippers squeak.\nAt 0.75 (on \"con detergente\") the bottle slips out of her gloved hands; it falls, she catches it in the air just above the floor with a fast bend of her knees, both eyes wide for a split second, then she comes up again, hides it behind her back faster and with more force, and puts the innocent smile back on, now even bigger, eyes to the ceiling, whistling louder.\nAt 0.9 (on \"Etiquetalo\") she looks straight into the camera, one eyebrow up, and gives a tiny shrug: what? The picture holds.\nAfter the sentence the poll appears over the lower part of the picture (never over her face or the bottle): \"¿Quién lo lavó en tu casa?\" with the three options. She keeps her innocent pose and whistles, a small loop of rocking from heel to toe, until the end.\n\nObjects and how they end. The bottle is behind her back, visible at the side. The mate stays on the window sill. The top of the fridge is empty except for the onions. This last picture also echoes the first shot (mother + bottle + mate in one frame), so the loop back to the start works when the reel replays.\n\nCamera. A medium shot, the mother from the knees up so that the catch near the floor at 0.75 can be seen: the camera follows her down and up with a short tilt and returns to the same framing. Otherwise still. Her face, both hands and the bottle are always in the frame; the poll leaves her face free.\n\nEffects and sounds. Two small music notes rise from her pointed lips while she whistles. At 0.75 a small \"whoosh\" of the falling bottle and a squeak of the slippers when she bends. Sounds: an innocent whistled tune, a light comic pizzicato under it, the slipper squeak, the catch, and a soft \"pop\" when the poll appears.\n\nThe gag: the culprit is caught in the act of pretending; the badly hidden bottle and the clumsy catch tell the viewer she will do it again tomorrow.\n\nContinuity: this is the last shot; its picture (mother, bottle, kitchen in the sun) also serves as the cover of the reel if no stronger frame is found in the first half.",
+          "changes": [
+            {
+              "what": "wall clock",
+              "state": "7:43"
+            },
+            {
+              "what": "fridge top",
+              "state": "only the onion basket, the bottle is gone"
+            },
+            {
+              "what": "window sill",
+              "state": "your mate upside down in the sun"
+            },
+            {
+              "what": "ceiling lamp",
+              "state": "off"
+            }
+          ],
+          "anim": {
+            "set": {
+              "elements": [
+                {
+                  "kind": "wall",
+                  "paint": "#cfe3c6",
+                  "tile": "#f3ead6",
+                  "tileTop": 0.42
+                },
+                {
+                  "kind": "floor",
+                  "y": 0.9
+                },
+                {
+                  "kind": "uppers",
+                  "x0": 0.52,
+                  "x1": 0.8,
+                  "y": 0.36,
+                  "h": 300
+                },
+                {
+                  "kind": "frame",
+                  "x": 0.08,
+                  "y": 0.4
+                },
+                {
+                  "kind": "calendar",
+                  "x": 0.58,
+                  "y": 0.66
+                },
+                {
+                  "kind": "rail",
+                  "x": 0.13,
+                  "y": 0.5,
+                  "w": 220
+                },
+                {
+                  "kind": "socket",
+                  "x": 0.66,
+                  "y": 0.7
+                },
+                {
+                  "id": "lamp",
+                  "kind": "lamp",
+                  "x": 0.55,
+                  "y": 0.07
+                },
+                {
+                  "id": "window",
+                  "kind": "window",
+                  "x": 0.33,
+                  "y": 0.6,
+                  "w": 360,
+                  "h": 340,
+                  "tree": true,
+                  "wind": 1
+                },
+                {
+                  "kind": "sun",
+                  "x": 0.33,
+                  "y": 0.45,
+                  "r": 420
+                },
+                {
+                  "id": "shelf",
+                  "kind": "shelf",
+                  "x": 0.7,
+                  "y": 0.5,
+                  "w": 240
+                },
+                {
+                  "id": "clock",
+                  "kind": "clock",
+                  "x": 0.9,
+                  "y": 0.3,
+                  "r": 50,
+                  "time": "7:43"
+                },
+                {
+                  "id": "door",
+                  "kind": "door",
+                  "x": 0.84,
+                  "y": 0.88,
+                  "w": 210,
+                  "h": 760,
+                  "open": 0.55
+                },
+                {
+                  "id": "fridge",
+                  "kind": "fridge",
+                  "x": 1.02,
+                  "y": 0.88,
+                  "w": 300,
+                  "h": 840,
+                  "top": [
+                    "onions"
+                  ],
+                  "layer": "front"
+                },
+                {
+                  "id": "sill",
+                  "kind": "sill",
+                  "x": 0.33,
+                  "y": 0.6,
+                  "w": 400,
+                  "on": [
+                    "mate",
+                    "bombilla"
+                  ],
+                  "layer": "back"
+                },
+                {
+                  "id": "counter",
+                  "kind": "counter",
+                  "y": 0.77,
+                  "x0": 0,
+                  "x1": 0.92,
+                  "layer": "front"
+                },
+                {
+                  "id": "under",
+                  "kind": "under",
+                  "x": 0.36,
+                  "y": 0.786,
+                  "open": false,
+                  "layer": "front"
+                },
+                {
+                  "id": "sink",
+                  "kind": "sink",
+                  "x": 0.36,
+                  "y": 0.774,
+                  "w": 330,
+                  "foam": 0,
+                  "yerba": false,
+                  "layer": "front"
+                },
+                {
+                  "kind": "sinkLip",
+                  "x": 0.36,
+                  "y": 0.774,
+                  "w": 330,
+                  "layer": "top"
+                },
+                {
+                  "id": "rack",
+                  "kind": "rack",
+                  "x": 0.56,
+                  "y": 0.77,
+                  "on": [],
+                  "layer": "front"
+                },
+                {
+                  "kind": "plate",
+                  "x": 0.84,
+                  "y": 0.772,
+                  "napkin": true,
+                  "layer": "front"
+                },
+                {
+                  "kind": "stove",
+                  "x": 0.12,
+                  "y": 0.774,
+                  "w": 260,
+                  "steam": false,
+                  "layer": "front"
+                },
+                {
+                  "kind": "roll",
+                  "x": 0.9,
+                  "y": 0.774,
+                  "layer": "front"
+                },
+                {
+                  "id": "chair",
+                  "kind": "chair",
+                  "x": 0.1,
+                  "y": 1.06,
+                  "s": 1.1,
+                  "layer": "front"
+                }
+              ]
+            },
+            "light": "sun",
+            "sunPatch": [
+              0.2,
+              0.46
+            ],
+            "people": [
+              {
+                "id": "mama",
+                "look": {
+                  "skin": "#f3cba6",
+                  "hair": "#3a2416",
+                  "hairStyle": "bun",
+                  "pencil": true,
+                  "shirt": "#9cc9ef",
+                  "dress": "#9cc9ef",
+                  "pants": "#9cc9ef",
+                  "shorts": true,
+                  "apron": "#ffe27a",
+                  "gloves": "#ff8fb3",
+                  "shoes": "#ff9ec4"
+                },
+                "keys": [
+                  {
+                    "u": 0,
+                    "x": 0.9,
+                    "y": 0.875,
+                    "L": [
+                      -60,
+                      -170
+                    ],
+                    "R": [
+                      96,
+                      -160
+                    ],
+                    "face": {
+                      "eyes": "side",
+                      "brows": "up",
+                      "mouth": "whistle"
+                    },
+                    "s": 600
+                  },
+                  {
+                    "u": 0.15,
+                    "face": {
+                      "eyes": "sideR",
+                      "brows": "up",
+                      "mouth": "whistle"
+                    }
+                  },
+                  {
+                    "u": 0.28,
+                    "face": {
+                      "eyes": "side",
+                      "brows": "up",
+                      "mouth": "whistle"
+                    }
+                  },
+                  {
+                    "u": 0.4,
+                    "x": 0.66,
+                    "face": {
+                      "eyes": "up",
+                      "brows": "up",
+                      "mouth": "whistle"
+                    },
+                    "dur": 0.12
+                  },
+                  {
+                    "u": 0.75,
+                    "R": [
+                      150,
+                      -30
+                    ],
+                    "y": 0.905,
+                    "face": {
+                      "eyes": "big",
+                      "brows": "high",
+                      "mouth": "o"
+                    },
+                    "dur": 0.04
+                  },
+                  {
+                    "u": 0.82,
+                    "R": [
+                      96,
+                      -160
+                    ],
+                    "y": 0.875,
+                    "face": {
+                      "eyes": "up",
+                      "brows": "up",
+                      "mouth": "closedSmile"
+                    },
+                    "dur": 0.05
+                  },
+                  {
+                    "u": 0.9,
+                    "face": {
+                      "eyes": "dot",
+                      "brows": "one",
+                      "mouth": "closedSmile"
+                    }
+                  }
+                ]
+              }
+            ],
+            "props": [
+              {
+                "id": "bottle",
+                "kind": "bottle",
+                "keys": [
+                  {
+                    "u": 0,
+                    "at": "mama.R",
+                    "dx": 30,
+                    "dy": 70,
+                    "gy": 70,
+                    "s": 0.9
+                  }
+                ]
+              },
+              {
+                "id": "termo",
+                "kind": "termo",
+                "keys": [
+                  {
+                    "u": 0,
+                    "x": 0.6,
+                    "y": 0.772,
+                    "front": true
+                  }
+                ]
+              },
+              {
+                "id": "yerba",
+                "kind": "yerba",
+                "keys": [
+                  {
+                    "u": 0,
+                    "x": 0.8,
+                    "y": 0.772,
+                    "front": true
+                  }
+                ]
+              }
+            ],
+            "fx": [
+              {
+                "kind": "notes",
+                "u0": 0,
+                "u1": 1,
+                "at": "mama.mouth"
+              }
+            ],
+            "cam": [
+              {
+                "u": 0,
+                "z": 1.55,
+                "c": [
+                  0.7,
+                  0.63
+                ]
+              },
+              {
+                "u": 0.74,
+                "z": 1.55,
+                "c": [
+                  0.66,
+                  0.64
+                ]
+              },
+              {
+                "u": 0.78,
+                "z": 1.55,
+                "c": [
+                  0.66,
+                  0.68
+                ],
+                "dur": 0.04
+              },
+              {
+                "u": 0.84,
+                "z": 1.55,
+                "c": [
+                  0.66,
+                  0.64
+                ],
+                "dur": 0.05
+              }
+            ],
+            "poll": {
+              "u": 0.62,
+              "question": "¿Quién lo lavó en tu casa?",
+              "options": [
+                "MI MAMÁ",
+                "MI VIEJO",
+                "YO, PERDÓN"
+              ]
+            },
+            "sounds": [
+              {
+                "u": 0.4,
+                "type": "tick"
+              },
+              {
+                "u": 0.75,
+                "type": "swish"
+              },
+              {
+                "u": 0.8,
+                "type": "pop"
+              }
+            ]
+          }
+        }
+      ]
+    }
+  ]
+}

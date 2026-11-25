@@ -1,0 +1,82 @@
+{
+ "reel": "0025_llenas_el_mate_hasta_arriba",
+ "style": "flat2d",
+ "technical": [
+  "duration 38.3s",
+  "loudness -12.5 LUFS, peak -0.7 dBFS",
+  "voice gemini"
+ ],
+ "vision": {
+  "ran": true,
+  "model": "gemini-3.6-flash"
+ },
+ "summary": "The explainer reel features consistent flat 2D visuals and clear diagrammatic representations of mate preparation steps. Visual execution is generally stable, with minor framing and repetitive layout transitions between shots.",
+ "scores": {
+  "visual_logic": 6,
+  "graphics": 6,
+  "overall": 6
+ },
+ "logic": {
+  "clean": [
+   "Character interactions with props and yerba packs are positioned cleanly behind the counter.",
+   "Diagrammatic cut-section views of the mate gourd accurately depict water and yerba levels."
+  ],
+  "unclean": [
+   "Shot 0: Includes a vertical transition fade artifact across the center frame.",
+   "Shot 2: Repeats the character framing from the previous shot without a clear visual variation."
+  ]
+ },
+ "graphics": {
+  "clean": [
+   "Captions and label pills are placed neatly in the upper visual margin.",
+   "Color palettes and character designs remain consistent across all shots."
+  ],
+  "unclean": [
+   "Shot 10: Action movement during the shaking motion lacks dynamic visual cues."
+  ]
+ },
+ "issues": [
+  {
+   "severity": "low",
+   "fault": "ghost",
+   "category": "scene",
+   "problem": "Transition overlay creates a visible vertical stripe in the middle frame.",
+   "fix": "Ensure smooth shot transitions without persistent overlay artifacts.",
+   "shot": 0,
+   "time": 0,
+   "template": "flat"
+  },
+  {
+   "severity": "low",
+   "fault": "repeat",
+   "category": "match",
+   "problem": "Visual setup duplicates shot 1 without significant composition change.",
+   "fix": "Vary camera angle or character action when repeating dialogue context.",
+   "shot": 2,
+   "time": 5.3,
+   "template": "flat"
+  },
+  {
+   "severity": "low",
+   "fault": "edge_cut",
+   "category": "guard",
+   "problem": "zoom too close (zoomed out by the guard) in 1 shot(s)",
+   "fix": "fix it at the source in the style (layout, camera plan, visual choice)",
+   "shot": 13,
+   "source": "guard"
+  }
+ ],
+ "learnings": [
+  {
+   "type": "avoid",
+   "area": "scene",
+   "rule": "Avoid static visual repetitions across consecutive short shots to maintain visual interest."
+  },
+  {
+   "type": "do",
+   "area": "labels",
+   "rule": "Maintain clear separation between top caption bars and character head outlines."
+  }
+ ],
+ "checked": "2026-11-25T08:58:09.695Z"
+}

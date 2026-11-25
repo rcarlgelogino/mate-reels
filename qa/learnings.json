@@ -1,11 +1,21 @@
 {
- "updated": "2026-11-24T08:57:57.128Z",
- "reels": 39,
+ "updated": "2026-11-25T08:58:09.733Z",
+ "reels": 42,
  "do": [
   {
    "n": 2,
    "area": "hands",
    "rule": "Maintain correct side-gripping of the gourd for all characters handling mate to preserve physical realism."
+  },
+  {
+   "n": 1,
+   "area": "labels",
+   "rule": "Maintain clear separation between top caption bars and character head outlines."
+  },
+  {
+   "n": 1,
+   "area": "match",
+   "rule": "When a specific tool or action (like a spoon or scraping motion) is named in the narration, ensure that specific hero object is drawn in the hand and animated."
   },
   {
    "n": 1,
@@ -16,6 +26,11 @@
    "n": 1,
    "area": "scene",
    "rule": "Ensure background elements remain entirely inside camera viewport bounds."
+  },
+  {
+   "n": 1,
+   "area": "scene",
+   "rule": "Maintain consistent character positioning and grounding across sequential shots."
   },
   {
    "n": 1,
@@ -61,21 +76,6 @@
    "n": 1,
    "area": "labels",
    "rule": "Keep upper screen region clear of overlapping character faces during UI overlays."
-  },
-  {
-   "n": 1,
-   "area": "match",
-   "rule": "Ensure object scales like yerba packages and thermos flasks remain consistent across all office scenes."
-  },
-  {
-   "n": 1,
-   "area": "scale",
-   "rule": "Maintain correct relative sizing between oversized props like the cuia and the characters holding them."
-  },
-  {
-   "n": 1,
-   "area": "hands",
-   "rule": "Always keep floating ball hands visibly attached via perspective and actively gripping props."
   }
  ],
  "avoid": [
@@ -86,6 +86,11 @@
   },
   {
    "n": 1,
+   "area": "scene",
+   "rule": "Avoid static visual repetitions across consecutive short shots to maintain visual interest."
+  },
+  {
+   "n": 1,
    "area": "match",
    "rule": "Avoid reusing identical character poses across too many sequential frames without a micro-action."
   },
@@ -93,6 +98,11 @@
    "n": 1,
    "area": "match",
    "rule": "Avoid reusing particle animation loops across distinct spoken context changes."
+  },
+  {
+   "n": 1,
+   "area": "scale",
+   "rule": "Avoid exaggerated object scaling that distorts the physical logic of everyday items."
   },
   {
    "n": 1,
@@ -168,30 +178,20 @@
    "n": 1,
    "area": "scene",
    "rule": "Avoid duplicating large focal props like parrillas or hearths within the same backdrop."
-  },
-  {
-   "n": 1,
-   "area": "labels",
-   "rule": "Avoid placing headline text boxes across character eye lines in close-ups."
-  },
-  {
-   "n": 1,
-   "area": "scale",
-   "rule": "Avoid placing isolated, shrunken full-body figures in oversized empty rooms."
   }
  ],
  "recentBad": [
+  "Shot 0: Includes a vertical transition fade artifact across the center frame.",
+  "Shot 2: Repeats the character framing from the previous shot without a clear visual variation.",
+  "Shot 10: Action movement during the shaking motion lacks dynamic visual cues.",
+  "Shot 13: Spoken text mentions scraping the interior with a spoon ('raspás con una cuchara'), but the character is just holding the mate normally without any spoon or action.",
+  "Shot 14-15: Continues to lack any spoon or scraping animation while repeating the same standard holding pose.",
+  "Shots 11 through 15 reuse virtually identical character framing and static poses, creating visual monotony.",
   "Shot 0: The initial plant scene has text pills slightly crowding the top area.",
   "Shot 6: Character expressions are somewhat repetitive across consecutive frames.",
   "Shot 4: The drying progress chart overlay covers part of the background furniture awkwardly.",
   "Shot 3: Background umbrella graphic gets clipped abruptly at the left frame edge.",
   "Shot 12: Visual continues showing wind/yerba effect instead of transitioning to the vacation start scene.",
-  "Shot 3: Edge cropping on background props breaks scene composition.",
-  "Shots 11-13: Repetitive character animation frames across different script lines.",
-  "Shot 2: suegra expression and pose are repeated almost identically across frames",
-  "Shot 9: wind blowing yerba could be more explicitly visualized beyond text labels",
-  "Shot 2: dark background pill slightly overlaps the character's head top edge",
-  "shot 6: The mate gourd clips into the character's torso and floats near the hand rather than being firmly gripped.",
-  "shot 8: The mate gourd on the wooden table floats slightly above the surface with unnatural shadow contact."
+  "Shot 3: Edge cropping on background props breaks scene composition."
  ]
 }

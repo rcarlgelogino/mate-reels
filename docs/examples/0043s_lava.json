@@ -1,0 +1,1117 @@
+{
+  "id": "0043s_lava",
+  "title": "Cebar con lava",
+  "caption": "¿Sabías que para cebar mate lo recomendable es agua y no lava del Kilauea? 🧉🌋\nSeguime para más datos de mate.",
+  "hashtags": [
+    "#mate",
+    "#datoscuriosos",
+    "#argentina",
+    "#humor",
+    "#sabiasque"
+  ],
+  "story": {
+    "logline": "A \"did you know\" gag: mate is made with water, not with Kilauea lava; real numbers (1,150 °C, 15 times hotter, alpaca melts at 1,100 °C) and the result: no yerba, no bombilla, no tongue.",
+    "facts": [
+      "Kilauea lava erupts at about 1,150 °C (USGS).",
+      "Mate water is best at 70–80 °C.",
+      "1,150 / 75 ≈ 15.",
+      "Alpaca (nickel silver) melts at about 1,100 °C."
+    ],
+    "places": {
+      "casita": "the dollhouse kitchen on a lawn; a volcano far behind it with a lava river to the back wall"
+    }
+  },
+  "cast": {
+    "vos": "Tomás, about 25, short dark hair, light blue shirt, beige trousers"
+  },
+  "segments": [
+    {
+      "text": "¿Sabías que para cebar mate lo recomendable es agua,",
+      "emo": "neutral",
+      "shots": [
+        {
+          "f": 1,
+          "direction": "Dollhouse kitchen in the sun, Tomás at the table pours water from the green termo into his gourd. Label AGUA · 75 °C on the spout. Through the open sides we see the lawn; far behind the house stands a dark volcano (not yet noticed). Camera high front, slow push-in.",
+          "anim": {
+            "world": "casita",
+            "light": "sun",
+            "noTruck": true,
+            "volcano": true,
+            "seats": [
+              {
+                "x": 0,
+                "z": -0.75
+              }
+            ],
+            "props": [],
+            "fx": [
+              {
+                "kind": "stream",
+                "u0": 0.25,
+                "u1": 0.85,
+                "at": "vos.spout",
+                "to": "vos.mate",
+                "color": "#cfeeff",
+                "w": 7
+              }
+            ],
+            "sounds": [
+              {
+                "u": 0.25,
+                "type": "pour"
+              },
+              {
+                "u": 0.4,
+                "type": "lib:pop_1"
+              }
+            ],
+            "people": [
+              {
+                "id": "vos",
+                "look": {
+                  "skin": "#f6d7bb",
+                  "hair": "#3a2416",
+                  "hairStyle": "short",
+                  "shirt": "#8fc3ea",
+                  "pants": "#d8c39a"
+                },
+                "keys": [
+                  {
+                    "u": 0,
+                    "px": 0,
+                    "pz": -0.75,
+                    "faceTo": "center",
+                    "sit": true,
+                    "s": 520,
+                    "hold": "both",
+                    "L": [
+                      -70,
+                      -300
+                    ],
+                    "R": [
+                      60,
+                      -280
+                    ],
+                    "face": "happy",
+                    "look": "cam"
+                  },
+                  {
+                    "u": 0.2,
+                    "pour": 0.6,
+                    "dur": 0.12
+                  },
+                  {
+                    "u": 0.85,
+                    "pour": 0,
+                    "dur": 0.1
+                  }
+                ]
+              }
+            ],
+            "labels": [
+              {
+                "u0": 0.4,
+                "text": "AGUA · 75 °C",
+                "at": "vos.spout",
+                "dy": -70
+              }
+            ],
+            "cam3": [
+              {
+                "u": 0,
+                "a": 6,
+                "r": 4.6,
+                "h": 2.6,
+                "ax": 0,
+                "ay": 0.7,
+                "az": -0.6
+              },
+              {
+                "u": 1,
+                "r": 4,
+                "h": 2.3,
+                "dur": 1
+              }
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "text": "y no lava del volcán Kilauea?",
+      "emo": "surprised",
+      "shots": [
+        {
+          "f": 1.1,
+          "direction": "Wide and low from the front: behind the tiny house the volcano erupts, smoke and a glowing crater, a river of lava runs down the slope straight to the back wall. Label KILAUEA · HAWÁI over the crater. Camera cranes up to show the whole slope.",
+          "anim": {
+            "world": "casita",
+            "light": "sun",
+            "noTruck": true,
+            "volcano": true,
+            "seats": [
+              {
+                "x": 0,
+                "z": -0.75
+              }
+            ],
+            "props": [],
+            "fx": [],
+            "sounds": [
+              {
+                "u": 0.05,
+                "type": "lib:boom_3",
+                "gain": 0.8
+              },
+              {
+                "u": 0.3,
+                "type": "lib:pop_2"
+              }
+            ],
+            "people": [
+              {
+                "id": "vos",
+                "look": {
+                  "skin": "#f6d7bb",
+                  "hair": "#3a2416",
+                  "hairStyle": "short",
+                  "shirt": "#8fc3ea",
+                  "pants": "#d8c39a"
+                },
+                "keys": [
+                  {
+                    "u": 0,
+                    "px": 0,
+                    "pz": -0.75,
+                    "faceTo": "center",
+                    "sit": true,
+                    "s": 520,
+                    "hold": "both",
+                    "L": [
+                      -70,
+                      -300
+                    ],
+                    "R": [
+                      60,
+                      -280
+                    ],
+                    "face": "surprised",
+                    "look": "center"
+                  }
+                ]
+              }
+            ],
+            "labels": [
+              {
+                "u0": 0.3,
+                "text": "KILAUEA · HAWÁI",
+                "at": "crater",
+                "dy": -60,
+                "big": true
+              }
+            ],
+            "cam3": [
+              {
+                "u": 0,
+                "a": 28,
+                "r": 15,
+                "h": 5,
+                "ax": 0,
+                "ay": 2.5,
+                "az": -9
+              },
+              {
+                "u": 1,
+                "a": 22,
+                "r": 19,
+                "h": 7,
+                "ay": 4,
+                "dur": 1
+              }
+            ]
+          }
+        },
+        {
+          "f": 0.9,
+          "direction": "Close on Tomás: now his termo glows orange and he pours a thick stream of lava into the gourd. Label LAVA on the termo. His face: happy, he has not understood.",
+          "anim": {
+            "world": "casita",
+            "light": "sun",
+            "noTruck": true,
+            "volcano": true,
+            "seats": [
+              {
+                "x": 0,
+                "z": -0.75
+              }
+            ],
+            "props": [],
+            "fx": [
+              {
+                "kind": "stream",
+                "u0": 0,
+                "u1": 1,
+                "at": "vos.spout",
+                "to": "vos.mate",
+                "color": "#ff5a14",
+                "glow": "#ff3a00",
+                "w": 9
+              }
+            ],
+            "sounds": [
+              {
+                "u": 0.05,
+                "type": "lib:sonic_ring_1",
+                "gain": 0.5
+              },
+              {
+                "u": 0.2,
+                "type": "lib:pop_1"
+              }
+            ],
+            "people": [
+              {
+                "id": "vos",
+                "look": {
+                  "skin": "#f6d7bb",
+                  "hair": "#3a2416",
+                  "hairStyle": "short",
+                  "shirt": "#8fc3ea",
+                  "pants": "#d8c39a"
+                },
+                "keys": [
+                  {
+                    "u": 0,
+                    "px": 0,
+                    "pz": -0.75,
+                    "faceTo": "center",
+                    "sit": true,
+                    "s": 520,
+                    "hold": "both",
+                    "L": [
+                      -70,
+                      -300
+                    ],
+                    "R": [
+                      60,
+                      -280
+                    ],
+                    "face": "happy",
+                    "look": "cam",
+                    "termoColor": "#ff5a14",
+                    "pour": 0.6
+                  }
+                ]
+              }
+            ],
+            "labels": [
+              {
+                "u0": 0.2,
+                "text": "LAVA",
+                "at": "vos.spout",
+                "dy": -60
+              }
+            ],
+            "cam3": [
+              {
+                "u": 0,
+                "on": "vos.mate",
+                "a": 12,
+                "r": 1.8,
+                "h": 0.35,
+                "ax": 0,
+                "ay": 0.2,
+                "az": 0
+              },
+              {
+                "u": 1,
+                "r": 1.5,
+                "dur": 1
+              }
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "text": "La lava sale a unos mil ciento cincuenta grados,",
+      "emo": "neutral",
+      "shots": [
+        {
+          "f": 1,
+          "direction": "At the crater: glowing lava bubbles, smoke rises. A dial gauge pops up and its needle sweeps to 1.150 °C, deep in the red. Camera close on the crater rim, slight push.",
+          "anim": {
+            "world": "casita",
+            "light": "sun",
+            "noTruck": true,
+            "volcano": true,
+            "seats": [
+              {
+                "x": 0,
+                "z": -0.75
+              }
+            ],
+            "props": [],
+            "fx": [],
+            "sounds": [
+              {
+                "u": 0.1,
+                "type": "lib:charge_1",
+                "gain": 0.6
+              },
+              {
+                "u": 0.6,
+                "type": "lib:tik_tik_1"
+              }
+            ],
+            "people": [
+              {
+                "id": "vos",
+                "look": {
+                  "skin": "#f6d7bb",
+                  "hair": "#3a2416",
+                  "hairStyle": "short",
+                  "shirt": "#8fc3ea",
+                  "pants": "#d8c39a"
+                },
+                "keys": [
+                  {
+                    "u": 0,
+                    "px": 0,
+                    "pz": -0.75,
+                    "faceTo": "center",
+                    "sit": true,
+                    "s": 520,
+                    "hold": "both",
+                    "L": [
+                      -70,
+                      -300
+                    ],
+                    "R": [
+                      60,
+                      -280
+                    ],
+                    "face": "worried",
+                    "look": "center"
+                  }
+                ]
+              }
+            ],
+            "gauge": {
+              "u0": 0.1,
+              "to": 1150,
+              "max": 1200,
+              "unit": " °C"
+            },
+            "cam3": [
+              {
+                "u": 0,
+                "on": "crater",
+                "a": 20,
+                "r": 16,
+                "h": 3,
+                "ax": 0,
+                "ay": 0,
+                "az": 0
+              },
+              {
+                "u": 1,
+                "r": 13,
+                "dur": 1
+              }
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "text": "quince veces más caliente que el agua del mate.",
+      "emo": "excited",
+      "shots": [
+        {
+          "f": 1,
+          "direction": "Back on the gourd: the lava keeps flowing in, the rim glows. A yellow counter jumps to 15 with the label VECES MÁS CALIENTE. Tomás starts to sweat.",
+          "anim": {
+            "world": "casita",
+            "light": "sun",
+            "noTruck": true,
+            "volcano": true,
+            "seats": [
+              {
+                "x": 0,
+                "z": -0.75
+              }
+            ],
+            "props": [],
+            "fx": [
+              {
+                "kind": "stream",
+                "u0": 0,
+                "u1": 1,
+                "at": "vos.spout",
+                "to": "vos.mate",
+                "color": "#ff5a14",
+                "glow": "#ff3a00",
+                "w": 9
+              },
+              {
+                "kind": "sweat",
+                "u0": 0.2,
+                "u1": 1,
+                "at": "vos.head"
+              }
+            ],
+            "sounds": [
+              {
+                "u": 0.15,
+                "type": "lib:cash_3",
+                "gain": 0.6
+              },
+              {
+                "u": 0.6,
+                "type": "lib:coin_2"
+              }
+            ],
+            "people": [
+              {
+                "id": "vos",
+                "look": {
+                  "skin": "#f6d7bb",
+                  "hair": "#3a2416",
+                  "hairStyle": "short",
+                  "shirt": "#8fc3ea",
+                  "pants": "#d8c39a"
+                },
+                "keys": [
+                  {
+                    "u": 0,
+                    "px": 0,
+                    "pz": -0.75,
+                    "faceTo": "center",
+                    "sit": true,
+                    "s": 520,
+                    "hold": "both",
+                    "L": [
+                      -70,
+                      -300
+                    ],
+                    "R": [
+                      60,
+                      -280
+                    ],
+                    "face": "worried",
+                    "look": "cam",
+                    "termoColor": "#ff5a14",
+                    "pour": 0.6
+                  }
+                ]
+              }
+            ],
+            "counter": {
+              "u0": 0.15,
+              "u1": 0.6,
+              "from": 1,
+              "to": 15,
+              "unit": "×",
+              "label": "VECES MÁS CALIENTE",
+              "lin": true
+            },
+            "cam3": [
+              {
+                "u": 0,
+                "on": "vos.head",
+                "a": 0,
+                "r": 2.6,
+                "h": 0,
+                "ax": 0,
+                "ay": -0.2,
+                "az": 0
+              }
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "text": "Y tu bombilla de alpaca se derrite a mil cien grados.",
+      "emo": "surprised",
+      "shots": [
+        {
+          "f": 1,
+          "direction": "Extreme close on the gourd: the steel bombilla sags and melts, silver drops fall from it, then it is gone. Label ALPACA · 1.100 °C. The lava in the gourd bubbles.",
+          "anim": {
+            "world": "casita",
+            "light": "sun",
+            "noTruck": true,
+            "volcano": true,
+            "seats": [
+              {
+                "x": 0,
+                "z": -0.75
+              }
+            ],
+            "props": [],
+            "fx": [
+              {
+                "kind": "drops",
+                "u0": 0.15,
+                "u1": 1,
+                "at": "vos.mate",
+                "n": 5,
+                "color": "#cfd3d8",
+                "size": 0.02,
+                "fall": 90
+              },
+              {
+                "kind": "burst",
+                "u0": 0.5,
+                "u1": 1,
+                "at": "vos.mate",
+                "n": 12,
+                "speed": 0.6,
+                "secs": 1,
+                "colors": [
+                  "#ff5a14",
+                  "#ffb02a"
+                ],
+                "dir": [
+                  0,
+                  1,
+                  0
+                ]
+              }
+            ],
+            "sounds": [
+              {
+                "u": 0.2,
+                "type": "lib:magical_healing_1",
+                "gain": 0.5
+              },
+              {
+                "u": 0.55,
+                "type": "lib:glass_crack_2",
+                "gain": 0.6
+              }
+            ],
+            "people": [
+              {
+                "id": "vos",
+                "look": {
+                  "skin": "#f6d7bb",
+                  "hair": "#3a2416",
+                  "hairStyle": "short",
+                  "shirt": "#8fc3ea",
+                  "pants": "#d8c39a"
+                },
+                "keys": [
+                  {
+                    "u": 0,
+                    "px": 0,
+                    "pz": -0.75,
+                    "faceTo": "center",
+                    "sit": true,
+                    "s": 520,
+                    "hold": "both",
+                    "L": [
+                      -70,
+                      -300
+                    ],
+                    "R": [
+                      60,
+                      -280
+                    ],
+                    "face": "shock",
+                    "look": null,
+                    "termoColor": "#ff5a14"
+                  },
+                  {
+                    "u": 0.55,
+                    "mateNoBomb": true
+                  }
+                ]
+              }
+            ],
+            "labels": [
+              {
+                "u0": 0.25,
+                "text": "ALPACA · 1.100 °C",
+                "at": "vos.mate",
+                "dy": -170
+              }
+            ],
+            "cam3": [
+              {
+                "u": 0,
+                "on": "vos.mate",
+                "a": 10,
+                "r": 2.1,
+                "h": 0.3,
+                "ax": 0,
+                "ay": 0.18,
+                "az": 0
+              },
+              {
+                "u": 1,
+                "r": 1.8,
+                "dur": 1
+              }
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "text": "Lo más probable es que te quedes sin yerba, sin bombilla y sin lengua.",
+      "emo": "funny",
+      "shots": [
+        {
+          "f": 1,
+          "direction": "The yerba catches fire: black and orange flakes explode out of the gourd with smoke. Label SIN YERBA. Tomás leans back.",
+          "anim": {
+            "world": "casita",
+            "light": "sun",
+            "noTruck": true,
+            "volcano": true,
+            "seats": [
+              {
+                "x": 0,
+                "z": -0.75
+              }
+            ],
+            "props": [],
+            "fx": [
+              {
+                "kind": "burst",
+                "u0": 0.25,
+                "u1": 1,
+                "at": "vos.mate",
+                "n": 80,
+                "speed": 1.6,
+                "secs": 1.4,
+                "colors": [
+                  "#2b2b2b",
+                  "#ff5a14",
+                  "#ffb02a",
+                  "#5a5a5a"
+                ],
+                "dir": [
+                  0,
+                  1.4,
+                  0.5
+                ]
+              }
+            ],
+            "sounds": [
+              {
+                "u": 0.25,
+                "type": "lib:explosion_2",
+                "gain": 0.7
+              }
+            ],
+            "people": [
+              {
+                "id": "vos",
+                "look": {
+                  "skin": "#f6d7bb",
+                  "hair": "#3a2416",
+                  "hairStyle": "short",
+                  "shirt": "#8fc3ea",
+                  "pants": "#d8c39a"
+                },
+                "keys": [
+                  {
+                    "u": 0,
+                    "px": 0,
+                    "pz": -0.75,
+                    "faceTo": "center",
+                    "sit": true,
+                    "s": 520,
+                    "hold": "both",
+                    "L": [
+                      -70,
+                      -300
+                    ],
+                    "R": [
+                      60,
+                      -280
+                    ],
+                    "face": "shock",
+                    "look": "center",
+                    "termoColor": "#ff5a14",
+                    "mateNoBomb": true
+                  },
+                  {
+                    "u": 0.3,
+                    "mateEmpty": true
+                  }
+                ]
+              }
+            ],
+            "labels": [
+              {
+                "u0": 0.3,
+                "text": "SIN YERBA",
+                "at": "vos.head",
+                "dy": -150
+              }
+            ],
+            "shake": [
+              {
+                "u0": 0.25,
+                "u1": 0.5,
+                "a": 3
+              }
+            ],
+            "cam3": [
+              {
+                "u": 0,
+                "on": "vos.head",
+                "a": 0,
+                "r": 2.4,
+                "h": 0.1,
+                "ax": 0,
+                "ay": -0.15,
+                "az": 0
+              }
+            ]
+          }
+        },
+        {
+          "f": 0.7,
+          "direction": "Close on the empty gourd: only a silver puddle on the tablecloth where the bombilla was. Label SIN BOMBILLA.",
+          "anim": {
+            "world": "casita",
+            "light": "sun",
+            "noTruck": true,
+            "volcano": true,
+            "seats": [
+              {
+                "x": 0,
+                "z": -0.75
+              }
+            ],
+            "props": [],
+            "fx": [
+              {
+                "kind": "drops",
+                "u0": 0,
+                "u1": 1,
+                "at": "vos.mate",
+                "n": 3,
+                "color": "#cfd3d8",
+                "size": 0.02,
+                "fall": 90
+              }
+            ],
+            "sounds": [
+              {
+                "u": 0.15,
+                "type": "lib:huh_cat_1",
+                "gain": 0.6
+              }
+            ],
+            "people": [
+              {
+                "id": "vos",
+                "look": {
+                  "skin": "#f6d7bb",
+                  "hair": "#3a2416",
+                  "hairStyle": "short",
+                  "shirt": "#8fc3ea",
+                  "pants": "#d8c39a"
+                },
+                "keys": [
+                  {
+                    "u": 0,
+                    "px": 0,
+                    "pz": -0.75,
+                    "faceTo": "center",
+                    "sit": true,
+                    "s": 520,
+                    "hold": "both",
+                    "L": [
+                      -70,
+                      -300
+                    ],
+                    "R": [
+                      60,
+                      -280
+                    ],
+                    "face": "sad",
+                    "look": null,
+                    "termoColor": "#ff5a14",
+                    "mateEmpty": true,
+                    "mateNoBomb": true
+                  }
+                ]
+              }
+            ],
+            "labels": [
+              {
+                "u0": 0.15,
+                "text": "SIN BOMBILLA",
+                "at": "vos.mate",
+                "dy": -160
+              }
+            ],
+            "cam3": [
+              {
+                "u": 0,
+                "on": "vos.mate",
+                "a": -10,
+                "r": 1.4,
+                "h": 0.3,
+                "ax": 0,
+                "ay": 0.1,
+                "az": 0
+              }
+            ]
+          }
+        },
+        {
+          "f": 1.1,
+          "direction": "Tomás drinks anyway: he sips, his face turns into pain, tongue out and red, smoke comes out of his mouth, he shakes. Label SIN LENGUA.",
+          "anim": {
+            "world": "casita",
+            "light": "sun",
+            "noTruck": true,
+            "volcano": true,
+            "seats": [
+              {
+                "x": 0,
+                "z": -0.75
+              }
+            ],
+            "props": [],
+            "fx": [
+              {
+                "kind": "burst",
+                "u0": 0.35,
+                "u1": 1,
+                "at": "vos.mouth",
+                "n": 30,
+                "speed": 0.7,
+                "secs": 1.2,
+                "colors": [
+                  "#9a9a9a",
+                  "#cfcfcf"
+                ],
+                "dir": [
+                  0,
+                  1,
+                  0.6
+                ]
+              },
+              {
+                "kind": "sweat",
+                "u0": 0.35,
+                "u1": 1,
+                "at": "vos.head"
+              }
+            ],
+            "sounds": [
+              {
+                "u": 0.36,
+                "type": "lib:faah_1",
+                "gain": 0.8
+              }
+            ],
+            "people": [
+              {
+                "id": "vos",
+                "look": {
+                  "skin": "#f6d7bb",
+                  "hair": "#3a2416",
+                  "hairStyle": "short",
+                  "shirt": "#8fc3ea",
+                  "pants": "#d8c39a"
+                },
+                "keys": [
+                  {
+                    "u": 0,
+                    "px": 0,
+                    "pz": -0.75,
+                    "faceTo": "center",
+                    "sit": true,
+                    "s": 520,
+                    "hold": "both",
+                    "L": [
+                      -70,
+                      -300
+                    ],
+                    "R": [
+                      60,
+                      -280
+                    ],
+                    "face": "sip",
+                    "look": "center",
+                    "termoColor": "#ff5a14",
+                    "act": "drink",
+                    "mateEmpty": true,
+                    "mateNoBomb": true
+                  },
+                  {
+                    "u": 0.35,
+                    "act": null,
+                    "face": "disgusted",
+                    "jump": 0.04
+                  }
+                ]
+              }
+            ],
+            "labels": [
+              {
+                "u0": 0.4,
+                "text": "SIN LENGUA",
+                "at": "vos.head",
+                "dy": -160,
+                "big": true
+              }
+            ],
+            "shake": [
+              {
+                "u0": 0.35,
+                "u1": 0.7,
+                "a": 4
+              }
+            ],
+            "cam3": [
+              {
+                "u": 0,
+                "on": "vos.head",
+                "a": 0,
+                "r": 2.2,
+                "h": 0,
+                "ax": 0,
+                "ay": -0.1,
+                "az": 0
+              },
+              {
+                "u": 1,
+                "r": 1.9,
+                "dur": 1
+              }
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "text": "Seguime para más datos de mate.",
+      "emo": "funny",
+      "shots": [
+        {
+          "f": 1,
+          "direction": "Wide: Tomás sits with the tongue out, smoke over his head, the volcano still erupting behind the house. Three labels: SIN YERBA, SIN BOMBILLA, SIN LENGUA. Slow pull back.",
+          "anim": {
+            "world": "casita",
+            "light": "sun",
+            "noTruck": true,
+            "volcano": true,
+            "seats": [
+              {
+                "x": 0,
+                "z": -0.75
+              }
+            ],
+            "props": [],
+            "fx": [
+              {
+                "kind": "sweat",
+                "u0": 0,
+                "u1": 1,
+                "at": "vos.head"
+              }
+            ],
+            "sounds": [
+              {
+                "u": 0.02,
+                "type": "lib:record_scratch_1",
+                "gain": 0.6
+              },
+              {
+                "u": 0.6,
+                "type": "lib:bruh_1",
+                "gain": 0.7
+              }
+            ],
+            "people": [
+              {
+                "id": "vos",
+                "look": {
+                  "skin": "#f6d7bb",
+                  "hair": "#3a2416",
+                  "hairStyle": "short",
+                  "shirt": "#8fc3ea",
+                  "pants": "#d8c39a"
+                },
+                "keys": [
+                  {
+                    "u": 0,
+                    "px": 0,
+                    "pz": -0.75,
+                    "faceTo": "center",
+                    "sit": true,
+                    "s": 520,
+                    "hold": "both",
+                    "L": [
+                      -70,
+                      -300
+                    ],
+                    "R": [
+                      60,
+                      -280
+                    ],
+                    "face": "disgusted",
+                    "look": "cam",
+                    "termoColor": "#ff5a14",
+                    "mateEmpty": true,
+                    "mateNoBomb": true
+                  }
+                ]
+              }
+            ],
+            "labels": [
+              {
+                "u0": 0.05,
+                "text": "SIN YERBA",
+                "at": "vos.head",
+                "dy": -220
+              },
+              {
+                "u0": 0.12,
+                "text": "SIN BOMBILLA",
+                "at": "vos.L",
+                "dy": 40
+              },
+              {
+                "u0": 0.19,
+                "text": "SIN LENGUA",
+                "at": "vos.R",
+                "dy": 120
+              }
+            ],
+            "cam3": [
+              {
+                "u": 0,
+                "on": "vos.head",
+                "a": -4,
+                "r": 3.2,
+                "h": 0.4,
+                "ax": 0,
+                "ay": -0.2,
+                "az": 0
+              },
+              {
+                "u": 1,
+                "r": 4.2,
+                "h": 0.9,
+                "dur": 1
+              }
+            ]
+          }
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,51 @@
+name: voice-only
+
+# Records only the Charon voice for one script and commits it to voice/<id>/ (take.wav + word times).
+# The video is rendered locally with that take (spec.takeFile). Started by pushing trigger/voice.txt (first word: the script path).
+on:
+  push:
+    branches: [main]
+    paths: ['trigger/voice.txt']
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+concurrency:
+  group: voice-only
+  cancel-in-progress: false
+
+jobs:
+  voice:
+    runs-on: ubuntu-24.04
+    timeout-minutes: 30
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+          cache: npm
+          cache-dependency-path: tools/package-lock.json
+
+      - name: Install tools
+        run: |
+          for i in 1 2 3; do npm ci --prefix tools > /tmp/inst.log 2>&1 && break; tail -40 /tmp/inst.log; sleep 25; done
+
+      - name: Cache Whisper model
+        uses: actions/cache@v4
+        with:
+          path: tools/node_modules/@huggingface/transformers/.cache
+          key: whisper-small-timestamped-v1
+
+      - name: Record the voice
+        env:
+          GEMINI_API_KEY: ${{ secrets.GEMINI_API_KEY }}
+        run: |
+          SRC=$(head -1 trigger/voice.txt | awk '{print $1}')
+          node scripts/voice_only.js "$SRC"
+
+      - name: Commit the voice
+        run: |
+          git config user.name "github-actions[bot]"; git config user.email "41898283+github-actions[bot]@users.noreply.github.com"
+          git add -f voice; git diff --cached --quiet || (git commit -m "Voice for $(head -1 trigger/voice.txt | awk '{print $1}')" && git pull --rebase -q && git push)

@@ -1,0 +1,84 @@
+{
+ "reel": "0025_llenas_el_mate_hasta_arriba",
+ "style": "pixel8",
+ "technical": [
+  "duration 37.234s",
+  "loudness -12.2 LUFS, peak -0.8 dBFS",
+  "voice gemini"
+ ],
+ "vision": {
+  "ran": true,
+  "model": "gemini-3.6-flash"
+ },
+ "summary": "The pixel-art visual reel executes the 'pixel8' aesthetic well, featuring charming hero mate characters and legible retro typography. However, critical instructional steps such as covering, turning upside down, and shaking the mate (shots 9-10) are depicted with static holding poses instead of showing the described action.",
+ "scores": {
+  "visual_logic": 6,
+  "graphics": 8,
+  "overall": 7
+ },
+ "logic": {
+  "clean": [
+   "Shot 6 clearly illustrates water overflowing from an overfilled mate cup as described in the text.",
+   "Shot 12 nicely depicts the 'montañita' (slope of yerba) with a tilted mate character."
+  ],
+  "unclean": [
+   "shot 9: The spoken voice describes covering, flipping upside down, and shaking the mate, but the visual shows the character holding the mate upright static.",
+   "shot 10: Continues describing flipping and shaking, but visual remains a static upright pose.",
+   "shot 3: Characters in cell 12 sit too low and clip awkwardly against the bottom screen boundary."
+  ]
+ },
+ "graphics": {
+  "clean": [
+   "Consistent retro pixel rendering and font usage throughout the reel.",
+   "Warm glow halos and hero character faces on the mate objects fit the pixel8 QA spec."
+  ],
+  "unclean": [
+   "shot 2: Visual scene is almost identical to shot 1 without layout or posture progression."
+  ]
+ },
+ "issues": [
+  {
+   "severity": "high",
+   "fault": "action_missing",
+   "category": "match",
+   "problem": "The text describes covering, turning upside down, and shaking the mate, but the character holds it upright motionless.",
+   "fix": "Animate the mate turned upside down with a palm sprite over the opening and add shake offset keyframes.",
+   "shot": 9,
+   "time": 19.4,
+   "template": "pix"
+  },
+  {
+   "severity": "high",
+   "fault": "action_missing",
+   "category": "match",
+   "problem": "Narrative continues describing the shaking technique while the image remains static upright.",
+   "fix": "Include motion lines/pixel dust particles showing the shaking action in progress.",
+   "shot": 10,
+   "time": 21.6,
+   "template": "pix"
+  },
+  {
+   "severity": "medium",
+   "fault": "edge_cut",
+   "category": "people",
+   "problem": "Characters in cell 12 are cut off at the bottom frame boundary.",
+   "fix": "Raise character Y position so figures sit cleanly behind the counter surface.",
+   "shot": 3,
+   "time": 6.3,
+   "template": "pix"
+  }
+ ],
+ "learnings": [
+  {
+   "type": "do",
+   "area": "match",
+   "rule": "Match physical instructional verbs (flipping, shaking, pouring) with dedicated object rotation and motion animations."
+  },
+  {
+   "type": "avoid",
+   "area": "people",
+   "rule": "Avoid placing small background characters so low that their lower halves get clipped by the canvas frame."
+  }
+ ],
+ "checked": "2026-11-26T08:57:24.348Z"
+}

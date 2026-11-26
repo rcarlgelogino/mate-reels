@@ -1,13 +1,19 @@
 {
- "0024_tu_mate_de_calabaza_esta_vivo": {
-  "first": "2026-11-24",
+ "0025_llenas_el_mate_hasta_arriba": {
+  "first": "2026-11-25",
   "styles": [
    "flat2d",
    "pixel8"
   ]
  },
- "0025_llenas_el_mate_hasta_arriba": {
-  "first": "2026-11-25",
+ "0026_el_mate_nunca_se_toma_solo": {
+  "first": "2026-11-26",
+  "styles": [
+   "flat2d"
+  ]
+ },
+ "0027_cinco_paradas_antes_de_tu_mate": {
+  "first": "2026-11-26",
   "styles": [
    "flat2d"
   ]

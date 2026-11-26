@@ -1,11 +1,21 @@
 {
- "updated": "2026-11-25T08:58:09.733Z",
- "reels": 42,
+ "updated": "2026-11-26T09:10:02.857Z",
+ "reels": 46,
  "do": [
   {
    "n": 2,
    "area": "hands",
    "rule": "Maintain correct side-gripping of the gourd for all characters handling mate to preserve physical realism."
+  },
+  {
+   "n": 1,
+   "area": "scene",
+   "rule": "Ensure all ground-level props such as crates, bags, and fires have proper shadow contacts to prevent floating."
+  },
+  {
+   "n": 1,
+   "area": "match",
+   "rule": "Match physical instructional verbs (flipping, shaking, pouring) with dedicated object rotation and motion animations."
   },
   {
    "n": 1,
@@ -16,6 +26,11 @@
    "n": 1,
    "area": "match",
    "rule": "When a specific tool or action (like a spoon or scraping motion) is named in the narration, ensure that specific hero object is drawn in the hand and animated."
+  },
+  {
+   "n": 1,
+   "area": "match",
+   "rule": "Ensure literal visual actions directly depict key nouns and verbs spoken in the voiceover."
   },
   {
    "n": 1,
@@ -61,21 +76,6 @@
    "n": 1,
    "area": "labels",
    "rule": "Ensure captions maintain adequate spacing from the top edge in all vertical frames."
-  },
-  {
-   "n": 1,
-   "area": "match",
-   "rule": "Ensure key visual props and characters mentioned in the voiceover are rendered in the scene."
-  },
-  {
-   "n": 1,
-   "area": "objects",
-   "rule": "Ensure handheld props attach directly to ball hands without gaps."
-  },
-  {
-   "n": 1,
-   "area": "labels",
-   "rule": "Keep upper screen region clear of overlapping character faces during UI overlays."
   }
  ],
  "avoid": [
@@ -86,8 +86,23 @@
   },
   {
    "n": 1,
+   "area": "people",
+   "rule": "Do not repeat identical multi-character lineup frames consecutively without changing composition."
+  },
+  {
+   "n": 1,
+   "area": "people",
+   "rule": "Avoid placing small background characters so low that their lower halves get clipped by the canvas frame."
+  },
+  {
+   "n": 1,
    "area": "scene",
    "rule": "Avoid static visual repetitions across consecutive short shots to maintain visual interest."
+  },
+  {
+   "n": 1,
+   "area": "objects",
+   "rule": "Avoid showing isolated static props on tables when text explicitly describes active handling."
   },
   {
    "n": 1,
@@ -163,35 +178,20 @@
    "n": 1,
    "area": "layering",
    "rule": "Avoid cropping character foreheads directly beneath multi-line text cards."
-  },
-  {
-   "n": 1,
-   "area": "hands",
-   "rule": "Never render handheld props (mate, flasks, cups) without attaching an arm and curling hand explicitly grasping them."
-  },
-  {
-   "n": 1,
-   "area": "labels",
-   "rule": "Do not render callout pill badges pointing to a prop when the main headline already states the exact same phrase."
-  },
-  {
-   "n": 1,
-   "area": "scene",
-   "rule": "Avoid duplicating large focal props like parrillas or hearths within the same backdrop."
   }
  ],
  "recentBad": [
+  "Shot 4: Fire pits placed directly on the floor without visible hearth or safe isolation.",
+  "Shot 8: Stored bags appear slightly floating relative to the back wall perspective.",
+  "Shot 5: Leaf illustration layer slightly overlaps the background fence lines awkwardly.",
+  "Shot 3: Multiple duplicated figures lined up consecutively without narrative progression.",
+  "Shot 5: Duplicated figure crowd composition repeats heavily from previous shots.",
+  "Shot 1: Timeline/comparison graphics slightly overlap background windows.",
+  "shot 9: The spoken voice describes covering, flipping upside down, and shaking the mate, but the visual shows the character holding the mate upright static.",
+  "shot 10: Continues describing flipping and shaking, but visual remains a static upright pose.",
+  "shot 3: Characters in cell 12 sit too low and clip awkwardly against the bottom screen boundary.",
+  "shot 2: Visual scene is almost identical to shot 1 without layout or posture progression.",
   "Shot 0: Includes a vertical transition fade artifact across the center frame.",
-  "Shot 2: Repeats the character framing from the previous shot without a clear visual variation.",
-  "Shot 10: Action movement during the shaking motion lacks dynamic visual cues.",
-  "Shot 13: Spoken text mentions scraping the interior with a spoon ('raspás con una cuchara'), but the character is just holding the mate normally without any spoon or action.",
-  "Shot 14-15: Continues to lack any spoon or scraping animation while repeating the same standard holding pose.",
-  "Shots 11 through 15 reuse virtually identical character framing and static poses, creating visual monotony.",
-  "Shot 0: The initial plant scene has text pills slightly crowding the top area.",
-  "Shot 6: Character expressions are somewhat repetitive across consecutive frames.",
-  "Shot 4: The drying progress chart overlay covers part of the background furniture awkwardly.",
-  "Shot 3: Background umbrella graphic gets clipped abruptly at the left frame edge.",
-  "Shot 12: Visual continues showing wind/yerba effect instead of transitioning to the vacation start scene.",
-  "Shot 3: Edge cropping on background props breaks scene composition."
+  "Shot 2: Repeats the character framing from the previous shot without a clear visual variation."
  ]
 }

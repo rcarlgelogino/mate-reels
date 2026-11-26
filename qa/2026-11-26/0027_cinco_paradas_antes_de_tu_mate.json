@@ -1,0 +1,69 @@
+{
+ "reel": "0027_cinco_paradas_antes_de_tu_mate",
+ "style": "flat2d",
+ "technical": [
+  "duration 44s",
+  "loudness -12.2 LUFS, peak -0.9 dBFS",
+  "voice gemini"
+ ],
+ "vision": {
+  "ran": true,
+  "model": "gemini-3.5-flash-lite"
+ },
+ "summary": "The reel effectively illustrates the production process of yerba mate with clean 2D vector graphics and clear character models. Some minor scaling and layering inconsistencies appear in background elements across the sequence.",
+ "scores": {
+  "visual_logic": 8,
+  "graphics": 9,
+  "overall": 8
+ },
+ "logic": {
+  "clean": [
+   "Shot 0: Proper counter height and consistent package sizing.",
+   "Shot 2: Tarefero character matches the scene and dialogue.",
+   "Shot 10: Truck and road scale fit the landscape context well."
+  ],
+  "unclean": [
+   "Shot 4: Fire pits placed directly on the floor without visible hearth or safe isolation.",
+   "Shot 8: Stored bags appear slightly floating relative to the back wall perspective."
+  ]
+ },
+ "graphics": {
+  "clean": [
+   "Flat 2D style consistency maintained throughout all 13 shots.",
+   "Character outfits correctly adapt to different roles (tarefero, worker, cebador).",
+   "UI elements and captions are well-placed inside the top dark box."
+  ],
+  "unclean": [
+   "Shot 5: Leaf illustration layer slightly overlaps the background fence lines awkwardly."
+  ]
+ },
+ "issues": [
+  {
+   "severity": "medium",
+   "fault": "object_missing",
+   "category": "objects",
+   "problem": "\"humo\" is named but flat2d has no drawing for it",
+   "fix": "add a humo drawing to flat2d and its column in styles/lexicon.js",
+   "shot": null,
+   "source": "lexicon"
+  },
+  {
+   "severity": "low",
+   "fault": "floating",
+   "category": "objects",
+   "problem": "Fire pit triangles float slightly above the ground plane.",
+   "fix": "Align the base of the fire graphic exactly with the floor line.",
+   "shot": 4,
+   "time": 12,
+   "template": "flat"
+  }
+ ],
+ "learnings": [
+  {
+   "type": "do",
+   "area": "scene",
+   "rule": "Ensure all ground-level props such as crates, bags, and fires have proper shadow contacts to prevent floating."
+  }
+ ],
+ "checked": "2026-11-26T09:10:02.818Z"
+}

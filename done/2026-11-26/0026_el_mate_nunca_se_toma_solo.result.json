@@ -1,0 +1,33 @@
+{
+ "id": "0026_el_mate_nunca_se_toma_solo",
+ "guard": {
+  "text_over_picture": [
+   0,
+   3,
+   5,
+   6,
+   7,
+   8,
+   9,
+   11,
+   12,
+   13,
+   14
+  ],
+  "2d_zoomout": [
+   2,
+   14
+  ]
+ },
+ "file": "work/0026_el_mate_nunca_se_toma_solo/final.mp4",
+ "voice": "gemini",
+ "duration": 36.434,
+ "inTarget": true,
+ "target": [
+  35,
+  45
+ ],
+ "loudness": "-12.2 LUFS, peak -0.9 dBFS",
+ "shots": 16,
+ "minutes": 1.7
+}

@@ -1,0 +1,21 @@
+{
+ "id": "0025_llenas_el_mate_hasta_arriba",
+ "guard": {
+  "text_over_picture": [
+   0,
+   8,
+   10
+  ]
+ },
+ "file": "work/0025_llenas_el_mate_hasta_arriba/final.mp4",
+ "voice": "gemini",
+ "duration": 37.234,
+ "inTarget": true,
+ "target": [
+  35,
+  45
+ ],
+ "loudness": "-12.2 LUFS, peak -0.8 dBFS",
+ "shots": 15,
+ "minutes": 2.2
+}

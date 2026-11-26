@@ -34,7 +34,7 @@ concurrency:
 jobs:
   build:
     runs-on: ubuntu-24.04  # pinned: ubuntu-latest moved to Ubuntu 26 and the tool install failed there (2026-11-18)
-    timeout-minutes: 240
+    timeout-minutes: 360
     steps:
       - uses: actions/checkout@v4
 
@@ -120,3 +120,18 @@ jobs:
           gh release upload "$TAG" "out/$DAY/$OUT.mp4" "out/$DAY/$OUT.txt" $(ls "out/$DAY/$OUT.jpg" 2>/dev/null)
           gh release edit "$TAG" --notes-file "out/$DAY/SUMMARY.md" || true
           if [ "${{ inputs.test }}" != "true" ]; then git config user.name 'reels-bot'; git config user.email 'reels-bot@users.noreply.github.com'; git add -A qa; git diff --cached --quiet || (git commit -m "A/B 3D reel $DAY" && git pull --rebase -q && git push); fi
+
+      # Two "¿Sabías que…?" reels a day (docs/research/sabias-que-format.md): Gemini writes the topics, the 3D stage renders them, they are added to today's release last.
+      - name: Build the two ¿Sabías que? reels and add them to today's release
+        if: ${{ always() && steps.release.outputs.tag != '' && !inputs.test }}
+        env:
+          GEMINI_API_KEY: ${{ secrets.GEMINI_API_KEY }}
+          REQUIRE_GEMINI: '1'
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          DAY="${{ steps.release.outputs.day }}"; TAG="${{ steps.release.outputs.tag }}"
+          FIRST=$(( $(ls out/$DAY/*.mp4 2>/dev/null | wc -l) + 1 ))
+          node scripts/sabias_daily.js --day "$DAY" --first "$FIRST" || { echo 'sabias build failed, the other reels are not affected'; exit 0; }
+          for OUT in $(cat "out/$DAY/sabias.out" 2>/dev/null); do gh release upload "$TAG" "out/$DAY/$OUT.mp4" "out/$DAY/$OUT.txt" $(ls "out/$DAY/$OUT.jpg" 2>/dev/null); done
+          gh release edit "$TAG" --notes-file "out/$DAY/SUMMARY.md" || true
+          git config user.name 'reels-bot'; git config user.email 'reels-bot@users.noreply.github.com'; git add -A rotation done; git diff --cached --quiet || (git commit -m "¿Sabías que? reels $DAY" && git pull --rebase -q && git push)

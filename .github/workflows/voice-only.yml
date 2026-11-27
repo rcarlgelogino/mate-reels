@@ -1,7 +1,7 @@
 name: voice-only
 
 # Records only the Charon voice for one script and commits it to voice/<id>/ (take.wav + word times).
-# The video is rendered locally with that take (spec.takeFile). Started by pushing trigger/voice.txt (first word: the script path).
+# The video is rendered locally with that take (spec.takeFile). Started by pushing trigger/voice.txt (first word of each line: a script path).
 on:
   push:
     branches: [main]
@@ -42,8 +42,7 @@ jobs:
         env:
           GEMINI_API_KEY: ${{ secrets.GEMINI_API_KEY }}
         run: |
-          SRC=$(head -1 trigger/voice.txt | awk '{print $1}')
-          node scripts/voice_only.js "$SRC"
+          for SRC in $(awk '{print $1}' trigger/voice.txt); do node scripts/voice_only.js "$SRC" || echo "voice failed: $SRC"; done
 
       - name: Commit the voice
         run: |

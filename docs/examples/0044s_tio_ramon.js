@@ -57,10 +57,11 @@ say('El paquete de yerba pasa a costar un millón de pesos.', 'surprised',
       cam3: [{ u: 0, a: 8, r: 3.6, h: 1.6, ax: 0, ay: 0.6, az: -0.4 }, { u: 1, r: 3.1, dur: 1 }],
       sounds: [{ u: 0.12, type: 'lib:cash_3', gain: 0.7 }, { u: 0.8, type: 'lib:cash_1', gain: 0.7 }] } });
 say('Y cuarenta y siete millones de argentinos se quedan sin mate.', 'sad',
-  { f: 1, direction: 'Aerial over a packed stadium, red and white fans as far as you can see. Label 47 MILLONES SIN MATE. Slow orbit.',
-    anim: { world: 'cancha', light: 'sun', people: [], props: [], fx: [], labels: [{ u0: 0.15, text: '47 MILLONES SIN MATE', at: [0, 7.5, 0], big: true }],
-      cam3: [{ u: 0, a: 10, r: 52, h: 46, ax: 0, ay: 0, az: -3 }, { u: 1, a: 30, r: 48, h: 42, dur: 1 }],
-      sounds: [{ u: 0.15, type: 'lib:disappointed_1', gain: 0.7 }] } });
+  { f: 1, direction: 'A raised 3D map of Argentina on a moving sea, covered with hundreds of tiny gourds; one by one they vanish from north to south while a yellow counter runs to 47.000.000 ARGENTINOS SIN MATE. Camera high, slowly sinking.',
+    anim: { world: 'mapa', light: 'sun', people: [], props: [], fx: [], agent: [{ u: 0, ak: 0 }, { u: 0.9, ak: 1, dur: 0.8 }],
+      counter: { u0: 0.1, u1: 0.85, from: 0, to: 47000000, label: 'ARGENTINOS SIN MATE' },
+      cam3: [{ u: 0, a: 0, r: 26, h: 38, ax: -0.5, ay: 0, az: -1 }, { u: 1, r: 22, h: 32, dur: 1 }],
+      sounds: [{ u: 0.1, type: 'lib:cash_3', gain: 0.5 }, { u: 0.85, type: 'lib:disappointed_1', gain: 0.7 }] } });
 say('Todo por mover la bombilla.', 'sad',
   { f: 0.9, direction: 'Back in the patio: Ramón still flat on the floor, Tomás frozen with the gourd, the bombilla still in his fingers. Guilty face. Slow push-in.',
     anim: patio({ people: [vos({ L: 'vos.mate', face: 'worried', look: 'tio' }), tio({ lean: 1.5, face: 'derp' })], fx: [{ kind: 'stars', u0: 0, u1: 1, at: 'tio.head' }],
@@ -75,6 +76,6 @@ const j = { id: '0044s_tio_ramon', title: 'Mover la bombilla', thumb: { lines: [
   caption: '¿Sabías que si movés la bombilla del mate, pasa esto? 🧉😱\nSeguime para más datos de mate.', hashtags: ['#mate', '#bombilla', '#argentina', '#humor', '#sabiasque'],
   story: { logline: 'Chain reaction from one forbidden move: stirring the bombilla kills the gaucho uncle of shock, the only keeper of the Yacyretá dam key; the Paraná floods the yerba fields, yerba costs a million, the country has no mate; rewind: bombilla back, uncle back.',
     facts: ['Yacyretá is a hydroelectric dam on the Paraná river (Argentina / Paraguay).', 'Almost all Argentine yerba mate is grown in Misiones and the north of Corrientes.', 'Argentina has about 47 million inhabitants.'],
-    places: { patio: 'family patio', represa: 'the Yacyretá dam', yerbal: 'yerba fields in Misiones', casita: 'the small kitchen', cancha: 'a stadium for the whole country' } },
+    places: { patio: 'family patio', represa: 'the Yacyretá dam', yerbal: 'yerba fields in Misiones', casita: 'the small kitchen', mapa: 'Argentina as a raised map' } },
   cast: { vos: 'Tomás', tio: 'tío Ramón, gaucho: black flat hat, moustache, red scarf, white shirt, black trousers' }, segments: S };
 fs.writeFileSync(path.join(__dirname, '0044s_tio_ramon.json'), JSON.stringify(j, null, 2) + '\n'); console.log('written', S.length, 'segments');

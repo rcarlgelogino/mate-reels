@@ -27,7 +27,7 @@
       "represa": "the Yacyretá dam",
       "yerbal": "yerba fields in Misiones",
       "casita": "the small kitchen",
-      "cancha": "a stadium for the whole country"
+      "mapa": "Argentina as a raised map"
     }
   },
   "cast": {
@@ -749,46 +749,56 @@
       "shots": [
         {
           "f": 1,
-          "direction": "Aerial over a packed stadium, red and white fans as far as you can see. Label 47 MILLONES SIN MATE. Slow orbit.",
+          "direction": "A raised 3D map of Argentina on a moving sea, covered with hundreds of tiny gourds; one by one they vanish from north to south while a yellow counter runs to 47.000.000 ARGENTINOS SIN MATE. Camera high, slowly sinking.",
           "anim": {
-            "world": "cancha",
+            "world": "mapa",
             "light": "sun",
             "people": [],
             "props": [],
             "fx": [],
-            "labels": [
+            "agent": [
               {
-                "u0": 0.15,
-                "text": "47 MILLONES SIN MATE",
-                "at": [
-                  0,
-                  7.5,
-                  0
-                ],
-                "big": true
+                "u": 0,
+                "ak": 0
+              },
+              {
+                "u": 0.9,
+                "ak": 1,
+                "dur": 0.8
               }
             ],
+            "counter": {
+              "u0": 0.1,
+              "u1": 0.85,
+              "from": 0,
+              "to": 47000000,
+              "label": "ARGENTINOS SIN MATE"
+            },
             "cam3": [
               {
                 "u": 0,
-                "a": 10,
-                "r": 52,
-                "h": 46,
-                "ax": 0,
+                "a": 0,
+                "r": 26,
+                "h": 38,
+                "ax": -0.5,
                 "ay": 0,
-                "az": -3
+                "az": -1
               },
               {
                 "u": 1,
-                "a": 30,
-                "r": 48,
-                "h": 42,
+                "r": 22,
+                "h": 32,
                 "dur": 1
               }
             ],
             "sounds": [
               {
-                "u": 0.15,
+                "u": 0.1,
+                "type": "lib:cash_3",
+                "gain": 0.5
+              },
+              {
+                "u": 0.85,
                 "type": "lib:disappointed_1",
                 "gain": 0.7
               }

@@ -1,0 +1,17 @@
+{
+ "id": "0027_cinco_paradas_antes_de_tu_mate",
+ "missing": [
+  "camion"
+ ],
+ "file": "work/0027_cinco_paradas_antes_de_tu_mate/final.mp4",
+ "voice": "gemini",
+ "duration": 46.2,
+ "inTarget": false,
+ "target": [
+  35,
+  45
+ ],
+ "loudness": "-12.4 LUFS, peak -0.9 dBFS",
+ "shots": 18,
+ "minutes": 2.6
+}

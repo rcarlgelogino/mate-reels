@@ -3,15 +3,18 @@
 Every reel is analysed after it is built (scripts/qa.js), for its VISUAL representation only. Pacing, hook, wording and sound are not learned here; they come from the reference reels (docs/WATCHTIME.md).
 The rules below are collected from all analyses, most frequent first. scripts/improve.js uses them to choose the visuals of the next script; recurring drawing problems get fixed in the style (styles/*.js, engine). Nothing here blocks a release.
 
-Reels analysed: 46 · average scores: visual logic 6.7 · graphics 7.3 · overall 6.8 · updated 2026-11-26
+Reels analysed: 50 · average scores: visual logic 6.6 · graphics 7.3 · overall 6.7 · updated 2026-11-27
 
 ## Do more of
 
 | times | area | rule | last seen |
 |---|---|---|---|
 | 2 | hands | Maintain correct side-gripping of the gourd for all characters handling mate to preserve physical realism. | 2026-11-20 |
+| 1 | match | Illustrate explicit actions (cutting, grinding, smoking) described in process steps rather than relying on static standing characters. | 2026-11-27 |
+| 1 | people | Keep main figures centered away from vertical edge boundaries. | 2026-11-27 |
 | 1 | scene | Ensure all ground-level props such as crates, bags, and fires have proper shadow contacts to prevent floating. | 2026-11-26 |
 | 1 | match | Match physical instructional verbs (flipping, shaking, pouring) with dedicated object rotation and motion animations. | 2026-11-26 |
+| 1 | hands | Ensure hands are physically interacting with objects by wrapping fingers around them rather than just placing them nearby. | 2026-11-26 |
 | 1 | labels | Maintain clear separation between top caption bars and character head outlines. | 2026-11-25 |
 | 1 | match | When a specific tool or action (like a spoon or scraping motion) is named in the narration, ensure that specific hero object is drawn in the hand and animated. | 2026-11-25 |
 | 1 | match | Ensure literal visual actions directly depict key nouns and verbs spoken in the voiceover. | 2026-11-25 |
@@ -46,8 +49,12 @@ Reels analysed: 46 · average scores: visual logic 6.7 · graphics 7.3 · overal
 | times | area | rule | last seen |
 |---|---|---|---|
 | 2 | match | Avoid repeating static character poses across consecutive frames without subtle movement | 2026-11-23 |
+| 1 | scale | Avoid vertical displacement or scaling jumps of characters between consecutive shots. | 2026-11-27 |
+| 1 | scene | Avoid using the exact same generic indoor warehouse background across multiple distinct manufacturing stages. | 2026-11-27 |
+| 1 | labels | Avoid text overlay desynchronization with audio transcript. | 2026-11-27 |
 | 1 | people | Do not repeat identical multi-character lineup frames consecutively without changing composition. | 2026-11-26 |
 | 1 | people | Avoid placing small background characters so low that their lower halves get clipped by the canvas frame. | 2026-11-26 |
+| 1 | layering | Avoid placing text or labels directly over character faces to maintain clear expressions. | 2026-11-26 |
 | 1 | scene | Avoid static visual repetitions across consecutive short shots to maintain visual interest. | 2026-11-25 |
 | 1 | objects | Avoid showing isolated static props on tables when text explicitly describes active handling. | 2026-11-25 |
 | 1 | match | Avoid reusing identical character poses across too many sequential frames without a micro-action. | 2026-11-24 |
@@ -76,6 +83,21 @@ Reels analysed: 46 · average scores: visual logic 6.7 · graphics 7.3 · overal
 
 ## Latest reels
 
+### 0028_si_tu_mate_se_tapa (2026-11-27)
+The visual representation generally adheres to the flat 2D style with clear character illustrations and diagrams. Minor scaling and positioning inconsistencies occur during character transitions.
+- clean: Diagrams for dust layer and thumb placement are clearly presented.; Kitchen counter scale and character placement are mostly consistent.; Text captions and instructional overlays are legible and properly positioned.; Prop illustrations follow standard flat 2D guidelines.
+- unclean: shot 3: Character scale shrinks unnaturally low behind the counter in frame 10.; shot 3: Sudden framing drop creates visual imbalance.
+
+### 0027_cinco_paradas_antes_de_tu_mate (2026-11-27)
+ The pixel-art aesthetics and character designs strictly adhere to the pixel8 template with high graphic consistency. However, several process steps suffer from missing action visuals where complex actions like cutting, smoking, grinding, and truck loading are depicted as static character poses.
+- clean: Consistent pixel8 character proportions, floating hands, and clean text overlays across all frames.; Pixelify Sans typography renders cleanly without visual clipping.; Color palette and pixel art scaling maintain uniform pixel density.
+- unclean: shot 2: Character stands in front of plants without showing the action of cutting branches by hand.; shot 7: Scene lacks heat, smoke, or drying equipment mentioned in the voiceover.; shot 12: Scene shows static character in front of sacks without illustrating grinding or packaging processes.; shot 14: Shows a giant mate gourd sitting on a highway road like a vehicle instead of yerba being loaded into a delivery truck.; shot 8: Visual asset setup for the drying step is an identical copy of the previous scene without dynamic elements like smoke or fireflies.
+
+### 0026_el_mate_nunca_se_toma_solo (2026-11-27)
+The pixel art style is consistent throughout the reel with clear character designs. However, several shots suffer from missing characters, text mismatch, and poor framing.
+- clean: Character poses and mate holding match basic pixel style rules.; Pixel fonts and color palettes fit the pixel8 aesthetic.
+- unclean: Shot 8: Figure cut off at edge of screen.; Shot 9: Yaguarete action is represented by a static small sprite rather than an attack.; Shot 12: Scene is empty of characters during the gift revelation.; Shot 14: Sentence spoken does not match the on-screen text.; Shot 14: On-screen text graphics display text from an earlier shot.
+
 ### 0027_cinco_paradas_antes_de_tu_mate (2026-11-26)
 The reel effectively illustrates the production process of yerba mate with clean 2D vector graphics and clear character models. Some minor scaling and layering inconsistencies appear in background elements across the sequence.
 - clean: Shot 0: Proper counter height and consistent package sizing.; Shot 2: Tarefero character matches the scene and dialogue.; Shot 10: Truck and road scale fit the landscape context well.; Flat 2D style consistency maintained throughout all 13 shots.; Character outfits correctly adapt to different roles (tarefero, worker, cebador).
@@ -90,19 +112,4 @@ The reel maintains a consistent flat2D vector style with accurate character grip
 The pixel-art visual reel executes the 'pixel8' aesthetic well, featuring charming hero mate characters and legible retro typography. However, critical instructional steps such as covering, turning upside down, and shaking the mate (shots 9-10) are depicted with static holding poses instead of showing the described action.
 - clean: Shot 6 clearly illustrates water overflowing from an overfilled mate cup as described in the text.; Shot 12 nicely depicts the 'montañita' (slope of yerba) with a tilted mate character.; Consistent retro pixel rendering and font usage throughout the reel.; Warm glow halos and hero character faces on the mate objects fit the pixel8 QA spec.
 - unclean: shot 9: The spoken voice describes covering, flipping upside down, and shaking the mate, but the visual shows the character holding the mate upright static.; shot 10: Continues describing flipping and shaking, but visual remains a static upright pose.; shot 3: Characters in cell 12 sit too low and clip awkwardly against the bottom screen boundary.; shot 2: Visual scene is almost identical to shot 1 without layout or posture progression.
-
-### 0025_llenas_el_mate_hasta_arriba (2026-11-25)
-The explainer reel features consistent flat 2D visuals and clear diagrammatic representations of mate preparation steps. Visual execution is generally stable, with minor framing and repetitive layout transitions between shots.
-- clean: Character interactions with props and yerba packs are positioned cleanly behind the counter.; Diagrammatic cut-section views of the mate gourd accurately depict water and yerba levels.; Captions and label pills are placed neatly in the upper visual margin.; Color palettes and character designs remain consistent across all shots.
-- unclean: Shot 0: Includes a vertical transition fade artifact across the center frame.; Shot 2: Repeats the character framing from the previous shot without a clear visual variation.; Shot 10: Action movement during the shaking motion lacks dynamic visual cues.
-
-### 0024_tu_mate_de_calabaza_esta_vivo (2026-11-25)
-The pixel-art style aesthetic is consistently maintained with cute character designs and themed hero objects like the moldy gourd. However, the visual narrative becomes very repetitive in the second half, and key visual actions like scraping with a spoon are completely unrepresented.
-- clean: Shot 0 displays the hanging calabash gourd growing on a vine clearly.; Shot 10 creates a fun visual representation of mold forming inside the gourd as a hero character.; Consistent 8-bit palette and clean pixel line work across characters and backgrounds.; Well-integrated pixelify text captions and end-screen poll UI.
-- unclean: Shot 13: Spoken text mentions scraping the interior with a spoon ('raspás con una cuchara'), but the character is just holding the mate normally without any spoon or action.; Shot 14-15: Continues to lack any spoon or scraping animation while repeating the same standard holding pose.; Shots 11 through 15 reuse virtually identical character framing and static poses, creating visual monotony.
-
-### 0023_el_termo_hasta_la_playa (2026-11-25)
-The visual style delivers a clean, consistent 3D beach environment with stylized characters. However, multiple shots fail to illustrate the spoken actions, relying on static props rather than active character interaction.
-- clean: Shot 0-3: Consistent character rendering and beach background environments.; Shot 9: Character seated at table interacting with the mate gourd.; Consistent color palette, lighting, and 3D asset aesthetic throughout.; Text overlay placement is clear and legible.
-- unclean: Shot 4: Characters stand empty-handed despite dialogue listing items being carried.; Shot 5-6: Thermos sits isolated on a table instead of being held in hand as spoken.; Shot 11-12: No visual representation of wind or yerba blowing into the character's face.; Shot 14: End card UI buttons partially obscure character figures.
 

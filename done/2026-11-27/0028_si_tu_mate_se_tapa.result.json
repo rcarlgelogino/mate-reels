@@ -1,0 +1,29 @@
+{
+ "id": "0028_si_tu_mate_se_tapa",
+ "guard": {
+  "text_over_picture": [
+   0,
+   2,
+   3,
+   4,
+   5,
+   7,
+   8,
+   9,
+   11,
+   12,
+   13
+  ]
+ },
+ "file": "work/0028_si_tu_mate_se_tapa/final.mp4",
+ "voice": "gemini",
+ "duration": 45.734,
+ "inTarget": false,
+ "target": [
+  35,
+  45
+ ],
+ "loudness": "-12.1 LUFS, peak -0.8 dBFS",
+ "shots": 15,
+ "minutes": 1.9
+}

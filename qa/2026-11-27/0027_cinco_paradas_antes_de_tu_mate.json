@@ -1,0 +1,103 @@
+{
+ "reel": "0027_cinco_paradas_antes_de_tu_mate",
+ "style": "pixel8",
+ "technical": [
+  "duration 46.2s",
+  "loudness -12.4 LUFS, peak -0.9 dBFS",
+  "voice gemini"
+ ],
+ "vision": {
+  "ran": true,
+  "model": "gemini-3.6-flash"
+ },
+ "summary": " The pixel-art aesthetics and character designs strictly adhere to the pixel8 template with high graphic consistency. However, several process steps suffer from missing action visuals where complex actions like cutting, smoking, grinding, and truck loading are depicted as static character poses.",
+ "scores": {
+  "visual_logic": 6,
+  "graphics": 8,
+  "overall": 6
+ },
+ "logic": {
+  "clean": [
+   "Consistent pixel8 character proportions, floating hands, and clean text overlays across all frames."
+  ],
+  "unclean": [
+   "shot 2: Character stands in front of plants without showing the action of cutting branches by hand.",
+   "shot 7: Scene lacks heat, smoke, or drying equipment mentioned in the voiceover.",
+   "shot 12: Scene shows static character in front of sacks without illustrating grinding or packaging processes.",
+   "shot 14: Shows a giant mate gourd sitting on a highway road like a vehicle instead of yerba being loaded into a delivery truck."
+  ]
+ },
+ "graphics": {
+  "clean": [
+   "Pixelify Sans typography renders cleanly without visual clipping.",
+   "Color palette and pixel art scaling maintain uniform pixel density."
+  ],
+  "unclean": [
+   "shot 8: Visual asset setup for the drying step is an identical copy of the previous scene without dynamic elements like smoke or fireflies."
+  ]
+ },
+ "issues": [
+  {
+   "severity": "medium",
+   "fault": "action_missing",
+   "category": "match",
+   "problem": "Voiceover mentions cutting branches by hand, but the character is just standing in the field.",
+   "fix": "Add pixel shears/pruners and falling branch leaves around the character.",
+   "shot": 2,
+   "time": 7.9,
+   "template": "pix"
+  },
+  {
+   "severity": "medium",
+   "fault": "object_missing",
+   "category": "scene",
+   "problem": "Drying process with heat and smoke is described, but background is an empty room without smoke or fire.",
+   "fix": "Add visible smoke particles, warm glow halos, and drying racks.",
+   "shot": 7,
+   "time": 18.6,
+   "template": "pix"
+  },
+  {
+   "severity": "medium",
+   "fault": "action_missing",
+   "category": "match",
+   "problem": "Voiceover describes grinding, mixing, and packaging yerba, but character stands idle in front of sacks.",
+   "fix": "Show a pixel grinding mill machine or yerba pouring into packages.",
+   "shot": 12,
+   "time": 28.2,
+   "template": "pix"
+  },
+  {
+   "severity": "medium",
+   "fault": "other",
+   "category": "match",
+   "problem": "Mate hero appears on a highway lane like a vehicle instead of showing a delivery truck transport.",
+   "fix": "Show a pixel delivery truck driving on the road carrying yerba bags.",
+   "shot": 14,
+   "time": 32.9,
+   "template": "pix"
+  },
+  {
+   "severity": "medium",
+   "fault": "object_missing",
+   "category": "objects",
+   "problem": "\"camion\" is named but pixel8 has no drawing for it",
+   "fix": "add a camion drawing to pixel8 and its column in styles/lexicon.js",
+   "shot": null,
+   "source": "lexicon"
+  }
+ ],
+ "learnings": [
+  {
+   "type": "do",
+   "area": "match",
+   "rule": "Illustrate explicit actions (cutting, grinding, smoking) described in process steps rather than relying on static standing characters."
+  },
+  {
+   "type": "avoid",
+   "area": "scene",
+   "rule": "Avoid using the exact same generic indoor warehouse background across multiple distinct manufacturing stages."
+  }
+ ],
+ "checked": "2026-11-27T09:05:32.331Z"
+}

@@ -2,12 +2,12 @@
 
 Found by the analysis after every build. Nothing is blocked; fix the most frequent ones in the style (styles/*.js, engine) or the script rules.
 
-Reels analysed: 24 · issues: 106 · updated 2026-11-26
+Reels analysed: 25 · issues: 120 · updated 2026-11-27
 
 | times | severity | category | problem (latest example) | suggested fix | last seen |
 |---|---|---|---|---|---|
-| 11 | medium | objects | "humo" is named but flat2d has no drawing for it (0027_cinco_paradas_antes_de_tu_mate) | add a humo drawing to flat2d and its column in styles/lexicon.js | 2026-11-26 |
-| 3 | low | guard | camera too close (backed off by the guard) in 4 shot(s) (0023_el_termo_hasta_la_playa, shot 0) | fix it at the source in the style (layout, camera plan, visual choice) | 2026-11-25 |
+| 12 | medium | objects | "camion" is named but pixel8 has no drawing for it (0027_cinco_paradas_antes_de_tu_mate) | add a camion drawing to pixel8 and its column in styles/lexicon.js | 2026-11-27 |
+| 4 | low | guard | camera too close (backed off by the guard) in 1 shot(s) (0024_tu_mate_de_calabaza_esta_vivo, shot 4) | fix it at the source in the style (layout, camera plan, visual choice) | 2026-11-26 |
 | 2 | low | guard | zoom too close (zoomed out by the guard) in 2 shot(s) (0026_el_mate_nunca_se_toma_solo, shot 2) | fix it at the source in the style (layout, camera plan, visual choice) | 2026-11-26 |
 | 1 | high | labels | Headline graphic covers character eyes and glasses in cell 14. (0007_team_calabaza_o_acero, shot 6) | Shift the headline card upward or adjust camera framing. | 2026-11-15 |
 | 1 | high | hands | Mate gourd floats on the character's chest with bombilla while both arms hang down at her sides. (0011_con_palo_o_sin_palo, shot 6) | Attach character holding hand to mate gourd using the f2grip pose, curling fingers around the side. | 2026-11-16 |

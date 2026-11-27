@@ -1,0 +1,266 @@
+{
+ "id": "0027_cinco_paradas_antes_de_tu_mate",
+ "topic": "T26",
+ "title": "El viaje de la yerba",
+ "caption": "Tu yerba hizo cinco paradas antes de llegar a tu mate 🧉\nDe la selva misionera a tu cocina, paso a paso.\n¿Suave o fuerte, cuál es la tuya? 👇",
+ "hashtags": [
+  "#mate",
+  "#yerbamate",
+  "#argentina",
+  "#matero",
+  "#costumbresargentinas",
+  "#misiones",
+  "#yerbatero"
+ ],
+ "segments": [
+  {
+   "text": "Tu yerba hizo cinco paradas antes de llegar a tu mate.",
+   "emo": "surprised",
+   "beat": "hook",
+   "visual": {
+    "type": "object",
+    "item": "yerba",
+    "animate": "ruta_cinco_paradas",
+    "labels": [
+     "5 PARADAS"
+    ]
+   },
+   "headline": "CINCO PARADAS",
+   "headlineAt": "cinco",
+   "impact": true
+  },
+  {
+   "text": "Y la tercera es la que el cebador siente en el sabor.",
+   "emo": "tense",
+   "beat": "loop",
+   "visual": {
+    "type": "scene",
+    "place": "cocina",
+    "people": [
+     {
+      "role": "cebador",
+      "does": "drink",
+      "mood": "surprised"
+     }
+    ]
+   },
+   "headline": "LA TERCERA",
+   "headlineAt": "tercera"
+  },
+  {
+   "text": "Uno: en Misiones, la cortan a mano, rama por rama.",
+   "emo": "warm",
+   "beat": "body",
+   "visual": {
+    "type": "scene",
+    "place": "yerbal",
+    "people": [
+     {
+      "role": "tarefero",
+      "does": "harvest",
+      "mood": "proud"
+     }
+    ],
+    "props": [
+     "plantas_yerba",
+     "tierra_colorada",
+     "ponchada"
+    ]
+   },
+   "headline": "UNO · LA COSECHA",
+   "headlineAt": "mano"
+  },
+  {
+   "text": "Dos, la más loca: pasa unos segundos por fuego vivo.",
+   "emo": "excited",
+   "beat": "rehook",
+   "visual": {
+    "type": "scene",
+    "place": "secadero",
+    "people": [
+     {
+      "role": "tarefero",
+      "does": "zapecar",
+      "mood": "neutral"
+     }
+    ],
+    "props": [
+     "tambor_fuego",
+     "llamas",
+     "hojas_volando"
+    ]
+   },
+   "headline": "DOS · EL FUEGO",
+   "headlineAt": "fuego"
+  },
+  {
+   "text": "Eso frena la hoja y la deja verde.",
+   "emo": "neutral",
+   "beat": "body",
+   "visual": {
+    "type": "object",
+    "item": "hoja_yerba",
+    "labels": [
+     "VERDE"
+    ]
+   },
+   "headline": "QUEDA VERDE",
+   "headlineAt": "verde"
+  },
+  {
+   "text": "Tres: se seca despacio, con calor y humo.",
+   "emo": "warm",
+   "beat": "body",
+   "visual": {
+    "type": "scene",
+    "place": "secadero",
+    "people": [
+     {
+      "role": "tarefero",
+      "does": "stir_yerba",
+      "mood": "happy"
+     }
+    ],
+    "props": [
+     "cinta_secado",
+     "humo"
+    ]
+   },
+   "headline": "TRES · EL SECADO",
+   "headlineAt": "seca"
+  },
+  {
+   "text": "Ahora, la parada más larga.",
+   "emo": "excited",
+   "beat": "rehook",
+   "visual": {
+    "type": "reaction",
+    "emotion": "surprised",
+    "act": "think",
+    "who": 0
+   },
+   "headline": "LA MÁS LARGA",
+   "headlineAt": "larga",
+   "impact": true
+  },
+  {
+   "text": "Cuatro: descansa en bolsas, casi un año entero.",
+   "emo": "surprised",
+   "beat": "body",
+   "visual": {
+    "type": "scene",
+    "place": "galpon",
+    "people": [
+     {
+      "role": "worker",
+      "does": "sit",
+      "mood": "bored"
+     }
+    ],
+    "props": [
+     "bolsas_arpillera_apiladas",
+     "calendario"
+    ]
+   },
+   "headline": "CUATRO · UN AÑO",
+   "headlineAt": "bolsas"
+  },
+  {
+   "text": "Cinco: la muelen, la mezclan y la meten en el paquete.",
+   "emo": "neutral",
+   "beat": "body",
+   "visual": {
+    "type": "scene",
+    "place": "fabrica",
+    "people": [
+     {
+      "role": "worker",
+      "does": "pack_yerba",
+      "mood": "happy"
+     }
+    ],
+    "props": [
+     "molino",
+     "cinta_paquetes"
+    ]
+   },
+   "headline": "CINCO · EL PAQUETE",
+   "headlineAt": "paquete"
+  },
+  {
+   "text": "Y todavía no llegó: recién ahí sube al camión a tu ciudad.",
+   "emo": "warm",
+   "beat": "rehook",
+   "visual": {
+    "type": "scene",
+    "place": "ruta",
+    "people": [],
+    "props": [
+     {
+      "type": "camion",
+      "drive": true
+     },
+     "cartel_misiones"
+    ]
+   },
+   "headline": "AL CAMIÓN",
+   "headlineAt": "cami"
+  },
+  {
+   "text": "Un año de trabajo, y vos la tirás en diez cebadas.",
+   "emo": "funny",
+   "beat": "payoff",
+   "visual": {
+    "type": "scene",
+    "place": "cocina",
+    "people": [
+     {
+      "role": "you",
+      "does": "empty_mate",
+      "mood": "neutral"
+     }
+    ],
+    "props": [
+     "tacho"
+    ],
+    "moves": true
+   },
+   "headline": "DIEZ CEBADAS",
+   "headlineAt": "cebadas",
+   "impact": true
+  },
+  {
+   "text": "¿Suave o fuerte, cuál es la tuya? Mandáselo al que dice que son iguales.",
+   "emo": "funny",
+   "beat": "cta",
+   "visual": {
+    "type": "title",
+    "text": "",
+    "sub": ""
+   }
+  }
+ ],
+ "poll": {
+  "question": "¿Cómo es tu yerba?",
+  "options": [
+   "SUAVE",
+   "FUERTE",
+   "LA QUE HAYA"
+  ]
+ },
+ "rewrite": "top-reel pattern 2026-11-17 + rehooks",
+ "thumb": {
+  "lines": [
+   "5 PARADAS",
+   "ANTES DE TU MATE"
+  ]
+ },
+ "improved": {
+  "model": "gemini-3.6-flash",
+  "at": "2026-11-27T09:01:43.968Z",
+  "changes": [
+   "segment 3, removed duplicate tarefero character to avoid multi-character lineup visual repetition (follows: do not repeat identical multi-character lineup frames consecutively)",
+   "segment 4, removed unisolated floor fogata prop, keeping tambor_fuego to ensure fire pit safe isolation (follows: fire pits placed directly on floor without visible hearth)"
+  ]
+ }
+}

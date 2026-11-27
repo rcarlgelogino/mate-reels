@@ -1,0 +1,57 @@
+{
+ "reel": "0028_si_tu_mate_se_tapa",
+ "style": "flat2d",
+ "technical": [
+  "duration 45.734s",
+  "loudness -12.1 LUFS, peak -0.8 dBFS",
+  "voice gemini"
+ ],
+ "vision": {
+  "ran": true,
+  "model": "gemini-3.6-flash"
+ },
+ "summary": "The visual representation generally adheres to the flat 2D style with clear character illustrations and diagrams. Minor scaling and positioning inconsistencies occur during character transitions.",
+ "scores": {
+  "visual_logic": 6,
+  "graphics": 6,
+  "overall": 6
+ },
+ "logic": {
+  "clean": [
+   "Diagrams for dust layer and thumb placement are clearly presented.",
+   "Kitchen counter scale and character placement are mostly consistent."
+  ],
+  "unclean": [
+   "shot 3: Character scale shrinks unnaturally low behind the counter in frame 10."
+  ]
+ },
+ "graphics": {
+  "clean": [
+   "Text captions and instructional overlays are legible and properly positioned.",
+   "Prop illustrations follow standard flat 2D guidelines."
+  ],
+  "unclean": [
+   "shot 3: Sudden framing drop creates visual imbalance."
+  ]
+ },
+ "issues": [
+  {
+   "severity": "medium",
+   "fault": "scale",
+   "category": "scale",
+   "problem": "Character drops lower and shrinks relative to the counter.",
+   "fix": "Maintain constant character height and counter alignment across shot transitions.",
+   "shot": 3,
+   "time": 8.9,
+   "template": "flat"
+  }
+ ],
+ "learnings": [
+  {
+   "type": "avoid",
+   "area": "scale",
+   "rule": "Avoid vertical displacement or scaling jumps of characters between consecutive shots."
+  }
+ ],
+ "checked": "2026-11-27T09:00:37.073Z"
+}

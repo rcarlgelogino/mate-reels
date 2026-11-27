@@ -1,11 +1,21 @@
 {
- "updated": "2026-11-26T09:10:02.857Z",
- "reels": 46,
+ "updated": "2026-11-27T09:05:32.372Z",
+ "reels": 50,
  "do": [
   {
    "n": 2,
    "area": "hands",
    "rule": "Maintain correct side-gripping of the gourd for all characters handling mate to preserve physical realism."
+  },
+  {
+   "n": 1,
+   "area": "match",
+   "rule": "Illustrate explicit actions (cutting, grinding, smoking) described in process steps rather than relying on static standing characters."
+  },
+  {
+   "n": 1,
+   "area": "people",
+   "rule": "Keep main figures centered away from vertical edge boundaries."
   },
   {
    "n": 1,
@@ -16,6 +26,11 @@
    "n": 1,
    "area": "match",
    "rule": "Match physical instructional verbs (flipping, shaking, pouring) with dedicated object rotation and motion animations."
+  },
+  {
+   "n": 1,
+   "area": "hands",
+   "rule": "Ensure hands are physically interacting with objects by wrapping fingers around them rather than just placing them nearby."
   },
   {
    "n": 1,
@@ -61,21 +76,6 @@
    "n": 1,
    "area": "objects",
    "rule": "Use dedicated motion indicator frames for active object manipulation."
-  },
-  {
-   "n": 1,
-   "area": "match",
-   "rule": "Ensure key object keywords in the voiceover (e.g., 'olla') directly match the primary visual prop drawn in the shot."
-  },
-  {
-   "n": 1,
-   "area": "match",
-   "rule": "Whenever instructional cleaning or preparation steps are spoken (emptying, rinsing, drying), show the specific action or prop rather than a character standing passively."
-  },
-  {
-   "n": 1,
-   "area": "labels",
-   "rule": "Ensure captions maintain adequate spacing from the top edge in all vertical frames."
   }
  ],
  "avoid": [
@@ -86,6 +86,21 @@
   },
   {
    "n": 1,
+   "area": "scale",
+   "rule": "Avoid vertical displacement or scaling jumps of characters between consecutive shots."
+  },
+  {
+   "n": 1,
+   "area": "scene",
+   "rule": "Avoid using the exact same generic indoor warehouse background across multiple distinct manufacturing stages."
+  },
+  {
+   "n": 1,
+   "area": "labels",
+   "rule": "Avoid text overlay desynchronization with audio transcript."
+  },
+  {
+   "n": 1,
    "area": "people",
    "rule": "Do not repeat identical multi-character lineup frames consecutively without changing composition."
   },
@@ -93,6 +108,11 @@
    "n": 1,
    "area": "people",
    "rule": "Avoid placing small background characters so low that their lower halves get clipped by the canvas frame."
+  },
+  {
+   "n": 1,
+   "area": "layering",
+   "rule": "Avoid placing text or labels directly over character faces to maintain clear expressions."
   },
   {
    "n": 1,
@@ -158,40 +178,20 @@
    "n": 1,
    "area": "objects",
    "rule": "Do not isolate props onto abstract pedestals when the narrative is about the character carrying them."
-  },
-  {
-   "n": 1,
-   "area": "labels",
-   "rule": "Avoid overly plain text lists without contextual illustrations in infographic frames."
-  },
-  {
-   "n": 1,
-   "area": "scene",
-   "rule": "Do not repeat identical background asset clusters side by side without varying scale or spacing."
-  },
-  {
-   "n": 1,
-   "area": "match",
-   "rule": "Avoid showing modern mate props (straws/bombillas) during historical origins scenes explaining life before them."
-  },
-  {
-   "n": 1,
-   "area": "layering",
-   "rule": "Avoid cropping character foreheads directly beneath multi-line text cards."
   }
  ],
  "recentBad": [
+  "shot 3: Character scale shrinks unnaturally low behind the counter in frame 10.",
+  "shot 3: Sudden framing drop creates visual imbalance.",
+  "shot 2: Character stands in front of plants without showing the action of cutting branches by hand.",
+  "shot 7: Scene lacks heat, smoke, or drying equipment mentioned in the voiceover.",
+  "shot 12: Scene shows static character in front of sacks without illustrating grinding or packaging processes.",
+  "shot 14: Shows a giant mate gourd sitting on a highway road like a vehicle instead of yerba being loaded into a delivery truck.",
+  "Shot 8: Figure cut off at edge of screen.",
+  "Shot 9: Yaguarete action is represented by a static small sprite rather than an attack.",
+  "Shot 12: Scene is empty of characters during the gift revelation.",
+  "Shot 14: Sentence spoken does not match the on-screen text.",
   "Shot 4: Fire pits placed directly on the floor without visible hearth or safe isolation.",
-  "Shot 8: Stored bags appear slightly floating relative to the back wall perspective.",
-  "Shot 5: Leaf illustration layer slightly overlaps the background fence lines awkwardly.",
-  "Shot 3: Multiple duplicated figures lined up consecutively without narrative progression.",
-  "Shot 5: Duplicated figure crowd composition repeats heavily from previous shots.",
-  "Shot 1: Timeline/comparison graphics slightly overlap background windows.",
-  "shot 9: The spoken voice describes covering, flipping upside down, and shaking the mate, but the visual shows the character holding the mate upright static.",
-  "shot 10: Continues describing flipping and shaking, but visual remains a static upright pose.",
-  "shot 3: Characters in cell 12 sit too low and clip awkwardly against the bottom screen boundary.",
-  "shot 2: Visual scene is almost identical to shot 1 without layout or posture progression.",
-  "Shot 0: Includes a vertical transition fade artifact across the center frame.",
-  "Shot 2: Repeats the character framing from the previous shot without a clear visual variation."
+  "Shot 8: Stored bags appear slightly floating relative to the back wall perspective."
  ]
 }

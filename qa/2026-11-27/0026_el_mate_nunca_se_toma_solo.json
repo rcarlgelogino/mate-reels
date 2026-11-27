@@ -1,0 +1,93 @@
+{
+ "reel": "0026_el_mate_nunca_se_toma_solo",
+ "style": "pixel8",
+ "technical": [
+  "duration 35.667s",
+  "loudness -12.4 LUFS, peak -0.8 dBFS",
+  "voice gemini"
+ ],
+ "vision": {
+  "ran": true,
+  "model": "gemini-3.6-flash"
+ },
+ "summary": "The pixel art style is consistent throughout the reel with clear character designs. However, several shots suffer from missing characters, text mismatch, and poor framing.",
+ "scores": {
+  "visual_logic": 5,
+  "graphics": 6,
+  "overall": 5
+ },
+ "logic": {
+  "clean": [
+   "Character poses and mate holding match basic pixel style rules."
+  ],
+  "unclean": [
+   "Shot 8: Figure cut off at edge of screen.",
+   "Shot 9: Yaguarete action is represented by a static small sprite rather than an attack.",
+   "Shot 12: Scene is empty of characters during the gift revelation.",
+   "Shot 14: Sentence spoken does not match the on-screen text."
+  ]
+ },
+ "graphics": {
+  "clean": [
+   "Pixel fonts and color palettes fit the pixel8 aesthetic."
+  ],
+  "unclean": [
+   "Shot 14: On-screen text graphics display text from an earlier shot."
+  ]
+ },
+ "issues": [
+  {
+   "severity": "medium",
+   "fault": "edge_cut",
+   "category": "people",
+   "problem": "Moon character is sliced at the right edge.",
+   "fix": "Keep character sprites within canvas margins.",
+   "shot": 8,
+   "time": 17.1,
+   "template": "pix"
+  },
+  {
+   "severity": "medium",
+   "fault": "action_missing",
+   "category": "match",
+   "problem": "Jaguar attack visual lacks motion or clear interaction.",
+   "fix": "Add animated attack frame or larger sprite interaction.",
+   "shot": 9,
+   "time": 18.5,
+   "template": "pix"
+  },
+  {
+   "severity": "medium",
+   "fault": "empty_frame",
+   "category": "scene",
+   "problem": "Frame shows only background trees without subject.",
+   "fix": "Include character or explicit gift visual centrally.",
+   "shot": 12,
+   "time": 23.5,
+   "template": "pix"
+  },
+  {
+   "severity": "medium",
+   "fault": "repeat",
+   "category": "labels",
+   "problem": "Text overlays show repeated lines from previous shot.",
+   "fix": "Sync text engine to spoken line array.",
+   "shot": 14,
+   "time": 29.4,
+   "template": "pix"
+  }
+ ],
+ "learnings": [
+  {
+   "type": "avoid",
+   "area": "labels",
+   "rule": "Avoid text overlay desynchronization with audio transcript."
+  },
+  {
+   "type": "do",
+   "area": "people",
+   "rule": "Keep main figures centered away from vertical edge boundaries."
+  }
+ ],
+ "checked": "2026-11-27T08:54:23.551Z"
+}

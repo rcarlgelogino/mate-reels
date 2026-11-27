@@ -1,0 +1,14 @@
+{
+ "id": "0026_el_mate_nunca_se_toma_solo",
+ "file": "work/0026_el_mate_nunca_se_toma_solo/final.mp4",
+ "voice": "gemini",
+ "duration": 35.667,
+ "inTarget": true,
+ "target": [
+  35,
+  45
+ ],
+ "loudness": "-12.4 LUFS, peak -0.8 dBFS",
+ "shots": 16,
+ "minutes": 2.3
+}

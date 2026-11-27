@@ -1,12 +1,12 @@
 {
- "read": "2026-11-27T11:17:39.721Z",
+ "read": "2026-11-27T14:19:04.851Z",
  "insights": true,
  "reels": [
   {
-   "id": "18118369238162591",
-   "posted": "2026-11-27T11:16:08+0000",
-   "link": "https://www.instagram.com/reel/DgPjNwquOBw/",
-   "title": "¿Por qué tu mate casi nunca se toma solo? 🧉",
+   "id": "18102014978429325",
+   "posted": "2026-11-27T14:16:19+0000",
+   "link": "https://www.instagram.com/reel/DgP3y97BGYu/",
+   "title": "Si tu mate se tapa, no es la bombilla: es cómo lo armaste 🧉",
    "likes": 0,
    "comments": 0,
    "reach": 0,
@@ -18,19 +18,34 @@
    "ig_reels_video_view_total_time": 0
   },
   {
+   "id": "18118369238162591",
+   "posted": "2026-11-27T11:16:08+0000",
+   "link": "https://www.instagram.com/reel/DgPjNwquOBw/",
+   "title": "¿Por qué tu mate casi nunca se toma solo? 🧉",
+   "likes": 53,
+   "comments": 1,
+   "reach": 1288,
+   "views": 1576,
+   "saved": 5,
+   "shares": 5,
+   "total_interactions": 64,
+   "ig_reels_avg_watch_time": 15874,
+   "ig_reels_video_view_total_time": 20891424
+  },
+  {
    "id": "18119797565275245",
    "posted": "2026-11-26T19:15:26+0000",
    "link": "https://www.instagram.com/reel/DgN1RjJh4MK/",
    "title": "Tu mate de calabaza fue una planta. Por eso hay que curarlo 🧉",
    "likes": 45,
    "comments": 0,
-   "reach": 1168,
-   "views": 1392,
+   "reach": 1171,
+   "views": 1395,
    "saved": 1,
    "shares": 0,
    "total_interactions": 48,
-   "ig_reels_avg_watch_time": 16997,
-   "ig_reels_video_view_total_time": 19886697
+   "ig_reels_avg_watch_time": 16966,
+   "ig_reels_video_view_total_time": 19918528
   },
   {
    "id": "18137548063735989",
@@ -39,28 +54,28 @@
    "title": "Tu yerba hizo cinco paradas antes de llegar a tu mate 🧉",
    "likes": 66,
    "comments": 0,
-   "reach": 1166,
-   "views": 1394,
+   "reach": 1171,
+   "views": 1401,
    "saved": 3,
    "shares": 1,
    "total_interactions": 70,
-   "ig_reels_avg_watch_time": 17330,
-   "ig_reels_video_view_total_time": 20640453
+   "ig_reels_avg_watch_time": 17385,
+   "ig_reels_video_view_total_time": 20775488
   },
   {
    "id": "18101093759455578",
    "posted": "2026-11-26T14:16:03+0000",
    "link": "https://www.instagram.com/reel/DgNTBaBhRLb/",
    "title": "¿Por qué tu mate casi nunca se toma solo? 🧉",
-   "likes": 116,
+   "likes": 119,
    "comments": 0,
-   "reach": 1573,
-   "views": 1954,
-   "saved": 10,
+   "reach": 1603,
+   "views": 1997,
+   "saved": 12,
    "shares": 7,
-   "total_interactions": 136,
-   "ig_reels_avg_watch_time": 17022,
-   "ig_reels_video_view_total_time": 26962906
+   "total_interactions": 141,
+   "ig_reels_avg_watch_time": 16987,
+   "ig_reels_video_view_total_time": 27384621
   },
   {
    "id": "18103012433400705",
@@ -69,28 +84,28 @@
    "title": "Si llenás el mate de yerba hasta arriba, cebás mal 🧉",
    "likes": 56,
    "comments": 0,
-   "reach": 1376,
-   "views": 1677,
+   "reach": 1380,
+   "views": 1683,
    "saved": 2,
    "shares": 3,
    "total_interactions": 61,
-   "ig_reels_avg_watch_time": 18685,
-   "ig_reels_video_view_total_time": 27001201
+   "ig_reels_avg_watch_time": 18666,
+   "ig_reels_video_view_total_time": 27121837
   },
   {
    "id": "18648826630056212",
    "posted": "2026-11-26T00:22:46+0000",
    "link": "https://www.instagram.com/reel/DgLzl1DPSyL/",
    "title": "Sabias esto?",
-   "likes": 4883,
-   "comments": 11,
-   "reach": 50251,
-   "views": 66054,
-   "saved": 195,
-   "shares": 2412,
-   "total_interactions": 7723,
-   "ig_reels_avg_watch_time": 14196,
-   "ig_reels_video_view_total_time": 737526169
+   "likes": 4991,
+   "comments": 13,
+   "reach": 51112,
+   "views": 67103,
+   "saved": 203,
+   "shares": 2447,
+   "total_interactions": 7880,
+   "ig_reels_avg_watch_time": 14221,
+   "ig_reels_video_view_total_time": 749713231
   },
   {
    "id": "18034881284681303",
@@ -99,13 +114,13 @@
    "title": "Si llevás el termo a la playa, no estás loco: es a propósito 🧉",
    "likes": 51,
    "comments": 0,
-   "reach": 1370,
-   "views": 1628,
+   "reach": 1374,
+   "views": 1630,
    "saved": 0,
    "shares": 1,
    "total_interactions": 52,
-   "ig_reels_avg_watch_time": 18669,
-   "ig_reels_video_view_total_time": 25763618
+   "ig_reels_avg_watch_time": 18667,
+   "ig_reels_video_view_total_time": 25816558
   },
   {
    "id": "17972506304964857",
@@ -115,12 +130,12 @@
    "likes": 39,
    "comments": 1,
    "reach": 1279,
-   "views": 1501,
+   "views": 1502,
    "saved": 5,
    "shares": 3,
    "total_interactions": 48,
-   "ig_reels_avg_watch_time": 15601,
-   "ig_reels_video_view_total_time": 20329202
+   "ig_reels_avg_watch_time": 15593,
+   "ig_reels_video_view_total_time": 20333867
   },
   {
    "id": "17931719697426238",
@@ -129,13 +144,13 @@
    "title": "Tu mate de calabaza fue una planta. Por eso hay que curarlo 🧉",
    "likes": 47,
    "comments": 0,
-   "reach": 1113,
-   "views": 1251,
+   "reach": 1115,
+   "views": 1253,
    "saved": 1,
    "shares": 0,
    "total_interactions": 48,
-   "ig_reels_avg_watch_time": 17443,
-   "ig_reels_video_view_total_time": 19135732
+   "ig_reels_avg_watch_time": 17450,
+   "ig_reels_video_view_total_time": 19177889
   },
   {
    "id": "18166568665449941",
@@ -144,13 +159,13 @@
    "title": "Si tu mate tiene olor a detergente, no lo laves más así 🧉",
    "likes": 42,
    "comments": 0,
-   "reach": 1114,
-   "views": 1301,
+   "reach": 1115,
+   "views": 1302,
    "saved": 2,
    "shares": 0,
    "total_interactions": 44,
-   "ig_reels_avg_watch_time": 14078,
-   "ig_reels_video_view_total_time": 15612643
+   "ig_reels_avg_watch_time": 14070,
+   "ig_reels_video_view_total_time": 15617965
   },
   {
    "id": "18119929064124755",
@@ -235,12 +250,12 @@
    "likes": 88,
    "comments": 4,
    "reach": 1885,
-   "views": 2299,
+   "views": 2300,
    "saved": 6,
    "shares": 4,
    "total_interactions": 104,
-   "ig_reels_avg_watch_time": 19646,
-   "ig_reels_video_view_total_time": 37839773
+   "ig_reels_avg_watch_time": 19637,
+   "ig_reels_video_view_total_time": 37840705
   },
   {
    "id": "18100367660660249",
@@ -295,7 +310,7 @@
    "likes": 53,
    "comments": 2,
    "reach": 1223,
-   "views": 1566,
+   "views": 1570,
    "saved": 1,
    "shares": 5,
    "total_interactions": 61,
@@ -325,7 +340,7 @@
    "likes": 87,
    "comments": 0,
    "reach": 2231,
-   "views": 2808,
+   "views": 2809,
    "saved": 3,
    "shares": 1,
    "total_interactions": 91,
@@ -369,13 +384,13 @@
    "title": "Si tomás mate en Paraguay, te lo dan con hielo. Y les sobra razón 🧉",
    "likes": 61,
    "comments": 2,
-   "reach": 1198,
-   "views": 1439,
+   "reach": 1200,
+   "views": 1440,
    "saved": 1,
    "shares": 1,
    "total_interactions": 67,
-   "ig_reels_avg_watch_time": 19151,
-   "ig_reels_video_view_total_time": 23709864
+   "ig_reels_avg_watch_time": 19160,
+   "ig_reels_video_view_total_time": 23740109
   },
   {
    "id": "18075620057782983",
@@ -412,15 +427,15 @@
    "posted": "2026-11-19T16:16:01+0000",
    "link": "https://www.instagram.com/reel/Df7fJ_elCBe/",
    "title": "¿Qué hacés si tu suegra te pasa el mate hirviendo? 🧉",
-   "likes": 2421,
+   "likes": 2422,
    "comments": 25,
    "reach": 48602,
-   "views": 70183,
+   "views": 70203,
    "saved": 57,
    "shares": 118,
-   "total_interactions": 2662,
-   "ig_reels_avg_watch_time": 25008,
-   "ig_reels_video_view_total_time": 1241207100
+   "total_interactions": 2663,
+   "ig_reels_avg_watch_time": 25009,
+   "ig_reels_video_view_total_time": 1241572124
   },
   {
    "id": "17945097024385575",

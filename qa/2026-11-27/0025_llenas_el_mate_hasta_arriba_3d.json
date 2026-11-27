@@ -1,0 +1,103 @@
+{
+ "reel": "0025_llenas_el_mate_hasta_arriba",
+ "style": "build3d",
+ "technical": [
+  "duration 40.634s",
+  "loudness -12.8 LUFS, peak -0.4 dBFS",
+  "voice gemini"
+ ],
+ "vision": {
+  "ran": true,
+  "model": "gemini-3.6-flash"
+ },
+ "summary": "The 3D render style is clean, vibrant, and consistent with cute stylized characters and rich environments. However, several key instructional actions (shaking/flipping the mate, tilting it to form the mountain) are missing, and some props suffer from incorrect scale.",
+ "scores": {
+  "visual_logic": 6,
+  "graphics": 7,
+  "overall": 6
+ },
+ "logic": {
+  "clean": [
+   "Consistent 3D character aesthetic and clean kitchen backdrop geometry across all shots.",
+   "Clear expressions on characters fitting the context of surprised/attentive reactions."
+  ],
+  "unclean": [
+   "shot 0: The mate gourd appears as an absurdly oversized yellow ball relative to the character's body.",
+   "shot 8: The character does not perform the action described ('lo tapás, lo das vuelta y lo sacudís')—no hand covers or flips the gourd.",
+   "shot 12: The gourd remains completely upright on the table rather than being tilted to form the 'montañita'."
+  ]
+ },
+ "graphics": {
+  "clean": [
+   "Text captions are crisp, positioned cleanly at top center without overlapping character faces or objects.",
+   "Shadows, lighting, and materials maintain unified 3D style throughout."
+  ],
+  "unclean": [
+   "shot 10: Repeated static visual setup of the mate gourd on table identical to neighboring shots without new visual detail."
+  ]
+ },
+ "issues": [
+  {
+   "severity": "high",
+   "fault": "action_missing",
+   "category": "match",
+   "problem": "Voiceover details covering and shaking the mate, but character remains static holding it upright.",
+   "fix": "Animate character placing palm over top, turning gourd upside down, and shaking it.",
+   "shot": 8,
+   "time": 21.1,
+   "template": "build"
+  },
+  {
+   "severity": "high",
+   "fault": "action_missing",
+   "category": "match",
+   "problem": "Voiceover says 'lo inclinás' (tilt it), but the mate stays standing straight up on the table.",
+   "fix": "Animate the mate tilting at 45 degrees to show yerba sloping to one side.",
+   "shot": 12,
+   "time": 29.4,
+   "template": "build"
+  },
+  {
+   "severity": "medium",
+   "fault": "scale",
+   "category": "scale",
+   "problem": "The initial mate gourd is unrealistically oversized compared to the person and table.",
+   "fix": "Scale down the mate model so it fits naturally in a single hand.",
+   "shot": 0,
+   "time": 0,
+   "template": "build"
+  },
+  {
+   "severity": "low",
+   "fault": "repeat",
+   "category": "scene",
+   "problem": "Shot 11 duplicates the static mate view on table from shot 10 without visual progression.",
+   "fix": "Use a close-up cross-section or internal view showing yerba dust settling at the top.",
+   "shot": 11,
+   "time": 27.8,
+   "template": "build"
+  },
+  {
+   "severity": "low",
+   "fault": "edge_cut",
+   "category": "guard",
+   "problem": "camera too close (backed off by the guard) in 3 shot(s)",
+   "fix": "fix it at the source in the style (layout, camera plan, visual choice)",
+   "shot": 1,
+   "source": "guard"
+  }
+ ],
+ "learnings": [
+  {
+   "type": "do",
+   "area": "match",
+   "rule": "Ensure instructional verbs (shake, flip, tilt, pour) are directly animated rather than showing a static object."
+  },
+  {
+   "type": "avoid",
+   "area": "scale",
+   "rule": "Avoid scaling prop models out of realistic proportions relative to character hands."
+  }
+ ],
+ "checked": "2026-11-27T10:33:15.350Z"
+}

@@ -1,12 +1,12 @@
 {
- "read": "2026-11-27T16:17:15.709Z",
+ "read": "2026-11-27T19:18:11.387Z",
  "insights": true,
  "reels": [
   {
-   "id": "17910038781598274",
-   "posted": "2026-11-27T16:15:38+0000",
-   "link": "https://www.instagram.com/reel/DgQFdFIB8o1/",
-   "title": "Tu yerba hizo cinco paradas antes de llegar a tu mate 🧉",
+   "id": "18133526678510711",
+   "posted": "2026-11-27T19:15:38+0000",
+   "link": "https://www.instagram.com/reel/DgQaGLoABnI/",
+   "title": "Si llenás el mate de yerba hasta arriba, cebás mal 🧉",
    "likes": 0,
    "comments": 0,
    "reach": 0,
@@ -18,34 +18,64 @@
    "ig_reels_video_view_total_time": 0
   },
   {
+   "id": "18020667986747058",
+   "posted": "2026-11-27T18:01:55+0000",
+   "link": "https://www.instagram.com/reel/DgQRpU2MoNg/",
+   "title": "Sabias esto?",
+   "likes": 59,
+   "comments": 0,
+   "reach": 987,
+   "views": 1838,
+   "saved": 2,
+   "shares": 0,
+   "total_interactions": 61,
+   "ig_reels_avg_watch_time": 19553,
+   "ig_reels_video_view_total_time": 19279796
+  },
+  {
+   "id": "17910038781598274",
+   "posted": "2026-11-27T16:15:38+0000",
+   "link": "https://www.instagram.com/reel/DgQFdFIB8o1/",
+   "title": "Tu yerba hizo cinco paradas antes de llegar a tu mate 🧉",
+   "likes": 52,
+   "comments": 0,
+   "reach": 1164,
+   "views": 1388,
+   "saved": 1,
+   "shares": 0,
+   "total_interactions": 54,
+   "ig_reels_avg_watch_time": 19766,
+   "ig_reels_video_view_total_time": 22672092
+  },
+  {
    "id": "18102014978429325",
    "posted": "2026-11-27T14:16:19+0000",
    "link": "https://www.instagram.com/reel/DgP3y97BGYu/",
    "title": "Si tu mate se tapa, no es la bombilla: es cómo lo armaste 🧉",
-   "likes": 71,
+   "likes": 79,
    "comments": 1,
-   "reach": 1260,
-   "views": 1476,
-   "saved": 3,
-   "shares": 0,
-   "total_interactions": 77,
-   "ig_reels_avg_watch_time": 21209,
-   "ig_reels_video_view_total_time": 26554765
+   "reach": 1497,
+   "views": 1768,
+   "saved": 4,
+   "shares": 5,
+   "total_interactions": 92,
+   "ig_reels_avg_watch_time": 21147,
+   "ig_reels_video_view_total_time": 32101168
   },
   {
    "id": "18118369238162591",
    "posted": "2026-11-27T11:16:08+0000",
    "link": "https://www.instagram.com/reel/DgPjNwquOBw/",
    "title": "¿Por qué tu mate casi nunca se toma solo? 🧉",
-   "likes": 54,
+   "likes": 56,
    "comments": 1,
-   "reach": 1358,
-   "views": 1660,
+   "reach": 1396,
+   "views": 1698,
    "saved": 5,
    "shares": 5,
-   "total_interactions": 65,
-   "ig_reels_avg_watch_time": 15759,
-   "ig_reels_video_view_total_time": 21936645
+   "total_interactions": 67,
+   "ig_reels_avg_watch_time": 15660,
+   "ig_reels_video_view_total_time": 22347272
   },
   {
    "id": "18119797565275245",
@@ -54,13 +84,13 @@
    "title": "Tu mate de calabaza fue una planta. Por eso hay que curarlo 🧉",
    "likes": 45,
    "comments": 0,
-   "reach": 1173,
-   "views": 1395,
+   "reach": 1175,
+   "views": 1399,
    "saved": 1,
    "shares": 0,
    "total_interactions": 48,
-   "ig_reels_avg_watch_time": 16960,
-   "ig_reels_video_view_total_time": 19929076
+   "ig_reels_avg_watch_time": 16964,
+   "ig_reels_video_view_total_time": 20000649
   },
   {
    "id": "18137548063735989",
@@ -70,12 +100,12 @@
    "likes": 66,
    "comments": 0,
    "reach": 1175,
-   "views": 1405,
+   "views": 1408,
    "saved": 3,
    "shares": 1,
    "total_interactions": 70,
-   "ig_reels_avg_watch_time": 17392,
-   "ig_reels_video_view_total_time": 20888146
+   "ig_reels_avg_watch_time": 17384,
+   "ig_reels_video_view_total_time": 20948101
   },
   {
    "id": "18101093759455578",
@@ -84,13 +114,13 @@
    "title": "¿Por qué tu mate casi nunca se toma solo? 🧉",
    "likes": 119,
    "comments": 0,
-   "reach": 1625,
-   "views": 2014,
+   "reach": 1635,
+   "views": 2022,
    "saved": 12,
    "shares": 7,
    "total_interactions": 141,
-   "ig_reels_avg_watch_time": 16928,
-   "ig_reels_video_view_total_time": 27661962
+   "ig_reels_avg_watch_time": 16910,
+   "ig_reels_video_view_total_time": 27818100
   },
   {
    "id": "18103012433400705",
@@ -99,28 +129,28 @@
    "title": "Si llenás el mate de yerba hasta arriba, cebás mal 🧉",
    "likes": 56,
    "comments": 0,
-   "reach": 1382,
-   "views": 1683,
+   "reach": 1386,
+   "views": 1686,
    "saved": 2,
    "shares": 3,
    "total_interactions": 61,
-   "ig_reels_avg_watch_time": 18666,
-   "ig_reels_video_view_total_time": 27121837
+   "ig_reels_avg_watch_time": 18673,
+   "ig_reels_video_view_total_time": 27188055
   },
   {
    "id": "18648826630056212",
    "posted": "2026-11-26T00:22:46+0000",
    "link": "https://www.instagram.com/reel/DgLzl1DPSyL/",
    "title": "Sabias esto?",
-   "likes": 5136,
+   "likes": 5340,
    "comments": 13,
-   "reach": 51907,
-   "views": 68396,
-   "saved": 207,
-   "shares": 2509,
-   "total_interactions": 8100,
-   "ig_reels_avg_watch_time": 14234,
-   "ig_reels_video_view_total_time": 763354699
+   "reach": 53556,
+   "views": 70429,
+   "saved": 215,
+   "shares": 2691,
+   "total_interactions": 8502,
+   "ig_reels_avg_watch_time": 14256,
+   "ig_reels_video_view_total_time": 787131889
   },
   {
    "id": "18034881284681303",
@@ -129,13 +159,13 @@
    "title": "Si llevás el termo a la playa, no estás loco: es a propósito 🧉",
    "likes": 51,
    "comments": 0,
-   "reach": 1374,
-   "views": 1630,
+   "reach": 1376,
+   "views": 1632,
    "saved": 0,
    "shares": 1,
    "total_interactions": 52,
-   "ig_reels_avg_watch_time": 18667,
-   "ig_reels_video_view_total_time": 25816558
+   "ig_reels_avg_watch_time": 18644,
+   "ig_reels_video_view_total_time": 25841951
   },
   {
    "id": "17972506304964857",
@@ -219,13 +249,13 @@
    "title": "¿Qué hacés si en tu ronda alguien te mueve la bombilla? 🧉",
    "likes": 44,
    "comments": 5,
-   "reach": 1304,
-   "views": 1570,
+   "reach": 1305,
+   "views": 1571,
    "saved": 0,
    "shares": 1,
    "total_interactions": 54,
-   "ig_reels_avg_watch_time": 20637,
-   "ig_reels_video_view_total_time": 26704585
+   "ig_reels_avg_watch_time": 20624,
+   "ig_reels_video_view_total_time": 26708938
   },
   {
    "id": "17947209090360612",
@@ -262,15 +292,15 @@
    "posted": "2026-11-23T22:05:23+0000",
    "link": "https://www.instagram.com/reel/DgGaViTD8DR/",
    "title": "Si tomás mate en Paraguay, te lo dan con hielo. Y les sobra razón 🧉",
-   "likes": 88,
+   "likes": 89,
    "comments": 4,
-   "reach": 1887,
-   "views": 2301,
+   "reach": 1892,
+   "views": 2304,
    "saved": 6,
    "shares": 4,
-   "total_interactions": 104,
-   "ig_reels_avg_watch_time": 19646,
-   "ig_reels_video_view_total_time": 37878577
+   "total_interactions": 105,
+   "ig_reels_avg_watch_time": 19632,
+   "ig_reels_video_view_total_time": 37891043
   },
   {
    "id": "18100367660660249",
@@ -280,12 +310,12 @@
    "likes": 67,
    "comments": 29,
    "reach": 1565,
-   "views": 2097,
+   "views": 2098,
    "saved": 0,
    "shares": 0,
    "total_interactions": 96,
-   "ig_reels_avg_watch_time": 19174,
-   "ig_reels_video_view_total_time": 30103900
+   "ig_reels_avg_watch_time": 19166,
+   "ig_reels_video_view_total_time": 30109984
   },
   {
    "id": "18077056313759283",
@@ -399,13 +429,13 @@
    "title": "Si tomás mate en Paraguay, te lo dan con hielo. Y les sobra razón 🧉",
    "likes": 61,
    "comments": 2,
-   "reach": 1200,
-   "views": 1440,
+   "reach": 1202,
+   "views": 1442,
    "saved": 1,
    "shares": 1,
    "total_interactions": 67,
-   "ig_reels_avg_watch_time": 19160,
-   "ig_reels_video_view_total_time": 23740109
+   "ig_reels_avg_watch_time": 19147,
+   "ig_reels_video_view_total_time": 23742444
   },
   {
    "id": "18075620057782983",
@@ -429,28 +459,28 @@
    "title": "¿Qué hacés si tu suegra te pasa el mate hirviendo? 🧉",
    "likes": 225,
    "comments": 2,
-   "reach": 5910,
-   "views": 7730,
+   "reach": 5911,
+   "views": 7731,
    "saved": 8,
    "shares": 15,
    "total_interactions": 259,
-   "ig_reels_avg_watch_time": 20906,
-   "ig_reels_video_view_total_time": 121865549
+   "ig_reels_avg_watch_time": 20903,
+   "ig_reels_video_view_total_time": 121869982
   },
   {
    "id": "17954688126338284",
    "posted": "2026-11-19T16:16:01+0000",
    "link": "https://www.instagram.com/reel/Df7fJ_elCBe/",
    "title": "¿Qué hacés si tu suegra te pasa el mate hirviendo? 🧉",
-   "likes": 2422,
-   "comments": 25,
+   "likes": 2423,
+   "comments": 26,
    "reach": 48602,
-   "views": 70228,
+   "views": 70260,
    "saved": 57,
    "shares": 118,
-   "total_interactions": 2663,
-   "ig_reels_avg_watch_time": 25007,
-   "ig_reels_video_view_total_time": 1241936404
+   "total_interactions": 2666,
+   "ig_reels_avg_watch_time": 25010,
+   "ig_reels_video_view_total_time": 1242509379
   },
   {
    "id": "17945097024385575",
@@ -460,12 +490,12 @@
    "likes": 76,
    "comments": 1,
    "reach": 1567,
-   "views": 1818,
+   "views": 1819,
    "saved": 1,
    "shares": 4,
    "total_interactions": 82,
    "ig_reels_avg_watch_time": 16399,
-   "ig_reels_video_view_total_time": 25796065
+   "ig_reels_video_view_total_time": 25812868
   },
   {
    "id": "17968406085224611",
@@ -519,13 +549,13 @@
    "title": "En Brasil tu mate sería verde flúor, y lo hacen a propósito 🧉",
    "likes": 88,
    "comments": 0,
-   "reach": 1840,
-   "views": 2193,
+   "reach": 1842,
+   "views": 2201,
    "saved": 4,
    "shares": 3,
    "total_interactions": 95,
-   "ig_reels_avg_watch_time": 21908,
-   "ig_reels_video_view_total_time": 40837380
+   "ig_reels_avg_watch_time": 21901,
+   "ig_reels_video_view_total_time": 41021580
   },
   {
    "id": "17986465505900268",
@@ -549,13 +579,13 @@
    "title": "El termo bajo el brazo no es costumbre: es casi un documento 🧉",
    "likes": 47,
    "comments": 0,
-   "reach": 1124,
-   "views": 1283,
+   "reach": 1126,
+   "views": 1284,
    "saved": 0,
    "shares": 0,
    "total_interactions": 47,
-   "ig_reels_avg_watch_time": 12818,
-   "ig_reels_video_view_total_time": 14484393
+   "ig_reels_avg_watch_time": 12808,
+   "ig_reels_video_view_total_time": 14486235
   },
   {
    "id": "18351561505251624",
@@ -564,13 +594,13 @@
    "title": "Un desconocido te convida un mate en la plaza. ¿Lo aceptás? 🧉",
    "likes": 121,
    "comments": 4,
-   "reach": 1847,
-   "views": 2267,
+   "reach": 1852,
+   "views": 2269,
    "saved": 3,
    "shares": 14,
    "total_interactions": 144,
-   "ig_reels_avg_watch_time": 20301,
-   "ig_reels_video_view_total_time": 37334468
+   "ig_reels_avg_watch_time": 20286,
+   "ig_reels_video_view_total_time": 37347744
   },
   {
    "id": "18115991309169219",
@@ -760,12 +790,12 @@
    "likes": 84,
    "comments": 0,
    "reach": 1422,
-   "views": 1728,
+   "views": 1729,
    "saved": 2,
    "shares": 3,
    "total_interactions": 90,
-   "ig_reels_avg_watch_time": 16202,
-   "ig_reels_video_view_total_time": 23752569
+   "ig_reels_avg_watch_time": 16192,
+   "ig_reels_video_view_total_time": 23754090
   },
   {
    "id": "18039775121814755",

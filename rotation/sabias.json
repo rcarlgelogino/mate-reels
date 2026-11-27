@@ -1,0 +1,16 @@
+[
+ {
+  "day": "2026-11-27",
+  "kind": "recomendable",
+  "agent": "lava",
+  "absurd": "y no lava hirviendo del volcán Kilauea?",
+  "id": "agua_lava_kilauea"
+ },
+ {
+  "day": "2026-11-27",
+  "kind": "si",
+  "agent": "meteorito",
+  "absurd": "ya no podés seguir tomando mate?",
+  "id": "meteorito_campo_del_cielo"
+ }
+]

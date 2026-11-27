@@ -1,0 +1,46 @@
+{
+ "kind": "si",
+ "id": "meteorito_campo_del_cielo",
+ "hook": "¿Sabías que si estás tomando mate y cae el meteorito de Campo del Cielo en tu patio,",
+ "absurd": "ya no podés seguir tomando mate?",
+ "agent": "meteorito",
+ "agentLabel": "CAMPO DEL CIELO",
+ "normalLabel": "MATE TRANQUILO",
+ "facts": [
+  {
+   "text": "El fragmento El Chaco de este meteorito pesa treinta y siete toneladas.",
+   "show": "counter",
+   "value": 37,
+   "unit": "t",
+   "label": "PESO METEORITO",
+   "source": "NASA"
+  },
+  {
+   "text": "Entró a la atmósfera a una velocidad de catorce mil kilómetros por hora.",
+   "show": "gauge",
+   "value": 14000,
+   "unit": "km/h",
+   "label": "VELOCIDAD",
+   "source": "NASA"
+  },
+  {
+   "text": "El impacto dejó un cráter con un diámetro de cincuenta metros.",
+   "show": "counter",
+   "value": 50,
+   "unit": "m",
+   "label": "CRÁTER",
+   "source": "NASA"
+  }
+ ],
+ "losses": [
+  "agua",
+  "bombilla",
+  "barrio"
+ ],
+ "lossLine": "Porque te quedás sin agua, sin bombilla y sin barrio.",
+ "caption": "¿Qué hacés si cae un meteorito en el patio? ☄️ Mantené el mate a salvo. Seguime para más datos de mate.",
+ "thumb": [
+  "SI CAE UN METEORITO",
+  "¿SEGUÍS TOMANDO MATE?"
+ ]
+}

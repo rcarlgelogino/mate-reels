@@ -1,0 +1,46 @@
+{
+ "kind": "recomendable",
+ "id": "agua_lava_kilauea",
+ "hook": "¿Sabías que para calentar el agua del mate lo recomendable es usar la canilla a setenta y cinco grados,",
+ "absurd": "y no lava hirviendo del volcán Kilauea?",
+ "agent": "lava",
+ "agentLabel": "VOLCÁN KILAUEA",
+ "normalLabel": "AGUA · 75 °C",
+ "facts": [
+  {
+   "text": "La lava del volcán Kilauea alcanza los mil ciento cincuenta grados.",
+   "show": "gauge",
+   "value": 1150,
+   "unit": "°C",
+   "label": "TEMP. LAVA",
+   "source": "USGS"
+  },
+  {
+   "text": "El agua perfecta para cebar mate está a solo setenta y cinco grados.",
+   "show": "gauge",
+   "value": 75,
+   "unit": "°C",
+   "label": "TEMP. MATE",
+   "source": "INYM"
+  },
+  {
+   "text": "Un termo promedio solo tiene capacidad para un litro de agua.",
+   "show": "counter",
+   "value": 1,
+   "unit": "L",
+   "label": "CAPACIDAD",
+   "source": "INYM"
+  }
+ ],
+ "losses": [
+  "yerba",
+  "bombilla",
+  "casa"
+ ],
+ "lossLine": "Lo más probable es que te quedes sin yerba, sin bombilla y sin casa.",
+ "caption": "¿Con qué calentás el agua del mate? 🌋 Cebá tranquilo y cuidá la temperatura. Seguime para más datos de mate.",
+ "thumb": [
+  "AGUA DE MATE",
+  "¿O LAVA HIRVIENDO?"
+ ]
+}

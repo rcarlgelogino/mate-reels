@@ -1,0 +1,46 @@
+{
+ "kind": "recomendable",
+ "id": "camion_cisterna",
+ "hook": "¿Sabías que para llenar el termo lo recomendable es agua de la pava,",
+ "absurd": "y no un camión cisterna de treinta mil litros?",
+ "agent": "cisterna",
+ "agentLabel": "CISTERNA 30.000 L",
+ "normalLabel": "PAVA · 1 LITRO",
+ "facts": [
+  {
+   "text": "Un camión cisterna convencional carga unos treinta mil litros de agua potable.",
+   "show": "counter",
+   "value": 30000,
+   "unit": "L",
+   "label": "CAPACIDAD CISTERNA",
+   "source": "Dirección Nacional de Vialidad"
+  },
+  {
+   "text": "Con ese volumen podrías cebar aproximadamente seiscientas mil veces un mate de cincuenta mililitros.",
+   "show": "counter",
+   "value": 600000,
+   "unit": "mates",
+   "label": "CEBADAS TOTALES",
+   "source": "Instituto Nacional de la Yerba Mate"
+  },
+  {
+   "text": "Su bomba de descarga expulsa dos mil litros por minuto con una presión destructiva.",
+   "show": "gauge",
+   "value": 2000,
+   "unit": "L/min",
+   "label": "CAUDAL DESCARGA",
+   "source": "NFPA"
+  }
+ ],
+ "losses": [
+  "yerba",
+  "bombilla",
+  "jardín"
+ ],
+ "lossLine": "Lo más probable es que te quedes sin yerba, sin bombilla y sin jardín.",
+ "caption": "¿Cargarías el termo con un camión cisterna de treinta mil litros? 🚛💧 Seguime para más datos de mate.",
+ "thumb": [
+  "¿LLENAR EL TERMO",
+  "CON UN CAMIÓN?"
+ ]
+}

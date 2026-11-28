@@ -12,5 +12,19 @@
   "agent": "meteorito",
   "absurd": "ya no podés seguir tomando mate?",
   "id": "meteorito_campo_del_cielo"
+ },
+ {
+  "day": "2026-11-28",
+  "kind": "recomendable",
+  "agent": "cisterna",
+  "absurd": "y no un camión cisterna de treinta mil litros?",
+  "id": "camion_cisterna"
+ },
+ {
+  "day": "2026-11-28",
+  "kind": "si",
+  "agent": "tornado",
+  "absurd": "ya no podés seguir tomando mate?",
+  "id": "tornado_moore"
  }
 ]

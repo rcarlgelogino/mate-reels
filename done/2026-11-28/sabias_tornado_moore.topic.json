@@ -1,0 +1,46 @@
+{
+ "kind": "si",
+ "id": "tornado_moore",
+ "hook": "¿Sabías que si estás tomando mate y te cruza el tornado de Moore de dos mil trece,",
+ "absurd": "ya no podés seguir tomando mate?",
+ "agent": "tornado",
+ "agentLabel": "TORNADO EF5 MOORE",
+ "normalLabel": "BRISA · 15 KM/H",
+ "facts": [
+  {
+   "text": "Este tornado de categoría cinco alcanzó vientos de cuatrocientos ochenta kilómetros por hora.",
+   "show": "gauge",
+   "value": 480,
+   "unit": "km/h",
+   "label": "VIENTO MÁXIMO",
+   "source": "NOAA"
+  },
+  {
+   "text": "El ancho de su embudo en contacto con la tierra midió casi tres kilómetros.",
+   "show": "counter",
+   "value": 3,
+   "unit": "km",
+   "label": "ANCHO DEL EMBUDO",
+   "source": "National Weather Service"
+  },
+  {
+   "text": "La energía total que liberó equivale a más de ochocientas bombas atómicas de Hiroshima.",
+   "show": "counter",
+   "value": 800,
+   "unit": "bombas",
+   "label": "ENERGÍA ESTIMADA",
+   "source": "NOAA"
+  }
+ ],
+ "losses": [
+  "mate",
+  "bombilla",
+  "casa"
+ ],
+ "lossLine": "Porque te quedás sin mate, sin bombilla y sin casa.",
+ "caption": "¿Qué hacés si te agarra un tornado categoría cinco en plena ronda? 🌪️🧉 Seguime para más datos de mate.",
+ "thumb": [
+  "TOMAR MATE EN",
+  "UN TORNADO EF5"
+ ]
+}

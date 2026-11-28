@@ -1,11 +1,21 @@
 {
- "updated": "2026-11-27T09:05:32.372Z",
- "reels": 50,
+ "updated": "2026-11-28T09:12:36.607Z",
+ "reels": 54,
  "do": [
   {
    "n": 2,
    "area": "hands",
    "rule": "Maintain correct side-gripping of the gourd for all characters handling mate to preserve physical realism."
+  },
+  {
+   "n": 1,
+   "area": "hands",
+   "rule": "Maintain consistent side-grip illustration on gourd props."
+  },
+  {
+   "n": 1,
+   "area": "scale",
+   "rule": "Maintain consistent counter-to-character proportions across wide kitchen shots."
   },
   {
    "n": 1,
@@ -16,6 +26,11 @@
    "n": 1,
    "area": "people",
    "rule": "Keep main figures centered away from vertical edge boundaries."
+  },
+  {
+   "n": 1,
+   "area": "match",
+   "rule": "Ensure instructional verbs (shake, flip, tilt, pour) are directly animated rather than showing a static object."
   },
   {
    "n": 1,
@@ -61,21 +76,6 @@
    "n": 1,
    "area": "scene",
    "rule": "Maintain consistent character positioning and grounding across sequential shots."
-  },
-  {
-   "n": 1,
-   "area": "labels",
-   "rule": "Ensure caption boxes have a safe margin above character heads"
-  },
-  {
-   "n": 1,
-   "area": "hands",
-   "rule": "Ensure hand models realistically wrap around the mate gourd without body clipping."
-  },
-  {
-   "n": 1,
-   "area": "objects",
-   "rule": "Use dedicated motion indicator frames for active object manipulation."
   }
  ],
  "avoid": [
@@ -83,6 +83,16 @@
    "n": 2,
    "area": "match",
    "rule": "Avoid repeating static character poses across consecutive frames without subtle movement"
+  },
+  {
+   "n": 1,
+   "area": "scene",
+   "rule": "Avoid repeating identical multi-character framing across consecutive shots."
+  },
+  {
+   "n": 1,
+   "area": "objects",
+   "rule": "Avoid showing multiple mate gourds in sharing scenes where one shared mate is culturally appropriate."
   },
   {
    "n": 1,
@@ -98,6 +108,11 @@
    "n": 1,
    "area": "labels",
    "rule": "Avoid text overlay desynchronization with audio transcript."
+  },
+  {
+   "n": 1,
+   "area": "scale",
+   "rule": "Avoid scaling prop models out of realistic proportions relative to character hands."
   },
   {
    "n": 1,
@@ -163,35 +178,20 @@
    "n": 1,
    "area": "match",
    "rule": "Avoid using generic placeholder geometry when specific object flaws are narrated."
-  },
-  {
-   "n": 1,
-   "area": "labels",
-   "rule": "Avoid overlapping multiple caption boxes when several family members are grouped together in a single frame."
-  },
-  {
-   "n": 1,
-   "area": "labels",
-   "rule": "Never place headline text boxes directly over raised hands or facial expressions."
-  },
-  {
-   "n": 1,
-   "area": "objects",
-   "rule": "Do not isolate props onto abstract pedestals when the narrative is about the character carrying them."
   }
  ],
  "recentBad": [
+  "shot 1: Repeats character layout from shot 0 without significant visual action change.",
+  "shot 12: End screen template shifts visual layout abruptly.",
+  "Shot 5: Character holding his head does not illustrate the dry yerba waiting its turn.",
+  "Shot 9: Both grandmother and grandchild hold separate mates during a mate-sharing scene.",
+  "Shot 8: Figures appear significantly underscaled behind an overly dominant counter.",
+  "Shot 12: Identical close-up asset of grandmother with heart eyes repeated from shot 10.",
   "shot 3: Character scale shrinks unnaturally low behind the counter in frame 10.",
   "shot 3: Sudden framing drop creates visual imbalance.",
   "shot 2: Character stands in front of plants without showing the action of cutting branches by hand.",
   "shot 7: Scene lacks heat, smoke, or drying equipment mentioned in the voiceover.",
   "shot 12: Scene shows static character in front of sacks without illustrating grinding or packaging processes.",
-  "shot 14: Shows a giant mate gourd sitting on a highway road like a vehicle instead of yerba being loaded into a delivery truck.",
-  "Shot 8: Figure cut off at edge of screen.",
-  "Shot 9: Yaguarete action is represented by a static small sprite rather than an attack.",
-  "Shot 12: Scene is empty of characters during the gift revelation.",
-  "Shot 14: Sentence spoken does not match the on-screen text.",
-  "Shot 4: Fire pits placed directly on the floor without visible hearth or safe isolation.",
-  "Shot 8: Stored bags appear slightly floating relative to the back wall perspective."
+  "shot 14: Shows a giant mate gourd sitting on a highway road like a vehicle instead of yerba being loaded into a delivery truck."
  ]
 }

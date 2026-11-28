@@ -1,0 +1,29 @@
+{
+ "id": "0029_tu_abuela_cebaba_lento",
+ "guard": {
+  "text_over_picture": [
+   0,
+   1,
+   2,
+   3,
+   4,
+   5,
+   6,
+   7,
+   8,
+   10,
+   12
+  ]
+ },
+ "file": "work/0029_tu_abuela_cebaba_lento/final.mp4",
+ "voice": "gemini",
+ "duration": 34.634,
+ "inTarget": false,
+ "target": [
+  35,
+  45
+ ],
+ "loudness": "-12.2 LUFS, peak -0.8 dBFS",
+ "shots": 14,
+ "minutes": 1.6
+}

@@ -2,13 +2,13 @@
 
 Found by the analysis after every build. Nothing is blocked; fix the most frequent ones in the style (styles/*.js, engine) or the script rules.
 
-Reels analysed: 25 · issues: 120 · updated 2026-11-27
+Reels analysed: 27 · issues: 132 · updated 2026-11-28
 
 | times | severity | category | problem (latest example) | suggested fix | last seen |
 |---|---|---|---|---|---|
 | 12 | medium | objects | "camion" is named but pixel8 has no drawing for it (0027_cinco_paradas_antes_de_tu_mate) | add a camion drawing to pixel8 and its column in styles/lexicon.js | 2026-11-27 |
-| 4 | low | guard | camera too close (backed off by the guard) in 1 shot(s) (0024_tu_mate_de_calabaza_esta_vivo, shot 4) | fix it at the source in the style (layout, camera plan, visual choice) | 2026-11-26 |
-| 2 | low | guard | zoom too close (zoomed out by the guard) in 2 shot(s) (0026_el_mate_nunca_se_toma_solo, shot 2) | fix it at the source in the style (layout, camera plan, visual choice) | 2026-11-26 |
+| 5 | low | guard | camera too close (backed off by the guard) in 3 shot(s) (0025_llenas_el_mate_hasta_arriba, shot 1) | fix it at the source in the style (layout, camera plan, visual choice) | 2026-11-27 |
+| 3 | low | guard | zoom too close (zoomed out by the guard) in 1 shot(s) (0031p_pov_sos_el_cebador, shot 0) | fix it at the source in the style (layout, camera plan, visual choice) | 2026-11-28 |
 | 1 | high | labels | Headline graphic covers character eyes and glasses in cell 14. (0007_team_calabaza_o_acero, shot 6) | Shift the headline card upward or adjust camera framing. | 2026-11-15 |
 | 1 | high | hands | Mate gourd floats on the character's chest with bombilla while both arms hang down at her sides. (0011_con_palo_o_sin_palo, shot 6) | Attach character holding hand to mate gourd using the f2grip pose, curling fingers around the side. | 2026-11-16 |
 | 1 | high | match | Character drinks with a bombilla when narration says before the bombilla existed. (0012_de_donde_viene_bombilla, shot 0) | Remove the straw and depict the character sipping directly from the rim of the gourd. | 2026-11-17 |
@@ -24,6 +24,8 @@ Reels analysed: 25 · issues: 120 · updated 2026-11-27
 | 1 | high | match | Text states thermos goes in hand, but scene shows thermos stationary on a table. (0023_el_termo_hasta_la_playa, shot 5) | Animate character holding the thermos in hand. | 2026-11-25 |
 | 1 | high | match | The text describes covering, turning upside down, and shaking the mate, but the character holds it upright motionless. (0025_llenas_el_mate_hasta_arriba, shot 9) | Animate the mate turned upside down with a palm sprite over the opening and add shake offset keyframes. | 2026-11-26 |
 | 1 | high | match | Narrative continues describing the shaking technique while the image remains static upright. (0025_llenas_el_mate_hasta_arriba, shot 10) | Include motion lines/pixel dust particles showing the shaking action in progress. | 2026-11-26 |
+| 1 | high | match | Voiceover details covering and shaking the mate, but character remains static holding it upright. (0025_llenas_el_mate_hasta_arriba, shot 8) | Animate character placing palm over top, turning gourd upside down, and shaking it. | 2026-11-27 |
+| 1 | high | match | Voiceover says 'lo inclinás' (tilt it), but the mate stays standing straight up on the table. (0025_llenas_el_mate_hasta_arriba, shot 12) | Animate the mate tilting at 45 degrees to show yerba sloping to one side. | 2026-11-27 |
 | 1 | medium | labels | Board template contains only text without visual props or characters. (0004_mate_argentino_o_uruguayo, shot 1) | Add relevant background illustrations or icons to board templates instead of text-only slides. | 2026-11-14 |
 | 1 | medium | labels | Board text is tiny and placed near bottom margin. (0006_de_donde_viene_mate, shot 8) | Center and enlarge lower graphic text for better legibility. | 2026-11-14 |
 | 1 | medium | scale | Grandma character appears undersized in a vast interior. (0007_team_calabaza_o_acero, shot 3) | Scale character up to occupy roughly one-half to two-thirds of frame height. | 2026-11-15 |
@@ -64,5 +66,3 @@ Reels analysed: 25 · issues: 120 · updated 2026-11-27
 | 1 | medium | match | Visual repeat of yerba blowing instead of showing new scene (0023_el_termo_hasta_la_playa, shot 12) | Add distinct visual asset representing the spoken line. | 2026-11-24 |
 | 1 | medium | objects | Dialogue mentions carrying cooler and thermos, but characters are empty-handed. (0023_el_termo_hasta_la_playa, shot 4) | Add 3D props of cooler and thermos to character hands. | 2026-11-25 |
 | 1 | medium | match | Dialogue describes wind blowing yerba on face, but no particle effect or reaction is drawn. (0023_el_termo_hasta_la_playa, shot 11) | Add wind particle effects and yerba flying toward character face. | 2026-11-25 |
-| 1 | medium | guard | person cut or head under the subtitle, guard could not fix in 1 shot(s) (0023_el_termo_hasta_la_playa, shot 9) | fix it at the source in the style (layout, camera plan, visual choice) | 2026-11-25 |
-| 1 | medium | match | The text describes scraping with a spoon, but no spoon is visible in the frame. (0024_tu_mate_de_calabaza_esta_vivo, shot 13) | Add a pixel spoon object in the figure's hand reaching inside the gourd. | 2026-11-25 |

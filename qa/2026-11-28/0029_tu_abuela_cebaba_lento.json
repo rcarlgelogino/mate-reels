@@ -1,0 +1,94 @@
+{
+ "reel": "0029_tu_abuela_cebaba_lento",
+ "style": "flat2d",
+ "technical": [
+  "duration 34.634s",
+  "loudness -12.2 LUFS, peak -0.8 dBFS",
+  "voice gemini"
+ ],
+ "vision": {
+  "ran": true,
+  "model": "gemini-3.7-flash"
+ },
+ "summary": "The flat 2D visuals are colourful and follow the domestic kitchen setting consistently. However, several shots suffer from awkward scaling, repeated assets, and minor logic mismatches in mate handling.",
+ "scores": {
+  "visual_logic": 6,
+  "graphics": 6,
+  "overall": 6
+ },
+ "logic": {
+  "clean": [
+   "Pouring action and cross-section diagrams illustrate yerba moisture concept clearly.",
+   "Grandmother and grandchild character designs remain consistent across scenes."
+  ],
+  "unclean": [
+   "Shot 5: Character holding his head does not illustrate the dry yerba waiting its turn.",
+   "Shot 9: Both grandmother and grandchild hold separate mates during a mate-sharing scene."
+  ]
+ },
+ "graphics": {
+  "clean": [
+   "Vector styling, outlines, and palette match flat2d specifications.",
+   "Captions and diagram labels remain legible in the upper third."
+  ],
+  "unclean": [
+   "Shot 8: Figures appear significantly underscaled behind an overly dominant counter.",
+   "Shot 12: Identical close-up asset of grandmother with heart eyes repeated from shot 10."
+  ]
+ },
+ "issues": [
+  {
+   "severity": "medium",
+   "fault": "action_missing",
+   "category": "match",
+   "problem": "Figure pose does not reflect the yerba state mentioned in voiceover.",
+   "fix": "Show a diagrammatic mate top-view highlighting dry versus wet areas.",
+   "shot": 5,
+   "time": 15.9,
+   "template": "flat"
+  },
+  {
+   "severity": "medium",
+   "fault": "scale",
+   "category": "scale",
+   "problem": "Characters appear tiny relative to the counter and kitchen background.",
+   "fix": "Zoom camera in or lower counter height to keep characters prominent.",
+   "shot": 8,
+   "time": 22.7,
+   "template": "flat"
+  },
+  {
+   "severity": "medium",
+   "fault": "other",
+   "category": "objects",
+   "problem": "Both characters hold their own mate simultaneously instead of passing one.",
+   "fix": "Remove the second mate gourd and show one being passed hand-to-hand.",
+   "shot": 9,
+   "time": 25.5,
+   "template": "flat"
+  },
+  {
+   "severity": "low",
+   "fault": "repeat",
+   "category": "scene",
+   "problem": "Exact visual duplicate of grandma close-up from shot 10.",
+   "fix": "Vary framing, angle, or facial expression to avoid visual repetition.",
+   "shot": 12,
+   "time": 29.2,
+   "template": "flat"
+  }
+ ],
+ "learnings": [
+  {
+   "type": "avoid",
+   "area": "objects",
+   "rule": "Avoid showing multiple mate gourds in sharing scenes where one shared mate is culturally appropriate."
+  },
+  {
+   "type": "do",
+   "area": "scale",
+   "rule": "Maintain consistent counter-to-character proportions across wide kitchen shots."
+  }
+ ],
+ "checked": "2026-11-28T09:08:18.479Z"
+}

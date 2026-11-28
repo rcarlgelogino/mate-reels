@@ -1,0 +1,278 @@
+{
+ "id": "0029_tu_abuela_cebaba_lento",
+ "topic": "T08",
+ "title": "La abuela cebaba lento",
+ "caption": "Tu abuela no cebaba lento por vieja: lo hacía a propósito 🧉\nEl chorrito fino tenía dos razones, y una no era el mate.\n¿Tu abuela cebaba así? 👇",
+ "hashtags": [
+  "#mate",
+  "#yerbamate",
+  "#argentina",
+  "#matero",
+  "#costumbresargentinas",
+  "#abuela",
+  "#cebar"
+ ],
+ "segments": [
+  {
+   "text": "Tu abuela no cebaba lento por vieja: lo hacía a propósito.",
+   "emo": "surprised",
+   "beat": "hook",
+   "visual": {
+    "type": "scene",
+    "place": "cocina",
+    "people": [
+     {
+      "role": "grandma",
+      "does": "pour",
+      "mood": "proud"
+     }
+    ],
+    "props": [
+     "mantel",
+     "pava"
+    ]
+   },
+   "headline": "A PROPÓSITO",
+   "headlineAt": "prop",
+   "impact": true
+  },
+  {
+   "text": "Tenía dos razones, y la segunda no era el mate.",
+   "emo": "tense",
+   "beat": "loop",
+   "visual": {
+    "type": "reaction",
+    "role": "grandma",
+    "emotion": "proud"
+   },
+   "headline": "DOS RAZONES",
+   "headlineAt": "razones"
+  },
+  {
+   "text": "Vos echás el agua de golpe, hasta el borde.",
+   "emo": "funny",
+   "beat": "body",
+   "visual": {
+    "type": "mistake",
+    "text": "NO",
+    "at": "golpe",
+    "over": {
+     "type": "scene",
+     "place": "cocina",
+     "people": [
+      {
+       "role": "you",
+       "does": "pour_fast",
+       "mood": "happy"
+      }
+     ],
+     "props": [
+      "mate_rebalsado"
+     ]
+    }
+   },
+   "headline": "DE GOLPE",
+   "headlineAt": "golpe"
+  },
+  {
+   "text": "Pero ella dejaba caer un chorrito finito, al lado de la bombilla.",
+   "emo": "warm",
+   "beat": "rehook",
+   "visual": {
+    "type": "object",
+    "item": "mate",
+    "with": [
+     "pava",
+     "bombilla"
+    ],
+    "labels": [
+     "CHORRITO FINO"
+    ]
+   },
+   "headline": "UN CHORRITO",
+   "headlineAt": "chorrito",
+   "headlineType": "check"
+  },
+  {
+   "text": "Así mojaba un solo costado de la yerba.",
+   "emo": "neutral",
+   "beat": "body",
+   "visual": {
+    "type": "object",
+    "item": "mate",
+    "animate": "corte_un_costado_mojado",
+    "labels": [
+     "SECA",
+     "MOJADA"
+    ]
+   },
+   "headline": "UN COSTADO",
+   "headlineAt": "costado"
+  },
+  {
+   "text": "El resto quedaba seco, esperando su turno.",
+   "emo": "proud",
+   "beat": "body",
+   "visual": {
+    "type": "title",
+    "text": "YERBA SECA",
+    "sub": "ESPERA SU TURNO"
+   }
+  },
+  {
+   "text": "Por eso su mate duraba toda la tarde.",
+   "emo": "warm",
+   "beat": "body",
+   "visual": {
+    "type": "scene",
+    "place": "cocina",
+    "people": [
+     {
+      "role": "grandma",
+      "does": "hold_both",
+      "mood": "happy"
+     },
+     {
+      "role": "kid",
+      "does": "drink",
+      "mood": "happy"
+     }
+    ],
+    "props": [
+     "reloj_tarde",
+     "ventana_atardecer"
+    ]
+   },
+   "headline": "TODA LA TARDE",
+   "headlineAt": "tarde"
+  },
+  {
+   "text": "Y ahora, la segunda razón.",
+   "emo": "excited",
+   "beat": "rehook",
+   "visual": {
+    "type": "reaction",
+    "role": "kid",
+    "emotion": "surprised"
+   },
+   "headline": "¿Y LA OTRA?",
+   "headlineAt": "segunda",
+   "impact": true
+  },
+  {
+   "text": "Mientras cebaba despacio, vos no te ibas.",
+   "emo": "love",
+   "beat": "body",
+   "visual": {
+    "type": "scene",
+    "place": "cocina",
+    "people": [
+     {
+      "role": "grandma",
+      "does": "hold_termo",
+      "mood": "love"
+     },
+     {
+      "role": "kid",
+      "does": "sit",
+      "mood": "happy"
+     }
+    ],
+    "props": [
+     "mesa_cocina",
+     "facturas"
+    ]
+   },
+   "headline": "NO TE IBAS",
+   "headlineAt": "ibas"
+  },
+  {
+   "text": "Cada mate lento era un rato más con vos.",
+   "emo": "nostalgic",
+   "beat": "body",
+   "visual": {
+    "type": "scene",
+    "place": "cocina",
+    "people": [
+     {
+      "role": "grandma",
+      "does": "pass",
+      "mood": "love"
+     },
+     {
+      "role": "kid",
+      "does": "receive",
+      "mood": "happy"
+     }
+    ],
+    "pass": [
+     0,
+     1
+    ],
+    "props": [
+     "mesa_cocina"
+    ]
+   },
+   "headline": "UN RATO MÁS",
+   "headlineAt": "rato"
+  },
+  {
+   "text": "No cebaba lento: te estaba reteniendo.",
+   "emo": "love",
+   "beat": "payoff",
+   "visual": {
+    "type": "scene",
+    "place": "cocina",
+    "people": [
+     {
+      "role": "grandma",
+      "does": "hug",
+      "mood": "love"
+     },
+     {
+      "role": "kid",
+      "does": "hug",
+      "mood": "love"
+     }
+    ]
+   },
+   "headline": "TE RETENÍA",
+   "headlineAt": "reteniendo",
+   "impact": true
+  },
+  {
+   "text": "¿Tu abuela cebaba así? Mandáselo a quien ceba como ella.",
+   "emo": "funny",
+   "beat": "cta",
+   "visual": {
+    "type": "title",
+    "text": "ETIQUETÁ",
+    "sub": "A QUIEN CEBA COMO TU ABUELA"
+   }
+  }
+ ],
+ "poll": {
+  "question": "¿Cómo cebaba tu abuela?",
+  "options": [
+   "LENTO",
+   "RÁPIDO",
+   "NO CEBABA"
+  ]
+ },
+ "rewrite": "top-reel pattern 2026-11-17 + rehooks",
+ "thumb": {
+  "lines": [
+   "TU ABUELA",
+   "SABÍA ALGO"
+  ]
+ },
+ "you_role": "kid",
+ "improved": {
+  "model": "gemini-3.6-flash",
+  "at": "2026-11-28T09:01:49.009Z",
+  "changes": [
+   "segment 4: changed visual to an object focus showing the precise pour of a thin stream next to the bombilla to directly illustrate spoken action and avoid repeating generic grandma pour character pose (match action / avoid pose repetition)",
+   "segment 9: changed grandma pose action from pour to hold_termo to vary character actions across scenes and avoid repeating identical pouring pose (avoid pose repetition)"
+  ]
+ }
+}

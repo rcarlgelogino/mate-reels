@@ -3,15 +3,18 @@
 Every reel is analysed after it is built (scripts/qa.js), for its VISUAL representation only. Pacing, hook, wording and sound are not learned here; they come from the reference reels (docs/WATCHTIME.md).
 The rules below are collected from all analyses, most frequent first. scripts/improve.js uses them to choose the visuals of the next script; recurring drawing problems get fixed in the style (styles/*.js, engine). Nothing here blocks a release.
 
-Reels analysed: 50 · average scores: visual logic 6.6 · graphics 7.3 · overall 6.7 · updated 2026-11-27
+Reels analysed: 54 · average scores: visual logic 6.5 · graphics 7.2 · overall 6.6 · updated 2026-11-28
 
 ## Do more of
 
 | times | area | rule | last seen |
 |---|---|---|---|
 | 2 | hands | Maintain correct side-gripping of the gourd for all characters handling mate to preserve physical realism. | 2026-11-20 |
+| 1 | hands | Maintain consistent side-grip illustration on gourd props. | 2026-11-28 |
+| 1 | scale | Maintain consistent counter-to-character proportions across wide kitchen shots. | 2026-11-28 |
 | 1 | match | Illustrate explicit actions (cutting, grinding, smoking) described in process steps rather than relying on static standing characters. | 2026-11-27 |
 | 1 | people | Keep main figures centered away from vertical edge boundaries. | 2026-11-27 |
+| 1 | match | Ensure instructional verbs (shake, flip, tilt, pour) are directly animated rather than showing a static object. | 2026-11-27 |
 | 1 | scene | Ensure all ground-level props such as crates, bags, and fires have proper shadow contacts to prevent floating. | 2026-11-26 |
 | 1 | match | Match physical instructional verbs (flipping, shaking, pouring) with dedicated object rotation and motion animations. | 2026-11-26 |
 | 1 | hands | Ensure hands are physically interacting with objects by wrapping fingers around them rather than just placing them nearby. | 2026-11-26 |
@@ -49,9 +52,12 @@ Reels analysed: 50 · average scores: visual logic 6.6 · graphics 7.3 · overal
 | times | area | rule | last seen |
 |---|---|---|---|
 | 2 | match | Avoid repeating static character poses across consecutive frames without subtle movement | 2026-11-23 |
+| 1 | scene | Avoid repeating identical multi-character framing across consecutive shots. | 2026-11-28 |
+| 1 | objects | Avoid showing multiple mate gourds in sharing scenes where one shared mate is culturally appropriate. | 2026-11-28 |
 | 1 | scale | Avoid vertical displacement or scaling jumps of characters between consecutive shots. | 2026-11-27 |
 | 1 | scene | Avoid using the exact same generic indoor warehouse background across multiple distinct manufacturing stages. | 2026-11-27 |
 | 1 | labels | Avoid text overlay desynchronization with audio transcript. | 2026-11-27 |
+| 1 | scale | Avoid scaling prop models out of realistic proportions relative to character hands. | 2026-11-27 |
 | 1 | people | Do not repeat identical multi-character lineup frames consecutively without changing composition. | 2026-11-26 |
 | 1 | people | Avoid placing small background characters so low that their lower halves get clipped by the canvas frame. | 2026-11-26 |
 | 1 | layering | Avoid placing text or labels directly over character faces to maintain clear expressions. | 2026-11-26 |
@@ -83,6 +89,21 @@ Reels analysed: 50 · average scores: visual logic 6.6 · graphics 7.3 · overal
 
 ## Latest reels
 
+### 0031p_pov_sos_el_cebador (2026-11-28)
+ The 2D reel generally follows the flat character design and layout rules. Some repeated poses and minor caption placements reduce visual dynamics.
+- clean: Mate grips and bombilla positioning follow the hand-to-mouth standard.; Character proportions remain consistent relative to the plaza backdrop.; Flat design vectors are consistent across characters and props.; Top dark banner framing is maintained across most frames.
+- unclean: shot 1: Repeats character layout from shot 0 without significant visual action change.; shot 12: End screen template shifts visual layout abruptly.
+
+### 0029_tu_abuela_cebaba_lento (2026-11-28)
+The flat 2D visuals are colourful and follow the domestic kitchen setting consistently. However, several shots suffer from awkward scaling, repeated assets, and minor logic mismatches in mate handling.
+- clean: Pouring action and cross-section diagrams illustrate yerba moisture concept clearly.; Grandmother and grandchild character designs remain consistent across scenes.; Vector styling, outlines, and palette match flat2d specifications.; Captions and diagram labels remain legible in the upper third.
+- unclean: Shot 5: Character holding his head does not illustrate the dry yerba waiting its turn.; Shot 9: Both grandmother and grandchild hold separate mates during a mate-sharing scene.; Shot 8: Figures appear significantly underscaled behind an overly dominant counter.; Shot 12: Identical close-up asset of grandmother with heart eyes repeated from shot 10.
+
+### 0028_si_tu_mate_se_tapa (2026-11-28)
+
+- clean: –
+- unclean: –
+
 ### 0028_si_tu_mate_se_tapa (2026-11-27)
 The visual representation generally adheres to the flat 2D style with clear character illustrations and diagrams. Minor scaling and positioning inconsistencies occur during character transitions.
 - clean: Diagrams for dust layer and thumb placement are clearly presented.; Kitchen counter scale and character placement are mostly consistent.; Text captions and instructional overlays are legible and properly positioned.; Prop illustrations follow standard flat 2D guidelines.
@@ -97,19 +118,4 @@ The visual representation generally adheres to the flat 2D style with clear char
 The pixel art style is consistent throughout the reel with clear character designs. However, several shots suffer from missing characters, text mismatch, and poor framing.
 - clean: Character poses and mate holding match basic pixel style rules.; Pixel fonts and color palettes fit the pixel8 aesthetic.
 - unclean: Shot 8: Figure cut off at edge of screen.; Shot 9: Yaguarete action is represented by a static small sprite rather than an attack.; Shot 12: Scene is empty of characters during the gift revelation.; Shot 14: Sentence spoken does not match the on-screen text.; Shot 14: On-screen text graphics display text from an earlier shot.
-
-### 0027_cinco_paradas_antes_de_tu_mate (2026-11-26)
-The reel effectively illustrates the production process of yerba mate with clean 2D vector graphics and clear character models. Some minor scaling and layering inconsistencies appear in background elements across the sequence.
-- clean: Shot 0: Proper counter height and consistent package sizing.; Shot 2: Tarefero character matches the scene and dialogue.; Shot 10: Truck and road scale fit the landscape context well.; Flat 2D style consistency maintained throughout all 13 shots.; Character outfits correctly adapt to different roles (tarefero, worker, cebador).
-- unclean: Shot 4: Fire pits placed directly on the floor without visible hearth or safe isolation.; Shot 8: Stored bags appear slightly floating relative to the back wall perspective.; Shot 5: Leaf illustration layer slightly overlaps the background fence lines awkwardly.
-
-### 0026_el_mate_nunca_se_toma_solo (2026-11-26)
-The reel maintains a consistent flat2D vector style with accurate character gripping and scaling. Some scenes contain minor repetition of character lineups and text element alignments, but overall the visual logic holds up well.
-- clean: Shot 0: Character correctly holds the mate gourd with proper hand wrapping.; Shot 7: Yasy luna figure correctly shown in white with a crescent moon symbol.; Shot 11: Figures properly share the mate inside the hut scene.; Consistent color palette and flat vector art style across all scenes.; Clear UI text box separation from character actions in upper sections.
-- unclean: Shot 3: Multiple duplicated figures lined up consecutively without narrative progression.; Shot 5: Duplicated figure crowd composition repeats heavily from previous shots.; Shot 1: Timeline/comparison graphics slightly overlap background windows.
-
-### 0025_llenas_el_mate_hasta_arriba (2026-11-26)
-The pixel-art visual reel executes the 'pixel8' aesthetic well, featuring charming hero mate characters and legible retro typography. However, critical instructional steps such as covering, turning upside down, and shaking the mate (shots 9-10) are depicted with static holding poses instead of showing the described action.
-- clean: Shot 6 clearly illustrates water overflowing from an overfilled mate cup as described in the text.; Shot 12 nicely depicts the 'montañita' (slope of yerba) with a tilted mate character.; Consistent retro pixel rendering and font usage throughout the reel.; Warm glow halos and hero character faces on the mate objects fit the pixel8 QA spec.
-- unclean: shot 9: The spoken voice describes covering, flipping upside down, and shaking the mate, but the visual shows the character holding the mate upright static.; shot 10: Continues describing flipping and shaking, but visual remains a static upright pose.; shot 3: Characters in cell 12 sit too low and clip awkwardly against the bottom screen boundary.; shot 2: Visual scene is almost identical to shot 1 without layout or posture progression.
 

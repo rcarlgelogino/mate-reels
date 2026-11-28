@@ -1,0 +1,20 @@
+{
+ "reel": "0028_si_tu_mate_se_tapa",
+ "style": "pixel8",
+ "technical": [
+  "duration 36.8s",
+  "loudness -12.1 LUFS, peak -0.7 dBFS",
+  "voice gemini"
+ ],
+ "vision": {
+  "ran": false,
+  "model": null
+ },
+ "summary": "",
+ "scores": {},
+ "logic": {},
+ "graphics": {},
+ "issues": [],
+ "learnings": [],
+ "checked": "2026-11-28T09:01:18.424Z"
+}

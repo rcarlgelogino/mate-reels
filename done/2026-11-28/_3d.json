@@ -1,0 +1,329 @@
+{
+ "name": "0026_el_mate_nunca_se_toma_solo",
+ "n": 4,
+ "script": {
+  "id": "0026_el_mate_nunca_se_toma_solo",
+  "topic": "T23",
+  "title": "Por qué se comparte",
+  "caption": "¿Por qué tu mate casi nunca se toma solo? 🧉\nUna leyenda guaraní lo explica mejor que nadie.\n¿Vos con quién tomás? 👇",
+  "hashtags": [
+   "#mate",
+   "#yerbamate",
+   "#argentina",
+   "#matero",
+   "#costumbresargentinas",
+   "#leyenda",
+   "#guarani"
+  ],
+  "segments": [
+   {
+    "text": "¿Por qué tu mate casi nunca se toma solo?",
+    "emo": "surprised",
+    "beat": "hook",
+    "visual": {
+     "type": "scene",
+     "place": "cocina",
+     "people": [
+      {
+       "role": "you",
+       "does": "hold_mate",
+       "mood": "sad"
+      }
+     ],
+     "props": [
+      "silla_vacia"
+     ]
+    },
+    "headline": "¿POR QUÉ?",
+    "headlineAt": "solo",
+    "impact": true
+   },
+   {
+    "text": "La razón es más vieja que el país.",
+    "emo": "tense",
+    "beat": "loop",
+    "visual": {
+     "type": "timeline",
+     "items": [
+      {
+       "label": "ANTES",
+       "text": "Guaraníes"
+      },
+      {
+       "label": "1810",
+       "text": "El país"
+      },
+      {
+       "label": "HOY",
+       "text": "Vos"
+      }
+     ]
+    },
+    "headline": "MÁS VIEJA",
+    "headlineAt": "vieja"
+   },
+   {
+    "text": "Mucho antes de las ciudades, ya lo tomaban los guaraníes.",
+    "emo": "warm",
+    "beat": "body",
+    "visual": {
+     "type": "scene",
+     "place": "selva",
+     "people": [
+      {
+       "role": "guarani",
+       "does": "hold_mate",
+       "mood": "happy"
+      },
+      {
+       "role": "guarani",
+       "does": "idle",
+       "mood": "happy"
+      },
+      {
+       "role": "guarani",
+       "does": "idle",
+       "mood": "happy"
+      }
+     ],
+     "props": [
+      "fogata",
+      "choza"
+     ],
+     "flashback": true
+    },
+    "headline": "LOS GUARANÍES",
+    "headlineAt": "guaran"
+   },
+   {
+    "text": "Y nunca solos: se pasaba de mano en mano.",
+    "emo": "proud",
+    "beat": "body",
+    "visual": {
+     "type": "scene",
+     "place": "selva",
+     "people": [
+      {
+       "role": "guarani",
+       "does": "pass",
+       "mood": "happy"
+      },
+      {
+       "role": "guarani",
+       "does": "receive",
+       "mood": "happy"
+      },
+      {
+       "role": "guarani",
+       "does": "idle",
+       "mood": "happy"
+      }
+     ],
+     "pass": [
+      0,
+      1
+     ],
+     "props": [
+      "fogata"
+     ],
+     "flashback": true
+    },
+    "headline": "MANO EN MANO",
+    "headlineAt": "mano"
+   },
+   {
+    "text": "Y ojo, que hay una leyenda que lo explica.",
+    "emo": "excited",
+    "beat": "rehook",
+    "visual": {
+     "type": "reaction",
+     "emotion": "surprised",
+     "act": "think",
+     "who": 2
+    },
+    "headline": "LA LEYENDA",
+    "headlineAt": "leyenda",
+    "impact": true
+   },
+   {
+    "text": "Cuentan que la luna bajó una noche a caminar por la selva.",
+    "emo": "warm",
+    "beat": "body",
+    "visual": {
+     "type": "scene",
+     "place": "selva_noche",
+     "people": [
+      {
+       "role": "yasy_luna",
+       "does": "walk",
+       "mood": "happy"
+      }
+     ],
+     "props": [
+      "luna_llena",
+      "luciernagas"
+     ],
+     "flashback": true
+    },
+    "headline": "LA LUNA",
+    "headlineAt": "luna"
+   },
+   {
+    "text": "Pero un yaguareté la atacó, y un viejo la defendió.",
+    "emo": "tense",
+    "beat": "rehook",
+    "visual": {
+     "type": "scene",
+     "place": "selva_noche",
+     "people": [
+      {
+       "role": "anciano_guarani",
+       "does": "defend",
+       "mood": "angry"
+      },
+      {
+       "role": "yasy_luna",
+       "does": "idle",
+       "mood": "worried"
+      }
+     ],
+     "props": [
+      "yaguarete"
+     ],
+     "flashback": true
+    },
+    "headline": "EL YAGUARETÉ",
+    "headlineAt": "yaguaret"
+   },
+   {
+    "text": "Después la invitó a su choza y compartió lo poco que tenía.",
+    "emo": "love",
+    "beat": "body",
+    "visual": {
+     "type": "scene",
+     "place": "choza",
+     "people": [
+      {
+       "role": "anciano_guarani",
+       "does": "offer",
+       "mood": "happy"
+      },
+      {
+       "role": "yasy_luna",
+       "does": "receive",
+       "mood": "love"
+      }
+     ],
+     "props": [
+      "fogata"
+     ],
+     "flashback": true
+    },
+    "headline": "LO COMPARTIÓ",
+    "headlineAt": "compart"
+   },
+   {
+    "text": "Y en agradecimiento, la luna le dejó un regalo.",
+    "emo": "proud",
+    "beat": "rehook",
+    "visual": {
+     "type": "object",
+     "item": "planta_yerba",
+     "animate": "brota",
+     "labels": [
+      "CAÁ"
+     ]
+    },
+    "headline": "UN REGALO",
+    "headlineAt": "regalo",
+    "impact": true
+   },
+   {
+    "text": "Una planta, para que nunca más estuviera solo.",
+    "emo": "love",
+    "beat": "body",
+    "visual": {
+     "type": "scene",
+     "place": "choza",
+     "people": [
+      {
+       "role": "anciano_guarani",
+       "does": "drink",
+       "mood": "happy"
+      },
+      {
+       "role": "guarani",
+       "does": "idle",
+       "mood": "happy"
+      },
+      {
+       "role": "guarani",
+       "does": "idle",
+       "mood": "happy"
+      }
+     ],
+     "props": [
+      "fogata"
+     ],
+     "flashback": true
+    },
+    "headline": "NUNCA SOLO",
+    "headlineAt": "solo"
+   },
+   {
+    "text": "Por eso el mate no se sirve: se convida.",
+    "emo": "love",
+    "beat": "payoff",
+    "visual": {
+     "type": "scene",
+     "place": "cocina",
+     "people": [
+      {
+       "role": "you",
+       "does": "pass",
+       "mood": "happy"
+      },
+      {
+       "role": "friend",
+       "does": "receive",
+       "mood": "happy"
+      },
+      {
+       "role": "grandma",
+       "does": "nod",
+       "mood": "love"
+      }
+     ]
+    },
+    "headline": "SE CONVIDA",
+    "headlineAt": "convida",
+    "impact": true
+   },
+   {
+    "text": "¿Vos con quién tomás? Mandáselo a tu compañero de mate.",
+    "emo": "funny",
+    "beat": "cta",
+    "visual": {
+     "type": "title",
+     "text": "",
+     "sub": ""
+    }
+   }
+  ],
+  "poll": {
+   "question": "¿Con quién tomás?",
+   "options": [
+    "FAMILIA",
+    "AMIGOS",
+    "SOLO, Y QUÉ"
+   ]
+  },
+  "rewrite": "top-reel pattern 2026-11-17 + rehooks",
+  "thumb": {
+   "lines": [
+    "NUNCA",
+    "SE TOMA SOLO"
+   ]
+  }
+ }
+}

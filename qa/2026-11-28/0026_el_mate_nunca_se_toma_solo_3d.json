@@ -1,0 +1,30 @@
+{
+ "reel": "0026_el_mate_nunca_se_toma_solo",
+ "style": "build3d",
+ "technical": [
+  "duration 38.734s",
+  "loudness -12.0 LUFS, peak -0.7 dBFS",
+  "voice gemini"
+ ],
+ "vision": {
+  "ran": false,
+  "model": null
+ },
+ "summary": "",
+ "scores": {},
+ "logic": {},
+ "graphics": {},
+ "issues": [
+  {
+   "severity": "low",
+   "fault": "edge_cut",
+   "category": "guard",
+   "problem": "camera too close (backed off by the guard) in 2 shot(s)",
+   "fix": "fix it at the source in the style (layout, camera plan, visual choice)",
+   "shot": 0,
+   "source": "guard"
+  }
+ ],
+ "learnings": [],
+ "checked": "2026-11-28T10:49:18.761Z"
+}

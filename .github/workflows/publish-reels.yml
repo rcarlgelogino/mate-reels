@@ -1,7 +1,7 @@
 name: publish-reels
 
 # Posts the next not-yet-posted reel from the newest "Reels YYYY-MM-DD" release to Instagram.
-# Six slots per day for an Argentine audience (UTC-3): 08:00, 11:00, 13:00, 16:00, 18:00 and 20:00 in Buenos Aires (UTC 11,14,16,19,21,23); reels 05/06 are the daily ¿Sabías que? reels.
+# Three slots per day for an Argentine audience (UTC-3): 08:00, 13:00 and 20:00 in Buenos Aires (UTC 11,16,23): reel 01 is the normal reel, 02/03 the ¿Sabías que? reels (since 2026-11-28).
 # Started by a Claude cloud routine at each slot: it writes a timestamp to trigger/post.txt and pushes (GitHub's own cron never started here).
 # Automatic posting only runs when the repository variable IG_AUTOPUBLISH is "true" (Settings -> Variables).
 on:

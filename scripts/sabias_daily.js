@@ -43,20 +43,27 @@ Respondé SOLO con JSON: {"topics":[{"kind":"recomendable","id":"<slug corto sin
   return []; }
 
 (async () => {
-  if (!G.hasKey()) { log('no GEMINI_API_KEY: no ¿Sabías que? reels today'); process.exit(0); }
-  const topics = await author(); if (!topics.length) { line('- ❌ ¿Sabías que?: no valid topics from Gemini'); process.exit(0); }
+  // 1) scripts written this morning by the Claude writer routine (docs/sabias/<day>/*.json, full shooting scripts) come first
+  const SD = path.join(ROOT, 'docs', 'sabias', day);
+  const written = fs.existsSync(SD) ? fs.readdirSync(SD).filter(f => f.endsWith('.json')).sort().map(f => ({ file: path.join(SD, f), j: JSON.parse(fs.readFileSync(path.join(SD, f), 'utf8')) })) : [];
+  const jobs = written.slice(0, 2).map(w => ({ id: String(w.j.id || path.basename(w.file, '.json')).replace(/^\d{4}-\d{2}-\d{2}_/, ''), script: w.j, kind: w.j.kind || (w.j.story && w.j.story.kind) || '?', label: (w.j.segments || []).slice(0, 2).map(s => s.text).join(' '), src: 'claude' }));
+  log(jobs.length + ' script(s) from the writer routine');
+  // 2) fallback: Gemini fills the template for the missing ones
+  if (jobs.length < 2 && G.hasKey()) { const topics = await author(); for (const T of topics.slice(0, 2 - jobs.length)) jobs.push({ id: T.id, script: SB.toScript(T), topic: T, kind: T.kind, label: T.hook + ' ' + T.absurd, src: 'gemini' }); }
+  if (!jobs.length) { line('- ❌ ¿Sabías que?: no scripts (writer routine) and no Gemini topics'); process.exit(0); }
   const names = [];
-  for (const T of topics) {
-    T.id = (T.id || 'tema').toLowerCase().replace(/[^a-z0-9_]+/g, '_').slice(0, 40); const name = `sabias_${T.id}`; const work = path.join(ROOT, 'work', name); fs.mkdirSync(work, { recursive: true });
-    fs.writeFileSync(path.join(work, 'topic.json'), JSON.stringify(T, null, 1)); fs.writeFileSync(path.join(work, 'script.json'), JSON.stringify(SB.toScript(T), null, 1));
+  for (const J of jobs) {
+    J.id = (J.id || 'tema').toLowerCase().replace(/[^a-z0-9_]+/g, '_').slice(0, 40); const name = 'sabias_' + J.id; const work = path.join(ROOT, 'work', name); fs.mkdirSync(work, { recursive: true });
+    if (J.topic) fs.writeFileSync(path.join(work, 'topic.json'), JSON.stringify(J.topic, null, 1));
+    fs.writeFileSync(path.join(work, 'script.json'), JSON.stringify(J.script, null, 1));
     let r = spawnSync(process.execPath, [path.join(ROOT, 'scripts/make.js'), path.join(work, 'script.json'), work, '--style', 'build3d'], { stdio: 'inherit' });
     if (r.status === 0) r = spawnSync(process.execPath, [path.join(ROOT, 'pipeline/build.js'), path.join(work, 'spec.json')], { stdio: 'inherit', timeout: 150 * 60 * 1000 });
-    const mp4 = path.join(work, 'final.mp4'); if (r.status !== 0 || !fs.existsSync(mp4)) { line(`- ❌ ¿Sabías que? ${T.id}: build failed`); continue; }
-    const out = `${String(n++).padStart(2, '0')}_${name}`; fs.copyFileSync(mp4, path.join(OUT, out + '.mp4'));
+    const mp4 = path.join(work, 'final.mp4'); if (r.status !== 0 || !fs.existsSync(mp4)) { line('- ❌ ¿Sabías que? ' + J.id + ' (' + J.src + '): build failed'); continue; }
+    const out = String(n++).padStart(2, '0') + '_' + name; fs.copyFileSync(mp4, path.join(OUT, out + '.mp4'));
     if (fs.existsSync(path.join(work, 'caption.txt'))) fs.copyFileSync(path.join(work, 'caption.txt'), path.join(OUT, out + '.txt'));
-    else fs.writeFileSync(path.join(OUT, out + '.txt'), (T.caption || '') + '\n\n' + (T.hashtags || ['#mate', '#datoscuriosos', '#argentina', '#humor', '#sabiasque']).join(' ') + '\n');
+    else fs.writeFileSync(path.join(OUT, out + '.txt'), (J.script.caption || '') + '\n\n' + (J.script.hashtags || ['#mate', '#datoscuriosos', '#argentina', '#humor', '#sabiasque']).join(' ') + '\n');
     for (const c of ['cover.jpg', 'thumb.jpg']) if (fs.existsSync(path.join(work, c))) { fs.copyFileSync(path.join(work, c), path.join(OUT, out + '.jpg')); break; }
-    const dir = path.join(ROOT, 'done', day); fs.mkdirSync(dir, { recursive: true }); fs.copyFileSync(path.join(work, 'topic.json'), path.join(dir, name + '.topic.json'));
-    hist.push({ day, kind: T.kind, agent: T.agent, absurd: T.absurd, id: T.id }); names.push(out); line(`- ✅ ¿Sabías que? (${T.kind}, ${T.agent}): ${T.hook} ${T.absurd}`); }
+    const dir = path.join(ROOT, 'done', day); fs.mkdirSync(dir, { recursive: true }); fs.writeFileSync(path.join(dir, name + '.script.json'), JSON.stringify(J.script, null, 1));
+    hist.push({ day, kind: J.kind, src: J.src, label: J.label, id: J.id }); names.push(out); line('- ✅ ¿Sabías que? (' + J.src + ', ' + J.kind + '): ' + J.label); }
   fs.mkdirSync(path.dirname(LOG), { recursive: true }); fs.writeFileSync(LOG, JSON.stringify(hist, null, 1)); fs.writeFileSync(path.join(OUT, 'sabias.out'), names.join('\n') + '\n'); log('built', names.join(', '));
 })().catch(e => { console.error(e); process.exit(1); });

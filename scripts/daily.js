@@ -17,7 +17,7 @@ else jobs = null;
 const ROT = path.join(ROOT, 'rotation'), STATE = path.join(ROT, 'state.json'); const STYLES = ['flat2d', 'pixel8', 'build3d'];
 let state = {}; try { state = JSON.parse(fs.readFileSync(STATE, 'utf8')); } catch {}
 const doy0 = Math.floor((Date.parse(day) - Date.parse(day.slice(0, 4) + '-01-01')) / 864e5);
-const slots = ['build3d', 'pixel8', 'flat2d']; for (let k = 3; k < COUNT + 1; k++) slots.push(k % 2 === doy0 % 2 ? 'flat2d' : 'pixel8'); if (process.env.PIXEL_DAILY === '0') slots.splice(slots.indexOf('pixel8'), 1, 'flat2d');
+const slots = ['build3d', 'pixel8', 'flat2d']; for (let k = 3; k < COUNT + 1; k++) slots.push(k % 2 === doy0 % 2 ? 'flat2d' : 'pixel8'); if (process.env.PIXEL_DAILY === '0') slots.splice(slots.indexOf('pixel8'), 1, 'flat2d'); if (COUNT < 2) slots.splice(1, slots.length, doy0 % 2 ? 'pixel8' : 'flat2d'); if (COUNT < 1) slots.splice(1); // 2026-11-28: one normal reel a day (alternating pixel / flat), the rest are the two ¿Sabías que? reels
 const plan = [];
 if (!TEST) { const used = new Set(); const qd = path.join(ROOT, 'queue'); const queue = fs.existsSync(qd) ? fs.readdirSync(qd).filter(f => f.endsWith('.json')).sort() : [];
   const started = Object.keys(state).filter(n => fs.existsSync(path.join(ROT, n + '.json'))).sort((a, b) => (state[a].first || '').localeCompare(state[b].first || '') || a.localeCompare(b));
